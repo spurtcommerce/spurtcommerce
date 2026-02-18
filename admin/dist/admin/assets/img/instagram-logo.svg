@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="15" height="15" viewBox="0 0 15 15">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_4888" data-name="Rectangle 4888" width="15" height="15" transform="translate(752 1954)" fill="#fff" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+    <linearGradient id="linear-gradient" x1="0.017" y1="0.973" x2="1" y2="0.017" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#fd5"/>
+      <stop offset="0.5" stop-color="#ff543e"/>
+      <stop offset="1" stop-color="#c837ab"/>
+    </linearGradient>
+  </defs>
+  <g id="Mask_Group_31" data-name="Mask Group 31" transform="translate(-752 -1954)" clip-path="url(#clip-path)">
+    <g id="instagram_3_" data-name="instagram (3)" transform="translate(752.045 1954.024)">
+      <path id="Path_5275" data-name="Path 5275" d="M.935,1.017C-.241,2.238,0,3.535,0,7.474c0,3.271-.571,6.55,2.416,7.322a71.184,71.184,0,0,0,10.129,0,3.212,3.212,0,0,0,2.394-3.089c.019-.245.019-8.215,0-8.466A3.217,3.217,0,0,0,12.118.069,13.453,13.453,0,0,0,9.913,0C3.575,0,2.185-.279.935,1.017Z" fill="url(#linear-gradient)"/>
+      <path id="Path_5276" data-name="Path 5276" d="M7.476,1.956c-2.262,0-4.411-.2-5.231,1.9a10.874,10.874,0,0,0-.29,3.617,11.524,11.524,0,0,0,.29,3.616C3.063,13.2,5.229,13,7.474,13c2.166,0,4.4.226,5.231-1.905a10.856,10.856,0,0,0,.29-3.616c0-2.157.119-3.55-.927-4.6s-2.492-.927-4.595-.927Zm-.495,1c4.719-.007,5.32-.532,4.988,6.756C11.852,12.285,9.889,12,7.476,12c-4.4,0-4.525-.126-4.525-4.527,0-4.452.349-4.522,4.03-4.525Zm3.442.917a.662.662,0,1,0,.662.662A.662.662,0,0,0,10.423,3.867Zm-2.947.774A2.835,2.835,0,1,0,10.31,7.478,2.835,2.835,0,0,0,7.476,4.642Zm0,1a1.841,1.841,0,0,1,0,3.681A1.841,1.841,0,0,1,7.476,5.637Z" fill="#fff"/>
+    </g>
+  </g>
+</svg>

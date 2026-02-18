@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="8" height="8.8">
+    <defs>
+        <style>
+            .cls-1{fill:none;stroke:#a8a8a8;stroke-linecap:round;stroke-linejoin:round;stroke-width:.8px}
+        </style>
+    </defs>
+    <g id="Icon_feather-trash" data-name="Icon feather-trash" transform="translate(.4 .4)">
+        <path id="Path_293" data-name="Path 293" class="cls-1" d="M4.5 9h7.2" transform="translate(-4.5 -7.4)"/>
+        <path id="Path_294" data-name="Path 294" class="cls-1" d="M13.1 4.6v5.6a.8.8 0 0 1-.8.8h-4a.8.8 0 0 1-.8-.8V4.6m1.2 0v-.8a.8.8 0 0 1 .8-.8h1.6a.8.8 0 0 1 .8.8v.8" transform="translate(-6.7 -3)"/>
+    </g>
+</svg>

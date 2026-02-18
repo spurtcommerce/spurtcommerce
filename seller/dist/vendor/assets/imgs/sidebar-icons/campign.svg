@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="22" height="21" viewBox="0 0 22 21">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_4020" data-name="Rectangle 4020" width="22" height="21" transform="translate(749 348)" fill="#fff" stroke="#fff" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="campign" transform="translate(-749 -348)" clip-path="url(#clip-path)">
+    <g id="campaign-svgrepo-com" transform="translate(747.245 345.616)">
+      <path id="primary" d="M22.321,16.709V4.549A1.063,1.063,0,0,0,21,3.486L9.566,6.377v8.5L21,17.74a1.063,1.063,0,0,0,1.318-1.031Z" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      <path id="secondary" d="M9.566,14.88v6.377A1.063,1.063,0,0,1,8.5,22.321H7.249a1.063,1.063,0,0,1-1.063-.85l-1.5-7.653" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      <path id="secondary-2" data-name="secondary" d="M9.566,6.377H7.44a4.252,4.252,0,0,0-4.252,4.252h0A4.252,4.252,0,0,0,7.44,14.88H9.566Z" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+    </g>
+  </g>
+</svg>

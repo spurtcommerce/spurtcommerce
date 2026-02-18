@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="12" height="12" viewBox="0 0 12 12">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_2366" data-name="Rectangle 2366" width="12" height="12" transform="translate(1323.428 299.803)" fill="#222" stroke="#222" stroke-width="1.2"/>
+    </clipPath>
+  </defs>
+  <g id="Mask_Group_108" data-name="Mask Group 108" transform="translate(-1323.428 -299.803)" clip-path="url(#clip-path)">
+    <g id="download-minimalistic-svgrepo-com" transform="translate(1323.793 300.168)">
+      <path id="Path_5567" data-name="Path 5567" d="M2.281,11.692a.434.434,0,0,1,.434.434,15.562,15.562,0,0,0,.06,1.849,1.306,1.306,0,0,0,.322.81,1.306,1.306,0,0,0,.811.322,15.571,15.571,0,0,0,1.849.06H9.232a15.572,15.572,0,0,0,1.849-.06,1.306,1.306,0,0,0,.811-.322,1.306,1.306,0,0,0,.322-.81,15.571,15.571,0,0,0,.06-1.849.434.434,0,0,1,.869,0v.032a15.894,15.894,0,0,1-.067,1.933,2.153,2.153,0,0,1-.569,1.309,2.153,2.153,0,0,1-1.309.569,15.894,15.894,0,0,1-1.933.067H5.725a15.893,15.893,0,0,1-1.933-.067A2.153,2.153,0,0,1,2.482,15.4a2.154,2.154,0,0,1-.569-1.309,15.883,15.883,0,0,1-.067-1.933v-.032A.434.434,0,0,1,2.281,11.692Z" transform="translate(-1.846 -4.741)" fill="#222" stroke="#222" stroke-width="0.3" fill-rule="evenodd"/>
+      <path id="Path_5568" data-name="Path 5568" d="M8.7,1.846a.434.434,0,0,1,.321.141l2.317,2.534a.434.434,0,1,1-.641.586L9.135,3.4V9.812a.434.434,0,0,1-.869,0V3.4L6.7,5.108a.434.434,0,0,1-.641-.586L8.38,1.987A.434.434,0,0,1,8.7,1.846Z" transform="translate(-3.052 -1.846)" fill="#222" stroke="#222" stroke-width="0.3" fill-rule="evenodd"/>
+    </g>
+  </g>
+</svg>

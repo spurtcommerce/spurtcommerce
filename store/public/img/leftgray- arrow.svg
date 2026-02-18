@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_5348" data-name="Rectangle 5348" width="24" height="24" fill="#fff" stroke="#333" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="left_arrow" data-name="left arrow" clip-path="url(#clip-path)">
+    <path id="arrow-right-01-stroke-rounded_2_" data-name="arrow-right-01-stroke-rounded (2)" d="M25.537,10.215S15.322,17.738,15.322,20.429,25.537,30.644,25.537,30.644" transform="translate(-8.684 -8.429)" fill="none" stroke="#333" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+  </g>
+</svg>

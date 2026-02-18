@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_5351" data-name="Rectangle 5351" width="24" height="24" transform="translate(-10110 2978)" fill="#fff" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="close" transform="translate(10110 -2978)" clip-path="url(#clip-path)">
+    <path id="cancel-01-stroke-rounded_3_" data-name="cancel-01-stroke-rounded (3)" d="M28.286,7.443,7.444,28.285m0-20.842L28.286,28.285" transform="translate(-10115.865 2972.136)" fill="rgba(0,0,0,0)" stroke="#333" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+  </g>
+</svg>

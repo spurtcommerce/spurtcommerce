@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 16 16">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_5172" data-name="Rectangle 5172" width="16" height="16" transform="translate(22 83)" fill="#fff" stroke="#3f3f45" stroke-width="1.6"/>
+    </clipPath>
+  </defs>
+  <g id="Mask_Group_708" data-name="Mask Group 708" transform="translate(-22 -83)" clip-path="url(#clip-path)">
+    <g id="dashboard-square-remove-stroke-rounded" transform="translate(22.8 83.8)">
+      <path id="Path_6759" data-name="Path 6759" d="M18.783,5.581h-5.76" transform="translate(-4.383 -2.701)" fill="none" stroke="#3f3f45" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"/>
+      <path id="Path_6760" data-name="Path 6760" d="M1.86,4.74a4.472,4.472,0,0,1,.2-1.9,1.8,1.8,0,0,1,.787-.787,4.472,4.472,0,0,1,1.9-.2,4.472,4.472,0,0,1,1.9.2,1.8,1.8,0,0,1,.787.787,4.472,4.472,0,0,1,.2,1.9,4.472,4.472,0,0,1-.2,1.9,1.8,1.8,0,0,1-.787.787,4.472,4.472,0,0,1-1.9.2,4.472,4.472,0,0,1-1.9-.2,1.8,1.8,0,0,1-.787-.787A4.472,4.472,0,0,1,1.86,4.74Z" transform="translate(-1.86 -1.86)" fill="none" stroke="#3f3f45" stroke-width="1.6"/>
+      <path id="Path_6761" data-name="Path 6761" d="M1.86,15.9a4.472,4.472,0,0,1,.2-1.9,1.8,1.8,0,0,1,.787-.787,4.472,4.472,0,0,1,1.9-.2,4.472,4.472,0,0,1,1.9.2,1.8,1.8,0,0,1,.787.787,4.472,4.472,0,0,1,.2,1.9,4.472,4.472,0,0,1-.2,1.9,1.8,1.8,0,0,1-.787.787,4.472,4.472,0,0,1-1.9.2,4.472,4.472,0,0,1-1.9-.2,1.8,1.8,0,0,1-.787-.787A4.472,4.472,0,0,1,1.86,15.9Z" transform="translate(-1.86 -4.383)" fill="none" stroke="#3f3f45" stroke-width="1.6"/>
+      <path id="Path_6762" data-name="Path 6762" d="M13.023,15.9a4.472,4.472,0,0,1,.2-1.9,1.8,1.8,0,0,1,.787-.787,4.472,4.472,0,0,1,1.9-.2,4.472,4.472,0,0,1,1.9.2,1.8,1.8,0,0,1,.787.787,4.472,4.472,0,0,1,.2,1.9,4.472,4.472,0,0,1-.2,1.9,1.8,1.8,0,0,1-.787.787,4.472,4.472,0,0,1-1.9.2,4.472,4.472,0,0,1-1.9-.2,1.8,1.8,0,0,1-.787-.787A4.472,4.472,0,0,1,13.023,15.9Z" transform="translate(-4.383 -4.383)" fill="none" stroke="#3f3f45" stroke-width="1.6"/>
+    </g>
+  </g>
+</svg>

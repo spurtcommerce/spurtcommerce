@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="28" height="21" viewBox="0 0 28 21">
+  <g id="MainAuditlog" transform="translate(-1443 -33)">
+    <g id="Group_30" data-name="Group 30" transform="translate(1443 33)">
+      <path id="Shape" d="M20.276,20.947a8.586,8.586,0,0,1,.965-17.129V0H0V21H20.276ZM3.862,1.909h9.655V3.818H3.862Zm0,3.818H9.333V7.636H3.862Zm0,3.818H9.333v1.909H3.862Zm0,3.818H9.333v1.909H3.862Zm8.69,5.727H3.862V17.182h8.69Z" fill="#e5a94e"/>
+      <path id="Shape-2" data-name="Shape" d="M21.241,5.727A6.682,6.682,0,1,0,28,12.409a6.682,6.682,0,0,0-6.759-6.682Zm-1.248,9.661L17.379,12.8l1.365-1.35,1.248,1.234,3.179-3.143,1.365,1.35Z" fill="#e5a94e"/>
+    </g>
+  </g>
+</svg>

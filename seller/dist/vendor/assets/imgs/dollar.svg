@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_2260" data-name="Rectangle 2260" width="24" height="24" transform="translate(44 279)" fill="#8826b2" stroke="#222" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="Group_79" data-name="Group 79" transform="translate(-44 -279)" clip-path="url(#clip-path)">
+    <g id="dollar-circle-svgrepo-com" transform="translate(42.605 277.605)">
+      <g id="Group_2889" data-name="Group 2889" transform="translate(-2.111 -3.797)">
+        <path id="Path_5394" data-name="Path 5394" d="M9.68,20.512a4,4,0,0,0,3.912,4.106h4.423a3.5,3.5,0,0,0,3.419-3.577,3.084,3.084,0,0,0-2.326-3.4l-7.1-2.467a3.083,3.083,0,0,1-2.326-3.4A3.5,3.5,0,0,1,13.1,8.193h4.423A4,4,0,0,1,21.435,12.3" transform="translate(0 0.866)" fill="none" stroke="#222" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.3"/>
+        <path id="Path_5395" data-name="Path 5395" d="M13.4,6.7V27.845" transform="translate(2.15 0)" fill="none" stroke="#222" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.3"/>
+      </g>
+    </g>
+  </g>
+</svg>

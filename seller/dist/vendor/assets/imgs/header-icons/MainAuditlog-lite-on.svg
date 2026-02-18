@@ -1,0 +1,6 @@
+<svg id="ChartLineUp" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <rect id="Rectangle" width="24" height="24" fill="none"/>
+  <path id="Path" d="M18,15H0V0" transform="translate(3 4.5)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.375"/>
+  <path id="Path-2" data-name="Path" d="M16.5,0,9,7.5l-3-3-6,6" transform="translate(3 6)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.375"/>
+  <path id="Path-3" data-name="Path" d="M3.75,3.75V0H0" transform="translate(15.75 6)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.375"/>
+</svg>

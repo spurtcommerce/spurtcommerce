@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="119" height="119" viewBox="0 0 119 119">
+    <g fill="none" fill-rule="evenodd">
+        <path fill="#C8C8C8" d="M51.15 0l51.15 29.531v59.063l-51.15 29.531L0 88.594V29.53z"/>
+        <circle cx="33.438" cy="95.938" r="4.688" fill="#FFF"/>
+        <circle cx="72.813" cy="95.938" r="4.688" fill="#FFF"/>
+        <path stroke="#FFF" stroke-linecap="square" stroke-width="1.875" d="M4.688 36.563h11.25M15.938 36.563l10.625 51.875M24.688 75.938h55.656M27.188 88.438h55.656"/>
+        <path stroke="#FFF" stroke-linecap="square" stroke-width="1.25" d="M57.804 80.625h21.915M40.603 84.375h35.991"/>
+        <text fill="#FFF" font-family="Avenir-Medium, Avenir" font-size="11.25" font-weight="400">
+            <tspan x="26.25" y="71.625">commerce</tspan>
+        </text>
+        <g transform="translate(106 20)">
+            <circle cx="6" cy="6" r="6" stroke="#C8C8C8" stroke-width="2"/>
+            <text fill="#C8C8C8" font-family="Menlo-Bold, Menlo" font-size="6" font-weight="bold">
+                <tspan x="4" y="8">R</tspan>
+            </text>
+        </g>
+        <path stroke="#FFF" stroke-linecap="square" stroke-width="1.875" d="M80.938 75.313l11.25-35.625"/>
+        <text fill="#FFF" font-family="AvenirNext-Bold, Avenir Next" font-size="22.5" font-weight="bold" letter-spacing=".5">
+            <tspan x="22.5" y="58.625">Spur</tspan> <tspan x="75.305" y="58.625">t</tspan>
+        </text>
+    </g>
+</svg>

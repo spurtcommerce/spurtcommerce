@@ -1,0 +1,23 @@
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript">
+    window.setTimeout(function(){
+       $('.razorpay-payment-button').click();
+    }, 2000);
+</script>
+<form action="/purchase" method="POST" name="paymentForm" style="display: none">
+<!-- Note that the amount is in paise = 50 INR -->
+<script
+    src="https://checkout.razorpay.com/v1/checkout.js"
+    data-key="<%= key %>"
+    data-amount="<%= amount %>"
+    data-buttontext="Pay with Razorpay"
+    data-name="<%= orderId %>"
+    data-description="<%= description %>"
+    data-prefill.name="<%= username %>"
+    data-prefill.email="<%= email %>"
+    data-prefill.contact="<%= contact %>" 
+    data-order_id = "<%= orderRefId %>"
+    data-modal.escape="false"
+></script>
+<input type="hidden" value="Hidden Element" name="hidden">
+</form>

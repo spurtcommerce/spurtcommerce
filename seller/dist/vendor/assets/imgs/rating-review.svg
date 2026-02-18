@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36" height="36" viewBox="0 0 36 36">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.036" y1="0.022" x2="0.964" y2="0.97" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ffc107" stop-opacity="0.961"/>
+      <stop offset="1" stop-color="#ffa000" stop-opacity="0.961"/>
+    </linearGradient>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_7074" data-name="Rectangle 7074" width="20" height="20" transform="translate(788 694)" fill="#f2f2f2" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="Group_17802" data-name="Group 17802" transform="translate(-780 -686)">
+    <rect id="Rectangle_7073" data-name="Rectangle 7073" width="36" height="36" rx="3" transform="translate(780 686)" fill="url(#linear-gradient)"/>
+    <g id="Mask_Group_1254" data-name="Mask Group 1254" clip-path="url(#clip-path)">
+      <path id="star_13_" data-name="star (13)" d="M19.948,7.261a1.062,1.062,0,0,0-.914-.73L13.26,6.007,10.978.665a1.063,1.063,0,0,0-1.956,0L6.741,6.007.967,6.531a1.064,1.064,0,0,0-.6,1.86l4.364,3.827L3.44,17.885a1.063,1.063,0,0,0,1.582,1.149L10,16.058l4.977,2.977a1.064,1.064,0,0,0,1.583-1.149l-1.287-5.668,4.364-3.827A1.064,1.064,0,0,0,19.948,7.261ZM10.1,16" transform="translate(788 694.398)" fill="#f2f2f2"/>
+    </g>
+  </g>
+</svg>

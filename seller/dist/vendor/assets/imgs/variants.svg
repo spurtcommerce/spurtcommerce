@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="19.769" height="16.011" viewBox="0 0 19.769 16.011">
+  <g id="Group_16657" data-name="Group 16657" transform="translate(-388.115 -187)">
+    <rect id="Image_3" data-name="Image 3" width="16" height="16" transform="translate(390 187)" fill="#f07070" opacity="0"/>
+    <g id="Group_16656" data-name="Group 16656" transform="translate(0 -26)">
+      <g id="Group_16651" data-name="Group 16651" transform="translate(-0.1 -1.043)">
+        <rect id="Rectangle_6234" data-name="Rectangle 6234" width="3.431" height="3.431" rx="1.715" transform="translate(396.5 225.923)" fill="none" stroke="#3f3f44" stroke-width="1.4"/>
+        <rect id="Rectangle_6235" data-name="Rectangle 6235" width="3.431" height="3.431" transform="translate(396.5 214.743)" fill="none" stroke="#3f3f44" stroke-linejoin="round" stroke-width="1.4"/>
+        <rect id="Rectangle_6236" data-name="Rectangle 6236" width="3.431" height="3.431" transform="translate(396.5 220.333)" fill="none" stroke="#3f3f44" stroke-linejoin="round" stroke-width="1.4"/>
+      </g>
+      <g id="Group_16654" data-name="Group 16654" transform="translate(2.531 1)">
+        <g id="g2125" transform="translate(404.419 217.963) rotate(115)">
+          <path id="path2127" d="M.05,5.761A5.047,5.047,0,0,1,8.616,1.478q.172.172.325.357" transform="translate(0)" fill="none" stroke="#3f3f44" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4"/>
+        </g>
+        <g id="g2133" transform="translate(400.861 224.629) rotate(115)">
+          <path id="path2135" d="M1.428,0V1.428H0" fill="none" stroke="#3f3f44" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4"/>
+        </g>
+      </g>
+      <g id="Group_16655" data-name="Group 16655" transform="translate(-1.347 1)">
+        <g id="g2129" transform="translate(399.397 217.069) rotate(115)">
+          <path id="path2131" d="M8.891,0A5.048,5.048,0,0,1,.325,4.283Q.152,4.11,0,3.926" fill="none" stroke="#3f3f44" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4"/>
+        </g>
+        <g id="g2137" transform="translate(395.853 215.38) rotate(115)">
+          <path id="path2139" d="M0,1.428V0H1.428" fill="none" stroke="#3f3f44" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

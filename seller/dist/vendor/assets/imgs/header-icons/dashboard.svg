@@ -1,0 +1,8 @@
+<svg id="Gauge" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <rect id="Rectangle" width="24" height="24" fill="none"/>
+  <path id="Path" d="M0,12V9.856A9.75,9.75,0,1,1,19.5,9.75V12a.75.75,0,0,1-.75.75H.75A.75.75,0,0,1,0,12Z" transform="translate(2.25 5.25)" fill="none" stroke="#222" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"/>
+  <path id="Path-2" data-name="Path" d="M.05,0V3" transform="translate(11.953 5.25)" fill="none" stroke="#222" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"/>
+  <path id="Path-3" data-name="Path" d="M0,0,2.9.776" transform="translate(2.582 12.477)" fill="none" stroke="#222" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"/>
+  <path id="Path-4" data-name="Path" d="M2.9,0,0,.776" transform="translate(18.52 12.477)" fill="none" stroke="#222" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"/>
+  <path id="Path-5" data-name="Path" d="M0,8.355,6.411,0" transform="translate(9.698 9.645)" fill="none" stroke="#222" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"/>
+</svg>

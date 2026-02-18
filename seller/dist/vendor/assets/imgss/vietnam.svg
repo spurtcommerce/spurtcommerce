@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="16" viewBox="0 0 20 16">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_2389" data-name="Rectangle 2389" width="20" height="16" rx="1" transform="translate(973 23)" fill="#fff" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="Mask_Group_119" data-name="Mask Group 119" transform="translate(-973 -23)" clip-path="url(#clip-path)">
+    <g id="Flag_of_Vietnam" transform="translate(973 24.333)">
+      <rect id="Rectangle_2390" data-name="Rectangle 2390" width="28" height="17.333" transform="translate(-4 -2)" fill="#da251d"/>
+      <path id="Path_5593" data-name="Path 5593" d="M10,2.667,7.647,9.9l6.16-4.467H6.193L12.353,9.9Z" fill="#ff0"/>
+    </g>
+  </g>
+</svg>

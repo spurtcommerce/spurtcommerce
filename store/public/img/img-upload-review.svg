@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_5331" data-name="Rectangle 5331" width="24" height="24" transform="translate(320 395)" fill="#fff" stroke="#333" stroke-width="1.5"/>
+    </clipPath>
+  </defs>
+  <g id="Mask_Group_756" data-name="Mask Group 756" transform="translate(-320 -395)" clip-path="url(#clip-path)">
+    <g id="image-01-stroke-rounded" transform="translate(320.878 395.878)">
+      <circle id="Ellipse_306" data-name="Ellipse 306" cx="1.756" cy="1.756" r="1.756" transform="translate(4.098 4.098)" fill="none" stroke="#333" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+      <path id="Path_6869" data-name="Path 6869" d="M3.9,15.024c0-5.243,0-7.864,1.629-9.493S9.781,3.9,15.024,3.9s7.864,0,9.493,1.629,1.629,4.25,1.629,9.493,0,7.864-1.629,9.493-4.25,1.629-9.493,1.629-7.864,0-9.493-1.629S3.9,20.267,3.9,15.024Z" transform="translate(-3.902 -3.902)" fill="none" stroke="#333" stroke-width="1.5"/>
+      <path id="Path_6870" data-name="Path 6870" d="M7.8,29.268c5.119-6.117,10.857-14.184,19.314-8.731" transform="translate(-4.878 -7.61)" fill="none" stroke="#333" stroke-width="1.5"/>
+    </g>
+  </g>
+</svg>

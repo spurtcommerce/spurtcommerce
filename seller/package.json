@@ -1,0 +1,14 @@
+{
+  "name": "spurtcommerce-seller",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "prestart": "dotenv -e .env -- node scripts/generate-env.js",
+    "start": "dotenv -e .env -- sh -c 'node scripts/generate-env.js && serve -s dist/vendor -l tcp://0.0.0.0:${PORT:-4200}'"
+  },
+  "dependencies": {
+    "serve": "^14.2.0",
+    "dotenv": "^16.0.0",
+    "dotenv-cli": "^7.0.3"
+  }
+}

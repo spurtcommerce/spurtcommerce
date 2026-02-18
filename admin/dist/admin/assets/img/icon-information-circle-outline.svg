@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10">
+    <defs>
+        <style>
+            .cls-1{fill:#c2c2c2}
+        </style>
+    </defs>
+    <g id="Icon_ionic-ios-information-circle-outline" data-name="Icon ionic-ios-information-circle-outline" transform="translate(-3.375 -3.375)">
+        <path id="Path_25" data-name="Path 25" class="cls-1" d="M16.552 11.188a.5.5 0 1 1 .494.482.483.483 0 0 1-.494-.482zm.034.861h.921v3.475h-.921z" transform="translate(-8.673 -4.834)"/>
+        <path id="Path_26" data-name="Path 26" class="cls-1" d="M8.375 4.048a4.325 4.325 0 1 1-3.06 1.267 4.3 4.3 0 0 1 3.06-1.267m0-.673a5 5 0 1 0 5 5 5 5 0 0 0-5-5z"/>
+    </g>
+</svg>

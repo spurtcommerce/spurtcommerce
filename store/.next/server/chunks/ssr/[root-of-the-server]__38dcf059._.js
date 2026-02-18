@@ -1,0 +1,3 @@
+module.exports=[93695,(a,b,c)=>{b.exports=a.x("next/dist/shared/lib/no-fallback-error.external.js",()=>require("next/dist/shared/lib/no-fallback-error.external.js"))},41730,a=>{a.n(a.i(23621))},73257,a=>{a.n(a.i(51386))},79119,a=>{a.n(a.i(89415))},61822,a=>{a.n(a.i(32097))},91821,a=>{a.n(a.i(85415))},3606,a=>{"use strict";var b=a.i(9246),c=a.i(52268),d=a.i(37650),e=a.i(86159);async function f(){return(0,e.default)({title:"Payment"})}async function g(){let[a,e]=await Promise.all([(0,d.GetToken)(),(0,d.GetAddonsList)()]);return c.default.Payment&&(0,b.jsx)(c.default.Payment,{token:a,addonlist:e})}a.s(["default",()=>g,"generateMetadata",()=>f])}];
+
+//# sourceMappingURL=%5Broot-of-the-server%5D__38dcf059._.js.map

@@ -1,0 +1,32 @@
+<svg width="147" height="104" viewBox="0 0 147 104" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <filter x="-9.6%" y="-6.6%" width="119.2%" height="118.4%" filterUnits="objectBoundingBox" id="ekcfxrqpka">
+            <feOffset dy="2" in="SourceAlpha" result="shadowOffsetOuter1"/>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"/>
+            <feColorMatrix values="0 0 0 0 0.718936908 0 0 0 0 0.736450244 0 0 0 0 0.758341914 0 0 0 1 0" in="shadowBlurOuter1"/>
+        </filter>
+        <filter x="-6.5%" y="-5.1%" width="113.1%" height="110.1%" filterUnits="objectBoundingBox" id="tbls1nfgje">
+            <feGaussianBlur stdDeviation="1.5" in="SourceAlpha" result="shadowBlurInner1"/>
+            <feOffset dy="3" in="shadowBlurInner1" result="shadowOffsetInner1"/>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"/>
+            <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.17205341 0" in="shadowInnerInner1"/>
+        </filter>
+        <path d="M74.999 46.854h-6.914v-24.23H47.343V15.7c0-3.823-3.096-6.923-6.914-6.923-3.819 0-6.915 3.1-6.915 6.923v6.923H12.542a3.425 3.425 0 0 0-3.457 3.462v17.308a3.46 3.46 0 0 0 3.457 3.461h3.457c3.818 0 6.914 3.1 6.914 6.923S19.817 60.7 15.999 60.7h-3.457a3.46 3.46 0 0 0-3.457 3.462V81.47a3.426 3.426 0 0 0 3.457 3.461h17.515a3.46 3.46 0 0 0 3.457-3.461v-3.462c0-3.824 3.096-6.923 6.915-6.923 3.818 0 6.914 3.1 6.914 6.923v3.462A3.46 3.46 0 0 0 50.8 84.93h17.285v-24.23h6.914c3.803 0 6.914-3.116 6.914-6.924 0-3.807-3.111-6.923-6.914-6.923z" id="1yi7152q1b"/>
+        <path d="M132.083 40.807V18.853h-18.794V12.58a6.269 6.269 0 0 0-6.265-6.273 6.269 6.269 0 0 0-6.264 6.273v6.273H81.757a3.104 3.104 0 0 0-3.132 3.136v15.682a3.134 3.134 0 0 0 3.132 3.136h3.133a6.269 6.269 0 0 1 6.264 6.273 6.27 6.27 0 0 1-6.264 6.273h-3.133a3.134 3.134 0 0 0-3.132 3.136v15.682a3.104 3.104 0 0 0 3.132 3.136h15.87a3.134 3.134 0 0 0 3.133-3.136v-3.136a6.269 6.269 0 0 1 6.264-6.273 6.269 6.269 0 0 1 6.265 6.273v3.136a3.134 3.134 0 0 0 3.132 3.136h15.662v-34.5z" id="c9h83v2oqd"/>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="psrckez51c">
+            <stop stop-color="#C4D6EB" offset="0%"/>
+            <stop stop-color="#E9F0F8" offset="100%"/>
+        </linearGradient>
+    </defs>
+    <g fill-rule="nonzero" fill="none">
+        <g transform="rotate(-16 58.672 30.566)">
+            <use fill="#000" filter="url(#ekcfxrqpka)" xlink:href="#1yi7152q1b"/>
+            <use fill="url(#psrckez51c)" xlink:href="#1yi7152q1b"/>
+        </g>
+        <g transform="rotate(-17 117.89 25.58)">
+            <use fill="#FDFCFC" xlink:href="#c9h83v2oqd"/>
+            <use fill="#000" filter="url(#tbls1nfgje)" xlink:href="#c9h83v2oqd"/>
+            <use stroke="#A9C5EB" xlink:href="#c9h83v2oqd"/>
+        </g>
+    </g>
+</svg>

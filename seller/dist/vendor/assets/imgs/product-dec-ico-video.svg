@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="20" viewBox="0 0 24 20">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ff1313"/>
+      <stop offset="1" stop-color="#ca0c0b"/>
+    </linearGradient>
+  </defs>
+  <g id="video-course-svgrepo-com" transform="translate(-2 -4)">
+    <path id="Path_5332" data-name="Path 5332" d="M23.429,4H4.571A2.536,2.536,0,0,0,2,6.5v15A2.536,2.536,0,0,0,4.571,24H23.429A2.536,2.536,0,0,0,26,21.5V6.5A2.536,2.536,0,0,0,23.429,4Z" fill="url(#linear-gradient)"/>
+    <path id="Path_5333" data-name="Path 5333" d="M22.286,23.714H6.857a.857.857,0,0,1,0-1.714H22.286a.857.857,0,0,1,0,1.714Z" transform="translate(-0.571 -3.039)" fill="#fff"/>
+    <path id="Path_5334" data-name="Path 5334" d="M18.857,24.429A.857.857,0,0,1,18,23.571V21.857a.857.857,0,0,1,1.714,0v1.714a.857.857,0,0,1-.857.857Z" transform="translate(-2.286 -3)" fill="#ffe4e4"/>
+    <path id="Path_5335" data-name="Path 5335" d="M19.243,12.155l-6-3A.857.857,0,0,0,12,9.918v6.754a.857.857,0,0,0,.446.746.781.781,0,0,0,.411.111.857.857,0,0,0,.454-.129l6-3.754a.856.856,0,0,0-.069-1.491Z" transform="translate(-1.429 -0.928)" fill="#fff"/>
+  </g>
+</svg>

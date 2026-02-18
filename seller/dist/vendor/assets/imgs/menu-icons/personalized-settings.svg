@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 16 16">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_6223" data-name="Rectangle 6223" width="16" height="16" transform="translate(1245 630)" fill="#fff" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="Mask_Group_1100" data-name="Mask Group 1100" transform="translate(-1245 -630)" clip-path="url(#clip-path)">
+    <g id="cursor-in-window-stroke-rounded" transform="translate(1244.07 629.07)">
+      <path id="Path_8192" data-name="Path 8192" d="M14.877,7.438c0-2.805,0-4.208-.871-5.079s-2.274-.871-5.079-.871H7.438c-2.805,0-4.208,0-5.079.871s-.871,2.274-.871,5.079V8.926c0,2.805,0,4.208.871,5.079.791.791,2.019.864,4.335.871h.372" fill="none" stroke="#202123" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"/>
+      <path id="Path_8194" data-name="Path 8194" d="M1.488,5.207H14.877" fill="none" stroke="#202123" stroke-linejoin="round" stroke-width="1.2"/>
+      <g id="settings-02-stroke-rounded_6_" data-name="settings-02-stroke-rounded (6)" transform="translate(6.694 6.728)">
+        <path id="Path_8184" data-name="Path 8184" d="M9.126,7.726a1.4,1.4,0,1,1-1.4-1.4A1.4,1.4,0,0,1,9.126,7.726Z" transform="translate(-2.237 -2)" fill="none" stroke="#202123" stroke-width="1.2"/>
+        <path id="Path_8185" data-name="Path 8185" d="M9.093,6.564c.209-.056.313-.084.354-.138s.041-.14.041-.314V5.339c0-.173,0-.26-.041-.314s-.146-.082-.354-.138a1.5,1.5,0,0,1-1.067-1.8c.055-.213.083-.32.057-.382s-.1-.106-.254-.192l-.69-.392c-.149-.085-.223-.127-.29-.118s-.142.084-.293.235a1.521,1.521,0,0,1-2.133,0C4.271,2.087,4.2,2.011,4.129,2s-.141.033-.29.118l-.69.392C3,2.6,2.922,2.641,2.9,2.7s0,.169.057.382a1.5,1.5,0,0,1-1.068,1.8c-.209.056-.313.084-.354.138s-.041.14-.041.314v.773c0,.173,0,.26.041.314s.146.082.354.138a1.5,1.5,0,0,1,1.067,1.8c-.055.213-.083.32-.057.382s.1.106.254.192l.69.392c.149.085.223.127.29.118s.142-.084.293-.235a1.522,1.522,0,0,1,2.134,0c.151.15.226.226.293.235s.141-.033.29-.118l.69-.392c.152-.086.228-.129.254-.192s0-.169-.057-.382A1.5,1.5,0,0,1,9.093,6.564Z" transform="translate(0 0)" fill="none" stroke="#202123" stroke-linecap="round" stroke-width="1.2"/>
+      </g>
+    </g>
+  </g>
+</svg>

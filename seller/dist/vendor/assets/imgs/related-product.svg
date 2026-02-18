@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 16 16">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_5846" data-name="Rectangle 5846" width="16" height="16" transform="translate(84 164)" fill="#fff" stroke="#3f3f43" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4"/>
+    </clipPath>
+  </defs>
+  <g id="Mask_Group_932" data-name="Mask Group 932" transform="translate(-84 -164)" clip-path="url(#clip-path)">
+    <g id="loading_1_" data-name="loading (1)" transform="translate(84.324 164.324)">
+      <g id="Group_14158" data-name="Group 14158" transform="translate(0.47 0.476)">
+        <path id="Path_7268" data-name="Path 7268" d="M14.946,8a7.2,7.2,0,0,1-12.7,4.642" transform="translate(-0.546 -0.8)" fill="none" stroke="#3f3f43" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4"/>
+        <path id="Path_7269" data-name="Path 7269" d="M.47,7.676a7.2,7.2,0,0,1,12.651-4.7" transform="translate(-0.47 -0.476)" fill="none" stroke="#3f3f43" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4"/>
+      </g>
+      <circle id="Ellipse_343" data-name="Ellipse 343" cx="1.029" cy="1.029" r="1.029" transform="translate(0.468 10.506)" fill="none" stroke="#3f3f43" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4"/>
+      <circle id="Ellipse_344" data-name="Ellipse 344" cx="1.029" cy="1.029" r="1.029" transform="translate(12.825 2.665)" fill="none" stroke="#3f3f43" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4"/>
+      <g id="Group_14160" data-name="Group 14160" transform="translate(4.521 4.04)">
+        <g id="Group_14159" data-name="Group 14159">
+          <path id="Path_7270" data-name="Path 7270" d="M11,9.654V6.019L7.852,4.2,4.7,6.019V9.654l3.149,1.818Z" transform="translate(-4.703 -4.201)" fill="none" stroke="#3f3f43" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4"/>
+          <path id="Path_7271" data-name="Path 7271" d="M4.7,6.1,7.852,7.918,11,6.1" transform="translate(-4.703 -4.282)" fill="none" stroke="#3f3f43" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4"/>
+        </g>
+        <line id="Line_587" data-name="Line 587" y2="3.636" transform="translate(3.149 3.636)" fill="none" stroke="#3f3f43" stroke-linecap="round" stroke-width="1.4"/>
+      </g>
+    </g>
+  </g>
+</svg>

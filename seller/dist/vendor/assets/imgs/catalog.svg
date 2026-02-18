@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 16 16">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_5173" data-name="Rectangle 5173" width="16" height="16" transform="translate(22 115)" fill="#fff" stroke="#3f3f45" stroke-width="1.6"/>
+    </clipPath>
+  </defs>
+  <g id="Mask_Group_709" data-name="Mask Group 709" transform="translate(-22 -115)" clip-path="url(#clip-path)">
+    <g id="shopping-basket-01-stroke-rounded" transform="translate(23.16 115.8)">
+      <path id="Path_6763" data-name="Path 6763" d="M3.314,13.831,2.447,8.661c-.131-.782-.2-1.172.013-1.429s.6-.256,1.366-.256H14.5c.771,0,1.157,0,1.366.256s.144.647.013,1.429l-.867,5.169c-.287,1.713-.431,2.57-1.017,3.078s-1.432.508-3.122.508H7.453c-1.69,0-2.536,0-3.122-.508S3.6,15.544,3.314,13.831Z" transform="translate(-2.326 -3.017)" fill="none" stroke="#3f3f45" stroke-width="1.6"/>
+      <path id="Path_6764" data-name="Path 6764" d="M13.967,5.82a3.96,3.96,0,0,0-7.92,0" transform="translate(-3.167 -1.86)" fill="none" stroke="#3f3f45" stroke-width="1.6"/>
+    </g>
+  </g>
+</svg>

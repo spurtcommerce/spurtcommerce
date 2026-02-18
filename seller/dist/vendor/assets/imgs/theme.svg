@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 16 16">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_5759" data-name="Rectangle 5759" width="16" height="16" transform="translate(-12994 2197)" fill="#fff" stroke="#202123" stroke-width="1.2"/>
+    </clipPath>
+  </defs>
+  <g id="Mask_Group_887" data-name="Mask Group 887" transform="translate(12994 -2197)" clip-path="url(#clip-path)">
+    <g id="paint-board-stroke-rounded" transform="translate(-12994.889 2196.11)">
+      <path id="Path_7181" data-name="Path 7181" d="M16.288,8.888a7.4,7.4,0,1,0-7.4,7.4c.623,0,1.48.086,1.48-.74A2.041,2.041,0,0,0,9.9,14.4a1.576,1.576,0,0,1-.273-1.816c.493-.987,1.316-.987,2.576-.987a15.044,15.044,0,0,0,2.234-.123C15.993,11.256,16.288,10.3,16.288,8.888Z" fill="none" stroke="#202123" stroke-width="1.2"/>
+      <path id="Path_7182" data-name="Path 7182" d="M5.209,11.163l.006,0" transform="translate(-0.021 -0.053)" fill="none" stroke="#202123" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"/>
+      <circle id="Ellipse_332" data-name="Ellipse 332" cx="1.11" cy="1.11" r="1.11" transform="translate(5.928 5.188)" fill="none" stroke="#202123" stroke-width="1.2"/>
+      <circle id="Ellipse_333" data-name="Ellipse 333" cx="1.11" cy="1.11" r="1.11" transform="translate(11.108 5.928)" fill="none" stroke="#202123" stroke-width="1.2"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 20 20">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_20" data-name="Rectangle 20" width="20" height="20" transform="translate(104 383)" fill="#fff" stroke="#fff" stroke-width="1.5"/>
+    </clipPath>
+  </defs>
+  <g id="Mask_Group_1" data-name="Mask Group 1" transform="translate(-104 -383)" clip-path="url(#clip-path)">
+    <g id="calendar-03-stroke-rounded_5_" data-name="calendar-03-stroke-rounded (5)" transform="translate(102.887 381.89)">
+      <path id="Path_7" data-name="Path 7" d="M16.681,1.86V3.71M5.581,1.86V3.71" transform="translate(-0.018)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+      <path id="Path_8" data-name="Path 8" d="M11.138,12.093h.008m-.008,3.7h.008m3.688-3.7h.008m-7.4,0H7.45m-.008,3.7H7.45" transform="translate(-0.029 -0.058)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+      <path id="Path_9" data-name="Path 9" d="M3.256,7.442H18.981" transform="translate(-0.005 -0.031)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+      <path id="Path_10" data-name="Path 10" d="M2.326,11.341c0-4.03,0-6.046,1.158-7.3s3.022-1.252,6.751-1.252h1.757c3.728,0,5.592,0,6.751,1.252S19.9,7.31,19.9,11.341v.475c0,4.031,0,6.046-1.158,7.3s-3.022,1.252-6.751,1.252H10.234c-3.728,0-5.592,0-6.751-1.252s-1.158-3.267-1.158-7.3Z" transform="translate(0 -0.005)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+      <path id="Path_11" data-name="Path 11" d="M2.791,7.442h16.65" transform="translate(-0.003 -0.031)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+    </g>
+  </g>
+</svg>

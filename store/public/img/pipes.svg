@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="21" viewBox="0 0 21 21">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_696" data-name="Rectangle 696" width="21" height="21" transform="translate(28 625)" fill="#4f5f6d" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="Mask_Group_84" data-name="Mask Group 84" transform="translate(-28 -625)" clip-path="url(#clip-path)">
+    <g id="Layer_1" transform="translate(24.472 621.444)">
+      <g id="Group_944" data-name="Group 944">
+        <g id="Group_943" data-name="Group 943">
+          <g id="Group_935" data-name="Group 935">
+            <g id="Group_931" data-name="Group 931">
+              <path id="Path_3000" data-name="Path 3000" d="M24.2,19.763h-1.96a.328.328,0,0,1,0-.656h1.632V14.978H22.241a.328.328,0,0,1,0-.656H24.2a.328.328,0,0,1,.328.328v4.785a.328.328,0,0,1-.328.328Z" fill="#4f5f6d" fill-rule="evenodd"/>
+            </g>
+            <g id="Group_932" data-name="Group 932">
+              <path id="Path_3001" data-name="Path 3001" d="M5.816,19.763H3.857a.328.328,0,0,1-.328-.328V14.65a.328.328,0,0,1,.328-.328h1.96a.328.328,0,1,1,0,.656H4.185v4.129H5.816a.328.328,0,0,1,0,.656Z" fill="#4f5f6d" fill-rule="evenodd"/>
+            </g>
+            <g id="Group_933" data-name="Group 933">
+              <path id="Path_3002" data-name="Path 3002" d="M6.8,20.782a1.316,1.316,0,0,1-1.315-1.315V14.617a1.315,1.315,0,0,1,2.629,0v4.851A1.316,1.316,0,0,1,6.8,20.782Zm0-6.824a.659.659,0,0,0-.658.658v4.851a.658.658,0,0,0,1.317,0V14.617A.659.659,0,0,0,6.8,13.959Z" fill="#4f5f6d" fill-rule="evenodd"/>
+            </g>
+            <g id="Group_934" data-name="Group 934">
+              <path id="Path_3003" data-name="Path 3003" d="M21.254,20.782a1.316,1.316,0,0,1-1.315-1.315V14.617a1.315,1.315,0,1,1,2.629,0v4.851A1.316,1.316,0,0,1,21.254,20.782Zm0-6.824a.659.659,0,0,0-.658.658v4.851a.658.658,0,0,0,1.317,0V14.617A.659.659,0,0,0,21.254,13.959Z" fill="#4f5f6d" fill-rule="evenodd"/>
+            </g>
+          </g>
+          <g id="Group_936" data-name="Group 936">
+            <path id="Path_3004" data-name="Path 3004" d="M14.028,20.782a3.709,3.709,0,0,1-1.574-.346,7.38,7.38,0,0,0-3.09-.673H7.789a.328.328,0,0,1,0-.656H9.365a8.04,8.04,0,0,1,3.366.734,3.093,3.093,0,0,0,2.595,0,8.041,8.041,0,0,1,3.366-.734h1.576a.328.328,0,0,1,0,.656H18.692a7.379,7.379,0,0,0-3.09.673,3.71,3.71,0,0,1-1.574.346Z" fill="#4f5f6d" fill-rule="evenodd"/>
+          </g>
+          <g id="Group_937" data-name="Group 937">
+            <path id="Path_3005" data-name="Path 3005" d="M9.365,14.978H7.789a.328.328,0,0,1,0-.656H9.365a7.345,7.345,0,0,0,2.576-.458V12.332a.328.328,0,0,1,.656,0v1.755a.328.328,0,0,1-.2.3,7.982,7.982,0,0,1-3.028.587Z" fill="#4f5f6d" fill-rule="evenodd"/>
+          </g>
+          <g id="Group_938" data-name="Group 938">
+            <path id="Path_3006" data-name="Path 3006" d="M20.268,14.978H18.692a7.982,7.982,0,0,1-3.028-.587.328.328,0,0,1-.2-.3V12.332a.328.328,0,0,1,.656,0v1.531a7.346,7.346,0,0,0,2.576.458h1.576a.328.328,0,0,1,0,.656Z" fill="#4f5f6d" fill-rule="evenodd"/>
+          </g>
+          <g id="Group_939" data-name="Group 939">
+            <path id="Path_3007" data-name="Path 3007" d="M13.377,11.4a.328.328,0,0,1-.328-.328V9.211a.328.328,0,0,1,.656,0v1.864A.328.328,0,0,1,13.377,11.4Z" fill="#4f5f6d" fill-rule="evenodd"/>
+          </g>
+          <g id="Group_940" data-name="Group 940">
+            <path id="Path_3008" data-name="Path 3008" d="M14.68,11.4a.328.328,0,0,1-.328-.328V9.211a.328.328,0,0,1,.656,0v1.864A.328.328,0,0,1,14.68,11.4Z" fill="#4f5f6d" fill-rule="evenodd"/>
+          </g>
+          <g id="Group_941" data-name="Group 941">
+            <path id="Path_3009" data-name="Path 3009" d="M18.525,9.539H9.532a1.105,1.105,0,0,1,0-2.21h8.992a1.105,1.105,0,0,1,0,2.21ZM9.532,7.986a.449.449,0,0,0,0,.9h8.992a.449.449,0,0,0,0-.9Z" fill="#4f5f6d" fill-rule="evenodd"/>
+          </g>
+          <g id="Group_942" data-name="Group 942">
+            <path id="Path_3010" data-name="Path 3010" d="M16.418,12.66H11.639a.956.956,0,1,1,0-1.913h4.779a.956.956,0,1,1,0,1.913ZM11.639,11.4a.3.3,0,0,0,0,.6h4.779a.3.3,0,0,0,0-.6Z" fill="#4f5f6d" fill-rule="evenodd"/>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

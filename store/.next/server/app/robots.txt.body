@@ -1,0 +1,4 @@
+# Allow all crawlers
+User-agent: *
+Allow: /
+Sitemap: https://spurtcommerce-marketplace-store.vercel.app/sitemap.xml

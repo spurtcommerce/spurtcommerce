@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="10" height="10" viewBox="0 0 10 10">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_7094" data-name="Rectangle 7094" width="10" height="10" transform="translate(884 134)" fill="#fff" stroke="#fff" stroke-width="1.2"/>
+    </clipPath>
+  </defs>
+  <g id="Mask_Group_1266" data-name="Mask Group 1266" transform="translate(-884 -134)" clip-path="url(#clip-path)">
+    <g id="diamond-02-stroke-rounded_2_" data-name="diamond-02-stroke-rounded (2)" transform="translate(883.67 133.646)">
+      <path id="Path_40271" data-name="Path 40271" d="M2.594,1.915a2.946,2.946,0,0,1,.592-.4,1.472,1.472,0,0,1,.232-.077A3.2,3.2,0,0,1,4.152,1.4H6.508a3.2,3.2,0,0,1,.734.043,1.471,1.471,0,0,1,.232.077,2.946,2.946,0,0,1,.592.4c.945.727,1.417,1.091,1.579,1.561a1.561,1.561,0,0,1,.079.648c-.044.492-.417.942-1.163,1.843L6.8,8.09C6.128,8.907,5.79,9.315,5.33,9.315s-.8-.408-1.474-1.225L2.1,5.968C1.354,5.068.981,4.617.936,4.125a1.561,1.561,0,0,1,.079-.648C1.178,3.006,1.65,2.642,2.594,1.915Z" transform="translate(0)" fill="none" stroke="#fff" stroke-width="1.2"/>
+      <path id="Path_40272" data-name="Path 40272" d="M4.651,3.953h1.76" transform="translate(-0.201 -0.138)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"/>
+    </g>
+  </g>
+</svg>

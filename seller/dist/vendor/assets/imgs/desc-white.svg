@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_2319" data-name="Rectangle 2319" width="24" height="24" transform="translate(64 1223)" fill="#9c9fa5" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="Group_2916" data-name="Group 2916" transform="translate(-64 -1223)">
+    <g id="Mask_Group_96" data-name="Mask Group 96" clip-path="url(#clip-path)">
+      <path id="content-svgrepo-com" d="M11.077,24a1,1,0,0,1,0-2H22.923a1,1,0,0,1,0,2Zm0-6a1,1,0,0,1,0-2H22.923a1,1,0,0,1,0,2Zm0-6a1,1,0,0,1,0-2H22.923a1,1,0,0,1,0,2Z" transform="translate(64 1223)" fill="#9c9fa5" fill-rule="evenodd"/>
+    </g>
+    <g id="Mask_Group_97" data-name="Mask Group 97" opacity="0.4" clip-path="url(#clip-path)">
+      <path id="content-svgrepo-com-2" data-name="content-svgrepo-com" d="M18,6a1,1,0,0,1-2,0V3a1,1,0,0,0-1-1H3A1,1,0,0,0,2,3V15a1,1,0,0,0,1,1H6a1,1,0,0,1,0,2H3a3,3,0,0,1-3-3V3A3,3,0,0,1,3,0H15a3,3,0,0,1,3,3Z" transform="translate(64 1223)" fill="#9c9fa5" fill-rule="evenodd"/>
+    </g>
+  </g>
+</svg>

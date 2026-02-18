@@ -1,0 +1,14 @@
+<svg width="15" height="15" viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <radialGradient cx="30.267%" cy="24.408%" fx="30.267%" fy="24.408%" r="82.843%" id="0c8c2a59ea">
+            <stop stop-color="#838383" offset="0%"/>
+            <stop offset="100%"/>
+        </radialGradient>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <circle fill="url(#0c8c2a59ea)" cx="7.5" cy="7.5" r="7.5"/>
+        <text font-family="Roboto-Medium, Roboto" font-size="13" font-weight="400" fill="#FFF">
+                    <tspan x="4" y="12">?</tspan>
+                </text>
+    </g>
+</svg>

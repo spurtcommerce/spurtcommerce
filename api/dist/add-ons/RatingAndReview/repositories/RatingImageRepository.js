@@ -1,0 +1,18 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ProductRatingImagesRepository = void 0;
+const tslib_1 = require("tslib");
+const ProductRatingImages_1 = require("../models/ProductRatingImages");
+const typeormLoader_1 = require("../../../src/loaders/typeormLoader");
+const typedi_1 = require("typedi");
+let ProductRatingImagesRepository = class ProductRatingImagesRepository {
+    constructor() {
+        this.repository = (0, typeormLoader_1.getDataSource)().getRepository(ProductRatingImages_1.ProductRatingImages);
+    }
+};
+exports.ProductRatingImagesRepository = ProductRatingImagesRepository;
+exports.ProductRatingImagesRepository = ProductRatingImagesRepository = tslib_1.__decorate([
+    (0, typedi_1.Service)(),
+    tslib_1.__metadata("design:paramtypes", [])
+], ProductRatingImagesRepository);
+//# sourceMappingURL=RatingImageRepository.js.map

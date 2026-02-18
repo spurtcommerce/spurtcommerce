@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 16 16">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_6184" data-name="Rectangle 6184" width="16" height="16" transform="translate(675 338)" fill="#fff" stroke="#3f3f44" stroke-width="1.4"/>
+    </clipPath>
+  </defs>
+  <g id="Mask_Group_1086" data-name="Mask Group 1086" transform="translate(-675 -338)" clip-path="url(#clip-path)">
+    <path id="star-stroke-rounded_3_" data-name="star-stroke-rounded (3)" d="M10.048,2.541l1.285,2.591a1.587,1.587,0,0,0,1.037.773l2.328.39c1.489.25,1.839,1.339.766,2.414l-1.81,1.825a1.607,1.607,0,0,0-.38,1.332l.518,2.259c.409,1.788-.533,2.48-2.1,1.545l-2.182-1.3a1.567,1.567,0,0,0-1.445,0l-2.182,1.3c-1.562.935-2.511.235-2.1-1.545L4.3,11.866a1.607,1.607,0,0,0-.38-1.332L2.107,8.708c-1.066-1.074-.723-2.164.766-2.414L5.2,5.9a1.591,1.591,0,0,0,1.029-.773L7.515,2.541C8.216,1.136,9.355,1.136,10.048,2.541Z" transform="translate(674.213 337.213)" fill="none" stroke="#3f3f44" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4"/>
+  </g>
+</svg>

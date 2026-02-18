@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="144" height="200" viewBox="0 0 144 200">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_5388" data-name="Rectangle 5388" width="56" height="56" transform="translate(5488 7285)" fill="#fff" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="pdf" transform="translate(-5755 -7432)">
+    <rect id="Rectangle_5387" data-name="Rectangle 5387" width="144" height="200" transform="translate(5755 7432)" fill="#f8f5f5"/>
+    <g id="Mask_Group_757" data-name="Mask Group 757" transform="translate(311 219)" clip-path="url(#clip-path)">
+      <g id="pdf_4_" data-name="pdf (4)" transform="translate(5495.06 7285)">
+        <g id="Vrstva_x0020_1_15_" transform="translate(0 0)">
+          <path id="Path_12557" data-name="Path 12557" d="M13.341,0H32.064L47.932,16.54V48.71A7.283,7.283,0,0,1,40.656,56H13.341a7.286,7.286,0,0,1-7.29-7.29V7.29A7.286,7.286,0,0,1,13.341,0Z" transform="translate(-6.051 0)" fill="#e5252a" fill-rule="evenodd"/>
+          <g id="Group_14070" data-name="Group 14070" transform="translate(8.102 0)">
+            <path id="Path_12558" data-name="Path 12558" d="M28.336,0V16.414H44.218Z" transform="translate(-10.439)" fill="#fff" fill-rule="evenodd" opacity="0.302"/>
+            <path id="Path_12559" data-name="Path 12559" d="M13,37.275V27.046h4.352a3.607,3.607,0,0,1,2.575.9,3.413,3.413,0,0,1,0,4.758,3.607,3.607,0,0,1-2.575.9H15.612v3.68Zm2.617-5.905h1.441a1.29,1.29,0,0,0,.91-.28,1.081,1.081,0,0,0,0-1.539,1.289,1.289,0,0,0-.91-.28H15.612Zm6.353,5.905V27.046h3.624a6.328,6.328,0,0,1,2.015.308,5.416,5.416,0,0,1,1.707.91,4.017,4.017,0,0,1,1.2,1.6,6.324,6.324,0,0,1,0,4.6,4.017,4.017,0,0,1-1.2,1.6,5.418,5.418,0,0,1-1.707.91,6.331,6.331,0,0,1-2.015.308Zm2.561-2.225h.756a4.192,4.192,0,0,0,1.133-.14,3.4,3.4,0,0,0,.966-.462,2.074,2.074,0,0,0,.7-.9,3.974,3.974,0,0,0,0-2.785,2.074,2.074,0,0,0-.7-.9,3.4,3.4,0,0,0-.966-.462,4.2,4.2,0,0,0-1.133-.14h-.756Zm7.738,2.225V27.046H39.54v2.225h-4.66v1.637H38.6v2.211H34.881v4.156Z" transform="translate(-12.996 4.508)" fill="#fff"/>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

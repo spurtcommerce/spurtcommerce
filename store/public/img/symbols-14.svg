@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="32" viewBox="0 0 32 32">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_3700" data-name="Rectangle 3700" width="32" height="32" rx="5" transform="translate(988 908)" fill="#1185d2" stroke="#1185d2" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="Mask_Group_92" data-name="Mask Group 92" transform="translate(-988 -908)" clip-path="url(#clip-path)">
+    <g id="Dollar" transform="translate(984.308 904.308)">
+      <path id="Path_3023" data-name="Path 3023" d="M25.846,16a1.231,1.231,0,0,0,1.231-1.231V13.752a6.363,6.363,0,0,0-6.154-6.346V4.923a1.231,1.231,0,0,0-2.462,0V7.406a6.357,6.357,0,0,0-2.151,12.258l5.849,2.341a3.906,3.906,0,0,1-1.451,7.533H18.675a3.911,3.911,0,0,1-3.906-3.906V24.615a1.231,1.231,0,0,0-2.462,0v1.017a6.363,6.363,0,0,0,6.154,6.346v2.483a1.231,1.231,0,0,0,2.462,0V31.978A6.357,6.357,0,0,0,23.074,19.72l-5.849-2.341a3.906,3.906,0,0,1,1.451-7.533h2.034a3.911,3.911,0,0,1,3.906,3.906v1.017A1.231,1.231,0,0,0,25.846,16Z" fill="#1185d2" stroke="#1185d2" stroke-width="1.231"/>
+    </g>
+  </g>
+</svg>

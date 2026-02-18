@@ -1,0 +1,15 @@
+<svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <filter color-interpolation-filters="auto" id="t3uv76nxra">
+            <feColorMatrix in="SourceGraphic" values="0 0 0 0 0.207843 0 0 0 0 0.521569 0 0 0 0 0.929412 0 0 0 1.000000 0"/>
+        </filter>
+    </defs>
+    <g transform="translate(-1120 -428)" filter="url(#t3uv76nxra)" fill="none" fill-rule="evenodd">
+        <g transform="translate(1121 429)">
+            <path d="M13.364 0H4.082a.636.636 0 0 0-.45.186L.186 3.632a.636.636 0 0 0-.186.45v9.282c0 .351.285.636.636.636h12.728a.636.636 0 0 0 .636-.636V.636A.636.636 0 0 0 13.364 0zM7 10.819a2.227 2.227 0 1 1 0-4.455 2.227 2.227 0 0 1 0 4.455z" fill="#FFF" fill-rule="nonzero" opacity=".2"/>
+            <path d="M0 4.082v9.282c0 .351.285.636.636.636h12.728a.636.636 0 0 0 .636-.636V.636A.636.636 0 0 0 13.364 0H4.082a.636.636 0 0 0-.45.186L.186 3.632a.636.636 0 0 0-.186.45z" stroke="#FFF" stroke-width="1.636" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle stroke="#FFF" stroke-width="1.636" stroke-linecap="round" stroke-linejoin="round" cx="7" cy="8.592" r="2.227"/>
+            <path stroke="#FFF" stroke-width="1.636" stroke-linecap="round" stroke-linejoin="round" d="M4.455 3.183h5.09V0"/>
+        </g>
+    </g>
+</svg>
