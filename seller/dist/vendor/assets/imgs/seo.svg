@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36" height="36" viewBox="0 0 36 36">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.036" y1="0.022" x2="0.964" y2="0.97" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ff9800" stop-opacity="0.961"/>
+      <stop offset="1" stop-color="#f57c00" stop-opacity="0.961"/>
+    </linearGradient>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_7040" data-name="Rectangle 7040" width="20" height="20" transform="translate(788 88)" fill="#fff" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="Group_17790" data-name="Group 17790" transform="translate(-780 -80)">
+    <rect id="Rectangle_7036" data-name="Rectangle 7036" width="36" height="36" rx="3" transform="translate(780 80)" fill="url(#linear-gradient)"/>
+    <g id="Mask_Group_1242" data-name="Mask Group 1242" clip-path="url(#clip-path)">
+      <g id="magnifying-glass_2_" data-name="magnifying-glass (2)" transform="translate(788 88)">
+        <path id="Path_40218" data-name="Path 40218" d="M19.526,17.106l-4.6-4.6A8.084,8.084,0,1,0,12.7,14.849l4.543,4.544a1.616,1.616,0,1,0,2.286-2.286ZM8.081,13.679a5.463,5.463,0,1,1,5.463-5.463A5.463,5.463,0,0,1,8.081,13.679Z" fill="#fff"/>
+      </g>
+    </g>
+  </g>
+</svg>

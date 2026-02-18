@@ -1,0 +1,19 @@
+<svg width="64" height="49" viewBox="0 0 64 49" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <path id="6hs9uy8y0a" d="M11 5v6H5v2h6v6h2v-6h6v-2h-6V5z"/>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <rect stroke="#DBDBDB" fill="#FFF" x=".5" y=".5" width="63" height="48" rx="3"/>
+        <g transform="translate(20 4)">
+            <mask id="6nbfht2x0b" fill="#fff">
+                <use xlink:href="#6hs9uy8y0a"/>
+            </mask>
+            <g mask="url(#6nbfht2x0b)" fill="#000" fill-opacity=".38">
+                <path d="M0 0h24v24H0z"/>
+            </g>
+        </g>
+        <text font-family="Roboto-Medium, Roboto" font-size="13" font-weight="400" fill="#9E9E9E">
+                    <tspan x="15" y="41">Photo</tspan>
+                </text>
+    </g>
+</svg>

@@ -3,7 +3,7 @@
        <a style="color:#36f" href="https://www.spurtcommerce.com/#gh-light-mode-only">
             <img src="https://www.spurtcommerce.com/spurtcommerce.svg" width="318px" alt="Spurtcommerce logo" />
             <br>
-           🎉 <a target="_blank" href="https://www.spurtcommerce.com/spurtcommerce-change-log" rel="dofollow"> <strong>Spurtcommerce v5.2 is now available!</strong> 
+           🎉 <a target="_blank" href="https://www.spurtcommerce.com/spurtcommerce-change-log" rel="dofollow"> <strong>Spurtcommerce v5.3 is now available!</strong> 
         </a>
     </div>
     Opensource Multi Vendor Marketplace for B2C , B2B  <br>
@@ -41,10 +41,6 @@
 
 ![video avi](https://raw.githubusercontent.com/spurtcommerce/spurtcommerce/refs/heads/master/assets/spurt2.gif)
 
-
-
-
-
 <br />
 
 # Join Our Community
@@ -54,72 +50,100 @@
 </a>
 
 > [!IMPORTANT]
-> 🎉 <strong>Spurtcommerce 5.2.0 is now available!</strong> Read more in the <a target="_blank" href="https://www.spurtcommerce.com/spurtcommerce-change-log" rel="dofollow"><strong>announcement post</strong></a>.
+> 🎉 <strong>Spurtcommerce 5.3.0 is now available!</strong> Read more in the <a target="_blank" href="https://www.spurtcommerce.com/spurtcommerce-change-log" rel="dofollow"><strong>announcement post</strong></a>.
 <br />
 
-## ❯  🚀 Easy to Deploy Spurtcommerce API on your server
+## ❯  🚀 Updated: Run & deploy (mono-repo)
 
-This is the official repository of Spurtcommerce. Using these Build, you can easily deploy Spurtcommerce Multi-Vendor Marketplace in your local server.
+This repository contains multiple apps. The sections below explain how to run each app from the workspace — no compilation is required because compiled assets are included for admin/seller and the API.
 
-### Step 1:
-Navigate to the cloned repository directory “multivendor-marketplace” in the terminal and locate the "api" folder
+### Prerequisites
 
-### Step 2:
+- Node.js (v22.14.0)
+- npm (recommended >= 9.6.0)
+- MySQL server (for the API database)
 
-Navigate to multivendor-marketplace/api folder and Install node_modules  by executing the following command
-```
-$ npm install
-```
+### API (backend)
 
-It will take few mins for the npm installation to get finished and once done you will see the completion notification messages in terminal.
+1. Change to the API folder and install dependencies:
 
-### Step 3:
-Retrieve the "spurtcommerce_marketplace.sql" file from the "/api" folder and import it into your MySQL server.
-### Step 4:
-Configure the database settings in the ".env" file located in the "/api" folder, with the name and credentials for the application to connect to your database (imported from spurtcommerce_marketplace.sql)
- 
-Database Configuration
-we are using MySQL database, we need to configure database credentials in the .env file 
-
-```
-#
-# MySQL DATABASE
-#
-TYPEORM_CONNECTION=mysql
-TYPEORM_HOST=localhost
-TYPEORM_PORT=3306
-TYPEORM_USERNAME= "testuser"             #--Your MySql Username
-TYPEORM_PASSWORD= "spurt123&"		#--Your MySql Password 
-TYPEORM_DATABASE= "spurt_commerce"	#--Your Database Name
-TYPEORM_SYNCHRONIZE=false
-TYPEORM_LOGGING=["query", "error"]
-TYPEORM_LOGGER=advanced-console
+```bash
+cd api
+npm install
 ```
 
-### Step 5:
-In terminal, Navigate to multivendor-marketplace/api folder and Start API execution using the following command:
+2. Configure the environment: create and edit `api/.env` with your DB credentials and app settings. Import the sample SQL if needed:
+
+```bash
+mysql -u <user> -p <database> < spurtcommerce-demo.sql
 ```
-$ node dist/src/app.js
+
+3. Start the API (compiled files are included):
+
+```bash
+npm start
 ```
 
-## ❯  🚀 Deploy Frontend Admin , Vendor and Store (Angular)
+The `start` script runs the compiled server (typically `node dist/src/app.js`). The API listens on the port set in your `.env`.
 
+### Admin frontend
 
-### Step 1:
+1. Install dependencies and ensure `admin/.env` is present:
 
-Navigate to "/var/www/html" (assuming Apache installation has created this directory) from your home directory in your local or server
+```bash
+cd admin
+npm install
+```
 
-### Step 2:
+2. Start the admin server (the `prestart` script runs `scripts/generate-env.js`):
 
-*  Copy the "vendor" and "admin" folders as-is directly from "multivendor-marketplace/frontend/" to "/var/www/html/".
+```bash
+npm start
+```
 
-*  Copy all folders & files of “store” folder from multivendor-marketplace/frontend/ folder and paste it directly into /var/www/html/
+The app is served from `dist/admin`. Set `PORT` in `.env` to change the port (default 4200).
 
-Completion of above steps should successfully setup frontend builds of all 3 panels of Spurtcommerce Marketplace solution such as Store Panel, Vendor Panel and Admin Panel.
+### Seller (vendor) frontend
 
-* marketplace website is ready to use from  http://{your-domian or IP} (or) http://localhost/
-* Vendor Panel can be accessed by http://{your-domian or IP}/vendor/#/auth/login 
-* Admin panel be accessed by http://{your-domian or IP}:{your-port}/admin/#/auth/login
+1. Install dependencies:
+
+```bash
+cd seller
+npm install
+```
+
+2. Start the seller server (prestart runs `scripts/generate-env.js`):
+
+```bash
+npm start
+```
+
+The app is served from `dist/vendor`.
+
+### Store (Next.js storefront)
+
+1. Install dependencies:
+
+```bash
+cd store
+npm install
+```
+
+2. (Optional) Populate runtime config from `runtime-config.json.template`:
+
+```bash
+npm run generate-env
+```
+
+3. Run in development:
+
+```bash
+npm start
+```
+
+The storefront reads runtime configuration from `store/public/runtime-config.json` — run `npm run generate-env` before building for production if you use template placeholders.
+
+Completion of the above steps sets up and runs the backend and frontends on your machine.
 
 ## Default Admin Panel Login Details
 
@@ -139,7 +163,7 @@ Above steps concludes successful installation and setup of Spurtcommerce Marketp
 
 ## 🤔 Support , Document and Help
 
-Spurtcommerce 5.2.0 is published to npm under the `@spurtcommerce/*` namespace.
+Spurtcommerce 5.3.0 is published to npm under the `@spurtcommerce/*` namespace.
 
 You can find our extended documentation on our [www.spurtcommerce.dev](https://www.spurtcommerce.dev), but some quick links that might be helpful:
 

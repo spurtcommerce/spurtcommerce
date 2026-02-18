@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36" height="36" viewBox="0 0 36 36">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.036" y1="0.022" x2="0.964" y2="0.97" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#0c9d58" stop-opacity="0.961"/>
+      <stop offset="1" stop-color="#0a4f8f" stop-opacity="0.961"/>
+    </linearGradient>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_7050" data-name="Rectangle 7050" width="20" height="20" transform="translate(788 290)" fill="#fff" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="Group_17794" data-name="Group 17794" transform="translate(-780 -282)">
+    <rect id="Rectangle_7048" data-name="Rectangle 7048" width="36" height="36" rx="3" transform="translate(780 282)" fill="url(#linear-gradient)"/>
+    <g id="Mask_Group_1245" data-name="Mask Group 1245" clip-path="url(#clip-path)">
+      <g id="Page-1" transform="translate(789.244 289.994)">
+        <g id="Group" transform="translate(0.009 0.005)">
+          <path id="Fill-17" d="M2.1,6.481l-.97,3.569L6.678,6.461,3.048,20l3.685,0,5.361-20Z" transform="translate(5.401 -0.005)" fill="#fff" fill-rule="evenodd"/>
+          <path id="Fill-19" d="M1.534,7.337.009,13.029H7.563l3.091-11.58L1.534,7.337" transform="translate(-0.009 6.971)" fill="#fff" fill-rule="evenodd"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

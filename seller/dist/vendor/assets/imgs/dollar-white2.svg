@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_2077" data-name="Rectangle 2077" width="24" height="24" rx="3" transform="translate(220 344)" fill="#e7fff2"/>
+    </clipPath>
+  </defs>
+  <g id="Mask_Group_23" data-name="Mask Group 23" transform="translate(-220 -344)" clip-path="url(#clip-path)">
+    <path id="dollar-1-svgrepo-com" d="M14.4,3.6V25.2M18.815,7.961c-1.939-2.838-9.28-3.135-9.28,1.84s10.568,2.6,9.958,8.453c-.509,4.885-8.461,4.952-10.84,1.053" transform="translate(218.143 341.6)" fill="none" stroke="#fdfdfd" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.3"/>
+  </g>
+</svg>

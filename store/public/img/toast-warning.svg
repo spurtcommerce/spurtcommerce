@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15">
+  <g id="Group_3316" data-name="Group 3316" transform="translate(-1005 -254)">
+    <path id="Icon_ionic-ios-close-circle" data-name="Icon ionic-ios-close-circle" d="M10.875,3.375a7.5,7.5,0,1,0,7.5,7.5A7.5,7.5,0,0,0,10.875,3.375Zm1.9,10.215-1.9-1.9-1.9,1.9a.576.576,0,1,1-.815-.815l1.9-1.9-1.9-1.9a.576.576,0,0,1,.815-.815l1.9,1.9,1.9-1.9a.576.576,0,0,1,.815.815l-1.9,1.9,1.9,1.9a.579.579,0,0,1,0,.815A.572.572,0,0,1,12.775,13.59Z" transform="translate(1001.625 250.625)" fill="#c82124" opacity="0"/>
+    <path id="Icon_ionic-ios-warning" data-name="Icon ionic-ios-warning" d="M9.9,5.073,3.512,16.726a1.1,1.1,0,0,0,.977,1.619H17.263a1.1,1.1,0,0,0,.977-1.619L11.851,5.073A1.119,1.119,0,0,0,9.9,5.073Zm1.612,4.835-.13,4.4h-1.01l-.13-4.4ZM10.874,16.7a.664.664,0,1,1,.689-.663A.67.67,0,0,1,10.874,16.7Z" transform="translate(1001.625 250.078)" fill="#eb7500"/>
+  </g>
+</svg>

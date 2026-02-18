@@ -1,0 +1,383 @@
+{
+  "version": 3,
+  "pages404": true,
+  "appType": "app",
+  "caseSensitive": false,
+  "basePath": "",
+  "redirects": [
+    {
+      "source": "/:path+/",
+      "destination": "/:path+",
+      "internal": true,
+      "priority": true,
+      "statusCode": 308,
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))/$"
+    }
+  ],
+  "headers": [],
+  "rewrites": {
+    "beforeFiles": [],
+    "afterFiles": [],
+    "fallback": []
+  },
+  "dynamicRoutes": [
+    {
+      "page": "/account-settings/my-downloads/[slug]",
+      "regex": "^/account\\-settings/my\\-downloads/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPslug": "nxtPslug"
+      },
+      "namedRegex": "^/account\\-settings/my\\-downloads/(?<nxtPslug>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/account-settings/order-history/cancel-order/[id]",
+      "regex": "^/account\\-settings/order\\-history/cancel\\-order/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/account\\-settings/order\\-history/cancel\\-order/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/account-settings/order-history/failed-order-detail/[id]",
+      "regex": "^/account\\-settings/order\\-history/failed\\-order\\-detail/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/account\\-settings/order\\-history/failed\\-order\\-detail/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/account-settings/order-history/order-detail/[id]",
+      "regex": "^/account\\-settings/order\\-history/order\\-detail/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/account\\-settings/order\\-history/order\\-detail/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/account-settings/order-history/review/[id]",
+      "regex": "^/account\\-settings/order\\-history/review/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/account\\-settings/order\\-history/review/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/account-settings/order-history/track-order/[id]",
+      "regex": "^/account\\-settings/order\\-history/track\\-order/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/account\\-settings/order\\-history/track\\-order/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/account-settings/support/[supportId]",
+      "regex": "^/account\\-settings/support/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPsupportId": "nxtPsupportId"
+      },
+      "namedRegex": "^/account\\-settings/support/(?<nxtPsupportId>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/blog/[slug]",
+      "regex": "^/blog/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPslug": "nxtPslug"
+      },
+      "namedRegex": "^/blog/(?<nxtPslug>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/page-detail/[name]",
+      "regex": "^/page\\-detail/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPname": "nxtPname"
+      },
+      "namedRegex": "^/page\\-detail/(?<nxtPname>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/product/[slug]",
+      "regex": "^/product/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPslug": "nxtPslug"
+      },
+      "namedRegex": "^/product/(?<nxtPslug>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/products/[...slug]",
+      "regex": "^/products/(.+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPslug": "nxtPslug"
+      },
+      "namedRegex": "^/products/(?<nxtPslug>.+?)(?:/)?$"
+    },
+    {
+      "page": "/shop/[name]",
+      "regex": "^/shop/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPname": "nxtPname"
+      },
+      "namedRegex": "^/shop/(?<nxtPname>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/widget/[slug]",
+      "regex": "^/widget/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPslug": "nxtPslug"
+      },
+      "namedRegex": "^/widget/(?<nxtPslug>[^/]+?)(?:/)?$"
+    }
+  ],
+  "staticRoutes": [
+    {
+      "page": "/",
+      "regex": "^/(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/(?:/)?$"
+    },
+    {
+      "page": "/_global-error",
+      "regex": "^/_global\\-error(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_global\\-error(?:/)?$"
+    },
+    {
+      "page": "/_not-found",
+      "regex": "^/_not\\-found(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_not\\-found(?:/)?$"
+    },
+    {
+      "page": "/about-us",
+      "regex": "^/about\\-us(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/about\\-us(?:/)?$"
+    },
+    {
+      "page": "/account-settings",
+      "regex": "^/account\\-settings(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/account\\-settings(?:/)?$"
+    },
+    {
+      "page": "/account-settings/my-downloads",
+      "regex": "^/account\\-settings/my\\-downloads(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/account\\-settings/my\\-downloads(?:/)?$"
+    },
+    {
+      "page": "/account-settings/my-profile",
+      "regex": "^/account\\-settings/my\\-profile(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/account\\-settings/my\\-profile(?:/)?$"
+    },
+    {
+      "page": "/account-settings/order-history",
+      "regex": "^/account\\-settings/order\\-history(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/account\\-settings/order\\-history(?:/)?$"
+    },
+    {
+      "page": "/account-settings/quotation-details",
+      "regex": "^/account\\-settings/quotation\\-details(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/account\\-settings/quotation\\-details(?:/)?$"
+    },
+    {
+      "page": "/account-settings/quotation-list",
+      "regex": "^/account\\-settings/quotation\\-list(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/account\\-settings/quotation\\-list(?:/)?$"
+    },
+    {
+      "page": "/account-settings/support",
+      "regex": "^/account\\-settings/support(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/account\\-settings/support(?:/)?$"
+    },
+    {
+      "page": "/account-settings/support/support-create",
+      "regex": "^/account\\-settings/support/support\\-create(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/account\\-settings/support/support\\-create(?:/)?$"
+    },
+    {
+      "page": "/api/env",
+      "regex": "^/api/env(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/env(?:/)?$"
+    },
+    {
+      "page": "/api/health/config",
+      "regex": "^/api/health/config(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/health/config(?:/)?$"
+    },
+    {
+      "page": "/blog",
+      "regex": "^/blog(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/blog(?:/)?$"
+    },
+    {
+      "page": "/buyer-login",
+      "regex": "^/buyer\\-login(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/buyer\\-login(?:/)?$"
+    },
+    {
+      "page": "/buyer-signup",
+      "regex": "^/buyer\\-signup(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/buyer\\-signup(?:/)?$"
+    },
+    {
+      "page": "/checkout",
+      "regex": "^/checkout(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/checkout(?:/)?$"
+    },
+    {
+      "page": "/choose-address",
+      "regex": "^/choose\\-address(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/choose\\-address(?:/)?$"
+    },
+    {
+      "page": "/debug-config",
+      "regex": "^/debug\\-config(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/debug\\-config(?:/)?$"
+    },
+    {
+      "page": "/favicon.ico",
+      "regex": "^/favicon\\.ico(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/favicon\\.ico(?:/)?$"
+    },
+    {
+      "page": "/forgot-password",
+      "regex": "^/forgot\\-password(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/forgot\\-password(?:/)?$"
+    },
+    {
+      "page": "/order-placed",
+      "regex": "^/order\\-placed(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/order\\-placed(?:/)?$"
+    },
+    {
+      "page": "/payment",
+      "regex": "^/payment(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/payment(?:/)?$"
+    },
+    {
+      "page": "/payment-failure",
+      "regex": "^/payment\\-failure(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/payment\\-failure(?:/)?$"
+    },
+    {
+      "page": "/payment-success",
+      "regex": "^/payment\\-success(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/payment\\-success(?:/)?$"
+    },
+    {
+      "page": "/privacy-policy",
+      "regex": "^/privacy\\-policy(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/privacy\\-policy(?:/)?$"
+    },
+    {
+      "page": "/product",
+      "regex": "^/product(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/product(?:/)?$"
+    },
+    {
+      "page": "/product-compare",
+      "regex": "^/product\\-compare(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/product\\-compare(?:/)?$"
+    },
+    {
+      "page": "/quotation",
+      "regex": "^/quotation(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/quotation(?:/)?$"
+    },
+    {
+      "page": "/quotation-success",
+      "regex": "^/quotation\\-success(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/quotation\\-success(?:/)?$"
+    },
+    {
+      "page": "/reset-password",
+      "regex": "^/reset\\-password(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/reset\\-password(?:/)?$"
+    },
+    {
+      "page": "/robots.txt",
+      "regex": "^/robots\\.txt(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/robots\\.txt(?:/)?$"
+    },
+    {
+      "page": "/seller-dashboard",
+      "regex": "^/seller\\-dashboard(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/seller\\-dashboard(?:/)?$"
+    },
+    {
+      "page": "/seller-product",
+      "regex": "^/seller\\-product(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/seller\\-product(?:/)?$"
+    },
+    {
+      "page": "/sitemap.xml",
+      "regex": "^/sitemap\\.xml(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/sitemap\\.xml(?:/)?$"
+    },
+    {
+      "page": "/stock-checkout",
+      "regex": "^/stock\\-checkout(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/stock\\-checkout(?:/)?$"
+    },
+    {
+      "page": "/terms-conditions",
+      "regex": "^/terms\\-conditions(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/terms\\-conditions(?:/)?$"
+    },
+    {
+      "page": "/wishlist",
+      "regex": "^/wishlist(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/wishlist(?:/)?$"
+    }
+  ],
+  "dataRoutes": [],
+  "rsc": {
+    "header": "rsc",
+    "varyHeader": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+    "prefetchHeader": "next-router-prefetch",
+    "didPostponeHeader": "x-nextjs-postponed",
+    "contentTypeHeader": "text/x-component",
+    "suffix": ".rsc",
+    "prefetchSegmentHeader": "next-router-segment-prefetch",
+    "prefetchSegmentSuffix": ".segment.rsc",
+    "prefetchSegmentDirSuffix": ".segments",
+    "clientParamParsing": false,
+    "dynamicRSCPrerender": false
+  },
+  "rewriteHeaders": {
+    "pathHeader": "x-nextjs-rewritten-path",
+    "queryHeader": "x-nextjs-rewritten-query"
+  }
+}

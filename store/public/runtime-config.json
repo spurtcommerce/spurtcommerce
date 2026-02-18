@@ -1,0 +1,7 @@
+{
+  "apiBaseUrl": "http://localhost:8000/api",
+  "imageUrl": "http://localhost:8000/api/media/image-resize/",
+  "storeKey": "8097571064818418",
+  "industrySlug": "electronics",
+  "environment": "development"
+}

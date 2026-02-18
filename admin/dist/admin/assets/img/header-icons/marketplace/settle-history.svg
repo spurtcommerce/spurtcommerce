@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="18" height="25" viewBox="0 0 18 25">
+    <defs>
+        <filter id="09ykmbtwba" color-interpolation-filters="auto">
+            <feColorMatrix in="SourceGraphic" values="0 0 0 0 1.000000 0 0 0 0 1.000000 0 0 0 0 1.000000 0 0 0 1.000000 0"/>
+        </filter>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <g filter="url(#09ykmbtwba)" transform="translate(-16.000000, -557.000000)">
+            <g fill="#000" fill-rule="nonzero">
+                <path d="M5.208.431L.436 5.147 5.208 5.147zM8.929 9.559c-2.462 0-4.465 1.979-4.465 4.412 0 2.432 2.003 4.411 4.465 4.411 2.461 0 4.464-1.979 4.464-4.411 0-2.433-2.003-4.412-4.464-4.412zm2.976 5.147h-3.72v-3.677h1.488v2.206h2.232v1.47z" transform="translate(16.000000, 557.000000)"/>
+                <path d="M6.696 0v6.618H0V25h17.857V0H6.697zM8.93 19.853c-3.283 0-5.953-2.639-5.953-5.882 0-3.244 2.67-5.883 5.953-5.883 3.282 0 5.952 2.64 5.952 5.883s-2.67 5.882-5.952 5.882z" transform="translate(16.000000, 557.000000)"/>
+            </g>
+        </g>
+    </g>
+</svg>

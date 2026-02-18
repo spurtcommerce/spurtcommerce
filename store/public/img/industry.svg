@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="21" viewBox="0 0 21 21">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_695" data-name="Rectangle 695" width="21" height="21" transform="translate(28 588)" fill="#fff" stroke="#4f5f6d" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="Mask_Group_83" data-name="Mask Group 83" transform="translate(-28 -588)" clip-path="url(#clip-path)">
+    <g id="Factory_1_" transform="translate(28 588)">
+      <path id="Path_2994" data-name="Path 2994" d="M11.751,20.549V13.043h6.3v7.505" fill="none" stroke="#4f5f6d" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.902"/>
+      <line id="Line_50" data-name="Line 50" x2="6.296" transform="translate(11.751 15.545)" fill="none" stroke="#4f5f6d" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.902"/>
+      <line id="Line_51" data-name="Line 51" x2="6.296" transform="translate(11.751 18.047)" fill="none" stroke="#4f5f6d" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.902"/>
+      <path id="Path_2995" data-name="Path 2995" d="M5.5,4.2A1.251,1.251,0,0,1,6.747,2.953H8A1.251,1.251,0,0,0,9.249,1.7V.451" fill="none" stroke="#4f5f6d" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.902"/>
+      <path id="Path_2996" data-name="Path 2996" d="M2.995,4.2A3.753,3.753,0,0,1,6.747.451" fill="none" stroke="#4f5f6d" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.902"/>
+      <path id="Path_2997" data-name="Path 2997" d="M.451,20.549h20.1V10.542H9.249v5H.451Z" fill="none" stroke="#4f5f6d" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.902"/>
+      <path id="Path_2998" data-name="Path 2998" d="M1.7,15.545l1.251-8.84H5.5l1.251,8.84" fill="none" stroke="#4f5f6d" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.902"/>
+      <path id="Path_2999" data-name="Path 2999" d="M8,20.549v-2.5H2.953v2.5" fill="none" stroke="#4f5f6d" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.902"/>
+    </g>
+  </g>
+</svg>

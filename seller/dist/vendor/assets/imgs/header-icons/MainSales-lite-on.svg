@@ -1,0 +1,5 @@
+<svg id="Tote" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <rect id="Rectangle" width="24" height="24" fill="none"/>
+  <path id="Path" d="M17.241,13.5H2.083a.75.75,0,0,1-.745-.667L0,.833A.75.75,0,0,1,.75,0H18.574a.75.75,0,0,1,.745.833l-1.333,12A.75.75,0,0,1,17.241,13.5Z" transform="translate(2.338 6.75)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"/>
+  <path id="Path-2" data-name="Path" d="M0,6.75v-3a3.75,3.75,0,0,1,7.5,0v3" transform="translate(8.25 3)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"/>
+</svg>

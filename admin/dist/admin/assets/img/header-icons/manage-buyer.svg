@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <g id="Group_13976" data-name="Group 13976" transform="translate(-220 -93)">
+    <rect id="Rectangle_4996" data-name="Rectangle 4996" width="16" height="16" transform="translate(220 93)" fill="none"/>
+    <g id="Ellipse_312" data-name="Ellipse 312" transform="translate(224 93)" fill="none" stroke="#fff" stroke-width="0.8">
+      <circle cx="4" cy="4" r="4" stroke="none"/>
+      <circle cx="4" cy="4" r="3.6" fill="none"/>
+    </g>
+    <path id="Vector_1_" data-name="Vector (1)" d="M7,11.947c-.522,0-3.192,0-3.425.046a2.732,2.732,0,0,0-1.9,1.523,7.407,7.407,0,0,0-.361,1.059A6.227,6.227,0,0,0,1,15.836a1.991,1.991,0,0,0,1.323,2.041c.232.07,4.047.07,4.674.07" transform="translate(220.5 90.553)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.8"/>
+    <path id="Union_1" data-name="Union 1" d="M-5901,718.875a1.871,1.871,0,0,1-1.327-.55l-.795.8.795-.8a1.869,1.869,0,0,1-.548-1.325h0a1.868,1.868,0,0,1,.549-1.326l-.8-.8.8.8a1.867,1.867,0,0,1,1.326-.55v0a1.869,1.869,0,0,1,1.325.549l.795-.795-.795.795a1.873,1.873,0,0,1,.549,1.327h0a1.87,1.87,0,0,1-.549,1.326l.795.795-.795-.795a1.867,1.867,0,0,1-1.325.549v0Z" transform="translate(6132.5 -611.5)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.8"/>
+  </g>
+</svg>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 16 16">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_6174" data-name="Rectangle 6174" width="16" height="16" transform="translate(559 131)" fill="#fff" stroke="#3f3f44" stroke-width="1.5"/>
+    </clipPath>
+  </defs>
+  <g id="Mask_Group_1060" data-name="Mask Group 1060" transform="translate(-559 -131)" clip-path="url(#clip-path)">
+    <g id="building-03-stroke-rounded_2_" data-name="building-03-stroke-rounded (2)" transform="translate(558.262 130.262)">
+      <path id="Path_8073" data-name="Path 8073" d="M11.907,7.442l1.558.467c1,.3,1.493.448,1.78.833s.287.905.287,1.944v5.455" transform="translate(-0.269 -0.153)" fill="none" stroke="#3f3f44" stroke-linejoin="round" stroke-width="1.5"/>
+      <path id="Path_8074" data-name="Path 8074" d="M5.953,6.7H8.128M5.953,9.6H8.128" transform="translate(-0.115 -0.134)" fill="none" stroke="#3f3f44" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+      <path id="Path_8075" data-name="Path 8075" d="M8.834,16.276V14.1c0-.684,0-1.025-.212-1.238s-.554-.212-1.238-.212H6.659c-.684,0-1.025,0-1.238.212s-.212.554-.212,1.238v2.175" transform="translate(-0.096 -0.288)" fill="none" stroke="#3f3f44" stroke-linejoin="round" stroke-width="1.5"/>
+      <path id="Path_8076" data-name="Path 8076" d="M1.488,16.372h14.5" transform="translate(0 -0.384)" fill="none" stroke="#3f3f44" stroke-linecap="round" stroke-width="1.5"/>
+      <path id="Path_8077" data-name="Path 8077" d="M2.233,15.988V4.908c0-1.82,0-2.73.574-3.182s1.418-.206,3.108.284L9.539,3.063c1.019.3,1.529.444,1.824.847s.295.952.295,2.051V15.988" transform="translate(-0.019)" fill="none" stroke="#3f3f44" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+    </g>
+  </g>
+</svg>

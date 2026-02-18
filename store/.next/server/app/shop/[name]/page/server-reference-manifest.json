@@ -1,0 +1,215 @@
+{
+  "node": {
+    "00520e0f09b6d059a85685c630a23974384bd8c21e": {
+      "workers": {
+        "app/shop/[name]/page": {
+          "moduleId": 17491,
+          "async": false,
+          "exportedName": "GetAddonsList",
+          "filename": "Documents/Antlijefri/spurtcommerce/b2c/spurt_community/5.3/spurtcommerce-v5-storefront/src/utilities/cookies.js"
+        }
+      },
+      "layer": {
+        "app/shop/[name]/page": "action-browser"
+      },
+      "exportedName": "GetAddonsList",
+      "filename": "Documents/Antlijefri/spurtcommerce/b2c/spurt_community/5.3/spurtcommerce-v5-storefront/src/utilities/cookies.js"
+    },
+    "005924796f70394ae530ba873b7bca4915466cfb52": {
+      "workers": {
+        "app/shop/[name]/page": {
+          "moduleId": 17491,
+          "async": false,
+          "exportedName": "getUserInfo",
+          "filename": "Documents/Antlijefri/spurtcommerce/b2c/spurt_community/5.3/spurtcommerce-v5-storefront/src/utilities/cookies.js"
+        }
+      },
+      "layer": {
+        "app/shop/[name]/page": "rsc"
+      },
+      "exportedName": "getUserInfo",
+      "filename": "Documents/Antlijefri/spurtcommerce/b2c/spurt_community/5.3/spurtcommerce-v5-storefront/src/utilities/cookies.js"
+    },
+    "005c229eb7bc845fcbcd9251a08269aeb20d55c9f9": {
+      "workers": {
+        "app/shop/[name]/page": {
+          "moduleId": 17491,
+          "async": false,
+          "exportedName": "LanguageKeyValue",
+          "filename": "Documents/Antlijefri/spurtcommerce/b2c/spurt_community/5.3/spurtcommerce-v5-storefront/src/utilities/cookies.js"
+        }
+      },
+      "layer": {
+        "app/shop/[name]/page": "rsc"
+      },
+      "exportedName": "LanguageKeyValue",
+      "filename": "Documents/Antlijefri/spurtcommerce/b2c/spurt_community/5.3/spurtcommerce-v5-storefront/src/utilities/cookies.js"
+    },
+    "0061a713b6c1df55d02091334fa961f77a77e2abb8": {
+      "workers": {
+        "app/shop/[name]/page": {
+          "moduleId": 17491,
+          "async": false,
+          "exportedName": "Cookiesremove",
+          "filename": "Documents/Antlijefri/spurtcommerce/b2c/spurt_community/5.3/spurtcommerce-v5-storefront/src/utilities/cookies.js"
+        }
+      },
+      "layer": {
+        "app/shop/[name]/page": "action-browser"
+      },
+      "exportedName": "Cookiesremove",
+      "filename": "Documents/Antlijefri/spurtcommerce/b2c/spurt_community/5.3/spurtcommerce-v5-storefront/src/utilities/cookies.js"
+    },
+    "0063200934ce9f749eba864f679210b5032f1e309d": {
+      "workers": {
+        "app/shop/[name]/page": {
+          "moduleId": 17491,
+          "async": false,
+          "exportedName": "ClearCookies",
+          "filename": "Documents/Antlijefri/spurtcommerce/b2c/spurt_community/5.3/spurtcommerce-v5-storefront/src/utilities/cookies.js"
+        }
+      },
+      "layer": {
+        "app/shop/[name]/page": "action-browser"
+      },
+      "exportedName": "ClearCookies",
+      "filename": "Documents/Antlijefri/spurtcommerce/b2c/spurt_community/5.3/spurtcommerce-v5-storefront/src/utilities/cookies.js"
+    },
+    "00bd9ac15618132d617715b82f154f6a6963b4f389": {
+      "workers": {
+        "app/shop/[name]/page": {
+          "moduleId": 17491,
+          "async": false,
+          "exportedName": "GetToken",
+          "filename": "Documents/Antlijefri/spurtcommerce/b2c/spurt_community/5.3/spurtcommerce-v5-storefront/src/utilities/cookies.js"
+        }
+      },
+      "layer": {
+        "app/shop/[name]/page": "rsc"
+      },
+      "exportedName": "GetToken",
+      "filename": "Documents/Antlijefri/spurtcommerce/b2c/spurt_community/5.3/spurtcommerce-v5-storefront/src/utilities/cookies.js"
+    },
+    "4013c0b2706a82bf574b090f3cb3c616361985e9f1": {
+      "workers": {
+        "app/shop/[name]/page": {
+          "moduleId": 17491,
+          "async": false,
+          "exportedName": "getCookie",
+          "filename": "Documents/Antlijefri/spurtcommerce/b2c/spurt_community/5.3/spurtcommerce-v5-storefront/src/utilities/cookies.js"
+        }
+      },
+      "layer": {
+        "app/shop/[name]/page": "rsc"
+      },
+      "exportedName": "getCookie",
+      "filename": "Documents/Antlijefri/spurtcommerce/b2c/spurt_community/5.3/spurtcommerce-v5-storefront/src/utilities/cookies.js"
+    },
+    "404f684b13372d8b7fa1fe1da47a4f4759846fd5ec": {
+      "workers": {
+        "app/shop/[name]/page": {
+          "moduleId": 17491,
+          "async": false,
+          "exportedName": "Passwordchangecookies",
+          "filename": "Documents/Antlijefri/spurtcommerce/b2c/spurt_community/5.3/spurtcommerce-v5-storefront/src/utilities/cookies.js"
+        }
+      },
+      "layer": {
+        "app/shop/[name]/page": "rsc"
+      },
+      "exportedName": "Passwordchangecookies",
+      "filename": "Documents/Antlijefri/spurtcommerce/b2c/spurt_community/5.3/spurtcommerce-v5-storefront/src/utilities/cookies.js"
+    },
+    "40bcc456a9f911c9a283c3042cdb0d9500a88e38df": {
+      "workers": {
+        "app/shop/[name]/page": {
+          "moduleId": 17491,
+          "async": false,
+          "exportedName": "Cookiescategory",
+          "filename": "Documents/Antlijefri/spurtcommerce/b2c/spurt_community/5.3/spurtcommerce-v5-storefront/src/utilities/cookies.js"
+        }
+      },
+      "layer": {
+        "app/shop/[name]/page": "action-browser"
+      },
+      "exportedName": "Cookiescategory",
+      "filename": "Documents/Antlijefri/spurtcommerce/b2c/spurt_community/5.3/spurtcommerce-v5-storefront/src/utilities/cookies.js"
+    },
+    "40d81aa63fb2d3210f460129ca209a789979690b31": {
+      "workers": {
+        "app/shop/[name]/page": {
+          "moduleId": 17491,
+          "async": false,
+          "exportedName": "CookiesetAddon",
+          "filename": "Documents/Antlijefri/spurtcommerce/b2c/spurt_community/5.3/spurtcommerce-v5-storefront/src/utilities/cookies.js"
+        }
+      },
+      "layer": {
+        "app/shop/[name]/page": "action-browser"
+      },
+      "exportedName": "CookiesetAddon",
+      "filename": "Documents/Antlijefri/spurtcommerce/b2c/spurt_community/5.3/spurtcommerce-v5-storefront/src/utilities/cookies.js"
+    },
+    "6002fadce15f3f873058d09ed1a8ca7911bc010c18": {
+      "workers": {
+        "app/shop/[name]/page": {
+          "moduleId": 17491,
+          "async": false,
+          "exportedName": "CookiesDescription",
+          "filename": "Documents/Antlijefri/spurtcommerce/b2c/spurt_community/5.3/spurtcommerce-v5-storefront/src/utilities/cookies.js"
+        }
+      },
+      "layer": {
+        "app/shop/[name]/page": "action-browser"
+      },
+      "exportedName": "CookiesDescription",
+      "filename": "Documents/Antlijefri/spurtcommerce/b2c/spurt_community/5.3/spurtcommerce-v5-storefront/src/utilities/cookies.js"
+    },
+    "602d4d8a281c3b788d48d9bad3de03061880e65cc7": {
+      "workers": {
+        "app/shop/[name]/page": {
+          "moduleId": 17491,
+          "async": false,
+          "exportedName": "Cookieslanguage",
+          "filename": "Documents/Antlijefri/spurtcommerce/b2c/spurt_community/5.3/spurtcommerce-v5-storefront/src/utilities/cookies.js"
+        }
+      },
+      "layer": {
+        "app/shop/[name]/page": "action-browser"
+      },
+      "exportedName": "Cookieslanguage",
+      "filename": "Documents/Antlijefri/spurtcommerce/b2c/spurt_community/5.3/spurtcommerce-v5-storefront/src/utilities/cookies.js"
+    },
+    "6083cb6b699caa9b5d0ab489cafb4f8c878a4836af": {
+      "workers": {
+        "app/shop/[name]/page": {
+          "moduleId": 17491,
+          "async": false,
+          "exportedName": "setCookie",
+          "filename": "Documents/Antlijefri/spurtcommerce/b2c/spurt_community/5.3/spurtcommerce-v5-storefront/src/utilities/cookies.js"
+        }
+      },
+      "layer": {
+        "app/shop/[name]/page": "rsc"
+      },
+      "exportedName": "setCookie",
+      "filename": "Documents/Antlijefri/spurtcommerce/b2c/spurt_community/5.3/spurtcommerce-v5-storefront/src/utilities/cookies.js"
+    },
+    "60c1b95710a6e3fb499465b9a00441c9529e1315af": {
+      "workers": {
+        "app/shop/[name]/page": {
+          "moduleId": 17491,
+          "async": false,
+          "exportedName": "setLoginCookies",
+          "filename": "Documents/Antlijefri/spurtcommerce/b2c/spurt_community/5.3/spurtcommerce-v5-storefront/src/utilities/cookies.js"
+        }
+      },
+      "layer": {
+        "app/shop/[name]/page": "action-browser"
+      },
+      "exportedName": "setLoginCookies",
+      "filename": "Documents/Antlijefri/spurtcommerce/b2c/spurt_community/5.3/spurtcommerce-v5-storefront/src/utilities/cookies.js"
+    }
+  },
+  "edge": {}
+}

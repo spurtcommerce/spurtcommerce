@@ -1,0 +1,3 @@
+module.exports=[69478,(a,b,c)=>{let{createClientModuleProxy:d}=a.r(72411);a.n(d("[project]/Documents/Antlijefri/spurtcommerce/b2c/spurt_community/5.3/spurtcommerce-v5-storefront/node_modules/next/dist/client/components/builtin/global-error.js <module evaluation>"))},98659,(a,b,c)=>{let{createClientModuleProxy:d}=a.r(72411);a.n(d("[project]/Documents/Antlijefri/spurtcommerce/b2c/spurt_community/5.3/spurtcommerce-v5-storefront/node_modules/next/dist/client/components/builtin/global-error.js"))},85415,a=>{"use strict";a.i(69478);var b=a.i(98659);a.n(b)}];
+
+//# sourceMappingURL=7bcd1_next_dist_client_components_builtin_global-error_87735e75.js.map

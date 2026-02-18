@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="35" height="32" viewBox="0 0 35 32">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_2398" data-name="Rectangle 2398" width="32" height="32" transform="translate(721 270)" fill="#fff" stroke="#d4d5d8" stroke-width="1.7"/>
+    </clipPath>
+  </defs>
+  <g id="Group_2966" data-name="Group 2966" transform="translate(-726 -273)">
+    <g id="Mask_Group_125" data-name="Mask Group 125" transform="translate(5 3)" clip-path="url(#clip-path)">
+      <g id="coupon-svgrepo-com" transform="translate(717.8 266.8)">
+        <path id="secondary" d="M20.8,8v2.4m0,5.6v6.4m0,5.6v2.4" fill="none" stroke="#d4d5d8" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"/>
+        <path id="primary" d="M33.6,9.6V28.8A1.6,1.6,0,0,1,32,30.4H6.4a1.6,1.6,0,0,1-1.6-1.6V24a4.8,4.8,0,1,0,0-9.6V9.6A1.6,1.6,0,0,1,6.4,8H32A1.6,1.6,0,0,1,33.6,9.6Z" fill="none" stroke="#d4d5d8" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"/>
+      </g>
+    </g>
+    <g id="Ellipse_282" data-name="Ellipse 282" transform="translate(747 273)" fill="#fff" stroke="#d4d5d8" stroke-width="1.7">
+      <circle cx="7" cy="7" r="7" stroke="none"/>
+      <circle cx="7" cy="7" r="6.15" fill="none"/>
+    </g>
+    <path id="Path_5608" data-name="Path 5608" d="M30.322,24.6H27.461V21.74a.572.572,0,0,0-1.144,0V24.6H23.457a.572.572,0,0,0,0,1.144h2.861v2.861a.572.572,0,1,0,1.144,0V25.745h2.861A.572.572,0,0,0,30.322,24.6Z" transform="translate(727.115 254.823)" fill="#188af1" stroke="#158af0" stroke-width="0.4"/>
+  </g>
+</svg>
