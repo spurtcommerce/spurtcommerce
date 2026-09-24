@@ -1,0 +1,353 @@
+{
+    "customer": {
+        "firstName": "John",
+        "lastName": "Doe",
+        "username": "johndoe@gmail.com",
+        "email": "johndoe@gmail.com",
+        "password": "Welcome123$",
+        "phoneNumber": "9876543210",
+        "address1": "45 Anna Salai",
+        "address2": "Guindy",
+        "city": "Chennai",
+        "state": "Tamil Nadu",
+        "postcode": "600032",
+        "company": "Chennai Industries Pvt. Ltd.",
+        "landmark": "Near Guindy Metro Station",
+        "customerGroup": {
+            "name": "Frequent Buyers",
+            "description": "Customers who shop with us regularly and enjoy exclusive benefits and rewards for their loyalty."
+        },
+        "customerUsers": [
+            {
+                "firstName": "James",
+                "lastName": "Doe",
+                "username": "james123@gmail.com",
+                "email": "james123@gmail.com",
+                "password": "Welcome123$",
+                "phoneNumber": "9876543210",
+                "role": "Account Manager",
+                "roleDescription": "Builds and maintains strong client relationships, ensuring business needs and goals are met efficiently.",
+                "permission": {
+                    "view-checkout": true,
+                    "create-checkout": true,
+                    "edit-checkout": true,
+                    "delete-checkout": true,
+                    "view-customer-address": true,
+                    "create-customer-address": true,
+                    "edit-customer-address": true,
+                    "delete-customer-address": true,
+                    "view-customer-profile": true,
+                    "create-customer-profile": true,
+                    "edit-customer-profile": true,
+                    "delete-customer-profile": true,
+                    "view-customer-user": true,
+                    "create-customer-user": true,
+                    "edit-customer-user": true,
+                    "delete-customer-user": true,
+                    "view-customer-user-role": true,
+                    "create-customer-user-role": true,
+                    "edit-customer-user-role": true,
+                    "delete-customer-user-role": true,
+                    "view-order-history": true,
+                    "create-order-history": true,
+                    "edit-order-history": true,
+                    "view-quote": true,
+                    "create-quote": true,
+                    "view-request-for-quote": true,
+                    "create-request-for-quote": true,
+                    "edit-request-for-quote": true,
+                    "view-shopping-list": true,
+                    "create-shopping-list": true,
+                    "edit-shopping-list": true,
+                    "delete-shopping-list": true,
+                    "view-shopping-list-line-item": true,
+                    "edit-shopping-list-line-item": true,
+                    "delete-shopping-list-line-item": true
+                }
+            },
+            {
+                "firstName": "Jane",
+                "lastName": "Smith",
+                "username": "janesmith123@gmail.com",
+                "email": "janesmith123@gmail.com",
+                "password": "Welcome123$",
+                "phoneNumber": "9876501234",
+                "role": "Sales Representative",
+                "roleDescription": "Manages client accounts, processes orders, and supports customers to drive sales and satisfaction.",
+                "permission": {
+                    "view-checkout": true,
+                    "create-checkout": true,
+                    "edit-checkout": true,
+                    "delete-checkout": true,
+                    "view-customer-address": true,
+                    "create-customer-address": true,
+                    "edit-customer-address": true,
+                    "delete-customer-address": true,
+                    "view-customer-profile": true,
+                    "create-customer-profile": true,
+                    "edit-customer-profile": true,
+                    "delete-customer-profile": true,
+                    "view-customer-user": true,
+                    "create-customer-user": true,
+                    "edit-customer-user": true,
+                    "delete-customer-user": true,
+                    "view-customer-user-role": true,
+                    "create-customer-user-role": true,
+                    "edit-customer-user-role": true,
+                    "delete-customer-user-role": true,
+                    "view-order-history": true,
+                    "create-order-history": true,
+                    "edit-order-history": true,
+                    "view-quote": true,
+                    "create-quote": true,
+                    "view-request-for-quote": true,
+                    "create-request-for-quote": true,
+                    "edit-request-for-quote": true,
+                    "view-shopping-list": true,
+                    "create-shopping-list": true,
+                    "edit-shopping-list": true,
+                    "delete-shopping-list": true,
+                    "view-shopping-list-line-item": true,
+                    "edit-shopping-list-line-item": true,
+                    "delete-shopping-list-line-item": true
+                }
+            }
+        ]
+    },
+    "pageGroups": [
+        {
+            "name": "Support",
+            "slug": "support",
+            "pages": [
+                {
+                    "title": "Help Center",
+                    "slug": "help-center",
+                    "content": "<p>Welcome to the Help Center. Find answers to common questions here.</p>"
+                },
+                {
+                    "title": "FAQs",
+                    "slug": "faqs",
+                    "content": "<p>Browse frequently asked questions about payments, orders, and services.</p>"
+                },
+                {
+                    "title": "Contact Support",
+                    "slug": "contact-support",
+                    "content": "<p>Need help? Reach out to our support team via email, phone, or live chat.</p>"
+                }
+            ]
+        },
+        {
+            "name": "Customer Support",
+            "slug": "customer-support",
+            "pages": [
+                {
+                    "title": "Track Orders",
+                    "slug": "track-orders",
+                    "content": "<p>Track your orders in real time and get shipment updates instantly.</p>"
+                },
+                {
+                    "title": "Returns & Refunds",
+                    "slug": "returns-refunds",
+                    "content": "<p>Learn about our return and refund process, including payment techniques.</p>"
+                },
+                {
+                    "title": "Warranty Claims",
+                    "slug": "warranty-claims",
+                    "content": "<p>Submit warranty claims and check the status of your service requests.</p>"
+                }
+            ]
+        },
+        {
+            "name": "Service Provider",
+            "slug": "service-provider",
+            "pages": [
+                {
+                    "title": "Partner With Us",
+                    "slug": "partner-with-us",
+                    "content": "<p>Become a service partner and expand your business opportunities.</p>"
+                },
+                {
+                    "title": "Installation Services",
+                    "slug": "installation-services",
+                    "content": "<p>Request installation services from certified professionals.</p>"
+                },
+                {
+                    "title": "Repair & Maintenance",
+                    "slug": "repair-maintenance",
+                    "content": "<p>Find repair and maintenance help, including payment options for services.</p>"
+                }
+            ]
+        },
+        {
+            "name": "Help",
+            "slug": "help",
+            "pages": [
+                {
+                    "title": "Getting Started",
+                    "slug": "getting-started",
+                    "content": "<p>Learn how to get started with our platform step by step.</p>"
+                },
+                {
+                    "title": "User Guides",
+                    "slug": "user-guides",
+                    "content": "<p>Download user guides that explain key features and payment techniques.</p>"
+                },
+                {
+                    "title": "Video Tutorials",
+                    "slug": "video-tutorials",
+                    "content": "<p>Watch tutorials to understand how to use our platform effectively.</p>"
+                }
+            ]
+        },
+        {
+            "name": "Resources",
+            "slug": "resources",
+            "pages": [
+                {
+                    "title": "Knowledge Base",
+                    "slug": "knowledge-base",
+                    "content": "<p>Access detailed articles and technical documents.</p>"
+                },
+                {
+                    "title": "Community Forum",
+                    "slug": "community-forum",
+                    "content": "<p>Join discussions with other users and share solutions.</p>"
+                },
+                {
+                    "title": "System Updates",
+                    "slug": "system-updates",
+                    "content": "<p>Stay updated with the latest system changes and improvements.</p>"
+                }
+            ]
+        }
+    ],
+    "supportTicket": [
+        {
+            "category": "Order",
+            "subCategory": "Delivery",
+            "subject": "Order delayed",
+            "description": "Order not delivered on expected date.",
+            "userType": "buyer",
+            "message": [
+                {
+                    "message": "When will my order arrive?",
+                    "senderType": "buyer"
+                },
+                {
+                    "message": "Your order will be delivered tomorrow.",
+                    "senderType": "seller"
+                }
+            ]
+        },
+        {
+            "category": "Payment",
+            "subCategory": "Pending",
+            "subject": "Payment not received",
+            "description": "Buyer has not completed the payment for the last order.",
+            "userType": "seller",
+            "message": [
+                {
+                    "message": "Kindly complete the payment for invoice #1234.",
+                    "senderType": "seller"
+                },
+                {
+                    "message": "Payment will be processed today.",
+                    "senderType": "buyer"
+                }
+            ]
+        },
+        {
+            "category": "Product",
+            "subCategory": "Quality",
+            "subject": "Damaged item received",
+            "description": "One of the products in the shipment arrived damaged.",
+            "userType": "buyer",
+            "message": [
+                {
+                    "message": "I received a damaged product in my order. Please advise.",
+                    "senderType": "buyer"
+                },
+                {
+                    "message": "Sorry for the issue. We will arrange a replacement immediately.",
+                    "senderType": "seller"
+                }
+            ]
+        }
+    ],
+    "blog": [
+        {
+            "title": "How to Enhance Customer Experience",
+            "category": "Business",
+            "description": "<p>Great customer experience is the backbone of any successful business. From seamless service to personalized support, focusing on customers drives growth in every industry.</p>",
+            "image": "logo.jpg"
+        },
+        {
+            "title": "The Importance of Data Security",
+            "category": "Technology",
+            "description": "<p>Data protection is crucial across industries. Implementing strong security measures ensures trust, compliance, and protection from cyber threats.</p>",
+            "image": "logo.jpg"
+        },
+        {
+            "title": "Future of Digital Transformation",
+            "category": "Innovation",
+            "description": "<p>Digital tools are reshaping businesses worldwide. Automation, AI, and cloud adoption are driving efficiency, sustainability, and customer satisfaction in all sectors.</p>",
+            "image": "logo.jpg"
+        },
+        {
+            "title": "Sustainability Matters Everywhere",
+            "category": "Sustainability",
+            "description": "<p>Eco-friendly practices are not limited to one industry. From packaging to production, every sector can contribute to a greener planet.</p>",
+            "image": "logo.jpg"
+        },
+        {
+            "title": "Why Employee Well-being Drives Success",
+            "category": "Workplace",
+            "description": "<p>Healthy, motivated employees boost productivity and innovation. Investing in well-being programs benefits businesses of every size and industry.</p>",
+            "image": "logo.jpg"
+        }
+    ],
+    "contacts": [
+        {
+            "firstName": "John",
+            "lastName": "Doe",
+            "email": "john.doe@example.com",
+            "phoneNumber": "+1-202-555-0147",
+            "description": "Procurement Manager at ABC Corp.",
+            "isActive": "1",
+            "shippingFirstName": "John",
+            "shippingLastName": "Doe",
+            "shippingAddress1": "ABC Corp. Building 12, 5th Avenue, Midtown",
+            "shippingAddress2": "Floor 3",
+            "shippingCity": "New York",
+            "shippingPostcode": "10001"
+        },
+        {
+            "firstName": "Priya",
+            "lastName": "Sharma",
+            "email": "priya.sharma@example.in",
+            "phoneNumber": "+91-9876543210",
+            "description": "Freelance Graphic Designer.",
+            "isActive": "0",
+            "shippingFirstName": "Priya",
+            "shippingLastName": "Sharma",
+            "shippingAddress1": "Flat No. 204, Green Heights, Sector 45",
+            "shippingAddress2": "Near Huda Market",
+            "shippingCity": "Gurgaon",
+            "shippingPostcode": "122003"
+        },
+        {
+            "firstName": "Liam",
+            "lastName": "Smith",
+            "email": "liam.smith@example.co.uk",
+            "phoneNumber": "+44-7700-900123",
+            "description": "Logistics Coordinator at XYZ Ltd.",
+            "isActive": "1",
+            "shippingFirstName": "Liam",
+            "shippingLastName": "Smith",
+            "shippingAddress1": "XYZ Ltd. Warehouse 5, Baker Street",
+            "shippingAddress2": "Block A",
+            "shippingCity": "London",
+            "shippingPostcode": "647463"
+        }
+    ]
+}

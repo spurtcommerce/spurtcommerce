@@ -1,0 +1,349 @@
+[
+  {
+    "type": 2,
+    "name": "USB-C Fast Charging Cable",
+    "slug": "usb-c-fast-charging-cable",
+    "description": "<p>Durable and fast USB-C cable supporting up to 60W charging and 480 Mbps data transfer.</p>",
+    "shortDescription": "Durable USB-C charging and data cable.",
+    "family": "Mobile Accessories",
+    "categories": [
+      "Charging cables"
+    ],
+    "categoryTemplate": "Shop the latest {{categoryName}} engineered for innovation, performance, and reliability to power your modern lifestyle.",
+    "images": [
+      "charge-cable-product-image.png"
+    ],
+    "price": "129",
+    "productDiscount": 100,
+    "productSpecial": 90,
+    "quantity": "300",
+    "productHighlights": [
+      {
+        "data": "<ul><li>Supports up to 60W fast charging</li><li>480 Mbps high-speed data transfer</li><li>Durable braided design</li><li>Reversible USB-C connector</li></ul>"
+      }
+    ],
+    "attributes": [],
+    "variations": [],
+    "banner": {
+      "title": "Charge Fast, Live More",
+      "content": "Supercharge your devices with our premium USB-C fast charging cable.",
+      "position": 2,
+      "status": 1,
+      "linkType": 1,
+      "bannerImages": [
+        {
+          "image": "Consumer Electronics-2.png",
+          "isPrimary": 1
+        }
+      ]
+    },
+    "widget": {
+      "title": "Essential Tech Picks",
+      "widgetLongTitle": "Daily Tech That Keeps You Connected",
+      "content": "Discover our best selling essentials like fast charging cables wireless mice and crystal clear earphones all built for your everyday tech needs",
+      "position": 1
+    },
+    "shoppingCart": {
+      "name": "Electronic Essentials",
+      "isDefault": 1,
+      "notes": "Includes essential tech items like cables, chargers, and earphones."
+    },
+    "questionsAnswers": {
+      "question": "Does this cable support fast charging?",
+      "answer": "Yes, it supports up to 60W fast charging, making it suitable for phones, tablets, and even some laptops."
+    },
+    "ratingAndReview": {
+      "rating": 5,
+      "review": "Excellent build quality, fast charging, and durable design."
+    },
+    "pricingGroup": {
+      "name": "Wholesale Buyers",
+      "description": "Special discounted pricing for bulk or wholesale customers.",
+      "isDefault": 0,
+      "price": "99",
+      "maxQuantity": "100"
+    }
+  },
+  {
+    "type": 0,
+    "name": "Wireless Charging Pad",
+    "slug": "wireless-charging-pad",
+    "description": "<p>Qi-certified wireless charger compatible with most smartphones. Sleek, non-slip design with fast charge support.</p>",
+    "shortDescription": "Qi-certified wireless charging pad for fast, safe charging.",
+    "family": "Charging Accessories",
+    "categories": [
+      "Wireless chargers"
+    ],
+    "categoryTemplate": "Shop the latest {{categoryName}} engineered for innovation, performance, and reliability to power your modern lifestyle.",
+    "images": [
+      "wireless_charger.jpg"
+    ],
+    "price": "299",
+    "quantity": "50",
+    "productHighlights": [
+      {
+        "data": "<ul><li>Fast charge up to 10W</li><li>Qi-certified compatibility</li><li>Non-slip silicone ring</li><li>Slim and stylish build</li></ul>"
+      }
+    ],
+    "attributes": [
+      {
+        "name": "Color",
+        "values": [
+          "Black",
+          "White"
+        ],
+        "attrGroupName": "Appearance",
+        "sortOrder": 1,
+        "description": "Available in classic Black and White shades, offering a sleek and timeless look. The Black finish adds a bold, modern touch, while White gives a clean, elegant feel. Choose the color that best complements your personal style or environment."
+      },
+      {
+        "name": "Power Output",
+        "values": [
+          "5W",
+          "10W"
+        ],
+        "sortOrder": 2,
+        "attrGroupName": "Technical Details",
+        "description": "Designed with dual power output options — 5W and 10W — for flexible performance. The 5W mode ensures energy-efficient use, while 10W delivers stronger output. Perfect for users who value both efficiency and high performance."
+      }
+    ],
+    "variations": [
+      {
+        "sku": "WCP-BLK-10W",
+        "price": "299",
+        "salePrice": "279",
+        "quantity": "40",
+        "Variant 1 name": "Color",
+        "Variant 1 value": "Black",
+        "Variant 2 name": "Power Output",
+        "Variant 2 value": "10W",
+        "images": [
+          "wireless_charger.jpg"
+        ]
+      },
+      {
+        "sku": "WCP-WHT-5W",
+        "price": "299",
+        "salePrice": "259",
+        "quantity": "35",
+        "Variant 1 name": "Color",
+        "Variant 1 value": "White",
+        "Variant 2 name": "Power Output",
+        "Variant 2 value": "5W",
+        "images": [
+          "wireless_charger.jpg"
+        ]
+      }
+    ],
+    "banner": {
+      "title": "Live More charges",
+      "content": "Supercharge your devices with our premium USB-C fast charging cable.",
+      "position": 1,
+      "status": 1,
+      "linkType": 1,
+      "bannerImages": [
+        {
+          "image": "Consumer Electronics-1@1x.png",
+          "isPrimary": 1
+        }
+      ]
+    },
+    "widget": {
+      "title": "Essential Tech Picks",
+      "widgetLongTitle": "Reliable Devices for Work and Play",
+      "content": "Explore high speed connectivity and storage solutions from USB C hubs and chargers to portable SSDs and power banks perfect for work and play",
+      "position": 3
+    },
+    "questionsAnswers": {
+      "question": "Does this charging pad work with iPhone and Samsung devices?",
+      "answer": "Yes, it is Qi-certified and works with most smartphones that support wireless charging, including iPhone and Samsung Galaxy models."
+    },
+    "ratingAndReview": {
+      "rating": 4,
+      "review": "Charges my phone reliably. A bit slower than wired but very convenient."
+    },
+    "pricingGroup": {
+      "name": "Mobile Accessory Wholesalers",
+      "description": "Discounted rates for distributors and resellers of mobile accessories.",
+      "isDefault": 0,
+      "price": "249",
+      "maxQuantity": "40"
+    }
+  },
+  {
+    "type": 2,
+    "name": "Wireless Bluetooth Mouse",
+    "slug": "wireless-bluetooth-mouse",
+    "description": "<p>Ergonomic wireless Bluetooth mouse designed for smooth navigation and precise control. Compatible with laptops, desktops, tablets, and other Bluetooth-enabled electronic devices.</p>",
+    "shortDescription": "Ergonomic wireless mouse for everyday electronics use.",
+    "family": "Electronics",
+    "categories": [
+      "Electronic Accessories",
+      "Input Devices"
+    ],
+    "categoryTemplate": "Discover high-quality {{categoryName}} designed to enhance comfort, productivity, and performance across your electronic devices.",
+    "images": [
+      "bluetooth-mouse-product.png"
+    ],
+    "price": "699",
+    "productDiscount": 120,
+    "productSpecial": 599,
+    "quantity": "200",
+    "productHighlights": [
+      {
+        "data": "<ul><li>Bluetooth wireless connectivity</li><li>Adjustable DPI for precise control</li><li>Ergonomic silent-click design</li><li>Compatible with laptops, tablets, and desktops</li><li>Energy-efficient long battery life</li></ul>"
+      }
+    ],
+    "attributes": [],
+    "variations": [],
+    "widget": {
+      "title": "Essential Tech Picks",
+      "widgetLongTitle": "Accessories That Improve Your Digital Experience",
+      "content": "Upgrade your setup with reliable electronics accessories including mice, keyboards, cables, and adapters.",
+      "position": 2
+    },
+    "shoppingCart": {
+      "name": "Electronics Store",
+      "isDefault": 0,
+      "notes": "Includes productivity-focused electronic accessories."
+    },
+    "questionsAnswers": {
+      "question": "Does this mouse work with tablets and laptops?",
+      "answer": "Yes, it supports Bluetooth connectivity and works with laptops, tablets, and other compatible electronic devices."
+    },
+    "ratingAndReview": {
+      "rating": 4.6,
+      "review": "Smooth tracking, comfortable grip, and excellent battery performance."
+    },
+    "pricingGroup": {
+      "name": "Wholesale Electronics Buyers",
+      "description": "Discounted pricing for bulk purchases of electronic accessories.",
+      "isDefault": 0,
+      "price": "549",
+      "maxQuantity": "80"
+    }
+  },
+  {
+    "type": 2,
+    "name": "Portable Power Bank 10000mAh",
+    "slug": "portable-power-bank-10000mah",
+    "description": "<p>Compact and reliable 10000mAh power bank designed to keep your electronic devices charged on the go. Supports fast charging with multiple safety protections.</p>",
+    "shortDescription": "Fast charging portable power bank for electronics.",
+    "family": "Electronics",
+    "categories": [
+      "Electronic Accessories",
+      "Power Solutions"
+    ],
+    "categoryTemplate": "Explore dependable {{categoryName}} built to deliver power, safety, and performance for modern electronic devices.",
+    "images": [
+      "power-bank-10000mah.png"
+    ],
+    "price": "1499",
+    "productDiscount": 200,
+    "productSpecial": 1299,
+    "quantity": "150",
+    "productHighlights": [
+      {
+        "data": "<ul><li>10000mAh high-capacity battery</li><li>Fast charging support</li><li>Dual USB output ports</li><li>Compact and travel-friendly design</li><li>Multi-layer safety protection</li></ul>"
+      }
+    ],
+    "attributes": [],
+    "variations": [],
+    "widget": {
+      "title": "Essential Tech Picks",
+      "widgetLongTitle": "Reliable Power Accessories for Everyday Electronics",
+      "content": "Discover essential electronics accessories including power banks, chargers, and cables designed for daily use.",
+      "position": 1
+    },
+    "shoppingCart": {
+      "name": "Electronics Store",
+      "isDefault": 1,
+      "notes": "Includes power and charging electronic accessories."
+    },
+    "questionsAnswers": {
+      "question": "Is this power bank allowed on flights?",
+      "answer": "Yes, the 10000mAh capacity is generally permitted in carry-on luggage by most airlines."
+    },
+    "ratingAndReview": {
+      "rating": 4.7,
+      "review": "Compact, reliable, and charges devices quickly."
+    },
+    "pricingGroup": {
+      "name": "Bulk Electronics Buyers",
+      "description": "Special pricing for bulk or wholesale purchases.",
+      "isDefault": 0,
+      "price": "1199",
+      "maxQuantity": "50"
+    }
+  },
+  {
+    "type": 0,
+    "name": "USB-C Wall Charger 20W",
+    "slug": "usb-c-wall-charger-20w",
+    "description": "<p>Compact 20W USB-C wall charger designed for fast and efficient charging of modern electronic devices. Built with advanced safety protection and a travel-friendly form factor.</p>",
+    "shortDescription": "20W fast USB-C wall charger for electronics.",
+    "family": "Electronics",
+    "categories": [
+      "Electronic Accessories"
+    ],
+    "categoryTemplate": "Explore advanced {{categoryName}} designed for safe, fast, and efficient power delivery for everyday electronics.",
+    "images": [
+      "usb-c-wall-charger.jpg"
+    ],
+    "price": "499",
+    "quantity": "80",
+    "productHighlights": [
+      {
+        "data": "<ul><li>20W fast charging support</li><li>USB-C Power Delivery (PD)</li><li>Over-voltage and short-circuit protection</li><li>Compact and lightweight design</li><li>Universal device compatibility</li></ul>"
+      }
+    ],
+    "attributes": [
+      {
+        "name": "Color",
+        "values": [
+          "White",
+          "Black"
+        ],
+        "attrGroupName": "Appearance",
+        "sortOrder": 1,
+        "description": "Available in clean White and classic Black finishes to match a variety of electronic setups."
+      }
+    ],
+    "variations": [
+      {
+        "sku": "UCW-20W-WHT-2P",
+        "price": "499",
+        "salePrice": "469",
+        "quantity": "45",
+        "Variant 1 name": "Color",
+        "Variant 1 value": "White",
+        "Variant 2 name": "Plug Type",
+        "Variant 2 value": "2-Pin",
+        "images": [
+          "usb-c-wall-charger.jpg"
+        ]
+      }
+    ],
+    "widget": {
+      "title": "Essential Tech Picks",
+      "widgetLongTitle": "Fast and Safe Charging Solutions for Electronics",
+      "content": "Discover power adapters, chargers, and accessories designed to keep your electronic devices charged and protected.",
+      "position": 4
+    },
+    "questionsAnswers": {
+      "question": "Does this charger support fast charging for smartphones?",
+      "answer": "Yes, the 20W USB-C Power Delivery output supports fast charging for compatible smartphones and tablets."
+    },
+    "ratingAndReview": {
+      "rating": 4.5,
+      "review": "Compact size, fast charging, and excellent build quality."
+    },
+    "pricingGroup": {
+      "name": "Electronics Wholesale Buyers",
+      "description": "Discounted pricing for bulk orders of electronic power accessories.",
+      "isDefault": 0,
+      "price": "449",
+      "maxQuantity": "60"
+    }
+  }
+]

@@ -1,0 +1,347 @@
+[
+    {
+        "type": 2,
+        "name": "Cat6 Ethernet Network Cable",
+        "slug": "cat6-ethernet-network-cable",
+        "description": "<p>High-performance Cat6 Ethernet cable designed for enterprise IT networks, supporting high-speed data transfer with minimal interference.</p>",
+        "shortDescription": "Reliable Cat6 Ethernet cable for IT and network infrastructure.",
+        "family": "IT & Network Accessories",
+        "categories": [
+            "Network cables"
+        ],
+        "categoryTemplate": "Explore professional-grade {{categoryName}} built for secure, high-speed, and reliable IT network environments.",
+        "images": [
+            "cat6-network-cable-product-image.png"
+        ],
+        "price": "249",
+        "productDiscount": 200,
+        "productSpecial": 180,
+        "quantity": "500",
+        "productHighlights": [
+            {
+                "data": "<ul><li>Supports up to 1 Gbps data transfer</li><li>Bandwidth up to 250 MHz</li><li>Low crosstalk and interference</li><li>Ideal for office, server rooms, and data centers</li></ul>"
+            }
+        ],
+        "attributes": [],
+        "variations": [],
+        "banner": {
+            "title": "Build Faster, Stronger Networks",
+            "content": "Ensure stable and high-speed connectivity with our enterprise-grade Cat6 Ethernet cables.",
+            "position": 1,
+            "status": 1,
+            "linkType": 1,
+            "bannerImages": [
+                {
+                    "image": "ITHardwareNetworkingEquipment.png",
+                    "isPrimary": 1
+                }
+            ]
+        },
+        "widget": {
+            "title": "IT Infrastructure Essentials",
+            "widgetLongTitle": "Reliable Networking Solutions for Modern Businesses",
+            "content": "Browse essential IT networking products including Ethernet cables, network switches, routers, and server accessories built for performance and reliability.",
+            "position": 1
+        },
+        "shoppingCart": {
+            "name": "IT & Network Essentials",
+            "isDefault": 1,
+            "notes": "Includes core IT networking components such as cables, switches, and connectivity accessories."
+        },
+        "questionsAnswers": {
+            "question": "Is this cable suitable for enterprise networks?",
+            "answer": "Yes, this Cat6 cable is designed for enterprise IT environments, supporting high-speed data transfer and stable network performance."
+        },
+        "ratingAndReview": {
+            "rating": 5,
+            "review": "Excellent network stability, durable build quality, and perfect for office and data center use."
+        },
+        "pricingGroup": {
+            "name": "Enterprise & Bulk Buyers",
+            "description": "Special pricing for system integrators, IT service providers, and bulk network deployments.",
+            "isDefault": 0,
+            "price": "159",
+            "maxQuantity": "200"
+        }
+    },
+    {
+        "type": 0,
+        "name": "Dual Band Gigabit Router",
+        "slug": "dual-band-gigabit-router",
+        "description": "<p>High-performance dual band Gigabit router designed for offices, enterprises, and IT infrastructure. Delivers fast wireless connectivity, stable wired performance, and advanced network security.</p>",
+        "shortDescription": "Enterprise-grade dual band Gigabit router for secure and fast networking.",
+        "family": "IT & Networking Equipment",
+        "categories": [
+            "Network Routers"
+        ],
+        "categoryTemplate": "Explore reliable {{categoryName}} engineered for speed, security, and seamless connectivity across modern IT networks.",
+        "images": [
+            "gigabit_router.jpg"
+        ],
+        "price": "4999",
+        "quantity": "50",
+        "productHighlights": [
+            {
+                "data": "<ul><li>Dual band Wi-Fi (2.4GHz & 5GHz)</li><li>Gigabit WAN & LAN ports</li><li>Advanced firewall and security features</li><li>Ideal for office and enterprise use</li></ul>"
+            }
+        ],
+        "attributes": [
+            {
+                "name": "Wi-Fi Standard",
+                "values": [
+                    "802.11ac",
+                    "802.11ax (Wi-Fi 6)"
+                ],
+                "attrGroupName": "Wireless Specifications",
+                "sortOrder": 1,
+                "description": "Supports modern Wi-Fi standards including 802.11ac and Wi-Fi 6 (802.11ax) for higher speeds, better coverage, and improved device handling."
+            },
+            {
+                "name": "LAN Ports",
+                "values": [
+                    "4 x Gigabit LAN",
+                    "8 x Gigabit LAN"
+                ],
+                "sortOrder": 2,
+                "attrGroupName": "Hardware Specifications",
+                "description": "Multiple Gigabit LAN ports provide reliable wired connectivity for desktops, servers, and network devices."
+            }
+        ],
+        "variations": [
+            {
+                "sku": "DBR-AC-4LAN",
+                "price": "4999",
+                "salePrice": "4699",
+                "quantity": "40",
+                "Variant 1 name": "Wi-Fi Standard",
+                "Variant 1 value": "802.11ac",
+                "Variant 2 name": "LAN Ports",
+                "Variant 2 value": "4 x Gigabit LAN",
+                "images": [
+                    "pexels-cookiecutter.jpg"
+                ]
+            },
+            {
+                "sku": "DBR-AX-8LAN",
+                "price": "6499",
+                "salePrice": "6199",
+                "quantity": "35",
+                "Variant 1 name": "Wi-Fi Standard",
+                "Variant 1 value": "802.11ax (Wi-Fi 6)",
+                "Variant 2 name": "LAN Ports",
+                "Variant 2 value": "8 x Gigabit LAN",
+                "images": [
+                    "pexels-field-engineer.jpg"
+                ]
+            }
+        ],
+        "banner": {
+            "title": "Build Faster",
+            "content": "Ensure stable and high-speed connectivity with our enterprise-grade Cat6 Ethernet cables.",
+            "position": 2,
+            "status": 1,
+            "linkType": 1,
+            "bannerImages": [
+                {
+                    "image": "ITHardwareImage.png",
+                    "isPrimary": 1
+                }
+            ]
+        },
+        "widget": {
+            "title": "IT Infrastructure Essentials",
+            "widgetLongTitle": "Enterprise Networking Solutions for Modern IT",
+            "content": "Build a reliable network with advanced routers, switches, and firewalls designed for performance, scalability, and security.",
+            "position": 3
+        },
+        "questionsAnswers": {
+            "question": "Is this router suitable for office and enterprise environments?",
+            "answer": "Yes, this router is designed for office and enterprise use, offering high-speed connectivity, multiple LAN ports, and enhanced security features."
+        },
+        "ratingAndReview": {
+            "rating": 4,
+            "review": "Excellent performance and strong Wi-Fi coverage. Easy to configure for office networks."
+        },
+        "pricingGroup": {
+            "name": "IT Network Solution Partners",
+            "description": "Special pricing for system integrators, MSPs, and IT resellers.",
+            "isDefault": 0,
+            "price": "4599",
+            "maxQuantity": "40"
+        }
+    },
+    {
+        "type": 2,
+        "name": "Mechanical Gaming Keyboard",
+        "slug": "mechanical-gaming-keyboard",
+        "description": "<p>High-performance mechanical keyboard with customizable RGB lighting, anti-ghosting keys, and durable build, perfect for gaming and professional use.</p>",
+        "shortDescription": "Durable mechanical keyboard with RGB backlight.",
+        "family": "Computer Accessories",
+        "categories": [
+            "Keyboards"
+        ],
+        "categoryTemplate": "Discover {{categoryName}} designed for comfort, precision, and gaming performance.",
+        "images": [
+            "mechanical-gaming-keyboard.png"
+        ],
+        "price": "4999",
+        "productDiscount": 4500,
+        "productSpecial": 4299,
+        "quantity": "300",
+        "productHighlights": [
+            {
+                "data": "<ul><li>Mechanical switches for fast response</li><li>Customizable RGB lighting</li><li>Anti-ghosting keys</li><li>Durable metal and ABS build</li></ul>"
+            }
+        ],
+        "attributes": [],
+        "variations": [],
+        "widget": {
+            "title": "IT Infrastructure Essentials",
+            "widgetLongTitle": "Essential Keyboards and Accessories for Productivity and Gaming",
+            "content": "Explore a range of keyboards, mice, and accessories designed for performance, comfort, and style.",
+            "position": 1
+        },
+        "shoppingCart": {
+            "name": "Computer Essentials",
+            "isDefault": 1,
+            "notes": "Includes core computer peripherals such as keyboards, mice, and accessories."
+        },
+        "questionsAnswers": {
+            "question": "Is this keyboard suitable for gaming?",
+            "answer": "Yes, it features mechanical switches, anti-ghosting keys, and customizable RGB lighting ideal for gaming."
+        },
+        "ratingAndReview": {
+            "rating": 4.9,
+            "review": "Excellent typing experience and responsive keys, perfect for both gaming and work."
+        },
+        "pricingGroup": {
+            "name": "Bulk & Gaming Setup Buyers",
+            "description": "Special pricing for bulk orders, gaming cafes, and IT setups.",
+            "isDefault": 0,
+            "price": "3999",
+            "maxQuantity": "100"
+        }
+    },
+    {
+        "type": 2,
+        "name": "27-inch 4K UHD IPS Monitor",
+        "slug": "27-inch-4k-uhd-ips-monitor",
+        "description": "<p>27-inch 4K UHD monitor with IPS panel, offering stunning visuals, accurate colors, and wide viewing angles. Ideal for professional work, gaming, and entertainment.</p>",
+        "shortDescription": "Ultra HD 27-inch monitor with vibrant IPS display.",
+        "family": "Computer Accessories",
+        "categories": [
+            "Monitors"
+        ],
+        "categoryTemplate": "Explore premium {{categoryName}} designed for sharp visuals and immersive computing experiences.",
+        "images": [
+            "27-inch-4k-monitor.png"
+        ],
+        "price": "34999",
+        "productDiscount": 32000,
+        "productSpecial": 29999,
+        "quantity": "80",
+        "productHighlights": [
+            {
+                "data": "<ul><li>3840 x 2160 resolution (4K UHD)</li><li>IPS panel with wide viewing angles</li><li>HDR10 support</li><li>HDMI & DisplayPort connectivity</li><li>Ergonomic height and tilt adjustment</li></ul>"
+            }
+        ],
+        "attributes": [],
+        "variations": [],
+        "widget": {
+            "title": "IT Infrastructure Essentials",
+            "widgetLongTitle": "High-Performance Monitors for Work, Gaming, and Entertainment",
+            "content": "Browse monitors with UHD, HDR, high refresh rates, and wide viewing angles for professional and personal use.",
+            "position": 1
+        },
+        "shoppingCart": {
+            "name": "Computer Essentials",
+            "isDefault": 1,
+            "notes": "Includes monitors, keyboards, and other essential peripherals."
+        },
+        "questionsAnswers": {
+            "question": "Is this monitor suitable for professional editing?",
+            "answer": "Yes, the 4K UHD IPS panel provides excellent color accuracy and wide viewing angles, ideal for professional work."
+        },
+        "ratingAndReview": {
+            "rating": 4.9,
+            "review": "Sharp, vivid display with excellent color reproduction and wide viewing angles."
+        },
+        "pricingGroup": {
+            "name": "Enterprise & Bulk Buyers",
+            "description": "Special pricing for bulk orders, offices, and IT deployments.",
+            "isDefault": 0,
+            "price": "27999",
+            "maxQuantity": "50"
+        }
+    },
+    {
+        "type": 0,
+        "name": "Intel Core i7-13700K Processor",
+        "slug": "intel-core-i7-13700k-processor",
+        "description": "<p>High-performance Intel Core i7 processor with 16 cores and 24 threads, designed for gaming, content creation, and professional workloads.</p>",
+        "shortDescription": "Powerful Intel Core i7 CPU for high-end desktops and workstations.",
+        "family": "Computer Components",
+        "categories": [
+            "Processors"
+        ],
+        "categoryTemplate": "Explore premium {{categoryName}} engineered for speed, efficiency, and multitasking in modern computing systems.",
+        "images": [
+            "intel-i7-13700k.jpg"
+        ],
+        "price": "39999",
+        "quantity": "75",
+        "productHighlights": [
+            {
+                "data": "<ul><li>16 cores / 24 threads</li><li>Base clock: 3.4 GHz, Turbo up to 5.4 GHz</li><li>Supports DDR5 & DDR4 memory</li><li>Ideal for gaming, rendering, and professional workloads</li></ul>"
+            }
+        ],
+        "attributes": [
+            {
+                "name": "Core Count",
+                "values": [
+                    "16 cores",
+                    "8 cores"
+                ],
+                "attrGroupName": "CPU Specifications",
+                "sortOrder": 1,
+                "description": "Number of cores determines parallel processing capability and multitasking performance."
+            }
+        ],
+        "variations": [
+            {
+                "sku": "i7-13700K-16C",
+                "price": "39999",
+                "salePrice": "37999",
+                "quantity": "50",
+                "Variant 1 name": "Core Count",
+                "Variant 1 value": "16 cores",
+                "Variant 2 name": "Socket Type",
+                "Variant 2 value": "LGA 1700",
+                "images": [
+                    "intel-i7-13700k-front.jpg"
+                ]
+            }
+        ],
+        "widget": {
+            "title": "High-Performance CPUs",
+            "widgetLongTitle": "Processors for Gaming, Content Creation, and Professional Use",
+            "content": "Browse the latest CPUs from Intel and AMD with multiple cores, high clock speeds, and advanced technology for demanding computing tasks.",
+            "position": 3
+        },
+        "questionsAnswers": {
+            "question": "Is this CPU suitable for gaming and content creation?",
+            "answer": "Yes, the Intel Core i7-13700K delivers high clock speeds and multiple cores, ideal for gaming, video editing, and 3D rendering."
+        },
+        "ratingAndReview": {
+            "rating": 4.8,
+            "review": "Excellent performance, fast multitasking, and handles gaming and professional workloads with ease."
+        },
+        "pricingGroup": {
+            "name": "System Builders & IT Resellers",
+            "description": "Special pricing for bulk orders, system integrators, and IT resellers.",
+            "isDefault": 0,
+            "price": "36999",
+            "maxQuantity": "30"
+        }
+    }
+]

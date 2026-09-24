@@ -95,7 +95,6 @@
             "action": "update-category",
             "value": "Category",
             "route": "update-category"
-
         },
         {
             "id": "17",
@@ -318,7 +317,6 @@
             "action": "delete-multiple-service",
             "value": "Service",
             "route": "service"
-
         },
         {
             "id": "57",

@@ -1,0 +1,40 @@
+/*
+* Spurtcommerce
+* https://www.spurtcommerce.com
+* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
+* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
+* Licensed under the MIT license.
+*/
+
+import { Column, Entity, BeforeInsert, BeforeUpdate, PrimaryGeneratedColumn, ManyToOne, JoinColumn } from 'typeorm';
+import { BaseModel } from '../../core/models/BaseModel';
+import { Widget } from '../../core/models/Widget';
+import moment = require('moment/moment');
+import { IsNotEmpty } from 'class-validator';
+
+@Entity('widget_item')
+export class WidgetItem extends BaseModel {
+    @IsNotEmpty()
+    @PrimaryGeneratedColumn({ name: 'id' })
+    public id: number;
+    @IsNotEmpty()
+    @Column({ name: 'widget_id' })
+    public widgetId: number;
+    @IsNotEmpty()
+    @Column({ name: 'ref_id' })
+    public refId: number;
+
+    @ManyToOne(type => Widget, widget => widget.widgetItem)
+    @JoinColumn({ name: 'widget_id' })
+    public widget: Widget;
+
+    @BeforeInsert()
+    public async createDetails(): Promise<void> {
+        this.createdDate = moment().format('YYYY-MM-DD HH:mm:ss');
+    }
+
+    @BeforeUpdate()
+    public async updateDetails(): Promise<void> {
+        this.modifiedDate = moment().format('YYYY-MM-DD HH:mm:ss');
+    }
+}
