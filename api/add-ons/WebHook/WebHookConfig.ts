@@ -1,0 +1,59 @@
+import { getDataSource } from '../../src/loaders/typeormLoader';
+import { Plugins } from '../../src/api/core/models/Plugin';
+import * as path from 'path';
+import { env } from '../../src/env';
+
+let webHook;
+
+export async function webHookInit(): Promise<any> {
+
+    const webhooks = require('node-webhooks');
+
+    const pluginRepository = getDataSource().getRepository(Plugins);
+
+    const webHookUrlRegistrations = {};
+
+    const PORT = env.app.port;
+
+    const isPluginActive = await pluginRepository.findOne({ where: { slugName: 'webhook', pluginStatus: 1 } });
+
+    if (isPluginActive) {
+        const webHookEvents = require(path.join(process.cwd(), 'webHookConfig.json'));
+        for (const event in webHookEvents) {
+            if (webHookEvents[event].api) {
+                webHookEvents[event].api = webHookEvents[event].api.replace('{{PORT}}', PORT.toString());
+                webHookUrlRegistrations[event] = [webHookEvents[event].api];
+            }
+        }
+
+    }
+
+    const registerHooks = () => {
+        return new webhooks({
+            db: webHookUrlRegistrations,
+        });
+    };
+
+    webHook = registerHooks();
+
+    const emitter = webHook.getEmitter();
+
+    emitter.on('*.success', (shortname: any, statusCode: any, body: any) => {
+        console.log('Success on trigger webHook ' + shortname + ' with status code ', statusCode, 'and body ', body);
+    });
+
+    emitter.on('*.failure', (shortname: any, statusCode: any, body: any) => {
+        console.error('Error on trigger webHook ' + shortname + ' with status code ', statusCode, 'and body', body);
+    });
+    // --
+}
+
+export async function trigger(event: string, params: any): Promise<void> {
+    const webHookEvents = require(path.join(process.cwd(), 'webHookConfig.json'));
+    const webHookAuthToken = webHookEvents[event].token ?? '';
+    webHook.trigger(
+        event,
+        { event, params },
+        { authorization: `Basic ${webHookAuthToken}` }
+    );
+}

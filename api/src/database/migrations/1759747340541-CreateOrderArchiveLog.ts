@@ -1,0 +1,79 @@
+import { MigrationInterface, QueryRunner, Table } from 'typeorm';
+
+export class CreateOrderArchiveLog1759747340541 implements MigrationInterface {
+
+    public async up(queryRunner: QueryRunner): Promise<void> {
+        await queryRunner.createTable(new Table({
+            name: 'order_archive_log',
+            columns: [
+                { name: 'order_archive_log_id', type: 'int', isPrimary: true, isGenerated: true, generationStrategy: 'increment', isNullable: false },
+                { name: 'order_id', type: 'int', isNullable: true },
+                { name: 'customer_id', type: 'int', isNullable: true },
+                { name: 'currency_id', type: 'int', isNullable: true },
+                { name: 'shipping_zone_id', type: 'int', isNullable: true },
+                { name: 'payment_zone_id', type: 'int', isNullable: true },
+                { name: 'shipping_country_id', type: 'int', isNullable: true },
+                { name: 'payment_country_id', type: 'int', isNullable: true },
+                { name: 'invoice_no', type: 'varchar', length: '255', isNullable: true },
+                { name: 'invoice_prefix', type: 'varchar', length: '255', isNullable: true },
+                { name: 'order_prefix_id', type: 'varchar', length: '255', isNullable: true },
+                { name: 'firstname', type: 'varchar', length: '255', isNullable: true },
+                { name: 'lastname', type: 'varchar', length: '255', isNullable: true },
+                { name: 'email', type: 'varchar', length: '255', isNullable: true },
+                { name: 'telephone', type: 'bigint', isNullable: true },
+                { name: 'fax', type: 'varchar', length: '255', isNullable: true },
+                { name: 'shipping_firstname', type: 'varchar', length: '255', isNullable: true },
+                { name: 'shipping_lastname', type: 'varchar', length: '255', isNullable: true },
+                { name: 'shipping_company', type: 'varchar', length: '255', isNullable: true },
+                { name: 'shipping_address_1', type: 'varchar', length: '255', isNullable: true },
+                { name: 'shipping_address_2', type: 'varchar', length: '255', isNullable: true },
+                { name: 'shipping_city', type: 'varchar', length: '255', isNullable: true },
+                { name: 'shipping_postcode', type: 'varchar', length: '255', isNullable: true },
+                { name: 'shipping_country', type: 'varchar', length: '255', isNullable: true },
+                { name: 'shipping_zone', type: 'varchar', length: '255', isNullable: true },
+                { name: 'shipping_address_format', type: 'varchar', length: '255', isNullable: true },
+                { name: 'shipping_method', type: 'varchar', length: '255', isNullable: true },
+                { name: 'payment_firstname', type: 'varchar', length: '255', isNullable: true },
+                { name: 'payment_lastname', type: 'varchar', length: '255', isNullable: true },
+                { name: 'payment_company', type: 'varchar', length: '255', isNullable: true },
+                { name: 'payment_address_1', type: 'varchar', length: '255', isNullable: true },
+                { name: 'payment_address_2', type: 'varchar', length: '255', isNullable: true },
+                { name: 'payment_city', type: 'varchar', length: '255', isNullable: true },
+                { name: 'payment_postcode', type: 'varchar', length: '255', isNullable: true },
+                { name: 'payment_country', type: 'varchar', length: '255', isNullable: true },
+                { name: 'payment_zone', type: 'varchar', length: '255', isNullable: true },
+                { name: 'payment_address_format', type: 'varchar', length: '255', isNullable: true },
+                { name: 'payment_method', type: 'varchar', length: '255', isNullable: true },
+                { name: 'comment', type: 'text', isNullable: true },
+                { name: 'total', type: 'decimal', precision: 10, scale: 2, isNullable: true },
+                { name: 'reward', type: 'decimal', precision: 10, scale: 2, isNullable: true },
+                { name: 'order_status_id', type: 'int', isNullable: true },
+                { name: 'affiliate_id', type: 'int', isNullable: true },
+                { name: 'commision', type: 'decimal', precision: 10, scale: 2, isNullable: true },
+                { name: 'currency_code', type: 'varchar', length: '10', isNullable: true },
+                { name: 'currency_value', type: 'decimal', precision: 10, scale: 2, isNullable: true },
+                { name: 'ip', type: 'varchar', length: '50', isNullable: true },
+                { name: 'payment_flag', type: 'int', isNullable: true },
+                { name: 'order_name', type: 'varchar', length: '255', isNullable: true },
+                { name: 'is_active', type: 'int', isNullable: true },
+                { name: 'po_number', type: 'varchar', length: '255', isNullable: true },
+                { name: 'must_ship_before', type: 'timestamp', isNullable: true },
+                { name: 'notes', type: 'text', isNullable: true },
+                { name: 'payment_rule_id', type: 'int', isNullable: true },
+                { name: 'payment_term_id', type: 'int', isNullable: true },
+                { name: 'shipping_cost_override', type: 'decimal', precision: 10, scale: 2, isNullable: true },
+                { name: 'order_source', type: 'enum', enum: ['quote', 'rfq', 'shoppingCart', 'quick-order'], isNullable: true },
+                { name: 'created_by_type', type: 'enum', enum: ['seller', 'buyer'], isNullable: true },
+                { name: 'created_by', type: 'int', isNullable: true },
+                { name: 'created_date', type: 'timestamp', isNullable: true },
+                { name: 'modified_by', type: 'int', isNullable: true },
+                { name: 'modified_date', type: 'timestamp', isNullable: true },
+            ],
+        }));
+    }
+
+    public async down(queryRunner: QueryRunner): Promise<void> {
+        // --
+    }
+
+}

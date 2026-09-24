@@ -1,7 +1,0 @@
-{
-  "apiBaseUrl": "${API_BASE_URL}",
-  "imageUrl": "${IMAGE_URL}",
-  "storeKey": "${STORE_KEY}",
-  "industrySlug": "${INDUSTRY_SLUG}",
-  "environment": "${ENVIRONMENT}"
-}

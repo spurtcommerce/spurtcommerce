@@ -1,0 +1,373 @@
+[
+    {
+        "type": 2,
+        "name": "Organic Vegetable Fertilizer",
+        "slug": "organic-vegetable-fertilizer",
+        "description": "<p>Premium organic fertilizer designed to boost vegetable growth naturally. Suitable for home gardens, farms, and greenhouse cultivation.</p>",
+        "shortDescription": "Natural fertilizer for healthy vegetable growth.",
+        "family": "Agriculture",
+        "categories": [
+            "Fertilizers",
+            "Organic Farming"
+        ],
+        "categoryTemplate": "Explore our trusted range of {{categoryName}} designed to ensure productivity, soil health, and sustainable farming practices.",
+        "images": [
+            "organic_vegetable_fertilizer.jpg"
+        ],
+        "price": "799",
+        "productDiscount": 729,
+        "productSpecial": 699,
+        "quantity": "250",
+        "productHighlights": [
+            {
+                "data": "<ul><li>100% natural and non-toxic</li><li>Improves soil fertility</li><li>Boosts vegetable yield</li><li>Safe for organic farming</li></ul>"
+            }
+        ],
+        "attributes": [],
+        "variations": [],
+        "banner": {
+            "title": "Grow Naturally, Harvest More",
+            "content": "Boost your crop yield with our premium organic vegetable fertilizer, ideal for sustainable farming.",
+            "position": 2,
+            "status": 1,
+            "linkType": 1,
+            "bannerImages": [
+                {
+                    "image": "AgricultureAgri.png",
+                    "isPrimary": 1
+                }
+            ]
+        },
+        "widget": {
+            "title": "Farming Essentials",
+            "widgetLongTitle": "Grow Better, Naturally",
+            "content": "Premium agriculture products that support sustainable, chemical-free farming. Improve crop quality and soil health with natural solutions.",
+            "position": 1
+        },
+        "shoppingCart": {
+            "name": "Agri Essentials",
+            "isDefault": 1,
+            "notes": "Cart for agricultural and farming supplies."
+        },
+        "questionsAnswers": {
+            "question": "Is this fertilizer suitable for organic farming?",
+            "answer": "Yes, it is certified organic and safe for all vegetable crops."
+        },
+        "ratingAndReview": {
+            "rating": 5,
+            "review": "Excellent results for my home garden!"
+        },
+        "pricingGroup": {
+            "name": "Bulk Agri Buyers",
+            "description": "Special discounted prices for large farm orders.",
+            "isDefault": 0,
+            "price": "649",
+            "maxQuantity": "100"
+        }
+    },
+    {
+        "type": 0,
+        "name": "Drip Irrigation Watering Kit",
+        "slug": "drip-irrigation-watering-kit",
+        "description": "<p>Complete drip irrigation kit designed to provide efficient and controlled water supply to crops, home gardens, and nurseries. Saves water, improves soil moisture, and boosts plant growth.</p>",
+        "shortDescription": "Efficient water-saving drip irrigation system.",
+        "family": "Irrigation",
+        "categories": [
+            "Irrigation Systems",
+            "Water Management"
+        ],
+        "categoryTemplate": "Explore our reliable {{categoryName}} crafted to improve farming efficiency, save water, and support sustainable agriculture.",
+        "images": [
+            "drip_irrigation_kit.jpg"
+        ],
+        "price": "1299",
+        "quantity": "180",
+        "productHighlights": [
+            {
+                "data": "<ul><li>50m main hose pipe</li><li>Easy installation for any farm or garden</li><li>Reduces water usage by up to 60%</li><li>Uniform water distribution for healthier crops</li></ul>"
+            }
+        ],
+        "attributes": [
+            {
+                "name": "Pipe Length",
+                "values": [
+                    "30 meters",
+                    "50 meters",
+                    "100 meters"
+                ],
+                "attrGroupName": "Technical Specifications",
+                "sortOrder": 1,
+                "description": "Choose from multiple pipe lengths depending on your field or garden size. Options include 30m for small gardens, 50m for mid-sized farms, and 100m for larger agricultural setups."
+            },
+            {
+                "name": "Material",
+                "values": [
+                    "High-grade PVC",
+                    "HDPE"
+                ],
+                "attrGroupName": "Build Quality",
+                "sortOrder": 2,
+                "description": "Made using premium High-grade PVC for durability and flexibility. HDPE variants offer higher resistance to sunlight and soil pressure."
+            }
+        ],
+        "variations": [
+            {
+                "sku": "DIK-30M-PVC-GARDEN",
+                "price": "1299",
+                "salePrice": "1199",
+                "quantity": "60",
+                "Variant 1 name": "Pipe Length",
+                "Variant 1 value": "30 meters",
+                "Variant 2 name": "Material",
+                "Variant 2 value": "High-grade PVC",
+                "images": [
+                    "garden_irrigation.jpg"
+                ]
+            },
+            {
+                "sku": "DIK-50M-PVC-NURSERY",
+                "price": "1399",
+                "salePrice": "1299",
+                "quantity": "50",
+                "Variant 1 name": "Pipe Length",
+                "Variant 1 value": "50 meters",
+                "Variant 2 name": "Material",
+                "Variant 2 value": "High-grade PVC",
+                "images": [
+                    "nursery_irrigation.jpg"
+                ]
+            }
+        ],
+        "banner": {
+            "title": "Save Water, Grow More",
+            "content": "Upgrade your farming with an efficient drip irrigation solution that saves time, effort, and water.",
+            "position": 1,
+            "status": 1,
+            "linkType": 1,
+            "bannerImages": [
+                {
+                    "image": "AgricultureAgri-Inputs.png",
+                    "isPrimary": 1
+                }
+            ]
+        },
+        "widget": {
+            "title": "Farming Essentials",
+            "widgetLongTitle": "Innovative Agri Solutions",
+            "content": "Modern agriculture requires smart solutions. From watering kits to soil testers improve your farming efficiency.",
+            "position": 1
+        },
+        "shoppingCart": {
+            "name": "Agri Essentials",
+            "isDefault": 1,
+            "notes": "Specialized cart for agriculture and farming tools."
+        },
+        "questionsAnswers": {
+            "question": "Is this suitable for home gardens?",
+            "answer": "Yes, the kit is perfect for home gardens, small farms, and nurseries."
+        },
+        "ratingAndReview": {
+            "rating": 5,
+            "review": "Easy to set up and works perfectly for my vegetable garden!"
+        },
+        "pricingGroup": {
+            "name": "Bulk Irrigation Buyers",
+            "description": "Special pricing for bulk orders from nurseries and commercial farms.",
+            "isDefault": 0,
+            "price": "999",
+            "maxQuantity": "150"
+        }
+    },
+    {
+        "type": 2,
+        "name": "Hybrid Tomato Seeds",
+        "slug": "hybrid-tomato-seeds",
+        "description": "<p>High-yield hybrid tomato seeds suitable for open fields and greenhouse cultivation. Designed for strong disease resistance and uniform fruit size.</p>",
+        "shortDescription": "High-yield hybrid tomato seeds for farming.",
+        "family": "Agriculture",
+        "categories": [
+            "Seeds",
+            "Vegetable Seeds"
+        ],
+        "categoryTemplate": "Explore premium {{categoryName}} that ensure better germination, higher yield, and crop reliability.",
+        "images": [
+            "hybrid-tomato-seeds.jpg"
+        ],
+        "price": "349",
+        "productDiscount": 319,
+        "productSpecial": 299,
+        "quantity": "50",
+        "productHighlights": [
+            {
+                "data": "<ul><li>High germination rate</li><li>Disease-resistant variety</li><li>Uniform fruit size</li><li>Suitable for all climates</li></ul>"
+            }
+        ],
+        "attributes": [],
+        "variations": [],
+        "widget": {
+            "title": "Farming Essentials",
+            "widgetLongTitle": "High-Quality Vegetable Seeds",
+            "content": "Reliable seeds developed for consistent yield and better crop performance.",
+            "position": 3
+        },
+        "shoppingCart": {
+            "name": "Agri Essentials",
+            "isDefault": 1,
+            "notes": "Cart for agricultural seeds and planting materials."
+        },
+        "questionsAnswers": {
+            "question": "Are these seeds suitable for greenhouse farming?",
+            "answer": "Yes, these hybrid tomato seeds perform well in both open fields and greenhouses."
+        },
+        "ratingAndReview": {
+            "rating": 4.7,
+            "review": "Excellent germination and good fruit quality."
+        },
+        "pricingGroup": {
+            "name": "Bulk Seed Buyers",
+            "description": "Discounted pricing for farmers purchasing seeds in bulk.",
+            "isDefault": 0,
+            "price": "269",
+            "maxQuantity": "200"
+        }
+    },
+    {
+        "type": 0,
+        "name": "Manual Knapsack Sprayer",
+        "slug": "manual-knapsack-sprayer",
+        "description": "<p>Durable manual knapsack sprayer designed for uniform application of pesticides, herbicides, and liquid fertilizers. Ideal for farms, orchards, and gardens.</p>",
+        "shortDescription": "Manual sprayer for crop protection and fertilization.",
+        "family": "Agriculture Tools",
+        "categories": [
+            "Sprayers",
+            "Crop Protection"
+        ],
+        "categoryTemplate": "Browse our efficient {{categoryName}} built to protect crops, improve yield, and simplify farm operations.",
+        "images": [
+            "knapsack_sprayer.jpg"
+        ],
+        "price": "1899",
+        "quantity": "120",
+        "productHighlights": [
+            {
+                "data": "<ul><li>16-liter tank capacity</li><li>Strong pressure pump for uniform spray</li><li>Adjustable brass nozzle</li><li>Comfortable shoulder straps</li></ul>"
+            }
+        ],
+        "attributes": [
+            {
+                "name": "Tank Capacity",
+                "values": [
+                    "12 Liters",
+                    "16 Liters"
+                ],
+                "attrGroupName": "Technical Specifications",
+                "sortOrder": 1,
+                "description": "Available in 12L and 16L options to suit small gardens and large farms."
+            },
+            {
+                "name": "Nozzle Type",
+                "values": [
+                    "Brass",
+                    "Plastic"
+                ],
+                "attrGroupName": "Build Quality",
+                "sortOrder": 2,
+                "description": "Brass nozzles offer better durability and spray control, while plastic nozzles are lightweight."
+            }
+        ],
+        "variations": [
+            {
+                "sku": "KNS-16L-BRASS",
+                "price": "1899",
+                "salePrice": "1799",
+                "quantity": "70",
+                "Variant 1 name": "Tank Capacity",
+                "Variant 1 value": "16 Liters",
+                "Variant 2 name": "Nozzle Type",
+                "Variant 2 value": "Brass",
+                "images": [
+                    "sprayer_16l.jpg"
+                ]
+            }
+        ],
+        "widget": {
+            "title": "Farming Essentials",
+            "widgetLongTitle": "Reliable Crop Protection Tools",
+            "content": "High-performance agricultural tools designed for daily farming needs.",
+            "position": 2
+        },
+        "shoppingCart": {
+            "name": "Agri Essentials",
+            "isDefault": 1,
+            "notes": "Dedicated cart for agriculture tools and crop protection equipment."
+        },
+        "questionsAnswers": {
+            "question": "Can this sprayer be used for pesticides?",
+            "answer": "Yes, it is suitable for spraying pesticides, herbicides, and liquid fertilizers."
+        },
+        "ratingAndReview": {
+            "rating": 4.9,
+            "review": "Strong build quality and very easy to use on the farm."
+        },
+        "pricingGroup": {
+            "name": "Commercial Farm Buyers",
+            "description": "Special pricing for bulk sprayer orders.",
+            "isDefault": 0,
+            "price": "1499",
+            "maxQuantity": "100"
+        }
+    },
+    {
+        "type": 2,
+        "name": "Soil Testing Kit",
+        "slug": "soil-testing-kit",
+        "description": "<p>Comprehensive soil testing kit designed to measure soil pH, nitrogen, phosphorus, and potassium levels. Helps farmers and gardeners make informed fertilization decisions.</p>",
+        "shortDescription": "Accurate soil testing kit for better crop planning.",
+        "family": "Agriculture",
+        "categories": [
+            "Soil Testing",
+            "Farm Accessories"
+        ],
+        "categoryTemplate": "Explore our advanced {{categoryName}} to understand soil health and improve agricultural productivity.",
+        "images": [
+            "soil_testing_kit.jpg"
+        ],
+        "price": "1199",
+        "productDiscount": 1099,
+        "productSpecial": 999,
+        "quantity": "200",
+        "productHighlights": [
+            {
+                "data": "<ul><li>Tests pH and nutrient levels</li><li>Easy-to-use color chart system</li><li>Improves fertilizer efficiency</li><li>Ideal for farms and home gardens</li></ul>"
+            }
+        ],
+        "attributes": [],
+        "variations": [],
+        "widget": {
+            "title": "Farming Essentials",
+            "widgetLongTitle": "Soil Health Solutions",
+            "content": "Understand soil conditions and improve crop performance with reliable soil testing tools.",
+            "position": 2
+        },
+        "shoppingCart": {
+            "name": "Agri Essentials",
+            "isDefault": 1,
+            "notes": "Cart for agricultural tools and soil analysis products."
+        },
+        "questionsAnswers": {
+            "question": "Can this kit be used by beginners?",
+            "answer": "Yes, the kit is simple to use and comes with clear instructions."
+        },
+        "ratingAndReview": {
+            "rating": 4.8,
+            "review": "Very helpful for understanding soil condition before planting."
+        },
+        "pricingGroup": {
+            "name": "Bulk Farm Buyers",
+            "description": "Discounted pricing for bulk soil testing kit orders.",
+            "isDefault": 0,
+            "price": "899",
+            "maxQuantity": "150"
+        }
+    }
+]

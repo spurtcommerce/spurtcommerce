@@ -1,0 +1,317 @@
+[
+  {
+    "type": 2,
+    "name": "Classic Leather Wallet",
+    "slug": "classic-leather-wallet",
+    "description": "<p>Handcrafted leather wallet made from premium full-grain leather. Slim, durable, and timeless in design.</p>",
+    "shortDescription": "Premium handcrafted leather wallet.",
+    "family": "Leather Accessories",
+    "categories": [
+      "Wallets"
+    ],
+    "categoryTemplate": "Discover our premium collection of {{categoryName}} crafted from high-quality leather for durability, comfort, and timeless style.",
+    "images": [
+      "leather_wallet.jpg"
+    ],
+    "price": "899",
+    "productDiscount": 799,
+    "productSpecial": 699,
+    "quantity": "200",
+    "productHighlights": [
+      {
+        "data": "<ul><li>Full-grain leather</li><li>Compact and slim</li><li>6 card slots and 2 compartments</li><li>Anti-RFID lining</li></ul>"
+      }
+    ],
+    "attributes": [],
+    "variations": [],
+    "banner": {
+      "title": "Elegant Everyday Essential",
+      "content": "Carry your essentials in style with our classic leather wallet.",
+      "position": 1,
+      "status": 1,
+      "linkType": 1,
+      "bannerImages": [
+        {
+          "image": "LeatherLeatherGoods.png",
+          "isPrimary": 1
+        }
+      ]
+    },
+    "widget": {
+      "title": "Leather Must Haves",
+      "widgetLongTitle": "Crafted for Everyday Luxury",
+      "content": "Discover daily essentials like wallets card holders and belts crafted from genuine leather",
+      "position": 1
+    },
+    "shoppingCart": {
+      "name": "Leather Essentials",
+      "isDefault": 1,
+      "notes": "Cart for premium leather products and accessories."
+    },
+    "questionsAnswers": {
+      "question": "Does it block RFID signals?",
+      "answer": "Yes, it comes with anti-RFID lining for card protection."
+    },
+    "ratingAndReview": {
+      "rating": 4.7,
+      "review": "Elegant wallet with premium leather. Slim design fits perfectly in my pocket."
+    },
+    "pricingGroup": {
+      "name": "Wallet & Accessories Deals",
+      "description": "Special bundle discounts on wallets and card holders.",
+      "isDefault": 0,
+      "price": "849",
+      "maxQuantity": "5"
+    }
+  },
+  {
+    "type": 0,
+    "name": "Leather Office Portfolio",
+    "slug": "leather-office-portfolio",
+    "description": "<p>Professional leather portfolio with zipper, ideal for meetings, interviews, or conferences.</p>",
+    "shortDescription": "Professional leather file and document holder.",
+    "family": "Office Leather",
+    "categories": [
+      "Portfolios"
+    ],
+    "categoryTemplate": "Discover our premium collection of {{categoryName}} crafted from high-quality leather for durability, comfort, and timeless style.",
+    "images": [
+      "leather_portfolio.jpg"
+    ],
+    "price": "1299",
+    "quantity": "50",
+    "productHighlights": [
+      {
+        "data": "<ul><li>Zipper enclosure</li><li>Pen holders and card slots</li><li>A4 size compatibility</li><li>Elegant professional look</li></ul>"
+      }
+    ],
+    "attributes": [
+      {
+        "name": "Color",
+        "values": [
+          "Brown",
+          "Black"
+        ],
+        "sortOrder": 5,
+        "attrGroupName": "Appearance",
+        "description": "Available in classic Black and White shades, offering a sleek and timeless look. The Black finish adds a bold, modern touch, while White gives a clean, elegant feel. Choose the color that best complements your personal style or environment."
+      },
+      {
+        "name": "Closure",
+        "values": [
+          "Zipper",
+          "Magnetic"
+        ],
+        "sortOrder": 6,
+        "attrGroupName": "Design",
+        "description": "Features reliable Zipper and Magnetic closure options for convenience and style. The Zipper ensures secure fastening and easy access to your essentials. The Magnetic closure offers a smooth, effortless, and modern touch to the design."
+      }
+    ],
+    "variations": [
+      {
+        "sku": "PORT-BRN-ZIP",
+        "price": "1299",
+        "salePrice": "1199",
+        "quantity": "40",
+        "Variant 1 name": "Color",
+        "Variant 1 value": "Brown",
+        "Variant 2 name": "Closure",
+        "Variant 2 value": "Zipper",
+        "images": [
+          "leather_portfolio.jpg"
+        ]
+      },
+      {
+        "sku": "PORT-BLK-MAG",
+        "price": "1299",
+        "salePrice": "1099",
+        "quantity": "30",
+        "Variant 1 name": "Color",
+        "Variant 1 value": "Black",
+        "Variant 2 name": "Closure",
+        "Variant 2 value": "Magnetic",
+        "images": [
+          "leather_portfolio.jpg"
+        ]
+      }
+    ],
+    "banner": {
+      "title": "Elegant Everyday",
+      "content": "Carry your essentials in style with our classic leather wallet.",
+      "position": 2,
+      "status": 1,
+      "linkType": 1,
+      "bannerImages": [
+        {
+          "image": "LeatherLeatherGoodsImage.png",
+          "isPrimary": 1
+        }
+      ]
+    },
+    "widget": {
+      "title": "Leather Must Haves",
+      "widgetLongTitle": "Premium Leather for Travel and Work",
+      "content": "Keep your essentials secure and organized with stylish leather travel wallets laptop sleeves portfolios and watch straps",
+      "position": 3
+    }
+  },
+  {
+    "type": 2,
+    "name": "Genuine Leather Formal Belt",
+    "slug": "genuine-leather-formal-belt",
+    "description": "<p>Premium handcrafted formal belt made from genuine full-grain leather. Designed for durability, comfort, and a polished look suitable for office and formal wear.</p>",
+    "shortDescription": "Classic genuine leather belt for formal wear.",
+    "family": "Leather Accessories",
+    "categories": [
+      "Belts"
+    ],
+    "categoryTemplate": "Explore our exclusive range of {{categoryName}} crafted from genuine leather for long-lasting quality and refined style.",
+    "images": [
+      "leather_belt.jpg"
+    ],
+    "price": "999",
+    "productDiscount": 899,
+    "productSpecial": 799,
+    "quantity": "150",
+    "productHighlights": [
+      {
+        "data": "<ul><li>Genuine full-grain leather</li><li>Rust-resistant metal buckle</li><li>Adjustable fit</li><li>Perfect for formal and office wear</li></ul>"
+      }
+    ],
+    "attributes": [],
+    "variations": [],
+    "widget": {
+      "title": "Leather Must Haves",
+      "widgetLongTitle": "Timeless Accessories for Everyday Elegance",
+      "content": "Browse premium leather belts, wallets, and accessories crafted for durability and style.",
+      "position": 1
+    },
+    "shoppingCart": {
+      "name": "Leather Accessories Cart",
+      "isDefault": 1,
+      "notes": "Cart dedicated to premium leather accessories."
+    },
+    "questionsAnswers": {
+      "question": "Is the belt adjustable?",
+      "answer": "Yes, the belt can be easily adjusted for a perfect and comfortable fit."
+    },
+    "ratingAndReview": {
+      "rating": 4.6,
+      "review": "Excellent leather quality and classy finish. Perfect for formal outfits."
+    },
+    "pricingGroup": {
+      "name": "Belts & Accessories Offers",
+      "description": "Special pricing on leather belts and matching accessories.",
+      "isDefault": 0,
+      "price": "879",
+      "maxQuantity": "5"
+    }
+  },
+  {
+    "type": 2,
+    "name": "Leather Laptop Sleeve",
+    "slug": "leather-laptop-sleeve",
+    "description": "<p>Premium handcrafted leather laptop sleeve made from genuine full-grain leather. Slim profile with soft inner lining to protect your laptop from scratches and daily wear.</p>",
+    "shortDescription": "Premium leather sleeve for laptop protection.",
+    "family": "Leather Accessories",
+    "categories": [
+      "Laptop Sleeves"
+    ],
+    "categoryTemplate": "Discover our premium {{categoryName}} designed with genuine leather for protection, durability, and professional style.",
+    "images": [
+      "laptop_sleeve.jpg"
+    ],
+    "price": "2499",
+    "productDiscount": 2199,
+    "productSpecial": 1999,
+    "quantity": "120",
+    "productHighlights": [
+      {
+        "data": "<ul><li>Genuine full-grain leather</li><li>Soft microfiber inner lining</li><li>Slim and lightweight design</li><li>Fits most 13–14 inch laptops</li></ul>"
+      }
+    ],
+    "attributes": [],
+    "variations": [],
+    "widget": {
+      "title": "Leather Must Haves",
+      "widgetLongTitle": "Smart Protection for Modern Professionals",
+      "content": "Explore premium leather sleeves, bags, and work accessories.",
+      "position": 1
+    },
+    "shoppingCart": {
+      "name": "Leather Work Gear",
+      "isDefault": 1,
+      "notes": "Cart for premium leather office and travel accessories."
+    },
+    "questionsAnswers": {
+      "question": "Does it have padding inside?",
+      "answer": "Yes, it includes soft inner padding to protect your laptop from scratches and minor impacts."
+    },
+    "ratingAndReview": {
+      "rating": 4.8,
+      "review": "Excellent leather quality and perfect fit for my laptop. Looks very professional."
+    },
+    "pricingGroup": {
+      "name": "Laptop Accessories Deals",
+      "description": "Special discounts on laptop sleeves and office accessories.",
+      "isDefault": 0,
+      "price": "2099",
+      "maxQuantity": "3"
+    }
+  },
+  {
+    "type": 0,
+    "name": "Leather Business Document Bag",
+    "slug": "leather-business-document-bag",
+    "description": "<p>Premium leather document bag designed for professionals. Ideal for carrying files, documents, and office essentials with style and durability.</p>",
+    "shortDescription": "Professional leather document carrying bag.",
+    "family": "Office Leather",
+    "categories": [
+      "Document Bags"
+    ],
+    "categoryTemplate": "Discover our premium collection of {{categoryName}} crafted from high-quality leather for durability, comfort, and timeless style.",
+    "images": [
+      "leather_document_bag.jpg"
+    ],
+    "price": "2499",
+    "quantity": "60",
+    "productHighlights": [
+      {
+        "data": "<ul><li>Premium genuine leather</li><li>Spacious main compartment</li><li>Inner document and accessory pockets</li><li>Professional and elegant design</li></ul>"
+      }
+    ],
+    "attributes": [
+      {
+        "name": "Color",
+        "values": [
+          "Brown",
+          "Black"
+        ],
+        "sortOrder": 5,
+        "attrGroupName": "Appearance",
+        "description": "Available in classic Brown and Black colors to suit formal and professional environments."
+      }
+    ],
+    "variations": [
+      {
+        "sku": "DOC-BAG-BRN-HAND",
+        "price": "2499",
+        "salePrice": "2299",
+        "quantity": "35",
+        "Variant 1 name": "Color",
+        "Variant 1 value": "Brown",
+        "Variant 2 name": "Carry Style",
+        "Variant 2 value": "Hand Carry",
+        "images": [
+          "leather_document_bag.jpg"
+        ]
+      }
+    ],
+    "widget": {
+      "title": "Work Essentials",
+      "widgetLongTitle": "Professional Leather Accessories",
+      "content": "Explore premium leather bags portfolios laptop sleeves and office accessories designed for modern professionals.",
+      "position": 3
+    }
+  }
+]
