@@ -396,7 +396,7 @@ export class ServiceController {
      * HTTP/1.1 500 Internal Server Error
      */
     @Post('/delete-multiple-service')
-    @Authorized()
+    @Authorized('vendor')
     public async deleteMultipleService(@Body({ validate: true }) deleteService: DeleteService, @Res() response: any, @Req() request: any): Promise<any> {
         const serviceData = deleteService.serviceId.toString();
         const service: any = serviceData.split(',');
@@ -558,7 +558,7 @@ export class ServiceController {
      * HTTP/1.1 500 Internal Server Error
      */
     @Post('/delete-multiple-enquiry')
-    @Authorized()
+    @Authorized('vendor')
     public async deleteMultipleEnquiry(@Body({ validate: true }) deleteEnquires: DeleteEnquiry, @Res() response: any, @Req() request: any): Promise<any> {
         const enquiryData = deleteEnquires.enquiryId.toString();
         const enquiry: any = enquiryData.split(',');
@@ -737,7 +737,7 @@ export class ServiceController {
      * HTTP/1.1 500 Internal Server Error
      */
     @Get('/service-detail')
-    @Authorized()
+    @Authorized('vendor')
     public async serviceDetail(@QueryParam('serviceId') serviceId: number, @Res() response: any): Promise<any> {
         const serviceData: any = {};
         const service = await this.serviceService.findOne({
@@ -806,7 +806,7 @@ export class ServiceController {
      * HTTP/1.1 500 Internal Server Error
      */
     @Get('/service-count')
-    @Authorized()
+    @Authorized('vendor')
     public async serviceCount(@Res() response: any): Promise<any> {
         const servicesCount = await this.serviceService.list(0, 0, [], [], [], 0, 1);
         const serviceCategoryCount = await this.serviceCategoryService.list(0, 0, [], [], [], 0, 1);

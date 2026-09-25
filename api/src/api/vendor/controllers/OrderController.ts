@@ -3084,7 +3084,7 @@ export class OrderController {
      * HTTP/1.1 500 Internal Server Error
      */
     @Post('/update-main-order')
-    // @Authorized(['vendor', 'move-failed-order-to-main-order'])
+    @Authorized(['vendor', 'move-failed-order-to-main-order'])
     public async updationForMainOrder(@Body({ validate: true }) paymentParam: AddPaymentRequest, @Res() response: any): Promise<any> {
         const updateOrder = await this.orderService.findOrder(paymentParam.orderId);
         if (!updateOrder) {

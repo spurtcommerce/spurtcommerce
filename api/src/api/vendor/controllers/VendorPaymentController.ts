@@ -276,7 +276,7 @@ export class VendorPaymentController {
      * HTTP/1.1 500 Internal Server Error
      */
     @Get('/payment-list-count')
-    @Authorized()
+    @Authorized('vendor')
     public async paymentListCount(
         @QueryParam('limit') limit: number,
         @QueryParam('offset') offset: number,
@@ -946,7 +946,7 @@ export class VendorPaymentController {
      * HTTP/1.1 500 Internal Server Error
      */
     @Get('/payment-archive-list')
-    @Authorized()
+    @Authorized('vendor')
     public async paymentArchiveList(
         @QueryParam('limit') limit: number, @QueryParam('offset') offset: number, @QueryParam('customerName') customerName: string,
         @QueryParam('startDate') startDate: string, @QueryParam('endDate') endDate: string, @QueryParam('count') count: number | boolean, @Res() response: any): Promise<any> {

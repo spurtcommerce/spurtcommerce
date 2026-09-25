@@ -22,7 +22,6 @@ import { Service } from 'typedi';
 import { VendorSettingsDomainService } from '../../../../src/api/core/services/VendorSettingsDomainService';
 import { VendorSettingsService } from '../../../../src/api/core/services/VendorSettingsService';
 @Service()
-// @UseBefore(CheckVendorAddonMiddleware)
 @JsonController('/vendor-site-map')
 export class VendorSiteMapController {
     constructor(

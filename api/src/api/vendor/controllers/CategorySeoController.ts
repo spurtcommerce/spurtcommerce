@@ -13,11 +13,9 @@ import { MSeoMeta } from '../../core/models/MSeoMetaModel';
 import { AddSeoRequest } from '../../../../src/api/vendor/controllers/requests/CreateSeoRequest';
 import { CategoryPathService } from '../../../../src/api/core/services/CategoryPathService';
 import { CategoryService } from '../../../../src/api/core/services/CategoryService';
-// import { CheckVendorAddonMiddleware } from '../../../../src/api/core/middlewares/VendorAddonValidationMiddilware';
 import { Service } from 'typedi';
 
 @Service()
-// @UseBefore(CheckVendorAddonMiddleware)
 @JsonController('/vendor-category-seo')
 export class VendorSeoCategoryController {
     constructor(

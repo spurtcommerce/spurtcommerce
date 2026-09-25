@@ -19,7 +19,6 @@ import { TranslationMiddleware } from '../../../../src/api/core/middlewares/Tran
 import { IndustryValidationMiddleware } from '../../../../src/api/core/middlewares/IndustryValidationMiddleware';
 import { TenantValidationMiddleware } from '../../../../src/api/core/middlewares/TenantValidationMiddleware';
 import moment = require('moment');
-// import { CheckVendorCustomerAddonMiddleware } from '../../../../src/api/core/middlewares/VendorCustomerAddonValidationMiddilware';
 import { pluginModule } from '../../../../src/loaders/pluginLoader';
 // import uncino from 'uncino';
 import { VendorPluginService } from '../../../../src/api/core/services/VendorPluginService';
@@ -28,7 +27,6 @@ import { Service } from 'typedi';
 
 @Service()
 @UseBefore(TranslationMiddleware)
-// @UseBefore(CheckVendorCustomerAddonMiddleware)
 @UseBefore(TenantValidationMiddleware)
 @UseBefore(IndustryValidationMiddleware)
 @JsonController('/store-widget')

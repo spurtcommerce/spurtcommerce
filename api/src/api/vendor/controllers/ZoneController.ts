@@ -108,49 +108,4 @@ export class VendorZoneController {
             return response.status(400).send(errorResponse);
         }
     }
-
-    // Delete Zone API
-    /**
-     * @api {delete} /api/zone/:id Delete Zone API
-     * @apiGroup Zone
-     * @apiHeader {String} Authorization
-     * @apiParam {Number} id Zone unique ID (in URL path)
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *   "message": "Successfully deleted the zone.",
-     *   "status": "1"
-     * }
-     * @apiSampleRequest /api/zone/:id
-     * @apiErrorExample {json} Zone error
-     * HTTP/1.1 500 Internal Server Error
-     * {
-     *   "message": "Internal Server Error"
-     * }
-     */
-    // @Delete('/:id')
-    // @Authorized(['vendor', 'delete-zone'])
-    // public async deleteZone(@Param('id') id: number, @Res() response: any): Promise<any> {
-
-    //     const vendorZone = await this.vendorZoneService.findOne({
-    //         where: {
-    //             id,
-    //         },
-    //     });
-    //     if (!vendorZone) {
-    //         const errorResponse: any = {
-    //             status: 0,
-    //             message: 'Invalid vendor zone ID.',
-    //         };
-    //         return response.status(400).send(errorResponse);
-    //     }
-    //     vendorZone.isDelete = 1;
-
-    //     await this.vendorZoneService.update(vendorZone.id, vendorZone);
-    //     const successResponse: any = {
-    //         status: 1,
-    //         message: 'Successfully deleted the zone.',
-    //     };
-    //     return response.status(200).send(successResponse);
-    // }
 }

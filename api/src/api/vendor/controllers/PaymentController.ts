@@ -237,7 +237,7 @@ export class PaymentController {
      * HTTP/1.1 500 Internal Server Error
      */
     @Get('/payment-list-count')
-    @Authorized()
+    @Authorized('vendor')
     public async paymentListCount(
         @QueryParam('limit') limit: number,
         @QueryParam('offset') offset: number,
@@ -339,7 +339,7 @@ export class PaymentController {
      * HTTP/1.1 500 Internal Server Error
      */
     @Get('/export-payment-list')
-    @Authorized()
+    @Authorized('vendor')
     public async exportPaymentList(@QueryParam('paymentId') paymentId: string, @Res() response: any): Promise<any> {
         const excel = require('exceljs');
         const workbook = new excel.Workbook();
@@ -596,7 +596,7 @@ export class PaymentController {
      * HTTP/1.1 500 Internal Server Error
      */
     @Post('/make-payment-archive')
-    @Authorized('')
+    @Authorized('vendor')
     public async makeArchive(@BodyParam('paymentId') paymentId: number, @Req() request: any, @Res() response: any): Promise<any> {
         const payment = await this.paymentService.findOne({
             where: {
@@ -823,7 +823,7 @@ export class PaymentController {
      * HTTP/1.1 500 Internal Server Error
      */
     @Get('/archive-payment-list-count')
-    @Authorized()
+    @Authorized('vendor')
     public async archivePaymentListCount(
         @QueryParam('limit') limit: number,
         @QueryParam('offset') offset: number,
@@ -916,7 +916,7 @@ export class PaymentController {
      * HTTP/1.1 500 Internal Server Error
      */
     @Get('/export-payment-archive-list')
-    @Authorized()
+    @Authorized('vendor')
     public async exportPaymentArchiveList(@QueryParam('paymentArchiveId') paymentArchiveId: string, @Res() response: any, @Req() request: any): Promise<any> {
         const excel = require('exceljs');
         const workbook = new excel.Workbook();
@@ -1044,7 +1044,7 @@ export class PaymentController {
      * HTTP/1.1 500 Internal Server Error
      */
     @Get('/bulk-export-payment-archive-list')
-    @Authorized()
+    @Authorized('vendor')
     public async bulkExportPaymentArchiveList(@Res() response: any, @QueryParam('customerName') customerName: string, @QueryParam('startDate') startDate: string, @QueryParam('endDate') endDate: string): Promise<any> {
         const excel = require('exceljs');
         const workbook = new excel.Workbook();

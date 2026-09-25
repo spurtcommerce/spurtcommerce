@@ -12,10 +12,9 @@ import { Response as ExpressResponse } from 'express';
 import { AddressService } from '../../core/services/AddressService';
 import { Address } from '../../core/models/Address';
 import { CustomerAddress } from './requests/CreateAddressRequest';
-// import { CheckCustomerMiddleware } from '../../core/middlewares/checkTokenMiddleware';
+import { CheckCustomerMiddleware, CheckTokenMiddleware } from '../../core/middlewares/checkTokenMiddleware';
 import { LiveAddressService } from '../../core/services/LiveAddressService';
 import { LiveAddress } from '../../core/models/LiveAddress';
-import { CheckTokenMiddleware } from '../../core/middlewares/checkTokenMiddleware';
 import { AuthService } from '../../../auth/AuthService';
 import { Service } from 'typedi';
 import { VendorCountryService } from '../../core/services/VendorCountryService';
@@ -97,7 +96,7 @@ export class CustomerAddressController {
      * @apiErrorExample {json} addAddress error
      * HTTP/1.1 500 Internal Server Error
      */
-    // @UseBefore(CheckCustomerMiddleware)
+    @UseBefore(CheckCustomerMiddleware)
     @Post()
     @Authorized(['customer', 'create-customer-address'])
     public async createAddress(@Body({ validate: true }) addressParam: CustomerAddress, @Res() response: any, @Req() request: any): Promise<any> {
@@ -177,7 +176,7 @@ export class CustomerAddressController {
      * @apiErrorExample {json} address error
      * HTTP/1.1 500 Internal Server Error
      */
-    // @UseBefore(CheckCustomerMiddleware)
+    @UseBefore(CheckCustomerMiddleware)
     @Delete('/:id')
     @Authorized(['customer', 'delete-customer-address'])
     public async deleteAddress(@Param('id') id: number, @Req() request: any, @Res() response: any): Promise<any> {
@@ -269,7 +268,7 @@ export class CustomerAddressController {
      * @apiErrorExample {json} Address error
      * HTTP/1.1 500 Internal Server Error
      */
-    // @UseBefore(CheckCustomerMiddleware)
+    @UseBefore(CheckCustomerMiddleware)
     @Get()
     @Authorized(['customer', 'view-customer-address'])
     public async getCustomerAddress(@QueryParam('limit') limit: number, @QueryParam('offset') offset: number, @QueryParam('type') addressType: number, @QueryParam('count') count: number | boolean, @Req() request: any, @Res() response: any): Promise<any> {
@@ -345,7 +344,7 @@ export class CustomerAddressController {
      * @apiErrorExample {json} Address error
      * HTTP/1.1 500 Internal Server Error
      */
-    // @UseBefore(CheckCustomerMiddleware)
+    @UseBefore(CheckCustomerMiddleware)
     @Get('/:id')
     @Authorized(['customer', 'view-customer-address'])
     public async addressDetail(@Param('id') id: number, @Req() request: any, @Res() response: any): Promise<any> {
@@ -437,7 +436,7 @@ export class CustomerAddressController {
      * @apiErrorExample {json} Address error
      * HTTP/1.1 500 Internal Server Error
      */
-    // @UseBefore(CheckCustomerMiddleware)
+    @UseBefore(CheckCustomerMiddleware)
     @Put('/:id')
     @Authorized(['customer', 'edit-customer-address'])
     public async updateAddress(@Body({ validate: true }) addressParam: CustomerAddress, @Param('id') id: number, @Req() request: any, @Res() response: any): Promise<any> {
@@ -519,7 +518,7 @@ export class CustomerAddressController {
      * @apiErrorExample {json} Address error
      * HTTP/1.1 500 Internal Server Error
      */
-    // @UseBefore(CheckCustomerMiddleware)
+    @UseBefore(CheckCustomerMiddleware)
     @Put('/update-default/:id')
     @Authorized(['customer', 'edit-customer-address'])
     public async updateDefaultAddress(@Param('id') id: number, @BodyParam('addressType') addressType: number, @Res() response: any, @Req() request: any): Promise<any> {

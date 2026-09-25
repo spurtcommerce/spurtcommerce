@@ -435,7 +435,7 @@ export class ServiceCategoryController {
      * HTTP/1.1 500 Internal Server Error
      */
     @Get('/service-category-detail')
-    @Authorized()
+    @Authorized('vendor')
     public async serviceCategoryDetail(@QueryParam('serviceCategoryId') serviceCategoryId: number, @Res() response: any): Promise<any> {
         const category = await this.serviceCategoryService.findOne({
             where: {
@@ -475,7 +475,7 @@ export class ServiceCategoryController {
      * HTTP/1.1 500 Internal Server Error
      */
     @Get('/service-category-count')
-    @Authorized()
+    @Authorized('vendor')
     public async serviceCategoryCount(@QueryParam('keyword') keyword: string, @QueryParam('status') status: string, @Res() response: any): Promise<any> {
         const search = [];
         if (keyword) {

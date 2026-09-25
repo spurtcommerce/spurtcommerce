@@ -141,9 +141,7 @@ CREATE TABLE `audit_log` (
   `modified_by` int DEFAULT NULL,
   `module` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `banner`
 --

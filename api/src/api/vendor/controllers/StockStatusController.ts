@@ -149,7 +149,7 @@ export class StockStatusController {
      * HTTP/1.1 500 Internal Server Error
      */
     @Get('/stock-status-list')
-    @Authorized()
+    @Authorized('vendor')
     public async stockStatusList(@QueryParam('limit') limit: number, @QueryParam('offset') offset: number, @QueryParam('keyword') keyword: string, @QueryParam('status') status: string, @QueryParam('count') count: number | boolean, @Res() response: any): Promise<any> {
         const select = ['stockStatusId', 'name', 'isActive'];
         const search = [

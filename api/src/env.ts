@@ -107,7 +107,6 @@ export const env = {
     vendorMailVerifyUrl: getOsEnv('VENDOR_MAIL_VERIFY_URL'),
     kycMandate: getOsEnv('KYC_MANDATE'),
     redisUrl: getOsEnvOptional('REDIS_URL'),
-    spurtB2bBaseDomain: getOsEnvOptional('SPURT_B2B_BASE_DOMAIN'),
     tenantId: getOsEnvOptional('TENANT_ID'),
     appId: getOsEnvOptional('APP_ID'),
 };
@@ -129,17 +128,6 @@ export const aws_setup = {
     AWS_SECRET_ACCESS_KEY: getOsEnv('AWS_SECRET_ACCESS_KEY'),
     AWS_DEFAULT_REGION: getOsEnv('AWS_DEFAULT_REGION'),
     AWS_BUCKET: getOsEnv('AWS_BUCKET'),
-};
-
-// sms Config
-export const sms = {
-    USER_NAME: getOsEnvOptional('USER_NAME'),
-    SENDER_NAME: getOsEnvOptional('SENDER_NAME'),
-    HOST_NAME: getOsEnvOptional('HOST_NAME'),
-    PEID: getOsEnvOptional('PEID'),
-    SMS_TYPE: getOsEnvOptional('SMS_TYPE'),
-    API_KEY: getOsEnvOptional('API_KEY'),
-    TEMPLATE_ID: getOsEnvOptional('TEMPLATE_ID'),
 };
 
 // Google Cloud Access Key

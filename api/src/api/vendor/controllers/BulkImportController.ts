@@ -145,7 +145,7 @@ export class ImportController {
      *       "error": "Internal server error"
      *     }
      */
-    @Authorized()
+    @Authorized('vendor')
     @Post('/import-image')
     public async bulkImageImport(@UploadedFile('file') file: any, @Res() response: any): Promise<any> {
         const name = file.originalname;

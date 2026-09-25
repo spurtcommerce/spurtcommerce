@@ -18,11 +18,9 @@ import { ImageService } from '../../../../src/api/core/services/ImageService';
 import { BlogRelatedService } from '../../core/services/BlogRelatedService';
 import { BlogRelated } from '../../core/models/BlogRelated';
 import { BlogCategoryService } from '../../core/services/BlogCategoryService';
-// import { CheckVendorAddonMiddleware } from '../../../../src/api/core/middlewares/VendorAddonValidationMiddilware';
 import { Service } from 'typedi';
 
 @Service()
-// @UseBefore(CheckVendorAddonMiddleware)
 @JsonController('/vendor-blog')
 export class VendorBlogController {
     constructor(
