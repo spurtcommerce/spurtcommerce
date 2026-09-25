@@ -148,10 +148,6 @@ export class CreateSettingRequest {
 
     public storeTitle: string;
 
-    public defaultPalette: string;
-
-    public primaryColor: string;
-
     public secondaryColor: string;
 
     public enableAdvancedSkuSearch: boolean;

@@ -11,12 +11,10 @@ import { Post, Body, JsonController, Authorized, Res, Put, Req, Delete, QueryPar
 import { BlogCategory } from '../../core/models/BlogCategory';
 import { BlogCategoryService } from '../../core/services/BlogCategoryService';
 import { AddBlogCategory } from '../../../../src/api/vendor/controllers/requests/AddBlogCategoryRequest';
-// import { CheckVendorAddonMiddleware } from '../../../../src/api/core/middlewares/VendorAddonValidationMiddilware';
 import { BlogService } from '../../core/services/BlogService';
 import { Service } from 'typedi';
 
 @Service()
-// @UseBefore(CheckVendorAddonMiddleware)
 @JsonController('/vendor-blog-category')
 export class VendorBlogCategoryController {
     constructor(

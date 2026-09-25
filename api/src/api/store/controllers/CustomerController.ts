@@ -49,6 +49,7 @@ import { CustomerUsers } from '../../core/models/CustomerUsers';
 import { CustomerUsersService } from '../../core/services/CustomerUsersService';
 import { VendorUsersService } from '../../core/services/VendorUsersService';
 import { Service } from 'typedi';
+import { StoreCategoryValidator } from '../../../api/core/middlewares/StoreCategoryValidatorMiddleware';
 
 @Service()
 @UseBefore(TenantValidationMiddleware)
@@ -221,7 +222,7 @@ export class StoreCustomerController {
      */
     // Customer Register Function
     @Post('/register')
-    // @UseBefore(StoreCategoryValidator)
+    @UseBefore(StoreCategoryValidator)
     public async register(@Body({ validate: true }) registerParam: CustomerRegisterRequest, @Req() request: any, @Res() response: any): Promise<any> {
 
         // const siteId = request.store.Id;
@@ -376,7 +377,7 @@ export class StoreCustomerController {
      * HTTP/1.1 500 Internal Server Error
      */
     // Login Function
-    // @UseBefore(StoreCategoryValidator)
+    @UseBefore(StoreCategoryValidator)
     @Post('/login')
     public async login(@Body({ validate: true }) loginParam: CustomerLogin, @Req() request: any, @Res() response: any): Promise<any> {
         if (loginParam.type === 'normal') {

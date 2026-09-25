@@ -691,50 +691,6 @@ export class VendorSettingController {
             settingValue.mailEncryption = settings.mailEncryption;
             settingValue.mailFrom = settings.mailFrom;
         }
-        if (settings.settingSection === 'theme-settings') {
-
-            if (!settings.themeId) {
-                return response.status(400).send({
-                    status: 0,
-                    message: 'Theme id is required',
-                });
-            }
-
-            // const theme = await this.themeService.findOne({
-            //     where: {
-            //         themeId: settings.themeId,
-            //         isActive: 1,
-            //     },
-            // });
-
-            // if (!theme) {
-            //     return response.status(400).send({
-            //         status: 0,
-            //         message: 'Invalid theme id',
-            //     });
-            // }
-
-            // settingValue.themeId = theme.themeId;
-            if (settings.defaultPalette !== null && settings.defaultPalette !== undefined) {
-
-                settingValue.defaultPalette = settings.defaultPalette;
-                settingValue.primaryColor = null;
-                settingValue.secondaryColor = null;
-            } else {
-                settingValue.defaultPalette = null;
-                settingValue.primaryColor = settings.primaryColor
-                    ? (settings.primaryColor.startsWith('#')
-                        ? settings.primaryColor
-                        : `#${settings.primaryColor}`)
-                    : null;
-
-                settingValue.secondaryColor = settings.secondaryColor
-                    ? (settings.secondaryColor.startsWith('#')
-                        ? settings.secondaryColor
-                        : `#${settings.secondaryColor}`)
-                    : null;
-            }
-        }
 
         if (settings.settingSection === 'layout-features') {
 

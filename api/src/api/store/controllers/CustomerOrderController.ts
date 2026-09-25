@@ -54,7 +54,6 @@ import { CheckCustomerMiddleware, CheckTokenMiddleware } from '../../core/middle
 import { pluginModule } from '../../../loaders/pluginLoader';
 import * as fs from 'fs';
 import { TranslationMiddleware } from '../../core/middlewares/TranslationMiddleware';
-// import { ProductTranslationService } from '../../core/services/ProductTranslationService';
 import { VendorGroupService } from '../../core/services/VendorGroupService';
 import { TenantValidationMiddleware } from '../../core/middlewares/TenantValidationMiddleware';
 import { ProductStockAlertService } from '../../core/services/ProductStockAlertService';
@@ -67,11 +66,11 @@ import { PaymentRuleService } from '../../core/services/PaymentRuleService';
 import Container, { Service } from 'typedi';
 import { ZoneService } from '../../core/services/zoneService';
 import { CurrencyService } from '../../core/services/CurrencyService';
+import { StoreCategoryValidator } from '../../../../src/api/core/middlewares/StoreCategoryValidatorMiddleware';
+
 interface CustomerCartCondition {
     productId: number;
-
     customerId: number;
-
     ip?: string;
 }
 
@@ -109,7 +108,6 @@ export class CustomerOrderController {
         private vendorInvoiceItemService: VendorInvoiceItemService,
         private imageService: ImageService,
         private skuService: SkuService,
-        // private productTranslationService: ProductTranslationService,
         private productStockAlertService: ProductStockAlertService,
         private stockLogService: StockLogService,
         private vendorSettingsService: VendorSettingsService,
@@ -118,8 +116,6 @@ export class CustomerOrderController {
         private vendorPluginService: VendorPluginService,
         private vendorUsersService: VendorUsersService,
         private paymentRuleService: PaymentRuleService
-        // private quoteRequestDetailService: QuoteRequestDetailService,
-        // private quoteDetailService: QuoteDetailService
     ) {
         // --
     }
@@ -324,7 +320,7 @@ export class CustomerOrderController {
 
     // Customer Checkout Function
     @UseBefore(CheckTokenMiddleware)
-    // @UseBefore(StoreCategoryValidator)
+    @UseBefore(StoreCategoryValidator)
     @Post('/customer-checkout')
     public async customerCheckout(@Body({ validate: true }) checkoutParam: CustomerCheckoutRequest, @Req() request: any, @Res() response: any): Promise<any> {
 
@@ -1184,7 +1180,7 @@ export class CustomerOrderController {
      */
     // Customer Checkout Function
     @UseBefore(CheckTokenMiddleware)
-    // @UseBefore(StoreCategoryValidator)
+    @UseBefore(StoreCategoryValidator)
     @Post('/back-order-checkout')
     public async backOrderCustomerCheckout(@Body({ validate: true }) checkoutParam: CustomerBackorderRequest, @Res() response: any, @Req() request: any): Promise<any> {
         const vendorSetting = await this.vendorSettingsService.findOne({ where: { vendorId: request.tenantId } });
@@ -1691,7 +1687,7 @@ export class CustomerOrderController {
      * }
      */
     // Order List Function
-    // @UseBefore(CheckCustomerMiddleware)
+    @UseBefore(CheckCustomerMiddleware)
     @UseBefore(TranslationMiddleware)
     @Get('/order-list')
     @Authorized(['customer', 'view-order-history'])
@@ -2080,157 +2076,6 @@ export class CustomerOrderController {
         return response.status(200).send(successResponse);
     }
 
-    // @UseBefore(CheckCustomerMiddleware)
-    // @UseBefore(TranslationMiddleware)
-    // @Get('/order-detail')
-    // @Authorized(['customer', 'view-order-history'])
-    // public async orderDetail(@QueryParam('orderProductId') orderProductId: number, @Req() request: any, @Res() response: any): Promise<any> {
-    //     const obj: any = {};
-    //     const orderProduct = await this.orderProductService.findOne({
-    //         select: ['basePrice', 'taxValue', 'taxType', 'orderProductId', 'orderId', 'productId', 'createdDate', 'modifiedDate', 'total', 'name', 'productPrice', 'orderProductPrefixId', 'quantity', 'orderStatusId', 'discountAmount', 'discountedAmount', 'skuName', 'couponDiscountAmount', 'priceGroupDetailId'],
-    //         where: {
-    //             orderProductId,
-    //         },
-    //     });
-    //     if (!orderProduct) {
-    //         const errorResponse: any = {
-    //             status: 0,
-    //             message: 'Invalid Order Product Id',
-    //         };
-    //         return response.status(400).send(errorResponse);
-    //     }
-    //     const order = await this.orderService.findOrder({
-    //         where: {
-    //             orderId: orderProduct.orderId, customerId: request.user.customerId,
-    //         },
-    //     });
-    //     if (!order) {
-    //         const errResponse: any = {
-    //             status: 0,
-    //             message: 'Invalid order for this customer',
-    //         };
-    //         return response.status(400).send(errResponse);
-    //     }
-    //     const product = await this.productImageService.findOne({
-    //         select: ['productId', 'image', 'containerName'],
-    //         where: {
-    //             productId: orderProduct.productId,
-    //             defaultImage: 1,
-    //         },
-    //     });
-    //     const products = await this.productService.findOne({
-    //         select: ['productSlug'],
-    //         where: {
-    //             productId: orderProduct.productId,
-    //         },
-    //     });
-    //     const passingOrderStatus = await this.orderStatusService.findOne({
-    //         where: {
-    //             orderStatusId: orderProduct.orderStatusId,
-    //         },
-    //     });
-
-    //     const productTranslation = await this.productTranslationService.findOne({ where: { productId: orderProduct.productId, languageId: request.languageId } });
-    //     obj.orderedDate = orderProduct.createdDate;
-    //     obj.orderProductPrefixId = orderProduct.orderProductPrefixId;
-    //     obj.shippingAddress1 = order.shippingAddress1;
-    //     obj.shippingAddress2 = order.shippingAddress2;
-    //     obj.shippingCity = order.shippingCity;
-    //     obj.shippingFirstname = order.shippingFirstname;
-    //     obj.shippingLastname = order.shippingLastname;
-    //     obj.mobileNumber = order.telephone;
-    //     obj.paymentFirstname = order.paymentFirstname;
-    //     obj.paymentLastname = order.paymentLastname;
-    //     if (products) {
-    //         obj.productSlug = products.productSlug;
-    //     }
-    //     obj.shippingPostcode = order.shippingPostcode;
-    //     obj.shippingZone = order.shippingZone;
-    //     obj.paymentMethod = order.paymentType;
-    //     obj.total = orderProduct.total;
-    //     if (passingOrderStatus) {
-    //         obj.orderStatus = passingOrderStatus.name;
-    //     }
-    //     obj.currencySymbolLeft = order.currencySymbolLeft;
-    //     obj.currencySymbolRight = order.currencySymbolRight;
-    //     obj.currencyCode = order.currencyCode;
-    //     obj.discountAmount = orderProduct.discountAmount;
-    //     obj.discountedAmount = orderProduct.discountedAmount;
-    //     obj.couponDiscountAmount = orderProduct.couponDiscountAmount;
-    //     obj.orderProductPrefixId = orderProduct.orderProductPrefixId;
-    //     obj.customerGstNo = order.customerGstNo;
-    //     obj.paymentAddress1 = order.paymentAddress1;
-    //     obj.paymentAddress2 = order.paymentAddress2;
-    //     obj.paymentCity = order.paymentCity;
-    //     obj.paymentMobileNumber = order.paymentMobileNumber;
-    //     obj.paymentPostcode = order.paymentPostcode;
-    //     obj.paymentZone = order.paymentZone;
-    //     obj.paymentCountry = order.paymentCountry;
-    //     obj.orderProductPrefixId = orderProduct.orderProductPrefixId;
-    //     obj.mobileNumber = order.telephone;
-    //     if (orderProduct.modifiedDate) {
-    //         obj.orderStatusDate = orderProduct.modifiedDate;
-    //     } else {
-    //         obj.orderStatusDate = orderProduct.createdDate;
-    //     }
-    //     if (product) {
-    //         obj.productImage = product.image;
-    //         obj.containerName = product.containerName;
-    //     }
-    //     obj.basePrice = orderProduct.basePrice;
-    //     obj.taxValue = orderProduct.taxValue;
-    //     obj.taxType = orderProduct.taxType;
-    //     obj.orderId = orderProduct.orderId;
-    //     obj.orderProductId = orderProduct.orderProductId;
-    //     obj.productId = orderProduct.productId;
-    //     obj.productName = orderProduct.name;
-    //     obj.productNameTrans = productTranslation?.name ?? '';
-    //     obj.productDescriptionTrans = productTranslation?.description ?? '';
-    //     obj.productQuantity = orderProduct.quantity;
-    //     obj.productPrice = orderProduct.productPrice;
-    //     obj.skuName = orderProduct.skuName;
-    //     obj.priceGroupDetailId = orderProduct.priceGroupDetailId;
-    //     const orderStatus = await this.orderStatusService.findAll({
-    //         select: ['orderStatusId', 'name'],
-    //         where: {
-    //             isActive: 1,
-    //             tenantId: request.tenantId,
-    //         },
-    //     });
-    //     const orderProductLog = await this.orderProductLogService.find({
-    //         select: ['orderProductLogId', 'createdDate', 'orderStatusId'],
-    //         where: {
-    //             orderProductId: orderProduct.orderProductId,
-    //         },
-    //     });
-    //     const orderStatusDate = orderStatus.map(async (value: any) => {
-    //         const date = orderProductLog.find(item => item.orderStatusId === value.orderStatusId);
-    //         const temp: any = value;
-    //         if (date === undefined) {
-    //             temp.createdDate = '';
-    //         } else {
-    //             temp.createdDate = date.createdDate;
-    //         }
-    //         return temp;
-    //     });
-    //     const result = await Promise.all(orderStatusDate);
-    //     obj.deliveryStatus = result;
-    //     const rating = undefined;
-    //     if (rating !== undefined) {
-    //         obj.rating = rating.rating;
-    //         obj.review = rating.review;
-    //     } else {
-    //         obj.rating = 0;
-    //         obj.review = '';
-    //     }
-    //     const successResponse: any = {
-    //         status: 1,
-    //         message: 'Successfully show the order details',
-    //         data: obj,
-    //     };
-    //     return response.status(200).send(successResponse);
-    // }
-
     // Track Order Product API
     /**
      * @api {get} /api/orders/track-order-product Track Order
@@ -2291,7 +2136,7 @@ export class CustomerOrderController {
      * HTTP/1.1 500 Internal Server Error
      */
     // Track Order Function
-    // @UseBefore(CheckCustomerMiddleware)
+    @UseBefore(CheckCustomerMiddleware)
     @UseBefore(TranslationMiddleware)
     @Get('/track-order-product')
     @Authorized(['customer', 'view-order-history'])
@@ -2519,7 +2364,7 @@ export class CustomerOrderController {
             });
         });
     }
-    // @UseBefore(CheckCustomerMiddleware)
+    @UseBefore(CheckCustomerMiddleware)
     // @Get('/order-export-pdf')
     // public async orderExportPdf(@QueryParam('orderProductId') orderProductId: number, @Req() request: any, @Res() response: any): Promise<any> {
     //     const orderProduct = await this.orderProductService.findOne({

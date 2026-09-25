@@ -451,7 +451,7 @@ export class VendorOrderController {
      * HTTP/1.1 500 Internal Server Error
      */
     @Delete('/delete-order/:id')
-    @Authorized()
+    @Authorized('vendor')
     public async deleteOrder(@Param('id') orderid: number, @Res() response: any, @Req() request: any): Promise<any> {
         const orderData = await this.orderService.find({ where: { orderId: orderid } });
         if (orderData.length === 0) {
@@ -5334,25 +5334,3 @@ export class VendorOrderController {
         }
     }
 }
-// @Post('/bulk-update-order-status')
-// @Authorized(['vendor', 'update-order'])
-// public async bulkOrderStatusUpdate(@Body({ validate: true }) payload: BulkOrderUpdateRequest, @Req() request: any, @Res() response: any): Promise<any> {
-//     const { orderIds, orderStatusId, fullfillmentStatusId } = payload;
-
-//     const orderStatus = await this.orderStatusService.findOne({ where: { orderStatusId } });
-//     if (!orderStatus) {
-//         return response.status(400).send({ status: 0, message: 'Invalid Order Status' });
-//     }
-
-//     if (orderStatus.isVendor !== 1 || orderStatus.isActive !== 1) {
-//         return response.status(400).send({ status: 0, message: 'Access Restricted to change status' });
-//     }
-
-//     for (const orderId of orderIds) {
-//         const updateOrderStatus = await this.updateOrderStatus(orderId, orderStatusId, fullfillmentStatusId, request, orderStatus);
-//         if (updateOrderStatus.status === 0) {
-//             return response.status(400).send(updateOrderStatus);
-//         }
-//     }
-//     return response.status(200).send({ status: 1, message: 'Successfully updated the order status' });
-// }

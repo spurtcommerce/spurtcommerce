@@ -50,7 +50,7 @@ export class AdminDocumentController {
      * HTTP/1.1 500 Internal Server Error
      */
     @Get()
-    @Authorized()
+    @Authorized('vendor')
     public async getDocumentList(
         @QueryParam('limit') limit: number, @QueryParam('offset') offset: number, @QueryParam('status') status: number,
         @QueryParam('keyword') keyword: string, @QueryParam('title') title: string, @QueryParam('count') count: number, @Res() response: any): Promise<any> {
@@ -117,7 +117,7 @@ export class AdminDocumentController {
      * HTTP/1.1 500 Internal Server Error
      */
     @Get('/:id')
-    @Authorized()
+    @Authorized('vendor')
     public async getDocumentDetail(@Res() response: any, @Param('id') id: number): Promise<any> {
 
         const document = await this.documentService.findOne({ where: { id } });
@@ -167,7 +167,7 @@ export class AdminDocumentController {
      * HTTP/1.1 500 Internal Server Error
      */
     @Post()
-    @Authorized()
+    @Authorized('vendor')
     public async createDocument(@Res() response: any, @Body({ validate: true }) payload: CreateDocumentRequest): Promise<any> {
 
         const document = new Document();
@@ -220,7 +220,7 @@ export class AdminDocumentController {
      * HTTP/1.1 500 Internal Server Error
      */
     @Delete('/:id')
-    @Authorized()
+    @Authorized('vendor')
     public async deleteDocument(@Res() response: any, @Param('id') id: number): Promise<any> {
 
         const document = await this.documentService.delete({ id });

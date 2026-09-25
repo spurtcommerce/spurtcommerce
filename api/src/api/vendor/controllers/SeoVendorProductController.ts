@@ -24,7 +24,6 @@ import { VendorProductService } from '../../../../src/api/core/services/VendorPr
 import { Service } from 'typedi';
 
 @Service()
-// @UseBefore(CheckVendorAddonMiddleware)
 @JsonController('/vendor-product-seo')
 export class SeoVendorProductController {
 

@@ -223,6 +223,7 @@ export class VendorCommonListController {
      * HTTP/1.1 500 Internal server error
      */
     @Get('/industry')
+    @Authorized('vendor')
     public async industryList(@Res() response: any): Promise<any> {
         const industryList = await this.industryService.findAll({
             order: {
@@ -337,6 +338,7 @@ export class VendorCommonListController {
      * @apiSampleRequest /api/vendor-list/master-country
      */
     @Get('/master-country')
+    @Authorized('vendor')
     public async masterCountryList(@QueryParam('limit') limit: number, @QueryParam('offset') offset: number, @QueryParam('keyword') keyword: string, @QueryParam('count') count: number | boolean, @Res() response: any): Promise<any> {
         const sort = [{
             name: 'Country.createdDate',
@@ -441,6 +443,7 @@ export class VendorCommonListController {
      * @apiSampleRequest /api/vendor-list/master-currency
      */
     @Get('/master-currency')
+    @Authorized('vendor')
     public async masterCurrencyList(@QueryParam('limit') limit: number, @QueryParam('offset') offset: number, @QueryParam('keyword') keyword: string, @QueryParam('status') status: string, @QueryParam('count') count: number | boolean, @Res() response: any): Promise<any> {
         const select = ['Currency.currencyId', 'Currency.title', 'Currency.code', 'Currency.symbolLeft', 'Currency.symbolRight', 'Currency.modifiedDate', 'Currency.createdDate', 'Currency.isActive'];
         const search = [];
@@ -534,6 +537,7 @@ export class VendorCommonListController {
      * @apiSampleRequest /api/vendor-list/master-language
      */
     @Get('/master-language')
+    @Authorized('vendor')
     public async masterLanguageList(@QueryParam('limit') limit: number, @QueryParam('offset') offset: number, @QueryParam('keyword') keyword: string, @QueryParam('count') count: number | boolean, @Res() response: any, @Req() request: any): Promise<any> {
         const select = ['Language.languageId', 'Language.isActive', 'Language.name', 'Language.code', 'Language.image', 'Language.imagePath'];
 

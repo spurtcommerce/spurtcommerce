@@ -93,95 +93,8 @@ export class ProductController {
     ) {
     }
 
-    // Product List API
-    /**
-     * @api {get} /api/product Product List API
-     * @apiGroup Product
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} limit limit
-     * @apiParam (Request body) {Number} offset offset
-     * @apiParam (Request body) {String} keyword keyword
-     * @apiParam (Request body) {String} sku sku
-     * @apiParam (Request body) {String} status status
-     * @apiParam (Request body) {Number} price=1/2 if 1-> asc 2-> desc
-     * @apiParam (Request body) {Number} count count in number or boolean
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "status": "1"
-     *      "message": "Successfully get product list",
-     *      "data":"[{
-     *                "productId": "",
-     *                "sku": "",
-     *                "name": "",
-     *                "quantity": "",
-     *                "keywords": "",
-     *                "price": "",
-     *                "skuId": "",
-     *                "productSlug": "",
-     *                "isActive": "",
-     *                "dateAvailable": "",
-     *                "width": "",
-     *                "height": "",
-     *                "length": "",
-     *                "weight": "",
-     *                "image": "",
-     *                "containerName": "",
-     *                "defaultImage": "",
-     *                "modifiedPrice": "",
-     *                "productDiscount": "",
-     *                "productSpecial": "",
-     *                "globe": "",
-     *                "pricerefer": "",
-     *                "flag": ""
-     *              }]"
-     * }
-     * @apiSampleRequest /api/product
-     * @apiErrorExample {json} productList error
-     * HTTP/1.1 500 Internal Server Error
-     */
-    // @Get()
-    // @Authorized()
-    // public async getProductList(@QueryParam('limit') limit: number, @QueryParam('offset') offset: number, @QueryParam('keyword') keyword: string, @QueryParam('sku') sku: string, @QueryParam('status') status: string, @QueryParam('price') price: number, @QueryParam('count') count: number | boolean, @Res() response: any, @Req() request: any): Promise<Product> {
-
-    //     const list = await productList(
-    //         getDataSource(),
-    //         [
-    //             'productId',
-    //             'sku',
-    //             'productName',
-    //             'quantity',
-    //             'keywords',
-    //             'productSlug',
-    //             'dateAvailable',
-    //             'width',
-    //             'height',
-    //             'length',
-    //             'weight',
-    //             'image',
-    //             'defaultImage',
-    //             'modifiedPrice',
-    //             'productDiscount',
-    //             'productSpecial',
-    //             'isActive',
-    //             'price',
-    //             'containerName',
-    //         ],
-    //         limit,
-    //         offset,
-    //         keyword,
-    //         undefined,
-    //         sku,
-    //         status,
-    //         price,
-    //         count
-    //         // request.languageId
-    //     );
-
-    //     return response.status(200).send(list);
-    // }
     @Get()
-    @Authorized()
+    @Authorized('vendor')
     public async getProductList(@QueryParam('limit') limit: number, @QueryParam('offset') offset: number, @QueryParam('keyword') keyword: string, @QueryParam('sku') sku: string, @QueryParam('status') status: string, @QueryParam('price') price: number, @QueryParam('count') count: number | boolean, @Res() response: any, @Req() request: any): Promise<Product> {
 
         const select = ['productId', 'sku', 'productName', 'quantity', 'keywords', 'productSlug', 'dateAvailable', 'width', 'height', 'length', 'weight', 'image', 'defaultImage', 'modifiedPrice', 'productDiscount', 'productSpecial', 'isActive', 'price', 'containerName'];
@@ -1204,7 +1117,7 @@ export class ProductController {
      */
     // Order Detail Function
     @Get('/top-selling-productlist')
-    @Authorized()
+    @Authorized('vendor')
     public async topSellingProductList(@Req() request: any, @Res() response: any): Promise<any> {
         const select = [
             'COUNT(OrderProduct.orderId) as ordercount',
@@ -1272,7 +1185,7 @@ export class ProductController {
      * HTTP/1.1 500 Internal Server Error
      */
     @Get('/top-five-repeatedly-purchased-customers')
-    @Authorized()
+    @Authorized('vendor')
     public async topFiveRepeatedlyPurchasedCustomers(@Req() request: any, @Res() response: any): Promise<any> {
         const limit = 5;
         const select = [
@@ -1351,7 +1264,7 @@ export class ProductController {
      * HTTP/1.1 500 Internal Server Error
      */
     @Get('/top-performing-products')
-    @Authorized()
+    @Authorized('vendor')
     public async topPerformingProucts(@QueryParam('limit') limit: number, @QueryParam('offset') offset: number, @QueryParam('count') count: number | boolean, @QueryParam('duration') duration: number, @Req() request: any, @Res() response: any): Promise<any> {
         const topPerformingProducts = await this.orderProductService.topPerformingProducts(limit, offset, false, duration);
         if (count) {
@@ -1395,7 +1308,7 @@ export class ProductController {
      * HTTP/1.1 500 Internal Server Error
      */
     @Get('/dashboard/admin-customers-count')
-    @Authorized()
+    @Authorized('vendor')
     public async dashboardCustomerCount(@QueryParam('duration') duration: number, @Req() request: any, @Res() response: any): Promise<any> {
         const customerCount = await this.customerService.dashboardCustomerCount(duration);
         return response.status(200).send({
@@ -1422,7 +1335,7 @@ export class ProductController {
      * HTTP/1.1 500 Internal Server Error
      */
     @Get('/orders-count')
-    @Authorized()
+    @Authorized('vendor')
     public async dashboardOrderCount(@QueryParam('duration') duration: number, @Req() request: any, @Res() response: any): Promise<any> {
         const countOfOrdersAndVendors = await this.orderService.dashboardOrdersCount(duration);
         const count: any = {};
@@ -1452,7 +1365,7 @@ export class ProductController {
      * HTTP/1.1 500 Internal Server Error
      */
     @Get('/average-order-value')
-    @Authorized()
+    @Authorized('vendor')
     public async averageOrderValue(@QueryParam('duration') duration: number, @Req() request: any, @Res() response: any): Promise<any> {
         const orderproductstotal = await this.orderProductService.dashboardOrderProductsTotal(duration);
         const vendorcommission = await this.vendorPaymentService.dashboardVendorCommissionTotal(duration);
@@ -1484,7 +1397,7 @@ export class ProductController {
      * HTTP/1.1 500 Internal Server Error
      */
     @Get('/total-revenue')
-    @Authorized()
+    @Authorized('vendor')
     public async dashboardTotalRevenue(@QueryParam('duration') duration: number, @Req() request: any, @Res() response: any): Promise<any> {
         const orderProductsTotal = await this.orderProductService.dashboardOrderProductsTotal(duration);
         const totalvendorCommission = await this.vendorPaymentService.dashboardVendorCommissionTotal(duration);
@@ -1515,7 +1428,7 @@ export class ProductController {
      * HTTP/1.1 500 Internal Server Error
      */
     @Get('/average-conversion-ratio')
-    @Authorized()
+    @Authorized('vendor')
     public async averageConversionRatio(@QueryParam('duration') duration: number, @Req() request: any, @Res() response: any): Promise<any> {
         const orderscount = await this.orderService.ordersCount(duration);
         const customerscount = await this.customerService.dashboardCustomerCount(duration);
@@ -1551,7 +1464,7 @@ export class ProductController {
      * HTTP/1.1 500 Internal Server Error
      */
     @Get('/dashboard/graph-weekly-saleslist')
-    @Authorized()
+    @Authorized('vendor')
     public async topTenWeeklySales(@QueryParam('productId') productId: string, @Req() request: any, @Res() response: any): Promise<any> {
         const productids = productId.split(',');
         if (!(productids.length <= 3)) {
@@ -1619,7 +1532,7 @@ export class ProductController {
      */
     // Recent selling product function
     @Get('/recent-selling-product')
-    @Authorized()
+    @Authorized('vendor')
     public async sellingProduct(@Req() request: any, @Res() response: any): Promise<any> {
         const limit = 3;
         const select = [
@@ -1701,7 +1614,7 @@ export class ProductController {
      */
 
     @Get('/viewLog-list')
-    @Authorized()
+    @Authorized('vendor')
     public async productViewLogList(@QueryParam('limit') limit: number, @QueryParam('offset') offset: number, @QueryParam('count') count: number | boolean, @Req() request: any, @Res() response: any): Promise<any> {
 
         const viewLogs = await this.productViewLogService.list(limit, offset, [], [], [], 0, count);
@@ -1758,7 +1671,7 @@ export class ProductController {
      */
 
     @Get('/customerProductView-list/:id')
-    @Authorized()
+    @Authorized('vendor')
     public async customerProductView(@Param('id') id: number, @QueryParam('limit') limit: number, @QueryParam('offset') offset: number, @QueryParam('count') count: number | boolean, @Req() request: any, @Res() response: any): Promise<any> {
         const whereConditions = [
             {
@@ -2144,7 +2057,7 @@ export class ProductController {
      * HTTP/1.1 500 Internal Server Error
      */
     @Delete('/:id')
-    // @Authorized(['vendor', 'delete-product'])
+    @Authorized(['vendor', 'delete-product'])
     public async deleteProduct(@Param('id') productid: number, @Res() response: any, @Req() request: any): Promise<Product> {
         // Remove's Hook if in Memory
         hooks.removeHook('coupon-delete', 'CD1-namespace');
@@ -2222,7 +2135,7 @@ export class ProductController {
      * HTTP/1.1 500 Internal Server Error
      */
     @Post('/delete-product')
-    @Authorized()
+    @Authorized('vendor')
     public async deleteMultipleProduct(@Body({ validate: true }) productDelete: DeleteProductRequest, @Res() response: any, @Req() request: any): Promise<Product> {
         // Remove's Hook if in Memory
         hooks.removeHook('coupon-delete', 'CD1-namespace');
@@ -2360,7 +2273,7 @@ export class ProductController {
      * HTTP/1.1 500 Internal Server Error
      */
     @Get('/dashboard-count')
-    @Authorized()
+    @Authorized('vendor')
     public async dashboardCount(@Res() response: any): Promise<any> {
         const searchOrder = [{
             name: 'paymentProcess',
@@ -2406,7 +2319,7 @@ export class ProductController {
      * HTTP/1.1 500 Internal Server Error
      */
     @Get('/dashboard-admin-totalvendor-totalproduct-count')
-    @Authorized()
+    @Authorized('vendor')
     public async dashboardAdminCount(@Res() response: any): Promise<any> {
         const whereConditionsForCustomers = [
             {
@@ -2459,7 +2372,7 @@ export class ProductController {
      * HTTP/1.1 500 Internal Server Error
      */
     @Get('/product-count')
-    @Authorized()
+    @Authorized('vendor')
     public async productCount(@Res() response: any): Promise<any> {
         const allProductCount: any = await this.productService.list(0, 0, [], [], [], [], 0, 1);
         const whereConditionsActive = [
@@ -3280,7 +3193,7 @@ export class ProductController {
      * HTTP/1.1 500 Internal Server Error
      */
     @Post('/update-stock')
-    @Authorized()
+    @Authorized('vendor')
     public async manageStock(@Body({ validate: true }) updateStock: UpdateStockRequest, @Res() response: any): Promise<any> {
 
         const product = await this.productService.findOne({
@@ -3380,7 +3293,7 @@ export class ProductController {
      * HTTP/1.1 500 Internal Server Error
      */
     @Post('/add-tire-price')
-    @Authorized()
+    @Authorized('vendor')
     public async addTirePrice(@Body({ validate: true }) tirePrice: CreateTirePriceRequest, @Res() response: any): Promise<any> {
 
         const product = await this.productService.findOne({
@@ -3436,7 +3349,7 @@ export class ProductController {
      * HTTP/1.1 500 Internal Server Error
      */
     @Delete('/delete-tire-price/:id')
-    @Authorized()
+    @Authorized('vendor')
     public async delete(@Param('id') id: number, @Res() response: any, @Req() request: any): Promise<any> {
 
         const tire = await this.productTirePriceService.findOne({
@@ -3502,7 +3415,7 @@ export class ProductController {
      * HTTP/1.1 500 Internal Server Error
      */
     @Get('/get-product-tire-price-list')
-    @Authorized('')
+    @Authorized('vendor')
     public async getCustomerAddress(@QueryParam('productId') productId: number, @QueryParam('limit') limit: number, @QueryParam('offset') offset: number, @QueryParam('count') count: number | boolean, @Req() request: any, @Res() response: any): Promise<any> {
         const whereConditions = [
             {
@@ -3630,7 +3543,7 @@ export class ProductController {
      * HTTP/1.1 500 Internal Server Error
      */
     @Post('/update-sku')
-    @Authorized()
+    @Authorized('vendor')
     public async updateOrderProductShippingInformation(@BodyParam('limit') limit: number, @BodyParam('offset') offset: number, @Res() response: any): Promise<any> {
         const products = await this.productService.find({
             take: limit,
@@ -3711,7 +3624,7 @@ export class ProductController {
      * HTTP/1.1 500 Internal Server Error
      */
     @Get('/update-owner-product-list')
-    @Authorized()
+    @Authorized('vendor')
     public async updateProductList(@QueryParam('limit') limit: number, @QueryParam('offset') offset: number, @QueryParam('count') count: number | boolean, @Res() response: any): Promise<Product> {
         const select = ['productId'];
         const productLists: any = await this.productService.list(limit, offset, select, [], [], 0, 0, count);
@@ -3766,7 +3679,7 @@ export class ProductController {
      * HTTP/1.1 500 Internal Server Error
      */
     @Get('/update-vendor-sku-list')
-    @Authorized()
+    @Authorized('vendor')
     public async updateVendorSku(@QueryParam('limit') limit: number, @QueryParam('offset') offset: number, @Res() response: any): Promise<any> {
         const select = ['Product.productId as productId'];
         const productLists = await this.productService.listByQueryBuilder(limit, offset, select, [], [], [], [], [], false, true);

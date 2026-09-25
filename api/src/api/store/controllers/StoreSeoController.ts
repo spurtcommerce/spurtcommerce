@@ -14,12 +14,10 @@ import { CategoryService } from '../../../../src/api/core/services/CategoryServi
 import { PageService } from '../../../../src/api/core/services/PageService';
 import { BlogService } from '../../../api/core/services/BlogService';
 import { TenantValidationMiddleware } from '../../../../src/api/core/middlewares/TenantValidationMiddleware';
-// import { CheckVendorCustomerAddonMiddleware } from '../../../../src/api/core/middlewares/VendorCustomerAddonValidationMiddilware';
 import { Service } from 'typedi';
 
 @Service()
 @UseBefore(TenantValidationMiddleware)
-// @UseBefore(CheckVendorCustomerAddonMiddleware)
 @JsonController('/seo')
 export class StoreSeoController {
     constructor(

@@ -23,7 +23,6 @@ enum HomePageWidget {
 import { Service } from 'typedi';
 
 @Service()
-// @UseBefore(CheckVendorAddonMiddleware)
 @JsonController('/vendor-widget')
 export class VendorWidgetController {
     constructor(

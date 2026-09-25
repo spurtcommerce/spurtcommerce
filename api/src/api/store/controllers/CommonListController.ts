@@ -46,8 +46,7 @@ import { VendorUsersService } from '../../core/services/VendorUsersService';
 import { Service } from 'typedi';
 import { ZoneService } from '../../core/services/zoneService';
 import { CurrencyService } from '../../core/services/CurrencyService';
-import { Container } from 'typedi';
-import { VendorSettingsDomainService } from '../../core/services/VendorSettingsDomainService';
+import { StoreCategoryValidator } from '../../../../src/api/core/middlewares/StoreCategoryValidatorMiddleware';
 @Service()
 @UseBefore(IndustryValidationMiddleware)
 @JsonController('/store-list')
@@ -73,8 +72,7 @@ export class CommonListController {
         private vendorPluginService: VendorPluginService,
         private vendorService: VendorService,
         private vendorCountryService: VendorCountryService,
-        private vendorLanguageService: VendorLanguageService,
-        private vendorSettingsDomainService: VendorSettingsDomainService
+        private vendorLanguageService: VendorLanguageService
     ) {
         // --
     }
@@ -1469,7 +1467,7 @@ export class CommonListController {
      * HTTP/1.1 500 Internal Server Error
      */
     // Category List Function
-    // @UseBefore(StoreCategoryValidator)
+    @UseBefore(StoreCategoryValidator)
     @UseBefore(TenantValidationMiddleware)
     @UseBefore(TranslationMiddleware)
     @Get('/specific-category')
@@ -2107,75 +2105,4 @@ export class CommonListController {
         }
     }
 
-    // get app Id
-    /**
-     * @api {Get} /api/store-list/get-app-id Get App Id
-     * @apiGroup Store
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 Ok
-     *  {
-     *      "status": "1",
-     *      "message": "Successfully got appId.",
-     *      "data": ""
-     * }
-     * @apiSampleRequest /api/store-list/get-app-id
-     * @apiErrorExample {json} Error
-     * HTTP/1.1 500 Internal server errorS
-     */
-    @Get('/get-app-id')
-    public async getAppId(@Req() request: any, @Res() response: any): Promise<any> {
-        const host = request.get('referer');
-        if (!host) {
-            return response.status(400).send({
-                status: 0,
-                message: 'Invalid host.',
-            });
-        }
-        const isSpurtStore = host?.includes(env.spurtB2bBaseDomain);
-        let appInfo;
-        if (isSpurtStore) {
-            const subdomain = host.split('.')[0].split('//')[1];
-            appInfo = await this.vendorService.findOne({ where: { displayNameUrl: subdomain } });
-        } else {
-            if (env.app.type === 'cloud') {
-                const { TenantSubscriptionService } = require('../../../../add-ons/SaasSubscription/services/TenantSubscriptionService');
-                const tenantSubscriptionService: any = Container.get(TenantSubscriptionService);
-
-                const getTenantSubscription = await tenantSubscriptionService.getTenantSubscription();
-
-                const vendorSettingsDomain: any = await this.vendorSettingsDomainService.findOne({
-                    where: {
-                        domainName: host,
-                        isActive: 1,
-                        isDelete: 0,
-                    },
-                });
-                const domainExists = !!vendorSettingsDomain;
-
-                const hasValidSubscription = getTenantSubscription?.some((sub: any) =>
-                    sub.tenantId === vendorSettingsDomain?.vendorId &&
-                    // sub.status === 'Active' &&
-                    ['prime', 'basic plan', 'premium plan'].includes(sub.mstSubscription?.name?.toLowerCase()) &&
-                    (!sub.expiredOn || new Date(sub.expiredOn) > new Date())
-
-                );
-                if (hasValidSubscription && domainExists) {
-                    appInfo = await this.vendorService.findOne({ where: { vendorId: vendorSettingsDomain.vendorId } });
-                }
-            }
-        }
-
-        if (!appInfo) {
-            return response.status(400).send({
-                status: 0,
-                message: 'Invalid host.',
-            });
-        }
-        const industry = await this.industryService.findOne({ where: { id: appInfo.industryId } });
-        return response.status(200).send({
-            status: 1,
-            message: 'Successfully got appId.',
-            data: { appId: appInfo.appId, industrySlug: industry.slug },
-        });
-    }
 }

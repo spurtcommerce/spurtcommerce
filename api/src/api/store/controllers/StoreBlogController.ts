@@ -15,12 +15,10 @@ import { BlogCategoryService } from '../../core/services/BlogCategoryService';
 // import { BlogTranslationService } from '../../core/services/BlogTranslationService';
 import { TranslationMiddleware } from '../../../../src/api/core/middlewares/TranslationMiddleware';
 import { VendorUsersService } from '../../../../src/api/core/services/VendorUsersService';
-// import { CheckVendorCustomerAddonMiddleware } from '../../../../src/api/core/middlewares/VendorCustomerAddonValidationMiddilware';
 import { Service } from 'typedi';
 import { TenantValidationMiddleware } from '../../../../src/api/core/middlewares/TenantValidationMiddleware';
 
 @Service()
-// @UseBefore(CheckVendorCustomerAddonMiddleware)
 @UseBefore(TenantValidationMiddleware)
 @JsonController('/list')
 export class StoreBlogListController {

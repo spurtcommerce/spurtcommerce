@@ -21,10 +21,7 @@ import { LoginLogService } from '../../core/services/LoginLogService';
 import { EmailTemplateService } from '../../core/services/EmailTemplateService';
 import { VendorLogin } from './requests/VendorLoginRequest';
 import jwt from 'jsonwebtoken';
-// import { S3Service } from '../../core/services/S3Service';
-// import { ImageService } from '../../core/services/ImageService';
 import { env } from '../../../env';
-// import { UpdateVendorRequest } from './requests/UpdateVendorRequest ';
 import { VendorOrdersService } from '../../core/services/VendorOrderService';
 import { VendorProductService } from '../../core/services/VendorProductService';
 import { OrderStatusService } from '../../core/services/OrderStatusService';
@@ -55,13 +52,9 @@ import { CategoryService } from '../../core/services/CategoryService';
 import { VendorSettingsService } from '../../core/services/VendorSettingsService';
 import { VendorSettings } from '../../core/models/VendorSettings';
 import { Not, IsNull } from 'typeorm';
-// import { OrderFullfillmentStatusService } from '../../core/services/OrderFullfillmentStatusService';
-// import { CustomerUserGroupService } from '../../core/services/CustomerUserGroupService';
 import { VendorEmailTemplate } from '../../core/models/VendorEmailTemplate';
 import { EmailTemplate } from '../../core/models/EmailTemplate';
 import { VendorEmailTemplateService } from '../../core/services/VendorEmailTemplateService';
-// import uncino from 'uncino';
-// const hooks = uncino();
 import { Service } from 'typedi';
 import { OrderService } from '../../core/services/OrderService';
 import { CurrencyService } from '../../core/services/CurrencyService';
@@ -76,7 +69,6 @@ import { VendorTaxService } from '../../core/services/VendorTaxService';
 import { Container } from 'typedi';
 import { PaymentRule } from '../../core/models/PaymentRule';
 import { PaymentRuleService } from '../../core/services/PaymentRuleService';
-import { VendorSettingsDomainService } from '../../core/services/VendorSettingsDomainService';
 @Service()
 @JsonController('/vendor')
 export class VendorController {
@@ -85,13 +77,10 @@ export class VendorController {
         private vendorService: VendorService,
         private emailTemplateService: EmailTemplateService,
         private vendorCategoryService: VendorCategoryService,
-        // private s3Service: S3Service,
-        // private imageService: ImageService,
         private loginLogService: LoginLogService,
         private vendorOrdersService: VendorOrdersService,
         private vendorProductService: VendorProductService,
         private settingService: SettingService,
-        // private currencyService: CurrencyService,
         private orderStatusService: OrderStatusService,
         private accessTokenService: AccessTokenService,
         private vendorMediaService: VendorMediaService,
@@ -108,12 +97,8 @@ export class VendorController {
         private taxService: TaxService,
         private vendorCountryService: VendorCountryService,
         private vendorLanguageService: VendorLanguageService,
-        // private zoneService: ZoneService,
-        // private vendorZoneService: VendorZoneService,
         private currencyService: CurrencyService,
         private vendorTaxService: VendorTaxService,
-        // private orderFullfillmentStatusService: OrderFullfillmentStatusService,
-        // private customerUserGroupService: CustomerUserGroupService,
         private vendorEmailTemplateService: VendorEmailTemplateService,
         private orderService: OrderService,
         private paymentRuleService: PaymentRuleService
@@ -638,49 +623,7 @@ export class VendorController {
         const vendor = await this.vendorService.findOne({
             where: { vendorId: vendorUser.tenantId, isDelete: 0 },
         });
-
-        // if (!vendor) {
-        //     const notFountResponse: any = {
-        //         status: 0,
-        //         message: 'Invalid Username',
-        //         data: 1,
-        //     };
-        //     return response.status(400).send(notFountResponse);
-        // }
-
-        // generate token with vendorUser primary id
-        // const resultData = await this.customerService.findOne({
-        //     select: ['id', 'firstName', 'email', 'mobileNumber', 'password', 'avatar', 'avatarPath', 'isActive'],
-        //     where: { email: loginParam.emailId },
-        // });
-        // if (resultData === undefined) {
-        //     const notFountResponse: any = {
-        //         status: 0,
-        //         message: 'Invalid Username',
-        //         data: 1,
-        //     };
-        //     return response.status(400).send(notFountResponse);
-        // }
-        // const findVendor = await this.vendorService.findOne({
-        //     where: { customerId: resultData.id, isDelete: 0 },
-        // });
-        // if (findVendor === undefined) {
-        //     const errorUserNameResponse: any = {
-        //         status: 0,
-        //         message: 'Login Information provided is invalid',
-        //     };
-        //     return response.status(400).send(errorUserNameResponse);
-        // }
-        // if (findVendor.verification.email === 0 || findVendor.verification.email === 2) {
-        //     const errorUserNameResponse: any = {
-        //         status: 0,
-        //         message: 'Account email verification pending',
-        //     };
-        //     return response.status(400).send(errorUserNameResponse);
-        // }
-        // resultData.vendorId = findVendor.vendorId;
-        // resultData.vendorPrefixId = findVendor.vendorPrefixId.replace('#', '');
-        // const setting = await this.settingService.findOne();
+   
         const vendorSettings = await this.vendorSettingsService.findOne({ where: { vendorId: vendorUser.tenantId } });
         if (vendorSettings) {
             const vendorCurrencyVal = await this.currencyService.findOne({ where: { currencyId: vendorSettings.storeCurrencyId } });
@@ -1231,447 +1174,6 @@ export class VendorController {
             return response.status(400).send(errorResponse);
         }
     }
-
-    // Edit Vendor API
-    /**
-     * @api {put} /api/vendor/edit-vendor/:customerId Edit Vendor API
-     * @apiGroup Vendor
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {String{..32}} firstName First Name
-     * @apiParam (Request body) {String{..32}} [lastName] Last Name
-     * @apiParam (Request body) {String} [avatar] Avatar
-     * @apiParam (Request body) {String} [designation] Designation
-     * @apiParam (Request body) {String{..96}} email Email
-     * @apiParam (Request body) {Number} mobileNumber Mobile Number
-     * @apiParam (Request body) {String} [companyName] Company Name
-     * @apiParam (Request body) {String} [companyLogo] Company Logo
-     * @apiParam (Request body) {String} [companyCoverImage] CompanyCoverImage
-     * @apiParam (Request body) {String} [companyAddress1] Company Address1
-     * @apiParam (Request body) {String} [companyAddress2] Company Address2
-     * @apiParam (Request body) {String} [companyCity] Company City
-     * @apiParam (Request body) {String} [companyState] Company State
-     * @apiParam (Request body) {Number} [companyCountryId] Company Country Id
-     * @apiParam (Request body) {String} [pincode] Pincode
-     * @apiParam (Request body) {Number} [companyMobileNumber] Company Mobile Number
-     * @apiParam (Request body) {String{..96}} [companyEmailId] Company Email Id
-     * @apiParam (Request body) {String} [companyWebsite] Company Website
-     * @apiParam (Request body) {String} [companyTaxNumber] Company Gst Number
-     * @apiParam (Request body) {String} [companyPanNumber] Company Pan Number
-     * @apiParam (Request body) {String} [paymentInformation] paymentInformation
-     * @apiParamExample {json} Input
-     * {
-     *      "firstName" : "",
-     *      "lastName" : "",
-     *      "avatar" : "",
-     *      "designation" : "",
-     *      "email" : "",
-     *      "mobileNumber" : "",
-     *      "companyName" : "",
-     *      "companyLogo" : "",
-     *      "companyCoverImage" : "",
-     *      "companyAddress1" : "",
-     *      "companyAddress2" : "",
-     *      "companyCity" : "",
-     *      "companyState" : "",
-     *      "companyCountryId" : 1,
-     *      "pincode" : "",
-     *      "companyMobileNumber" : "",
-     *      "companyEmailId" : "",
-     *      "companyWebsite" : "",
-     *      "companyTaxNumber" : "",
-     *      "companyPanNumber" : "",
-     *      "paymentInformation" : "",
-     *      "capabilities": [
-     *      {
-     *          "data": "",
-     *          "status": ""
-     *      }
-     *     ],
-     *      "vendorMedia": [
-     *      {
-     *      "fileName": "",
-     *      "filePath": "",
-     *      "mediaType": "",
-     *      "videoType": "",
-     *      "showHomePage": "",
-     *      "status": "",
-     *      "url": "",
-     *      "defaultImage": "",
-     *      "title": "",
-     *      "vendorId": 1
-     *      }
-     *  ],
-     *      "vendorDescription": ""
-     * }
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     * "status": "1",
-     * "message": "Edited successfully"
-     * "data": {
-     *   "createdDate": "",
-     *   "id": 1,
-     *   "firstName": "",
-     *   "lastName": "",
-     *   "gender": "",
-     *   "dob": "",
-     *   "username": "",
-     *   "email": "",
-     *   "mobileNumber": "",
-     *   "local": "",
-     *   "oauthData": "",
-     *   "avatar": "",
-     *   "avatarPath": "",
-     *   "lastLogin": "",
-     *   "linkExpires": "",
-     *   "lockedOn": "",
-     *   "siteId": 1,
-     *    "mailOtp": "",
-     *   "mailOtpExpireTime": ""
-     *    },
-     *   "vendor": {
-     *   "createdBy": "",
-     *   "createdDate": "",
-     *   "modifiedBy": "",
-     *   "modifiedDate": "",
-     *   "vendorId": 1,
-     *   "vendorPrefixId": 1,
-     *   "customerId": 1,
-     *   "vendorGroupId": 1,
-     *   "commission": "",
-     *   "industryId": 1,
-     *   "contactPersonName": "",
-     *   "vendorSlugName": "",
-     *   "companyState": "",
-     *   "companyDescription": "",
-     *   "companyLogo": "",
-     *   "companyLogoPath": "",
-     *   "verification": {
-     *       "email": "",
-     *       "policy": "",
-     *       "category": "",
-     *       "decision": "",
-     *       "document": "",
-     *       "storeFront": "",
-     *       "bankAccount": "",
-     *       "paymentInfo": "",
-     *       "companyDetail": "",
-     *       "deliveryMethod": "",
-     *       "subscriptionPlan": "",
-     *       "distributionPoint": ""
-     *     },
-     *   "verificationComment": [],
-     *   "verificationDetailComment": [],
-     *   "bankAccount": {
-     *       "bic": "",
-     *       "ifsc": "",
-     *       "branch": "",
-     *       "bankName": "",
-     *       "accountNumber": "",
-     *       "accountCreatedOn": "",
-     *       "accountHolderName": ""
-     *    },
-     *   "approvalFlag": "",
-     *   "approvedBy": "",
-     *   "approvalDate": "",
-     *   "companyCoverImage": "",
-     *   "companyCoverImagePath": "",
-     *   "twitter": "",
-     *   "bankName": "",
-     *   "bankAccountNumber": "",
-     *   "accountHolderName": "",
-     *   "ifscCode": "",
-     *   "mailOtp": "",
-     *   "loginOtpExpireTime": "",
-     *   "capabilities": [
-     *       {
-     *           "data": "",
-     *           "status": "",
-     *           "modelStatus": ""
-     *       }
-     *    ],
-     *   "isEmailVerify": 1,
-     *   "avatar": ""
-     *    }
-     * }
-     * @apiSampleRequest /api/vendor/edit-vendor/:customerId
-     * @apiErrorExample {json} Edit Vendor API error
-     * HTTP/1.1 500 Internal Server Error
-     */
-    // @Put('/edit-vendor')
-    // @Authorized('vendor-unapproved')
-    // public async update(@Body({ validate: true }) updateParam: UpdateVendorRequest, @Res() response: any, @Req() request: any): Promise<any> {
-    //     const avatar = updateParam.avatar;
-    //     const vendorUser = await this.vendorUsersService.findOne({ id: request.user.id });
-
-    //     if (vendorUser.isSuperVendor === 1) {
-    //         const vendor = await this.vendorService.findOne({
-    //             where: {
-    //                 vendorId: request.user.tenantId,
-    //             },
-    //         });
-    //         const companyLogo = updateParam.companyLogo;
-    //         if (companyLogo) {
-    //             const type = companyLogo.split(';')[0].split('/')[1];
-    //             const availableTypes = env.availImageTypes.split(',');
-    //             if (!availableTypes.includes(type)) {
-    //                 const errorTypeResponse: any = {
-    //                     status: 0,
-    //                     message: 'Only ' + env.availImageTypes + ' types are allowed',
-    //                 };
-    //                 return response.status(400).send(errorTypeResponse);
-    //             }
-    //             const companyLogoName = 'Img_' + Date.now() + '.' + type;
-    //             const companyLogoPath = 'logo/';
-    //             const base64Data = Buffer.from(companyLogo.replace(/^data:image\/\w+;base64,/, ''), 'base64');
-
-    //             if (env.imageserver === 's3') {
-    //                 await this.s3Service.imageUpload((companyLogoPath + companyLogoName), base64Data, type);
-    //             } else {
-    //                 await this.imageService.imageUpload((companyLogoPath + companyLogoName), base64Data);
-    //             }
-
-    //             vendor.companyLogo = companyLogoName;
-    //             vendor.companyLogoPath = companyLogoPath;
-    //         } else if (updateParam.companyLogo === '') {
-    //             vendor.companyLogo = '';
-    //             vendor.companyLogoPath = '';
-    //         }
-    //         const companyCoverImage = updateParam.companyCoverImage;
-    //         if (companyCoverImage) {
-    //             const covertype = companyCoverImage.split(';')[0].split('/')[1];
-    //             const imgName = 'Img_' + Date.now() + '.' + covertype;
-    //             const imgPath = 'logo/';
-    //             const coverbase64Data = Buffer.from(companyCoverImage.replace(/^data:image\/\w+;base64,/, ''), 'base64');
-
-    //             if (env.imageserver === 's3') {
-    //                 await this.s3Service.imageUpload((imgPath + imgName), coverbase64Data, covertype);
-    //             } else {
-    //                 await this.imageService.imageUpload((imgPath + imgName), coverbase64Data);
-    //             }
-
-    //             vendor.companyCoverImage = imgName;
-    //             vendor.companyCoverImagePath = imgPath;
-    //         }
-    //         vendor.companyName = updateParam.companyName;
-    //         if (updateParam?.companyName) {
-    //             const slug = updateParam.companyName;
-    //             const data = slug.replace(/\s+/g, '-').replace(/[&\/\\@#,+()$~%.'":*?<>{}]/g, '').toLowerCase();
-    //             vendor.vendorSlugName = data;
-    //         }
-    //         vendor.avatar = updateParam.avatar;
-    //         vendor.companyAddress1 = updateParam.companyAddress1;
-    //         vendor.facebook = updateParam.companyFacebook;
-    //         vendor.companyAddress2 = updateParam.companyAddress2;
-    //         vendor.companyCity = updateParam.companyCity;
-    //         vendor.companyState = updateParam.state ?? '';
-    //         vendor.zoneId = updateParam.zoneId;
-    //         vendor.designation = updateParam.designation;
-    //         vendor.companyCountryId = updateParam.companyCountryId;
-    //         vendor.pincode = updateParam.pincode;
-    //         vendor.companyMobileNumber = updateParam.companyMobileNumber;
-    //         vendor.companyEmailId = updateParam.companyEmailId;
-    //         vendor.companyWebsite = updateParam.companyWebsite;
-    //         vendor.companyTaxNumber = updateParam.companyTaxNumber;
-    //         vendor.companyPanNumber = updateParam.companyPanNumber;
-    //         vendor.companyGstNumber = updateParam.companyGstNumber;
-    //         vendor.whatsapp = updateParam.companyWhatsapp;
-    //         vendor.youtube = updateParam.companyYoutube;
-    //         vendor.instagram = updateParam.companyInstagram;
-    //         vendor.countryName = updateParam.countryName;
-    //         vendor.paymentInformation = updateParam.paymentInformation;
-    //         vendor.businessSegment = updateParam.businessSegment;
-    //         vendor.businessType = updateParam.businessType;
-    //         vendor.businessNumber = updateParam.companyBusinessNumber;
-    //         vendor.preferredShippingMethod = updateParam.preferredShippingMethod;
-    //         vendor.displayNameUrl = updateParam.displayName;
-    //         vendor.companyLocation = updateParam.companyLocation;
-
-    //         // Bank Info
-    //         if (updateParam.bankPayload) {
-    //             const account = {} as BankAccount;
-    //             account.accountHolderName = updateParam.bankPayload.companyAccountHolderName;
-    //             account.accountNumber = updateParam.bankPayload.companyAccountNumber;
-    //             account.ifsc = updateParam.bankPayload.companyIFSC;
-    //             account.branch = updateParam.bankPayload.companyAccountBranch;
-    //             account.accountCreatedOn = updateParam.bankPayload.companyAccountCreatedOn;
-    //             account.bankName = updateParam.bankPayload.companyAccountBankName;
-    //             account.bic = updateParam.bankPayload.companyAccountBic;
-    //             account.bankAddress1 = updateParam.bankPayload.bankAddress1;
-    //             account.bankAddress2 = updateParam.bankPayload.bankAddress2;
-    //             account.bankArea = updateParam.bankPayload.bankArea;
-    //             account.bankCity = updateParam.bankPayload.bankCity;
-    //             account.bankCountryId = updateParam.bankPayload.bankCountryId;
-    //             account.bankStateId = updateParam.bankPayload.bankStateId;
-    //             account.bankPincode = updateParam.bankPayload.bankPincode;
-
-    //             vendor.bankAccount = account;
-    //         }
-
-    //         if (updateParam.capabilities) {
-    //             vendor.capabilities = updateParam.capabilities;
-    //         }
-    //         // vendor media
-    //         if (updateParam?.vendorMedia.length > 0) {
-    //             // single create check
-    //             updateParam.vendorMedia.forEach(async (mediaParam) => {
-    //                 await this.vendorMediaService.delete({ vendorId: vendor.vendorId, mediaType: mediaParam.mediaType });
-    //                 const saveVendorMedia = new VendorMedia();
-    //                 if (mediaParam.mediaType === 1) {
-    //                     saveVendorMedia.fileName = mediaParam.fileName;
-    //                     saveVendorMedia.filePath = mediaParam.filePath;
-    //                     saveVendorMedia.defaultImage = mediaParam.defaultImage;
-    //                     saveVendorMedia.mediaType = mediaParam.mediaType;
-    //                     saveVendorMedia.vendorId = request.user.vendorId;
-    //                     saveVendorMedia.title = mediaParam.title;
-    //                     saveVendorMedia.isActive = mediaParam.status;
-    //                 } else {
-    //                     saveVendorMedia.fileName = mediaParam.fileName;
-    //                     saveVendorMedia.filePath = mediaParam.filePath;
-    //                     saveVendorMedia.mediaType = mediaParam.mediaType;
-    //                     // 1 > upload 2 > url
-    //                     saveVendorMedia.videoType = mediaParam.videoType;
-    //                     saveVendorMedia.showHomePage = mediaParam.showHomePage === true ? 1 : 0;
-    //                     saveVendorMedia.url = mediaParam.url;
-    //                     saveVendorMedia.isActive = mediaParam.status;
-    //                     saveVendorMedia.vendorId = request.user.vendorId;
-    //                     saveVendorMedia.title = mediaParam.title;
-    //                 }
-    //                 await this.vendorMediaService.create(saveVendorMedia);
-    //             });
-    //         }
-
-    //         vendor.vendorDescription = updateParam.vendorDescription;
-    //         if (updateParam?.personalizedSetting) {
-    //             vendor.personalizedSettings.defaultLanguage = updateParam.personalizedSetting.defaultLanguage;
-    //             vendor.personalizedSettings.dateFormat = updateParam.personalizedSetting.dateFormat;
-    //             vendor.personalizedSettings.timeFormat = updateParam.personalizedSetting.timeFormat;
-    //             vendor.personalizedSettings.timeZone = updateParam.personalizedSetting.timeZone;
-    //         }
-    //         await this.vendorService.create(vendor);
-    //         const customer = await this.customerService.findOne({
-    //             where: {
-    //                 id: vendor.customerId,
-    //             },
-    //         });
-    //         let name;
-    //         let path;
-    //         if (avatar) {
-    //             const type = avatar.split(';')[0].split('/')[1];
-    //             const availableTypes = env.availImageTypes.split(',');
-    //             if (!availableTypes.includes(type)) {
-    //                 const errorTypeResponse: any = {
-    //                     status: 0,
-    //                     message: 'Only ' + env.availImageTypes + ' types are allowed',
-    //                 };
-    //                 return response.status(400).send(errorTypeResponse);
-    //             }
-    //             name = 'Img_' + Date.now() + '.' + type;
-    //             path = 'customer/';
-    //             const base64Data = Buffer.from(avatar.replace(/^data:image\/\w+;base64,/, ''), 'base64');
-
-    //             if (customer.avatarPath && customer.avatar) {
-    //                 const deleteService = env.imageserver === 's3' ? this.s3Service : this.imageService;
-    //                 await deleteService.deleteFile(customer.avatarPath + '/' + customer.avatar);
-    //             }
-    //             if (env.imageserver === 's3') {
-    //                 await this.s3Service.imageUpload((path + name), base64Data, type);
-    //             } else {
-    //                 await this.imageService.imageUpload((path + name), base64Data);
-    //             }
-
-    //             customer.avatar = name;
-    //             customer.avatarPath = path;
-    //         } else if (updateParam.reset === 1) {
-    //             const deleteService = env.imageserver === 's3' ? this.s3Service : this.imageService;
-    //             if (customer.avatarPath && customer.avatar) {
-    //                 await deleteService.deleteFile(customer.avatarPath + '/' + customer.avatar);
-    //             }
-    //             customer.avatar = '';
-    //             customer.avatarPath = '';
-    //         }
-    //         customer.firstName = updateParam.firstName;
-    //         customer.lastName = updateParam.lastName ?? '';
-    //         customer.mobileNumber = updateParam.mobileNumber;
-    //         customer.gender = updateParam.gender;
-    //         customer.dob = updateParam.dob;
-    //         customer.address = updateParam.companyAddress1;
-    //         customer.address2 = updateParam.companyAddress2;
-    //         customer.countryId = updateParam.companyCountryId;
-    //         customer.zoneId = updateParam.zoneId;
-    //         customer.city = updateParam.companyCity;
-    //         customer.pincode = updateParam.pincode;
-    //         customer.landmark = updateParam.landmark;
-    //         const editCustomer = await this.customerService.create(customer);
-
-    //         vendorUser.avatar = name;
-    //         vendorUser.avatarPath = path;
-    //         vendorUser.firstName = updateParam.firstName;
-    //         vendorUser.lastName = updateParam.lastName ?? '';
-    //         vendorUser.phoneNumber = updateParam.mobileNumber;
-
-    //         await this.vendorUsersService.create(vendorUser);
-
-    //         if (editCustomer) {
-    //             return response.status(200).send({
-    //                 status: 1,
-    //                 message: `Successfully Updated ..!`,
-    //                 data: instanceToPlain(editCustomer), vendor,
-    //             });
-    //         }
-    //     }
-
-    //     let avatarName;
-    //     let avatarPath;
-    //     if (avatar) {
-    //         const type = avatar.split(';')[0].split('/')[1];
-    //         const availableTypes = env.availImageTypes.split(',');
-    //         if (!availableTypes.includes(type)) {
-    //             const errorTypeResponse: any = {
-    //                 status: 0,
-    //                 message: 'Only ' + env.availImageTypes + ' types are allowed',
-    //             };
-    //             return response.status(400).send(errorTypeResponse);
-    //         }
-    //         avatarName = 'Img_' + Date.now() + '.' + type;
-    //         avatarPath = 'customer/';
-    //         const base64Data = Buffer.from(avatar.replace(/^data:image\/\w+;base64,/, ''), 'base64');
-
-    //         if (vendorUser.avatarPath && vendorUser.avatar) {
-    //             const deleteService = env.imageserver === 's3' ? this.s3Service : this.imageService;
-    //             await deleteService.deleteFile(vendorUser.avatarPath + '/' + vendorUser.avatar);
-    //         }
-    //         if (env.imageserver === 's3') {
-    //             await this.s3Service.imageUpload((avatarPath + avatarName), base64Data, type);
-    //         } else {
-    //             await this.imageService.imageUpload((avatarPath + avatarName), base64Data);
-    //         }
-
-    //         vendorUser.avatar = avatarName;
-    //         vendorUser.avatarPath = avatarPath;
-    //     } else if (updateParam.reset === 1) {
-    //         const deleteService = env.imageserver === 's3' ? this.s3Service : this.imageService;
-    //         if (vendorUser.avatarPath && vendorUser.avatar) {
-    //             await deleteService.deleteFile(vendorUser.avatarPath + '/' + vendorUser.avatar);
-    //         }
-    //         vendorUser.avatar = '';
-    //         vendorUser.avatarPath = '';
-    //     }
-
-    //     vendorUser.firstName = updateParam.firstName;
-    //     vendorUser.lastName = updateParam.lastName ?? '';
-    //     vendorUser.phoneNumber = updateParam.mobileNumber;
-
-    //     const vendorUserResult = await this.vendorUsersService.create(vendorUser);
-
-    //     const successResponse: any = {
-    //         status: 1,
-    //         message: `Successfully Updated ..!`,
-    //         data: instanceToPlain(vendorUserResult),
-    //     };
-    //     return response.status(200).send(successResponse);
-
-    // }
 
     // Dashboard Counts
     /**
@@ -2394,64 +1896,4 @@ export class VendorController {
             }
         }
     }
-
-    @Get('/vendor-domain')
-    @Authorized('vendor')
-    public async listDomainName(@Req() request: any, @Res() response: any): Promise<any> {
-        try {
-            const vendorId = request.user.tenantId;
-            const host = request.get('referer');
-
-            if (env.app.type === 'cloud') {
-                const { TenantSubscriptionService } = require('../../../../add-ons/SaasSubscription/services/TenantSubscriptionService');
-                const tenantSubscriptionService: any = Container.get(TenantSubscriptionService);
-
-                const tenantSubscriptions = await tenantSubscriptionService.getTenantSubscription();
-
-                const vendorSettingsDomainService = Container.get<VendorSettingsDomainService>(VendorSettingsDomainService);
-
-                const hasValidSubscription = tenantSubscriptions?.some((sub: any) =>
-                    sub.tenantId === vendorId &&
-                    // sub.status === 'Active' &&
-                    ['prime', 'basic plan', 'premium plan'].includes(sub.mstSubscription?.name?.toLowerCase()) &&
-                    (!sub.expiredOn || new Date(sub.expiredOn) > new Date())
-                );
-
-                const vendorDomain = await vendorSettingsDomainService.findOne({
-                    where: {
-                        vendorId,
-                        domainName: host,
-                        isActive: 1,
-                        isDelete: 0,
-                    },
-                });
-
-                if (hasValidSubscription && vendorDomain) {
-                    return response.status(200).send({
-                        status: 1,
-                        message: 'Successfully fetched vendor settings domain site URL',
-                        data: {
-                            storeUrl: vendorDomain.domainName || null,
-                        },
-                    });
-                }
-            }
-
-            const vendorSettings = await this.vendorSettingsService.findOne({ where: { vendorId } });
-            return response.status(200).send({
-                status: 1,
-                message: 'Successfully fetched vendor settings site URL',
-                data: {
-                    storeUrl: vendorSettings?.storeUrl || null,
-                },
-            });
-
-        } catch (error) {
-            return response.status(500).send({
-                status: 0,
-                message: 'Internal server error while fetching domain list',
-            });
-        }
-    }
-
 }

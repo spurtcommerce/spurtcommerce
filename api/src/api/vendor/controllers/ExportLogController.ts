@@ -93,7 +93,7 @@ export class ExportLogController {
      * @apiErrorExample {json} Error
      * HTTP/1.1 500 Internal server error
      */
-    // @Authorized()
+    @Authorized('vendor')
     @Get()
     public async listExportLog(
         @QueryParam('limit') limit: number,

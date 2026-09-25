@@ -13,11 +13,9 @@ import { MSeoMeta } from '../../core/models/MSeoMetaModel';
 import { AddSeoRequest } from '../../../../src/api/vendor/controllers/requests/CreateSeoRequest';
 import { BlogService } from '../../core/services/BlogService';
 import { BlogCategoryService } from '../../core/services/BlogCategoryService';
-// import { CheckVendorAddonMiddleware } from '../../../../src/api/core/middlewares/VendorAddonValidationMiddilware';
 import { Service } from 'typedi';
 
 @Service()
-// @UseBefore(CheckVendorAddonMiddleware)
 @JsonController('/vendor-blog-seo')
 export class VendorSeoBlogController {
     constructor(

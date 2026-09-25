@@ -20,7 +20,6 @@ import { Page } from '../../../../src/api/core/models/Page';
 import { Like } from 'typeorm';
 
 @Service()
-// @UseBefore(CheckVendorAddonMiddleware)
 @JsonController('/vendor-page-seo')
 export class VendorSeoPageController {
     constructor(

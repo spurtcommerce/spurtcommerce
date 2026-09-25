@@ -203,7 +203,7 @@ export class CustomerGroupController {
      * HTTP/1.1 500 Internal Server Error
      */
     @Get()
-    @Authorized()
+    @Authorized('vendor')
     public async customergroupList(@QueryParam('limit') limit: number, @QueryParam('offset') offset: number, @QueryParam('groupName') groupName: string, @QueryParam('keyword') keyword: string, @QueryParam('status') status: string, @Req() request: any, @QueryParam('count') count: number | boolean, @Res() response: any): Promise<any> {
         const select = ['id', 'name', 'description', 'colorCode', 'isActive', 'createdDate', 'modifiedDate'];
         const whereConditions = [

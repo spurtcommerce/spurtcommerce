@@ -31,6 +31,7 @@ import * as crypto from 'crypto';
 import { SendOtpRequest } from './requests/SendOtpRequest';
 import { VerifyOtpRequest } from './requests/LoginOtpRequest';
 import { SettingService } from '../../core/services/SettingService';
+import { VendorUsers } from '../../core/models/VendorUsers';
 @Service()
 @JsonController('/demo-vendor')
 export class DemoVendorController {
@@ -164,7 +165,7 @@ export class DemoVendorController {
                 .replace('{3}', otp)
                 .replace(/{appName}/g, siteName)
                 .replace(/{type}/g, 'Seller')
-             // .replace(/{contactURL}/g, env.vendorRedirectUrl)
+                // .replace(/{contactURL}/g, env.vendorRedirectUrl)
                 .replace('{duration}', OTP_VALIDITY_HOURS.toString())
                 .replace('{durationValue}', 'hours');
             const setting = await this.settingService.findOne({ where: { settingsId: 2 } });
@@ -353,40 +354,30 @@ export class DemoVendorController {
      * HTTP/1.1 500 Internal Server Error
      */
     @Post('/login-new')
-    public async otpLogin(@Body({ validate: true }) payload: VerifyOtpRequest, @Req() request: any, @Res() response: any): Promise<any> {
-        const { emailId, otp } = payload;
+    public async vendorLogin(@Body({ validate: true }) payload: VerifyOtpRequest, @Req() request: any, @Res() response: any): Promise<any> {
+        const { emailId, password } = payload;
 
-        const vendorUser = await this.vendorUsersService.findOne({ where: { email: emailId, deleteFlag: 0 }, select: ['id', 'firstName', 'email', 'phoneNumber', 'avatar', 'avatarPath', 'isActive', 'tenantId'], relations: ['vendorUserGroup'] });
+        const vendorUser = await this.vendorUsersService.findOne({ where: { email: emailId, deleteFlag: 0 }, select: ['id', 'firstName', 'email', 'phoneNumber', 'avatar', 'avatarPath', 'isActive', 'tenantId', 'password'], relations: ['vendorUserGroup'] });
         if (!vendorUser) {
-            return response.status(400).send({ status: 0, message: 'Invalid Email' });
+            return response.status(400).send({ status: 0, message: 'Invalid Email or Password' });
         }
-        console.log('vendorUser.tenantId:', vendorUser.tenantId, 'process.env.tenantId:', env.tenantId);
         if (+vendorUser.tenantId !== +env.tenantId) {
             return response.status(400).send({
-             status: 0,
-             message: 'User not allowed to Login',
+                status: 0,
+                message: 'User not allowed to Login',
             });
         }
-        const otpRecord = await this.registrationOtpService.findOne({ where: { emailId, userType: 1, isActive: 1, isDelete: 0 }, order: { createdDate: 'DESC' } });
-        if (+otp !== 555555) {
-            if (!otpRecord) {
-                return response.status(400).send({ status: 0, message: 'No valid OTP found. Please request a new one.' });
-            }
+        const isPasswordValid = await VendorUsers.comparePassword(
+            vendorUser,
+            password
+        );
 
-            if (+otpRecord.otp !== +otp) {
-                return response.status(400).send({
-                    status: 0,
-                    message: `Invalid OTP.Please try again.`,
-                });
-            }
-
-            const isExpired = moment().isAfter(moment(otpRecord.expiresAt));
-            if (isExpired) {
-                await this.registrationOtpService.delete(otpRecord.id);
-                return response.status(400).send({ status: 0, message: 'OTP has expired. Please request a new one.' });
-            }
+        if (!isPasswordValid) {
+            return response.status(400).send({
+                status: 0,
+                message: 'Invalid Email or Password',
+            });
         }
-
         const vendor = await this.vendorService.findOne({ where: { vendorId: env.tenantId, isDelete: 0 } });
         if (!vendor) {
             return response.status(400).send({ status: 0, message: 'No valid vendor account found.' });
@@ -445,9 +436,6 @@ export class DemoVendorController {
         }
 
         vendorUser.appId = env.appId;
-        if (otpRecord) {
-            await this.registrationOtpService.delete(otpRecord.id);
-        }
         const successResponse: any = {
             status: 1,
             message: 'Logged In successfully',

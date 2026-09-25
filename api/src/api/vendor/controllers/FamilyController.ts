@@ -7,8 +7,6 @@ import { CategoryPathService } from '../../core/services/CategoryPathService';
 import { ProductToCategoryService } from '../../core/services/ProductToCategoryService';
 import { In } from 'typeorm';
 import { Service } from 'typedi';
-// import { CheckVendorAddonMiddleware } from '../../core/middlewares/VendorAddonValidationMiddilware';
-// @UseBefore(CheckVendorAddonMiddleware)
 @Service()
 @JsonController('/family')
 export class FamilyController {
