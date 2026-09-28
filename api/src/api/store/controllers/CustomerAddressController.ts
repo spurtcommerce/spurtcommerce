@@ -289,17 +289,10 @@ export class CustomerAddressController {
             );
         }
         const customerAddress = await this.addressService.list(limit, offset, [], ['zone'], whereConditions, count);
-        // const liveAddress = await this.liveAddresService.findOne({
-        //     where: {
-        //         customerId: request.user.customerId,
-        //     },
-        // });
         const successResponse: any = {
             status: 1,
             message: 'Successfully Get the customer Address',
             data: { customerAddress },
-
-            // data: { customerAddress, liveAddress },
         };
         return response.status(200).send(successResponse);
     }

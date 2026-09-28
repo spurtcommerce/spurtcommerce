@@ -14,15 +14,12 @@ import { ProductToCategoryService } from '../../../../src/api/core/services/Prod
 import { WidgetService } from '../../core/services/WidgetService';
 import { WidgetItemService } from '../../core/services/WidgetItemService';
 import { CheckTokenMiddleware } from '../../../../src/api/core/middlewares/checkTokenMiddleware';
-// import { ProductTranslationService } from '../../../../src/api/core/services/ProductTranslationService';
 import { TranslationMiddleware } from '../../../../src/api/core/middlewares/TranslationMiddleware';
 import { IndustryValidationMiddleware } from '../../../../src/api/core/middlewares/IndustryValidationMiddleware';
 import { TenantValidationMiddleware } from '../../../../src/api/core/middlewares/TenantValidationMiddleware';
 import moment = require('moment');
 import { pluginModule } from '../../../../src/loaders/pluginLoader';
-// import uncino from 'uncino';
 import { VendorPluginService } from '../../../../src/api/core/services/VendorPluginService';
-// const hooks = uncino();
 import { Service } from 'typedi';
 
 @Service()
@@ -37,7 +34,6 @@ export class StoreWidgetController {
         private widgetService: WidgetService,
         private widgetItemService: WidgetItemService,
         private productToCategoryService: ProductToCategoryService,
-        // private productTranslationService: ProductTranslationService,
         private vendorPluginService: VendorPluginService
     ) {
     }
@@ -204,15 +200,12 @@ export class StoreWidgetController {
                 'Product.taxValue as taxValue',
                 'Product.name as name',
                 'Product.price as price',
-                // 'Product.taxType as taxType',
                 'Product.description as description',
                 'Product.sku as sku',
                 'Product.skuId as skuId',
                 'Product.isSimplified as isSimplified',
                 'Product.isSpecification as isSpecification',
-                // 'Product.upc as upc',
                 'Product.quantity as quantity',
-                // 'Product.rating as rating',
                 'Product.productSlug as productSlug',
                 'Product.hasStock as hasStock',
                 'Product.outOfStockThreshold as outOfStockThreshold',
@@ -330,39 +323,8 @@ export class StoreWidgetController {
                 },
             ];
             const productList: any = await this.productService.listByQueryBuilder(5, 0, selects, productWhereConditions, [], prRelations, [], sort, false, true);
-            // let finalResult: any = [];
-            // if (pluginModule.includes('ProductVariants') && await this.vendorPluginService.findOne({ where: { vendorId: request.tenantId, isActive: 1, plugins: { slugName: 'product-variants', pluginStatus: 1 } }, relations: ['plugins'] })) {
-            //     // Add variant hook
-            //     await hooks.removeHook('fetch-product-variant', 'FPV-namespace');
-            //     hooks.addHook('fetch-product-variant', 'FPV-namespace', async () => {
-            //         const importPath = '../../../ProductVariants/FetchVariantDetails';
-            //         const fetchVariants = await require(importPath);
-            //         return await fetchVariants.fetchVariantDetails(productList, request.languageId);
-            //     });
-
-            //     // Run variant hook
-            //     const hookResult = await hooks.runHook('fetch-product-variant');
-            //     if (hookResult) {
-            //         finalResult = hookResult;
-            //     }
-            // }
             const promises = productList.map(async (resultData: any) => {
                 const tempVal: any = resultData;
-                // if (pluginModule.includes('ShoppingCart') && vendorPlugin) {
-                //     const importPath = '../../../../add-ons/ShoppingCart/ShoppingCartHook';
-                //     const shoppingCart = await require(importPath);
-                //     const skuId = resultData.isSimplified === 1 ? resultData.skuId : resultData.variantSkuId;
-                //     const shoppingCartData = await shoppingCart.find({
-                //         select: ['id', 'name', 'isDefault', 'shoppingCartDetail'], where: { tenantId: request.tenantId, isActive: 1, customerId: request.id, isDelete: 0, isOrdered: 0 }, relations: ['shoppingCartDetail'], order: { id: 'DESC' },
-                //     });
-                //     const carts = shoppingCartData.map((cart: any) => ({
-                //         id: cart.id,
-                //         name: cart.name,
-                //         isDefault: cart.isDefault,
-                //         isNewItem: cart.shoppingCartDetail?.some(obj => +obj.skuId === +skuId) ? 0 : 1,
-                //     }));
-                //     tempVal.shopopingCart = carts;
-                // }
                 const product = await this.productToCategoryService.findAll({
                     where: {
                         productId: resultData.productId,
@@ -380,12 +342,6 @@ export class StoreWidgetController {
                 });
 
                 tempVal.categoryLevels = await Promise.all(categories);
-
-                // const productTrans = await this.productTranslationService.findOne({ where: { productId: resultData.productId, languageId: request.languageId ?? 0 } });
-
-                // tempVal.productNameTrans = productTrans?.name ?? '';
-
-                // tempVal.productDescriptionTrans = productTrans?.description ?? '';
 
                 if (resultData.hasStock === 1) {
                     if (resultData.quantity === 0) {
@@ -493,15 +449,12 @@ export class StoreWidgetController {
             'Product.taxValue as taxValue',
             'Product.name as name',
             'Product.price as price',
-            // 'Product.taxType as taxType',
             'Product.description as description',
             'Product.sku as sku',
             'Product.skuId as skuId',
             'Product.isSimplified as isSimplified',
             'Product.isSpecification as isSpecification',
-            // 'Product.upc as upc',
             'Product.quantity as quantity',
-            // 'Product.rating as rating',
             'Product.productSlug as productSlug',
             'Product.hasStock as hasStock',
             'Product.sortOrder as sortOrder',
@@ -652,12 +605,6 @@ export class StoreWidgetController {
             });
             tempVal.categoryLevels = await Promise.all(categories);
 
-            // const productTrans = await this.productTranslationService.findOne({ where: { productId: resultData.productId, languageId: request.languageId ?? 0 } });
-
-            // tempVal.productNameTrans = productTrans?.name ?? '';
-
-            // tempVal.productDescriptionTrans = productTrans?.description ?? '';
-
             if (resultData.hasStock === 1) {
                 if (resultData.quantity === 0) {
                     tempVal.stockStatus = 'outOfStock';
@@ -687,21 +634,6 @@ export class StoreWidgetController {
             return tempVal;
         });
         widget.widgetItems = await Promise.all(promises);
-        // if (pluginModule.includes('ProductVariants') && await this.vendorPluginService.findOne({ where: { vendorId: request.tenantId, isActive: 1, plugins: { slugName: 'product-variants', pluginStatus: 1 } }, relations: ['plugins'] })) {
-        //     // Add variant hook
-        //     await hooks.removeHook('fetch-product-variant', 'FPV-namespace');
-        //     hooks.addHook('fetch-product-variant', 'FPV-namespace', async () => {
-        //         const importPath = '../../../ProductVariants/FetchVariantDetails';
-        //         const fetchVariants = await require(importPath);
-        //         return await fetchVariants.fetchVariantDetails(widget.widgetItems, request.languageId);
-        //     });
-
-        //     // Run variant hook
-        //     const hookResult = await hooks.runHook('fetch-product-variant');
-        //     if (hookResult) {
-        //         widget.widgetItems = hookResult;
-        //     }
-        // }
         const successResponse: any = {
             status: 1,
             message: 'Successfully got widget detail.',

@@ -164,12 +164,28 @@ export async function demoDataMigrate(data: any, vendorCountryId: number, vendor
     const customerRepo = queryRunner.manager.getRepository('Customer');
     const customerUserRepo = queryRunner.manager.getRepository('CustomerUsers');
     const customerUserGroupRepo = queryRunner.manager.getRepository('CustomerUserGroup');
+    // const shoppingCartRepo = queryRunner.manager.getRepository('ShoppingCart');
+    // const shoppingCartDetailsRepo = queryRunner.manager.getRepository('ShoppingCartDetail');
     const addressRepo = queryRunner.manager.getRepository('Address');
+    // const orderRepo = queryRunner.manager.getRepository('Order');
+    // const orderLogRepo = queryRunner.manager.getRepository('OrderLog');
+    // const orderProductRepo = queryRunner.manager.getRepository('OrderProduct');
+    // const orderProductLogRepo = queryRunner.manager.getRepository('OrderProductLog');
     const orderStatusRepo = queryRunner.manager.getRepository('OrderStatus');
+    // const productTirePriceRepo = queryRunner.manager.getRepository('ProductTirePrice');
     const productSpecialRepo = queryRunner.manager.getRepository('ProductSpecial');
     const productDiscountRepo = queryRunner.manager.getRepository('ProductDiscount');
+    // const vendorOrderRepo = queryRunner.manager.getRepository('VendorOrders');
+    // const vendorOrderLogRepo = queryRunner.manager.getRepository('VendorOrderLog');
+    // const vendorInvoiceRepo = queryRunner.manager.getRepository('VendorInvoice');
+    // const vendorInvoiceItemRepo = queryRunner.manager.getRepository('VendorInvoiceItem');
+    // const productStockAlertRepo = queryRunner.manager.getRepository('ProductStockAlert');
+    // const stockLogRepo = queryRunner.manager.getRepository('StockLog');
+    // const orderTotalRepo = queryRunner.manager.getRepository('OrderTotal');
     const productQuestionRepo = queryRunner.manager.getRepository('ProductQuestion');
     const productAnswerRepo = queryRunner.manager.getRepository('ProductAnswer');
+    // const quoteRequestRepo = queryRunner.manager.getRepository('QuoteRequest');
+    // const quoteRepo = queryRunner.manager.getRepository('Quote');
     const customerGroupRepo = queryRunner.manager.getRepository('CustomerGroup');
     const pageGroupRepo = queryRunner.manager.getRepository('PageGroup');
     const ticketCategoriesRepo = queryRunner.manager.getRepository('TicketCategories');
@@ -188,6 +204,8 @@ export async function demoDataMigrate(data: any, vendorCountryId: number, vendor
     const vendorTaxRepo = queryRunner.manager.getRepository('VendorTax');
     const taxRepo = queryRunner.manager.getRepository('Tax');
     const currencyRepo = queryRunner.manager.getRepository('Currency');
+    // const orderStatusToFullfillmentRepo = queryRunner.manager.getRepository('OrderStatusToFullfillment');
+    // const orderFulfillmentStatusRepository = queryRunner.manager.getRepository('OrderFullfillmentStatus');
     const vendorUserRepo = queryRunner.manager.getRepository('VendorUsers');
     const mSeoMetaRepo = queryRunner.manager.getRepository('MSeoMeta');
     const paymentRuleRepository = queryRunner.manager.getRepository('PaymentRule');
@@ -354,6 +372,15 @@ export async function demoDataMigrate(data: any, vendorCountryId: number, vendor
         vendorUser.avatar = 'spurtlogo2.jpg';
         vendorUser.avatarPath = `${data.vendorPrefixId.toLowerCase()}/`;
 
+        // const fullfilledStatus = await orderFulfillmentStatusRepository.find({ where: { name: In(['Unfullfilled', 'Partially Fulfilled', 'Fulfilled', 'Out for Delivery']), tenantId } });
+        // const fullfilledData = fullfilledStatus.map(status => {
+        //     const orderToFullfillment: any = {};
+        //     orderToFullfillment.orderStatusId = orderStatus.orderStatusId;
+        //     orderToFullfillment.orderFulfillmentStatusId = status.id;
+        //     return orderToFullfillment;
+        // });
+
+        // create payment rule for tenant
         const newPaymentRule: any = {};
         newPaymentRule.name = 'Money Order';
         newPaymentRule.tenantId = tenantId;
@@ -418,11 +445,7 @@ export async function demoDataMigrate(data: any, vendorCountryId: number, vendor
         const specificationRepo = attributeQueryRunner.manager.getRepository('Specification');
         const specToGroupRepo = attributeQueryRunner.manager.getRepository('SpecificationToAttributeGroup');
         const specGroupToAttrRepo = attributeQueryRunner.manager.getRepository('SpecificationAttrGrpToAttribute');
-        // const siteFilterRepo = attributeQueryRunner.manager.getRepository('SiteFilter');
-        // const siteFilterCategoryRepo = attributeQueryRunner.manager.getRepository('SiteFilterCategory');
-        // const siteFilterSectionRepo = attributeQueryRunner.manager.getRepository('SiteFilterSection');
-        // const siteFilterSectionItemRepo = attributeQueryRunner.manager.getRepository('SiteFilterSectionItem');
-        const specificationToCategoryRepo = attributeQueryRunner.manager.getRepository('SpecificationToCategory');
+     const specificationToCategoryRepo = attributeQueryRunner.manager.getRepository('SpecificationToCategory');
 
         const savedAttributes: any[] = [];
         let specificationDetails: any;
@@ -468,9 +491,6 @@ export async function demoDataMigrate(data: any, vendorCountryId: number, vendor
                             attributeData = attributeRepo.create({});
                         }
 
-                        // Create if not exists
-                        // if (!savedAttribute) {
-                        // const newAttribute = attributeRepo.create({
                         attributeData.name = rawName;
                         attributeData.sortOrder = attribute.sortOrder;
                         attributeData.isMandatory = 0;
@@ -497,9 +517,7 @@ export async function demoDataMigrate(data: any, vendorCountryId: number, vendor
 
                         }
 
-                        const existingValueSet = new Set(
-                            // existingValues.map((val) => val.value.trim().toLowerCase())
-                        );
+                        const existingValueSet = new Set();
 
                         const newValues: string[] = [];
                         const attributeValuesToInsert: any[] = [];
@@ -577,10 +595,10 @@ export async function demoDataMigrate(data: any, vendorCountryId: number, vendor
                             tenantId,
                         });
                     }
+
                     // Category mapping for site filter
                     for (const category of checkAndCreateCategory) {
                         for (const id of category.categoryIds ?? []) {
-
                             const existsSpecCat = await specificationToCategoryRepo.findOne({
                                 where: {
                                     categoryId: id,
@@ -876,12 +894,6 @@ export async function demoDataMigrate(data: any, vendorCountryId: number, vendor
         customerUser.customerId = saveCustomer.id;
         customerUser.createdDate = moment().format('YYYY-MM-DD HH:mm:ss');
         const saveCustomerUser = await customerUserRepo.save(customerUser);
-        // const newShoppingCart: any = {
-        //     customerId: saveCustomer.id,
-        //     tenantId,
-        //     name: 'Shopping List',
-        // };
-        // await shoppingCartRepo.save(newShoppingCart);
         const vendorCountry: any = await vendorCountryRepo.findOne({ where: { tenantId, country: { name: 'India' } }, relations: ['country'] });
         const zone: any = await zoneRepo.findOne({ where: { countryId: vendorCountry?.countryId } });
         const deliveryAddress: any = {
@@ -1437,8 +1449,6 @@ export async function demoDataMigrate(data: any, vendorCountryId: number, vendor
                 let index = 0;
                 const image: any[] = [];
 
-                // product.variations.shift();
-
                 for (const productVariant of product.variations) {
                     const uniqueVariantCode = product.slug.split('-').join('').toUpperCase() + (index + 1).toString();
 
@@ -1554,7 +1564,6 @@ export async function demoDataMigrate(data: any, vendorCountryId: number, vendor
                 newItem.createdDate = moment().format('YYYY-MM-DD HH:mm:ss'),
                     await widgetItemRepo.save(newItem);
             }
-        
             if (product.type !== 0) {
                 if (product.questionsAnswers) {
                     addQuestionAndAnswer(productSave.productId, productSave.skuId, product.questionsAnswers.question, product.questionsAnswers.answer);

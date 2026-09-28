@@ -37,7 +37,6 @@ export class ErrorHandlerMiddleware implements ExpressErrorMiddlewareInterface {
     public error(error: any, _req: express.Request, res: express.Response, _next: express.NextFunction): void {
 
         if (res.headersSent) {
-            // ✅ response already handled (e.g. redirect), don’t write again
             return;
         }
 

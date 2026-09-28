@@ -167,6 +167,14 @@ export class VendorSettings {
     @Column({ name: 'customer_service_hours' })
     public customerServiceHours: string;
 
+    @Column({ name: 'default_palette', type: 'varchar', length: 50, nullable: true })
+    public defaultPalette: string;
+
+    @Column({ name: 'primary_color', type: 'varchar', length: 10, nullable: true })
+    public primaryColor: string;
+
+    @Column({ name: 'secondary_color', type: 'varchar', length: 10, nullable: true })
+    public secondaryColor: string;
 
     @Column({ name: 'enable_advanced_sku_search', type: 'boolean', default: false })
     public enableAdvancedSkuSearch: boolean;
@@ -176,6 +184,9 @@ export class VendorSettings {
 
     @Column({ name: 'show_request_for_quote', type: 'boolean', default: false })
     public showRequestForQuote: boolean;
+
+    @Column({ name: 'theme_id' })
+    public themeId: number;
 
     @Column({ name: 'hero_image_name', nullable: true })
     public heroImageName: string;

@@ -10,7 +10,6 @@ import 'reflect-metadata';
 import { Get, QueryParam, Param, JsonController, Req, Res, UseBefore } from 'routing-controllers';
 import { PageService } from '../../core/services/PageService';
 import { PageGroupService } from '../../core/services/PageGroupService';
-// import { PageGroupTranslationService } from '../../core/services/PageGroupTranslationService';
 import { TranslationMiddleware } from '../../core/middlewares/TranslationMiddleware';
 import { TenantValidationMiddleware } from '../../../api/core/middlewares/TenantValidationMiddleware';
 import { Service } from 'typedi';
@@ -22,7 +21,6 @@ export class StorePageController {
     constructor(
         private pageService: PageService,
         private pageGroupService: PageGroupService
-        // private pageGroupTranslationService: PageGroupTranslationService
     ) {
     }
 
@@ -120,10 +118,6 @@ export class StorePageController {
 
         const promise = pageGroupList.map(async (result: any) => {
             const temp: any = result;
-            // const pagegroup = await this.pageGroupTranslationService.findOne({
-            //     select: ['groupName'],
-            //     where: { pageGroupId: result.groupId, languageId: request.languageId ?? 0 },
-            // });
 
             temp.page.map(async (item) => {
 
@@ -131,8 +125,6 @@ export class StorePageController {
                 item.content = undefined;
                 return item.pageTranslation;
             });
-
-            // temp.groupNameTrans = pagegroup?.groupName ?? '';
             return temp;
         });
 

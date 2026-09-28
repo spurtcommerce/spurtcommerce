@@ -11,7 +11,6 @@ import { Post, JsonController, Res, Req, Get, QueryParam, Body, BodyParam, UseBe
 import { CustomerCart } from '../../core/models/CustomerCart';
 import { CreateCartRequest } from './requests/CreateCartRequest';
 import { CheckCustomerMiddleware } from '../../core/middlewares/checkTokenMiddleware';
-// import { ProductTranslationService } from '../../core/services/ProductTranslationService';
 import { TranslationMiddleware } from '../../core/middlewares/TranslationMiddleware';
 import { CustomerCartService } from '../../core/services/CustomerCartService';
 import { ProductImageService } from '../../core/services/ProductImageService';
@@ -28,7 +27,6 @@ import { Service } from 'typedi';
 @JsonController('/cart')
 export class StoreCustomerCartController {
     constructor(
-        // private productTranslationService: ProductTranslationService,
         private cartService: CustomerCartService,
         private productImageService: ProductImageService,
         private productTirePriceService: ProductTirePriceService,
@@ -189,236 +187,6 @@ export class StoreCustomerCartController {
             data: results,
         });
     }
-
-    // public async addCustomerCart(@Body({ validate: true }) cartParam: CreateCartRequest, @Req() request: any, @Res() response: any): Promise<any> {
-    //     const results = [];
-    //     for (const cartDetail of cartParam.cartDetails) {
-
-    //         const product: any = await this.productService.findOne({
-    //             where: {
-    //                 productId: cartDetail.productId,
-    //             },
-    //         });
-
-    //         if (!product) {
-    //             return response.status(400).send({
-    //                 status: 0,
-    //                 message: 'Invalid Product ID.',
-    //             });
-    //         }
-
-    //         const sku: any = await this.skuService.findOne({ where: { id: cartDetail.skuId } });
-    //         if (!sku) {
-    //             return response.status(400).send({
-    //                 status: 0,
-    //                 message: 'Invalid sku',
-    //             });
-    //         }
-    //         const findOption: any = await this.customerCartService.findOne({
-    //             where: {
-    //                 skuName: sku.skuName, productId: cartDetail.productId, customerId: request.user.customerId,
-    //             },
-    //         });
-    //         if (findOption) {
-    //             if (cartDetail.type && cartDetail.type === 'new') {
-    //                 if (cartDetail.quantity === 0) {
-    //                     await this.customerCartService.delete(findOption.id);
-    //                     return response.status(200).send({
-    //                         status: 1,
-    //                         message: 'Successfully removed from Cart',
-    //                     });
-    //                 }
-    //                 const qty = Number(findOption.quantity) + +cartDetail.quantity;
-    //                 if (product.hasStock === 1) {
-    //                     if (!(sku.minQuantityAllowedCart <= qty)) {
-    //                         return response.status(400).send({
-    //                             status: 0,
-    //                             message: 'Quantity should greater than min Quantity.',
-    //                         });
-    //                     } else if (!(sku.maxQuantityAllowedCart >= qty)) {
-    //                         return response.status(400).send({
-    //                             status: 0,
-    //                             message: 'Reached maximum quantity limit',
-    //                         });
-    //                     }
-    //                 }
-    //                 findOption.quantity = qty;
-    //             } else {
-    //                 findOption.quantity = cartDetail.quantity;
-    //             }
-    //             findOption.productPrice = cartDetail.productPrice;
-    //             findOption.total = +cartDetail.quantity * +cartDetail.productPrice;
-    //             findOption.tirePrice = cartDetail.tirePrice ? cartDetail.tirePrice : 0;
-    //             findOption.vendorId = request.tenantId;
-    //             findOption.skuName = sku.skuName;
-    //             await this.customerCartService.createData(findOption);
-    //             // return response.status(200).send({
-    //             //     status: 1,
-    //             //     message: 'Successfully updated cart.',
-    //             //     data: findOption,
-    //             // });
-    //             results.push(findOption);
-    //         } else {
-    //             if (cartDetail.quantity === 0) {
-    //                 if (!findOption) {
-    //                     return response.status(200).send({
-    //                         status: 1,
-    //                         message: 'Successfully removed from Cart',
-    //                     });
-    //                 }
-    //                 await this.customerCartService.delete(findOption.id);
-    //                 return response.status(200).send({
-    //                     status: 1,
-    //                     message: 'Successfully removed from Cart',
-    //                 });
-    //             }
-    //             if (product.hasStock === 1) {
-    //                 if (!(sku.minQuantityAllowedCart <= +cartDetail.quantity)) {
-    //                     return response.status(400).send({
-    //                         status: 0,
-    //                         message: 'Quantity should greater than min Quantity.',
-    //                     });
-    //                 } else if (!(sku.maxQuantityAllowedCart >= +cartDetail.quantity)) {
-    //                     return response.status(400).send({
-    //                         status: 0,
-    //                         message: 'Reached maximum quantity limit',
-    //                     });
-    //                 }
-    //             }
-    //             const addCustomerCart = {} as any;
-    //             addCustomerCart.productId = cartDetail.productId;
-    //             addCustomerCart.name = product.name;
-    //             addCustomerCart.customerId = request.user.customerId;
-    //             addCustomerCart.quantity = cartDetail.quantity;
-    //             addCustomerCart.productPrice = cartDetail.productPrice;
-    //             addCustomerCart.tirePrice = cartDetail.tirePrice ? cartDetail.tirePrice : 0;
-    //             addCustomerCart.vendorId = request.tenantId;
-    //             addCustomerCart.total = +cartDetail.quantity * +cartDetail.productPrice;
-    //             addCustomerCart.skuName = sku.skuName;
-    //             addCustomerCart.ip = '';
-    //             const val = await this.customerCartService.createData(addCustomerCart);
-    //             // return response.status(200).send({
-    //             //     status: 1,
-    //             //     message: 'Added to cart.',
-    //             //     data: val,
-    //             // });
-    //             results.push(val);
-    //         }
-    //     }
-    //     return response.status(200).send({ status: 1, message: 'Added to cart.', data: results });
-    // }
-    // @Post()
-    // public async addCustomerCart(@Body({ validate: true }) cartParam: CreateCartRequest, @Req() request: any, @Res() response: any): Promise<any> {
-
-    //     const product: any = await this.productService.findOne({
-    //         where: {
-    //             productId: cartParam.productId,
-    //         },
-    //     });
-
-    //     if (!product) {
-    //         return response.status(400).send({
-    //             status: 0,
-    //             message: 'Invalid Product ID.',
-    //         });
-    //     }
-
-    //     const sku: any = await this.skuService.findOne({ where: { skuName: cartParam.skuName } });
-    //     if (!sku) {
-    //         return response.status(400).send({
-    //             status: 0,
-    //             message: 'Invalid sku',
-    //         });
-    //     }
-    //     const findOption: any = await this.customerCartService.findOne({
-    //         where: {
-    //             skuName: cartParam.skuName, productId: cartParam.productId, customerId: request.user.customerId,
-    //         },
-    //     });
-    //     if (findOption) {
-    //         if (cartParam.type && cartParam.type === 'new') {
-    //             if (cartParam.quantity === 0) {
-    //                 await this.customerCartService.delete(findOption.id);
-    //                 return response.status(200).send({
-    //                     status: 1,
-    //                     message: 'Successfully removed from Cart',
-    //                 });
-    //             }
-    //             const qty = Number(findOption.quantity) + +cartParam.quantity;
-    //             if (product.hasStock === 1) {
-    //                 if (!(sku.minQuantityAllowedCart <= qty)) {
-    //                     return response.status(400).send({
-    //                         status: 0,
-    //                         message: 'Quantity should greater than min Quantity.',
-    //                     });
-    //                 } else if (!(sku.maxQuantityAllowedCart >= qty)) {
-    //                     return response.status(400).send({
-    //                         status: 0,
-    //                         message: 'Reached maximum quantity limit',
-    //                     });
-    //                 }
-    //             }
-    //             findOption.quantity = qty;
-    //         } else {
-    //             findOption.quantity = cartParam.quantity;
-    //         }
-    //         findOption.productPrice = cartParam.productPrice;
-    //         findOption.total = +cartParam.quantity * +cartParam.productPrice;
-    //         findOption.tirePrice = cartParam.tirePrice ? cartParam.tirePrice : 0;
-    //         findOption.vendorId = cartParam.vendorId;
-    //         findOption.skuName = cartParam.skuName;
-    //         await this.customerCartService.createData(findOption);
-    //         return response.status(200).send({
-    //             status: 1,
-    //             message: 'Successfully updated cart.',
-    //             data: findOption,
-    //         });
-    //     } else {
-    //         if (cartParam.quantity === 0) {
-    //             if (!findOption) {
-    //                 return response.status(200).send({
-    //                     status: 1,
-    //                     message: 'Successfully removed from Cart',
-    //                 });
-    //             }
-    //             await this.customerCartService.delete(findOption.id);
-    //             return response.status(200).send({
-    //                 status: 1,
-    //                 message: 'Successfully removed from Cart',
-    //             });
-    //         }
-    //         if (product.hasStock === 1) {
-    //             if (!(sku.minQuantityAllowedCart <= +cartParam.quantity)) {
-    //                 return response.status(400).send({
-    //                     status: 0,
-    //                     message: 'Quantity should greater than min Quantity.',
-    //                 });
-    //             } else if (!(sku.maxQuantityAllowedCart >= +cartParam.quantity)) {
-    //                 return response.status(400).send({
-    //                     status: 0,
-    //                     message: 'Reached maximum quantity limit',
-    //                 });
-    //             }
-    //         }
-    //         const addCustomerCart = {} as any;
-    //         addCustomerCart.productId = cartParam.productId;
-    //         addCustomerCart.name = product.name;
-    //         addCustomerCart.customerId = request.user.customerId;
-    //         addCustomerCart.quantity = cartParam.quantity;
-    //         addCustomerCart.productPrice = cartParam.productPrice;
-    //         addCustomerCart.tirePrice = cartParam.tirePrice ? cartParam.tirePrice : 0;
-    //         addCustomerCart.vendorId = cartParam.vendorId;
-    //         addCustomerCart.total = +cartParam.quantity * +cartParam.productPrice;
-    //         addCustomerCart.skuName = cartParam.skuName;
-    //         addCustomerCart.ip = '';
-    //         const val = await this.customerCartService.createData(addCustomerCart);
-    //         return response.status(200).send({
-    //             status: 1,
-    //             message: 'Added to cart.',
-    //             data: val,
-    //         });
-    //     }
-    // }
     // Customer Cart List API
     /**
      * @api {get} /api/cart  Customer Cart List API
@@ -545,9 +313,6 @@ export class StoreCustomerCartController {
         let grandTotal = 0;
         const findImage = cartList.map(async (value: any) => {
             const temp: any = value;
-            // const productTranslation = await this.productTranslationService.findOne({ where: { productId: value.productId, languageId: request.languageId ?? 0 } });
-            // temp.productTranslation = productTranslation ? [productTranslation] : [];
-            // return cart;
             temp.taxValue = +value.taxValue;
             temp.optionName = value.optionName;
             temp.quantity = value.quantity;

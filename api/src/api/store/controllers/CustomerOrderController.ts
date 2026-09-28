@@ -393,12 +393,6 @@ export class CustomerOrderController {
             const productTire: any = await this.productService.findOne({ where: { productId: val.productId } });
             taxType = productTire.taxType;
             taxValue = productTire.taxValue;
-            // if (taxType === 2 && taxType) {
-            //     const tax: any = await this.taxService.findOne({ where: { taxId: productTire.taxValue } });
-            //     taxValue = (tax) ? tax.taxPercentage : 0;
-            // } else if (taxType === 1 && taxType) {
-            //     taxValue = productTire.taxValue;
-            // }
             const sku: any = await this.skuService.findOne({ where: { skuName: val.skuName } });
             if (sku) {
                 if (checkoutParam.orderSource === 'quote') {
@@ -538,7 +532,6 @@ export class CustomerOrderController {
                     const resultDatas: any = await this.customerService.create(newUser);
                     const emailContents: any = await this.emailTemplateService.findOne({ where: { emailTemplateId: 1 } });
                     const message = emailContents.content.replace('{name}', resultDatas.firstName);
-                    // const redirectUrl = env.storeRedirectUrl;
                     const storeUrl = await this.vendorSettingsService.getVendorDomainOrDefault(request.tenantId, request.get('referer'));
                     const mailContent: any = {};
                     mailContent.setting = { ...vendorSetting, ...vendorData };
@@ -602,7 +595,6 @@ export class CustomerOrderController {
         newOrder.customerGstNo = checkoutParam.taxNumber;
         newOrder.ip = '';
         newOrder.isActive = 1;
-        // const setting: any = await this.settingService.findOne(request.site.Id);
         const vendorSettings = await this.vendorSettingsService.findOne({ where: { vendorId: request.tenantId } });
         newOrder.orderStatusId = vendorSettings ? vendorSettings.orderStatus : 0;
         newOrder.invoicePrefix = vendorSettings ? vendorSettings.invoicePrefix : '';
@@ -682,25 +674,7 @@ export class CustomerOrderController {
                     vendororders.total = productDetails.total;
                     vendororders.subOrderStatusId = 1;
                     vendororders.commission = 0;
-                    // const date = new Date();
                     vendororders.modifiedDate = moment().format('YYYY-MM-DD HH:mm:ss');
-                    // Disable Commisison
-                    // if (val.vendorProductCommission > 0) {
-                    //     vendororders.commission = val.vendorProductCommission;
-                    // } else if (vendor.commission > 0) {
-                    //     vendororders.commission = vendor.commission;
-                    // } else {
-                    //     const vendorGroup: any = await this.vendorGroupService.findOne({
-                    //         select: ['groupId', 'name', 'description', 'commission'],
-                    //         where: {
-                    //             groupId: vendor.vendorGroupId,
-                    //         },
-                    //     });
-                    //     const defaultCommission: any = await this.vendorSettingService.findOne();
-                    //     const defCommission = defaultCommission.defaultCommission;
-                    //     vendororders.commission = (vendorGroup && vendorGroup.commission) ? vendorGroup.commission : defCommission;
-                    // }
-                    // --
                     vendororders.createdDate = moment().format('YYYY-MM-DD HH:mm:ss');
                     const value = await this.vendorOrderService.create(vendororders);
                     const vendorOrderLog = {} as any;
@@ -772,12 +746,6 @@ export class CustomerOrderController {
                         vendorMailContents.productDetailData = undefined;
                         vendorMailContents.emailContent = vendorMessage;
                         vendorMailContents.redirectUrl = env.vendorRedirectUrl;
-                        // stockNotifyMails.vendorEmailContents = vendorMailContents;
-                        // stockNotifyMails.vendorEmail = customer.email;
-                        // stockNotifyMails.subject = findProductNotifyTemp.subject;
-                        // stockNotifyMails.bcc = false;
-                        // stockNotifyMails.isAttachment = false;
-                        // stockNotifyMails.attachmentDetails = '';
                     }
                 }
                 const stockLog = {} as any;
@@ -847,14 +815,8 @@ export class CustomerOrderController {
         const customerFirstName = orderData.shippingFirstname;
         const customerLastName = orderData.shippingLastname;
         const customerName = customerFirstName + ' ' + customerLastName;
-        // const adminMessage = adminEmailContent.content.replace('{adminname}', 'Admin').replace('{name}', customerName).replace('{orderId}', orderData.orderId);
         const customerMessage = emailContent.content.replace('{name}', customerName);
         const adminId: any = [];
-        // const adminUser: any = await this.userService.findAll({ select: ['username'], where: { userGroupId: 1, deleteFlag: 0 } });
-        // for (const user of adminUser) {
-        //     const val = user.username;
-        //     adminId.push(val);
-        // }
         const vendorUser = await this.vendorUsersService.find({
             where: {
                 tenantId: request.tenantId,
@@ -880,7 +842,6 @@ export class CustomerOrderController {
                 const vendorInvoiceItem: any[] = await this.vendorInvoiceItemService.findAll({ where: { vendorInvoiceId: vendInvoice.vendorInvoiceId } });
                 for (const vendInvoiceItem of vendorInvoiceItem) {
                     const vendorProductInformation: any = await this.orderProductService.findOne({ where: { orderProductId: vendInvoiceItem.orderProductId }, select: ['orderProductId', 'orderId', 'productId', 'name', 'model', 'quantity', 'total', 'productPrice', 'basePrice', 'skuName', 'taxValue', 'taxType', 'orderProductPrefixId'] });
-                    // const vendorProductInformation = await this.orderProductService.findOne({ where: { orderProductId: vendInvoiceItem.orderProductId }, select: ['orderProductId', 'orderId', 'productId', 'name', 'model', 'quantity', 'total', 'productPrice', 'basePrice', 'varientName', 'skuName', 'taxValue', 'taxType', 'productVarientOptionId', 'orderProductPrefixId'] });
                     const vendorProductImageData: any = await this.productService.findOne({ where: { productId: vendorProductInformation.productId } });
                     let vendorProductImageDetail;
                     vendorProductImageDetail = await this.productImageService.findOne({ where: { productId: vendorProductInformation.productId, defaultImage: 1 } });
@@ -897,7 +858,6 @@ export class CustomerOrderController {
                 vendorMailContents.productDetailData = vendorProductDetailData;
                 vendorMailContents.today = today;
                 vendorMailContents.orderData = orderData;
-                // MAILService.sendMail(mailContents, customer.email, adminEmailContent.subject, false, false, '');
                 const codVendorMail: any = {};
                 codVendorMail.vendorEmailContents = vendorMailContents;
                 codVendorMail.vendorEmail = customer.email;
@@ -916,18 +876,6 @@ export class CustomerOrderController {
                 MAILService.sendMail(vendorMail.vendorEmailContents, vendorMail.vendorEmail, vendorMail.subject.replace('{orderId}', orderData.orderId), vendorMail.bcc, vendorMail.isAttachment, vendorMail.attachmentDetails);
             }
         }
-        // const adminRedirectUrl = env.adminRedirectUrl;
-        // const adminMailContents: any = {};
-        // adminMailContents.setting = { ...vendorSetting, ...vendorData };
-        // adminMailContents.emailContent = adminMessage;
-        // adminMailContents.redirectUrl = adminRedirectUrl;
-        // adminMailContents.productDetailData = productDetailData;
-        // adminMailContents.today = today;
-        // adminMailContents.orderData = orderData;
-        // adminMailContents.templateName = 'invoice-order';
-        // MAILService.sendMail(adminMailContents, adminId, adminEmailContent.subject, false, false, '');
-
-        // const storeRedirectUrl = env.storeRedirectUrl;
         const storeUrls = await this.vendorSettingsService.getVendorDomainOrDefault(request.tenantId, request.get('referer'));
         const storeMailContents: any = {};
         storeMailContents.setting = { ...vendorSetting, ...vendorData };
@@ -940,7 +888,6 @@ export class CustomerOrderController {
         MAILService.sendMail(storeMailContents, orderData.email, emailContent.subject.replace('{storeName}', vendorSetting?.siteName ? vendorSetting.siteName : ''), false, false, '');
 
         const order: any = await this.orderService.findOne({ orderId: orderData.orderId });
-        // order.paymentType = vendorPluginData ? vendorPluginData.pluginName : '';
         order.productDetail = await this.orderProductService.find({ where: { orderId: orderData.orderId } }).then((val) => {
             const productImage = val.map(async (value: any) => {
                 let image;
@@ -1243,7 +1190,6 @@ export class CustomerOrderController {
             }
         );
 
-        // const plugin = await this.pluginService.findOne({ where: { id: checkoutParam.paymentMethod } });
         if (vendorPluginData === undefined) {
             const errorResponse: any = {
                 status: 0,
@@ -1286,7 +1232,6 @@ export class CustomerOrderController {
                     const resultDatas = await this.customerService.create(newUser);
                     const emailContents = await this.emailTemplateService.findOne({ where: { emailTemplateId: 1 } });
                     const message = emailContents.content.replace('{name}', resultDatas.firstName).replace('{siteName}', vendorSetting?.siteName ?? '');
-                    // const redirectUrl = env.storeRedirectUrl;
                     const storeurl = await this.vendorSettingsService.getVendorDomainOrDefault(request.tenantId, request.get('referer'));
                     const mailContent: any = {};
                     mailContent.setting = { ...vendorSetting, ...vendorData };
@@ -1330,7 +1275,6 @@ export class CustomerOrderController {
         newOrder.paymentMethod = checkoutParam.paymentMethod;
         newOrder.isActive = 1;
         newOrder.backOrders = 1;
-        // const setting = await this.settingService.findOne(request.store.Id);
         const vendorSettings = await this.vendorSettingsService.findOne({ where: { vendorId: request.tenantId } });
         newOrder.orderStatusId = vendorSettings ? vendorSettings.orderStatus : 0;
         newOrder.invoicePrefix = vendorSettings ? vendorSettings.invoicePrefix : '';
@@ -1364,12 +1308,6 @@ export class CustomerOrderController {
             const productTire = await this.productService.findOne({ where: { productId: orderProduct[i].productId } });
             taxType = productTire.taxType;
             taxValue = productTire.taxValue;
-            // if (taxType === 2 && taxType) {
-            //     const tax = await this.taxService.findOne({ where: { taxId: productTire.taxValue } });
-            //     taxValue = (tax) ? tax.taxPercentage : 0;
-            // } else if (taxType === 1 && taxType) {
-            //     taxValue = productTire.taxValue;
-            // }
             const sku = await this.skuService.findOne({ where: { skuName: orderProduct[i].skuName } });
             if (sku) {
                 if (productTire.hasTirePrice === 1) {
@@ -1464,7 +1402,6 @@ export class CustomerOrderController {
                 await this.customerCartService.delete(cart.id);
             }
             // --
-            ///// for saving vendor orders starts///////
             const val = await this.vendorProductService.findOne({ where: { productId: orderProduct[i].productId } });
             if (val) {
                 const vendor = await this.vendorService.findOne({ where: { vendorId: val.vendorId } });
@@ -1577,7 +1514,6 @@ export class CustomerOrderController {
                 for (const vendInvoice of vendorInvoice) {
                     const vendorProductDetailData = [];
                     const vendor = await this.vendorService.findOne({ where: { vendorId: vendInvoice.vendorId }, relations: ['customer'] });
-                    // const customer = await this.customerService.findOne({ where: { id: vendor.customerId } });
                     const vendorMessage = adminEmailContent.content.replace('{name}', vendor.customer.firstName).replace('{customerName}', customerName).replace('{orderId}', orderExist.orderId).replace('{customerMail}', checkoutParam.emailId).replace('{quantity}', orderProduct[0].quantity).replace('{productName}', productDetailData[0].productInformationData.name);
                     const vendorInvoiceItem = await this.vendorInvoiceItemService.findAll({ where: { vendorInvoiceId: vendInvoice.vendorInvoiceId } });
                     for (const vendInvoiceItem of vendorInvoiceItem) {
@@ -1612,7 +1548,6 @@ export class CustomerOrderController {
             adminMailContents.orderData = orderExist;
             adminEmailContent.templateName = 'invoice-order';
             MAILService.sendMail(adminMailContents, adminId, adminEmailContent.subject.replace('{productName}', productDetailData[0].productInformationData.name), false, false, '');
-            // const storeRedirectUrl = env.storeRedirectUrl;
             const storeur = await this.vendorSettingsService.getVendorDomainOrDefault(request.tenantId, request.get('referer'));
             const storeMailContents: any = {};
             storeMailContents.setting = { ...vendorSetting, ...vendorData };
@@ -1728,199 +1663,6 @@ export class CustomerOrderController {
         };
         return response.status(200).send(successResponse);
     }
-    // public async orderList(@QueryParam('limit') limit: number, @QueryParam('offset') offset: number, @QueryParam('keyword') keyword: string, @QueryParam('status') status: string, @QueryParam('count') count: number | boolean, @Req() request: any, @Res() response: any): Promise<any> {
-    //     const select = [
-    //         'order.createdDate as createdDate',
-    //         'order.orderPrefixId as orderPrefixId',
-    //         'order.orderId as orderId',
-    //         'order.telephone as mobileNumber',
-    //         'order.paymentMobileNumber as paymentMobileNumber',
-    //         'order.shippingFirstname as customerFirstName',
-    //         'order.shippingCity as shippingCity',
-    //         'order.shippingCountry as shippingCountry',
-    //         'order.shippingAddress1 as shippingAddress1',
-    //         'order.shippingAddress2 as shippingAddress2',
-    //         'order.shippingZone as shippingZone',
-    //         'order.shippingZone as shippingPostcode',
-    //         'order.currencyCode as currencyCode',
-    //         'order.currencySymbolLeft as currencySymbolLeft',
-    //         'order.currencySymbolRight as currencySymbolRight',
-    //         'OrderProduct.orderProductId as orderProductId',
-    //         'OrderProduct.orderStatusId as orderProductStatusId',
-    //         'OrderProduct.productId as productId',
-    //         'OrderProduct.name as name',
-    //         'OrderProduct.total as total',
-    //         'OrderProduct.orderProductPrefixId as orderProductPrefixId',
-    //         'OrderProduct.productPrice as productPrice',
-    //         'OrderProduct.quantity as quantity',
-    //         'OrderProduct.cancelRequest as cancelRequest',
-    //         'OrderProduct.cancelRequestStatus as cancelRequestStatus',
-    //         'OrderProduct.discountAmount as discountAmount',
-    //         'OrderProduct.discountedAmount as discountedAmount',
-    //         'OrderProduct.couponDiscountAmount as couponDiscountAmount',
-    //         'OrderProduct.skuName as skuName',
-    //         'orderStatus.orderStatusId as orderStatusId',
-    //         'orderStatus.name as name',
-    //     ];
-
-    //     const relations: any[] = [
-    //         {
-    //             tableName: 'OrderProduct.order',
-    //             aliasName: 'order',
-    //         },
-    //         {
-    //             tableName: 'order.orderStatus',
-    //             aliasName: 'orderStatus',
-    //         },
-    //     ];
-
-    //     const groupBy = [];
-    //     const searchParams = [];
-    //     if (request.languageId) {
-    //         select.push(...['MAX(productTranslation.name) as productNameTrans', 'MAX(productTranslation.description) as productDescriptionTrans']);
-    //         relations.push(
-    //             {
-    //                 tableName: 'OrderProduct.productInformationDetail',
-    //                 aliasName: 'productInformationDetail',
-    //             },
-    //             {
-    //                 tableName: 'productInformationDetail.productTranslation',
-    //                 op: 'left-cond',
-    //                 cond: `productTranslation.languageId = ${request.languageId}`,
-    //                 aliasName: 'productTranslation',
-    //             }
-    //         );
-    //         groupBy.push(
-    //             {
-    //                 name: 'OrderProduct.orderProductId',
-    //             },
-    //             {
-    //                 name: 'productTranslation.languageId',
-    //             }
-    //         );
-    //         searchParams.push(...['productTranslation.name', 'order.orderPrefixId', 'OrderProduct.orderProductPrefixId']);
-    //     } else {
-    //         searchParams.push(...['OrderProduct.name', 'order.orderPrefixId', 'OrderProduct.orderProductPrefixId']);
-    //     }
-
-    //     const searchConditions = [];
-    //     if (keyword && keyword !== '') {
-    //         searchConditions.push({
-    //             name: searchParams,
-    //             value: keyword.toLowerCase(),
-    //         });
-    //     }
-
-    //     const whereConditions = [
-    //         {
-    //             name: 'order.customerId',
-    //             op: 'and',
-    //             value: request.user.customerId,
-    //         }, {
-    //             name: 'order.paymentProcess',
-    //             op: 'and',
-    //             value: status ? (status === 'failed' ? 0 : 1) : 1,
-    //         },
-    //     ];
-
-    //     if (status && status === 'closed') {
-    //         whereConditions.push({
-    //             name: 'orderStatus.name',
-    //             op: 'and',
-    //             value: 'Order Delivered',
-    //         });
-    //     }
-    //     if (status && status === 'opened') {
-    //         whereConditions.push(
-    //             {
-    //                 name: 'orderStatus.name',
-    //                 op: 'not',
-    //                 value: 'Order Delivered',
-    //             },
-    //             {
-    //                 name: 'OrderProduct.cancelRequestStatus',
-    //                 op: 'cancel',
-    //                 value: 1,
-    //             });
-    //     }
-    //     if (status && status === 'cancelled') {
-    //         whereConditions.push(
-    //             {
-    //                 name: 'OrderProduct.cancelRequestStatus',
-    //                 op: 'and',
-    //                 value: 1,
-    //             }
-    //         );
-    //     }
-    //     const sort = [
-    //         {
-    //             name: 'OrderProduct.createdDate',
-    //             order: 'DESC',
-    //         },
-    //     ];
-    //     if (count) {
-    //         const orderCount: any = await this.orderProductService.listByQueryBuilder(limit, offset, select, whereConditions, searchConditions, relations, groupBy, sort, true, true);
-    //         const Response: any = {
-    //             status: 1,
-    //             message: 'Successfully get Count. ',
-    //             data: orderCount,
-    //         };
-    //         return response.status(200).send(Response);
-    //     }
-    //     const orderList: any = await this.orderProductService.listByQueryBuilder(limit, offset, select, whereConditions, searchConditions, relations, groupBy, sort, false, true);
-    //     const promises = orderList.map(async (results: any) => {
-    //         const temp = results;
-    //         const productImage = await this.productImageService.findOne({
-    //             where: { productId: results.productId, defaultImage: 1 },
-    //             select: ['image', 'containerName'],
-    //         });
-    //         if (productImage !== undefined) {
-    //             temp.image = productImage.image;
-    //             temp.containerName = productImage.containerName;
-    //         } else {
-    //             temp.image = '';
-    //             temp.containerName = '';
-    //         }
-    //         const passingOrderStatus = await this.orderStatusService.findOne({
-    //             where: {
-    //                 orderStatusId: results.orderProductStatusId,
-    //             },
-    //         });
-    //         if (passingOrderStatus) {
-    //             temp.orderStatusName = passingOrderStatus.name;
-    //             temp.orderStatusColorCode = passingOrderStatus.colorCode;
-    //         }
-    //         const products = await this.productService.findOne({
-    //             where: { productId: results.productId },
-    //             select: ['productId', 'productSlug', 'name'], relations: ['productTranslation'],
-    //         });
-    //         if (products) {
-    //             temp.productNameTrans = '';
-    //             if (products.productTranslation.length > 0) {
-    //                 temp.productNameTrans = (products.productTranslation.find((val) => val.languageId === request.languageId)?.name) ?? '';
-    //             }
-    //             temp.productSlug = products.productSlug;
-    //             temp.productName = products.name;
-    //         }
-    //         const orderStatus = await this.orderProductLogService.findOne({
-    //             where: {
-    //                 orderStatusId: 5,
-    //                 orderProductId: results.orderProductId,
-    //             },
-    //         });
-    //         if (orderStatus) {
-    //             temp.deliveryDate = orderStatus.createdDate;
-    //         }
-    //         return results;
-    //     });
-    //     const result = await Promise.all(promises);
-    //     const successResponse: any = {
-    //         status: 1,
-    //         message: 'Successfully shown the order list. ',
-    //         data: instanceToPlain(result),
-    //     };
-    //     return response.status(200).send(successResponse);
-    // }
 
     @UseBefore(CheckCustomerMiddleware)
     @Get('/failed')
@@ -1943,20 +1685,6 @@ export class CustomerOrderController {
         );
 
         const relations = [];
-
-        // relations.push(
-        //     {
-        //         tableName: 'Order.orderProduct',
-        //         op: 'left-select',
-        //         aliasName: 'orderProduct'
-        //     },
-        //     {
-        //         tableName: 'product_translation',
-        //         op: 'left-select-cond',
-        //         cond: `orderProduct.productId = product_translation.productId AND product_translation.languageId = ${request.languageId}`,
-        //         aliasName: 'product_translation'
-        //     },
-        // );
 
         const sort = [
             {
@@ -2021,14 +1749,6 @@ export class CustomerOrderController {
             },
         });
 
-        // const orderProduct = await this.orderProductService.find({
-        //     select: ['productId', 'orderProductId', 'name', 'quantity', 'productPrice', 'discountAmount', 'taxType', 'taxValue', 'total', 'skuName', 'productInformationDetail.productSlug'],
-        //     where: {
-        //         orderId,
-        //     },
-        //     relations: ['productInformationDetail']
-        // });
-        // orderDetail.orderProducts = orderProduct;
         const select = [
             'OrderProduct.productId as productId',
             'OrderProduct.orderProductId as orderProductId',
@@ -2143,7 +1863,6 @@ export class CustomerOrderController {
     public async trackOrder(@QueryParam('orderProductId') orderProductId: number, @Req() request: any, @Res() response: any): Promise<any> {
         const obj: any = {};
         const orderProduct = await this.orderProductService.findOne({
-            // select: ['basePrice', 'taxValue', 'taxType', 'orderProductId', 'trackingNo', 'trackingUrl', 'name', 'productPrice', 'orderId', 'productId', 'orderProductPrefixId', 'total', 'quantity', 'discountAmount', 'discountedAmount', 'couponDiscountAmount', 'modifiedDate', 'orderStatusId', 'createdDate', 'skuName'],
             where: { orderProductId },
         });
         if (!orderProduct) {
@@ -2158,7 +1877,6 @@ export class CustomerOrderController {
             where: { productId: orderProduct.productId, defaultImage: 1 },
         });
         const order = await this.orderService.findOrder({
-            // select: ['shippingAddress1', 'shippingAddress2', 'shippingCity', 'shippingPostcode', 'shippingZone', 'currencySymbolLeft', 'currencySymbolRight', 'orderPrefixId'],
             where: { orderId: orderProduct.orderId, customerId: request.user.customerId },
         });
         if (!order) {
@@ -2174,8 +1892,6 @@ export class CustomerOrderController {
             },
         });
 
-        // const productTranslation = await this.productTranslationService.findOne({ where: { productId: orderProduct.productId, languageId: request.languageId } });
-
         obj.basePrice = orderProduct.basePrice;
         obj.taxValue = orderProduct.taxValue;
         obj.taxType = orderProduct.taxType;
@@ -2186,8 +1902,6 @@ export class CustomerOrderController {
         obj.trackingId = orderProduct.trackingNo;
         obj.trackingUrl = orderProduct.trackingUrl;
         obj.productName = orderProduct.name;
-        // obj.productNameTrans = productTranslation?.name ?? '';
-        // obj.productDescriptionTrans = productTranslation?.description ?? '';
         obj.productPrice = orderProduct.productPrice;
         obj.discountAmount = orderProduct.discountAmount;
         obj.discountedAmount = orderProduct.discountedAmount;
@@ -2364,102 +2078,6 @@ export class CustomerOrderController {
             });
         });
     }
-    @UseBefore(CheckCustomerMiddleware)
-    // @Get('/order-export-pdf')
-    // public async orderExportPdf(@QueryParam('orderProductId') orderProductId: number, @Req() request: any, @Res() response: any): Promise<any> {
-    //     const orderProduct = await this.orderProductService.findOne({
-    //         where: {
-    //             orderProductId,
-    //         },
-    //     });
-    //     if (!orderProduct) {
-    //         const errorResponse: any = {
-    //             status: 0,
-    //             message: 'Invalid Order Product Id',
-    //         };
-    //         return response.status(400).send(errorResponse);
-    //     }
-    //     const orderExist = await this.orderService.findOrder({
-    //         where: { orderId: orderProduct.orderId, customerId: request.user.customerId }, select: ['orderId', 'orderStatusId', 'customerId', 'telephone', 'invoiceNo', 'paymentStatus', 'invoicePrefix', 'orderPrefixId', 'shippingFirstname', 'shippingLastname', 'shippingCompany', 'shippingAddress1',
-    //             'shippingAddress2', 'shippingCity', 'email', 'shippingZone', 'shippingPostcode', 'shippingCountry', 'shippingAddressFormat',
-    //             'paymentFirstname', 'paymentLastname', 'paymentCompany', 'paymentAddress1', 'paymentAddress2', 'paymentCity', 'couponCode', 'discountAmount', 'amount',
-    //             'paymentPostcode', 'paymentCountry', 'paymentZone', 'paymentAddressFormat', 'total', 'customerId', 'createdDate', 'currencyCode', 'currencySymbolLeft', 'currencySymbolRight'],
-    //     });
-    //     if (!orderExist) {
-    //         const errResponse: any = {
-    //             status: 0,
-    //             message: 'Invalid Order for this customer',
-    //         };
-    //         return response.status(400).send(errResponse);
-    //     }
-    //     orderExist.productList = await this.orderProductService.find({ where: { orderProductId }, select: ['orderProductId', 'orderId', 'productId', 'name', 'model', 'quantity', 'total', 'productPrice', 'basePrice', 'taxType', 'taxValue', 'discountAmount', 'discountedAmount', 'couponDiscountAmount'] }).then((val) => {
-    //         const productVal = val.map(async (value: any) => {
-    //             const rating = undefined;
-    //             const tempVal: any = value;
-    //             tempVal.taxType = value.taxType;
-    //             tempVal.taxValue = value.taxValue;
-    //             if (value.taxType === 2) {
-    //                 const price = value.discountAmount === '0.00' || value.discountAmount === null ? +value.basePrice : +value.discountedAmount;
-    //                 tempVal.taxValueInAmount = (price * (+value.taxValue / 100)).toFixed(2);
-    //             } else {
-    //                 tempVal.taxValueInAmount = value.taxValue;
-    //             }
-    //             if (rating) {
-    //                 tempVal.rating = rating.rating;
-    //                 tempVal.review = rating.review;
-    //             } else {
-    //                 tempVal.rating = 0;
-    //                 tempVal.review = '';
-    //             }
-    //             return tempVal;
-    //         });
-    //         const results = Promise.all(productVal);
-    //         return results;
-    //     });
-    //     const settingDetails: any = await this.vendorSettingsService.findOne({ where: { vendorId: request.tenantId } });
-    //     const vendorCountry = await this.vendorCountryService.findOne({
-    //         where: {
-    //             id: settingDetails.countryId,
-    //         },
-    //         relations: ['country'],
-    //     });
-    //     const zoneData: any = await this.zoneService.findOne({ where: { countryId: vendorCountry?.country?.countryId } });
-    //     orderExist.settingDetails = settingDetails;
-    //     orderExist.zoneData = zoneData ?? ' ';
-    //     orderExist.countryData = vendorCountry.country ?? ' ';
-    //     orderExist.currencyCode = orderExist.currencyCode;
-    //     orderExist.symbolLeft = orderExist.currencySymbolLeft;
-    //     orderExist.symbolRight = orderExist.currencySymbolRight;
-    //     orderExist.baseUrl = env.baseUrl;
-    //     const orderStatusData = await this.orderStatusService.findOne({
-    //         where: { orderStatusId: orderProduct.orderStatusId },
-    //         select: ['name', 'colorCode'],
-    //     });
-    //     if (orderStatusData) {
-    //         orderExist.orderStatusName = orderStatusData.name;
-    //         orderExist.statusColorCode = orderStatusData.colorCode;
-    //     }
-    //     let image: any;
-    //     if (env.imageserver === 's3') {
-    //         image = await this.s3Service.resizeImageBase64(settingDetails.invoiceLogo, settingDetails.invoiceLogoPath, '50', '50');
-    //     } else {
-    //         image = await this.imageService.resizeImageBase64(settingDetails.invoiceLogoPath + settingDetails.invoiceLogo, '50', '50');
-    //     }
-    //     orderExist.logo = image;
-    //     const htmlData = await this.pdfService.readHtmlToString('invoice', orderExist);
-    //     const pathName = `./Invoice_${orderExist.invoicePrefix + orderExist.invoiceNo}.pdf`;
-    //     await this.pdfService.htmlToPdf(htmlData, pathName);
-    //     return new Promise((resolve, reject) => {
-    //         response.download(pathName, (err, data) => {
-    //             if (err) {
-    //                 reject(err);
-    //             } else {
-    //                 fs.unlinkSync(pathName);
-    //                 return response.end();
-    //             }
-    //         });
-    //     });
-    // }
 
     public decrypt(text: any): any {
         const crypto = require('crypto');
@@ -2739,8 +2357,6 @@ export class CustomerOrderController {
             }
         );
 
-        // const plugin = await this.pluginService.findOne({ where: { id: payload.paymentPluginId, pluginType: 'Payment', pluginStatus: 1 } });
-
         if (!vendorPluginData) {
             return response.status(400).send({
                 status: 0,
@@ -2754,8 +2370,6 @@ export class CustomerOrderController {
                 message: `Retry Expired`,
             });
         }
-
-        // const logo = await this.settingService.findOne();
         const vendorSetting = await this.vendorSettingsService.findOne({ where: { vendorId: request.tenantId } });
         const vendorData = await this.vendorService.findOne({ where: { vendorId: request.tenantId } });
 
@@ -2796,7 +2410,6 @@ export class CustomerOrderController {
                     const vendorInvoiceItem: any[] = await this.vendorInvoiceItemService.findAll({ where: { vendorInvoiceId: vendInvoice.vendorInvoiceId } });
                     for (const vendInvoiceItem of vendorInvoiceItem) {
                         const vendorProductInformation: any = await this.orderProductService.findOne({ where: { orderProductId: vendInvoiceItem.orderProductId }, select: ['orderProductId', 'orderId', 'productId', 'name', 'model', 'quantity', 'total', 'productPrice', 'basePrice', 'skuName', 'taxValue', 'taxType', 'orderProductPrefixId'] });
-                        // const vendorProductInformation = await this.orderProductService.findOne({ where: { orderProductId: vendInvoiceItem.orderProductId }, select: ['orderProductId', 'orderId', 'productId', 'name', 'model', 'quantity', 'total', 'productPrice', 'basePrice', 'varientName', 'skuName', 'taxValue', 'taxType', 'productVarientOptionId', 'orderProductPrefixId'] });
                         const vendorProductImageData: any = await this.productService.findOne({ where: { productId: vendorProductInformation.productId } });
                         let vendorProductImageDetail;
                         vendorProductImageDetail = await this.productImageService.findOne({ where: { productId: vendorProductInformation.productId, defaultImage: 1 } });
@@ -2813,7 +2426,6 @@ export class CustomerOrderController {
                     mailContents.productDetailData = vendorProductDetailData;
                     mailContents.today = orderExist.createdDate;
                     mailContents.orderExist = orderExist;
-                    // mailContents.templateName = 'emailTemplates.ejs';
                     MAILService.sendMail(mailContents, customer.email, adminEmailContent.subject.replace('{orderId}', orderExist.orderId), false, false, '');
                 }
             }
@@ -2825,9 +2437,7 @@ export class CustomerOrderController {
             adminMailContents.productDetailData = productDetailData;
             adminMailContents.today = orderExist.createdDate;
             adminMailContents.orderExist = orderExist;
-            // adminEmailContent.templateName = 'emailTemplates.ejs';
             MAILService.sendMail(adminMailContents, adminId, adminEmailContent.subject.replace('{orderId}', orderExist.orderId), false, false, '');
-            // const storeRedirectUrl = env.storeRedirectUrl;
             const store = await this.vendorSettingsService.getVendorDomainOrDefault(request.tenantId, request.get('referer'));
             const storeMailContents: any = {};
             storeMailContents.setting = { ...vendorSetting, ...vendorData };
@@ -2836,7 +2446,6 @@ export class CustomerOrderController {
             storeMailContents.productDetailData = productDetailData;
             storeMailContents.today = orderExist.createdDate;
             storeMailContents.orderExist = orderExist;
-            // storeMailContents.templateName = 'emailTemplates.ejs';
             MAILService.sendMail(storeMailContents, adminId, emailContent.subject, false, false, '');
 
             return response.status(200).send({

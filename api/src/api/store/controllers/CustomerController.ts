@@ -44,7 +44,6 @@ import { VendorService } from '../../core/services/VendorService';
 import { VendorSettingsService } from '../../core/services/VendorSettingsService';
 import { VendorPluginService } from '../../core/services/VendorPluginService';
 import { pluginModule } from '../../../loaders/pluginLoader';
-// import { CustomerUserGroupService } from '../../core/services/CustomerUserGroupService';
 import { CustomerUsers } from '../../core/models/CustomerUsers';
 import { CustomerUsersService } from '../../core/services/CustomerUsersService';
 import { VendorUsersService } from '../../core/services/VendorUsersService';
@@ -71,7 +70,6 @@ export class StoreCustomerController {
         private vendorService: VendorService,
         private vendorSettingsService: VendorSettingsService,
         private vendorPluginService: VendorPluginService,
-        // private customerUserGroupService: CustomerUserGroupService,
         private customerUsersService: CustomerUsersService
     ) {
     }
@@ -224,22 +222,11 @@ export class StoreCustomerController {
     @Post('/register')
     @UseBefore(StoreCategoryValidator)
     public async register(@Body({ validate: true }) registerParam: CustomerRegisterRequest, @Req() request: any, @Res() response: any): Promise<any> {
-
-        // const siteId = request.store.Id;
-
         // Chek otp-validation
         const checkOtp = await this.registrationOtpService.findOne({ where: { emailId: registerParam.emailId, userType: 2, otp: registerParam.otp, isActive: 1, isDelete: 0, tenantId: request.tenantId } });
         if (!checkOtp) {
             return response.status(200).send({ status: 0, message: 'Please enter a valid OTP' });
         }
-
-        // if (moment(checkOtp.createdDate).format('YYYY-MM-DD HH:mm:ss') < moment().format('YYYY-MM-DD HH:mm:ss')) {
-        //     return response.status(400).send({
-        //         status: 0,
-        //         message: 'Your OTP Got Expired',
-        //     });
-        // }
-
         // Email Validation
         const alreadyExistEmail = await this.customerService.findOne({
             where: {
@@ -267,9 +254,6 @@ export class StoreCustomerController {
         newCustomer.companyName = registerParam.companyName;
         newCustomer.taxNumber = registerParam.taxNumber;
         const saveCustomer = await this.customerService.create(newCustomer);
-
-        // const customerUserGroup = await this.customerUserGroupService.findOne({ where: { tenantId: request.tenantId, slug: 'buyer' } });
-
         const customerUser = new CustomerUsers();
         customerUser.username = registerParam.emailId;
         customerUser.password = await Customer.hashPassword(registerParam.password);
@@ -280,7 +264,6 @@ export class StoreCustomerController {
         customerUser.isActive = 1;
         customerUser.deleteFlag = 0;
         customerUser.isSuperCustomer = 1;
-        // customerUser.customerUserGroupId = customerUserGroup.id;
         customerUser.customerId = saveCustomer.id;
         await this.customerUsersService.create(customerUser);
 
@@ -312,7 +295,6 @@ export class StoreCustomerController {
 
         // delete otp
         await this.registrationOtpService.delete(checkOtp.id);
-        // const logo = await this.settingService.findOne();
         const vendorSetting = await this.vendorSettingsService.findOne({ where: { vendorId: request.tenantId } });
         const vendor = await this.vendorService.findOne({ where: { vendorId: request.tenantId } });
         const findEmailTemplate: any = await this.emailTemplateService.findOne({ where: { emailTemplateId: 32 } });
@@ -448,11 +430,6 @@ export class StoreCustomerController {
                 await this.customerUsersService.create(customerUserData);
                 const Crypto = require('crypto-js');
                 const ciphertextToken = Crypto.AES.encrypt(token, env.cryptoSecret).toString();
-                // let permission: any = {};
-
-                // const roleDetail = await this.customerUserGroupService.findOne({ where: { id: customerUser.customerUserGroups.id } });
-                // const permission = roleDetail.permission ? JSON.parse(roleDetail.permission) : {};
-
                 if (token) {
                     const newToken = new AccessToken();
                     newToken.userId = customerUser.id;
@@ -511,7 +488,6 @@ export class StoreCustomerController {
             return response.status(400).send(errorResponse);
         }
         if (loginParam.type === 'gmail') {
-            // const plugin = await this.pluginService.findOne({ where: { pluginName: loginParam.type, pluginStatus: 1 } });
             const vendorPluginData = await this.vendorPluginService.findOne({
                 where: {
                     vendorId: request.tenantId,
@@ -543,7 +519,6 @@ export class StoreCustomerController {
                 return response.status(400).send(successResponse);
             }
         } else if (loginParam.type === 'facebook') {
-            // const plugin = await this.pluginService.findOne({ where: { pluginName: loginParam.type, pluginStatus: 1 } });
             const vendorPluginData = await this.vendorPluginService.findOne({
                 where: {
                     vendorId: request.tenantId,
@@ -1001,8 +976,6 @@ export class StoreCustomerController {
         const emailContent = await this.emailTemplateService.findOne({ where: { emailTemplateId: 40 } });
         const vendorSetting = await this.vendorSettingsService.findOne({ where: { vendorId: request.tenantId } });
         const vendor = await this.vendorService.findOne({ where: { vendorId: request.tenantId } });
-        // const redirectUrl = env.storeForgetPasswordLink + '?token=' + encryptedKey;
-        // const storeRedirectUrl = env.storeRedirectUrl;
         const storeUrl = await this.vendorSettingsService.getVendorDomainOrDefault(
             request.tenantId,
             request.get('referer')
@@ -1115,31 +1088,6 @@ export class StoreCustomerController {
             select: ['id', 'firstName', 'email', 'mobileNumber', 'password', 'avatar', 'avatarPath', 'isActive', 'forgetPasswordKey'],
             where: { email: decodedTokenKey, deleteFlag: 0, tenantId: request.tenantId },
         });
-        // const pattern = /^(?=.*?[A-Z])(?=.*?[a-z])((?=.*?[0-9])|(?=.*?[#?!@$%^&*-])).{8,128}$/;
-        // if (!newPassword.match(pattern)) {
-        //     const passwordValidatingMessage = [];
-        //     passwordValidatingMessage.push('Password must contain at least one number or at least one symbol and one uppercase and lowercase letter, and at least 8 and at most 128 characters');
-        //     const errResponse: any = {
-        //         status: 0,
-        //         message: "You have an error in your request's body. Check 'errors' field for more details",
-        //         data: { message: passwordValidatingMessage },
-        //     };
-        //     return response.status(422).send(errResponse);
-        // }
-        // const partsOfThreeLetters = resultData.email.match(/.{3}/g).concat(
-        //     resultData.email.substr(1).match(/.{3}/g),
-        //     resultData.email.substr(2).match(/.{3}/g));
-        // const matchEmail = new RegExp(partsOfThreeLetters.join('|'), 'i').test(newPassword);
-        // if (matchEmail === true) {
-        //     const validationMessage = [];
-        //     validationMessage.push('Password must not contain any part of the email address');
-        //     const passwordDuplicateErrorResponse: any = {
-        //         status: 0,
-        //         message: "You have an error in your request's body. Check 'errors' field for more details",
-        //         data: { message: validationMessage },
-        //     };
-        //     return response.status(422).send(passwordDuplicateErrorResponse);
-        // }
         resultData.password = await Customer.hashPassword(newPassword);
         resultData.forgetPasswordKey = '';
         const updateUserData = await this.customerService.update(resultData.id, resultData);

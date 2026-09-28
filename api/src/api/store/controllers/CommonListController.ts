@@ -31,7 +31,6 @@ import { OrderProductLogService } from '../../core/services/OrderProductLogServi
 import { VendorSettingsService } from '../../core/services/VendorSettingsService';
 import { VendorPluginService } from '../../core/services/VendorPluginService';
 import { VendorService } from '../../core/services/VendorService';
-// import { CategoryTranslationService } from '../../core/services/CategoryTranslationService';
 import { CustomerToGroupService } from '../../core/services/CustomerToGroupService';
 import { pluginModule } from '../../../../src/loaders/pluginLoader';
 import { IndustryService } from '../../core/services/IndustryService';
@@ -41,8 +40,6 @@ import { In, Not } from 'typeorm';
 import { env } from '../../../env';
 import arrayToTree from 'array-to-tree';
 import { VendorUsersService } from '../../core/services/VendorUsersService';
-// import uncino from 'uncino';
-// const hooks = uncino();
 import { Service } from 'typedi';
 import { ZoneService } from '../../core/services/zoneService';
 import { CurrencyService } from '../../core/services/CurrencyService';
@@ -64,7 +61,6 @@ export class CommonListController {
         private orderStatusService: OrderStatusService,
         private orderProductService: OrderProductService,
         private orderProductLogService: OrderProductLogService,
-        // private categoryTranslationService: CategoryTranslationService,
         private customerToGroupService: CustomerToGroupService,
         private industryService: IndustryService,
         private vendorSettingsService: VendorSettingsService,
@@ -79,7 +75,7 @@ export class CommonListController {
 
     // Banner List API
     /**
-     * @api {get} /api/list/banner Banner List
+     * @api {get} /api/store-list/banner Banner List
      * @apiGroup Store List
      * @apiParam (Request body) {Number} limit Limit
      * @apiParam (Request body) {Number} offset Offset
@@ -109,7 +105,7 @@ export class CommonListController {
      *          "linkType": ""
      *      }
      * }
-     * @apiSampleRequest /api/list/banner
+     * @apiSampleRequest /api/store-list/banner
      * @apiErrorExample {json} Banner List error
      * HTTP/1.1 500 Internal Server Error
      */
@@ -142,15 +138,7 @@ export class CommonListController {
         ];
 
         const bannerList: any = await this.bannerService.list(limit, offset, select, relations, search, whereConditions, count);
-
-        /// const vendorSettings = await this.vendorSettingsService.findOne({ where: { vendorId: request.tenantId } });
         const storeUrl = await this.vendorSettingsService.getVendorDomainOrDefault(request.tenantId, request.get('referer'));
-        // const productRedirectUrl = env.productRedirectUrl;
-
-        // if (env.app.type === 'cloud') {
-        //     const siteUrl = env.storeRedirectUrl.split('//')[0] + '//' + vendorSettings.storeUrl + '.' + env.storeRedirectUrl.split('//')[1];
-        //     productRedirectUrl = siteUrl + env.productRedirectUrl;
-        // }
 
         const list = bannerList.map(async (value: any) => {
             const temp: any = value;
@@ -175,7 +163,7 @@ export class CommonListController {
 
     // Banner Detail API
     /**
-     * @api {get} /api/list/banner/position/:position Banner Detail
+     * @api {get} /api/store-list/banner/position/:position Banner Detail
      * @apiGroup Store List
      * @apiParam (Request body) {String} position position
      * @apiSuccessExample {json} Success
@@ -195,7 +183,7 @@ export class CommonListController {
      *               "linkType": ""
      *              }"
      * }
-     * @apiSampleRequest /api/list/banner/position/:position
+     * @apiSampleRequest /api/store-list/banner/position/:position
      * @apiErrorExample {json} Banner Detail error
      * HTTP/1.1 500 Internal Server Error
      */
@@ -234,7 +222,7 @@ export class CommonListController {
 
     // Category List Tree API
     /**
-     * @api {get} /api/list/category Category List Tree API
+     * @api {get} /api/store-list/category Category List Tree API
      * @apiGroup Store List
      * @apiParam (Request body) {Number} limit Limit
      * @apiParam (Request body) {Number} offset Offset
@@ -266,7 +254,7 @@ export class CommonListController {
      *               "isActive": 1
      *              }"
      * }
-     * @apiSampleRequest /api/list/category
+     * @apiSampleRequest /api/store-list/category
      * @apiErrorExample {json} Category List error
      * HTTP/1.1 500 Internal Server Error
      */
@@ -348,7 +336,7 @@ export class CommonListController {
 
     // Custom Product List API
     /**
-     * @api {get} /api/list/custom-product-list Custom Product List API
+     * @api {get} /api/store-list/custom-product-list Custom Product List API
      * @apiGroup Store List
      * @apiHeader {String} Authorization
      * @apiParam (Request body) {Number} limit limit
@@ -410,7 +398,7 @@ export class CommonListController {
      *               "productDescriptionTrans": ""
      *              },
      * }
-     * @apiSampleRequest /api/list/custom-product-list
+     * @apiSampleRequest /api/store-list/custom-product-list
      * @apiErrorExample {json} productList error
      * HTTP/1.1 500 Internal Server Error
      */
@@ -542,12 +530,6 @@ export class CommonListController {
                         op: 'and',
                         value: 1,
                     },
-                    // {
-                    //     name: 'vendorProducts.approvalFlag',
-                    //     op: 'raw',
-                    //     sign: '!=',
-                    //     value: 2,
-                    // },
                     {
                         name: '( customer.id IS NOT NULL',
                         op: 'rawnumber',
@@ -607,12 +589,6 @@ export class CommonListController {
                         op: 'and',
                         value: 1,
                     },
-                    // {
-                    //     name: 'vendorProducts.approvalFlag',
-                    //     op: 'raw',
-                    //     sign: '!=',
-                    //     value: 2,
-                    // },
                     {
                         name: '( customer.id IS NOT NULL',
                         op: 'rawnumber',
@@ -637,14 +613,6 @@ export class CommonListController {
                     }
                 );
             }
-
-            // selects.push('MAX(customerWishlist.wishlistProductId) as wishlistProductId');
-            // relations.push({
-            //     tableName: 'Product.wishlist',
-            //     op: 'leftCond',
-            //     aliasName: 'customerWishlist',
-            //     cond: 'customerWishlist.customerId = ' + (request.id !== '' ? request.id : 0),
-            // });
 
             const vendorPlugin = await this.vendorPluginService.findOne(
                 {
@@ -780,10 +748,6 @@ export class CommonListController {
                     order: 'DESC',
                 });
             } else {
-                // sort.push({
-                //     name: 'Product.sortOrder',
-                //     order: 'ASC',
-                // });
                 sort.push({
                     name: 'Product.createdDate',
                     order: 'DESC',
@@ -915,7 +879,7 @@ export class CommonListController {
 
     //   Get Customer Address Detail API
     /**
-     * @api {get} /api/list/product-detail/:slug Product Details
+     * @api {get} /api/store-list/product-detail/:slug Product Details
      * @apiGroup Store List
      * @apiHeader {String} Authorization
      * @apiParam (Request body) {String} slug slug
@@ -1042,7 +1006,7 @@ export class CommonListController {
      *               }
      *  }
      * }
-     * @apiSampleRequest /api/list/product-detail/:slug
+     * @apiSampleRequest /api/store-list/product-detail/:slug
      * @apiErrorExample {json} Address error
      * HTTP/1.1 500 Internal Server Error
      */
@@ -1075,7 +1039,7 @@ export class CommonListController {
 
     // Country List API
     /**
-     * @api {get} /api/list/country-list Country List API
+     * @api {get} /api/store-list/country-list Country List API
      * @apiGroup Store List
      * @apiParam (Request body) {Number} limit limit
      * @apiParam (Request body) {Number} offset offset
@@ -1095,7 +1059,7 @@ export class CommonListController {
      *              "postcodeRequired": ""
      *      }""
      * }
-     * @apiSampleRequest /api/list/country-list
+     * @apiSampleRequest /api/store-list/country-list
      * @apiErrorExample {json} countryFront error
      * HTTP/1.1 500 Internal Server Error
      */
@@ -1172,7 +1136,7 @@ export class CommonListController {
 
     // Contact Us API
     /**
-     * @api {post} /api/list/contact-us  Contact Us API
+     * @api {post} /api/store-list/contact-us  Contact Us API
      * @apiGroup Store List
      * @apiParam (Request body) {String{..255}} name Name
      * @apiParam (Request body) {String{..96}} email Email
@@ -1191,7 +1155,7 @@ export class CommonListController {
      *      "message": "Your mail send to admin..!",
      *      "status": "1"
      * }
-     * @apiSampleRequest /api/list/contact-us
+     * @apiSampleRequest /api/store-list/contact-us
      * @apiErrorExample {json} Contact error
      * HTTP/1.1 500 Internal Server Error
      */
@@ -1249,7 +1213,7 @@ export class CommonListController {
 
     // Zone List API
     /**
-     * @api {get} /api/list/zone Zone List API
+     * @api {get} /api/store-list/zone Zone List API
      * @apiGroup Store List
      * @apiParam (Request body) {Number} limit limit
      * @apiParam (Request body) {Number} offset offset
@@ -1269,7 +1233,7 @@ export class CommonListController {
      *              "isActive": 1
      *             }
      * }
-     * @apiSampleRequest /api/list/zone
+     * @apiSampleRequest /api/store-list/zone
      * @apiErrorExample {json} Zone error
      * HTTP/1.1 500 Internal Server Error
      */
@@ -1323,7 +1287,7 @@ export class CommonListController {
 
     // Language List API
     /**
-     * @api {get} /api/list/language Language List API
+     * @api {get} /api/store-list/language Language List API
      * @apiGroup Store List
      * @apiHeader {String} Authorization
      * @apiParam (Request body) {Number} limit limit
@@ -1345,7 +1309,7 @@ export class CommonListController {
      *              "imagePath": ""
      *      }
      * }
-     * @apiSampleRequest /api/list/language
+     * @apiSampleRequest /api/store-list/language
      * @apiErrorExample {json} Language error
      * HTTP/1.1 500 Internal Server Error
      */
@@ -1416,7 +1380,7 @@ export class CommonListController {
 
     // Specific parent Category List API
     /**
-     * @api {get} /api/list/specific-category Specific Category List
+     * @api {get} /api/store-list/specific-category Specific Category List
      * @apiGroup Store List
      * @apiParam (Request body) {String} categorySlug categorySlug
      * @apiParamExample {json} Input
@@ -1462,7 +1426,7 @@ export class CommonListController {
      *                          "categoryDescriptionTrans": ""
      *               }]
      * }
-     * @apiSampleRequest /api/list/specific-category
+     * @apiSampleRequest /api/store-list/specific-category
      * @apiErrorExample {json} Category List error
      * HTTP/1.1 500 Internal Server Error
      */
@@ -1477,11 +1441,6 @@ export class CommonListController {
                 categorySlug: categorySlugParam,
             },
         });
-
-        // const categoryTranslation = await this.categoryTranslationService.findOne({ where: { categoryId: categoryDataId.categoryId, languageId: request.languageId ?? 0 } });
-
-        // categoryDataId.categoryNameTrans = categoryTranslation?.name ?? '';
-        // categoryDataId.categoryDescriptionTrans = categoryTranslation?.description ?? '';
         const categories = [];
         let tempParentId: number[] = [];
         tempParentId = [categoryDataId.categoryId];
@@ -1538,7 +1497,7 @@ export class CommonListController {
 
     // get payment setting API
     /**
-     * @api {get} /api/list/payment Get payment setting API
+     * @api {get} /api/store-list/payment Get payment setting API
      * @apiGroup Store List
      * @apiParam (Request body) {Number} limit limit
      * @apiParam (Request body) {Number} offset offset
@@ -1557,7 +1516,7 @@ export class CommonListController {
      *      }
      *      "status": "1"
      * }
-     * @apiSampleRequest /api/list/payment
+     * @apiSampleRequest /api/store-list/payment
      * @apiErrorExample {json} get payment setting error
      * HTTP/1.1 500 Internal Server Error
      */
@@ -1591,7 +1550,7 @@ export class CommonListController {
 
     // Active product count API
     /**
-     * @api {get} /api/list/product-count  Product Count API
+     * @api {get} /api/store-list/product-count  Product Count API
      * @apiGroup Store List
      * @apiParam (Request body) {Number} limit limit
      * @apiParam (Request body) {Number} offset offset
@@ -1611,7 +1570,7 @@ export class CommonListController {
      *      }
      *      "status": "1"
      * }
-     * @apiSampleRequest /api/list/product-count
+     * @apiSampleRequest /api/store-list/product-count
      * @apiErrorExample {json} product count error
      * HTTP/1.1 500 Internal Server Error
      */
@@ -1631,26 +1590,17 @@ export class CommonListController {
             'Product.taxValue as taxValue',
             'Product.name as name',
             'Product.price as price',
-            // 'Product.description as description',
-            // 'Product.dateAvailable as dateAvailable',
             'Product.sku as sku',
             'Product.skuId as skuId',
             'Product.isSimplified as isSimplified',
             'Product.isSpecification as isSpecification',
-            // 'Product.upc as upc',
             'Product.quantity as quantity',
-            // 'Product.rating as rating',
             'Product.isActive as isActive',
             'Product.productSlug as productSlug',
             'Product.hasStock as hasStock',
             'Product.outOfStockThreshold as outOfStockThreshold',
             'Product.stockStatusId as stockStatusId',
             'Product.createdDate as createdDate',
-            // 'Product.keywords as keywords',
-            // 'Product.attributeKeyword as attributeKeyword',
-            // 'vendor.vendorId as vendorId',
-            // 'customer.firstName as vendorName',
-            // 'vendor.companyName as vendorCompanyName',
             '(SELECT pi.container_name as containerName FROM product_image pi WHERE pi.product_id = Product.productId AND pi.default_image = 1 LIMIT 1) as containerName',
             '(SELECT pi.image as image FROM product_image pi WHERE pi.product_id = Product.productId AND pi.default_image = 1 LIMIT 1) as image',
             '(SELECT pi.default_image as defaultImage FROM product_image pi WHERE pi.product_id = Product.productId AND pi.default_image = 1 LIMIT 1) as defaultImage',
@@ -1860,7 +1810,7 @@ export class CommonListController {
 
     // Order log List API
     /**
-     * @api {get} /api/list/orderLoglist Order Log List API
+     * @api {get} /api/store-list/orderLoglist Order Log List API
      * @apiGroup Store
      * @apiHeader {String} Authorization
      * @apiParam (Request body) {String} orderPrefixId orderPrefixId
@@ -1877,7 +1827,7 @@ export class CommonListController {
      *      }
      *      "status": "1"
      * }
-     * @apiSampleRequest /api/list/orderLoglist
+     * @apiSampleRequest /api/store-list/orderLoglist
      * @apiErrorExample {json} order log error
      * HTTP/1.1 500 Internal Server Error
      */
@@ -1928,7 +1878,7 @@ export class CommonListController {
 
     // Plugin list
     /**
-     * @api /api/list/addons Plugin List
+     * @api /api/store-list/addons Plugin List
      * @apiGroup Store
      * @apiParam (Request Body) {number} limit limit
      * @apiParam (Request Body) {number} offset offset
@@ -1949,7 +1899,7 @@ export class CommonListController {
      *   }
      *  }
      * }
-     * @apiSampleRequest /api/list/addons
+     * @apiSampleRequest /api/store-list/addons
      * @apiErrorExample {json} Error
      * HTTP/1.1 500 Internal server error
      */
@@ -1981,7 +1931,7 @@ export class CommonListController {
 
     // Industry list
     /**
-     * @api /api/list/industry Industry List
+     * @api /api/store-list/industry Industry List
      * @apiGroup Store
      * @apiSuccessExample {json} success
      * HTTP/1.1 200 Ok
@@ -1996,7 +1946,7 @@ export class CommonListController {
      *              "isDelete": ""
      *              }
      * }
-     * @apiSampleRequest /api/list/industry
+     * @apiSampleRequest /api/store-list/industry
      * @apiErrorExample {json} Error
      * HTTP/1.1 500 Internal server error
      */
@@ -2017,7 +1967,7 @@ export class CommonListController {
 
     // Industry list
     /**
-     * @api /api/list/industry Industry List
+     * @api /api/store-list/industry Industry List
      * @apiGroup Store
      * @apiSuccessExample {json} success
      * HTTP/1.1 200 Ok
@@ -2032,7 +1982,7 @@ export class CommonListController {
      *              "isDelete": ""
      *              }
      * }
-     * @apiSampleRequest /api/list/industry
+     * @apiSampleRequest /api/store-list/industry
      * @apiErrorExample {json} Error
      * HTTP/1.1 500 Internal server error
      */
@@ -2061,7 +2011,7 @@ export class CommonListController {
 
     // gmap redirect url
     /**
-     * @api {Get} /api/list/gmap-key Get Client Id
+     * @api {Get} /api/store-list/gmap-key Get Client Id
      * @apiGroup Store
      * @apiParam (Request body) {string} pluginName pluginName
      * @apiSuccessExample {json} Success
@@ -2074,7 +2024,7 @@ export class CommonListController {
      *       "clientId": ""
      *   }
      * }
-     * @apiSampleRequest /api/list/gmap-key
+     * @apiSampleRequest /api/store-list/gmap-key
      * @apiErrorExample {json} Error
      * HTTP/1.1 500 Internal server errorS
      */

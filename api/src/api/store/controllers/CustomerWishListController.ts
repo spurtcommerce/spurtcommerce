@@ -13,7 +13,6 @@ import { ProductService } from '../../core/services/ProductService';
 import { CustomerWishlistService } from '../../core/services/CustomerWishlistService';
 import { ProductImageService } from '../../core/services/ProductImageService';
 import { CheckCustomerMiddleware } from '../../core/middlewares/checkTokenMiddleware';
-// import { ProductTranslationService } from '../../core/services/ProductTranslationService';
 import { TranslationMiddleware } from '../../core/middlewares/TranslationMiddleware';
 import { Service } from 'typedi';
 
@@ -373,9 +372,6 @@ export class StoreCustomerWishListController {
         const productList: any = await this.customerWishlistService.listByQueryBuilder(limit, offset, selects, whereConditions, [], relations, groupBy, sort, false, true);
         const promises = productList.map(async (result: any) => {
             const temp: any = result;
-            // const productTranslation = await this.productTranslationService.findOne({ where: { productId: result.productId, languageId: request.languageId ?? 0 } });
-            // temp.productNameTrans = productTranslation?.name ?? '';
-            // temp.productDescriptionTrans = productTranslation?.description ?? '';
             if (result.productSpecial !== null) {
                 temp.pricerefer = result.productSpecial;
                 temp.flag = 1;

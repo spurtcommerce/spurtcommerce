@@ -13,7 +13,6 @@ import { CheckCustomerMiddleware } from '../../core/middlewares/checkTokenMiddle
 import { TenantValidationMiddleware } from '../../core/middlewares/TenantValidationMiddleware';
 import { UpdateCustomerUsersRequest } from './requests/UpdateCustomerUsersRequest';
 import { CustomerService } from '../../core/services/CustomerService';
-// import { CustomerUserGroupService } from '../../core/services/CustomerUserGroupService';
 import { env } from '../../../env';
 import { S3Service } from '../../core/services/S3Service';
 import { ImageService } from '../../core/services/ImageService';
@@ -29,7 +28,6 @@ export class CustomerUserProfileController {
     constructor(
         private customerUsersService: CustomerUsersService,
         private customerService: CustomerService,
-        // private customerUserGroupService: CustomerUserGroupService,
         private s3Service: S3Service,
         private imageService: ImageService
     ) {
@@ -131,8 +129,6 @@ export class CustomerUserProfileController {
 
         if (customerUser.isSuperCustomer === 1) {
             const customer = await this.customerService.findOne({ where: { id: customerUser.customerId } });
-            // customer.username = payload.email;
-            // customer.email = payload.email;
             customer.mobile = payload.phoneNumber;
             customer.address = payload.address;
             await this.customerService.create(customer);
@@ -163,17 +159,10 @@ export class CustomerUserProfileController {
             customerUser.avatarPath = path;
         }
 
-        // customerUser.username = payload.username;
         customerUser.firstName = payload.firstName;
         customerUser.lastName = payload.lastName;
-        // customerUser.email = payload.email;
         customerUser.phoneNumber = payload.phoneNumber;
         customerUser.address = payload.address;
-
-        // const cutsomerUserSave: any = await this.customerUsersService.create(customerUser);
-
-        // const customerUserGroup = await this.customerUserGroupService.findOne({ where: { id: cutsomerUserSave.customerUserGroupId } });
-
         const successResponse: any = {
             status: 1,
             message: 'Successfully updated the customer user profile.',
