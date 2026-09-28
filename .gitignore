@@ -1,1 +1,48 @@
-node_modules
+node_modules/
+
+# Environment variables / secrets
+.env
+.env.local
+.env.*.local
+*.env
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Build outputs
+dist/
+dist-obf/
+build/
+*.tgz
+
+# Uploads / generated user data
+uploads/
+sitemap/
+
+# Sensitive files
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Coverage
+coverage/
+
+# Temporary files
+tmp/
+temp/
