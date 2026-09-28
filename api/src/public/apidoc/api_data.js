@@ -344,537 +344,6 @@ define({ "api": [
     "name": "GetApiFamilyCategory"
   },
   {
-    "type": "get",
-    "url": "/api/vendor-payment/export-bulk-order-payment-list",
-    "title": "Export Bulk Order Payment List API",
-    "group": "Admin_Vendor_Payment",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully export payment list\",\n     \"data\": \"{}\",\n     \"status\": \"1\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/vendor-payment/export-bulk-order-payment-list"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "Export error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/VendorPaymentController.ts",
-    "groupTitle": "Admin_Vendor_Payment",
-    "name": "GetApiVendorPaymentExportBulkOrderPaymentList"
-  },
-  {
-    "type": "get",
-    "url": "/api/vendor-payment/payment-archive-list",
-    "title": "Vendor Payment Archive List API",
-    "group": "Admin_Vendor_Payment",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "limit",
-            "description": "<p>limit</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "offset",
-            "description": "<p>offset</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "customerName",
-            "description": "<p>search by customerName</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "startDate",
-            "description": "<p>search by startDate</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "endDate",
-            "description": "<p>search by endDate</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully get payment Archive list\",\n     \"data\":{\n      'vendorPaymentArchiveId' : \"\",\n      'orderId': \"\",\n      'orderStatusId': \"\",\n      'orderPrefixId': \"\",\n      'currencySymbolLeft' : \"\",\n      'currencySymbolRight': \"\",\n      'shippingFirstname' : \"\",\n      'total' : \"\",\n      'createdDate': \"\",\n      'paymentType': \"\",\n      'paymentDetails': \"\",\n      'customerId': \"\",\n      'isActive: \"\"\n     }\n     \"status\": \"1\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/vendor-payment/payment-archive-list"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "order error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/VendorPaymentController.ts",
-    "groupTitle": "Admin_Vendor_Payment",
-    "name": "GetApiVendorPaymentPaymentArchiveList"
-  },
-  {
-    "type": "get",
-    "url": "/api/vendor-payment/payment-dashboard-count",
-    "title": "Payment Dashboard Count API",
-    "group": "Admin_Vendor_Payment",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully show the Payment Dashboard..!!\",\n     \"status\": \"1\",\n     \"data\": {\n      \"totalAmount\": \"\",\n      \"totalCommission\": \"\",\n      \"totalOrders\": \"\",\n      \"totalVendor\": \"\",\n      \"totalPaymentCount\": \"\"\n    }\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/vendor-payment/payment-dashboard-count"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "Order Detail error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/VendorPaymentController.ts",
-    "groupTitle": "Admin_Vendor_Payment",
-    "name": "GetApiVendorPaymentPaymentDashboardCount"
-  },
-  {
-    "type": "get",
-    "url": "/api/vendor-payment/payment-detail",
-    "title": "Payment Detail API",
-    "group": "Admin_Vendor_Payment",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "orderId",
-            "description": "<p>Order Id</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Input",
-          "content": "{\n     \"orderId\" : \"\",\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully Got the Payment Detail..!!\",\n     \"status\": \"1\",\n     \"data\": {\n      \"quantity\": \"\",\n      \"name\": \"\",\n      \"price\": \"\",\n      \"total\": \"\",\n      \"commission\": \"\",\n      \"companyName\": \"\"\n  },\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/vendor-payment/payment-detail"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "Order Detail error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/VendorPaymentController.ts",
-    "groupTitle": "Admin_Vendor_Payment",
-    "name": "GetApiVendorPaymentPaymentDetail"
-  },
-  {
-    "type": "get",
-    "url": "/api/vendor-payment/payment-list",
-    "title": "Payment List API",
-    "group": "Admin_Vendor_Payment",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "limit",
-            "description": "<p>limit</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "offset",
-            "description": "<p>offset</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "customerName",
-            "description": "<p>search by customerName</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "startDate",
-            "description": "<p>search by startDate</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "endDate",
-            "description": "<p>search by endDate</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully get payment list\",\n     \"data\": {\n      \"vendorPaymentId\": \"\",\n      \"orderId\": \"\",\n      \"orderStatusId\": \"\",\n      \"orderPrefixId\": \"\",\n      \"currencySymbolLeft\": \"\",\n      \"currencySymbolRight\" : \"\",\n      \"shippingFirstname\": \"\",\n      \"total\": \"\",\n      \"createdDate\": \"\",\n      \"paymentType\": \"\",\n      \"paymentDetails\": \"\",\n      \"customerId\": \"\",\n      \"isActive\": \"\",\n\n              \"price\": \"\",\n              \"discountAmount\": \"\",\n              \"discountedAmount\": \"\",\n              \"couponDiscountAmount\": \"\",\n              \"orderProductPrefixId\": \"\",\n              \"basePrice\": \"\",\n              \"skuName\": \"\",\n              \"total\": \"\",\n              \"subOrderId\": \"\",\n              \"commission\": \"\",\n              \"companyName\": \"\",\n              \"currencySymbolLeft\": \"\",\n              \"currencySymbolRight\": \"\",\n              \"commissionAmount\": \"\"\n          }\n      ],\n      \"commissionAmount\": \"\"\n  }\n     \"status\": \"1\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/vendor-payment/payment-list"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "order error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/VendorPaymentController.ts",
-    "groupTitle": "Admin_Vendor_Payment",
-    "name": "GetApiVendorPaymentPaymentList"
-  },
-  {
-    "type": "get",
-    "url": "/api/vendor-payment/payment-list-count",
-    "title": "Payment List Count API",
-    "group": "Admin_Vendor_Payment",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "limit",
-            "description": "<p>limit</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "offset",
-            "description": "<p>offset</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "customerName",
-            "description": "<p>search by customerName</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "startDate",
-            "description": "<p>search by startDate</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "endDate",
-            "description": "<p>search by endDate</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully got the complete payment list\",\n     \"data\": \"20\"\n     \"status\": \"1\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/vendor-payment/payment-list-count"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "order error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/VendorPaymentController.ts",
-    "groupTitle": "Admin_Vendor_Payment",
-    "name": "GetApiVendorPaymentPaymentListCount"
-  },
-  {
-    "type": "get",
-    "url": "/api/vendor-payment/vendor-order-payment-export",
-    "title": "Admin vendor order payment export",
-    "group": "Admin_Vendor_Payment",
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "orderId",
-            "description": "<p>orderId</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully download the vendor order payment List..!!\",\n     \"status\": \"1\",\n     \"data\": {},\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/vendor-payment/vendor-order-payment-export"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "All Customer Excel List error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/VendorPaymentController.ts",
-    "groupTitle": "Admin_Vendor_Payment",
-    "name": "GetApiVendorPaymentVendorOrderPaymentExport"
-  },
-  {
-    "type": "post",
-    "url": "/api/vendor-payment/make-vendor-payment-archive",
-    "title": "Make Vendor Payment Archive API",
-    "group": "Admin_Vendor_Payment",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "vendorPaymentId",
-            "description": "<p>VendorPaymentId</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Input",
-          "content": "{\n  \"vendorPaymentId\" : \"\",\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully Archived Payments\",\n     \"status\": \"1\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/vendor-payment/make-vendor-payment-archive"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "order error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/VendorPaymentController.ts",
-    "groupTitle": "Admin_Vendor_Payment",
-    "name": "PostApiVendorPaymentMakeVendorPaymentArchive"
-  },
-  {
     "type": "Get",
     "url": "/api/vendor-product/vendor-product-excel",
     "title": "Vendor Product Excel sheet",
@@ -1049,253 +518,6 @@ define({ "api": [
     "filename": "src/api/vendor/controllers/VendorController.ts",
     "groupTitle": "Admin_vendor",
     "name": "PostApiVendorCheckDisplayNameUrl"
-  },
-  {
-    "type": "get",
-    "url": "/api/auditlog/auditLog-list",
-    "title": "Audit Log list API",
-    "group": "Audit_Log",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "limit",
-            "description": "<p>limit</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "offset",
-            "description": "<p>offset</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "keyword",
-            "description": "<p>keyword</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "module",
-            "description": "<p>module</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "actionBy",
-            "description": "<p>actionBy</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "count",
-            "description": "<p>count should be number or boolean</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     \"status\": \"1\",\n     \"message\": \"Successfully get Attribute Group list API\",\n     \"data\": [{\n             \"createdBy\": \"\",\n             \"createdDate\": \"\",\n             \"modifiedBy\": \"\",\n             \"modifiedDate\": \"\",\n             \"auditLogId\": 1,\n             \"userId\": 1,\n             \"userName\": \"'\"\"\n             \"method\": \"\",\n             \"requestUrl\": \"\",\n             \"object\": \"\",\n             \"logType\": \"\",\n             \"description\": \"\",\n             \"params\": \"{}\",\n             \"browserInfo\": {\n                \"ip\": 127.0.0.1,\n                \"browser\": \"\"\n               },\n             \"module\": \"\"\n             }]\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/auditlog/auditLog-list"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "Attribute Group error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/AuditLogController.ts",
-    "groupTitle": "Audit_Log",
-    "name": "GetApiAuditlogAuditlogList"
-  },
-  {
-    "type": "get",
-    "url": "/api/auditlog/module-list",
-    "title": "Module Log list API",
-    "group": "Audit_Log",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "limit",
-            "description": "<p>limit</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "offset",
-            "description": "<p>offset</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "keyword",
-            "description": "<p>keyword</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "count",
-            "description": "<p>count should be number or boolean</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     \"status\": \"1\",\n     \"message\": \"Successfully get Attribute Group list API\",\n     \"data\": [{\n               \"module\": \"\"\n             }]\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/auditlog/module-list"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "Attribute Group error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/AuditLogController.ts",
-    "groupTitle": "Audit_Log",
-    "name": "GetApiAuditlogModuleList"
-  },
-  {
-    "type": "post",
-    "url": "/api/auditlog/delete-auditlog",
-    "title": "Delete Audit Log API",
-    "group": "Audit_Log",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "fromDate",
-            "description": "<p>createdDate</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "toDate",
-            "description": "<p>createddate</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Input",
-          "content": "{\n \"fromDate\" : \"\",\n \"toDate\" : \"\",\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n\"message\": \"Successfully deleted Audit logs\",\n\"status\": \"1\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/auditlog/delete-auditlog"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "AuditLog error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/AuditLogController.ts",
-    "groupTitle": "Audit_Log",
-    "name": "PostApiAuditlogDeleteAuditlog"
   },
   {
     "type": "delete",
@@ -6216,401 +5438,6 @@ define({ "api": [
     "name": "GetApiVendorCustomerVendorGraphList"
   },
   {
-    "type": "delete",
-    "url": "/api/customer-group/:id",
-    "title": "Delete Customer Group API",
-    "group": "CustomerGroup",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "number",
-            "optional": false,
-            "field": "groupId",
-            "description": "<p>groupId</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Input",
-          "content": "{\n     \"groupId\" : \"\",\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully deleted customerGroup.\",\n     \"status\": \"1\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/customer-group/:id"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "CustomerGroup error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/CustomerGroupController.ts",
-    "groupTitle": "CustomerGroup",
-    "name": "DeleteApiCustomerGroupId"
-  },
-  {
-    "type": "delete",
-    "url": "/api/customer-group/:id",
-    "title": "Detail Customer Group API",
-    "group": "CustomerGroup",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "number",
-            "optional": false,
-            "field": "groupId",
-            "description": "<p>groupId</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully Got Customer Group\",\n     \"status\": \"1\",\n     \"data\":{\n          \"name\": \"\",\n          \"description\": \"\",\n          \"colorCode\": \"\",\n          \"isActive\": \"\"\n           },\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/customer-group/:id"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "CustomerGroup error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/CustomerGroupController.ts",
-    "groupTitle": "CustomerGroup",
-    "name": "DeleteApiCustomerGroupId"
-  },
-  {
-    "type": "get",
-    "url": "/api/customer-group",
-    "title": "customergroup-list API",
-    "group": "CustomerGroup",
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "limit",
-            "description": "<p>limit</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "offset",
-            "description": "<p>offset</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "keyword",
-            "description": "<p>keyword</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "groupName",
-            "description": "<p>groupName</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "status",
-            "description": "<p>status</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "count",
-            "description": "<p>count in number or boolean</p>"
-          }
-        ]
-      }
-    },
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n   \"message\": \"Successfully get customer group list\",\n   \"status\": \"1\"\n   \"data\":{\n          \"groupId\": \"\",\n          \"name\": \"\",\n          \"description\": \"\",\n          \"colorCode\": \"\",\n          \"isActive\": \"\"\n   },\n }",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/customer-group"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "customergroup error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/CustomerGroupController.ts",
-    "groupTitle": "CustomerGroup",
-    "name": "GetApiCustomerGroup"
-  },
-  {
-    "type": "post",
-    "url": "/api/customer-group",
-    "title": "Create customer group API",
-    "group": "CustomerGroup",
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "String",
-            "size": "..30",
-            "optional": false,
-            "field": "name",
-            "description": "<p>groupName</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": true,
-            "field": "description",
-            "description": "<p>groupDescription</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "colorcode",
-            "description": "<p>colorcode</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "status",
-            "description": "<p>status</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Input",
-          "content": "{\n     \"name\" : \"\",\n     \"description\" : \"\",\n     \"status\" : \"\",\n     \"colorcode\": \"\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"New Customer group is created successfully\",\n     \"status\": \"1\",\n     \"data\": {\n             \"name\": \"\",\n             \"description\": \"\",\n             \"colorCode\": \"\",\n             \"isActive\": \"\",\n             \"createdDate\": \"\",\n             \"groupId\": \"\"\n     }\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/customer-group"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "createCustomer error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/CustomerGroupController.ts",
-    "groupTitle": "CustomerGroup",
-    "name": "PostApiCustomerGroup"
-  },
-  {
-    "type": "put",
-    "url": "/api/customer-group/:id",
-    "title": "Update Customer Group API",
-    "group": "CustomerGroup",
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "String",
-            "size": "..30",
-            "optional": false,
-            "field": "name",
-            "description": "<p>groupName</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": true,
-            "field": "description",
-            "description": "<p>groupDescription</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "colorcode",
-            "description": "<p>colorcode</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "status",
-            "description": "<p>status</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Input",
-          "content": "{\n     \"name\" : \"\",\n     \"description\" : \"\",\n     \"colorcode\" : \"\",\n     \"status\" : \"\",\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \" Customer Group is updated successfully\",\n     \"status\": \"1\",\n     \"data\": {\n             \"name\": \"\",\n             \"description\": \"\",\n             \"colorCode\": \"\",\n             \"isActive\": \"\",\n             \"createdDate\": \"\",\n             \"groupId\": \"\"\n             }\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/customer-group/:id"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "update-customer-group error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/CustomerGroupController.ts",
-    "groupTitle": "CustomerGroup",
-    "name": "PutApiCustomerGroupId"
-  },
-  {
     "type": "post",
     "url": "/api/vendor-customer",
     "title": "Add Customer API",
@@ -8916,279 +7743,6 @@ define({ "api": [
     "name": "GetApiVendorCustomerUserList"
   },
   {
-    "type": "Delete",
-    "url": "api/document/:id",
-    "title": "Delete Document API",
-    "group": "DocumentGroup",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorizatione",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n   \"status\": 1,\n   \"message\": \"Successfully Delete Document ..!\",\n   \"data\": {\n       \"raw\": [],\n       \"affected\": \"\"\n   }\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "api/document/:id"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "document error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/DocumentController.ts",
-    "groupTitle": "DocumentGroup",
-    "name": "DeleteApiDocumentId"
-  },
-  {
-    "type": "Get",
-    "url": "api/document",
-    "title": "Get DocumentList API",
-    "group": "DocumentGroup",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "limit",
-            "description": "<p>limit</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "offset",
-            "description": "<p>offset</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "string",
-            "optional": false,
-            "field": "keyword",
-            "description": "<p>keyword</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "string",
-            "optional": false,
-            "field": "title",
-            "description": "<p>title</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "status",
-            "description": "<p>status</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "count",
-            "description": "<p>count</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n   \"status\": 1,\n   \"message\": \"Successfully Got Document List\",\n   \"data\": [\n       {\n           \"createdBy\": \"\",\n           \"createdDate\": \"\",\n           \"modifiedBy\": null,\n           \"modifiedDate\": \"\",\n           \"id\": \"\",\n           \"name\": \"\",\n           \"documentType\": \"\",\n           \"isMandatory\": \"\",\n           \"maxUploadSize\": \"\",\n           \"isActive\": \"\",\n           \"isDelete\": \"\"\n       },\n   ]\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "api/document"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "document error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/DocumentController.ts",
-    "groupTitle": "DocumentGroup",
-    "name": "GetApiDocument"
-  },
-  {
-    "type": "Get",
-    "url": "api/document/:id",
-    "title": "Get Document Detail API",
-    "group": "DocumentGroup",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n   \"status\": 1,\n   \"message\": \"Successfully Got Document Detail\",\n   \"data\": [\n       {\n           \"createdBy\": \"\",\n           \"createdDate\": \"\",\n           \"modifiedBy\": null,\n           \"modifiedDate\": \"\",\n           \"id\": \"\",\n           \"name\": \"\",\n           \"documentType\": \"\",\n           \"isMandatory\": \"\",\n           \"maxUploadSize\": \"\",\n           \"isActive\": \"\",\n           \"isDelete\": \"\"\n       },\n   ]\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "api/document/:id"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "document error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/DocumentController.ts",
-    "groupTitle": "DocumentGroup",
-    "name": "GetApiDocumentId"
-  },
-  {
-    "type": "Post",
-    "url": "api/document",
-    "title": "Create Document API",
-    "group": "DocumentGroup",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "id",
-            "description": "<p>id</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "name",
-            "description": "<p>name</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "isMandatory",
-            "description": "<p>isMandatory</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "maxUploadSize",
-            "description": "<p>maxUploadSize</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "isActive",
-            "description": "<p>isActive</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n   \"status\": 1,\n   \"message\": \"Successfully Saved Document\",\n   \"data\": {\n       \"name\": \"\",\n       \"isMandatory\": \"\",\n       \"maxUploadSize\": \"\",\n       \"isActive\": \"\",\n       \"createdDate\": \"\",\n       \"modifiedDate\": \"\",\n       \"id\": \"\"\n   }\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "api/document"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "document error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/DocumentController.ts",
-    "groupTitle": "DocumentGroup",
-    "name": "PostApiDocument"
-  },
-  {
     "type": "Get",
     "url": "/api/export-log",
     "title": "Export log list",
@@ -10133,213 +8687,6 @@ define({ "api": [
     "filename": "src/api/vendor/controllers/LanguageController.ts",
     "groupTitle": "Language",
     "name": "PostApiVendorLanguage"
-  },
-  {
-    "type": "Get",
-    "url": "/api/vendor-github",
-    "title": "GitHub Redirect API",
-    "group": "Oauth",
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 Ok",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/vendor-github"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "Error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/VendorGitHubController.ts",
-    "groupTitle": "Oauth",
-    "name": "GetApiVendorGithub"
-  },
-  {
-    "type": "Get",
-    "url": "/api/vendor-github/callback",
-    "title": "Github Redirect API",
-    "group": "Oauth",
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 Ok",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/vendor-github/callback"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "Error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/VendorGitHubController.ts",
-    "groupTitle": "Oauth",
-    "name": "GetApiVendorGithubCallback"
-  },
-  {
-    "type": "Get",
-    "url": "/api/vendor-linkedin/callback",
-    "title": "LinkeId Redirect API",
-    "group": "Oauth",
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 Ok",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/vendor-linkedin/callback"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "Error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/VendorLinkedinController.ts",
-    "groupTitle": "Oauth",
-    "name": "GetApiVendorLinkedinCallback"
-  },
-  {
-    "type": "post",
-    "url": "/api/vendor-github",
-    "title": "Github Login API",
-    "group": "Oauth",
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "String",
-            "size": "..255",
-            "optional": false,
-            "field": "emailId",
-            "description": "<p>emailId</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "oauthData",
-            "description": "<p>oauthData</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 Ok",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/vendor-github"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "Error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/VendorGitHubController.ts",
-    "groupTitle": "Oauth",
-    "name": "PostApiVendorGithub"
-  },
-  {
-    "type": "post",
-    "url": "/api/vendor-linkedin",
-    "title": "LinkedIn Login API",
-    "group": "Oauth",
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "String",
-            "size": "..255",
-            "optional": false,
-            "field": "emailId",
-            "description": "<p>emailId</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "oauthData",
-            "description": "<p>oauthData</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 Ok",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/vendor-linkedin"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "Error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/VendorLinkedinController.ts",
-    "groupTitle": "Oauth",
-    "name": "PostApiVendorLinkedin"
   },
   {
     "type": "Post",
@@ -12090,674 +10437,6 @@ define({ "api": [
     "filename": "src/api/vendor/controllers/PageGroupController.ts",
     "groupTitle": "Page_Group",
     "name": "PutApiPageGroupId"
-  },
-  {
-    "type": "get",
-    "url": "/api/payment/archive-payment-list",
-    "title": "Archive Payment List API",
-    "group": "Payment",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "limit",
-            "description": "<p>limit</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "offset",
-            "description": "<p>offset</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "customerName",
-            "description": "<p>search by customerName</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "startDate",
-            "description": "<p>search by startDate</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "endDate",
-            "description": "<p>search by endDate</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully get Archive payment list\",\n     \"data\":{\n             \"paymentArchiveId\" : \"\",\n             \"createdDate\" : \"\",\n             \"orderId\" : \"\",\n             \"orderStatusId\" : \"\",\n             \"orderPrefixId\" : \"\",\n             \"currencySymbolLeft\" : \"\",\n             \"currencySymbolRight\" : \"\",\n             \"shippingFirstname\" : \"\",\n             \"total\" : \"\",\n             \"paymentType\" : \"\",\n             \"paymentDetails\" : \"\",\n             \"customerId\" : \"\",\n             \"isActive\": \"\"\n     }\n     \"status\": \"1\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/payment/archive-payment-list"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "payment error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/PaymentController.ts",
-    "groupTitle": "Payment",
-    "name": "GetApiPaymentArchivePaymentList"
-  },
-  {
-    "type": "get",
-    "url": "/api/payment/archive-payment-list-count",
-    "title": "Archive Payment List Count API",
-    "group": "Payment",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "limit",
-            "description": "<p>limit</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "offset",
-            "description": "<p>offset</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "customerName",
-            "description": "<p>search by customerName</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "startDate",
-            "description": "<p>search by startDate</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "endDate",
-            "description": "<p>search by endDate</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully get Archive payment count\",\n     \"data\":\"\"\n     \"status\": \"1\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/payment/archive-payment-list-count"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "payment error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/PaymentController.ts",
-    "groupTitle": "Payment",
-    "name": "GetApiPaymentArchivePaymentListCount"
-  },
-  {
-    "type": "get",
-    "url": "/api/payment/bulk-export-payment-archive-list",
-    "title": "Bulk Export Payment Archive List API",
-    "group": "Payment",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "customerName",
-            "description": "<p>customerName</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "startDate",
-            "description": "<p>startDate</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "endDate",
-            "description": "<p>endDate</p>"
-          }
-        ]
-      }
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/payment/bulk-export-payment-archive-list"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "payment error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/PaymentController.ts",
-    "groupTitle": "Payment",
-    "name": "GetApiPaymentBulkExportPaymentArchiveList"
-  },
-  {
-    "type": "get",
-    "url": "/api/payment/bulk-export-payment-list",
-    "title": "Bulk Export Payment List API",
-    "group": "Payment",
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "paymentMethod",
-            "description": "<p>paymentMethod</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "customerName",
-            "description": "<p>customerName</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "startDate",
-            "description": "<p>startDate</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "endDate",
-            "description": "<p>endDate</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully get payment list\",\n     \"data\":{\n     \"orderId\" : \"\",\n     \"orderStatusId\" : \"\",\n     \"customerName\" : \"\",\n     \"totalAmount\" : \"\",\n     \"dateModified\" : \"\",\n     \"status\" : \"\",\n     }\n     \"status\": \"1\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/payment/bulk-export-payment-list"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "payment error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/PaymentController.ts",
-    "groupTitle": "Payment",
-    "name": "GetApiPaymentBulkExportPaymentList"
-  },
-  {
-    "type": "get",
-    "url": "/api/payment/export-payment-archive-list",
-    "title": "Export Payment Archive List API",
-    "group": "Payment",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "paymentArchiveId",
-            "description": "<p>paymentArchiveId</p>"
-          }
-        ]
-      }
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/payment/export-payment-archive-list"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "payment error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/PaymentController.ts",
-    "groupTitle": "Payment",
-    "name": "GetApiPaymentExportPaymentArchiveList"
-  },
-  {
-    "type": "get",
-    "url": "/api/payment/export-payment-list",
-    "title": "Export Payment List API",
-    "group": "Payment",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "paymentId",
-            "description": "<p>paymentId</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully get payment list\",\n     \"data\":{\n     \"orderId\" : \"\",\n     \"orderStatusId\" : \"\",\n     \"customerName\" : \"\",\n     \"totalAmount\" : \"\",\n     \"dateModified\" : \"\",\n     \"status\" : \"\",\n     }\n     \"status\": \"1\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/payment/export-payment-list"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "payment error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/PaymentController.ts",
-    "groupTitle": "Payment",
-    "name": "GetApiPaymentExportPaymentList"
-  },
-  {
-    "type": "get",
-    "url": "/api/payment/payment-list",
-    "title": "Payment List API",
-    "group": "Payment",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "limit",
-            "description": "<p>limit</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "offset",
-            "description": "<p>offset</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "count",
-            "description": "<p>count</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "paymentMethod",
-            "description": "<p>search by paymentMethod</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "customerName",
-            "description": "<p>search by customerName</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "startDate",
-            "description": "<p>search by startDate</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "endDate",
-            "description": "<p>search by endDate</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully get payment list\",\n     \"data\":[{\n             \"paymentId\": 15,\n             \"orderId\": 405,\n             \"orderStatusId\": 1,\n             \"orderPrefixId\": \"INV-20240717405\",\n             \"currencySymbolLeft\": \"$\",\n             \"currencySymbolRight\": \"\",\n             \"shippingFirstname\": \"Anangan\",\n             \"total\": \"118499.00\",\n             \"createdDate\": \"2024-07-17T13:06:00.000Z\",\n             \"paymentType\": \"CashOnDelivery\",\n             \"paymentDetails\": null,\n             \"customerId\": 16,\n             \"isActive\": 1,\n             \"paymentMethod\": \"1\",\n             \"subOrderDetails\": [\n               {\n                 \"orderProductId\": 714,\n                 \"orderProductPrefixId\": \"INV-202407174051\",\n                 \"productId\": 929,\n                 \"orderId\": 405,\n                 \"quantity\": 1,\n                 \"name\": \"LG Gram16\",\n                 \"price\": \"118499.00\",\n                 \"basePrice\": \"118499.00\",\n                 \"total\": \"118499.00\",\n                 \"discountAmount\": \"0.00\",\n                 \"discountedAmount\": \"0.00\",\n                 \"couponDiscountAmount\": null,\n                 \"skuName\": \"LG45676543\"\n               }]\n             }]\n     \"status\": \"1\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/payment/payment-list"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "payment error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/PaymentController.ts",
-    "groupTitle": "Payment",
-    "name": "GetApiPaymentPaymentList"
-  },
-  {
-    "type": "get",
-    "url": "/api/payment/payment-list-count",
-    "title": "Payment List Count API",
-    "group": "Payment",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "limit",
-            "description": "<p>limit</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "offset",
-            "description": "<p>offset</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "customerName",
-            "description": "<p>search by customerName</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "startDate",
-            "description": "<p>search by startDate</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "endDate",
-            "description": "<p>search by endDate</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully get payment list count\",\n     \"data\": 100,\n     \"status\": \"1\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/payment/payment-list-count"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "payment error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/PaymentController.ts",
-    "groupTitle": "Payment",
-    "name": "GetApiPaymentPaymentListCount"
-  },
-  {
-    "type": "post",
-    "url": "/api/payment/make-payment-archive",
-    "title": "Make Payment Archive API",
-    "group": "Payment",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "paymentId",
-            "description": "<p>paymentId</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Input",
-          "content": "{\n  \"paymentId\" : \"\",\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully Archived this payment\",\n     \"status\": \"1\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/payment/make-payment-archive"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "order error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/PaymentController.ts",
-    "groupTitle": "Payment",
-    "name": "PostApiPaymentMakePaymentArchive"
   },
   {
     "type": "delete",
@@ -15519,39 +13198,6 @@ define({ "api": [
   },
   {
     "type": "get",
-    "url": "/api/quick-order",
-    "title": "Quick Order Sample File Download Api",
-    "group": "Quick_Order",
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     \"status\": \"1\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/quick-order"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "Quick Order Error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/store/controllers/QuickOrderController.ts",
-    "groupTitle": "Quick_Order",
-    "name": "GetApiQuickOrder"
-  },
-  {
-    "type": "get",
     "url": "/api/media/image-resize",
     "title": "Resize Image On The Fly",
     "group": "Resize-Image",
@@ -16528,1436 +14174,6 @@ define({ "api": [
     "name": "PostApiProductSeoProductid"
   },
   {
-    "type": "delete",
-    "url": "/api/service/delete-service-enquiry/:id",
-    "title": "Delete Enquiry API",
-    "group": "Service",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "examples": [
-        {
-          "title": "Input",
-          "content": "{\n     \"enquiryId\" : \"\",\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully deleted service Enquiry.\",\n     \"status\": \"1\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/service/delete-service-enquiry/:id"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "Enquiry error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/ServiceController.ts",
-    "groupTitle": "Service",
-    "name": "DeleteApiServiceDeleteServiceEnquiryId"
-  },
-  {
-    "type": "delete",
-    "url": "/api/service/delete-service/:id",
-    "title": "Delete Service API",
-    "group": "Service",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "examples": [
-        {
-          "title": "Input",
-          "content": "{\n     \"serviceId\" : \"\",\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully deleted service.\",\n     \"status\": \"1\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/service/delete-service/:id"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "Service error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/ServiceController.ts",
-    "groupTitle": "Service",
-    "name": "DeleteApiServiceDeleteServiceId"
-  },
-  {
-    "type": "get",
-    "url": "/api/service/leads-excel-list",
-    "title": "Leads Excel download",
-    "group": "Service",
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "string",
-            "optional": false,
-            "field": "leadsId",
-            "description": "<p>leadsId</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully download the leads excel list..!!\",\n     \"status\": \"1\",\n     \"data\": {},\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/service/leads-excel-list"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "Service Excel List error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/ServiceController.ts",
-    "groupTitle": "Service",
-    "name": "GetApiServiceLeadsExcelList"
-  },
-  {
-    "type": "get",
-    "url": "/api/service/service-count",
-    "title": "Service Count API",
-    "group": "Service",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully show the service count.\",\n     \"status\": \"1\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/service/service-count"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "Service error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/ServiceController.ts",
-    "groupTitle": "Service",
-    "name": "GetApiServiceServiceCount"
-  },
-  {
-    "type": "get",
-    "url": "/api/service/service-detail",
-    "title": "Service Detail API",
-    "group": "Service",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "serviceId",
-            "description": "<p>serviceId</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Input",
-          "content": "{\n     \"serviceId\" : \"\",\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully show the service detail.\",\n     \"status\": \"1\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/service/service-detail"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "Service error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/ServiceController.ts",
-    "groupTitle": "Service",
-    "name": "GetApiServiceServiceDetail"
-  },
-  {
-    "type": "get",
-    "url": "/api/service/service-enquiry-list",
-    "title": "Service Enquiry List API",
-    "group": "Service",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "limit",
-            "description": "<p>limit</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "offset",
-            "description": "<p>offset</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "keyword",
-            "description": "<p>keyword</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "count",
-            "description": "<p>count should be number or boolean</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully get service enquiry list\",\n     \"data\": {\n             \"serviceId\": \"\",\n             \"name\": \"\",\n             \"email\": \"\",\n             \"mobile\": \"\",\n             \"comments\": \"\"\n             }\n     \"status\": \"1\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/service/service-enquiry-list"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "Enquiry error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/ServiceController.ts",
-    "groupTitle": "Service",
-    "name": "GetApiServiceServiceEnquiryList"
-  },
-  {
-    "type": "get",
-    "url": "/api/service/service-excel-list",
-    "title": "Service Excel download",
-    "group": "Service",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "string",
-            "optional": false,
-            "field": "serviceId",
-            "description": "<p>service Id</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully download the service excel list..!!\",\n     \"status\": \"1\",\n     \"data\": {},\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/service/service-excel-list"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "Service Excel List error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/ServiceController.ts",
-    "groupTitle": "Service",
-    "name": "GetApiServiceServiceExcelList"
-  },
-  {
-    "type": "get",
-    "url": "/api/service/service-list",
-    "title": "Service List API",
-    "group": "Service",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "limit",
-            "description": "<p>limit</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "offset",
-            "description": "<p>offset</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "keyword",
-            "description": "<p>keyword</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "status",
-            "description": "<p>Status</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "price",
-            "defaultValue": "1/2",
-            "description": "<p>if 1-&gt;asc 2-&gt;desc</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "count",
-            "description": "<p>count should be number or boolean</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully get service list\",\n     \"data\":\"{\n             \"serviceId\",\n             \"title\",\n             \"mobile\",\n             \"description\",\n             \"price\",\n             \"isActive\",\n             \"createdDate\",\n     }\"\n     \"status\": \"1\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/service/service-list"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "Service error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/ServiceController.ts",
-    "groupTitle": "Service",
-    "name": "GetApiServiceServiceList"
-  },
-  {
-    "type": "post",
-    "url": "/api/service/add-service",
-    "title": "Add Service API",
-    "group": "Service",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "string",
-            "optional": false,
-            "field": "categoryId",
-            "description": "<p>CategoryId(required)</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "size": "..255",
-            "optional": false,
-            "field": "title",
-            "description": "<p>Service title(required)</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": true,
-            "field": "description",
-            "description": "<p>Service description</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "size": "..15",
-            "optional": false,
-            "field": "mobile",
-            "description": "<p>Service mobile(required)</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": true,
-            "field": "price",
-            "description": "<p>Service price</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": true,
-            "field": "image",
-            "description": "<p>Service image</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "size": "..70",
-            "optional": true,
-            "field": "metaTagTitle",
-            "description": "<p>Service metaTagTitle(required)</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "size": "..160",
-            "optional": true,
-            "field": "metaTagDescription",
-            "description": "<p>Service metaTagDescription</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "size": "..255",
-            "optional": true,
-            "field": "metaTagKeyword",
-            "description": "<p>Service metaTagKeyword</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "status",
-            "description": "<p>inactive-&gt; 0, active-&gt; 1 (required)</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": true,
-            "field": "defaultImage",
-            "description": ""
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Input",
-          "content": "{\n     \"categoryId\" : [],\n     \"title\" : \"\",\n     \"description\" : \"\",\n     \"mobile\" : \"\",\n     \"price\" : \"\",\n     \"image\" : \"\",\n     \"metaTagTitle\" : \"\",\n     \"metaTagdescription\" : \"\",\n     \"metaTagKeyword\" : \"\",\n     \"status\" : \"\",\n     \"image\":[{\n     \"image\":\"\"\n     \"containerName\":\"\"\n     \"defaultImage\":\"\"\n     }]\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully created new Service.\",\n     \"status\": \"1\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/service/add-service"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "Service error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/ServiceController.ts",
-    "groupTitle": "Service",
-    "name": "PostApiServiceAddService"
-  },
-  {
-    "type": "post",
-    "url": "/api/service/delete-multiple-enquiry",
-    "title": "Delete Multiple Enquiry API",
-    "group": "Service",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "number",
-            "optional": false,
-            "field": "enquiryId",
-            "description": "<p>EnquiryId</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Input",
-          "content": "{\n  \"EnquiryId\" : \"\",\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n\"message\": \"Successfully deleted Enquiry.\",\n\"status\": \"1\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/service/delete-multiple-enquiry"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "Enquiry error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/ServiceController.ts",
-    "groupTitle": "Service",
-    "name": "PostApiServiceDeleteMultipleEnquiry"
-  },
-  {
-    "type": "post",
-    "url": "/api/service/delete-multiple-service",
-    "title": "Delete Multiple Service API",
-    "group": "Service",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "Number",
-            "optional": false,
-            "field": "serviceId",
-            "description": "<p>ServiceId</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Input",
-          "content": "{\n  \"ServiceId\" : \"\",\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n\"message\": \"Successfully deleted Service.\",\n\"status\": \"1\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/service/delete-multiple-service"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "Service error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/ServiceController.ts",
-    "groupTitle": "Service",
-    "name": "PostApiServiceDeleteMultipleService"
-  },
-  {
-    "type": "put",
-    "url": "/api/service/update-service/:id",
-    "title": "Update Service API",
-    "group": "Service",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "categoryId",
-            "description": "<p>CategoryId(required)</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "size": "..255",
-            "optional": false,
-            "field": "title",
-            "description": "<p>Service title(required)</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": true,
-            "field": "description",
-            "description": "<p>Service description</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "size": "..15",
-            "optional": false,
-            "field": "mobile",
-            "description": "<p>Service mobile(required)</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": true,
-            "field": "price",
-            "description": "<p>Service price</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": true,
-            "field": "image",
-            "description": "<p>Service image</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "size": "..70",
-            "optional": true,
-            "field": "metaTagTitle",
-            "description": "<p>Service metaTagTitle(required)</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "size": "..160",
-            "optional": true,
-            "field": "metaTagDescription",
-            "description": "<p>Service metaTagDescription</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "size": "..255",
-            "optional": true,
-            "field": "metaTagKeyword",
-            "description": "<p>Service metaTagKeyword</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "status",
-            "description": "<p>inactive-&gt; 0, active-&gt; 1 (required)</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": true,
-            "field": "defaultImage",
-            "description": ""
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Input",
-          "content": "{\n     \"categoryId\" : \"\",\n     \"title\" : \"\",\n     \"description\" : \"\",\n     \"mobile\" : \"\",\n     \"price\" : \"\",\n     \"image\" : \"\",\n     \"metaTagTitle\" : \"\",\n     \"metaTagdescription\" : \"\",\n     \"metaTagKeyword\" : \"\",\n     \"status\" : \"\",\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully updated service.\",\n     \"status\": \"1\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/service/update-service/:id"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "Service error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/ServiceController.ts",
-    "groupTitle": "Service",
-    "name": "PutApiServiceUpdateServiceId"
-  },
-  {
-    "type": "delete",
-    "url": "/api/service-category/delete-service-category/:id",
-    "title": "Delete Service Category API",
-    "group": "Service_Category",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "examples": [
-        {
-          "title": "Input",
-          "content": "{\n     \"Id\" : \"\",\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully deleted Service Category.\",\n     \"status\": \"1\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/service-category/delete-service-category/:id"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "service category error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/ServiceCategoryController.ts",
-    "groupTitle": "Service_Category",
-    "name": "DeleteApiServiceCategoryDeleteServiceCategoryId"
-  },
-  {
-    "type": "get",
-    "url": "/api/service-category/service-category-count",
-    "title": "Service Category Count API",
-    "group": "Service_Category",
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "keyword",
-            "description": "<p>keyword</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "status",
-            "description": "<p>status</p>"
-          }
-        ]
-      }
-    },
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully show the service category count.\",\n     \"status\": \"1\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/service-category/service-category-count"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "Service error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/ServiceCategoryController.ts",
-    "groupTitle": "Service_Category",
-    "name": "GetApiServiceCategoryServiceCategoryCount"
-  },
-  {
-    "type": "get",
-    "url": "/api/service-category/service-category-detail",
-    "title": "Service Category Detail API",
-    "group": "Service_Category",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "serviceCategoryId",
-            "description": "<p>serviceCategoryId</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully got Service Category detail\",\n     \"data\": \"{}\"\n     \"status\": \"1\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/service-category/service-category-detail"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "service category error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/ServiceCategoryController.ts",
-    "groupTitle": "Service_Category",
-    "name": "GetApiServiceCategoryServiceCategoryDetail"
-  },
-  {
-    "type": "get",
-    "url": "/api/service-category/service-category-list",
-    "title": "Service Category List API",
-    "group": "Service_Category",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "limit",
-            "description": "<p>limit</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "offset",
-            "description": "<p>offset</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "keyword",
-            "description": "<p>keyword</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "status",
-            "description": "<p>Status</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "sortOrder",
-            "description": "<p>Sort order ( 1-&gt;ASC,  2-&gt;DESC )</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "count",
-            "description": "<p>count in number or boolean</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"successfully got the complete category list\",\n     \"data\":\"{ }\"\n     \"status\": \"1\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/service-category/service-category-list"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "Service Category error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/ServiceCategoryController.ts",
-    "groupTitle": "Service_Category",
-    "name": "GetApiServiceCategoryServiceCategoryList"
-  },
-  {
-    "type": "post",
-    "url": "/api/service-category/add-service-category",
-    "title": "Add Service Category API",
-    "group": "Service_Category",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "String",
-            "size": "..255",
-            "optional": false,
-            "field": "name",
-            "description": "<p>Service Category name</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "image",
-            "description": "<p>Service Category image</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "parentInt",
-            "description": "<p>Service Category  parentInt</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "size": "..9999",
-            "optional": false,
-            "field": "sortOrder",
-            "description": "<p>Service Category sortOrder</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "size": "..70",
-            "optional": true,
-            "field": "metaTagTitle",
-            "description": "<p>Service Category metaTagTitle</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "size": "..160",
-            "optional": true,
-            "field": "metaTagDescription",
-            "description": "<p>Service Category metaTagDescription</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "size": "..255",
-            "optional": true,
-            "field": "metaTagKeyword",
-            "description": "<p>Service Category metaTagKeyword</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "status",
-            "description": "<p>Service Category status 1-&gt; Active 0-&gt; inactive</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Input",
-          "content": "{\n     \"name\" : \"\",\n     \"image\" : \"\",\n     \"parentInt\" : \"\",\n     \"sortOrder\" : \"\",\n     \"metaTagTitle\" : \"\",\n     \"metaTagDescription\" : \"\",\n     \"metaTagKeyword\" : \"\",\n     \"status\" : \"\",\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully created new Service Category.\",\n     \"status\": \"1\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/service-category/add-service-category"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "Service Category error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/ServiceCategoryController.ts",
-    "groupTitle": "Service_Category",
-    "name": "PostApiServiceCategoryAddServiceCategory"
-  },
-  {
-    "type": "put",
-    "url": "/api/service-category/update-service-category/:id",
-    "title": "Update Service Category API",
-    "group": "Service_Category",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "String",
-            "size": "..255",
-            "optional": false,
-            "field": "name",
-            "description": "<p>ServiceCategory name</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": true,
-            "field": "image",
-            "description": "<p>ServiceCategory image</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "parentInt",
-            "description": "<p>ServiceCategory  parentInt</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "size": "..9999",
-            "optional": false,
-            "field": "sortOrder",
-            "description": "<p>ServiceCategory sortOrder</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "size": "..70",
-            "optional": true,
-            "field": "metaTagTitle",
-            "description": "<p>ServiceCategory metaTagTitle</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "size": "..160",
-            "optional": true,
-            "field": "metaTagDescription",
-            "description": "<p>ServiceCategory metaTagDescription</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "size": "..255",
-            "optional": true,
-            "field": "metaTagKeyword",
-            "description": "<p>ServiceCategory metaTagKeyword</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "status",
-            "description": "<p>ServiceCategory status 1-&gt; Active 0-&gt; inactive</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Input",
-          "content": "{\n     \"name\" : \"\",\n     \"image\" : \"\",\n     \"imagePath\" : \"\",\n     \"parentInt\" : \"\",\n     \"sortOrder\" : \"\",\n     \"metaTagTitle\" : \"\",\n     \"metaTagDescription\" : \"\",\n     \"metaTagKeyword\" : \"\",\n     \"status\" : \"\",\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully updated Service Category.\",\n     \"status\": \"1\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/service-category/update-service-category/:id"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "Service Category error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/ServiceCategoryController.ts",
-    "groupTitle": "Service_Category",
-    "name": "PutApiServiceCategoryUpdateServiceCategoryId"
-  },
-  {
     "type": "get",
     "url": "/api/media/get-settings",
     "title": "Get Setting common API",
@@ -18520,615 +14736,6 @@ define({ "api": [
   },
   {
     "type": "delete",
-    "url": "/api/site-filter/delete-site-filter/:id",
-    "title": "Delete Site Filter API",
-    "group": "Site_Filter",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully deleted filter.\",\n     \"status\": \"1\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/site-filter/delete-site-filter/:id"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "SiteFilter error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/SiteFilterController.ts",
-    "groupTitle": "Site_Filter",
-    "name": "DeleteApiSiteFilterDeleteSiteFilterId"
-  },
-  {
-    "type": "get",
-    "url": "/api/site-filter/filter-detail/:id",
-    "title": "Filter Detail API",
-    "group": "Site_Filter",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully got filter detail\",\n     \"data\": \"{\n              \"createdBy\": null,\n              \"createdDate\": \"2024-07-20T06:23:11.000Z\",\n              \"modifiedBy\": null,\n              \"modifiedDate\": \"2024-07-20T06:23:11.000Z\",\n              \"id\": 32,\n              \"filterName\": \"Dresss\",\n              \"isActive\": null,\n              \"siteFilterCategory\": [\n                {\n                  \"createdBy\": null,\n                  \"createdDate\": \"2024-07-09T13:42:21.000Z\",\n                  \"modifiedBy\": null,\n                  \"modifiedDate\": \"2024-07-22T06:01:36.000Z\",\n                  \"categoryId\": 1304,\n                  \"name\": \"Dresses\",\n                  \"image\": null,\n                  \"imagePath\": null,\n                  \"parentInt\": 0,\n                  \"sortOrder\": 1,\n                  \"categorySlug\": \"dresses4511\",\n                  \"isActive\": \"1\",\n                  \"categoryDescription\": \"\",\n                  \"levels\": \"Dresses\"\n                }\n              ],\n              \"siteFiltersection\": [\n                {\n                  \"id\": 321,\n                  \"filterId\": 32,\n                  \"sectionId\": null,\n                  \"sectionName\": \"Material\",\n                  \"sectionType\": 2,\n                  \"sectionSlug\": \"material\",\n                  \"sequence\": null,\n                  \"sectionItem\": [\n                    {\n                      \"id\": 923,\n                      \"filterSectionId\": 321,\n                      \"itemName\": \"leather\",\n                      \"itemSlug\": \"leather\"\n                    },\"\n     \"status\": \"1\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/site-filter/filter-detail/:id"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "filter Detail error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/SiteFilterController.ts",
-    "groupTitle": "Site_Filter",
-    "name": "GetApiSiteFilterFilterDetailId"
-  },
-  {
-    "type": "get",
-    "url": "/api/site-filter/site-filter-list",
-    "title": "Site Filter List",
-    "group": "Site_Filter",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "limit",
-            "description": "<p>limit</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "offset",
-            "description": "<p>offset</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "count",
-            "description": "<p>count in number or boolean</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully get site filter list\",\n     \"data\":\"[{\n               \"id\": \"\",\n               \"filterName\": \"\",\n               \"category\": \"\",\n               \"varient\": [],\n               \"attribute\": []\"\n             }]\n     \"status\": \"1\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/site-filter/site-filter-list"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "Site filter error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/SiteFilterController.ts",
-    "groupTitle": "Site_Filter",
-    "name": "GetApiSiteFilterSiteFilterList"
-  },
-  {
-    "type": "post",
-    "url": "/api/site-filter/create-site-filter",
-    "title": "Create site filter API",
-    "group": "Site_Filter",
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "filterName",
-            "description": "<p>filterName</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "categoryId",
-            "description": "<p>categoryId</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Object",
-            "optional": false,
-            "field": "section",
-            "description": "<p>section</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "seection.sectionId",
-            "description": "<p>sectionId</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "seection.sectionName",
-            "description": "<p>sectionName</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "section.sectionType",
-            "description": "<p>sectionType</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Array",
-            "optional": false,
-            "field": "section.sectionItem",
-            "description": "<p>sectionItem</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Input",
-          "content": "{\n     \"filterName\" : \"\",\n     \"categoryId\" : \"\",\n     \"section\" : [{\n         \"sectionId\": \"\",\n         \"sectionName\": \"\",\n         \"sectionType\":\"\",\n         \"sectionItem\":\"\"\n}],\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"New filter is created successfully\",\n     \"status\": \"1\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/site-filter/create-site-filter"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "site filter error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/SiteFilterController.ts",
-    "groupTitle": "Site_Filter",
-    "name": "PostApiSiteFilterCreateSiteFilter"
-  },
-  {
-    "type": "put",
-    "url": "/api/site-filter/update-site-filter/:id",
-    "title": "Update site filter API",
-    "group": "Site_Filter",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "filterName",
-            "description": "<p>filterName</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "categoryId",
-            "description": "<p>categoryId</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Object",
-            "optional": false,
-            "field": "section",
-            "description": "<p>section</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "section.sectionId",
-            "description": "<p>sectionId</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "section.sectionName",
-            "description": "<p>sectionName</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "section.sectionType",
-            "description": "<p>sectionType 1-&gt; varient 2-&gt; attribute</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Array",
-            "optional": false,
-            "field": "section.sectionItem",
-            "description": "<p>sectionItem</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Input",
-          "content": "{\n     \"filterName\" : \"\",\n     \"categoryId\" : \"\",\n     \"section\" : [{\n         \"sectionId\": \"\",\n         \"sectionName\": \"\",\n         \"sectionType\":\"\",\n         \"sectionItem\":\"\"\n}],",
-          "type": "json"
-        }
-      ]
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully updated site filter.\",\n     \"status\": \"1\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/site-filter/update-site-filter/:id"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "Site filter error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/SiteFilterController.ts",
-    "groupTitle": "Site_Filter",
-    "name": "PutApiSiteFilterUpdateSiteFilterId"
-  },
-  {
-    "type": "Delete",
-    "url": "/api/site-map/:id",
-    "title": "Delete site map",
-    "group": "Site_Map",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "id",
-            "description": "<p>id</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "{\n     \"status\": \"1\",\n     \"message\": \"Successfully Deleted the data !!\"\n},\nHTTP/1.1 200 Ok",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/site-map/:id"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "Delete SiteMap Error",
-          "content": "HTTP/1.1 500 Internal server error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/SiteMapController.ts",
-    "groupTitle": "Site_Map",
-    "name": "DeleteApiSiteMapId"
-  },
-  {
-    "type": "Get",
-    "url": "/api/site-map",
-    "title": "Site map list",
-    "group": "Site_Map",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "string",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "limit",
-            "description": "<p>limit</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "offset",
-            "description": "<p>offset</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "count",
-            "description": "<p>count</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "{\n     \"status\": \"1\",\n     \"message\": \"Successfully got the list !!\"\n},\nHTTP/1.1 200 Ok",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/site-map"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "listSiteMap Error",
-          "content": "HTTP/1.1 500 Internal server error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/SiteMapController.ts",
-    "groupTitle": "Site_Map",
-    "name": "GetApiSiteMap"
-  },
-  {
-    "type": "Get",
-    "url": "/api/site-map/get-sitemap",
-    "title": "Get Sitemap API",
-    "group": "Site_Map",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "pathName",
-            "description": "<p>pathName</p>"
-          }
-        ]
-      }
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/site-map/get-sitemap"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "Get Profile error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/SiteMapController.ts",
-    "groupTitle": "Site_Map",
-    "name": "GetApiSiteMapGetSitemap"
-  },
-  {
-    "type": "Post",
-    "url": "/api/site-map",
-    "title": "Create site map",
-    "group": "Site_Map",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "string",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "{\n     \"status\": \"1\",\n     \"message\": \"Successfully created siteMap!\",\n     \"data\": {\n        \"siteMapId\": 1,\n        \"userId\": 1,\n        \"userName\": \"\",\n        \"pathName\": \"\",\n        \"fileName\": \"\"\n     }\n}\nHTTP/1.1 200 Ok",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/site-map"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "createSiteMap  Error",
-          "content": "HTTP/1.1 500 Internal server error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/SiteMapController.ts",
-    "groupTitle": "Site_Map",
-    "name": "PostApiSiteMap"
-  },
-  {
-    "type": "delete",
     "url": "/api/stock-status/delete-stock-status/:id",
     "title": "Delete Stock Status API",
     "group": "StockStatus",
@@ -19473,13 +15080,13 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "src/api/store/controllers/CommonListController.ts",
+    "filename": "src/api/vendor/controllers/CommonListController.ts",
     "groupTitle": "Store",
     "name": "ApiListAddons"
   },
   {
     "type": "",
-    "url": "/api/list/addons",
+    "url": "/api/store-list/addons",
     "title": "Plugin List",
     "group": "Store",
     "parameter": {
@@ -19520,40 +15127,7 @@ define({ "api": [
     },
     "sampleRequest": [
       {
-        "url": "/api/list/addons"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "Error",
-          "content": "HTTP/1.1 500 Internal server error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/CommonListController.ts",
-    "groupTitle": "Store",
-    "name": "ApiListAddons"
-  },
-  {
-    "type": "",
-    "url": "/api/list/industry",
-    "title": "Industry List",
-    "group": "Store",
-    "success": {
-      "examples": [
-        {
-          "title": "success",
-          "content": "HTTP/1.1 200 Ok\n{\n     \"status\": \"1\",\n     \"message\": \"Successfully Got Industry List..!\",\n     \"data\": {\n             \"id\": \"\",\n             \"name\": \"\",\n             \"slug\": \"\"\",\n             \"isActive\": \"\",\n             \"isDelete\": \"\"\n             }\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/list/industry"
+        "url": "/api/store-list/addons"
       }
     ],
     "error": {
@@ -19568,11 +15142,11 @@ define({ "api": [
     "version": "0.0.0",
     "filename": "src/api/store/controllers/CommonListController.ts",
     "groupTitle": "Store",
-    "name": "ApiListIndustry"
+    "name": "ApiStoreListAddons"
   },
   {
     "type": "",
-    "url": "/api/list/industry",
+    "url": "/api/store-list/industry",
     "title": "Industry List",
     "group": "Store",
     "success": {
@@ -19586,7 +15160,7 @@ define({ "api": [
     },
     "sampleRequest": [
       {
-        "url": "/api/list/industry"
+        "url": "/api/store-list/industry"
       }
     ],
     "error": {
@@ -19601,7 +15175,40 @@ define({ "api": [
     "version": "0.0.0",
     "filename": "src/api/store/controllers/CommonListController.ts",
     "groupTitle": "Store",
-    "name": "ApiListIndustry"
+    "name": "ApiStoreListIndustry"
+  },
+  {
+    "type": "",
+    "url": "/api/store-list/industry",
+    "title": "Industry List",
+    "group": "Store",
+    "success": {
+      "examples": [
+        {
+          "title": "success",
+          "content": "HTTP/1.1 200 Ok\n{\n     \"status\": \"1\",\n     \"message\": \"Successfully Got Industry List..!\",\n     \"data\": {\n             \"id\": \"\",\n             \"name\": \"\",\n             \"slug\": \"\"\",\n             \"isActive\": \"\",\n             \"isDelete\": \"\"\n             }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/store-list/industry"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "Error",
+          "content": "HTTP/1.1 500 Internal server error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/api/store/controllers/CommonListController.ts",
+    "groupTitle": "Store",
+    "name": "ApiStoreListIndustry"
   },
   {
     "type": "",
@@ -19826,111 +15433,6 @@ define({ "api": [
     "filename": "src/api/store/controllers/CustomerController.ts",
     "groupTitle": "Store",
     "name": "GetApiCustomerLoginLogList"
-  },
-  {
-    "type": "Get",
-    "url": "/api/list/gmap-key",
-    "title": "Get Client Id",
-    "group": "Store",
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "string",
-            "optional": false,
-            "field": "pluginName",
-            "description": "<p>pluginName</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 Ok\n {\n     \"status\": \"1\",\n     \"message\": \"Redirect to this url.\"\",\n     \"data\": {\n      \"routePath\": \"\",\n      \"clientId\": \"\"\n  }\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/list/gmap-key"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "Error",
-          "content": "HTTP/1.1 500 Internal server errorS",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/store/controllers/CommonListController.ts",
-    "groupTitle": "Store",
-    "name": "GetApiListGmapKey"
-  },
-  {
-    "type": "get",
-    "url": "/api/list/orderLoglist",
-    "title": "Order Log List API",
-    "group": "Store",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "orderPrefixId",
-            "description": "<p>orderPrefixId</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully get order log list\",\n     \"data\":{\n             \"orderProductId\": 1\n             \"orderStatusId\" : 2,\n             \"total\": \"\",\n             \"createdDate\" : \"\",\n             \"modifiedDate\": \"\"\n     }\n     \"status\": \"1\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/list/orderLoglist"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "order log error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/store/controllers/CommonListController.ts",
-    "groupTitle": "Store",
-    "name": "GetApiListOrderloglist"
   },
   {
     "type": "get",
@@ -20179,66 +15681,6 @@ define({ "api": [
   },
   {
     "type": "get",
-    "url": "/api/product-store/product-search-list",
-    "title": "Product Search List API",
-    "group": "Store",
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "keyword",
-            "description": "<p>Product Name</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "limit",
-            "description": "<p>limit</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "offset",
-            "description": "<p>offset</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     \"status\": \"1\"\n     \"message\": \"Successfully get product list\",\n     \"data\":{\n             \"productId\": ,\n             \"sku\": \"\",\n             \"name\": \"\",\n             \"quantity\": \"\",\n             \"price\": \"\",\n             \"productSlug\": \"\",\n             \"isActive\": \"\",\n             \"productImage\": {\n                 \"createdBy\": \"\",\n                 \"createdDate\": \"\",\n                 \"modifiedBy\": \"\",\n                 \"modifiedDate\": \"\",\n                 \"productImageId\": \"\",\n                 \"productId\": ,\n                 \"image\": \"\",\n                 \"containerName\": \"\",\n                 \"sortOrder\": \"\",\n                 \"defaultImage\": \"\",\n                 \"isActive\":\"\"\n             },\n             \"categoryName\": {\n                 \"categoryId\": \"\",\n                 \"name\": \"\",\n                 \"categorySlug\": \"\",\n                 \"isActive\": \"\"\n             }\n }\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/product-store/product-search-list"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "productSearchList error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/store/controllers/ProductController.ts",
-    "groupTitle": "Store",
-    "name": "GetApiProductStoreProductSearchList"
-  },
-  {
-    "type": "get",
     "url": "/api/product-store/productdetail/:productslug",
     "title": "Product Detail API",
     "group": "Store",
@@ -20348,6 +15790,111 @@ define({ "api": [
     "filename": "src/api/store/controllers/PageController.ts",
     "groupTitle": "Store",
     "name": "GetApiSlugname"
+  },
+  {
+    "type": "Get",
+    "url": "/api/store-list/gmap-key",
+    "title": "Get Client Id",
+    "group": "Store",
+    "parameter": {
+      "fields": {
+        "Request body": [
+          {
+            "group": "Request body",
+            "type": "string",
+            "optional": false,
+            "field": "pluginName",
+            "description": "<p>pluginName</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 Ok\n {\n     \"status\": \"1\",\n     \"message\": \"Redirect to this url.\"\",\n     \"data\": {\n      \"routePath\": \"\",\n      \"clientId\": \"\"\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/store-list/gmap-key"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "Error",
+          "content": "HTTP/1.1 500 Internal server errorS",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/api/store/controllers/CommonListController.ts",
+    "groupTitle": "Store",
+    "name": "GetApiStoreListGmapKey"
+  },
+  {
+    "type": "get",
+    "url": "/api/store-list/orderLoglist",
+    "title": "Order Log List API",
+    "group": "Store",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Request body": [
+          {
+            "group": "Request body",
+            "type": "String",
+            "optional": false,
+            "field": "orderPrefixId",
+            "description": "<p>orderPrefixId</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully get order log list\",\n     \"data\":{\n             \"orderProductId\": 1\n             \"orderStatusId\" : 2,\n             \"total\": \"\",\n             \"createdDate\" : \"\",\n             \"modifiedDate\": \"\"\n     }\n     \"status\": \"1\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/store-list/orderLoglist"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "order log error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/api/store/controllers/CommonListController.ts",
+    "groupTitle": "Store",
+    "name": "GetApiStoreListOrderloglist"
   },
   {
     "type": "post",
@@ -21166,126 +16713,6 @@ define({ "api": [
   },
   {
     "type": "get",
-    "url": "/api/list/banner",
-    "title": "Banner List",
-    "group": "Store_List",
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "limit",
-            "description": "<p>Limit</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "offset",
-            "description": "<p>Offset</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "count",
-            "description": "<p>count in number or boolean</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "keyword",
-            "description": "<p>keyword</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Input",
-          "content": "{\n     \"limit\" : \"\",\n     \"offset\": \"\",\n     \"keyword\": \"\",\n     \"count\": \"\",\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully got banner list..\",\n     \"status\": \"1\",\n     \"data\": {\n         \"bannerId\": 1,\n         \"title\": \"\",\n         \"link\": \"\",\n         \"content\": \"\",\n         \"position\": \"\",\n         \"image\": \"\",\n         \"imagePath\": \"\",\n         \"isActive\": \"\",\n         \"linkType\": \"\"\n     }\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/list/banner"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "Banner List error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/store/controllers/CommonListController.ts",
-    "groupTitle": "Store_List",
-    "name": "GetApiListBanner"
-  },
-  {
-    "type": "get",
-    "url": "/api/list/banner/position/:position",
-    "title": "Banner Detail",
-    "group": "Store_List",
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "position",
-            "description": "<p>position</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully got banner detail..\",\n     \"status\": \"1\",\n     \"data\": \"{\n              \"bannerId\": 1,\n              \"title\": \"\",\n              \"link\": \"\",\n              \"content\": \"\",\n              \"position\": \"\",\n              \"image\": \"\",\n              \"imagePath\": \"\",\n              \"isActive\": \"\",\n              \"linkType\": \"\"\n             }\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/list/banner/position/:position"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "Banner Detail error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/store/controllers/CommonListController.ts",
-    "groupTitle": "Store_List",
-    "name": "GetApiListBannerPositionPosition"
-  },
-  {
-    "type": "get",
     "url": "/api/list/blog/blog-detail/:blogSlug",
     "title": "Blog Detail API",
     "group": "Store_List",
@@ -21412,335 +16839,6 @@ define({ "api": [
   },
   {
     "type": "get",
-    "url": "/api/list/category",
-    "title": "Category List Tree API",
-    "group": "Store_List",
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "limit",
-            "description": "<p>Limit</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "offset",
-            "description": "<p>Offset</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "keyword",
-            "description": "<p>keyword</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "sortOrder",
-            "description": "<p>sortOrder</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "count",
-            "description": "<p>count in number or boolean</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Input",
-          "content": "{\n     \"limit\" : \"\",\n     \"offset\": \"\",\n     \"keyorder\": \"\",\n     \"sortOrder\": \"\",\n     \"count\": \"\",\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"category list shown successfully..!\",\n     \"status\": \"1\",\n     \"data\": \"{\n              \"categoryId\": 1,\n              \"name\": \"\",\n              \"categoryDescription\": \"\"\n              \"image\": \"\",\n              \"imagePath\": \"\",\n              \"parentInt\": 1,\n              \"sortOrder\": \"\",\n              \"categorySlug\": \"\",\n              \"isActive\": 1\n             }\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/list/category"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "Category List error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/store/controllers/CommonListController.ts",
-    "groupTitle": "Store_List",
-    "name": "GetApiListCategory"
-  },
-  {
-    "type": "get",
-    "url": "/api/list/country-list",
-    "title": "Country List API",
-    "group": "Store_List",
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "limit",
-            "description": "<p>limit</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "offset",
-            "description": "<p>offset</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "keyword",
-            "description": "<p>keyword</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "count",
-            "description": "<p>count should be number or boolean</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     \"status\": \"1\"\n     \"message\": \"Successfully get country list\",\n     \"data\":\"{\n             \"countryId\": \"\"\n             \"name\" : \"\"\n             \"isoCode2\": \"\"\n             \"isoCode3\": \"\"\n             \"addressFormat\": \"\"\n             \"postcodeRequired\": \"\"\n     }\"\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/list/country-list"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "countryFront error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/store/controllers/CommonListController.ts",
-    "groupTitle": "Store_List",
-    "name": "GetApiListCountryList"
-  },
-  {
-    "type": "get",
-    "url": "/api/list/custom-product-list",
-    "title": "Custom Product List API",
-    "group": "Store_List",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "limit",
-            "description": "<p>limit</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "offset",
-            "description": "<p>offset</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "categorySlug",
-            "description": "<p>categorySlug</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "priceFrom",
-            "description": "<p>price from you want to list</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "priceTo",
-            "description": "<p>price to you want to list</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "price",
-            "description": "<p>ASC OR DESC</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "keyword",
-            "description": "<p>keyword</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     \"status\": \"1\"\n     \"message\": \"Successfully get product list\",\n     \"data\": \"{\n              \"productId\": 1,\n              \"taxType\": 1,\n              \"taxValue\": \"\",\n              \"name\": \"\",\n              \"price\": \"\",\n              \"description\": \"\",\n              \"dateAvailable\": \"\",\n              \"sku\": \"\",\n              \"skuId\": \"\",\n              \"isSimplified\": \"\",\n              \"upc\": \"\",\n              \"quantity\": 10,\n              \"rating\": \"\",\n              \"isActive\": 1,\n              \"productSlug\": \"\",\n              \"hasStock\": \"\",\n              \"outOfStockThreshold\": \"\",\n              \"stockStatusId\": \"\",\n              \"createdDate\": \"\",\n              \"keywords\": \"\",\n              \"attributeKeyword\": \"\",\n              \"vendorId\": 1,\n              \"vendorName\": \"\",\n              \"vendorCompanyName\": \"\",\n              \"vendorSlugName\": \"\",\n              \"maxQuantityAllowedCart\": 10,\n              \"minQuantityAllowedCart\": 1,\n              \"containerName\": \"\",\n              \"image\": \"\",\n              \"defaultImage\": \"\",\n              \"ratingCount\": \"\",\n              \"reviewCount\": \"\",\n              \"skuName\": \"\",\n              \"modifiedPrice\": \"\",\n              \"productDiscount\": \"\",\n              \"productSpecial\": \"\",\n              \"vcPrice\": \"\",\n              \"vcgPrice\": \"\",\n              \"pricerefer\": \"\",\n              \"flag\": 1,\n              \"stockStatus\": 1,\n              \"wishListStatus\": 1,\n              \"productNameTrans\": \"\",\n              \"productDescriptionTrans\": \"\"\n             },\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/list/custom-product-list"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "productList error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/store/controllers/CommonListController.ts",
-    "groupTitle": "Store_List",
-    "name": "GetApiListCustomProductList"
-  },
-  {
-    "type": "get",
-    "url": "/api/list/language",
-    "title": "Language List API",
-    "group": "Store_List",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "limit",
-            "description": "<p>limit</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "offset",
-            "description": "<p>offset</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "keyword",
-            "description": "<p>keyword</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "count",
-            "description": "<p>count should be number or boolean</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     \"status\": \"1\"\n     \"message\": \"Successfully got language list\",\n     \"data\":{\n             \"languageId\": 1\n             \"name\": \"\"\n             \"status\": 1\n             \"code\": \"\"\n             \"sortOrder\": 1,\n             \"image\": \"\",\n             \"imagePath\": \"\"\n     }\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/list/language"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "Language error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/store/controllers/CommonListController.ts",
-    "groupTitle": "Store_List",
-    "name": "GetApiListLanguage"
-  },
-  {
-    "type": "get",
     "url": "/api/list/language",
     "title": "Language List API",
     "group": "Store_List",
@@ -21818,227 +16916,6 @@ define({ "api": [
     "filename": "src/api/vendor/controllers/CommonListController.ts",
     "groupTitle": "Store_List",
     "name": "GetApiListLanguage"
-  },
-  {
-    "type": "get",
-    "url": "/api/list/payment",
-    "title": "Get payment setting API",
-    "group": "Store_List",
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "limit",
-            "description": "<p>limit</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "offset",
-            "description": "<p>offset</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "keyword",
-            "description": "<p>keyword</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "count",
-            "description": "<p>count should be number or boolean</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully got payment setting\",\n     \"data\":{\n             \"plugin_name\": \"\"\n             \"plugin_avatar\": \"\"\n             \"plugin_avatar_path\": \"\"\n             \"plugin_type\" : \"\"\n             \"plugin_status\": \"\"\n     }\n     \"status\": \"1\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/list/payment"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "get payment setting error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/store/controllers/CommonListController.ts",
-    "groupTitle": "Store_List",
-    "name": "GetApiListPayment"
-  },
-  {
-    "type": "get",
-    "url": "/api/list/product-count",
-    "title": "Product Count API",
-    "group": "Store_List",
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "limit",
-            "description": "<p>limit</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "offset",
-            "description": "<p>offset</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "keyword",
-            "description": "<p>keyword for search</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "categoryslug",
-            "description": "<p>categoryslug</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "priceFrom",
-            "description": "<p>price from you want to list</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "priceTo",
-            "description": "<p>price to you want to list</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "variant",
-            "description": ""
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "attribute",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully get Product Count\",\n      \"data\": {\n      \"productCount\": 100,\n      \"maximumProductPrice\": \"100000.00\"\n     }\n     \"status\": \"1\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/list/product-count"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "product count error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/store/controllers/CommonListController.ts",
-    "groupTitle": "Store_List",
-    "name": "GetApiListProductCount"
-  },
-  {
-    "type": "get",
-    "url": "/api/list/product-detail/:slug",
-    "title": "Product Details",
-    "group": "Store_List",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "slug",
-            "description": "<p>slug</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully got the complete list of products.\",\n     \"status\": \"1\",\n     \"data\":  {\n              \"createdDate\": \"2024-06-03T09:45:31.000Z\",\n              \"productId\": 1136,\n              \"sku\": \"cushion01\",\n              \"upc\": \"1\",\n              \"hsn\": \"\",\n              \"location\": \"\",\n              \"quantity\": 290,\n              \"minimumQuantity\": 1,\n              \"subtractStock\": 1,\n              \"stockStatusId\": 1,\n              \"quotationAvailable\": 0,\n              \"image\": \"\",\n              \"imagePath\": \"\",\n              \"manufacturerId\": \"\",\n              \"shipping\": \"\",\n              \"serviceCharges\": \"{\\\"productCost\\\":348,\\\"packingCost\\\":0,\\\"shippingCost\\\":0,\\\"tax\\\":0,\\\"others\\\":0}\",\n              \"taxType\": 1,\n              \"taxValue\": 40,\n              \"price\": \"455.00\",\n              \"priceUpdateFileLogId\": \"\",\n              \"dateAvailable\": \"2024-06-13T00:00:00.000Z\",\n              \"sortOrder\": 1,\n              \"name\": \"Polyester Cushion\",\n              \"description\": \"\",\n              \"amount\": \"\",\n              \"keywords\": \"~ Outdoor cushions~,~Polyester Cushion~\",\n              \"discount\": \"\",\n              \"deleteFlag\": 0,\n              \"isFeatured\": \"\",\n              \"todayDeals\": \"\",\n              \"condition\": \"\",\n              \"rating\": \"4.20\",\n              \"wishListStatus\": 0,\n              \"productSlug\": \"polyester-cushion\",\n              \"isActive\": 1,\n              \"width\": \"0.00\",\n              \"height\": \"0.00\",\n              \"length\": \"0.00\",\n              \"weight\": \"0.00\",\n              \"hasStock\": 1,\n              \"priceType\": 1,\n              \"isSimplified\": 0,\n              \"owner\": 2,\n              \"isCommon\": 0,\n              \"skuId\": 1231,\n              \"hasTirePrice\": 0,\n              \"outOfStockThreshold\": 1,\n              \"notifyMinQuantity\": 1,\n              \"minQuantityAllowedCart\": 1,\n              \"maxQuantityAllowedCart\": 5,\n              \"enableBackOrders\": \"\",\n              \"pincodeBasedDelivery\": 0,\n              \"attributeKeyword\": \"\",\n              \"settedAsCommonOn\": \"\",\n              \"productHighlights\": [\n                  {\n                      \"data\": \"\"\n                 }\n              ],\n              \"productTranslation\": [],\n              \"productNameTrans\": \"\",\n              \"productDescriptionTrans\": \"\",\n              \"ratingCount\": 0,\n              \"reviewCount\": \"null\",\n              \"productImage\": [\n                  {\n                      \"productId\": 1136,\n                      \"image\": \"cushion 2_1717407705308.jpeg\",\n                      \"containerName\": \"\",\n                      \"defaultImage\": 0\n                  },\n              ],\n              \"productOriginalImage\": [\n                  {\n                      \"productId\": 1136,\n                      \"image\": \"cushion 2_1717407705308.jpeg\",\n                      \"containerName\": \"\",\n                      \"defaultImage\": 0\n                  },\n              ],\n              \"Category\": [\n                  {\n                      \"productId\": 1136,\n                      \"categoryId\": 569,\n                      \"categoryName\": \" Outdoor cushions\",\n                      \"categorySlug\": \"outdoor-cushions1\"\n                  }\n              ],\n              \"productOption\": [],\n              \"skuName\": \"cushion01\",\n              \"variantName\": \"\",\n              \"variantId\": \"\",\n              \"stockStatus\": \"inStock\",\n              \"pricerefer\": \"\",\n              \"flag\": \"\",\n              \"productTirePrices\": [],\n              \"vendorId\": 9,\n              \"vendorName\": \"Stella Mechenzi\",\n              \"vendorCompanyName\": \"Van husen Ecommerce pvt lmtd\",\n              \"vendorPrefixId\": \"Ven0009\",\n              \"companyLogo\": \"Img_1722842102100.png\",\n              \"companyLogoPath\": \"logo/\",\n              \"vendorCompanyCity\": \"Chennai\",\n              \"vendorDisplayNameUrl\": \"fathimasilks\",\n              \"vendorSlugName\": \"stella-mechenzi-1\",\n              \"companyTaxNumber\": \"3556676888\",\n              \"vendorCompanyCountry\": \"India\",\n              \"buyed\": 0,\n              \"productVideo\": {\n                  \"id\": 1553,\n                  \"productId\": 1136,\n                  \"name\": \"\",\n                  \"path\": \"\",\n                  \"type\": 0\n              }\n }\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/list/product-detail/:slug"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "Address error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/store/controllers/CommonListController.ts",
-    "groupTitle": "Store_List",
-    "name": "GetApiListProductDetailSlug"
   },
   {
     "type": "get",
@@ -22133,59 +17010,6 @@ define({ "api": [
     "filename": "src/api/store/controllers/StoreBlogController.ts",
     "groupTitle": "Store_List",
     "name": "GetApiListRelatedBlogList"
-  },
-  {
-    "type": "get",
-    "url": "/api/list/specific-category",
-    "title": "Specific Category List",
-    "group": "Store_List",
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "categorySlug",
-            "description": "<p>categorySlug</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Input",
-          "content": "{\n     \"parentInt\" : \"\",\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Category listed successfully..!\",\n     \"status\": \"1\",\n     \"data\" : {\n             \"createdBy\": \"\",\n             \"createdDate\": \"\",\n             \"modifiedBy\": \"\",\n             \"modifiedDate\": \"\",\n             \"categoryId\": 1,\n             \"name\": \"\",\n             \"image\": \"\",\n             \"imagePath\": \"\",\n             \"parentInt\": 1,\n             \"sortOrder\": 1,\n             \"categorySlug\": \"\",\n             \"isActive\": 1,\n             \"categoryDescription\": \"\",\n             \"categoryNameTrans\": \"\",\n             \"categoryDescriptionTrans\": \"\",\n             \"children\": [{\n                         \"createdBy\": \"\",\n                         \"createdDate\": \"\",\n                         \"modifiedBy\": \"\",\n                         \"modifiedDate\": \"\",\n                         \"categoryId\": 2,\n                         \"name\": \"\",\n                         \"image\": \"\",\n                         \"imagePath\": \"\",\n                         \"parentInt\": 1,\n                         \"sortOrder\": \"\",\n                         \"categorySlug\": \"\",\n                         \"isActive\": 1,\n                         \"categoryDescription\": \"\",\n                         \"categoryNameTrans\": \"\",\n                         \"categoryDescriptionTrans\": \"\"\n              }]\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/list/specific-category"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "Category List error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/store/controllers/CommonListController.ts",
-    "groupTitle": "Store_List",
-    "name": "GetApiListSpecificCategory"
   },
   {
     "type": "Get",
@@ -22390,13 +17214,782 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "src/api/store/controllers/CommonListController.ts",
+    "filename": "src/api/vendor/controllers/CommonListController.ts",
     "groupTitle": "Store_List",
     "name": "GetApiListZone"
   },
   {
     "type": "get",
-    "url": "/api/list/zone",
+    "url": "/api/site-filter/:categorySlug",
+    "title": "Get filter detail API",
+    "group": "Store_List",
+    "parameter": {
+      "fields": {
+        "Request body": [
+          {
+            "group": "Request body",
+            "type": "String",
+            "optional": false,
+            "field": "categorySlug",
+            "description": "<p>categorySlug</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n     'message': 'Successfully get  Detail',\n     'data':{\n     \"id\": ,\n     \"filterId\": \"\",\n     \"sectionId\": \"\",\n     \"sectionName\": \"\",\n     \"sectionType\": \"\",\n     \"sectionSlug\": \"\",\n     \"sequence\": \"\",\n     \"sectionItem\": [\n          {\n              \"id\": \"\",\n              \"filterSectionId\": \"\",\n              \"itemName\": \"\",\n              \"itemSlug\": \"\"\n          }\n  ]\n     }\n     'status': '1'\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/site-filter/:categorySlug"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "Store list error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/api/store/controllers/SiteFilterController.ts",
+    "groupTitle": "Store_List",
+    "name": "GetApiSiteFilterCategoryslug"
+  },
+  {
+    "type": "get",
+    "url": "/api/store-list/banner",
+    "title": "Banner List",
+    "group": "Store_List",
+    "parameter": {
+      "fields": {
+        "Request body": [
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "limit",
+            "description": "<p>Limit</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "offset",
+            "description": "<p>Offset</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "count",
+            "description": "<p>count in number or boolean</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "keyword",
+            "description": "<p>keyword</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Input",
+          "content": "{\n     \"limit\" : \"\",\n     \"offset\": \"\",\n     \"keyword\": \"\",\n     \"count\": \"\",\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully got banner list..\",\n     \"status\": \"1\",\n     \"data\": {\n         \"bannerId\": 1,\n         \"title\": \"\",\n         \"link\": \"\",\n         \"content\": \"\",\n         \"position\": \"\",\n         \"image\": \"\",\n         \"imagePath\": \"\",\n         \"isActive\": \"\",\n         \"linkType\": \"\"\n     }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/store-list/banner"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "Banner List error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/api/store/controllers/CommonListController.ts",
+    "groupTitle": "Store_List",
+    "name": "GetApiStoreListBanner"
+  },
+  {
+    "type": "get",
+    "url": "/api/store-list/banner/position/:position",
+    "title": "Banner Detail",
+    "group": "Store_List",
+    "parameter": {
+      "fields": {
+        "Request body": [
+          {
+            "group": "Request body",
+            "type": "String",
+            "optional": false,
+            "field": "position",
+            "description": "<p>position</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully got banner detail..\",\n     \"status\": \"1\",\n     \"data\": \"{\n              \"bannerId\": 1,\n              \"title\": \"\",\n              \"link\": \"\",\n              \"content\": \"\",\n              \"position\": \"\",\n              \"image\": \"\",\n              \"imagePath\": \"\",\n              \"isActive\": \"\",\n              \"linkType\": \"\"\n             }\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/store-list/banner/position/:position"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "Banner Detail error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/api/store/controllers/CommonListController.ts",
+    "groupTitle": "Store_List",
+    "name": "GetApiStoreListBannerPositionPosition"
+  },
+  {
+    "type": "get",
+    "url": "/api/store-list/category",
+    "title": "Category List Tree API",
+    "group": "Store_List",
+    "parameter": {
+      "fields": {
+        "Request body": [
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "limit",
+            "description": "<p>Limit</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "offset",
+            "description": "<p>Offset</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "String",
+            "optional": false,
+            "field": "keyword",
+            "description": "<p>keyword</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "sortOrder",
+            "description": "<p>sortOrder</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "count",
+            "description": "<p>count in number or boolean</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Input",
+          "content": "{\n     \"limit\" : \"\",\n     \"offset\": \"\",\n     \"keyorder\": \"\",\n     \"sortOrder\": \"\",\n     \"count\": \"\",\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"category list shown successfully..!\",\n     \"status\": \"1\",\n     \"data\": \"{\n              \"categoryId\": 1,\n              \"name\": \"\",\n              \"categoryDescription\": \"\"\n              \"image\": \"\",\n              \"imagePath\": \"\",\n              \"parentInt\": 1,\n              \"sortOrder\": \"\",\n              \"categorySlug\": \"\",\n              \"isActive\": 1\n             }\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/store-list/category"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "Category List error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/api/store/controllers/CommonListController.ts",
+    "groupTitle": "Store_List",
+    "name": "GetApiStoreListCategory"
+  },
+  {
+    "type": "get",
+    "url": "/api/store-list/country-list",
+    "title": "Country List API",
+    "group": "Store_List",
+    "parameter": {
+      "fields": {
+        "Request body": [
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "limit",
+            "description": "<p>limit</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "offset",
+            "description": "<p>offset</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "String",
+            "optional": false,
+            "field": "keyword",
+            "description": "<p>keyword</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "count",
+            "description": "<p>count should be number or boolean</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n     \"status\": \"1\"\n     \"message\": \"Successfully get country list\",\n     \"data\":\"{\n             \"countryId\": \"\"\n             \"name\" : \"\"\n             \"isoCode2\": \"\"\n             \"isoCode3\": \"\"\n             \"addressFormat\": \"\"\n             \"postcodeRequired\": \"\"\n     }\"\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/store-list/country-list"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "countryFront error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/api/store/controllers/CommonListController.ts",
+    "groupTitle": "Store_List",
+    "name": "GetApiStoreListCountryList"
+  },
+  {
+    "type": "get",
+    "url": "/api/store-list/custom-product-list",
+    "title": "Custom Product List API",
+    "group": "Store_List",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Request body": [
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "limit",
+            "description": "<p>limit</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "offset",
+            "description": "<p>offset</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "String",
+            "optional": false,
+            "field": "categorySlug",
+            "description": "<p>categorySlug</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "priceFrom",
+            "description": "<p>price from you want to list</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "priceTo",
+            "description": "<p>price to you want to list</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "String",
+            "optional": false,
+            "field": "price",
+            "description": "<p>ASC OR DESC</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "String",
+            "optional": false,
+            "field": "keyword",
+            "description": "<p>keyword</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n     \"status\": \"1\"\n     \"message\": \"Successfully get product list\",\n     \"data\": \"{\n              \"productId\": 1,\n              \"taxType\": 1,\n              \"taxValue\": \"\",\n              \"name\": \"\",\n              \"price\": \"\",\n              \"description\": \"\",\n              \"dateAvailable\": \"\",\n              \"sku\": \"\",\n              \"skuId\": \"\",\n              \"isSimplified\": \"\",\n              \"upc\": \"\",\n              \"quantity\": 10,\n              \"rating\": \"\",\n              \"isActive\": 1,\n              \"productSlug\": \"\",\n              \"hasStock\": \"\",\n              \"outOfStockThreshold\": \"\",\n              \"stockStatusId\": \"\",\n              \"createdDate\": \"\",\n              \"keywords\": \"\",\n              \"attributeKeyword\": \"\",\n              \"vendorId\": 1,\n              \"vendorName\": \"\",\n              \"vendorCompanyName\": \"\",\n              \"vendorSlugName\": \"\",\n              \"maxQuantityAllowedCart\": 10,\n              \"minQuantityAllowedCart\": 1,\n              \"containerName\": \"\",\n              \"image\": \"\",\n              \"defaultImage\": \"\",\n              \"ratingCount\": \"\",\n              \"reviewCount\": \"\",\n              \"skuName\": \"\",\n              \"modifiedPrice\": \"\",\n              \"productDiscount\": \"\",\n              \"productSpecial\": \"\",\n              \"vcPrice\": \"\",\n              \"vcgPrice\": \"\",\n              \"pricerefer\": \"\",\n              \"flag\": 1,\n              \"stockStatus\": 1,\n              \"wishListStatus\": 1,\n              \"productNameTrans\": \"\",\n              \"productDescriptionTrans\": \"\"\n             },\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/store-list/custom-product-list"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "productList error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/api/store/controllers/CommonListController.ts",
+    "groupTitle": "Store_List",
+    "name": "GetApiStoreListCustomProductList"
+  },
+  {
+    "type": "get",
+    "url": "/api/store-list/language",
+    "title": "Language List API",
+    "group": "Store_List",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Request body": [
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "limit",
+            "description": "<p>limit</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "offset",
+            "description": "<p>offset</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "String",
+            "optional": false,
+            "field": "keyword",
+            "description": "<p>keyword</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "count",
+            "description": "<p>count should be number or boolean</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n     \"status\": \"1\"\n     \"message\": \"Successfully got language list\",\n     \"data\":{\n             \"languageId\": 1\n             \"name\": \"\"\n             \"status\": 1\n             \"code\": \"\"\n             \"sortOrder\": 1,\n             \"image\": \"\",\n             \"imagePath\": \"\"\n     }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/store-list/language"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "Language error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/api/store/controllers/CommonListController.ts",
+    "groupTitle": "Store_List",
+    "name": "GetApiStoreListLanguage"
+  },
+  {
+    "type": "get",
+    "url": "/api/store-list/payment",
+    "title": "Get payment setting API",
+    "group": "Store_List",
+    "parameter": {
+      "fields": {
+        "Request body": [
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "limit",
+            "description": "<p>limit</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "offset",
+            "description": "<p>offset</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "String",
+            "optional": false,
+            "field": "keyword",
+            "description": "<p>keyword</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "count",
+            "description": "<p>count should be number or boolean</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully got payment setting\",\n     \"data\":{\n             \"plugin_name\": \"\"\n             \"plugin_avatar\": \"\"\n             \"plugin_avatar_path\": \"\"\n             \"plugin_type\" : \"\"\n             \"plugin_status\": \"\"\n     }\n     \"status\": \"1\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/store-list/payment"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "get payment setting error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/api/store/controllers/CommonListController.ts",
+    "groupTitle": "Store_List",
+    "name": "GetApiStoreListPayment"
+  },
+  {
+    "type": "get",
+    "url": "/api/store-list/product-count",
+    "title": "Product Count API",
+    "group": "Store_List",
+    "parameter": {
+      "fields": {
+        "Request body": [
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "limit",
+            "description": "<p>limit</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "offset",
+            "description": "<p>offset</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "String",
+            "optional": false,
+            "field": "keyword",
+            "description": "<p>keyword for search</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "String",
+            "optional": false,
+            "field": "categoryslug",
+            "description": "<p>categoryslug</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "priceFrom",
+            "description": "<p>price from you want to list</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "priceTo",
+            "description": "<p>price to you want to list</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "String",
+            "optional": false,
+            "field": "variant",
+            "description": ""
+          },
+          {
+            "group": "Request body",
+            "type": "String",
+            "optional": false,
+            "field": "attribute",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully get Product Count\",\n      \"data\": {\n      \"productCount\": 100,\n      \"maximumProductPrice\": \"100000.00\"\n     }\n     \"status\": \"1\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/store-list/product-count"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "product count error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/api/store/controllers/CommonListController.ts",
+    "groupTitle": "Store_List",
+    "name": "GetApiStoreListProductCount"
+  },
+  {
+    "type": "get",
+    "url": "/api/store-list/product-detail/:slug",
+    "title": "Product Details",
+    "group": "Store_List",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Request body": [
+          {
+            "group": "Request body",
+            "type": "String",
+            "optional": false,
+            "field": "slug",
+            "description": "<p>slug</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully got the complete list of products.\",\n     \"status\": \"1\",\n     \"data\":  {\n              \"createdDate\": \"2024-06-03T09:45:31.000Z\",\n              \"productId\": 1136,\n              \"sku\": \"cushion01\",\n              \"upc\": \"1\",\n              \"hsn\": \"\",\n              \"location\": \"\",\n              \"quantity\": 290,\n              \"minimumQuantity\": 1,\n              \"subtractStock\": 1,\n              \"stockStatusId\": 1,\n              \"quotationAvailable\": 0,\n              \"image\": \"\",\n              \"imagePath\": \"\",\n              \"manufacturerId\": \"\",\n              \"shipping\": \"\",\n              \"serviceCharges\": \"{\\\"productCost\\\":348,\\\"packingCost\\\":0,\\\"shippingCost\\\":0,\\\"tax\\\":0,\\\"others\\\":0}\",\n              \"taxType\": 1,\n              \"taxValue\": 40,\n              \"price\": \"455.00\",\n              \"priceUpdateFileLogId\": \"\",\n              \"dateAvailable\": \"2024-06-13T00:00:00.000Z\",\n              \"sortOrder\": 1,\n              \"name\": \"Polyester Cushion\",\n              \"description\": \"\",\n              \"amount\": \"\",\n              \"keywords\": \"~ Outdoor cushions~,~Polyester Cushion~\",\n              \"discount\": \"\",\n              \"deleteFlag\": 0,\n              \"isFeatured\": \"\",\n              \"todayDeals\": \"\",\n              \"condition\": \"\",\n              \"rating\": \"4.20\",\n              \"wishListStatus\": 0,\n              \"productSlug\": \"polyester-cushion\",\n              \"isActive\": 1,\n              \"width\": \"0.00\",\n              \"height\": \"0.00\",\n              \"length\": \"0.00\",\n              \"weight\": \"0.00\",\n              \"hasStock\": 1,\n              \"priceType\": 1,\n              \"isSimplified\": 0,\n              \"owner\": 2,\n              \"isCommon\": 0,\n              \"skuId\": 1231,\n              \"hasTirePrice\": 0,\n              \"outOfStockThreshold\": 1,\n              \"notifyMinQuantity\": 1,\n              \"minQuantityAllowedCart\": 1,\n              \"maxQuantityAllowedCart\": 5,\n              \"enableBackOrders\": \"\",\n              \"pincodeBasedDelivery\": 0,\n              \"attributeKeyword\": \"\",\n              \"settedAsCommonOn\": \"\",\n              \"productHighlights\": [\n                  {\n                      \"data\": \"\"\n                 }\n              ],\n              \"productTranslation\": [],\n              \"productNameTrans\": \"\",\n              \"productDescriptionTrans\": \"\",\n              \"ratingCount\": 0,\n              \"reviewCount\": \"null\",\n              \"productImage\": [\n                  {\n                      \"productId\": 1136,\n                      \"image\": \"cushion 2_1717407705308.jpeg\",\n                      \"containerName\": \"\",\n                      \"defaultImage\": 0\n                  },\n              ],\n              \"productOriginalImage\": [\n                  {\n                      \"productId\": 1136,\n                      \"image\": \"cushion 2_1717407705308.jpeg\",\n                      \"containerName\": \"\",\n                      \"defaultImage\": 0\n                  },\n              ],\n              \"Category\": [\n                  {\n                      \"productId\": 1136,\n                      \"categoryId\": 569,\n                      \"categoryName\": \" Outdoor cushions\",\n                      \"categorySlug\": \"outdoor-cushions1\"\n                  }\n              ],\n              \"productOption\": [],\n              \"skuName\": \"cushion01\",\n              \"variantName\": \"\",\n              \"variantId\": \"\",\n              \"stockStatus\": \"inStock\",\n              \"pricerefer\": \"\",\n              \"flag\": \"\",\n              \"productTirePrices\": [],\n              \"vendorId\": 9,\n              \"vendorName\": \"Stella Mechenzi\",\n              \"vendorCompanyName\": \"Van husen Ecommerce pvt lmtd\",\n              \"vendorPrefixId\": \"Ven0009\",\n              \"companyLogo\": \"Img_1722842102100.png\",\n              \"companyLogoPath\": \"logo/\",\n              \"vendorCompanyCity\": \"Chennai\",\n              \"vendorDisplayNameUrl\": \"fathimasilks\",\n              \"vendorSlugName\": \"stella-mechenzi-1\",\n              \"companyTaxNumber\": \"3556676888\",\n              \"vendorCompanyCountry\": \"India\",\n              \"buyed\": 0,\n              \"productVideo\": {\n                  \"id\": 1553,\n                  \"productId\": 1136,\n                  \"name\": \"\",\n                  \"path\": \"\",\n                  \"type\": 0\n              }\n }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/store-list/product-detail/:slug"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "Address error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/api/store/controllers/CommonListController.ts",
+    "groupTitle": "Store_List",
+    "name": "GetApiStoreListProductDetailSlug"
+  },
+  {
+    "type": "get",
+    "url": "/api/store-list/specific-category",
+    "title": "Specific Category List",
+    "group": "Store_List",
+    "parameter": {
+      "fields": {
+        "Request body": [
+          {
+            "group": "Request body",
+            "type": "String",
+            "optional": false,
+            "field": "categorySlug",
+            "description": "<p>categorySlug</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Input",
+          "content": "{\n     \"parentInt\" : \"\",\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Category listed successfully..!\",\n     \"status\": \"1\",\n     \"data\" : {\n             \"createdBy\": \"\",\n             \"createdDate\": \"\",\n             \"modifiedBy\": \"\",\n             \"modifiedDate\": \"\",\n             \"categoryId\": 1,\n             \"name\": \"\",\n             \"image\": \"\",\n             \"imagePath\": \"\",\n             \"parentInt\": 1,\n             \"sortOrder\": 1,\n             \"categorySlug\": \"\",\n             \"isActive\": 1,\n             \"categoryDescription\": \"\",\n             \"categoryNameTrans\": \"\",\n             \"categoryDescriptionTrans\": \"\",\n             \"children\": [{\n                         \"createdBy\": \"\",\n                         \"createdDate\": \"\",\n                         \"modifiedBy\": \"\",\n                         \"modifiedDate\": \"\",\n                         \"categoryId\": 2,\n                         \"name\": \"\",\n                         \"image\": \"\",\n                         \"imagePath\": \"\",\n                         \"parentInt\": 1,\n                         \"sortOrder\": \"\",\n                         \"categorySlug\": \"\",\n                         \"isActive\": 1,\n                         \"categoryDescription\": \"\",\n                         \"categoryNameTrans\": \"\",\n                         \"categoryDescriptionTrans\": \"\"\n              }]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/store-list/specific-category"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "Category List error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/api/store/controllers/CommonListController.ts",
+    "groupTitle": "Store_List",
+    "name": "GetApiStoreListSpecificCategory"
+  },
+  {
+    "type": "get",
+    "url": "/api/store-list/zone",
     "title": "Zone List API",
     "group": "Store_List",
     "parameter": {
@@ -22451,7 +18044,7 @@ define({ "api": [
     },
     "sampleRequest": [
       {
-        "url": "/api/list/zone"
+        "url": "/api/store-list/zone"
       }
     ],
     "error": {
@@ -22464,55 +18057,9 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/CommonListController.ts",
+    "filename": "src/api/store/controllers/CommonListController.ts",
     "groupTitle": "Store_List",
-    "name": "GetApiListZone"
-  },
-  {
-    "type": "get",
-    "url": "/api/site-filter/:categorySlug",
-    "title": "Get filter detail API",
-    "group": "Store_List",
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "categorySlug",
-            "description": "<p>categorySlug</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     'message': 'Successfully get  Detail',\n     'data':{\n     \"id\": ,\n     \"filterId\": \"\",\n     \"sectionId\": \"\",\n     \"sectionName\": \"\",\n     \"sectionType\": \"\",\n     \"sectionSlug\": \"\",\n     \"sequence\": \"\",\n     \"sectionItem\": [\n          {\n              \"id\": \"\",\n              \"filterSectionId\": \"\",\n              \"itemName\": \"\",\n              \"itemSlug\": \"\"\n          }\n  ]\n     }\n     'status': '1'\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/site-filter/:categorySlug"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "Store list error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/store/controllers/SiteFilterController.ts",
-    "groupTitle": "Store_List",
-    "name": "GetApiSiteFilterCategoryslug"
+    "name": "GetApiStoreListZone"
   },
   {
     "type": "Get",
@@ -22583,7 +18130,7 @@ define({ "api": [
   },
   {
     "type": "post",
-    "url": "/api/list/contact-us",
+    "url": "/api/store-list/contact-us",
     "title": "Contact Us API",
     "group": "Store_List",
     "parameter": {
@@ -22642,7 +18189,7 @@ define({ "api": [
     },
     "sampleRequest": [
       {
-        "url": "/api/list/contact-us"
+        "url": "/api/store-list/contact-us"
       }
     ],
     "error": {
@@ -22657,7 +18204,7 @@ define({ "api": [
     "version": "0.0.0",
     "filename": "src/api/store/controllers/CommonListController.ts",
     "groupTitle": "Store_List",
-    "name": "PostApiListContactUs"
+    "name": "PostApiStoreListContactUs"
   },
   {
     "type": "Post",
@@ -22797,231 +18344,6 @@ define({ "api": [
     "filename": "add-ons/WebHook/api/controllers/admin/WebHookEventController.ts",
     "groupTitle": "Store_List",
     "name": "PutApiWebhookEventId"
-  },
-  {
-    "type": "get",
-    "url": "/api/store-service/category-list",
-    "title": "Category List API",
-    "group": "Store_Service",
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "limit",
-            "description": "<p>limit</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "offset",
-            "description": "<p>offset</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "keyword",
-            "description": "<p>keyword</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "count",
-            "description": "<p>count in number or boolean</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"successfully got the complete category list.\",\n     \"data\":\"{\n     \"serviceCategoryId\": \"\",\n     \"name\": \"\",\n     \"image\": \"\",\n     \"imagePath\": \"\",\n     \"parentInt\": \"\",\n     \"sortOrder\": \"\",\n     \"metaTagTitle\": \"\",\n     \"metaTagDescription\": \"\",\n     \"metaTagKeyword\": \"\",\n     \"isActive\": \"\"\n}\"\n     \"status\": \"1\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/store-service/category-list"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "Category error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/store/controllers/ServiceController.ts",
-    "groupTitle": "Store_Service",
-    "name": "GetApiStoreServiceCategoryList"
-  },
-  {
-    "type": "get",
-    "url": "/api/store-service/service-list",
-    "title": "Service List API",
-    "group": "Store_Service",
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "limit",
-            "description": "<p>limit</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "offset",
-            "description": "<p>offset</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "keyword",
-            "description": "<p>keyword</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "categoryId",
-            "description": "<p>categoryId in number</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "count",
-            "description": "<p>count in number</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully get service list\",\n     \"data\":\"{\n     \"serviceId\": \"\",\n     \"title\": \"\",\n     \"mobile\": \"\",\n     \"description\": \"\",\n     \"price\": \"\",\n     \"isActive\": \"\",\n     \"createdDate\": \"\",\n     \"image\": \"\",\n     \"containerName\": \"\",\n     \"defaultImage\": \"\"\n}\"\n     \"status\": \"1\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/store-service/service-list"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "store-service error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/store/controllers/ServiceController.ts",
-    "groupTitle": "Store_Service",
-    "name": "GetApiStoreServiceServiceList"
-  },
-  {
-    "type": "post",
-    "url": "/api/store-service/store-enquiry",
-    "title": "Add Service Enquiry API",
-    "group": "Store_Service",
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "serviceId",
-            "description": "<p>serviceId(required)</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "size": "3..32",
-            "optional": false,
-            "field": "name",
-            "description": "<p>name(required)</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "size": "3..96",
-            "optional": false,
-            "field": "email",
-            "description": "<p>email(required)</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "size": "10..15",
-            "optional": false,
-            "field": "mobile",
-            "description": "<p>mobile(required)</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": true,
-            "field": "comments",
-            "description": "<p>comments</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Input",
-          "content": "{\n     \"serviceId\" : \"\",\n     \"name\" : \"\",\n     \"email\" : \"\",\n     \"mobile\" : \"\",\n     \"comments\" : \"\",\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Your enquiry is sended successfully\",\n     \"status\": \"1\",\n     \"data\": {\n     \"serviceId\": \"\",\n     \"name\": \"\",\n     \"email\": \"\",\n     \"mobile\": \"\",\n     \"comments\": \"\",\n     \"isActive\": \"\",\n}\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/store-service/store-enquiry"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "Enquiry error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/store/controllers/ServiceController.ts",
-    "groupTitle": "Store_Service",
-    "name": "PostApiStoreServiceStoreEnquiry"
   },
   {
     "type": "Get",
@@ -25284,522 +20606,6 @@ define({ "api": [
     "filename": "src/api/vendor/controllers/VendorSettingsDomainController.ts",
     "groupTitle": "Vendor",
     "name": "DeleteApiVendorDomainId"
-  },
-  {
-    "type": "Delete",
-    "url": "/api/vendor-document/:id",
-    "title": "DeleteDocuments API",
-    "group": "VendorDocumentGroup",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "documentId",
-            "description": "<p>documentId</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n \"status\": 1,\n\"message\": \"Document Deleted Successfully.\",\n }",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/vendor-document/:id"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "document error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/VendorDocumentController.ts",
-    "groupTitle": "VendorDocumentGroup",
-    "name": "DeleteApiVendorDocumentId"
-  },
-  {
-    "type": "Get",
-    "url": "/api/vendor-document",
-    "title": "Get Document List API",
-    "group": "VendorDocumentGroup",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "limit",
-            "description": "<p>limit</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "offset",
-            "description": "<p>offset</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "string",
-            "optional": false,
-            "field": "keyword",
-            "description": "<p>keyword</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "string",
-            "optional": false,
-            "field": "title",
-            "description": "<p>title</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "string",
-            "optional": false,
-            "field": "fileName",
-            "description": "<p>fileName</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "string",
-            "optional": false,
-            "field": "lastUpload",
-            "description": "<p>lastUpload</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "status",
-            "description": "<p>status</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "count",
-            "description": "<p>count</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n    {\n   \"status\": 1,\n   \"message\": \"Successfully Get Document List.\",\n   \"data\": [\n       {\n           \"createdBy\": 1,\n           \"createdDate\": \"\",\n           \"modifiedBy\": 1,\n           \"modifiedDate\": \"\",\n           \"id\": 1,\n           \"vendorId\": 1,\n           \"documentId\": 1,\n           \"fileName\": \"\",\n           \"filePath\": \"\",\n           \"status\": \"\",\n           \"document\": {\n               \"createdBy\": 1,\n               \"createdDate\": \"\",\n               \"modifiedBy\": 1,\n               \"modifiedDate\": \"\",\n               \"id\": 1,\n               \"name\": \"\",\n               \"documentType\": \"\",\n               \"isMandatory\": \"\",\n               \"maxUploadSize\": \"\",\n               \"isActive\": 1,\n               \"isDelete\": 0\n           }\n       }\n   ]\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/vendor-document"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "getDocumentDetails error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/VendorDocumentController.ts",
-    "groupTitle": "VendorDocumentGroup",
-    "name": "GetApiVendorDocument"
-  },
-  {
-    "type": "Get",
-    "url": "/api/vendor-document/document",
-    "title": "GetMasterDocuments API",
-    "group": "VendorDocumentGroup",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n\"status\": 1\n\"message\": \"Successfully Get documents  List.\",\n\"data\": [\n{\n     \"id\": 1,\n     \"name\": \"\",\n     \"documentType\": \"\",\n     \"isMandatory\": 1,\n     \"maxUploadSize\": 1,\n     \"isActive\": 1,\n     \"isDelete\": 0,\n     \"createdDate\": \"\",\n     \"modifiedDate\": \"\",\n     \"createdBy\": 1,\n     \"modifiedBy\": 1\n}]\n }",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/vendor-document/document"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "document error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/VendorDocumentController.ts",
-    "groupTitle": "VendorDocumentGroup",
-    "name": "GetApiVendorDocumentDocument"
-  },
-  {
-    "type": "Get",
-    "url": "/api/vendor-document/:id",
-    "title": "VendorDocument API",
-    "group": "VendorDocumentGroup",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "id",
-            "description": "<p>id</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n {\n  \"status\": 1,\n  \"message\": \"Successfully Get document  Details.\",\n  \"data\": {\n  \"createdBy\": 1,\n  \"createdDate\": \"\",\n  \"modifiedBy\": 1,\n  \"modifiedDate\": \"\",\n  \"id\": 1,\n  \"vendorId\": 1,\n  \"documentId\": 1,\n  \"fileName\": \"\",\n  \"filePath\": \"\",\n  \"isActive\": 1,\n  \"isDelete\": 0,\n  \"isVerified\": 1,\n  }\n }\n }",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/vendor-document/:id"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "VendorDocument error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/VendorDocumentController.ts",
-    "groupTitle": "VendorDocumentGroup",
-    "name": "GetApiVendorDocumentId"
-  },
-  {
-    "type": "Post",
-    "url": "/api/vendor-document",
-    "title": "CreateDocument API",
-    "group": "VendorDocumentGroup",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "documentId",
-            "description": "<p>documentId</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "vendorId",
-            "description": "<p>vendorId</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "string",
-            "optional": false,
-            "field": "fileName",
-            "description": "<p>fileName</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "string",
-            "optional": false,
-            "field": "certificationType",
-            "description": "<p>certificationType</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "string",
-            "optional": false,
-            "field": "refrenceNo",
-            "description": "<p>refrenceNo</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "string",
-            "optional": false,
-            "field": "name",
-            "description": "<p>name</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "string",
-            "optional": false,
-            "field": "issuedBy",
-            "description": "<p>issuedBy</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "string",
-            "optional": false,
-            "field": "validFrom",
-            "description": "<p>validFrom</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "string",
-            "optional": false,
-            "field": "validTo",
-            "description": "<p>validTo</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "status",
-            "description": "<p>status</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Input",
-          "content": "{\n \"documentId\": 1,\n \"vendorId\": 1,\n \"fileName\": \"\",\n \"filePath\": \"\",\n \"status\": \"\",\n \"certificate\": {\n     \"certificationType\": \"\",\n     \"refrenceNo\": \"\",\n     \"name\": \"\",\n     \"issuedBy\": \"\",\n     \"validFrom\": \"\",\n     \"validTo\": \"\"\n     }\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n {\n  \"status\": 1,\n  \"message\": \"Document Upload Successfully.\",\n  \"data\": {\n      \"vendorId\": 1,\n      \"documentId\": 1,\n      \"fileName\": \"\",\n      \"filePath\": \"\",\n      \"createdBy\": \"\",\n      \"isActive\": 1,\n      \"createdDate\": \"\",\n      \"modifiedDate\": \"\",\n      \"modifiedBy\": 1,\n      \"id\": 1,\n  }\n }\n }",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/vendor-document"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "createDocument error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/VendorDocumentController.ts",
-    "groupTitle": "VendorDocumentGroup",
-    "name": "PostApiVendorDocument"
-  },
-  {
-    "type": "Put",
-    "url": "/api/vendor-document/:id",
-    "title": "Update Documents API",
-    "group": "VendorDocumentGroup",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "documentId",
-            "description": "<p>documentId</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "certificate",
-            "description": "<p>certificate</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "string",
-            "optional": false,
-            "field": "certificationType",
-            "description": "<p>certificationType</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "string",
-            "optional": false,
-            "field": "refrenceNo",
-            "description": "<p>refrenceNo</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "string",
-            "optional": false,
-            "field": "name",
-            "description": "<p>name</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "string",
-            "optional": false,
-            "field": "issuedBy",
-            "description": "<p>issuedBy</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "string",
-            "optional": false,
-            "field": "validFrom",
-            "description": "<p>validFrom</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "string",
-            "optional": false,
-            "field": "validTo",
-            "description": "<p>validTo</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Input",
-          "content": "\"certificate\": {\n     \"certificationType\": 1,\n     \"certificate\": \"\",\n     \"refrenceNo\": \"\",\n     \"name\": \"\",\n     \"issuedBy\": 1,\n     \"validFrom\": \"\",\n     \"validTo\": \"\"\n     }",
-          "type": "json"
-        }
-      ]
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n \"status\": 1,\n\"message\": \"Successfully Update document..\",\n }",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/vendor-document/:id"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "UpdateDocument error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/VendorDocumentController.ts",
-    "groupTitle": "VendorDocumentGroup",
-    "name": "PutApiVendorDocumentId"
   },
   {
     "type": "Get",
@@ -33369,457 +28175,6 @@ define({ "api": [
     "name": "PutApiVendorOrderVendororderidOrderProduct"
   },
   {
-    "type": "get",
-    "url": "/vendor-order-archive",
-    "title": "Archive Order List",
-    "group": "Vendor_Order_Archive",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": "<p>Bearer token</p>"
-          }
-        ]
-      }
-    },
-    "permission": [
-      {
-        "name": "vendor, list-archive-orders"
-      }
-    ],
-    "parameter": {
-      "fields": {
-        "Query": [
-          {
-            "group": "Query",
-            "type": "Number",
-            "optional": true,
-            "field": "limit",
-            "description": "<p>Limit number of records</p>"
-          },
-          {
-            "group": "Query",
-            "type": "Number",
-            "optional": true,
-            "field": "offset",
-            "description": "<p>Offset for pagination</p>"
-          },
-          {
-            "group": "Query",
-            "type": "String",
-            "optional": true,
-            "field": "orderId",
-            "description": "<p>Filter by order ID</p>"
-          },
-          {
-            "group": "Query",
-            "type": "String",
-            "optional": true,
-            "field": "orderStatusId",
-            "description": "<p>Filter by order status ID</p>"
-          },
-          {
-            "group": "Query",
-            "type": "String",
-            "optional": true,
-            "field": "customerName",
-            "description": "<p>Filter by customer name</p>"
-          },
-          {
-            "group": "Query",
-            "type": "String",
-            "optional": true,
-            "field": "totalAmount",
-            "description": "<p>Filter by total amount</p>"
-          },
-          {
-            "group": "Query",
-            "type": "String",
-            "optional": true,
-            "field": "dateAdded",
-            "description": "<p>Filter by order creation date</p>"
-          },
-          {
-            "group": "Query",
-            "type": "String",
-            "optional": true,
-            "field": "filter",
-            "description": "<p>Custom filter expression</p>"
-          },
-          {
-            "group": "Query",
-            "type": "String",
-            "optional": true,
-            "field": "keyword",
-            "description": "<p>Search keyword</p>"
-          },
-          {
-            "group": "Query",
-            "type": "String",
-            "optional": true,
-            "field": "paymentProcess",
-            "description": "<p>Filter by payment process</p>"
-          },
-          {
-            "group": "Query",
-            "type": "String",
-            "optional": true,
-            "field": "sortBy",
-            "description": "<p>Field to sort by: buyerName, location, orderId, total, orderDate</p>"
-          },
-          {
-            "group": "Query",
-            "type": "String",
-            "optional": true,
-            "field": "sortOrder",
-            "description": "<p>Sort order: ASC or DESC</p>"
-          },
-          {
-            "group": "Query",
-            "type": "Boolean|Number",
-            "optional": true,
-            "field": "count",
-            "description": "<p>Set to true or 1 to get the total count only</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success - List",
-          "content": "HTTP/1.1 200 OK\n{\n  \"status\": 1,\n  \"message\": \"Successfully shown the order list\",\n  \"data\": [\n    {\n      \"orderArchiveId\": 101,\n      \"orderId\": 1001,\n      \"customerId\": 2001,\n      \"createdDate\": \"2025-09-19T10:00:00.000Z\",\n      \"total\": 150,\n      \"currencySymbolLeft\": \"$\",\n      \"currencySymbolRight\": \"\",\n      \"orderStatusId\": 5,\n      \"shippingFirstName\": \"John\",\n      \"shippingCity\": \"New York\",\n      \"paymentStatus\": \"Paid\",\n      \"paymentProcess\": \"Completed\",\n      \"orderStatus\": {\n        \"orderStatusId\": 5,\n        \"name\": \"Completed\",\n        \"colorCode\": \"#00FF00\"\n      },\n      \"productCount\": 3\n    }\n  ]\n}",
-          "type": "json"
-        },
-        {
-          "title": "Success - Count",
-          "content": "HTTP/1.1 200 OK\n{\n  \"status\": 1,\n  \"message\": \"Successfully got the order count\",\n  \"data\": 150\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/vendor-order-archive"
-      }
-    ],
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/VendorOrderArchiveController.ts",
-    "groupTitle": "Vendor_Order_Archive",
-    "name": "GetVendorOrderArchive"
-  },
-  {
-    "type": "get",
-    "url": "/vendor-order-archive/detail/:id",
-    "title": "Get Vendor Archive Order Detail",
-    "group": "Vendor_Order_Archive",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": "<p>Bearer token</p>"
-          }
-        ]
-      }
-    },
-    "permission": [
-      {
-        "name": "vendor, view-archive-orders"
-      }
-    ],
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "Number",
-            "optional": false,
-            "field": "id",
-            "description": "<p>orderArchive ID (path parameter)</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n  \"status\": 1,\n  \"message\": \"Successfully shown the archive order detail\",\n  \"data\": {\n    \"orderId\": 101,\n    \"orderStatusId\": 5,\n    \"customerId\": 2001,\n    \"telephone\": \"1234567890\",\n    \"invoiceNo\": \"INV-12345\",\n    \"paymentStatus\": \"Paid\",\n    \"shippingFirstname\": \"John\",\n    \"shippingLastname\": \"Doe\",\n    \"shippingAddress1\": \"123 Main St\",\n    \"shippingCity\": \"New York\",\n    \"shippingCountry\": \"USA\",\n    \"total\": 150,\n    \"currencyCode\": \"USD\",\n    \"currencySymbolLeft\": \"$\",\n    \"currencySymbolRight\": \"\",\n    \"fullfillmentStatusId\": 2,\n    \"orderProductArchive\": [\n      {\n        \"orderProductId\": 501,\n        \"productId\": 3001,\n        \"name\": \"Product Name\",\n        \"model\": \"Model X\",\n        \"quantity\": 2,\n        \"total\": 100,\n        \"productPrice\": 50,\n        \"taxType\": 2,\n        \"taxValue\": 10,\n        \"taxValueInAmount\": \"5.00\",\n        \"image\": \"product.jpg\",\n        \"containerName\": \"products\",\n        \"rating\": 0,\n        \"review\": \"\"\n      }\n    ],\n    \"orderStatusName\": \"Completed\",\n    \"statusColorCode\": \"#00FF00\",\n    \"orderFullfillmentStatusName\": \"Shipped\",\n    \"orderFullfillmentStatusColorCode\": \"#0000FF\"\n  }\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "error": {
-      "examples": [
-        {
-          "title": "Invalid Order ID",
-          "content": "HTTP/1.1 400 Bad Request\n{\n  \"status\": 0,\n  \"message\": \"Invalid Order Id\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/vendor-order-archive/detail/:id"
-      }
-    ],
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/VendorOrderArchiveController.ts",
-    "groupTitle": "Vendor_Order_Archive",
-    "name": "GetVendorOrderArchiveDetailId"
-  },
-  {
-    "type": "get",
-    "url": "/vendor-order-archive/export-excel",
-    "title": "Export Archived Orders to Excel",
-    "group": "Vendor_Order_Archive",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": "<p>Bearer token</p>"
-          }
-        ]
-      }
-    },
-    "permission": [
-      {
-        "name": "vendor, export-archive-orders"
-      }
-    ],
-    "parameter": {
-      "fields": {
-        "Query": [
-          {
-            "group": "Query",
-            "type": "String",
-            "optional": true,
-            "field": "orderId",
-            "description": "<p>Comma-separated order IDs to export (optional)</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "File",
-            "optional": false,
-            "field": "Excel",
-            "description": "<p>file containing archived order details:</p> <ul> <li>Order Id</li> <li>Customer Name</li> <li>Email</li> <li>Mobile Number</li> <li>Total Amount</li> <li>Created Date</li> <li>Updated Date</li> </ul>"
-          }
-        ]
-      }
-    },
-    "sampleRequest": [
-      {
-        "url": "/vendor-order-archive/export-excel"
-      }
-    ],
-    "description": "<p>Generates an Excel file for archived vendor orders. You can optionally filter by specific <code>orderId</code>s. The exported file includes key order details and is returned as a downloadable XLSX file.</p>",
-    "error": {
-      "examples": [
-        {
-          "title": "Unauthorized",
-          "content": "HTTP/1.1 401 Unauthorized\n{\n  \"status\": 0,\n  \"message\": \"Authorization token is missing or invalid\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/VendorOrderArchiveController.ts",
-    "groupTitle": "Vendor_Order_Archive",
-    "name": "GetVendorOrderArchiveExportExcel"
-  },
-  {
-    "type": "post",
-    "url": "/vendor-order-archive",
-    "title": "Archive Vendor Order",
-    "group": "Vendor_Order_Archive",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": "<p>Bearer token</p>"
-          }
-        ]
-      }
-    },
-    "permission": [
-      {
-        "name": "vendor, order-archive"
-      }
-    ],
-    "parameter": {
-      "fields": {
-        "Request Body": [
-          {
-            "group": "Request Body",
-            "type": "Number",
-            "optional": false,
-            "field": "orderId",
-            "description": "<p>Order ID to archive</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n  \"status\": 1,\n  \"message\": \"Successfully order archived\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "error": {
-      "examples": [
-        {
-          "title": "Invalid Seller Order",
-          "content": "HTTP/1.1 400 Bad Request\n{\n  \"status\": 0,\n  \"message\": \"Invalid seller Order\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/vendor-order-archive"
-      }
-    ],
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/VendorOrderArchiveController.ts",
-    "groupTitle": "Vendor_Order_Archive",
-    "name": "PostVendorOrderArchive"
-  },
-  {
-    "type": "post",
-    "url": "/vendor-order-archive/revoke",
-    "title": "Revoke Archived Vendor Order",
-    "group": "Vendor_Order_Archive",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": "<p>Bearer token</p>"
-          }
-        ]
-      }
-    },
-    "permission": [
-      {
-        "name": "vendor, revoke-archive-orders"
-      }
-    ],
-    "parameter": {
-      "fields": {
-        "Request Body": [
-          {
-            "group": "Request Body",
-            "type": "Number",
-            "optional": false,
-            "field": "orderArchiveId",
-            "description": "<p>ID of the archived order to restore</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n  \"status\": 1,\n  \"message\": \"Order successfully restored from archive\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "error": {
-      "examples": [
-        {
-          "title": "Archived Order Not Found",
-          "content": "HTTP/1.1 400 Bad Request\n{\n  \"status\": 0,\n  \"message\": \"Archived order not found\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/vendor-order-archive/revoke"
-      }
-    ],
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/VendorOrderArchiveController.ts",
-    "groupTitle": "Vendor_Order_Archive",
-    "name": "PostVendorOrderArchiveRevoke"
-  },
-  {
-    "type": "get",
-    "url": "/api/store-payment-rule/dropdown-list",
-    "title": "Payment Rule Detail API",
-    "group": "Vendor_Payment_Rule",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     'message': 'Successfully got payment rule drowdown list.',\n     \"data\": {}\n     'status': '1'\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/store-payment-rule/dropdown-list"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "Store Payment Rule Translation Detail error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/store/controllers/StorePaymentRuleController.ts",
-    "groupTitle": "Vendor_Payment_Rule",
-    "name": "GetApiStorePaymentRuleDropdownList"
-  },
-  {
     "type": "delete",
     "url": "/api/vendor-payment-term/:id",
     "title": "Delete Payment Rule API",
@@ -34216,445 +28571,6 @@ define({ "api": [
     "filename": "src/api/vendor/controllers/VendorPaymentTermController.ts",
     "groupTitle": "Vendor_Payment_Term",
     "name": "PutApiVendorPaymentTerm"
-  },
-  {
-    "type": "delete",
-    "url": "/api/vendor-payment-rule/:id",
-    "title": "Delete Payment Rule API",
-    "group": "Vendor_Payment_rule",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "number",
-            "optional": false,
-            "field": "id",
-            "description": "<p>id</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Input",
-          "content": "{\n     \"id\" : 1,\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n\"message\": \"Successfully deleted payment rule.\",\n\"status\": \"1\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/vendor-payment-rule/:id"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "Delete Payment Rule Error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/VendorPaymentRuleController.ts",
-    "groupTitle": "Vendor_Payment_rule",
-    "name": "DeleteApiVendorPaymentRuleId"
-  },
-  {
-    "type": "get",
-    "url": "/api/vendor-payment-rule",
-    "title": "Payment rule List API",
-    "group": "Vendor_Payment_rule",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "limit",
-            "description": "<p>limit</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "offset",
-            "description": "<p>offset</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "keyword",
-            "description": "<p>keyword filter</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "count",
-            "description": "<p>count of the payment rule</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     \"status\": \"1\"\n     \"message\": \"Successfully got the payment rule list.\",\n     \"data\": []\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/vendor-payment-rule"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "order error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/VendorPaymentRuleController.ts",
-    "groupTitle": "Vendor_Payment_rule",
-    "name": "GetApiVendorPaymentRule"
-  },
-  {
-    "type": "get",
-    "url": "/api/vendor-payment-rule/dropdown-list",
-    "title": "Payment rule Detail API",
-    "group": "Vendor_Payment_rule",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     'message': 'Successfully got payment rule drowdown list.',\n     \"data\": {}\n     'status': '1'\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/vendor-payment-rule/dropdown-list"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "Payment Rule Detail Error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/VendorPaymentRuleController.ts",
-    "groupTitle": "Vendor_Payment_rule",
-    "name": "GetApiVendorPaymentRuleDropdownList"
-  },
-  {
-    "type": "get",
-    "url": "/api/vendor-payment-rule/:id",
-    "title": "Payment rule Detail API",
-    "group": "Vendor_Payment_rule",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     'message': 'Successfully got payment rule details.',\n     \"data\": {}\n     'status': '1'\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/vendor-payment-rule/:id"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "Payment Rule Detail Error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/VendorPaymentRuleController.ts",
-    "groupTitle": "Vendor_Payment_rule",
-    "name": "GetApiVendorPaymentRuleId"
-  },
-  {
-    "type": "get",
-    "url": "/api/vendor-payment-rule/method-dropdown-list",
-    "title": "Payment rule Detail API",
-    "group": "Vendor_Payment_rule",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     'message': 'Successfully got payment rule method drowdown list.',\n     \"data\": {}\n     'status': '1'\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/vendor-payment-rule/method-dropdown-list"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "Payment RUle Method error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/VendorPaymentRuleController.ts",
-    "groupTitle": "Vendor_Payment_rule",
-    "name": "GetApiVendorPaymentRuleMethodDropdownList"
-  },
-  {
-    "type": "post",
-    "url": "/api/vendor-payment-rule",
-    "title": "Create Vendor Payment rule API",
-    "group": "Vendor_Payment_rule",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "name",
-            "description": ""
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "instructions",
-            "description": ""
-          }
-        ],
-        "Requestt body": [
-          {
-            "group": "Requestt body",
-            "type": "Number",
-            "optional": false,
-            "field": "paymentMethodId",
-            "description": ""
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Input",
-          "content": "{\n     \"name\" : \"\",\n     \"instructions\": \"\",\n     \"paymentMethodId\": \"\",\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Payment rule created sucessfully.\",\n     \"status\": \"1\",\n     \"data\": {}\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/vendor-payment-rule"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "Customer error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/VendorPaymentRuleController.ts",
-    "groupTitle": "Vendor_Payment_rule",
-    "name": "PostApiVendorPaymentRule"
-  },
-  {
-    "type": "put",
-    "url": "/api/vendor-payment-rule",
-    "title": "Update Vendor Payment rule API",
-    "group": "Vendor_Payment_rule",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "name",
-            "description": ""
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "instructions",
-            "description": ""
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Input",
-          "content": "{\n     \"name\" : \"\",\n     \"instructions\" : \"\",\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Payment rule update sucessfully.\",\n     \"status\": \"1\",\n     \"data\": {}\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/vendor-payment-rule"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "Customer error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/VendorPaymentRuleController.ts",
-    "groupTitle": "Vendor_Payment_rule",
-    "name": "PutApiVendorPaymentRule"
   },
   {
     "type": "Delete",
@@ -36290,953 +30206,6 @@ define({ "api": [
   },
   {
     "type": "Get",
-    "url": "/api/vendor-sales/archive-payment-export",
-    "title": "Archive Payment Export API",
-    "group": "Vendor_Sales",
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "vendorPaymentArchiveId",
-            "description": "<p>vendorPaymentArchiveId</p>"
-          }
-        ]
-      }
-    },
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/vendor-sales/archive-payment-export"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "PaymentArchiveExport error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/VendorSalesController.ts",
-    "groupTitle": "Vendor_Sales",
-    "name": "GetApiVendorSalesArchivePaymentExport"
-  },
-  {
-    "type": "Get",
-    "url": "/api/vendor-sales/archive-payment-list",
-    "title": "Archive-Payment list API",
-    "group": "Vendor_Sales",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "limit",
-            "description": "<p>limit</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "offset",
-            "description": "<p>offset</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "keyword",
-            "description": "<p>search by orderId, customer name</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "startDate",
-            "description": "<p>search by startDate</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "endDate",
-            "description": "<p>search by endDate</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "customerName",
-            "description": "<p>search by customerName</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "deliverylist",
-            "description": "<p>search by deliverylist</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "subOrderId",
-            "description": "<p>search by subOrderId</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "count",
-            "description": "<p>count</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully got archive payment list\",\n     \"data\":{\n     \"orderId\" : \"\",\n     \"orderStatusId\" : \"\",\n     \"customerName\" : \"\",\n     \"totalAmount\" : \"\",\n     \"dateModified\" : \"\",\n     \"status\" : \"\",\n     }\n     \"status\": \"1\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/vendor-sales/archive-payment-list"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "PaymentArchiveList error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/VendorSalesController.ts",
-    "groupTitle": "Vendor_Sales",
-    "name": "GetApiVendorSalesArchivePaymentList"
-  },
-  {
-    "type": "Get",
-    "url": "/api/vendor-sales/archive-payment-list-count",
-    "title": "Archive-Payment list count API",
-    "group": "Vendor_Sales",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "limit",
-            "description": "<p>limit</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "offset",
-            "description": "<p>offset</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "keyword",
-            "description": "<p>search customer name</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "orderId",
-            "description": "<p>search by orderId</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "startDate",
-            "description": "<p>search by startDate</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "endDate",
-            "description": "<p>search by endDate</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully got archive payment list count\",\n     \"data\":{\n     \"vendorArchivePaymentId\" : \"\",\n     \"vendorOrderId\" : \"\",\n     \"subOrderId\" : \"\",\n     \"customerFirstName\" : \"\",\n     \"shippingCity\" : \"\",\n     \"shippingCountry\" : \"\",\n     \"shippingZone\" : \"\",\n     \"currencyCode\" : \"\",\n     \"currencySymbolLeft\" : \"\",\n     \"currencySymbolRight\" : \"\",\n     \"createdDate\" : \"\",\n     \"amount\" : \"\",\n     \"commissionAmount\" : \"\",\n     }\n     \"status\": \"1\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/vendor-sales/archive-payment-list-count"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "PaymentArchiveListCount error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/VendorSalesController.ts",
-    "groupTitle": "Vendor_Sales",
-    "name": "GetApiVendorSalesArchivePaymentListCount"
-  },
-  {
-    "type": "Get",
-    "url": "/api/vendor-sales/bulk-archive-payment-export",
-    "title": "Bulk Archive Payment Export API",
-    "group": "Vendor_Sales",
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "vendorId",
-            "description": "<p>vendorId</p>"
-          }
-        ]
-      }
-    },
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/vendor-sales/bulk-archive-payment-export"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "PaymentArchiveExportBulk error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/VendorSalesController.ts",
-    "groupTitle": "Vendor_Sales",
-    "name": "GetApiVendorSalesBulkArchivePaymentExport"
-  },
-  {
-    "type": "Get",
-    "url": "/api/vendor-sales/earning-export",
-    "title": "Vendor Earning Export",
-    "group": "Vendor_Sales",
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "vendorId",
-            "description": "<p>vendorId</p>"
-          }
-        ]
-      }
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/vendor-sales/earning-export"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "EarningExport error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/VendorSalesController.ts",
-    "groupTitle": "Vendor_Sales",
-    "name": "GetApiVendorSalesEarningExport"
-  },
-  {
-    "type": "Get",
-    "url": "/api/vendor-sales/payment",
-    "title": "Payment list API",
-    "group": "Vendor_Sales",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "limit",
-            "description": "<p>limit</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "offset",
-            "description": "<p>offset</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "keyword",
-            "description": "<p>search by orderId, customer name</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "isSettlement",
-            "description": "<p>isSettlement</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "startDate",
-            "description": "<p>search by startDate</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "orderId",
-            "description": "<p>orderId</p>"
-          }
-        ],
-        "Requst body": [
-          {
-            "group": "Requst body",
-            "type": "String",
-            "optional": false,
-            "field": "endDate",
-            "description": "<p>search by endDate</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully got the payment count !!\",\n     \"data\":{\n     \"vendorPaymentId\" : \"\",\n     \"vendorOrderId\" : \"\",\n     \"subOrderId\" : \"\",\n     \"customerFirstName\" : \"\",\n     \"shippingCity\" : \"\",\n     \"shippingCountry\" : \"\",\n     \"shippingZone\" : \"\",\n     \"currencyCode\" : \"\",\n     \"currencySymbolLeft\" : \"\",\n     \"currencySymbolRight\" : \"\",\n     \"createdDate\" : \"\",\n     \"amount\" : \"\",\n     \"commissionAmount\" : \"\",\n     \"orderStatusName\" : \"\",\n     \"orderStatusColorCode\" : \"\",\n     \"makeSettlement\" : \"\",\n     \"orderProductPrefixId\" : \"\"\n     }\n     \"status\": \"1\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/vendor-sales/payment"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "paymentList error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/VendorSalesController.ts",
-    "groupTitle": "Vendor_Sales",
-    "name": "GetApiVendorSalesPayment"
-  },
-  {
-    "type": "Get",
-    "url": "/api/vendor-sales/payment",
-    "title": "Payment list Count API",
-    "group": "Vendor_Sales",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "limit",
-            "description": "<p>limit</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "offset",
-            "description": "<p>offset</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "keyword",
-            "description": "<p>search by orderId, customer name</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "startDate",
-            "description": "<p>search by startDate</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "endDate",
-            "description": "<p>search by endDate</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully got the complete payment list count.\",\n     \"data\": \"\"\n     \"status\": \"1\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/vendor-sales/payment"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "order error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/VendorSalesController.ts",
-    "groupTitle": "Vendor_Sales",
-    "name": "GetApiVendorSalesPayment"
-  },
-  {
-    "type": "Get",
-    "url": "/api/vendor-sales/payment-counts",
-    "title": "Payment counts",
-    "group": "Vendor_Sales",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully get Today order count\",\n     \"data\":{\n     \"buyersCount\": \"\",\n     \"salesCount\": \"\",\n     \"revenue\": \"\"\n     }\n     \"status\": \"1\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/vendor-sales/payment-counts"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "Sales Counts error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/VendorSalesController.ts",
-    "groupTitle": "Vendor_Sales",
-    "name": "GetApiVendorSalesPaymentCounts"
-  },
-  {
-    "type": "Get",
-    "url": "/api/vendor-sales/product-earning-export",
-    "title": "Vendor Product Earning Export",
-    "group": "Vendor_Sales",
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "productId",
-            "description": "<p>productId</p>"
-          }
-        ]
-      }
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/vendor-sales/product-earning-export"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "Product Earning Export error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/VendorSalesController.ts",
-    "groupTitle": "Vendor_Sales",
-    "name": "GetApiVendorSalesProductEarningExport"
-  },
-  {
-    "type": "Get",
-    "url": "/api/vendor-sales/sales-export",
-    "title": "Sales list Export",
-    "group": "Vendor_Sales",
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "vendorId",
-            "description": "<p>vendorId</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "startDate",
-            "description": "<p>startDate</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "endDate",
-            "description": "<p>endDate</p>"
-          }
-        ]
-      }
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/vendor-sales/sales-export"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "Sales Export error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/VendorSalesController.ts",
-    "groupTitle": "Vendor_Sales",
-    "name": "GetApiVendorSalesSalesExport"
-  },
-  {
-    "type": "get",
-    "url": "/api/vendor-sales/vendor-earning-list",
-    "title": "Vendor Earning List API",
-    "group": "Vendor_Sales",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "limit",
-            "description": "<p>limit</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "offset",
-            "description": "<p>offset</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "status",
-            "description": "<p>0-&gt;inactive 1-&gt; active</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "keyword",
-            "description": "<p>keyword</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "productName",
-            "description": "<p>productName</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "sku",
-            "description": "<p>sku</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "createdDate",
-            "description": "<p>createdDate</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "count",
-            "description": "<p>count</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully get your product earnings list\",\n     \"data\":{\n     \"vendorProductId\" : \"\",\n     \"vendorProductCommission\" : \"\",\n     \"quotationAvailable\" : \"\",\n     \"approvalFlag\" : \"\",\n     \"vendorId\" : \"\",\n     \"productId\" : \"\",\n     \"pincodeBasedDelivery\" : \"\",\n     \"name\" : \"\",\n     \"sku\" : \"\",\n     \"productPrice\" : \"\",\n     \"quantity\" : \"\",\n     \"vendorName\" : \"\",\n     \"sortOrder\" : \"\",\n     \"isActive\" : \"\",\n     \"productSlug\" : \"\",\n     \"createdDate\" : \"\",\n     \"keywords\" : \"\",\n     \"attributeKeyword\" : \"\",\n     }\n     \"status\": \"1\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/vendor-sales/vendor-earning-list"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "vendorProductList error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/VendorSalesController.ts",
-    "groupTitle": "Vendor_Sales",
-    "name": "GetApiVendorSalesVendorEarningList"
-  },
-  {
-    "type": "Get",
-    "url": "/api/vendor-sales/vendor-sales-export",
-    "title": "Vendor sales list Export",
-    "group": "Vendor_Sales",
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "vendorOrderId",
-            "description": "<p>vendorOrderId</p>"
-          }
-        ]
-      }
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/vendor-sales/vendor-sales-export"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "Vendor Sales Export error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/VendorSalesController.ts",
-    "groupTitle": "Vendor_Sales",
-    "name": "GetApiVendorSalesVendorSalesExport"
-  },
-  {
-    "type": "Post",
-    "url": "/api/vendor-sales/make-vendor-payment-archive",
-    "title": "Make Vendor Payment Archive API",
-    "group": "Vendor_Sales",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "vendorPaymentId",
-            "description": "<p>VendorPaymentId</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Input",
-          "content": "{\n  \"vendorPaymentId\" : \"\",\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully archived your payments\",\n     \"status\": \"1\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/vendor-sales/make-vendor-payment-archive"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "MakePaymentArchive error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/VendorSalesController.ts",
-    "groupTitle": "Vendor_Sales",
-    "name": "PostApiVendorSalesMakeVendorPaymentArchive"
-  },
-  {
-    "type": "Post",
-    "url": "/api/vendor-sales/revoke-vendor-payment-archive",
-    "title": "Revoke Vendor Payment Archive API",
-    "group": "Vendor_Sales",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "vendorPaymentArchiveId",
-            "description": "<p>vendorPaymentArchiveId</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Input",
-          "content": "{\n  \"vendorPaymentArchiveId\" : \"\",\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Payment revoked successfully.\",\n     \"status\": \"1\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/vendor-sales/revoke-vendor-payment-archive"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "MakePaymentArchive error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/VendorSalesController.ts",
-    "groupTitle": "Vendor_Sales",
-    "name": "PostApiVendorSalesRevokeVendorPaymentArchive"
-  },
-  {
-    "type": "Get",
     "url": "/api/vendor-export-log",
     "title": "Export log list",
     "group": "Vendr_Export_Log",
@@ -37848,93 +30817,6 @@ define({ "api": [
     "filename": "src/api/vendor/controllers/VendorWidgetController.ts",
     "groupTitle": "Widget",
     "name": "PutApiWidgetId"
-  },
-  {
-    "type": "get",
-    "url": "/api/zone/zone-list",
-    "title": "Zone List API",
-    "group": "Zone",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": "<p>Bearer token</p>"
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "fields": {
-        "Query Parameters": [
-          {
-            "group": "Query Parameters",
-            "type": "Number",
-            "optional": true,
-            "field": "limit",
-            "description": "<p>Number of records to return</p>"
-          },
-          {
-            "group": "Query Parameters",
-            "type": "Number",
-            "optional": true,
-            "field": "offset",
-            "description": "<p>Number of records to skip</p>"
-          },
-          {
-            "group": "Query Parameters",
-            "type": "String",
-            "optional": true,
-            "field": "keyword",
-            "description": "<p>Keyword to search</p>"
-          },
-          {
-            "group": "Query Parameters",
-            "type": "String",
-            "optional": true,
-            "field": "status",
-            "description": "<p>Filter by status (e.g. 'active' or 'inactive')</p>"
-          },
-          {
-            "group": "Query Parameters",
-            "type": "Number|Boolean",
-            "optional": true,
-            "field": "count",
-            "description": "<p>Return count only (if true or 1)</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success Response",
-          "content": "HTTP/1.1 200 OK\n{\n  \"message\": \"Successfully get zone list\",\n  \"data\": [\n    {\n      \"createdDate\": \"2019-02-17T16:47:49.000Z\",\n      \"zoneId\": 59,\n      \"code\": \"MUM\",\n      \"name\": \"Mumbai\",\n      \"isActive\": 1,\n      \"country\": {\n        \"countryId\": 99,\n        \"name\": \"India\",\n        \"isoCode2\": \"IN\",\n        \"isoCode3\": \"IND\",\n        \"addressFormat\": \"\",\n        \"postcodeRequired\": 1,\n        \"isActive\": 1\n      }\n    }\n  ],\n  \"status\": \"1\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/zone/zone-list"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "Error Response",
-          "content": "HTTP/1.1 500 Internal Server Error\n{\n  \"message\": \"Internal Server Error\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/ZoneController.ts",
-    "groupTitle": "Zone",
-    "name": "GetApiZoneZoneList"
   },
   {
     "type": "get",

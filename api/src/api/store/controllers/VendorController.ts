@@ -23,8 +23,6 @@ import { TranslationMiddleware } from '../../../../src/api/core/middlewares/Tran
 import { ContactSellerRequest } from './requests/ContactSellerRequest';
 import { VendorOrdersService } from '../../core/services/VendorOrderService';
 import { VendorMediaService } from '../../core/services/VendorMediaService';
-import { VendorDocumentService } from '../../core/services/VendorDocumentService';
-// import { ThemeService } from '../../../../add-ons/Theme/services/ThemeService';
 import { PdfService } from '../../core/services/PdfService';
 import { IndustryValidationMiddleware } from '../../../api/core/middlewares/IndustryValidationMiddleware';
 import { VendorSettingsService } from '../../core/services/VendorSettingsService';
@@ -52,12 +50,10 @@ export class VendorStoreController {
         private customerService: CustomerService,
         private vendorOrderService: VendorOrdersService,
         private vendorMediaService: VendorMediaService,
-        private vendorDocumentService: VendorDocumentService,
         private pdfService: PdfService,
         private vendorSettingsService: VendorSettingsService,
         private currencyService: CurrencyService,
         private vendorLanguageService: VendorLanguageService
-        // private themeService: ThemeService
     ) {
     }
 
@@ -142,14 +138,6 @@ export class VendorStoreController {
             vendor.vendorImages = vendorMedia.filter(image => image.mediaType === 1);
             vendor.vendorVideos = vendorMedia.filter(image => image.mediaType === 2);
         }
-        // vendor certificates
-        const certificates: any = await this.vendorDocumentService.find({ select: ['id', 'fileName', 'filePath', 'status', 'additionalInfo'], where: { vendorId: vendor.vendorId, isDelete: 0, document: { name: 'Certificate' } }, relations: ['document'] });
-        vendor.certificates = [];
-        if (certificates) {
-            certificates.flatMap(val => val.document = undefined);
-            vendor.certificates = certificates;
-        }
-
         // vendor rating
         const products = await this.vendorProductService.findVendorActiveProduct(vendor.vendorId, 0, 0);
         vendor.productCount = products.length;
@@ -648,8 +636,6 @@ export class VendorStoreController {
         if (vendorContactSave) {
             const emailContent = await this.emailTemplateService.findOne({ where: { emailTemplateId: 25 } });
             const message = emailContent.content.replace('{name}', contactParam.name).replace('{sellerName}', customer.firstName).replace('{email}', vendorContactSave.email).replace('{phoneNumber}', vendorContactSave.mobileNumber).replace('{message}', vendorContactSave.requirement);
-            // const redirectUrl = env.storeRedirectUrl;
-            // const logo = await this.settingService.findOne();
             const vendorSetting = await this.vendorSettingsService.findOne({ where: { vendorId: request.tenantId } });
             const vendorData = await this.vendorService.findOne({ where: { vendorId: request.tenantId } });
             const mailContents: any = {};
@@ -786,13 +772,6 @@ export class VendorStoreController {
             select: ['instagram', 'twitter', 'youtube', 'facebook', 'whatsapp', 'linkedin', 'metaTitle', 'metaTagDescription', 'metaTagKeyword', 'companyDescription'],
             where: { vendorId: request.tenantId },
         });
-        // const theme = await this.themeService.findOne({
-        //     select: ['name', 'themeId', 'previewImage', 'previewImagePath'],
-        //     where: {
-        //         themeId: vendorSettings.themeId,
-        //     },
-        // });
-        // const setting = { ...vendorSettings, ...vendorData, ...theme };
          const setting = { ...vendorSettings, ...vendorData };
         const vendorCurrencyData = await this.currencyService.findOne({ where: { currencyId: setting?.storeCurrencyId } });
         const vendorLanguage: any = await this.vendorLanguageService.findOne({ where: { id: setting.storeLanguageId, tenantId: setting?.vendorId }, relations: ['language'] });

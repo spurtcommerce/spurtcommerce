@@ -11,8 +11,6 @@ import { Logger, LoggerInterface } from '../../../decorators/Logger';
 import { VendorSettingsRepository } from '../repositories/VendorSettingsRepository';
 import { Like } from 'typeorm';
 import { VendorSettings } from '../models/VendorSettings';
-// import { VendorSettingsDomainService } from './VendorSettingsDomainService';
-// import { env } from '../../../env';
 @Service()
 export class VendorSettingsService {
 
@@ -81,30 +79,6 @@ export class VendorSettingsService {
 
     public async getVendorDomainOrDefault(vendorId: number, host: string): Promise<any> {
         try {
-            // if (env.app.type === 'cloud') {
-            //     const { TenantSubscriptionService } = require('../../../../add-ons/SaasSubscription/services/TenantSubscriptionService');
-            //     const tenantSubscriptionService: any = Container.get(TenantSubscriptionService);
-            //     const vendorSettingsDomainService = Container.get<VendorSettingsDomainService>(VendorSettingsDomainService);
-
-            //     const tenantSubscriptions = await tenantSubscriptionService.getTenantSubscription();
-            //     const hasValidSubscription = tenantSubscriptions?.some((sub: any) =>
-            //         sub.tenantId === vendorId &&
-            //         // sub.status === 'Active' &&
-            //         ['prime', 'basic plan', 'premium plan'].includes(sub.mstSubscription?.name?.toLowerCase()) &&
-            //         (!sub.expiredOn || new Date(sub.expiredOn) > new Date())
-            //     );
-            //     if (hasValidSubscription) {
-            //         const vendorDomain = await vendorSettingsDomainService.findOne({
-            //             where: {
-            //                 vendorId,
-            //                 domainName: host,
-            //                 isActive: 1,
-            //                 isDelete: 0,
-            //             },
-            //         });
-            //         if (vendorDomain) { return vendorDomain.domainName || null; }
-            //     }
-            // }
             const vendorSettings = await this.vendorSettingsRepository.repository.findOne({ where: { vendorId } });
             return vendorSettings?.storeUrl || null;
 

@@ -224,14 +224,6 @@ export class StoreProductController {
             });
         }
         const productDetails: any = instanceToPlain(productDetail);
-        // if (productDetails.taxType === 2) {
-        //     const vendorTax = await this.vendorTaxService.findOne({ where: { id: productDetails.taxValue }, relations: ['tax'] });
-        //     if (vendorTax) {
-        //         productDetails.taxValue = vendorTax.tax?.taxPercentage;
-        //     } else {
-        //         productDetails.taxValue = '';
-        //     }
-        // }
         productDetails.ratingCount = 0;
         productDetails.reviewCount = 'null';
         productDetails.productImage = await this.productImageService.findAll({
@@ -772,7 +764,6 @@ export class StoreProductController {
             productDetails.vendorCompanyName = vendor.companyName;
             productDetails.vendorCompanyCity = vendor.companyCity;
             productDetails.vendorDisplayNameUrl = vendor.displayNameUrl;
-
             productDetails.vendorSlugName = vendor.vendorSlugName;
             productDetails.quotationAvailable = vendorProduct.quotationAvailable;
             productDetails.companyTaxNumber = vendorProduct.vendor.companyTaxNumber ?? '';
@@ -1086,14 +1077,6 @@ export class StoreProductController {
                     temp.pricerefer = '';
                     temp.flag = '';
                 }
-                // if (List.taxType === 2) {
-                //     const vendorTax = await this.vendorTaxService.findOne({ where: { id: List.taxValue }, relations: ['tax'] });
-                //     if (vendorTax) {
-                //         temp.taxValue = vendorTax.tax?.taxPercentage;
-                //     } else {
-                //         temp.taxValue = '';
-                //     }
-                // }
                 temp.productImage = defaultValue;
                 if (List.hasStock === 1) {
                     if (List.quantity <= List.outOfStockThreshold) {
@@ -1225,14 +1208,6 @@ export class StoreProductController {
                         temp.pricerefer = '';
                         temp.flag = '';
                     }
-                    // if (productListData.taxType === 2) {
-                    //     const vendorTax = await this.vendorTaxService.findOne({ where: { id: productListData.taxValue }, relations: ['tax'] });
-                    //     if (vendorTax) {
-                    //         temp.taxValue = vendorTax.tax?.taxPercentage;
-                    //     } else {
-                    //         temp.taxValue = '';
-                    //     }
-                    // }
                     temp.productImage = defaultValue;
                     if (productListData.hasStock === 1) {
                         if (productListData.quantity <= productListData.outOfStockThreshold) {
@@ -1254,159 +1229,6 @@ export class StoreProductController {
             }
         }
     }
-    // Product Search list Api
-    /**
-     * @api {get} /api/product-store/product-search-list Product Search List API
-     * @apiGroup Store
-     * @apiParam (Request body) {String} keyword Product Name
-     * @apiParam (Request body) {Number} limit limit
-     * @apiParam (Request body) {Number} offset offset
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "status": "1"
-     *      "message": "Successfully get product list",
-     *      "data":{
-     *              "productId": ,
-     *              "sku": "",
-     *              "name": "",
-     *              "quantity": "",
-     *              "price": "",
-     *              "productSlug": "",
-     *              "isActive": "",
-     *              "productImage": {
-     *                  "createdBy": "",
-     *                  "createdDate": "",
-     *                  "modifiedBy": "",
-     *                  "modifiedDate": "",
-     *                  "productImageId": "",
-     *                  "productId": ,
-     *                  "image": "",
-     *                  "containerName": "",
-     *                  "sortOrder": "",
-     *                  "defaultImage": "",
-     *                  "isActive":""
-     *              },
-     *              "categoryName": {
-     *                  "categoryId": "",
-     *                  "name": "",
-     *                  "categorySlug": "",
-     *                  "isActive": ""
-     *              }
-     *  }
-     * }
-     * @apiSampleRequest /api/product-store/product-search-list
-     * @apiErrorExample {json} productSearchList error
-     * HTTP/1.1 500 Internal Server Error
-     */
-    // @Get('/product-search-list')
-    // public async productSearchList(@QueryParam('limit') limit: number, @QueryParam('offset') offset: number, @QueryParam('keyword') keyword: string, @Res() response: any, @Req() request: any): Promise<any> {
-    //     const select = [
-    //         'Product.productId as productId',
-    //         'Product.sku as sku',
-    //         'Product.name as name',
-    //         'Product.quantity as quantity',
-    //         'Product.price as price',
-    //         'Product.productSlug as productSlug',
-    //         'Product.isActive as isActive',
-    //     ];
-    //     const relations = [
-    //         {
-    //             tableName: 'Product.vendorProducts',
-    //             op: 'left',
-    //             aliasName: 'vendorProducts',
-    //         },
-    //         {
-    //             tableName: 'vendorProducts.vendor',
-    //             op: 'leftCond',
-    //             cond: 'vendor.approvalFlag = 1',
-    //             aliasName: 'vendor',
-    //         },
-    //         {
-    //             tableName: 'vendor.customer',
-    //             op: 'leftCond',
-    //             cond: 'vendor.isActive = 1',
-    //             aliasName: 'customer',
-    //         },
-    //     ];
-    //     const currentDate = moment().format('YYYY-MM-DD');
-    //     const whereConditions = [
-    //         {
-    //             name: 'vendorProducts.vendorId',
-    //             op: 'where',
-    //             value: request.tenantId,
-    //         },
-    //         {
-    //             name: 'vendorProducts.reuse',
-    //             op: 'IS NULL',
-    //             value: '',
-    //         },
-    //         {
-    //             name: '( customer.id IS NOT NULL',
-    //             op: 'rawnumber',
-    //             sign: 'OR',
-    //             value: `vendorProducts.vendorId IS NULL )`,
-    //         },
-    //         {
-    //             name: 'Product.isActive',
-    //             op: 'and',
-    //             value: 1,
-    //         },
-    //         {
-    //             name: 'Product.dateAvailable',
-    //             op: 'raw',
-    //             sign: '<=',
-    //             value: currentDate.toString(),
-    //         },
-    //     ];
-    //     // whereConditions.push();
-    //     const searchConditions = [];
-    //     if (keyword !== '' && keyword !== undefined) {
-    //         searchConditions.push({
-    //             name: ['Product.name'],
-    //             value: keyword,
-    //         });
-    //     }
-    //     const productSearchList = await this.productService.listByQueryBuilder(limit, offset, select, whereConditions, searchConditions, relations, [], [], false, true);
-    //     const productList = productSearchList.map(async (value: any) => {
-    //         const temp = value;
-    //         const defaultValue = await this.productImageService.findOne({
-    //             where: {
-    //                 productId: value.productId,
-    //                 defaultImage: 1,
-    //             },
-    //         });
-    //         temp.productImage = defaultValue;
-    //         const productToCategory = await this.productToCategoryService.findOne({
-    //             where: {
-    //                 productId: value.productId,
-    //                 isActive: 1,
-    //             },
-    //         });
-    //         if (productToCategory) {
-    //             const category = await this.categoryService.findOne({
-    //                 select: ['categoryId', 'name', 'isActive', 'categorySlug'],
-    //                 where: {
-    //                     categoryId: productToCategory.categoryId,
-    //                     isActive: 1,
-    //                 },
-    //             });
-    //             temp.categoryName = category;
-    //         } else {
-    //             temp.categoryName = '';
-    //         }
-    //         return temp;
-    //     });
-    //     const results = await Promise.all(productList);
-    //     if (productSearchList) {
-    //         const successReponse: any = {
-    //             status: 1,
-    //             message: 'Successfully got a product search list',
-    //             data: results,
-    //         };
-    //         return response.status(200).send(successReponse);
-    //     }
-    // }
 
     @Get('/product-search-list')
     public async productSearchList(@QueryParam('limit') limit: number, @QueryParam('offset') offset: number, @QueryParam('keyword') keyword: string, @QueryParam('productName') productName: string, @QueryParam('skuName') skuName: string, @Res() response: any, @Req() request: any): Promise<any> {

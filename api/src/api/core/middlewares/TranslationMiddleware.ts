@@ -12,8 +12,6 @@ export async function TranslationMiddleware(request: any, response: any, next: a
     const vendorService = Container.get<VendorService>(VendorService);
 
     const languageKey: number = request.header('languagekey');
-
-    // const validLanguage = await vendorLanguageRepository.findOne({ where: { id: languageKey ?? 0 } });
     const validLanguage = await vendorLanguageRepository.findOne({
     where: { languageId: languageKey ?? 0 },
 });
@@ -38,7 +36,6 @@ export async function TranslationMiddleware(request: any, response: any, next: a
     const vendorSetting = await vendorSettingsRepository.findOne({ where: { vendorId: vendorExist?.vendorId } });
 
     if (validLanguage) {
-        // request.languageId = vendorSetting.storeLanguageId === validLanguage.id ? undefined : validLanguage.id;
         request.languageId = vendorSetting.storeLanguageId === validLanguage.languageId ? undefined : validLanguage.languageId;
     } else {
         request.languageId = undefined;

@@ -20,16 +20,6 @@ class ProductDetail {
 
 }
 export class CreateCartRequest {
-    // @IsNotEmpty({
-    //     message: 'productId is required',
-    // })
-    // public productId: number;
-
-    // public productPrice: number;
-
-    // public tirePrice: number;
-
-    // public quantity: number;
 
     public optionName: string;
 
@@ -38,12 +28,6 @@ export class CreateCartRequest {
     public varientName: string;
 
     public productVarientOptionId: string;
-
-    // public skuName: string;
-
-    // public type: string;
-
-    // public vendorId: string;
 
     public cartDetails: ProductDetail[];
 }

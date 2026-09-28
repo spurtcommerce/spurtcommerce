@@ -13,13 +13,11 @@ import { Service } from 'typedi';
 import { TaxService } from '../../core/services/TaxService';
 import { In } from 'typeorm';
 import { VendorTax } from '../../core/models/VendorTax';
-import { ProductService } from '../../core/services/ProductService';
 
 @Service()
 @JsonController('/vendor-tax')
 export class VendorTaxController {
     constructor(
-        private productService: ProductService,
         private vendorTaxService: VendorTaxService,
         private taxService: TaxService
     ) {
@@ -139,19 +137,6 @@ export class VendorTaxController {
             });
         }
 
-        const product = await this.productService.find({
-            where: {
-                taxType: 2, taxValue: In(vendorTaxIds),
-            },
-        });
-        if (product) {
-            const errResponse: any = {
-                status: 0,
-                message: 'You cannot remove this tax as it is already mapped to a product',
-            };
-            return response.status(400).send(errResponse);
-        }
-
         await this.vendorTaxService.delete(vendorTaxIds);
         const successResponse: any = {
             status: 1,
@@ -268,19 +253,6 @@ export class VendorTaxController {
                     status: 0,
                     message: 'Invalid vendor tax.',
                 });
-            }
-
-            const product = await this.productService.find({
-                where: {
-                    taxType: 2, taxId: In(vendorTaxIds),
-                },
-            });
-            if (product.length) {
-                const errResponse: any = {
-                    status: 0,
-                    message: 'You cannot remove this tax as it is already mapped to a product',
-                };
-                return response.status(400).send(errResponse);
             }
 
             await this.vendorTaxService.delete(vendorTaxIds);

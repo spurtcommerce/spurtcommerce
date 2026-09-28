@@ -61,9 +61,6 @@ export class CustomerCheckoutRequest {
     @IsString()
     public shippingCity: string;
 
-    // @MaxLength(10, {
-    //     message: 'shipping postcode should be maximum 10 character',
-    // })
     @IsNotEmpty({
         message: 'Shipping Post Code is required',
     })
@@ -148,9 +145,6 @@ export class CustomerCheckoutRequest {
     })
     public paymentCity: string;
 
-    // @MaxLength(10, {
-    //     message: 'payment postcode should be maximum 10 character',
-    // })
     public paymentPostCode: number;
 
     @MaxLength(128, {

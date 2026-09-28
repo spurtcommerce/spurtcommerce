@@ -512,22 +512,6 @@ export class VendorController {
                         notMandateVenMailContents.productDetailData = undefined;
                         sendMailRes = MAILService.sendMail(notMandateVenMailContents, customerUpdated.email, notMandateEmail.subject.replace('{siteName}', logo.siteName), false, false, '');
                     }
-                    // const emailContentAdmins = await this.emailTemplateService.findOne(12);
-                    // const admincusMessages = emailContentAdmins.content.replace('{name}', 'Admin').replace('{sellerName}', registerParam.firstName).replace('{siteName}', logo.siteName).replace('{siteName}', logo.siteName);
-                    // const adminIds: any = [];
-                    // const adminUsers = await this.userService.findAll({ select: ['username'], where: { userGroupId: 1, deleteFlag: 0 } });
-                    // for (const user of adminUsers) {
-                    //     const val = user.username;
-                    //     adminIds.push(val);
-                    // }
-
-                    // const adminRedirectUrls = env.adminRedirectUrl;
-                    // const mailContentss: any = {};
-                    // mailContentss.setting = logo;
-                    // mailContentss.emailContent = admincusMessages;
-                    // mailContentss.redirectUrl = adminRedirectUrls;
-                    // mailContentss.productDetailData = undefined;
-                    // MAILService.sendMail(mailContentss, adminIds, emailContentAdmins.subject.replace('{sellerName}', customerUpdated.firstName), false, false, '');
 
                     // delete otp
                     await this.registrationOtpService.delete(checkOtp.id);
@@ -623,7 +607,7 @@ export class VendorController {
         const vendor = await this.vendorService.findOne({
             where: { vendorId: vendorUser.tenantId, isDelete: 0 },
         });
-   
+
         const vendorSettings = await this.vendorSettingsService.findOne({ where: { vendorId: vendorUser.tenantId } });
         if (vendorSettings) {
             const vendorCurrencyVal = await this.currencyService.findOne({ where: { currencyId: vendorSettings.storeCurrencyId } });

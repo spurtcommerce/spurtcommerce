@@ -11,8 +11,6 @@ import { Get, JsonController, Res, Req, QueryParam, Param, UseBefore } from 'rou
 import { BlogService } from '../../core/services/BlogService';
 import { BlogRelatedService } from '../../core/services/BlogRelatedService';
 import { BlogCategoryService } from '../../core/services/BlogCategoryService';
-// import { BlogCategoryTranslationService } from '../../core/services/BlogCategoryTranslationService';
-// import { BlogTranslationService } from '../../core/services/BlogTranslationService';
 import { TranslationMiddleware } from '../../../../src/api/core/middlewares/TranslationMiddleware';
 import { VendorUsersService } from '../../../../src/api/core/services/VendorUsersService';
 import { Service } from 'typedi';
@@ -26,8 +24,6 @@ export class StoreBlogListController {
         private blogService: BlogService,
         private blogRelatedService: BlogRelatedService,
         private blogCategoryService: BlogCategoryService,
-        // private blogCategoryTranslationService: BlogCategoryTranslationService,
-        // private blogTranslationService: BlogTranslationService,
         private vendorUsersService: VendorUsersService
     ) {
     }
@@ -126,19 +122,8 @@ export class StoreBlogListController {
             if (blog) {
                 const category = await this.blogCategoryService.findOne({ select: ['blogCategoryId', 'name'], where: { blogCategoryId: blog.categoryId } });
                 temp.categoryName = category ? category?.name : '';
-
-                // const categoryTranslation = await this.blogCategoryTranslationService.findOne({ select: ['name'], where: { blogCategoryId: category.blogCategoryId, languageId: request.languageId } });
-                // temp.categoryTranslationName = categoryTranslation?.name ?? '';
             }
-
-            // const blogTranslation = await this.blogTranslationService.findOne({
-            //     where: {
-            //         blogId: blog.id,
-            //         languageId: request.languageId ?? 0,
-            //     },
-            // });
             temp.relatedBlog = blog;
-            // temp.relatedBlog.relatedBlogTranslation = blogTranslation ?? {};
             return temp;
         });
         const result = await Promise.all(promises);
@@ -240,17 +225,6 @@ export class StoreBlogListController {
             if (getCategoryName) {
                 data.categoryName = getCategoryName.name;
             }
-
-            // const getCategoryTranslation = await this.blogCategoryTranslationService.findOne({
-            //     where: {
-            //         blogCategoryId: getCategoryName.blogCategoryId,
-            //         languageId: request.languageId ?? 0,
-            //     },
-            //     select: ['name'],
-            // });
-
-            // data.categoryTranslationName = getCategoryTranslation?.name ?? '';
-
             const getUser = await this.vendorUsersService.findOne({
                 where: { id: val.createdBy },
                 select: ['firstName', 'avatar', 'avatarPath'],
@@ -384,16 +358,6 @@ export class StoreBlogListController {
                 if (getCategoryName) {
                     data.categoryName = getCategoryName.name;
                 }
-
-                // const getCategoryTranslation = await this.blogCategoryTranslationService.findOne({
-                //     where: {
-                //         blogCategoryId: getCategoryName.blogCategoryId,
-                //         languageId: request.languageId ?? 0,
-                //     },
-                //     select: ['name'],
-                // });
-
-                // data.categoryNameTranslation = getCategoryTranslation?.name ?? '';
 
                 const getUser = await this.vendorUsersService.findOne({
                     where: { id: val.createdBy },
