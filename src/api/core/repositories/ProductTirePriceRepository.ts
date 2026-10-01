@@ -21,9 +21,9 @@ export class ProductTirePriceRepository {
 
         const query: any = await this.repository.manager.createQueryBuilder(ProductTirePrice, 'productTirePrice');
         query.select(['productTirePrice.price as price', 'productTirePrice.quantity as quantity', 'productTirePrice.productId as productId']);
-        query.where('productTirePrice.productId = ' + productId);
-        query.where('productTirePrice.skuId = ' + skuId);
-        query.andWhere('productTirePrice.quantity <= ' + quantity);
+        query.where('productTirePrice.productId = :productId', { productId });
+        query.where('productTirePrice.skuId = :skuId', { skuId });
+        query.andWhere('productTirePrice.quantity <= :quantity', { quantity });
         query.orderBy('productTirePrice.quantity', 'DESC');
         query.limit('1');
         return query.getRawOne();

@@ -334,7 +334,7 @@ export class CustomerController {
             whereConditions.push({
                 name: '`customerGroup`.`name`',
                 op: 'and',
-                value: `"${customerGroupName}"`,
+                value: customerGroupName,
             });
         }
         if (status === '0' || status) {

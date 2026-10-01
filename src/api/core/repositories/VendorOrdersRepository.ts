@@ -39,8 +39,8 @@ export class VendorOrdersRepository {
             query.andWhere('order.paymentStatus = 1 ');
         }
         if (keyword !== undefined && keyword !== '') {
-            query.andWhere('(order.shippingFirstname LIKE ' + "'%" + keyword + "%'" + ' ');
-            query.orWhere('vendorOrder.subOrderId LIKE ' + "'%" + keyword + "%'" + ')');
+            query.andWhere('(order.shippingFirstname LIKE :keyword', { keyword: `%${keyword}%` });
+            query.orWhere('vendorOrder.subOrderId LIKE :keyword)', { keyword: `%${keyword}%` });
         }
         query.orderBy('vendorOrder.createdDate', 'DESC');
         return query.getRawMany();

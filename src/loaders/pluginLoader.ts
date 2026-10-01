@@ -49,7 +49,7 @@ export const pluginLoader: MicroframeworkLoader = async (settings: Microframewor
         });
     }
 
-    // Remove vendor plugins which one does not exist in plugin.
+    // Remove vendor plugins which do not exist in plugin list.
     await getDataSource().transaction(async (manager) => {
         const vendorPluginRepo = manager.getRepository(VendorPlugin);
 
@@ -59,4 +59,6 @@ export const pluginLoader: MicroframeworkLoader = async (settings: Microframewor
         }
     });
 
+    // Note: Demo data migration for Tenant 1 is handled exactly once by the TypeORM migration
+    // 1790500000000-RunDemoDataMigrationForTenant1, which runs automatically on startup.
 };

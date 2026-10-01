@@ -26,16 +26,19 @@ export class ServiceRepository {
     }
     // Keyword Search
     if (searchConditions && searchConditions.length > 0) {
-      searchConditions.forEach((table: any) => {
+      searchConditions.forEach((table: any, index: number) => {
+        if (typeof table.name !== 'string' || !/^[A-Za-z_][A-Za-z0-9_.]*$/.test(table.name)) {
+          return;
+        }
         const operator: string = table.op;
         if (operator === 'where' && table.value !== '') {
-          query.where(table.name + ' = ' + table.value);
+          query.where(`${table.name} = :searchValue_${index}`, { [`searchValue_${index}`]: table.value });
         } else if (operator === 'and' && table.value !== '') {
-          query.andWhere(table.name + ' LIKE ' + "\'%" + table.value + "%\'");
+          query.andWhere(`${table.name} LIKE :likeVal`, { likeVal: `%${table.value}%` });
         } else if (operator === 'or' && table.value !== '') {
-          query.orWhere(table.name + ' LIKE ' + "\'%" + table.value + "%\'");
+          query.orWhere(`${table.name} LIKE :likeVal`, { likeVal: `%${table.value}%` });
         } else if (operator === 'andWhere' && table.value !== undefined && table.value !== '') {
-          query.andWhere(table.name + ' = ' + table.value);
+          query.andWhere(`${table.name} = :searchValue_${index}`, { [`searchValue_${index}`]: table.value });
         }
 
       });
@@ -43,15 +46,20 @@ export class ServiceRepository {
     // Keyword Search
     if (categoryId) {
       if (whereConditions && whereConditions.length > 0) {
-        whereConditions.forEach((table: any) => {
+        whereConditions.forEach((table: any, index: number) => {
+          if (typeof table.name !== 'string' || !/^[A-Za-z_][A-Za-z0-9_.]*$/.test(table.name)) {
+            return;
+          }
           const operator: string = table.op;
           if (operator === 'inraw' && table.value !== undefined) {
+            const parameterName = `categoryId_${index}`;
             const subQb = this.repository.manager
               .getRepository(ServiceToCategory)
               .createQueryBuilder('serviceToCategory')
               .select('service_id')
-              .where('service_category_id = ' + table.value);
-            query.andWhere(table.name + ' IN (' + subQb.getSql() + ')');
+              .where(`service_category_id = :${parameterName}`, { [parameterName]: table.value });
+            query.andWhere(`${table.name} IN (${subQb.getQuery()})`);
+            query.setParameters(subQb.getParameters());
           }
         });
       }

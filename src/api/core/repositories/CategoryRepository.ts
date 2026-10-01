@@ -37,7 +37,7 @@ export class CategoryRepository {
             query.where('category.is_Active = :value', { value: status });
         }
         if (keyword !== undefined && keyword !== '') {
-            query.andWhere('category.name LIKE ' + "'%" + keyword + "%'" + ' ');
+            query.andWhere('category.name LIKE :keyword', { keyword: `%${keyword}%` });
         }
         query.orderBy('category.created_date', 'DESC');
         query.limit(limit);

@@ -14,9 +14,6 @@ import { ProductRepository } from '../repositories/ProductRepository';
 import { Brackets, Like, Not } from 'typeorm';
 import { pluginModule } from '../../../loaders/pluginLoader';
 
-import uncino from 'uncino';
-const hooks = uncino();
-
 @Service()
 export class ProductService {
     constructor(
@@ -54,7 +51,10 @@ export class ProductService {
         condition.where = {};
 
         if (whereConditions && whereConditions.length > 0) {
-            whereConditions.forEach((item: any) => {
+            whereConditions.forEach((item: any, index: number) => {
+                if (item.sign !== undefined && !['=', '!=', '<>', '>', '<', '>=', '<=', 'LIKE', 'NOT LIKE', 'OR'].includes(item.sign)) {
+                    return;
+                }
                 const operator: string = item.op;
                 if (operator === 'where' && item.value !== '') {
                     condition.where[item.name] = item.value;
@@ -178,7 +178,6 @@ export class ProductService {
 
         this.log.info('listByQueryBuilder method called');
 
-        hooks.removeHook('variant-filter', 'variantFilter-namespace');
         const query: any = await getDataSource().getRepository(Product).createQueryBuilder();
         if (select && select.length > 0) {
             query.select(select);
@@ -190,55 +189,47 @@ export class ProductService {
                 } else if (joinTb.op === 'inner') {
                     query.innerJoin(joinTb.tableName, joinTb.aliasName);
                 } else if (joinTb.op === 'leftCond') {
-                    query.leftJoin(joinTb.tableName, joinTb.aliasName, joinTb.cond);
+                    query.leftJoin(joinTb.tableName, joinTb.aliasName, joinTb.cond, joinTb.condParams ?? {});
                 } else if (joinTb.op === 'innerCond') {
-                    query.innerJoin(joinTb.tableName, joinTb.aliasName, joinTb.cond);
+                    query.innerJoin(joinTb.tableName, joinTb.aliasName, joinTb.cond, joinTb.condParams ?? {});
                 } else if (joinTb.op === 'inner-select') {
                     query.innerJoinAndSelect(joinTb.tableName, joinTb.aliasName);
                 } else if (joinTb.op === 'left-select') {
                     query.leftJoinAndSelect(joinTb.tableName, joinTb.aliasName);
                 } else if (joinTb.op === 'left-select-cond') {
-                    query.leftJoinAndSelect(joinTb.tableName, joinTb.aliasName, joinTb.cond);
+                    query.leftJoinAndSelect(joinTb.tableName, joinTb.aliasName, joinTb.cond, joinTb.condParams ?? {});
                 } else {
                     query.innerJoin(joinTb.tableName, joinTb.aliasName);
                 }
             });
         }
         if (whereConditions && whereConditions.length > 0) {
-            const variant = whereConditions.find((condition: { sign: string; }) => condition.sign === 'variant' && pluginModule.includes('ProductVariants'));
-            let variantSql;
-            if (variant) {
-                await hooks.addHook('variant-filter', 'variantFilter-namespace', async () => {
-                    const VariantFilter = await require('../../../../add-ons/ProductVariants/VariantFilterProcess');
-                    return await VariantFilter.variantProcess(variant.value);
-                });
-                variantSql = await hooks.runHook('variant-filter');
-            }
-            whereConditions.forEach((item: any) => {
+            whereConditions.forEach((item: any, index: number) => {
+                if (item.sign !== undefined && !['=', '!=', '<>', '>', '<', '>=', '<=', 'LIKE', 'NOT LIKE', 'OR'].includes(item.sign)) {
+                    return;
+                }
                 if (item.op === 'where' && item.sign === undefined) {
-                    query.where(item.name + ' = ' + item.value);
+                    query.where(`${item.name} = :filterValue_${index}`, { [`filterValue_${index}`]: item.value });
                 } else if (item.op === 'and' && item.sign === undefined) {
-                    query.andWhere(item.name + ' = ' + item.value);
+                    query.andWhere(`${item.name} = :filterValue_${index}`, { [`filterValue_${index}`]: item.value });
                 } else if (item.op === 'and' && item.sign !== undefined) {
-                    query.andWhere(' \'' + item.name + '\'' + ' ' + item.sign + ' \'' + item.value + '\'');
+                    query.andWhere(`${item.name} ${item.sign} :filterValue_${index}`, { [`filterValue_${index}`]: item.value });
                 } else if (item.op === 'raw' && item.sign !== undefined) {
-                    query.andWhere(item.name + ' ' + item.sign + ' \'' + item.value + '\'');
+                    query.andWhere(`${item.name} ${item.sign} :filterValue_${index}`, { [`filterValue_${index}`]: item.value });
                 } else if (item.op === 'raw' && item.sign === undefined) {
                     query.andWhere(item.name + ' ');
                 } else if (item.op === 'rawnumber' && item.sign !== undefined) {
-                    query.andWhere(item.name + ' ' + item.sign + ' ' + item.value + '');
+                    query.andWhere(`${item.name} ${item.sign} :filterValue_${index}`, { [`filterValue_${index}`]: item.value });
                 } else if (item.op === 'rawnumberor' && item.sign !== undefined) {
-                    query.orWhere(item.name + ' ' + item.sign + ' ' + item.value + '');
+                    query.orWhere(`${item.name} ${item.sign} :filterValue_${index}`, { [`filterValue_${index}`]: item.value });
                 } else if (item.op === 'or' && item.sign === undefined) {
-                    query.orWhere(item.name + ' = ' + item.value);
+                    query.orWhere(`${item.name} = :filterValue_${index}`, { [`filterValue_${index}`]: item.value });
                 } else if (item.op === 'IN' && item.sign === undefined) {
-                    query.andWhere(item.name + ' IN (' + item.value + ')');
+                    query.andWhere(`${item.name} IN (:...filterValues_${index})`, { [`filterValues_${index}`]: Array.isArray(item.value) ? item.value : [item.value] });
                 } else if (item.op === 'like' && item.sign === undefined) {
-                    query.andWhere(item.name + ' LIKE ' + ' \'' + item.value + '\'');
+                    query.andWhere(`${item.name} LIKE :filterValue_${index}`, { [`filterValue_${index}`]: item.value });
                 } else if (item.op === 'IS NULL' && item.sign === undefined) {
-                    query.andWhere(item.name + ' IS NULL ' + item.value);
-                } else if (variant) {
-                    query.andWhere(item.name + ' IN (' + variantSql + ') ');
+                    query.andWhere(`${item.name} IS NULL`);
                 }
             });
         }
@@ -251,10 +242,10 @@ export class ProductService {
                             const valuesArray = table.value;
                             valuesArray.forEach((value: string | number, subIndex: number) => {
                                 if (subIndex === 0) {
-                                    qb.andWhere('LOWER(' + name + ')' + ' LIKE ' + '\'%' + value + '%\'');
+                                    qb.andWhere(`LOWER(${name}) LIKE :likeSearch_${subIndex}`, { [`likeSearch_${subIndex}`]: `%${value}%` });
                                     return;
                                 }
-                                qb.orWhere('LOWER(' + name + ')' + ' LIKE ' + '\'%' + value + '%\'');
+                                qb.orWhere(`LOWER(${name}) LIKE :likeSearch_${subIndex}`, { [`likeSearch_${subIndex}`]: `%${value}%` });
                             });
                         }));
                     });
@@ -263,10 +254,10 @@ export class ProductService {
                         const namesArray = table.name;
                         namesArray.forEach((name: string, index: number) => {
                             if (index === 0) {
-                                qb.andWhere('LOWER(' + name + ')' + ' LIKE ' + '\'%' + table.value + '%\'');
+                                qb.andWhere(`LOWER(${name}) LIKE :tableSearch`, { tableSearch: `%${table.value}%` });
                                 return;
                             }
-                            qb.orWhere('LOWER(' + name + ')' + ' LIKE ' + '\'%' + table.value + '%\'');
+                            qb.orWhere(`LOWER(${name}) LIKE :tableSearch`, { tableSearch: `%${table.value}%` });
                         });
                     }));
                 } else if (table.op === undefined && table.value && table.value instanceof Array && table.value.length > 0) {
@@ -274,10 +265,10 @@ export class ProductService {
                         const valuesArray = table.value;
                         valuesArray.forEach((value: string | number, index: number) => {
                             if (index === 0) {
-                                qb.andWhere('LOWER(' + table.name + ')' + ' LIKE ' + '\'%' + value + '%\'');
+                                qb.andWhere(`LOWER(${table.name}) LIKE :valSearch_${index}`, { [`valSearch_${index}`]: `%${value}%` });
                                 return;
                             }
-                            qb.orWhere('LOWER(' + table.name + ')' + ' LIKE ' + '\'%' + value + '%\'');
+                            qb.orWhere(`LOWER(${table.name}) LIKE :valSearch_${index}`, { [`valSearch_${index}`]: `%${value}%` });
                         });
                     }));
                 } else if ((table.op === 'attribute' && table.op !== undefined && table.name && table.name instanceof Array && table.name.length > 0) && (table.value && table.value instanceof Array && table.value.length > 0) && pluginModule.includes('ProductAttribute')) {
@@ -286,11 +277,12 @@ export class ProductService {
                         query.andWhere(new Brackets(qb => {
                             const valuesArray = table.value;
                             valuesArray.forEach((value: any, subIndex: number) => {
+                                const attrVal = this.addSlashes(value.name.toLowerCase().trim() + '-' + value.value.toLowerCase().trim());
                                 if (subIndex === 0) {
-                                    qb.andWhere('LOWER(' + name + ')' + ' LIKE ' + '\'%' + this.addSlashes(value.name.toLowerCase().trim() + '-' + value.value.toLowerCase().trim()) + '%\'');
+                                    qb.andWhere(`LOWER(${name}) LIKE :attrSearch_${subIndex}`, { [`attrSearch_${subIndex}`]: `%${attrVal}%` });
                                     return;
                                 }
-                                qb.orWhere('LOWER(' + name + ')' + ' LIKE ' + '\'%' + this.addSlashes(value.name.toLowerCase().trim() + '-' + value.value.toLowerCase().trim()) + '%\'');
+                                qb.orWhere(`LOWER(${name}) LIKE :attrSearch_${subIndex}`, { [`attrSearch_${subIndex}`]: `%${attrVal}%` });
                             });
                         }));
                     });
@@ -311,11 +303,22 @@ export class ProductService {
         }
         if (sort && sort.length > 0) {
             sort.forEach((item: any, index: number) => {
-                // query.orderBy('' + item.name + '', '' + item.order + '');
                 if (index === 0) {
-                    query.orderBy('' + item.name + '', '' + item.order + '');
+                    const direction = typeof item.order === 'string' ? item.order.toUpperCase() : '';
+
+                    if (direction === 'ASC' || direction === 'DESC') {
+
+                        query.orderBy(item.name, direction);
+
+                    }
                 } else {
-                    query.addOrderBy('' + item.name + '', '' + item.order + '');
+                    const direction = typeof item.order === 'string' ? item.order.toUpperCase() : '';
+
+                    if (direction === 'ASC' || direction === 'DESC') {
+
+                        query.addOrderBy(item.name, direction);
+
+                    }
                 }
             });
         }

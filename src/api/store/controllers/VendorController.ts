@@ -286,7 +286,7 @@ export class VendorStoreController {
             whereConditions.push({
                 name: 'category.categorySlug',
                 op: 'and',
-                value: `${categorySlug}`,
+                value: categorySlug,
             });
         }
 

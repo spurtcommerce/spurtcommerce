@@ -615,6 +615,7 @@ export class CategoryController {
      * @apiErrorExample {json} Category error
      * HTTP/1.1 500 Internal Server Error
      */
+    @Authorized('vendor')
     @Put('/category-slug')
     public async updateSlug(@Res() response: any): Promise<Category> {
         const arr = [];

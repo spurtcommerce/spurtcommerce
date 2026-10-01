@@ -34,7 +34,7 @@ export class VendorCategoryRepository {
         query.where('vendorCategory.vendorId = :id', { id: vendorId });
         query.groupBy('CategoryPath.category_id');
         if (keyword) {
-            query.andWhere('category.name LIKE ' + "'%" + keyword + "%'" + ' ');
+            query.andWhere('category.name LIKE :keyword', { keyword: `%${keyword}%` });
         }
         query.limit(limit);
         query.offset(offset);

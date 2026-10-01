@@ -51,7 +51,6 @@ import { VendorInvoiceItem } from '../../core/models/VendorInvoiceItem';
 import { SkuService } from '../../core/services/SkuService';
 import { CustomerBackorderRequest } from './requests/CustomerBackorderRequest';
 import { CheckCustomerMiddleware, CheckTokenMiddleware } from '../../core/middlewares/checkTokenMiddleware';
-import { pluginModule } from '../../../loaders/pluginLoader';
 import * as fs from 'fs';
 import { TranslationMiddleware } from '../../core/middlewares/TranslationMiddleware';
 import { VendorGroupService } from '../../core/services/VendorGroupService';
@@ -63,10 +62,9 @@ import { VendorCountryService } from '../../core/services/VendorCountryService';
 import { VendorPluginService } from '../../core/services/VendorPluginService';
 import { VendorUsersService } from '../../core/services/VendorUsersService';
 import { PaymentRuleService } from '../../core/services/PaymentRuleService';
-import Container, { Service } from 'typedi';
 import { ZoneService } from '../../core/services/zoneService';
 import { CurrencyService } from '../../core/services/CurrencyService';
-import { StoreCategoryValidator } from '../../../../src/api/core/middlewares/StoreCategoryValidatorMiddleware';
+import { Service } from 'typedi';
 
 interface CustomerCartCondition {
     productId: number;
@@ -320,67 +318,14 @@ export class CustomerOrderController {
 
     // Customer Checkout Function
     @UseBefore(CheckTokenMiddleware)
-    @UseBefore(StoreCategoryValidator)
     @Post('/customer-checkout')
     public async customerCheckout(@Body({ validate: true }) checkoutParam: CustomerCheckoutRequest, @Req() request: any, @Res() response: any): Promise<any> {
 
         // const logo = await this.settingService.findOne();
         const vendorSetting = await this.vendorSettingsService.findOne({ where: { vendorId: request.tenantId } });
         const vendorData = await this.vendorService.findOne({ where: { vendorId: request.tenantId } });
-        const coupon = {
-            couponCode: checkoutParam.couponCode,
-            couponData: checkoutParam.couponData,
-            couponDiscount: checkoutParam.couponDiscountAmount,
-        };
-
-        // Coupon Validation
-        if (pluginModule.includes('Coupon')) {
-            const importPath = __dirname + '/../../../../add-ons/Coupon/coupon';
-            const Coupon = await require(importPath);
-            const pluginResponse: any = await Coupon.process(coupon);
-
-            if (pluginResponse === 'error') {
-                return {
-                    status: 0,
-                    message: 'Invalid Coupon',
-                };
-            }
-        }
-
         const dynamicData: any = {};
         const orderProducts: any = checkoutParam.productDetails;
-
-        if (pluginModule.includes('RfqAndQuotes') && checkoutParam.orderSource === 'quote') {
-
-            const { QuoteDetailService } = require('../../../../add-ons/RfqAndQuotes/services/QuoteDetailService');
-            const quoteDetailService: any = Container.get(QuoteDetailService);
-
-            const quoteDetails = await quoteDetailService.find({ where: { quoteId: checkoutParam.quoteId } });
-            if (!quoteDetails.length) {
-                return response.status(400).send({
-                    status: 0,
-                    message: 'Invalid quote.',
-                });
-            }
-            orderProducts.map(product => {
-                const quoteData = quoteDetails.find(item => item.skuId === product.skuId);
-                if (quoteData) {
-                    product.price = quoteData.offeredPrice;
-                    product.quantity = quoteData.quantity;
-                }
-                return product;
-            });
-        }
-
-        let priceGroupAddonExist = false;
-        let customerPriceBySkuAndCustomerId;
-
-        if (pluginModule.includes('ProductPriceGroup') && await this.vendorPluginService.findOne({ where: { vendorId: request.tenantId, isActive: 1, plugins: { slugName: 'product-price-group', pluginStatus: 1 } }, relations: ['plugins'] })) {
-            priceGroupAddonExist = true;
-            const importPath = __dirname + '/../../../../add-ons/ProductPriceGroup/priceGroupHook';
-            const { getCustomerPriceBySkuAndCustomerId } = require(importPath);
-            customerPriceBySkuAndCustomerId = getCustomerPriceBySkuAndCustomerId;
-        }
 
         for (const val of orderProducts) {
             /// for find product price with tax , option price, special, discount and tire price /////
@@ -389,27 +334,11 @@ export class CustomerOrderController {
             let taxValue: any;
             let tirePrice = 0;
             let priceWithTax: any;
-            let priceGroupDetailId = 0;
             const productTire: any = await this.productService.findOne({ where: { productId: val.productId } });
             taxType = productTire.taxType;
             taxValue = productTire.taxValue;
             const sku: any = await this.skuService.findOne({ where: { skuName: val.skuName } });
             if (sku) {
-                if (checkoutParam.orderSource === 'quote') {
-                    tirePrice = val.price;
-                } else {
-                    const customerPrice = [];
-                    if (priceGroupAddonExist) {
-                        customerPrice.push(...(await customerPriceBySkuAndCustomerId(sku.id, request.id ?? 0)));
-                    }
-                    if (customerPrice.length) {
-                        const customerPriceSort = customerPrice.sort((a, b) => b.maxQuantity - a.maxQuantity);
-                        const priceByQuantity = customerPriceSort.find((custPrice) => val.quantity >= custPrice.maxQuantity);
-                        if (priceByQuantity) {
-                            tirePrice = priceByQuantity.price;
-                            priceGroupDetailId = priceByQuantity.id;
-                        }
-                    }
                     if (!tirePrice) {
                         const findWithQty = await this.productTirePriceService.findTirePrice(val.productId, sku.id, val.quantity);
                         if (findWithQty) {
@@ -428,7 +357,6 @@ export class CustomerOrderController {
                             }
                         }
                     }
-                }
             } else {
                 tirePrice = productTire.price;
             }
@@ -451,7 +379,6 @@ export class CustomerOrderController {
             obj.tirePrice = tirePrice;
             obj.productTire = productTire;
             obj.quantity = val.quantity;
-            obj.priceGroupDetailId = priceGroupDetailId;
             dynamicData[val.skuName] = obj;
         }
         for (const val of orderProducts) {
@@ -613,7 +540,6 @@ export class CustomerOrderController {
         newOrder.paymentRuleId = checkoutParam.paymentRuleId;
         newOrder.paymentTermId = checkoutParam.paymentTermId;
         newOrder.createdByType = 'buyer';
-        newOrder.orderSource = checkoutParam.orderSource;
         newOrder.shippingCostOverride = checkoutParam.shippingCostOverride;
         const orderData: any = await this.orderService.create(newOrder);
         await this.orderLogService.create({ orderLogId: undefined, ...orderData });
@@ -622,9 +548,6 @@ export class CustomerOrderController {
         let j = 1;
         for (i = 0; i < orderProduct.length; i++) {
             // finding price from backend ends
-            if (checkoutParam.orderSource === 'quote') {
-                orderProduct[i].quantity = dynamicData[orderProduct[i].skuName].quantity;
-            }
             const dynamicPrices = dynamicData[orderProduct[i].skuName];
             const productDetails = {} as any;
             productDetails.productId = orderProduct[i].productId;
@@ -643,7 +566,6 @@ export class CustomerOrderController {
             productDetails.total = +orderProduct[i].quantity * dynamicPrices.price;
             productDetails.model = dynamicPrices.productTire.name;
             productDetails.skuName = orderProduct[i].skuName ? orderProduct[i].skuName : '';
-            productDetails.priceGroupDetailId = dynamicPrices.priceGroupDetailId;
             const orderStatus = await this.orderStatusService.findOne({ where: { statusId: 1, tenantId: request.tenantId } });
             productDetails.orderStatusId = orderStatus.orderStatusId;
             productDetails.createdDate = moment().format('YYYY-MM-DD HH:mm:ss');
@@ -654,9 +576,6 @@ export class CustomerOrderController {
             const customerCartCondition = {} as any;
             customerCartCondition.productId = orderProduct[i].productId;
             customerCartCondition.customerId = orderData.customerId;
-            if (!request.id && pluginModule.includes('AbandonedCart')) {
-                customerCartCondition.ip = orderData.ip;
-            }
             const cart: any = await this.customerCartService.findOne({ where: customerCartCondition });
             if (cart) {
                 await this.customerCartService.delete(cart.id);
@@ -768,37 +687,16 @@ export class CustomerOrderController {
             j++;
         }
 
-        // Coupon Code Plugin
-        let couponData: {
-            total: any,
-            couponCode: string,
-            discountAmount: any
-        } = { total: 0, couponCode: '', discountAmount: 0 };
-        if (pluginModule.includes('Coupon')) {
-            const importPath = __dirname + '/../../../../add-ons/Coupon/coupon';
-            const Coupon = await require(importPath);
-            couponData = await Coupon.process(coupon, orderData, dynamicData, totalAmount);
-        }
-        // ---
-
+        newOrderTotal.createdDate = moment().format('YYYY-MM-DD HH:mm:ss');
+        newOrderTotal.modifiedDate = moment().format('YYYY-MM-DD HH:mm:ss');
+        newOrder.amount = totalAmount;
+        newOrder.total = totalAmount + (+checkoutParam.shippingCostOverride);
+        newOrderTotal.value = totalAmount + (+checkoutParam.shippingCostOverride);
         newOrder.invoiceNo = 'INV00'.concat(orderData.orderId);
         const nowDate = new Date();
         const orderDate = nowDate.getFullYear() + ('0' + (nowDate.getMonth() + 1)).slice(-2) + ('0' + nowDate.getDate()).slice(-2);
         newOrder.orderPrefixId = vendorSettings.invoicePrefix.concat('-' + orderDate + orderData.orderId);
         newOrderTotal.orderId = orderData.orderId;
-        newOrderTotal.createdDate = moment().format('YYYY-MM-DD HH:mm:ss');
-        newOrderTotal.modifiedDate = moment().format('YYYY-MM-DD HH:mm:ss');
-        if (couponData.discountAmount) {
-            newOrder.total = couponData.total + (+checkoutParam.shippingCostOverride);
-            newOrder.couponCode = couponData.couponCode;
-            newOrder.discountAmount = couponData.discountAmount;
-            newOrder.amount = totalAmount;
-            newOrderTotal.value = totalAmount - couponData.discountAmount + (+checkoutParam.shippingCostOverride);
-        } else {
-            newOrder.amount = totalAmount;
-            newOrder.total = totalAmount + (+checkoutParam.shippingCostOverride);
-            newOrderTotal.value = totalAmount + (+checkoutParam.shippingCostOverride);
-        }
         await this.orderService.update(orderData.orderId, newOrder);
         await this.orderTotalService.createOrderTotalData(newOrderTotal);
 
@@ -900,28 +798,6 @@ export class CustomerOrderController {
             return results;
         });
 
-        const vendorPlugin = await this.vendorPluginService.findOne(
-            {
-                where: {
-                    vendorId: request.tenantId,
-                    isActive: 1,
-                    plugins: {
-                        pluginName: 'ShoppingCart',
-                        pluginStatus: 1,
-                    },
-                },
-                relations: ['plugins'],
-            }
-        );
-        if (checkoutParam.shoppingCartId && pluginModule.includes('ShoppingCart') && vendorPlugin) {
-            const importPath = '../../../../add-ons/ShoppingCart/ShoppingCartHook';
-            const shoppingCart = await require(importPath);
-            const shoppingCartData = await shoppingCart.findOne({ where: { id: checkoutParam.shoppingCartId, isOrdered: 0 } });
-            if (shoppingCartData) {
-                shoppingCartData.isOrdered = 1;
-                await shoppingCart.update(shoppingCartData.id, shoppingCartData);
-            }
-        }
         return {
             status: 1,
             message: 'You have successfully placed order. order details sent to your mail',
@@ -1127,7 +1003,6 @@ export class CustomerOrderController {
      */
     // Customer Checkout Function
     @UseBefore(CheckTokenMiddleware)
-    @UseBefore(StoreCategoryValidator)
     @Post('/back-order-checkout')
     public async backOrderCustomerCheckout(@Body({ validate: true }) checkoutParam: CustomerBackorderRequest, @Res() response: any, @Req() request: any): Promise<any> {
         const vendorSetting = await this.vendorSettingsService.findOne({ where: { vendorId: request.tenantId } });
@@ -1142,7 +1017,7 @@ export class CustomerOrderController {
                 [],
                 [
                     { name: 'order.backOrders', op: 'where', value: 1 },
-                    { name: 'OrderProduct.skuName', op: 'and', value: `'${val.skuName}'` },
+                    { name: 'OrderProduct.skuName', op: 'and', value: val.skuName },
                 ],
                 [],
                 [{ tableName: 'OrderProduct.order', aliasName: 'order' }],
@@ -1394,9 +1269,6 @@ export class CustomerOrderController {
             const customerCartCondition = {} as CustomerCartCondition;
             customerCartCondition.productId = orderProduct[i].productId;
             customerCartCondition.customerId = orderExist.customerId;
-            if (!request.id && pluginModule.includes('AbandonedCart')) {
-                customerCartCondition.ip = orderExist.ip;
-            }
             const cart = await this.customerCartService.findOne({ where: customerCartCondition });
             if (cart) {
                 await this.customerCartService.delete(cart.id);
@@ -2456,15 +2328,7 @@ export class CustomerOrderController {
 
         const pluginInfo = JSON.parse(vendorPluginData.pluginAdditionalInfo);
 
-        let route = env.baseUrl + pluginInfo.processRoute + '/' + payload.orderPrefixId;
-        if (vendorPluginData.pluginName === 'razorpay' && payload.isMobile) {
-            route = env.baseUrl + pluginInfo.processAPIRoute + '/' + payload.orderPrefixId;
-            return response.status(200).send({
-                status: 4,
-                message: 'Redirect to this url',
-                data: { route },
-            });
-        }
+        const route = env.baseUrl + pluginInfo.processRoute + '/' + payload.orderPrefixId;
         return response.status(200).send({
             status: 3,
             message: 'Redirect to this url',
@@ -2541,7 +2405,8 @@ export class CustomerOrderController {
                 {
                     tableName: 'productInformationDetail.productTranslation',
                     op: 'left-cond',
-                    cond: `productTranslation.languageId = ${request.languageId}`,
+                    cond: 'productTranslation.languageId = :condLanguageId',
+                    condParams: { condLanguageId: request.languageId },
                     aliasName: 'productTranslation',
                 }
             );

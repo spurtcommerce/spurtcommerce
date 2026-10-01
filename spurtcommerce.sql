@@ -626,7 +626,7 @@ INSERT INTO `country` (`country_id`, `name`, `iso_code_2`, `iso_code_3`, `addres
 (113, 'South Korea', 'KR', 'KOR', '', 0, 1, NULL, NULL, NULL, NULL),
 (114, 'Kuwait', 'KW', 'KWT', '', 0, 1, NULL, NULL, NULL, NULL),
 (115, 'Kyrgyzstan', 'KG', 'KGZ', '', 0, 1, NULL, NULL, NULL, NULL),
-(116, 'Lao People\'s Democratic Republic', 'LA', 'LAO', '', 0, 1, NULL, NULL, NULL, NULL),
+(116, 'Lao Peoples Democratic Republic', 'LA', 'LAO', '', 0, 1, NULL, NULL, NULL, NULL),
 (117, 'Latvia', 'LV', 'LVA', '', 0, 1, NULL, NULL, NULL, NULL),
 (118, 'Lebanon', 'LB', 'LBN', '', 0, 1, NULL, NULL, NULL, NULL),
 (119, 'Lesotho', 'LS', 'LSO', '', 0, 1, NULL, NULL, NULL, NULL),
@@ -857,6 +857,7 @@ CREATE TABLE `customer` (
   `dob` date DEFAULT NULL,
   `tenant_id` int DEFAULT NULL,
   `is_vendor` tinyint DEFAULT NULL,
+  `payment_term_id` int DEFAULT NULL,
   `company_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `tax_number` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -975,7 +976,8 @@ CREATE TABLE `customer_group` (
   `modified_date` datetime DEFAULT NULL,
   `color_code` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `vendor_id` int DEFAULT NULL,
-  `is_delete` int DEFAULT NULL
+  `is_delete` int DEFAULT NULL,
+  `payment_term_id` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -2765,17 +2767,9 @@ CREATE TABLE `order` (
   `shipping_cost_override` decimal(10,2) NOT NULL DEFAULT '0.00',
   `created_by_type` enum('buyer','seller') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `order_source` enum('quote','rfq','shopping-cart','quick-order') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `fullfillment_status_id` int DEFAULT NULL
+  `fullfillment_status_id` int DEFAULT NULL,
+  `payment_term_id` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
-
--- --------------------------------------------------------
-
---
--- Table structure for table `order_archive_log`
---
 
 -- --------------------------------------------------------
 
@@ -3257,7 +3251,25 @@ INSERT INTO `payment_method` (`id`, `name`, `slug`, `sort_order`, `is_active`, `
 (1, 'Payment Terms', 'payment-terms', 1, 1, 0, '2025-09-03 06:46:50', NULL, NULL, '2025-09-03 06:46:52'),
 (2, 'Check/Money Order', 'check-money-order', 2, 1, 0, '2025-09-03 06:46:50', NULL, NULL, '2025-09-03 06:46:52');
 
+-- --------------------------------------------------------
 
+--
+-- Table structure for table `payment_term`
+--
+
+CREATE TABLE `payment_term` (
+  `id` int NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `slug` varchar(255) DEFAULT NULL,
+  `term_days` int DEFAULT NULL,
+  `is_active` tinyint DEFAULT '1',
+  `is_delete` tinyint DEFAULT '0',
+  `created_by` int DEFAULT NULL,
+  `created_date` datetime DEFAULT CURRENT_TIMESTAMP,
+  `modified_by` int DEFAULT NULL,
+  `modified_date` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `tenant_id` int DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -3985,8 +3997,6 @@ CREATE TABLE `settings` (
   `addons` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   `site_name` varchar(225) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `business_name` varchar(225) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `access_key` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
-  `site_category` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   `store_description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   `store_address1` varchar(225) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `store_address2` varchar(225) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -4024,8 +4034,8 @@ CREATE TABLE `settings` (
 -- Dumping data for table `settings`
 --
 
-INSERT INTO `settings` (`settings_id`, `site_url`, `meta_tag_title`, `meta_tag_description`, `meta_tag_keywords`, `store_name`, `store_owner`, `store_address`, `country_id`, `zone_id`, `store_email`, `store_telephone`, `store_fax`, `store_logo`, `store_logo_path`, `maintenance_mode`, `store_language_name`, `store_currency_id`, `store_image`, `store_image_path`, `google`, `facebook`, `twitter`, `instagram`, `order_status`, `invoice_prefix`, `items_per_page`, `category_product_count`, `is_active`, `created_date`, `modified_date`, `created_by`, `modified_by`, `email_logo`, `email_logo_path`, `invoice_logo`, `invoice_logo_path`, `addons`, `site_name`, `business_name`, `access_key`, `site_category`, `store_description`, `store_address1`, `store_address2`, `store_city`, `store_postal_code`, `store_secondary_language_name`, `currency_symbol`, `currency_format`, `date_format`, `time_format`, `default_country`, `country`, `pending_status`, `default_website`, `default_language_id`, `is_guest_allowed`, `instagram_logo`, `facebook_logo`, `linkedin_logo`, `x_logo`, `youtube_logo`, `social_path`, `linkedin`, `youtube`, `admin_logo`, `admin_logo_path`, `seller_logo`, `seller_logo_path`, `seller_logo2`, `seller_logo2_path`, `time_zone`) VALUES
-(2, 'https://spurtcommerce-marketplace-store.vercel.app/', 'Spurtcommercess', 'Spurtcommercess', 'Spurtcommercess', 'Spurtcommerce Multi Vendor Platform ', 'Admin', 'Chennai, Tamil Nadu, India ', 99, '76', 'test@qycle.com', '0442953545', '1221', 'Img_1729586561999.jpeg', 'storeLogo/', 0, 'French', 46, 'storeImage', NULL, 'https://plus.google.com/106505712715559114904', 'https://www.facebook.com/spurtcommerce/', 'https://x.com/Spurtcommerce', 'https://www.instagram.com/spurtcommerce/', 1, 'SPURT', 0, 0, 1, '2019-02-13 06:00:00', '2024-10-22 08:57:32', NULL, NULL, 'logo.jpg', 'storesLogo/', 'InvoiceLogo_1729586615432.jpeg', 'storeLogo/', '{\"product-attribute\":true,\"coupon\":true,\"chat\":false,\"common-catalog\":true,\"abandoned-cart\":true,\"seo\":true,\"rating-review\":true,\"product-related\":true,\"product-qrcode\":true,\"product-variants\":true,\"product-quotation\":true,\"blog\":true,\"question-answer\":true,\"cash-on-delivery\":true,\"widget\":true,\"paypal\":true,\"razorpay\":true,\"stripe\":true,\"facebook\":true,\"gmail\":true,\"null\":true,\"product-price-group\":true,\"webhook\":true,\"supplier-management\":true}', 'SpurtB2B', 'SpurtCart', '8097571064818418', 'craft-supplies,travel-and-luggage,art-and-collectibles,jewelry-and-accessories,food-and-beverages,toys-and-games,sports-and-outdoors,home-and-garden,packaging-and-paper,gifts-and-crafts,construction-and-real-estate1,mens-bottom-wear,electrical-and-electronics', 'Spurtcommerce website', 'SpurtCart', 'Radcliffe Road ', 'Mumbai ', '600028', 'English', '$', NULL, 'dd/MM/yyyy', '12 hrs', '99', '3,6', NULL, 1, 57, 1, 'instagram_1717241905383.png', 'facebook_1717241584201.png', 'linkdin_1717242258958.png', 'x_1717242027394.png', 'youtube_1717241980138.png', 'social/', 'https://www.linkedin.com/company/spurtcommerce/', 'https://www.youtube.com/channel/UCfq0-RDusnkNE9mjY-s2AmA ', 'AdminLogo1729586808601.jpeg', 'storeLogo/', 'sellerLogo1729587335730.jpeg', 'storeLogo/', 'sellerLogo1729587368365.jpeg', 'storeLogo/', NULL);
+INSERT INTO `settings` (`settings_id`, `site_url`, `meta_tag_title`, `meta_tag_description`, `meta_tag_keywords`, `store_name`, `store_owner`, `store_address`, `country_id`, `zone_id`, `store_email`, `store_telephone`, `store_fax`, `store_logo`, `store_logo_path`, `maintenance_mode`, `store_language_name`, `store_currency_id`, `store_image`, `store_image_path`, `google`, `facebook`, `twitter`, `instagram`, `order_status`, `invoice_prefix`, `items_per_page`, `category_product_count`, `is_active`, `created_date`, `modified_date`, `created_by`, `modified_by`, `email_logo`, `email_logo_path`, `invoice_logo`, `invoice_logo_path`, `addons`, `site_name`, `business_name`, `store_description`, `store_address1`, `store_address2`, `store_city`, `store_postal_code`, `store_secondary_language_name`, `currency_symbol`, `currency_format`, `date_format`, `time_format`, `default_country`, `country`, `pending_status`, `default_website`, `default_language_id`, `is_guest_allowed`, `instagram_logo`, `facebook_logo`, `linkedin_logo`, `x_logo`, `youtube_logo`, `social_path`, `linkedin`, `youtube`, `admin_logo`, `admin_logo_path`, `seller_logo`, `seller_logo_path`, `seller_logo2`, `seller_logo2_path`, `time_zone`) VALUES
+(2, 'https://spurtcommerce-marketplace-store.vercel.app/', 'Spurtcommercess', 'Spurtcommercess', 'Spurtcommercess', 'Spurtcommerce Multi Vendor Platform ', 'Admin', 'Chennai, Tamil Nadu, India ', 99, '76', 'test@qycle.com', '0442953545', '1221', 'Img_1729586561999.jpeg', 'storeLogo/', 0, 'French', 46, 'storeImage', NULL, 'https://plus.google.com/106505712715559114904', 'https://www.facebook.com/spurtcommerce/', 'https://x.com/Spurtcommerce', 'https://www.instagram.com/spurtcommerce/', 1, 'SPURT', 0, 0, 1, '2019-02-13 06:00:00', '2024-10-22 08:57:32', NULL, NULL, 'logo.jpg', 'storesLogo/', 'InvoiceLogo_1729586615432.jpeg', 'storeLogo/', '{\"product-attribute\":true,\"coupon\":true,\"chat\":false,\"common-catalog\":true,\"abandoned-cart\":true,\"seo\":true,\"rating-review\":true,\"product-related\":true,\"product-qrcode\":true,\"product-variants\":true,\"product-quotation\":true,\"blog\":true,\"question-answer\":true,\"cash-on-delivery\":true,\"widget\":true,\"paypal\":true,\"razorpay\":true,\"stripe\":true,\"facebook\":true,\"gmail\":true,\"null\":true,\"product-price-group\":true,\"webhook\":true,\"supplier-management\":true}', 'SpurtB2B', 'SpurtCart', 'Spurtcommerce website', 'SpurtCart', 'Radcliffe Road ', 'Mumbai ', '600028', 'English', '$', NULL, 'dd/MM/yyyy', '12 hrs', '99', '3,6', NULL, 1, 57, 1, 'instagram_1717241905383.png', 'facebook_1717241584201.png', 'linkdin_1717242258958.png', 'x_1717242027394.png', 'youtube_1717241980138.png', 'social/', 'https://www.linkedin.com/company/spurtcommerce/', 'https://www.youtube.com/channel/UCfq0-RDusnkNE9mjY-s2AmA ', 'AdminLogo1729586808601.jpeg', 'storeLogo/', 'sellerLogo1729587335730.jpeg', 'storeLogo/', 'sellerLogo1729587368365.jpeg', 'storeLogo/', NULL);
 
 -- --------------------------------------------------------
 
@@ -5238,7 +5248,12 @@ CREATE TABLE `vendor_settings` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
-
+--
+--  Table structure for table `vendor_settings`
+--
+INSERT INTO vendor_settings (id, vendor_id, store_name, store_email, site_name, business_name, is_active)
+   VALUES (1, 1, 'My Store', 'community@spurtcart.com', 'My Store', 'My Store', 1);  
+-- --------------------------------------------------------
 --
 -- Table structure for table `vendor_settings_domain`
 --
@@ -5699,8 +5714,7 @@ ALTER TABLE `customer`
   ADD KEY `id` (`id`),
   ADD KEY `fk_customer_vendor_tenant_id` (`tenant_id`);
 
-ALTER TABLE customer
-   ADD COLUMN payment_term_id INT NULL;
+
 --
 -- Indexes for table `customer_activity`
 --
@@ -8004,12 +8018,6 @@ ALTER TABLE `vendor_product`
 --
 ALTER TABLE `vendor_product_additional_file`
   ADD CONSTRAINT `fk_vendor_product` FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `vendor_settings`
---
-ALTER TABLE `vendor_settings`
-  ADD CONSTRAINT `FK_dd4d271c58fcef10e7fca98d2ee` FOREIGN KEY (`vendor_id`) REFERENCES `vendor` (`vendor_id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `vendor_tax`

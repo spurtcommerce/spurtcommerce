@@ -9,7 +9,6 @@ export * from '../api/core/middlewares/SanitizeMiddleware';
 export * from '../api/core/middlewares/SecurityHstsMiddleware';
 export * from '../api/core/middlewares/SecurityMiddleware';
 export * from '../api/core/middlewares/SecurityNoCacheMiddleware';
-export * from '../api/core/middlewares/StoreCategoryValidatorMiddleware';
 export * from '../api/core/middlewares/TenantValidationMiddleware';
 export * from '../api/core/middlewares/TranslationMiddleware';
 export * from '../api/core/middlewares/VendorAuditLogMiddleware';

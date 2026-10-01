@@ -18,7 +18,7 @@ export const publicLoader: MicroframeworkLoader = (settings: MicroframeworkSetti
             // Serve static filles like images from the public folder
             .use(express.static(path.join(__dirname, '..', 'public'), { maxAge: 31557600000 }))
 
-            .use(express.static(path.join(__dirname, '../../', 'views/assets'), { maxAge: 31557600000 }))
+            .use(express.static(path.join(process.cwd(), 'views/assets'), { maxAge: 31557600000 }))
 
             // A favicon is a visual cue that client software, like browsers, use to identify a site
             .use(favicon(path.join(__dirname, '..', 'public', 'favicon.ico')));

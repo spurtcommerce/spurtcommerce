@@ -300,11 +300,11 @@ export async function demoDataMigrate(data: any, vendorCountryId: number, vendor
         const orderStatus: any = await orderStatusRepo.findOne({ where: { statusId: 1, tenantId } });
         vendorSettings.vendorId = tenantId;
         // vendorSettings.siteName = data.companyName;
-        vendorSettings.siteName = 'spurtB2B';
+        vendorSettings.siteName = 'spurtB2C';
         // vendorSettings.storeUrl = env.storeRedirectUrl.split('//')[0] + '//' + data.companyName + '.' + env.storeRedirectUrl.split('//')[1];
         vendorSettings.storeUrl = env.storeRedirectUrl;
-        vendorData.companyDescription = 'SpurtB2B Cloud is a scalable, cloud-based B2B eCommerce platform designed to help enterprises build, manage, and grow effortlessly';
-        vendorSettings.storeTitle = 'Spurtb2b Cloud';
+        vendorData.companyDescription = 'SpurtB2c is a scalable, cloud-based B2C eCommerce platform designed to help enterprises build, manage, and grow effortlessly';
+        vendorSettings.storeTitle = 'Spurtb2C';
         vendorSettings.businessName = `${data.companyName} market vendors`;
         vendorSettings.storeOwner = data.customer.firstName;
         vendorSettings.storeEmail = data.customer.email;

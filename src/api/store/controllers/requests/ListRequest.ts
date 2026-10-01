@@ -14,12 +14,6 @@ export interface AttributeDetails {
     value?: string;
 }
 
-export interface VariantDetails {
-    name?: string;
-
-    value?: string;
-}
-
 export class ListRequest {
 
     public limit: number;
@@ -37,8 +31,6 @@ export class ListRequest {
     public price: string;
 
     public count: number;
-
-    public variant: string;
 
     public attribute: string;
 

@@ -33,7 +33,7 @@ export class BlogCategoryRepository {
             query.where('category.is_Active = :value', { value: status });
         }
         if (keyword && keyword !== '') {
-            query.andWhere('category.name LIKE ' + "'%" + keyword + "%'" + ' ');
+            query.andWhere('category.name LIKE :keyword', { keyword: `%${keyword}%` });
         }
         if (tenantId) {
             query.where('category.tenant_id = :value', { value: tenantId });

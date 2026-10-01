@@ -700,7 +700,15 @@ export class CustomerAddressController {
     // API is called Automactically (Axios) when Customer Log's in..!
     //  Mapping Service API
     @Put('/live/address')
-    public async UpdateLiveAddress(@Body({ validate: true }) customer: { data: { token: string, ip: number } }, @Res() response: ExpressResponse): Promise<ExpressResponse> {
+    public async UpdateLiveAddress(@Body({ validate: false }) customer: { data?: { token: string, ip: number } }, @Res() response: ExpressResponse): Promise<ExpressResponse> {
+        // Guard against a missing or malformed request body — the 'data' wrapper is
+        // required but routing-controllers does not validate plain-object types.
+        if (!customer || !customer.data || !customer.data.token) {
+            return response.status(400).send({
+                status: 0,
+                message: 'Request body must contain data.token and data.ip.',
+            });
+        }
         const customerParam = customer.data;
         const user = await this.authSerivce.decryptToken(customerParam.token);
         const liveAddress: LiveAddress = await this.liveAddresService.findOne({

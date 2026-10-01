@@ -43,12 +43,10 @@ import { TenantValidationMiddleware } from '../../../api/core/middlewares/Tenant
 import { VendorService } from '../../core/services/VendorService';
 import { VendorSettingsService } from '../../core/services/VendorSettingsService';
 import { VendorPluginService } from '../../core/services/VendorPluginService';
-import { pluginModule } from '../../../loaders/pluginLoader';
 import { CustomerUsers } from '../../core/models/CustomerUsers';
 import { CustomerUsersService } from '../../core/services/CustomerUsersService';
 import { VendorUsersService } from '../../core/services/VendorUsersService';
 import { Service } from 'typedi';
-import { StoreCategoryValidator } from '../../../api/core/middlewares/StoreCategoryValidatorMiddleware';
 
 @Service()
 @UseBefore(TenantValidationMiddleware)
@@ -170,7 +168,13 @@ export class StoreCustomerController {
         // const logo = await this.settingService.findOne();
         const vendorSetting = await this.vendorSettingsService.findOne({ where: { vendorId: request.tenantId } });
         const vendor = await this.vendorService.findOne({ where: { vendorId: request.tenantId } });
-        const findEmailTemplate: any = await this.emailTemplateService.findOne({ where: { emailTemplateId: 31 } });
+        const findEmailTemplate: any = await this.emailTemplateService.findOne({ where: { title: 'otp' } });
+        if (!findEmailTemplate) {
+            return response.status(200).send({
+                status: createUserOTP ? 1 : 0,
+                message: createUserOTP ? 'OTP successfully sent to the provided email address' : 'Failed to send the OTP',
+            });
+        }
         const templateDate = findEmailTemplate.content.replace('{3}', createUserOTP.otp).replace('{appName}', vendorSetting?.siteName ?? '').replace('{type}', 'Buyer').replace('{type}', 'Buyer').replace('{siteName}', vendorSetting?.siteName ?? '').replace('{duration}', 3);
         const storeUrl = await this.vendorSettingsService.getVendorDomainOrDefault(request.tenantId, request.get('referer'));
         const mailContent: any = {};
@@ -220,7 +224,6 @@ export class StoreCustomerController {
      */
     // Customer Register Function
     @Post('/register')
-    @UseBefore(StoreCategoryValidator)
     public async register(@Body({ validate: true }) registerParam: CustomerRegisterRequest, @Req() request: any, @Res() response: any): Promise<any> {
         // Chek otp-validation
         const checkOtp = await this.registrationOtpService.findOne({ where: { emailId: registerParam.emailId, userType: 2, otp: registerParam.otp, isActive: 1, isDelete: 0, tenantId: request.tenantId } });
@@ -266,32 +269,6 @@ export class StoreCustomerController {
         customerUser.isSuperCustomer = 1;
         customerUser.customerId = saveCustomer.id;
         await this.customerUsersService.create(customerUser);
-
-        const vendorPlugin = await this.vendorPluginService.findOne(
-            {
-                where: {
-                    vendorId: request.tenantId,
-                    isActive: 1,
-                    plugins: {
-                        pluginName: 'ShoppingCart',
-                        pluginStatus: 1,
-                    },
-                },
-                relations: ['plugins'],
-            }
-        );
-
-        if (pluginModule.includes('ShoppingCart') && vendorPlugin) {
-            const importPath = '../../../../add-ons/ShoppingCart/ShoppingCartHook';
-            const shoppingCart = await require(importPath);
-
-            const newShoppingCart: any = {
-                customerId: saveCustomer.id,
-                tenantId: request.tenantId,
-                name: 'Shopping List',
-            };
-            await shoppingCart.save(newShoppingCart);
-        }
 
         // delete otp
         await this.registrationOtpService.delete(checkOtp.id);
@@ -359,7 +336,6 @@ export class StoreCustomerController {
      * HTTP/1.1 500 Internal Server Error
      */
     // Login Function
-    @UseBefore(StoreCategoryValidator)
     @Post('/login')
     public async login(@Body({ validate: true }) loginParam: CustomerLogin, @Req() request: any, @Res() response: any): Promise<any> {
         if (loginParam.type === 'normal') {

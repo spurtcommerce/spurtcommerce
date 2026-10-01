@@ -21,7 +21,7 @@ export class ProductSpecialRepository {
 
         const query: any = await this.repository.manager.createQueryBuilder(ProductSpecial, 'productSpecial');
         query.select(['productSpecial.price as price', 'productSpecial.dateStart as dateStart', 'productSpecial.dateEnd as dateEnd']);
-        query.where('productSpecial.productId = ' + productId);
+        query.where('productSpecial.productId = :productId', { productId });
         query.andWhere('(productSpecial.dateStart <= :todaydate AND productSpecial.dateEnd >= :todaydate)', { todaydate });
         query.orderBy('productSpecial.priority', 'ASC');
         query.addOrderBy('productSpecial.price', 'ASC');
@@ -33,8 +33,8 @@ export class ProductSpecialRepository {
 
         const query: any = await this.repository.manager.createQueryBuilder(ProductSpecial, 'productSpecial');
         query.select(['productSpecial.price as price', 'productSpecial.dateStart as dateStart', 'productSpecial.dateEnd as dateEnd', 'productSpecial.skuId as skuId']);
-        query.where('productSpecial.productId = ' + productId);
-        query.andWhere('productSpecial.skuId = ' + skuId);
+        query.where('productSpecial.productId = :productId', { productId });
+        query.andWhere('productSpecial.skuId = :skuId', { skuId });
         query.andWhere('(productSpecial.dateStart <= :todaydate AND productSpecial.dateEnd >= :todaydate)', { todaydate });
         query.orderBy('productSpecial.priority', 'ASC');
         query.addOrderBy('productSpecial.price', 'ASC');

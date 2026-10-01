@@ -133,7 +133,7 @@ export class VendorEmailTemplateController {
             whereConditions.push({
                 name: 'emailTemplate.templateGroup',
                 op: 'and',
-                value: `'${templateGroup}'`,
+                value: templateGroup,
             });
         }
         const relations = [

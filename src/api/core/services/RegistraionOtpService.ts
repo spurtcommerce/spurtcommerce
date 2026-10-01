@@ -53,7 +53,7 @@ export class RegistrationOtpService {
         condition.where = {};
 
         if (whereConditions && whereConditions.length > 0) {
-            whereConditions.forEach((item: any) => {
+            whereConditions.forEach((item: any, index: number) => {
                 condition.where[item.name] = item.value;
             });
         }
@@ -63,17 +63,17 @@ export class RegistrationOtpService {
             };
         }
 
-        condition.where = (qb: { where: (arg0: string) => void; andWhere: (arg0: string | Brackets) => void; orWhere: (arg0: string) => void; }) => {
+        condition.where = (qb: { where: (arg0: string, parameters?: any) => void; andWhere: (arg0: string | Brackets, parameters?: any) => void; orWhere: (arg0: string, parameters?: any) => void; }) => {
             if (whereConditions && whereConditions.length > 0) {
-                whereConditions.forEach((item: any) => {
+                whereConditions.forEach((item: any, index: number) => {
                     if (item.op === 'where') {
-                        qb.where(`${item.name} = ${item.value}`);
+                        qb.where(`${item.name} = :filterValue_${index}`, { [`filterValue_${index}`]: item.value });
                     } else if (item.op === 'and') {
-                        qb.andWhere(`${item.name} = ${item.value}`);
+                        qb.andWhere(`${item.name} = :filterValue_${index}`, { [`filterValue_${index}`]: item.value });
                     } else if (item.op === 'or') {
-                        qb.orWhere(`${item.name} = ${item.value}`);
+                        qb.orWhere(`${item.name} = :filterValue_${index}`, { [`filterValue_${index}`]: item.value });
                     } else if (item.op === 'In') {
-                        qb.andWhere(`${item.name} IN (${item.value})`);
+                        qb.andWhere(`${item.name} IN (:...filterValues_${index})`, { [`filterValues_${index}`]: Array.isArray(item.value) ? item.value : [item.value] });
                     }
                 });
             }
@@ -86,10 +86,10 @@ export class RegistrationOtpService {
                                 const valuesArray = table.value;
                                 valuesArray.forEach((value: string | number, subIndex: number) => {
                                     if (subIndex === 0) {
-                                        subqb.andWhere('LOWER(' + name + ')' + ' LIKE ' + '\'%' + value + '%\'');
+                                        subqb.andWhere(`LOWER(${name}) LIKE :likeSearch_${subIndex}`, { [`likeSearch_${subIndex}`]: `%${value}%` });
                                         return;
                                     }
-                                    subqb.orWhere('LOWER(' + name + ')' + ' LIKE ' + '\'%' + value + '%\'');
+                                    subqb.orWhere(`LOWER(${name}) LIKE :likeSearch_${subIndex}`, { [`likeSearch_${subIndex}`]: `%${value}%` });
                                 });
                             }));
                         });
@@ -98,10 +98,10 @@ export class RegistrationOtpService {
                             const namesArray = table.name;
                             namesArray.forEach((name: string, index: number) => {
                                 if (index === 0) {
-                                    subqb.andWhere('LOWER(' + name + ')' + ' LIKE ' + '\'%' + table.value + '%\'');
+                                    subqb.andWhere(`LOWER(${name}) LIKE :tableSearch`, { tableSearch: `%${table.value}%` });
                                     return;
                                 }
-                                subqb.orWhere('LOWER(' + name + ')' + ' LIKE ' + '\'%' + table.value + '%\'');
+                                subqb.orWhere(`LOWER(${name}) LIKE :tableSearch`, { tableSearch: `%${table.value}%` });
                             });
                         }));
                     } else if (table.value && table.value instanceof Array && table.value.length > 0) {
@@ -109,10 +109,10 @@ export class RegistrationOtpService {
                             const valuesArray = table.value;
                             valuesArray.forEach((value: string | number, index: number) => {
                                 if (index === 0) {
-                                    subqb.andWhere('LOWER(' + table.name + ')' + ' LIKE ' + '\'%' + value + '%\'');
+                                    subqb.andWhere(`LOWER(${table.name}) LIKE :valSearch_${index}`, { [`valSearch_${index}`]: `%${value}%` });
                                     return;
                                 }
-                                subqb.orWhere('LOWER(' + table.name + ')' + ' LIKE ' + '\'%' + value + '%\'');
+                                subqb.orWhere(`LOWER(${table.name}) LIKE :valSearch_${index}`, { [`valSearch_${index}`]: `%${value}%` });
                             });
                         }));
                     }
