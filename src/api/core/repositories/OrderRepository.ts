@@ -87,7 +87,7 @@ export class OrderRepository {
       query.andWhere('order.shippingFirstname = :shippingFirstname', { shippingFirstname: customerName });
     }
     if (dateAdded) {
-      query.andWhere(`order.createdDate Like '%${dateAdded}%'`);
+      query.andWhere('order.createdDate LIKE :dateAdded', { dateAdded: `%${dateAdded}%` });
     }
     return query.getRawOne();
   }

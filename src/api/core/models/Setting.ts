@@ -45,12 +45,6 @@ export class Settings extends BaseModel {
     @Column({ name: 'store_description' })
     public storeDescription: string;
 
-    @Column({ name: 'access_key' })
-    public accessKey: string;
-
-    @Column({ name: 'site_category' })
-    public siteCategory: string;
-
     @Column({ name: 'store_address1' })
     public storeAddress1: string;
 

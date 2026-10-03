@@ -334,7 +334,7 @@ export class CustomerController {
             whereConditions.push({
                 name: '`customerGroup`.`name`',
                 op: 'and',
-                value: `"${customerGroupName}"`,
+                value: customerGroupName,
             });
         }
         if (status === '0' || status) {
@@ -381,7 +381,7 @@ export class CustomerController {
                 order: 'DESC',
             },
         ];
-        const groupBy = [{ name: 'Customer.id' }];
+        const groupBy = [{ name: 'Customer.id' }, { name: 'paymentTerm.name' }];
         let customerList: any;
         if (count) {
             customerList = await this.customerService.listByQueryBuilder(limit, offset, select, whereConditions, searchConditions, relations, groupBy, sort, true, true);

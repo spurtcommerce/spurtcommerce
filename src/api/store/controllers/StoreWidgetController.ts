@@ -222,7 +222,7 @@ export class StoreWidgetController {
                 '(SELECT price FROM product_special ps WHERE ps.product_id = Product.product_id AND ps.sku_id = skuId AND ((ps.date_start <= CURDATE() AND ps.date_end >= CURDATE()))' + ' ' + 'ORDER BY ps.priority ASC, ps.price ASC LIMIT 1) AS productSpecial',
             ];
             if (pluginModule.includes('ShoppingCart') && vendorPlugin) {
-                selects.push(`(SELECT sc.id FROM shopping_cart AS sc INNER JOIN shopping_cart_detail as scd ON sc.id = scd.shopping_cart_id WHERE sc.customer_id = ${request.id ? request.id : 0} AND scd.sku_id = skuId ORDER BY sc.created_date DESC LIMIT 1) AS shoppingCartId`);
+                selects.push('(SELECT sc.id FROM shopping_cart AS sc INNER JOIN shopping_cart_detail as scd ON sc.id = scd.shopping_cart_id WHERE sc.customer_id = ' + (parseInt(request.id, 10) || 0) + ' AND scd.sku_id = skuId ORDER BY sc.created_date DESC LIMIT 1) AS shoppingCartId');
             }
             const productWhereConditions = [];
             const prRelations = [];
@@ -471,7 +471,7 @@ export class StoreWidgetController {
             '(SELECT price FROM product_special ps WHERE ps.product_id = Product.product_id AND ps.sku_id = skuId AND ((ps.date_start <= CURDATE() AND ps.date_end >= CURDATE()))' + ' ' + 'ORDER BY ps.priority ASC, ps.price ASC LIMIT 1) AS productSpecial',
         ];
         if (pluginModule.includes('ShoppingCart') && vendorPlugin) {
-            selects.push(`(SELECT sc.id FROM shopping_cart AS sc INNER JOIN shopping_cart_detail as scd ON sc.id = scd.shopping_cart_id WHERE sc.customer_id = ${request.id ? request.id : 0} AND scd.sku_id = skuId ORDER BY sc.created_date DESC LIMIT 1) AS shoppingCartId`);
+            selects.push('(SELECT sc.id FROM shopping_cart AS sc INNER JOIN shopping_cart_detail as scd ON sc.id = scd.shopping_cart_id WHERE sc.customer_id = ' + (parseInt(request.id, 10) || 0) + ' AND scd.sku_id = skuId ORDER BY sc.created_date DESC LIMIT 1) AS shoppingCartId');
         }
         const relations = [];
         const whereConditions = [];

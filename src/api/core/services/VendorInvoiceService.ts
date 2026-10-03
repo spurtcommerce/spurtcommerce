@@ -109,19 +109,22 @@ export class VendorInvoiceService {
             });
         }
         if (whereConditions && whereConditions.length > 0) {
-            whereConditions.forEach((item: any) => {
+            whereConditions.forEach((item: any, index: number) => {
+                if (item.sign !== undefined && !['=', '!=', '<>', '>', '<', '>=', '<=', 'LIKE', 'NOT LIKE', 'OR', 'variant'].includes(item.sign)) {
+                    return;
+                }
                 if (item.op === 'where' && item.sign === undefined) {
-                    query.where(item.name + ' = ' + item.value);
+                    query.where(`${item.name} = :filterValue_${index}`, { [`filterValue_${index}`]: item.value });
                 } else if (item.op === 'and' && item.sign === undefined) {
-                    query.andWhere(item.name + ' = ' + item.value);
+                    query.andWhere(`${item.name} = :filterValue_${index}`, { [`filterValue_${index}`]: item.value });
                 } else if (item.op === 'and' && item.sign !== undefined) {
-                    query.andWhere(' \'' + item.name + '\'' + ' ' + item.sign + ' \'' + item.value + '\'');
+                    query.andWhere(`${item.name} ${item.sign} :filterValue_${index}`, { [`filterValue_${index}`]: item.value });
                 } else if (item.op === 'raw' && item.sign !== undefined) {
-                    query.andWhere(item.name + ' ' + item.sign + ' \'' + item.value + '\'');
+                    query.andWhere(`${item.name} ${item.sign} :filterValue_${index}`, { [`filterValue_${index}`]: item.value });
                 } else if (item.op === 'or' && item.sign === undefined) {
-                    query.orWhere(item.name + ' = ' + item.value);
+                    query.orWhere(`${item.name} = :filterValue_${index}`, { [`filterValue_${index}`]: item.value });
                 } else if (item.op === 'IN' && item.sign === undefined) {
-                    query.andWhere(item.name + ' IN (' + item.value + ')');
+                    query.andWhere(`${item.name} IN (:...filterValues_${index})`, { [`filterValues_${index}`]: Array.isArray(item.value) ? item.value : [item.value] });
                 }
             });
         }
@@ -134,10 +137,10 @@ export class VendorInvoiceService {
                             const valuesArray = table.value;
                             valuesArray.forEach((value: string | number, subIndex: number) => {
                                 if (subIndex === 0) {
-                                    qb.andWhere('LOWER(' + name + ')' + ' LIKE ' + '\'%' + value + '%\'');
+                                    qb.andWhere(`LOWER(${name}) LIKE :likeSearch_${subIndex}`, { [`likeSearch_${subIndex}`]: `%${value}%` });
                                     return;
                                 }
-                                qb.orWhere('LOWER(' + name + ')' + ' LIKE ' + '\'%' + value + '%\'');
+                                qb.orWhere(`LOWER(${name}) LIKE :likeSearch_${subIndex}`, { [`likeSearch_${subIndex}`]: `%${value}%` });
                             });
                         }));
                     });
@@ -146,10 +149,10 @@ export class VendorInvoiceService {
                         const namesArray = table.name;
                         namesArray.forEach((name: string, index: number) => {
                             if (index === 0) {
-                                qb.andWhere('LOWER(' + name + ')' + ' LIKE ' + '\'%' + table.value + '%\'');
+                                qb.andWhere(`LOWER(${name}) LIKE :tableSearch`, { tableSearch: `%${table.value}%` });
                                 return;
                             }
-                            qb.orWhere('LOWER(' + name + ')' + ' LIKE ' + '\'%' + table.value + '%\'');
+                            qb.orWhere(`LOWER(${name}) LIKE :tableSearch`, { tableSearch: `%${table.value}%` });
                         });
                     }));
                 } else if (table.value && table.value instanceof Array && table.value.length > 0) {
@@ -157,10 +160,10 @@ export class VendorInvoiceService {
                         const valuesArray = table.value;
                         valuesArray.forEach((value: string | number, index: number) => {
                             if (index === 0) {
-                                qb.andWhere('LOWER(' + table.name + ')' + ' LIKE ' + '\'%' + value + '%\'');
+                                qb.andWhere(`LOWER(${table.name}) LIKE :valSearch_${index}`, { [`valSearch_${index}`]: `%${value}%` });
                                 return;
                             }
-                            qb.orWhere('LOWER(' + table.name + ')' + ' LIKE ' + '\'%' + value + '%\'');
+                            qb.orWhere(`LOWER(${table.name}) LIKE :valSearch_${index}`, { [`valSearch_${index}`]: `%${value}%` });
                         });
                     }));
                 }
@@ -179,7 +182,13 @@ export class VendorInvoiceService {
         }
         if (sort && sort.length > 0) {
             sort.forEach((item: any) => {
-                query.orderBy('' + item.name + '', '' + item.order + '');
+                const direction = typeof item.order === 'string' ? item.order.toUpperCase() : '';
+
+                if (direction === 'ASC' || direction === 'DESC') {
+
+                    query.orderBy(item.name, direction);
+
+                }
             });
         }
         if (limit && limit > 0) {

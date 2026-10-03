@@ -400,7 +400,6 @@ export class MediaController {
      *    }
      */
     @Post('/upload-file')
-    // @Authorized('admin-vendor')
     public async uploadFile(@Body({ validate: true }) fileNameRequest: FileNameRequest, @Res() response: any): Promise<any> {
 
         const base64 = fileNameRequest.image;
@@ -515,7 +514,6 @@ export class MediaController {
      *    }
      */
     @Post('/upload-video')
-    // @Authorized('admin-vendor')
     public async uploadVideo(@UploadedFile('file') files: any, @Res() response: any): Promise<any> {
         const name = files.originalname;
         const path = 'video';
@@ -955,7 +953,6 @@ export class MediaController {
      * HTTP/1.1 500 Internal Server Error
      */
     @Post('/upload-multi-image')
-    //  @Authorized('admin-vendor')
     public async multiImage(@Body({ validate: true }) multipleImage: MultipleImageUpload, @Res() response: any): Promise<any> {
         let val: any;
         const images: any = multipleImage.image;

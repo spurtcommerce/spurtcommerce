@@ -112,6 +112,7 @@ export class ImportController {
      *       "error": "Internal server error"
      *     }
      */
+    @Authorized('vendor')
     @Get('/error-bulk-import')
     public async errorBulkProduct(@QueryParam('fileName') fileName: string, @Res() response: any, @Req() request: any): Promise<any> {
         return new Promise((resolve, reject) => {
@@ -305,6 +306,7 @@ export class ImportController {
             return response.status(500).send({ error: 'An internal server error occurred.', data: error });
         }
     }
+    @Authorized('vendor')
     @Post('/get-buffer')
     public async checking(@UploadedFile('files') files: any, @Res() response: any): Promise<any> {
         const bufferData: any = {};

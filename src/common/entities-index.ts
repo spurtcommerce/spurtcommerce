@@ -75,6 +75,7 @@ export * from '../api/core/models/Settlement';
 export * from '../api/core/models/SiteFilterCategory';
 export * from '../api/core/models/SiteFilterSection';
 export * from '../api/core/models/SiteFilterSectionItem';
+export * from '../api/core/models/SiteMap';
 export * from '../api/core/models/SizeChart';
 export * from '../api/core/models/SizeChartHeader';
 export * from '../api/core/models/SizeChartTemplate';

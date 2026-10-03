@@ -32,6 +32,75 @@ import { SendOtpRequest } from './requests/SendOtpRequest';
 import { VerifyOtpRequest } from './requests/LoginOtpRequest';
 import { SettingService } from '../../core/services/SettingService';
 import { VendorUsers } from '../../core/models/VendorUsers';
+import uncino from 'uncino';
+import * as path from 'path';
+import { getDataSource } from '../../../loaders/typeormLoader';
+import { pluginModule } from '../../../loaders/pluginLoader';
+
+const hooks = uncino();
+
+// In-memory lock: vendorId => true while migration is running
+const demoMigrationInFlight = new Set<number>();
+
+/**
+ * Triggers VendorDemoDataMigrate hook in the background (non-blocking).
+ * Skips if demo data already exists for this tenant or a migration is already running.
+ */
+async function triggerDemoDataMigration(vendorId: number, vendorPrefixId: string, industryId: number,
+                                        countryId: number, languageId: number, currencyId: number): Promise<void> {
+
+    if (!pluginModule.includes('VendorDemoDataMigrate')) {
+        return;
+    }
+
+    if (demoMigrationInFlight.has(vendorId)) {
+        console.log(`[DemoMigrate] Migration already in-flight for vendor ${vendorId}, skipping.`);
+        return;
+    }
+
+    // Idempotency check: if vendor_product rows already exist for this tenant, skip
+    const existing = await getDataSource()
+        .getRepository('VendorProducts')
+        .count({ where: { vendorId } });
+    if (existing > 0) {
+        console.log(`[DemoMigrate] Demo data already exists for vendor ${vendorId} (${existing} products), skipping.`);
+        return;
+    }
+
+    demoMigrationInFlight.add(vendorId);
+
+    // Reload vendor with the customer relation so the hook has data.customer.firstName/email
+    // and data.companyName. Do this inside the background path so login is not slowed.
+    const fullVendor: any = await getDataSource()
+        .getRepository('Vendor')
+        .findOne({ where: { vendorId }, relations: ['customer'] });
+
+    if (!fullVendor || !fullVendor.customer) {
+        console.log(`[DemoMigrate] Missing customer relation for vendor ${vendorId}, skipping.`);
+        demoMigrationInFlight.delete(vendorId);
+        return;
+    }
+
+    const vendorData = {
+        vendorId: fullVendor.vendorId,
+        vendorPrefixId: fullVendor.vendorPrefixId,
+        industryId: fullVendor.industryId,
+        companyName: fullVendor.companyName || '',
+        company: fullVendor.companyName || '',
+        customer: fullVendor.customer,
+    };
+    const importPath = path.join(__dirname, '../../../../add-ons/VendorDemoDataMigrate/VendorDemoDataMigrateHook');
+
+    hooks.removeHook('vendor-data-migrate-process', 'VDMP-namespace');
+    hooks.addHook('vendor-data-migrate-process', 'VDMP-namespace', async () => {
+        const demoDataMigrate = await require(importPath);
+        return await demoDataMigrate.demoDataMigrate(vendorData, countryId, languageId, currencyId);
+    });
+
+    hooks.runHook('vendor-data-migrate-process')
+        .catch(err => console.error(`[DemoMigrate] Migration failed for vendor ${vendorId}:`, err))
+        .finally(() => demoMigrationInFlight.delete(vendorId));
+}
 @Service()
 @JsonController('/demo-vendor')
 export class DemoVendorController {
@@ -326,6 +395,19 @@ export class DemoVendorController {
                 permission,
             },
         };
+
+        // Trigger demo data migration in the background — must not block or fail login
+        if (vendor && vendorSettings) {
+            triggerDemoDataMigration(
+                vendor.vendorId,
+                vendor.vendorPrefixId,
+                vendor.industryId,
+                vendorSettings.storeCountryId,
+                vendorSettings.storeLanguageId,
+                vendorSettings.storeCurrencyId
+            ).catch(console.error);
+        }
+
         return response.status(200).send(successResponse);
     }
 
@@ -445,6 +527,19 @@ export class DemoVendorController {
                 permission,
             },
         };
+
+        // Trigger demo data migration in the background — must not block or fail login
+        if (vendor && vendorSettings) {
+            triggerDemoDataMigration(
+                vendor.vendorId,
+                vendor.vendorPrefixId,
+                vendor.industryId,
+                vendorSettings.storeCountryId,
+                vendorSettings.storeLanguageId,
+                vendorSettings.storeCurrencyId
+            ).catch(console.error);
+        }
+
         return response.status(200).send(successResponse);
     }
 }

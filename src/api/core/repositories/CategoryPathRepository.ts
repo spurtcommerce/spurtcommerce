@@ -22,8 +22,8 @@ export class CategoryPathRepository {
         query.select(['GROUP_CONCAT' + '(' + 'path.name' + ' ' + 'ORDER BY' + ' ' + 'categoryPath.level' + ' ' + 'SEPARATOR' + " ' " + '>' + " ' " + ')' + ' ' + 'as' + ' ' + 'levels']);
         query.leftJoin('categoryPath.category', 'category');
         query.leftJoin('categoryPath.path', 'path');
-        query.andWhere('category.category_slug = ' + "'" + categorySlug + "'" + ' ');
-        query.andWhere('category.tenant_id = ' + "'" + tenantId + "'" + ' ');
+        query.andWhere('category.category_slug = :categorySlug', { categorySlug });
+        query.andWhere('category.tenant_id = :tenantId', { tenantId });
         query.groupBy('categoryPath.category_id');
         return query.getRawOne();
     }
@@ -33,7 +33,7 @@ export class CategoryPathRepository {
         query.select(['GROUP_CONCAT' + '(' + 'path.name' + ' ' + 'ORDER BY' + ' ' + 'categoryPath.level' + ' ' + 'SEPARATOR' + " ' " + '>' + " ' " + ')' + ' ' + 'as' + ' ' + 'levels']);
         query.leftJoin('categoryPath.category', 'category');
         query.leftJoin('categoryPath.path', 'path');
-        query.andWhere('category.category_slug = ' + "'" + categorySlug + "'" + ' ');
+        query.andWhere('category.category_slug = :categorySlug', { categorySlug });
         query.groupBy('categoryPath.category_id');
         return query.getRawOne();
     }

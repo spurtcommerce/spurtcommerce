@@ -193,7 +193,7 @@ export class StoreBlogListController {
             whereConditions.push({
                 name: 'blog.blogSlug',
                 op: 'and',
-                value: `"${blogSlug}"`,
+                value: blogSlug,
             }, {
                 name: 'blog.tenantId',
                 op: 'and',

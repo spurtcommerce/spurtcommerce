@@ -33,20 +33,23 @@ export class VendorRepository {
         }
         // Keyword Search
         if (searchConditions && searchConditions.length > 0) {
-            searchConditions.forEach((table: any) => {
+            searchConditions.forEach((table: any, index: number) => {
+                if (typeof table.name !== 'string' || !/^[A-Za-z_][A-Za-z0-9_.]*$/.test(table.name)) {
+                    return;
+                }
                 const operator: string = table.op;
                 if (operator === 'where' && table.value !== '') {
-                    query.where(table.name + ' = ' + table.value);
+                    query.where(`${table.name} = :searchValue_${index}`, { [`searchValue_${index}`]: table.value });
                 } else if (operator === 'and' && table.value !== '') {
-                    query.andWhere(table.name + ' LIKE ' + "\'%" + table.value + "%\'");
+                    query.andWhere(`${table.name} LIKE :likeVal`, { likeVal: `%${table.value}%` });
                 } else if (operator === 'or' && table.value !== '') {
-                    query.orWhere(table.name + ' LIKE ' + "\'%" + table.value + "%\'");
+                    query.orWhere(`${table.name} LIKE :likeVal`, { likeVal: `%${table.value}%` });
                 } else if (operator === 'orWhere' && table.value !== '') {
-                    query.orWhere(table.name + ' = ' + table.value);
+                    query.orWhere(`${table.name} = :searchValue_${index}`, { [`searchValue_${index}`]: table.value });
                 } else if (operator === 'andWhere' && table.value !== undefined && table.value !== '') {
-                    query.andWhere(table.name + ' = ' + table.value);
+                    query.andWhere(`${table.name} = :searchValue_${index}`, { [`searchValue_${index}`]: table.value });
                 } else if (operator === 'In' && table.value.length > 0) {
-                    query.andWhere(table.name + ' In(' + table.value + ')');
+                    query.andWhere(`${table.name} IN (:...searchValues)`, { searchValues: table.value });
                 }
 
             });
@@ -54,46 +57,59 @@ export class VendorRepository {
 
         // Keyword Search
         if (whereConditions && whereConditions.length > 0) {
-            whereConditions.forEach((table: any) => {
+            whereConditions.forEach((table: any, index: number) => {
+                if (typeof table.name !== 'string' || !/^[A-Za-z_][A-Za-z0-9_.]*$/.test(table.name)) {
+                    return;
+                }
                 const operator: string = table.op;
                 if (operator === 'where' && table.value !== undefined) {
+                    const parameterName = `vendorId_${index}`;
                     const subQb = this.repository.manager
                         .getRepository(Vendor)
                         .createQueryBuilder('vendor')
                         .select('vendor_id')
-                        .where('is_delete = ' + table.value);
-                    query.andWhere(table.name + ' IN (' + subQb.getSql() + ')');
+                        .where(`is_delete = :${parameterName}`, { [parameterName]: table.value });
+                    query.andWhere(`${table.name} IN (${subQb.getQuery()})`);
+                    query.setParameters(subQb.getParameters());
                 } else if (operator === 'email' && table.value !== undefined && table.value !== '') {
+                    const parameterName = `emailValue_${index}`;
                     const subQb = this.repository.manager
                         .getRepository(Customer)
                         .createQueryBuilder('customer')
                         .select('id')
-                        .where('email LIKE ' + "'%" + table.value + "%'" + ' ');
-                    query.andWhere(table.name + ' IN (' + subQb.getSql() + ')');
+                        .where(`email LIKE :${parameterName}`, { [parameterName]: `%${table.value}%` });
+                    query.andWhere(`${table.name} IN (${subQb.getQuery()})`);
+                    query.setParameters(subQb.getParameters());
                 } else if (operator === 'status' && table.value !== undefined && table.value !== '') {
+                    const parameterName = `statusValue_${index}`;
                     const subQb = this.repository.manager
                         .getRepository(Vendor)
                         .createQueryBuilder('vendor')
                         .select('vendor_id')
-                        .where('is_active = ' + table.value);
-                    query.andWhere(table.name + ' IN (' + subQb.getSql() + ')');
+                        .where(`is_active = :${parameterName}`, { [parameterName]: table.value });
+                    query.andWhere(`${table.name} IN (${subQb.getQuery()})`);
+                    query.setParameters(subQb.getParameters());
                 } else if (operator === 'name' && table.value !== undefined && table.value !== '') {
-                    query.andWhere(table.name + ' LIKE ' + "\'%" + table.value + "%\'");
+                    query.andWhere(`${table.name} LIKE :likeVal`, { likeVal: `%${table.value}%` });
                 } else if (operator === 'keyword' && table.value !== undefined && table.value !== '') {
+                    const parameterName = `keywordValue_${index}`;
                     const subQb = this.repository.manager
                         .getRepository(Customer)
                         .createQueryBuilder('customer')
                         .select('id')
-                        .where('first_name LIKE ' + "'%" + table.value + "%'" + ' ' + 'OR ' + 'email LIKE ' + "'%" + table.value + "%'")
-                        .orWhere('vendor.company_name LIKE ' + "'%" + table.value + "%'");
-                    query.andWhere(table.name + ' IN (' + subQb.getSql() + ')');
+                        .where(`(first_name LIKE :${parameterName} OR email LIKE :${parameterName})`, { [parameterName]: `%${table.value}%` })
+                        .orWhere(`vendor.company_name LIKE :${parameterName}`, { [parameterName]: `%${table.value}%` });
+                    query.andWhere(`${table.name} IN (${subQb.getQuery()})`);
+                    query.setParameters(subQb.getParameters());
                 } else if (operator === 'firstName' && table.value !== undefined && table.value !== '') {
+                    const parameterName = `firstNameValue_${index}`;
                     const subQb = this.repository.manager
                         .getRepository(Customer)
                         .createQueryBuilder('customer')
                         .select('id')
-                        .where('first_name = ' + table.value);
-                    query.andWhere(table.name + ' IN (' + subQb.getSql() + ')');
+                        .where(`first_name = :${parameterName}`, { [parameterName]: table.value });
+                    query.andWhere(`${table.name} IN (${subQb.getQuery()})`);
+                    query.setParameters(subQb.getParameters());
                 }
             });
         }

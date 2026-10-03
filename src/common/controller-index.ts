@@ -37,6 +37,7 @@ export * from '../api/vendor/controllers/PageSeoController';
 export * from '../api/vendor/controllers/ProductController';
 export * from '../api/vendor/controllers/SeoVendorProductController';
 export * from '../api/vendor/controllers/SettingController';
+export * from '../api/vendor/controllers/SiteMapController';
 export * from '../api/vendor/controllers/StockStatusController';
 export * from '../api/vendor/controllers/TaxController';
 export * from '../api/vendor/controllers/VendorBlogController';

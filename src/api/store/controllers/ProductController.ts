@@ -37,7 +37,6 @@ import { TranslationMiddleware } from '../../../api/core/middlewares/Translation
 import { OrderService } from '../../core/services/OrderService';
 import { TenantValidationMiddleware } from '../../../../src/api/core/middlewares/TenantValidationMiddleware';
 import { VendorCountryService } from '../../core/services/VendorCountryService';
-import { pluginModule } from '../../../loaders/pluginLoader';
 import { Service } from 'typedi';
 
 @Service()
@@ -309,7 +308,7 @@ export class StoreProductController {
                 [],
                 [
                     { name: 'order.backOrders', op: 'where', value: 1 },
-                    { name: 'OrderProduct.skuName', op: 'and', value: `'${skuValue.skuName}'` },
+                    { name: 'OrderProduct.skuName', op: 'and', value: skuValue.skuName },
                 ],
                 [],
                 [{ tableName: 'OrderProduct.order', aliasName: 'order' }],
@@ -699,7 +698,7 @@ export class StoreProductController {
                 [],
                 [
                     { name: 'order.backOrders', op: 'where', value: 1 },
-                    { name: 'OrderProduct.skuName', op: 'and', value: `'${skuValue.skuName}'` },
+                    { name: 'OrderProduct.skuName', op: 'and', value: skuValue.skuName },
                 ],
                 [],
                 [{ tableName: 'OrderProduct.order', aliasName: 'order' }],
@@ -1260,10 +1259,7 @@ export class StoreProductController {
             'sku.price as price',
             'sku.quantity as quantity',
             'sku.out_of_stock_threshold as outOfStockThreshold',
-            `(SELECT CASE
-                WHEN Product.isSimplified = 1 THEN Product.sku_id
-                ELSE productVariantOption.sku_id
-             END) as skuId`,
+            'Product.skuId as skuId',
             'sku.notify_min_quantity_below as notifyMinQuantity',
             'sku.min_quantity_allowed_cart as minQuantityAllowedCart',
             'sku.max_quantity_allowed_cart as maxQuantityAllowedCart',
@@ -1291,20 +1287,10 @@ export class StoreProductController {
                 aliasName: 'customer',
             },
         ];
-        if (pluginModule.includes('ProductVariants')) {
-            relations.push(
-                {
-                    tableName: 'product_varient_option',
-                    op: 'leftCond',
-                    cond: 'Product.productId = productVariantOption.productId',
-                    aliasName: 'productVariantOption',
-                }
-            );
-        }
         relations.push({
             tableName: 'sku',
             op: 'leftCond',
-            cond: `sku.id = CASE WHEN Product.isSimplified = 1 THEN Product.sku_id ELSE productVariantOption.sku_id END`,
+            cond: `sku.id = Product.sku_id`,
             aliasName: 'sku',
         });
         const currentDate = moment().format('YYYY-MM-DD');
@@ -1342,14 +1328,14 @@ export class StoreProductController {
             whereConditions.push({
                 name: 'Product.name',
                 op: 'and',
-                value: `'${productName}'`,
+                value: productName,
             });
         }
         if (skuName && skuName !== '') {
             whereConditions.push({
                 name: 'sku.sku_name',
                 op: 'and',
-                value: `'${skuName}'`,
+                value: skuName,
             });
         }
         const searchConditions = [];

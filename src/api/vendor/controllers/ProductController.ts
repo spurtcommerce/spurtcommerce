@@ -2208,6 +2208,7 @@ export class ProductController {
      * @apiErrorExample {json} Product error
      * HTTP/1.1 500 Internal Server Error
      */
+    @Authorized('vendor')
     @Put('/update-product-slug')
     public async updateSlug(@Res() response: any): Promise<Product> {
         const arr: any = [];

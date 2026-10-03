@@ -21,7 +21,7 @@ export class ProductDiscountRepository {
 
         const query: any = await this.repository.manager.createQueryBuilder(ProductDiscount, 'productDiscount');
         query.select(['productDiscount.price as price', 'productDiscount.dateStart as dateStart', 'productDiscount.dateEnd as dateEnd']);
-        query.where('productDiscount.productId = ' + productId);
+        query.where('productDiscount.productId = :productId', { productId });
         query.andWhere('(productDiscount.dateStart <= :todaydate AND productDiscount.dateEnd >= :todaydate)', {todaydate});
         query.orderBy('productDiscount.priority', 'ASC');
         query.addOrderBy('productDiscount.price', 'ASC');
@@ -33,8 +33,8 @@ export class ProductDiscountRepository {
 
         const query: any = await this.repository.manager.createQueryBuilder(ProductDiscount, 'productDiscount');
         query.select(['productDiscount.price as price', 'productDiscount.dateStart as dateStart', 'productDiscount.dateEnd as dateEnd']);
-        query.where('productDiscount.productId = ' + productId);
-        query.where('productDiscount.skuId = ' + skuId);
+        query.where('productDiscount.productId = :productId', { productId });
+        query.where('productDiscount.skuId = :skuId', { skuId });
         query.andWhere('(productDiscount.dateStart <= :todaydate AND productDiscount.dateEnd >= :todaydate)', {todaydate});
         query.orderBy('productDiscount.priority', 'ASC');
         query.addOrderBy('productDiscount.price', 'ASC');

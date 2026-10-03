@@ -12,11 +12,9 @@ import { VendorCurrencyService } from '../../core/services/VendorCurrencyService
 import { VendorTranslationMiddleware } from '../../core/middlewares/VendorTranslationMiddleware';
 import { Service } from 'typedi';
 import { CurrencyService } from '../../core/services/CurrencyService';
-import { CheckAddonMiddleware } from '../../core/middlewares/AddonValidationMiddleware';
 
 @Service()
 @UseBefore(VendorTranslationMiddleware)
-@UseBefore(CheckAddonMiddleware)
 @JsonController('/vendor-currency')
 export class VendorCurrencyController {
     constructor(

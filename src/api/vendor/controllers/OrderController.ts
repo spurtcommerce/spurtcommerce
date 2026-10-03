@@ -308,13 +308,7 @@ export class OrderController {
                 value: dateAdded,
             });
         }
-        if (filter && filter !== '') {
-            whereConditions.push({
-                op: 'raw',
-                name: '(' + filter + ')',
-                value: '',
-            });
-        }
+        // filter parameter removed: injecting arbitrary SQL strings is not safe
         const sort = [];
 
         if (sortBy === 'buyerName') {

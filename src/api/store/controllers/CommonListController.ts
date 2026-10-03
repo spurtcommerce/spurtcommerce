@@ -9,7 +9,7 @@
 import 'reflect-metadata';
 import { Get, JsonController, Res, Req, QueryParam, Body, Post, QueryParams, UseBefore, Param } from 'routing-controllers';
 import { Contact } from '../../core/models/Contact';
-import { AttributeDetails, ListRequest, VariantDetails } from './requests/ListRequest';
+import { AttributeDetails, ListRequest } from './requests/ListRequest';
 import { ContactRequest } from './requests/ContactRequest';
 import { IndustryValidationMiddleware } from '../../../api/core/middlewares/IndustryValidationMiddleware';
 import { TenantValidationMiddleware } from '../../core/middlewares/TenantValidationMiddleware';
@@ -31,19 +31,19 @@ import { OrderProductLogService } from '../../core/services/OrderProductLogServi
 import { VendorSettingsService } from '../../core/services/VendorSettingsService';
 import { VendorPluginService } from '../../core/services/VendorPluginService';
 import { VendorService } from '../../core/services/VendorService';
-import { CustomerToGroupService } from '../../core/services/CustomerToGroupService';
+
 import { pluginModule } from '../../../../src/loaders/pluginLoader';
 import { IndustryService } from '../../core/services/IndustryService';
 import { instanceToPlain } from 'class-transformer';
 import moment = require('moment');
 import { In, Not } from 'typeorm';
+import { getDataSource } from '../../../loaders/typeormLoader';
 import { env } from '../../../env';
 import arrayToTree from 'array-to-tree';
 import { VendorUsersService } from '../../core/services/VendorUsersService';
 import { Service } from 'typedi';
 import { ZoneService } from '../../core/services/zoneService';
 import { CurrencyService } from '../../core/services/CurrencyService';
-import { StoreCategoryValidator } from '../../../../src/api/core/middlewares/StoreCategoryValidatorMiddleware';
 @Service()
 @UseBefore(IndustryValidationMiddleware)
 @JsonController('/store-list')
@@ -61,7 +61,6 @@ export class CommonListController {
         private orderStatusService: OrderStatusService,
         private orderProductService: OrderProductService,
         private orderProductLogService: OrderProductLogService,
-        private customerToGroupService: CustomerToGroupService,
         private industryService: IndustryService,
         private vendorSettingsService: VendorSettingsService,
         private currencyService: CurrencyService,
@@ -267,8 +266,7 @@ export class CommonListController {
         const select = [
             'Category.categoryId as categoryId', 'Category.name as name', 'Category.categoryDescription as categoryDescription',
             'Category.image as image', 'Category.imagePath as imagePath', 'Category.parentInt as parentInt', 'Category.sortOrder as sortOrder',
-            'Category.categorySlug as categorySlug', 'Category.isActive as isActive', 'categoryTranslation.languageId as languageId',
-            'categoryTranslation.name as categoryNameTrans', 'categoryTranslation.description as categoryDescriptionTrans',
+            'Category.categorySlug as categorySlug', 'Category.isActive as isActive',
         ];
         const whereConditions = [
             {
@@ -288,13 +286,6 @@ export class CommonListController {
             },
         ];
 
-        const relations = [
-            {
-                tableName: 'Category.categoryTranslation',
-                aliasName: 'categoryTranslation',
-            },
-        ];
-
         const search = [];
         if (keyword && keyword !== '') {
             search.push({
@@ -302,7 +293,7 @@ export class CommonListController {
                 value: keyword,
             });
         }
-        const categoryData = await this.categoryService.listByQueryBuilder(limit, offset, select, whereConditions, search, relations, [], [], count, true);
+        const categoryData = await this.categoryService.listByQueryBuilder(limit, offset, select, whereConditions, search, [], [], [], count, true);
 
         if (count) {
             const successResponse: any = {
@@ -312,16 +303,7 @@ export class CommonListController {
             };
             return response.status(200).send(successResponse);
         } else {
-            const categoryTransaDataList = categoryData.map((category) => {
-                const categoryTranslation = category.languageId === request.languageId;
-                if (!categoryTranslation) {
-                    category.categoryNameTrans = '';
-                    category.categoryDescriptionTrans = '';
-                }
-                return category;
-            });
-
-            const categoryList = arrayToTree(categoryTransaDataList, {
+            const categoryList = arrayToTree(categoryData, {
                 parentProperty: 'parentInt',
                 customID: 'categoryId',
             });
@@ -403,24 +385,12 @@ export class CommonListController {
      * HTTP/1.1 500 Internal Server Error
      */
     @UseBefore(TenantValidationMiddleware)
-    @UseBefore(CheckTokenMiddleware)
     @UseBefore(TranslationMiddleware)
     @Get('/custom-product-list')
     public async customProductList(@QueryParams() params: ListRequest, @Req() request: any, @Res() response: any): Promise<any> {
         return new Promise(async () => {
-            const variant: VariantDetails[] = [];
             const attribute: AttributeDetails[] = [];
-            const tempVariant = params.variant?.split(',') ?? [];
             const tempAttribute = params.attribute?.split(',') ?? [];
-            if (tempVariant?.length > 0) {
-                tempVariant.forEach(element => {
-                    const temp: VariantDetails = {};
-                    const value = element.split('~');
-                    temp.name = value[0];
-                    temp.value = value[1];
-                    variant.push(temp);
-                });
-            }
             if (tempAttribute?.length > 0) {
                 tempAttribute.forEach(element => {
                     const temp: AttributeDetails = {};
@@ -456,24 +426,7 @@ export class CommonListController {
                 '(SELECT pi.container_name as containerName FROM product_image pi WHERE pi.product_id = Product.productId AND pi.default_image = 1 LIMIT 1) as containerName',
                 '(SELECT pi.image as image FROM product_image pi WHERE pi.product_id = Product.productId AND pi.default_image = 1 LIMIT 1) as image',
                 '(SELECT pi.default_image as defaultImage FROM product_image pi WHERE pi.product_id = Product.productId AND pi.default_image = 1 LIMIT 1) as defaultImage',
-                '(SELECT COUNT(pr.rating) as ratingCount FROM product_rating pr WHERE pr.product_id = Product.productId) as ratingCount',
-                '(SELECT COUNT(pr.review) as reviewCount FROM product_rating pr WHERE pr.product_id = Product.productId AND pr.review IS NOT NULL) as reviewCount',
             ];
-            if (pluginModule.includes('ProductVariants') && await this.vendorPluginService.findOne({ where: { vendorId: request.tenantId, isActive: 1, plugins: { slugName: 'product-variants', pluginStatus: 1 } }, relations: ['plugins'] })) {
-
-                selects.push(
-                    `(SELECT CASE
-                        WHEN Product.isSimplified = 0
-                        THEN (SELECT pvo.sku_id
-                        FROM product_varient_option AS pvo
-                        WHERE pvo.product_id = productId
-                        AND pvo.is_active = 1
-                        LIMIT 1)
-                        ELSE \`Product\`.\`sku_id\`
-                        END) AS skuId`,
-                    `(SELECT COUNT(*) FROM product_varient_option as pvo WHERE pvo.product_id = Product.productId AND pvo.is_active = 1) AS variantCount`);
-            }
-
             selects.push(
                 '(SELECT sku.sku_name as skuName FROM sku WHERE sku.id = skuId) as skuName',
                 '(SELECT sku.price as price FROM sku WHERE sku.id = skuId) as price',
@@ -509,7 +462,8 @@ export class CommonListController {
                     {
                         tableName: 'vendorProducts.vendor',
                         op: 'leftCond',
-                        cond: `vendor.vendorId = ${request.tenantId}`,
+                        cond: 'vendor.vendorId = :condTenantId',
+                        condParams: { condTenantId: request.tenantId },
                         aliasName: 'vendor',
                     },
                     {
@@ -531,15 +485,13 @@ export class CommonListController {
                         value: 1,
                     },
                     {
-                        name: '( customer.id IS NOT NULL',
-                        op: 'rawnumber',
-                        sign: 'OR',
-                        value: `vendorProducts.vendorId IS NULL )`,
+                        name: '( customer.id IS NOT NULL OR vendorProducts.vendorId IS NULL )',
+                        op: 'raw',
                     },
                     {
-                        name: `(LOWER(category.industry_id) LIKE '${request.store.industryId}')`,
-                        op: 'raw',
-                        value: '',
+                        name: 'category.industry_id',
+                        op: 'like',
+                        value: String(request.store.industryId),
                     },
                     {
                         name: 'Product.dateAvailable',
@@ -568,7 +520,8 @@ export class CommonListController {
                     {
                         tableName: 'vendorProducts.vendor',
                         op: 'leftCond',
-                        cond: `vendor.vendorId = ${request.tenantId}`,
+                        cond: 'vendor.vendorId = :condTenantId',
+                        condParams: { condTenantId: request.tenantId },
                         aliasName: 'vendor',
                     },
                     {
@@ -590,15 +543,13 @@ export class CommonListController {
                         value: 1,
                     },
                     {
-                        name: '( customer.id IS NOT NULL',
-                        op: 'rawnumber',
-                        sign: 'OR',
-                        value: `vendorProducts.vendorId IS NULL )`,
+                        name: '( customer.id IS NOT NULL OR vendorProducts.vendorId IS NULL )',
+                        op: 'raw',
                     },
                     {
                         name: 'category.category_slug',
                         op: 'and',
-                        value: '"' + params.categorySlug + '"',
+                        value: params.categorySlug,
                     },
                     {
                         name: 'category.industry_id',
@@ -628,7 +579,7 @@ export class CommonListController {
                 }
             );
             if (pluginModule.includes('ShoppingCart') && vendorPlugin) {
-                selects.push(`(SELECT sc.id FROM shopping_cart AS sc INNER JOIN shopping_cart_detail as scd ON sc.id = scd.shopping_cart_id WHERE sc.customer_id = ${request.id ? request.id : 0} AND scd.sku_id = skuId ORDER BY sc.created_date DESC LIMIT 1) AS shoppingCartId`);
+                selects.push('(SELECT sc.id FROM shopping_cart AS sc INNER JOIN shopping_cart_detail as scd ON sc.id = scd.shopping_cart_id WHERE sc.customer_id = ' + (parseInt(request.id, 10) || 0) + ' AND scd.sku_id = skuId ORDER BY sc.created_date DESC LIMIT 1) AS shoppingCartId');
             }
 
             const defaultPriceFilterQuery = '(CASE WHEN (((SELECT price FROM product_special ps WHERE ps.product_id = Product.product_id AND ps.sku_id = Product.skuId AND ((ps.date_start <= CURDATE() AND ps.date_end >= CURDATE()))' + ' ' +
@@ -659,35 +610,9 @@ export class CommonListController {
                 ' WHEN ((productDiscount IS NOT NULL) AND `Product`.`tax_type` = 2 AND (taxValue != 0 || taxValue != NULL)) THEN (taxValue/100 * productDiscount) + productDiscount WHEN (productDiscount IS NOT NULL AND `Product`.`tax_type` = 1 AND (taxValue != 0 || taxValue != NULL)) THEN (taxValue + productDiscount) WHEN (productSpecial IS NOT NULL) THEN productSpecial' +
                 ' WHEN (productDiscount IS NOT NULL) THEN productDiscount WHEN (`Product`.`tax_type` = 2 AND (taxValue != 0 || taxValue != NULL)) THEN (taxValue/100 * modifiedPrice) + modifiedPrice WHEN (`Product`.`tax_type` = 1 AND (taxValue != 0 || taxValue != NULL)) THEN (taxValue + modifiedPrice) ELSE modifiedPrice END)';
 
-            // price group addon exist
-
-            let priceGroupFilterPriceQueryExist = undefined;
-            let priceGroupFilterSortQueryExist = undefined;
-
-            if (pluginModule.includes('ProductPriceGroup') && await this.pluginService.findOne({ where: { slugName: 'product-price-group', pluginStatus: 1 } })) {
-                // cutomer price
-                const { vendorCustomerPriceService, priceGroupFilterQuery, vendorCustomerGroupPriceService } = require('../../../../add-ons/ProductPriceGroup/priceGroupHook');
-                const vendorCustomerPriceList = await vendorCustomerPriceService('find', { where: { customerId: request.id } });
-                const vendorCustomerPriceGroupIds = vendorCustomerPriceList.map((vendorCustomerPrice) => vendorCustomerPrice.priceGroupId);
-
-                selects.push(`(SELECT MIN(price) FROM vendor_price_group_detail vpgd INNER JOIN vendor_price_group_schedule vpgs ON vpgd.id = vpgs.price_group_detail_id INNER JOIN vendor_price_group vpg ON vpgd.price_group_id = vpg.id WHERE vpgd.sku_id = Product.skuId AND vpgd.price_group_id IN(${[0, ...vendorCustomerPriceGroupIds]}) AND vpgs.start_date <= CURDATE() AND vpgs.end_date >= CURDATE() AND vpgs.is_active = 1 AND vpg.is_active = 1) as vcPrice`);
-
-                // cutomer group price
-                const vendorCustomerGroupList = await this.customerToGroupService.find({ where: { customerId: request.id } });
-                const vendorCustomerGroupIds = vendorCustomerGroupList.map((vendorCustomerGroup) => vendorCustomerGroup.customerGroupId);
-                const vendorCustomerGroupPriceList = await vendorCustomerGroupPriceService('find', { where: { customerGroupId: In(vendorCustomerGroupIds) } });
-                const vendorCustomerGroupPriceGroupIds = vendorCustomerGroupPriceList.map((vendorCustomerGroupPrice) => vendorCustomerGroupPrice.priceGroupId);
-
-                selects.push(`(SELECT MIN(price) FROM vendor_price_group_detail vpgd INNER JOIN vendor_price_group_schedule vpgs ON vpgd.id = vpgs.price_group_detail_id INNER JOIN vendor_price_group vpg ON vpgd.price_group_id = vpg.id WHERE vpgd.sku_id = Product.skuId AND vpgd.price_group_id IN(${[0, ...vendorCustomerGroupPriceGroupIds]}) AND vpgs.start_date <= CURDATE() AND vpgs.end_date >= CURDATE() AND vpgs.is_active = 1 AND vpg.is_active = 1) as vcgPrice`);
-
-                priceGroupFilterPriceQueryExist = priceGroupFilterQuery(defaultPriceFilterQuery, vendorCustomerPriceGroupIds, vendorCustomerGroupPriceGroupIds);
-                priceGroupFilterSortQueryExist = priceGroupFilterQuery(defaultPriceSortQuery, vendorCustomerPriceGroupIds, vendorCustomerGroupPriceGroupIds);
-
-            }
-
             if (params.priceFrom) {
                 whereConditions.push({
-                    name: priceGroupFilterPriceQueryExist ?? defaultPriceFilterQuery,
+                    name: defaultPriceFilterQuery,
                     op: 'raw',
                     sign: '>=',
                     value: params.priceFrom,
@@ -696,7 +621,7 @@ export class CommonListController {
 
             if (params.priceTo) {
                 whereConditions.push({
-                    name: priceGroupFilterPriceQueryExist ?? defaultPriceFilterQuery,
+                    name: defaultPriceFilterQuery,
                     op: 'raw',
                     sign: '<=',
                     value: params.priceTo,
@@ -712,15 +637,6 @@ export class CommonListController {
                     value: attribute,
                 });
             }
-            if (params.variant) {
-                whereConditions.push({
-                    name: 'Product.product_id',
-                    op: 'IN',
-                    sign: 'variant',
-                    value: variant,
-                });
-            }
-
             if (params.productIds && params.productIds !== '') {
                 whereConditions.push({
                     name: 'Product.product_id',
@@ -731,7 +647,7 @@ export class CommonListController {
             const sort = [];
             if (params.price) {
                 sort.push({
-                    name: priceGroupFilterSortQueryExist ?? defaultPriceSortQuery,
+                    name: defaultPriceSortQuery,
                     order: params.price,
                 }, {
                     name: 'Product.createdDate',
@@ -760,7 +676,8 @@ export class CommonListController {
                     {
                         tableName: 'Product.productTranslation',
                         op: 'leftCond',
-                        cond: `productTranslation.languageId = ${request.languageId}`,
+                        cond: 'productTranslation.languageId = :condLanguageId',
+                        condParams: { condLanguageId: request.languageId },
                         aliasName: 'productTranslation',
                     }
                 );
@@ -1431,7 +1348,6 @@ export class CommonListController {
      * HTTP/1.1 500 Internal Server Error
      */
     // Category List Function
-    @UseBefore(StoreCategoryValidator)
     @UseBefore(TenantValidationMiddleware)
     @UseBefore(TranslationMiddleware)
     @Get('/specific-category')
@@ -1453,26 +1369,32 @@ export class CommonListController {
                 where: {
                     parentInt: In(tempParentId),
                 },
-                relations: ['categoryTranslation'],
             });
-
-            const childCategoryTranslations = chlidCategory.map((cc) => {
-
-                const childCategoryTranslation = cc.categoryTranslation.find((categoryTrans) => categoryTrans.languageId === request.languageId);
-
-                cc.categoryNameTrans = childCategoryTranslation?.name ?? '';
-                cc.categoryDescriptionTrans = childCategoryTranslation?.description ?? '';
-
-                delete cc.categoryTranslation;
-
-                return cc;
-            });
-
-            tempParentId = [];
 
             if (chlidCategory?.length === 0) {
                 break;
             }
+
+            // Fetch translations for all child category IDs in one query.
+            const childIds = chlidCategory.map(c => c.categoryId);
+            const translations: any[] = await getDataSource().query(
+                `SELECT category_id AS categoryId, language_id AS languageId, name, description
+                 FROM category_translation
+                 WHERE category_id IN (?) AND language_id = ?`,
+                [childIds, request.languageId ?? 0]
+            );
+
+            const translationMap: Record<number, { name: string; description: string }> = {};
+            for (const t of translations) {
+                translationMap[t.categoryId] = { name: t.name ?? '', description: t.description ?? '' };
+            }
+
+            const childCategoryTranslations = chlidCategory.map((cc) => {
+                const trans = translationMap[cc.categoryId];
+                cc.categoryNameTrans = trans?.name ?? '';
+                cc.categoryDescriptionTrans = trans?.description ?? '';
+                return cc;
+            });
 
             categories.push(...childCategoryTranslations);
 
@@ -1636,24 +1558,18 @@ export class CommonListController {
                     name: 'Product.isActive',
                     op: 'and',
                     value: 1,
-                }, {
-                name: '((' + 'customer.isActive',
-                op: 'and',
-                value: 1,
-            }, {
-                name: 'customer.deleteFlag',
-                op: 'and',
-                value: 0 + ')',
-            }, {
-                name: 'vendor.customer_id ',
-                op: 'IS NULL',
-                value: ')',
-            }, {
-                name: 'Product.dateAvailable',
-                op: 'raw',
-                sign: '<=',
-                value: currentDate.toString(),
-            });
+                },
+                {
+                    // (customer.isActive = 1 AND customer.deleteFlag = 0) OR vendor.customer_id IS NULL
+                    name: '((customer.isActive = 1 AND customer.deleteFlag = 0) OR vendor.customer_id IS NULL)',
+                    op: 'raw',
+                },
+                {
+                    name: 'Product.dateAvailable',
+                    op: 'raw',
+                    sign: '<=',
+                    value: currentDate.toString(),
+                });
         } else {
             relations.push({
                 tableName: 'Product.productToCategory',
@@ -1680,22 +1596,16 @@ export class CommonListController {
                 name: 'Product.isActive',
                 op: 'and',
                 value: 1,
-            }, {
-                name: '((' + 'vendor.isActive',
-                op: 'and',
-                value: 1,
-            }, {
-                name: 'vendor.isDelete',
-                op: 'and',
-                value: 0 + ')',
-            }, {
-                name: 'vendor.customer_id ',
-                op: 'IS NULL',
-                value: ')',
-            }, {
+            },
+            {
+                // (vendor.isActive = 1 AND vendor.isDelete = 0) OR vendor.customer_id IS NULL
+                name: '((vendor.isActive = 1 AND vendor.isDelete = 0) OR vendor.customer_id IS NULL)',
+                op: 'raw',
+            },
+            {
                 name: 'category.category_slug',
                 op: 'and',
-                value: '"' + params.categorySlug + '"',
+                value: params.categorySlug,
             }, {
                 name: 'Product.dateAvailable',
                 op: 'raw',
@@ -1982,7 +1892,7 @@ export class CommonListController {
      *              "isDelete": ""
      *              }
      * }
-     * @apiSampleRequest /api/store-list/industry
+     * @apiSampleRequest /api/store-list/settings
      * @apiErrorExample {json} Error
      * HTTP/1.1 500 Internal server error
      */
@@ -1994,7 +1904,7 @@ export class CommonListController {
                 vendorId: request.tenantId,
             },
         });
-        const vendorCurrencyData: any = await this.currencyService.findOne({ where: { currencyId: VendorSettings.storeCurrencyId } });
+        const vendorCurrencyData: any = await this.currencyService.findOne({ where: { currencyId: VendorSettings?.storeCurrencyId } });
         const temp: any = {};
         if (vendorCurrencyData) {
             temp.currencyCode = vendorCurrencyData?.code;

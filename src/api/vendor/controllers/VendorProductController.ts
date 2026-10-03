@@ -2011,7 +2011,7 @@ export class VendorProductController {
      * @apiErrorExample {json} Allproduct Excel List error
      * HTTP/1.1 500 Internal Server Error
      */
-
+    @Authorized('vendor')
     @Get('/vendor-product-excel')
     public async ExportAllProductsById(@QueryParam('productId') productId: string, @Req() request: any, @Res() response: any): Promise<any> {
         const excel = require('exceljs');
@@ -3791,6 +3791,7 @@ export class VendorProductController {
      * @apiErrorExample {json} Vendor checlApi error
      * HTTP/1.1 500 Internal Server Error
      */
+    @Authorized('vendor')
     @Post('/vendor-product-additional-file')
     public async checlApi(@UploadedFile('file') file: any, @Res() response: any): Promise<any> {
         const AcceptedFilesType = [
@@ -3845,7 +3846,7 @@ export class VendorProductController {
      * @apiErrorExample {json} Vendor AdditionalFileDownload error
      * HTTP/1.1 500 Internal Server Error
      */
-
+    @Authorized('vendor')
     @Get('/vendor-product-additional-file-download')
     public async additionalFileDownload(@QueryParam('fileName') fileName: string, @QueryParam('containerName') containerName: string, @Res() response: any): Promise<any> {
         let val: any;

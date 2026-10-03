@@ -83,6 +83,7 @@ export const env = {
         route: getOsEnv('SWAGGER_ROUTE'),
         file: getOsEnv('SWAGGER_FILE'),
     },
+    corsOrigin: getOsEnvOptional('CORS_ORIGIN'),
     imageserver: getOsEnv('IMAGE_SERVER'),
     imageUploadSize: getOsEnv('IMAGE_UPLOAD_SIZE'),
     storeUrl: getOsEnv('STORE_URL'),
