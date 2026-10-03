@@ -1,0 +1,59 @@
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800"x>Facebook Login Details</h1>
+    <p class="mb-4">Configure your Facebook details</p>
+  
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+      <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Facebook login Settings</h6>
+      </div>
+      <div class="card-body">
+          <form class="user" role="form" action="facebook" method="POST">
+              <% if (messages.errors) { 
+              %>
+                  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                  <% 
+                      messages.errors.forEach(function(error) {
+                  %>
+                  <div> <%= error.msg ? error.msg : error  %> </div>
+                  <%
+                      }); 
+                  %>
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">×</span>
+                  </button>
+                  </div>
+              <% 
+                  }
+              %>
+              <div class="form-group" small>
+                  <label class="control-label" for="clientId">Client Id</label>
+                  <input type="text" id="clientId" class="form-control form-control-user" value="<%= clientId %>" name="clientId" placeholder="Facebook Client Id">
+              </div>
+              <div class="form-group" small>
+                  <label class="control-label" for="clientSecret">Client Secret</label>
+                  <input type="text" id="clientSecret" class="form-control form-control-user" value="<%= clientSecret %>" name="clientSecret" placeholder="facebook Secret key">
+              </div>
+              <!-- <div class="form-group">
+                  <div class="form-group">
+                      <div class="custom-control custom-checkbox small">
+                      <input type="checkbox" value="1" name="isTest" class="custom-control-input" id="customCheck" <%= isTest ? 'checked' : '' %> />
+                      <label class="custom-control-label" for="customCheck">Is Testing</label>
+                      </div>
+                  </div>
+              </div> -->
+              <button type="submit" class="btn btn-primary btn-user btn-sm">
+                  Save
+              </button>
+              <button onclick="location.href = 'home';" type="button" class="btn btn-info btn-user btn-sm" >
+                  Cancel
+              </button>
+          </form>
+      </div>
+    </div>
+  
+  </div>
+  <!-- /.container-fluid -->

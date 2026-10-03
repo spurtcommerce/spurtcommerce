@@ -1,0 +1,317 @@
+[
+  {
+    "type": 2,
+    "name": "Solid Wood Coffee Table",
+    "slug": "solid-wood-coffee-table",
+    "description": "<p>Elegant solid wood coffee table with a polished finish, perfect for living rooms.</p>",
+    "shortDescription": "Classic solid wood coffee table for home décor.",
+    "family": "Living Room Furniture",
+    "categories": [
+      "Coffee tables"
+    ],
+    "categoryTemplate": "Upgrade your space with our collection of {{categoryName}} that combine style, comfort, and functionality for homes and offices.",
+    "images": [
+      "coffee_table.jpg"
+    ],
+    "price": "5999",
+    "productDiscount": 5809,
+    "productSpecial": 5799,
+    "quantity": "50",
+    "productHighlights": [
+      {
+        "data": "<ul><li>Made from premium teak wood</li><li>Polished surface for a rich look</li><li>Sturdy construction</li><li>Ideal for modern and classic interiors</li></ul>"
+      }
+    ],
+    "attributes": [],
+    "variations": [],
+    "banner": {
+      "title": "Centerpiece for Your Living Room",
+      "content": "Enhance your space with this elegant solid wood coffee table.",
+      "position": 1,
+      "status": 1,
+      "linkType": 1,
+      "bannerImages": [
+        {
+          "image": "FurnishingsDecor.png",
+          "isPrimary": 1
+        }
+      ]
+    },
+    "widget": {
+      "title": "Living Room Essentials",
+      "widgetLongTitle": "Furniture That Defines Your Space",
+      "content": "Discover stylish coffee tables sofas chairs and storage solutions to complete your living room",
+      "position": 1
+    },
+    "shoppingCart": {
+      "name": "Furniture Purchase",
+      "isDefault": 1,
+      "notes": "Cart for primary furniture purchases."
+    },
+    "questionsAnswers": {
+      "question": "Is the table pre-assembled?",
+      "answer": "No, minimal assembly is required with the included tools."
+    },
+    "ratingAndReview": {
+      "rating": 4,
+      "review": "Beautiful and sturdy centerpiece. Fits perfectly in my living room."
+    },
+    "pricingGroup": {
+      "name": "Coffee Tables Bulk",
+      "description": "Special pricing for buying multiple tables.",
+      "isDefault": 0,
+      "price": "5599",
+      "maxQuantity": "5"
+    }
+  },
+  {
+    "type": 0,
+    "name": "Ergonomic Office Chair",
+    "slug": "ergonomic-office-chair",
+    "description": "<p>Adjustable ergonomic office chair with lumbar support and breathable mesh back.</p>",
+    "shortDescription": "Comfortable office chair for long hours of work.",
+    "family": "Office Furniture",
+    "categories": [
+      "Office chairs"
+    ],
+    "categoryTemplate": "Upgrade your space with our collection of {{categoryName}} that combine style, comfort, and functionality for homes and offices.",
+    "images": [
+      "office_chair.jpg"
+    ],
+    "price": "6999",
+    "quantity": "40",
+    "productHighlights": [
+      {
+        "data": "<ul><li>Adjustable height and tilt</li><li>Breathable mesh back</li><li>Lumbar support</li><li>360-degree swivel</li></ul>"
+      }
+    ],
+    "widget": {
+      "title": "Living Room Essentials",
+      "widgetLongTitle": "Furniture for Meals and Relaxation",
+      "content": "Elegant dining tables chairs and patio sets designed for family meals and outdoor enjoyment",
+      "position": 3
+    },
+    "attributes": [
+      {
+        "name": "Color",
+        "values": [
+          "Black",
+          "Gray"
+        ],
+        "sortOrder": 3,
+        "attrGroupName": "Appearance",
+        "description": "Available in classic Black and White shades, offering a sleek and timeless look. The Black finish adds a bold, modern touch, while White gives a clean, elegant feel. Choose the color that best complements your personal style or environment."
+      },
+      {
+        "name": "Material",
+        "values": [
+          "Mesh",
+          "Leather"
+        ],
+        "sortOrder": 4,
+        "attrGroupName": "Material",
+        "description": "Crafted from premium Mesh and Leather materials for comfort and durability. Mesh offers breathability and lightweight flexibility for everyday use. Leather adds a touch of elegance with superior strength and long-lasting quality."
+      }
+    ],
+    "variations": [
+      {
+        "sku": "OC-BLK-MESH",
+        "price": "6999",
+        "salePrice": "6499",
+        "quantity": "20",
+        "Variant 1 name": "Color",
+        "Variant 1 value": "Black",
+        "Variant 2 name": "Material",
+        "Variant 2 value": "Mesh",
+        "images": [
+          "office_chair.jpg"
+        ]
+      },
+      {
+        "sku": "OC-GRY-LEA",
+        "price": "6999",
+        "salePrice": "6299",
+        "quantity": "20",
+        "Variant 1 name": "Color",
+        "Variant 1 value": "Gray",
+        "Variant 2 name": "Material",
+        "Variant 2 value": "Leather",
+        "images": [
+          "office_chair.jpg"
+        ]
+      }
+    ]
+  },
+  {
+    "type": 2,
+    "name": "Fabric 3-Seater Sofa",
+    "slug": "fabric-3-seater-sofa",
+    "description": "<p>Comfortable fabric 3-seater sofa with plush cushioning and a sturdy wooden frame, ideal for modern living rooms.</p>",
+    "shortDescription": "Comfortable fabric sofa for stylish living rooms.",
+    "family": "Living Room Furniture",
+    "categories": [
+      "Sofas"
+    ],
+    "categoryTemplate": "Upgrade your space with our collection of {{categoryName}} that combine style, comfort, and functionality for homes and offices.",
+    "images": [
+      "fabric_sofa.jpg"
+    ],
+    "price": "18999",
+    "productDiscount": 17999,
+    "productSpecial": 17499,
+    "quantity": "30",
+    "productHighlights": [
+      {
+        "data": "<ul><li>Soft premium fabric upholstery</li><li>High-density foam cushions</li><li>Strong wooden frame for durability</li><li>Comfortable seating for three adults</li></ul>"
+      }
+    ],
+    "attributes": [],
+    "variations": [],
+    "widget": {
+      "title": "Living Room Essentials",
+      "widgetLongTitle": "Sofas That Redefine Relaxation",
+      "content": "Explore premium sofas recliners and seating solutions for a cozy living space",
+      "position": 1
+    },
+    "shoppingCart": {
+      "name": "Furniture Purchase",
+      "isDefault": 1,
+      "notes": "Cart for primary furniture purchases."
+    },
+    "questionsAnswers": {
+      "question": "Does the sofa come with cushions?",
+      "answer": "Yes, matching back cushions are included with the sofa."
+    },
+    "ratingAndReview": {
+      "rating": 5,
+      "review": "Extremely comfortable and looks elegant in my living room."
+    },
+    "pricingGroup": {
+      "name": "Sofa Bulk Purchase",
+      "description": "Special pricing for bulk sofa orders.",
+      "isDefault": 0,
+      "price": "16999",
+      "maxQuantity": "3"
+    }
+  },
+  {
+    "type": 2,
+    "name": "Wooden 4-Seater Dining Table",
+    "slug": "wooden-4-seater-dining-table",
+    "description": "<p>Elegant wooden dining table with a smooth finish, designed for comfortable family dining.</p>",
+    "shortDescription": "Stylish wooden dining table for everyday meals.",
+    "family": "Dining Room Furniture",
+    "categories": [
+      "Dining Tables"
+    ],
+    "categoryTemplate": "Upgrade your space with our collection of {{categoryName}} that blend elegance and durability for modern homes.",
+    "images": [
+      "dining_table.jpg"
+    ],
+    "price": "24999",
+    "productDiscount": 23999,
+    "productSpecial": 23499,
+    "quantity": "20",
+    "productHighlights": [
+      {
+        "data": "<ul><li>Made from solid engineered wood</li><li>Comfortable seating for four people</li><li>Scratch-resistant tabletop</li><li>Modern and durable design</li></ul>"
+      }
+    ],
+    "attributes": [],
+    "variations": [],
+    "banner": {
+      "title": "Centerpiece Living Room",
+      "content": "Enhance your space with this elegant solid wood coffee table.",
+      "position": 2,
+      "status": 1,
+      "linkType": 1,
+      "bannerImages": [
+        {
+          "image": "FurnishingsDecorImage.png",
+          "isPrimary": 1
+        }
+      ]
+    },
+    "widget": {
+      "title": "Living Room Essentials",
+      "widgetLongTitle": "Furniture for Perfect Dining Spaces",
+      "content": "Discover dining tables chairs and cabinets designed for comfort and style",
+      "position": 1
+    },
+    "shoppingCart": {
+      "name": "Furniture Purchase",
+      "isDefault": 1,
+      "notes": "Cart for dining room furniture purchases."
+    },
+    "questionsAnswers": {
+      "question": "Does this dining table include chairs?",
+      "answer": "Yes, four matching chairs are included with the table."
+    },
+    "ratingAndReview": {
+      "rating": 4,
+      "review": "Strong build and perfect size for a small family."
+    },
+    "pricingGroup": {
+      "name": "Dining Table Bulk",
+      "description": "Special pricing for bulk dining table orders.",
+      "isDefault": 0,
+      "price": "22999",
+      "maxQuantity": "3"
+    }
+  },
+  {
+    "type": 0,
+    "name": "Wooden Bookshelf Cabinet",
+    "slug": "wooden-bookshelf-cabinet",
+    "description": "<p>Spacious wooden bookshelf cabinet with multiple shelves, ideal for storing books, décor, and office essentials.</p>",
+    "shortDescription": "Modern wooden bookshelf for home and office storage.",
+    "family": "Home & Office Furniture",
+    "categories": [
+      "Bookshelves"
+    ],
+    "categoryTemplate": "Upgrade your space with our collection of {{categoryName}} that combine style, durability, and functionality for homes and offices.",
+    "images": [
+      "bookshelf.jpg"
+    ],
+    "price": "8999",
+    "quantity": "25",
+    "productHighlights": [
+      {
+        "data": "<ul><li>Made from engineered wood</li><li>5 spacious open shelves</li><li>Sturdy and stable structure</li><li>Suitable for home and office use</li></ul>"
+      }
+    ],
+    "widget": {
+      "title": "Storage Essentials",
+      "widgetLongTitle": "Smart Furniture for Organized Spaces",
+      "content": "Explore bookshelves cabinets and storage units designed to keep your space clutter-free",
+      "position": 3
+    },
+    "attributes": [
+      {
+        "name": "Color",
+        "values": [
+          "Walnut",
+          "Wenge"
+        ],
+        "sortOrder": 3,
+        "attrGroupName": "Appearance",
+        "description": "Available in elegant Walnut and Wenge finishes that complement both modern and classic interiors."
+      }
+    ],
+    "variations": [
+      {
+        "sku": "BS-WAL-ENG",
+        "price": "8999",
+        "salePrice": "8599",
+        "quantity": "15",
+        "Variant 1 name": "Color",
+        "Variant 1 value": "Walnut",
+        "Variant 2 name": "Material",
+        "Variant 2 value": "Engineered Wood",
+        "images": [
+          "bookshelf.jpg"
+        ]
+      }
+    ]
+  }
+]

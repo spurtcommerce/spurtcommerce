@@ -1,0 +1,92 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "This is a sample server.",
+    "version": "1.0.0",
+    "title": "SpurtV5",
+    "contact": {
+      "email": "noreply@spurtcart.com"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "host": "139.59.67.17",
+  "basePath": "/backend",
+  "tags": [
+    {
+      "name": "buyer",
+      "description": "Buyer Master ..!"
+    }
+  ],
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "paths": {
+    "/api/customer/send-otp": {
+      "post": {
+        "tags": [
+          "buyer"
+        ],
+        "summary": "buyer user",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "emailId",
+            "description": "email id of the buyer",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Failed to send the OTP"
+          },
+          "200": {
+            "description": "OTP successfully sent to the provided email address"
+          }
+        }
+      }
+    },
+    "/api/customer/login-log-list": {
+      "get": {
+        "tags": [
+          "buyer"
+        ],
+        "summary": "Get buyer login logs",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": true,
+            "type": "int"
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Bad Request",
+            "data": []
+          },
+          "200": {
+            "description": "Successfully get login Log list",
+            "data": [
+              {
+                "logcount": "",
+                "createdDate": ""
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

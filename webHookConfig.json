@@ -1,0 +1,6 @@
+{
+    "send_email": {
+        "api": "http://localhost:{{PORT}}/api/webhook-client",
+        "token": "c3B1cnRjb21tZXJjZTpzcHVydDEyM0A="
+    }
+}

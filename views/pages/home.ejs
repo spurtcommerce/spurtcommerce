@@ -1,0 +1,68 @@
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+  <!-- Page Heading -->
+  <h1 class="h3 mb-2 text-gray-800"x>SpurtConnect</h1>
+  <p class="mb-4">Install & Un-Install the extension</p>
+
+  <!-- DataTales Example -->
+  <div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">Extension</h6>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+          <thead>
+            <tr>
+              <th width="50%">Name</th>
+              <th width="10%">Status</th>
+              <th width="20%"></th>
+              <th width="20%">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% 
+                data.forEach(function(plugin) {
+            %>
+            <tr>
+              <td><%= plugin.pluginName %></td>
+              <td><%= plugin.pluginStatus === 1 ? 'Enabled' : 'Disabled' %></td>
+              <td><img src="<%= baseUrl %>media/image-resize/?width=60&height=60&path=<%= plugin.pluginAvatarPath %>&name=<%= plugin.pluginAvatar %>"></td>
+              <td>
+                <% 
+                
+                    if (plugin.pluginStatus === 1) { 
+                      var defaultURL = '';
+                      if (plugin.pluginAdditionalInfo) {
+                        var pluginAdditionalInfo = JSON.parse(plugin.pluginAdditionalInfo);
+                        defaultURL = pluginAdditionalInfo.defaultRoute;
+                      } 
+                  
+                %> 
+                <a href="<%= plugin.pluginName %>" class="btn btn-info">
+                  <i class="fa fa-edit"></i>
+                </a>
+                <a href="/home/update-inactive-status/<%= plugin.id %>"  class="btn btn-danger">
+                  <i class="fas fa-minus-circle"></i>
+                </a>
+                <!-- <a href="<%= defaultURL ? defaultURL : '#' %>" class="btn btn-danger">
+                  <i class="fas fa-minus-circle"></i>
+                </a> -->
+                <% } %>
+                <% if (plugin.pluginStatus === 0) { %> 
+                  <a href="/home/update-active-status/<%= plugin.id %>" class="btn btn-primary">
+                    <i class="fas fa-plus-circle"></i>
+                  </a>
+                <% } %>
+              </td>
+            </tr>
+            <% }); %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div>
+<!-- /.container-fluid -->
