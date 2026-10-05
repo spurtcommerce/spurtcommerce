@@ -7,7 +7,7 @@
  */
 
 import 'reflect-metadata';
-import { Get, Delete, JsonController, Authorized, Res, Req, Param, QueryParam, Post, Body } from 'routing-controllers';
+import { Get, JsonController, Authorized, Res, Req, Param, QueryParam, Post, Body } from 'routing-controllers';
 import { VendorCountryService } from '../../core/services/VendorCountryService';
 import { CountryService } from '../../core/services/CountryService';
 import { Service } from 'typedi';
@@ -130,125 +130,6 @@ export class VendorCountryController {
             const errorResponse: any = {
                 status: 1,
                 message: 'Unable to get vendor country list.',
-            };
-            return response.status(400).send(errorResponse);
-        }
-    }
-
-    // Delete Country API
-    /**
-     * @api {delete} /api/vendor-country/:id Delete Country API
-     * @apiGroup Country
-     * @apiHeader {String} Authorization
-     *
-     * @apiParam (Request body) {String} vendorCountryIds Comma-separated list of vendorCountry IDs
-     *
-     * @apiParamExample {json} Input
-     * {
-     *      "countryId" : "",
-     * }
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully deleted Country",
-     *      "status": "1"
-     * }
-     * @apiSampleRequest /api/vendor-country/:id
-     * @apiErrorExample {json} Country error
-     * HTTP/1.1 500 Internal Server Error
-     */
-    @Delete()
-    @Authorized(['vendor', 'list-setting-localization'])
-    public async deleteCountry(@Body({ validate: true }) countryParam: { vendorCountryIds: string }, @Req() request: any, @Res() response: any): Promise<any> {
-        const vendorCountryIds: any = countryParam.vendorCountryIds.split(',');
-        const checkCountryExist = await this.vendorCountryService.find({ where: { id: In(vendorCountryIds), tenantId: request.user.tenantId } });
-
-        if (checkCountryExist.length !== vendorCountryIds.length) {
-            return response.status(400).send({
-                status: 0,
-                message: 'Invalid vendor countries.',
-            });
-        }
-        const vendorSettings = await this.vendorSettingsService.findOne({ where: { vendorId: request.user.tenantId } });
-        if (vendorSettings && vendorCountryIds.includes(vendorSettings.storeCountryId)) {
-            return response.status(400).send({
-                status: 0,
-                message: 'You cannot remove the country, as they are mapped with the settings.',
-            });
-        }
-        await this.vendorCountryService.delete(vendorCountryIds);
-
-        const successResponse: any = {
-            status: 1,
-            message: 'Successfully remove the vendor country.',
-        };
-        return response.status(200).send(successResponse);
-    }
-
-    // Vendor Master Country List API
-    /**
-     * @api {get} /api/vendor-country/master-country Vendor Master Country List API
-     * @apiGroup Country
-     * @apiHeader {String} Authorization
-     * @apiParam (Query params) {Number} limit limit
-     * @apiParam (Query params) {Number} offset offset
-     * @apiParam (Query params) {String} keyword keyword
-     * @apiParam (Query params) {String} status status
-     * @apiParam (Query params) {Number} count count should be number or boolean
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *   "status": 1,
-     *   "message": "Successfully get all country List",
-     *   "data": []
-     * }
-     * @apiSampleRequest /api/vendor-country/master-country
-     * @apiErrorExample {json} Country error
-     * HTTP/1.1 500 Internal Server Error
-     */
-    @Get('/master-country')
-    @Authorized(['vendor', 'list-setting-localization'])
-    public async masterCountryList(@QueryParam('limit') limit: number, @QueryParam('offset') offset: number, @QueryParam('keyword') keyword: string, @QueryParam('status') status: string, @QueryParam('count') count: number | boolean, @Res() response: any): Promise<any> {
-        const sort = [{
-            name: 'Country.createdDate',
-            order: 'DESC',
-        }];
-        const search = [];
-        if (keyword?.trim()) {
-            search.push({
-                name: ['Country.name', 'Country.isoCode2', 'Country.isoCode3'],
-                value: keyword,
-            });
-        }
-        const whereConditions = [];
-        if (status) {
-            whereConditions.push({
-                name: 'Country.isActive',
-                op: 'and',
-                value: status,
-            });
-        }
-        if (count) {
-            const countryCount = await this.countryService.listByQueryBuilder(limit, offset, [], whereConditions, search, [], [], sort, true, false);
-            const successResponse: any = {
-                status: 1,
-                message: 'Successfully got all Country Count',
-                data: countryCount,
-            };
-            return response.status(200).send(successResponse);
-        }
-        const countryList = await this.countryService.listByQueryBuilder(limit, offset, [], whereConditions, search, [], [], [], false, false);
-        if (countryList) {
-            const successResponse: any = {
-                status: 1,
-                message: 'Successfully get all country List',
-                data: countryList,
-            };
-            return response.status(200).send(successResponse);
-        } else {
-            const errorResponse: any = {
-                status: 1,
-                message: 'Unable to get country List',
             };
             return response.status(400).send(errorResponse);
         }

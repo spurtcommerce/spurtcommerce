@@ -566,5 +566,7 @@ export * from '../database/migrations/1772090512237-UpdateColorCode';
 export * from '../database/migrations/1772880628383-AddColumnInCustomerUser';
 export * from '../database/migrations/1782719107118-addCurrecnyInPluginTable';
 export * from '../database/migrations/1790317064820-CreateDefultVendorDetails';
+export * from '../database/migrations/1791185872357-UpdateVendorUsersAvatarPath';
+export * from '../database/migrations/1792000000000-EnsureVendorOrderStatusData';
 export * from '../../add-ons/WebHook/api/migrations/1714024644076-AddPluginWebhook';
 export * from '../../add-ons/WebHook/api/migrations/1714025757863-CreateWebHookTable';

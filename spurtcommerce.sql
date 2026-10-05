@@ -2778,6 +2778,7 @@ CREATE TABLE `order` (
   `customer_gst_no` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `payment_mobile_number` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
   `tenant_id` int NOT NULL,
+    `payment_rule_id` int DEFAULT NULL,
   `po_number` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `must_ship_before` date NOT NULL,
   `notes` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -2895,6 +2896,7 @@ CREATE TABLE `order_log` (
   `modified_date` datetime DEFAULT NULL,
   `orderId` int DEFAULT NULL,
   `order_id` int NOT NULL,
+    `payment_rule_id` int DEFAULT NULL,
   `po_number` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `must_ship_before` date NOT NULL,
   `notes` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -3268,6 +3270,27 @@ INSERT INTO `payment_method` (`id`, `name`, `slug`, `sort_order`, `is_active`, `
 (1, 'Payment Terms', 'payment-terms', 1, 1, 0, '2025-09-03 06:46:50', NULL, NULL, '2025-09-03 06:46:52'),
 (2, 'Check/Money Order', 'check-money-order', 2, 1, 0, '2025-09-03 06:46:50', NULL, NULL, '2025-09-03 06:46:52');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `payment_rule`
+--
+
+CREATE TABLE `payment_rule` (
+  `id` int NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `slug` varchar(255) NOT NULL,
+  `sort_order` int NOT NULL DEFAULT '0',
+  `is_active` tinyint DEFAULT '1',
+  `is_delete` tinyint DEFAULT '0',
+  `instructions` varchar(255) DEFAULT NULL,
+  `created_by` int DEFAULT NULL,
+  `created_date` datetime DEFAULT CURRENT_TIMESTAMP,
+  `modified_by` int DEFAULT NULL,
+  `modified_date` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `tenant_id` int DEFAULT NULL,
+  `payment_method_id` int DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 -- --------------------------------------------------------
 
 --
@@ -7048,6 +7071,13 @@ ALTER TABLE `payment_items_archive`
   MODIFY `payment_item_archive_id` int NOT NULL AUTO_INCREMENT;
 
 --
+-- Indexes for table `payment_rule`
+--
+ALTER TABLE `payment_rule`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_pm_rule_pm_id` (`payment_method_id`);
+
+--
 -- AUTO_INCREMENT for table `payment_method`
 --
 ALTER TABLE `payment_method`
@@ -7788,11 +7818,23 @@ ALTER TABLE `payment_items_archive`
   ADD CONSTRAINT `fk_payment_items_archive_payment_archive_payment_archive_id` FOREIGN KEY (`payment_archive_id`) REFERENCES `payment_archive` (`payment_archive_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
+-- AUTO_INCREMENT for table `payment_rule`
+--
+ALTER TABLE `payment_rule`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+
+--
 -- Constraints for table `permission_module`
 --
 ALTER TABLE `permission_module`
   ADD CONSTRAINT `fk_tbl_permissionModule_tbl_permissionModuleGroup_foreignKey` FOREIGN KEY (`module_group_id`) REFERENCES `permission_module_group` (`module_group_id`) ON DELETE CASCADE;
 
+--
+-- Constraints for table `payment_rule`
+--
+ALTER TABLE `payment_rule`
+  ADD CONSTRAINT `fk_pm_rule_pm_id` FOREIGN KEY (`payment_method_id`) REFERENCES `payment_method` (`id`) ON DELETE CASCADE;
+  
 --
 -- Constraints for table `product_description`
 --

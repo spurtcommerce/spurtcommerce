@@ -49,7 +49,6 @@ import { VendorProductAdditionalFile } from '../../core/models/VendorProductAddi
 import { In } from 'typeorm';
 // import { EmailTemplateService } from '../../core/services/EmailTemplateService';
 // import { MAILService } from '../../../auth/mail.services';
-import { VendorSettingsService } from '../../core/services/VendorSettingsService';
 const hooks = uncino();
 // import { VendorPriceGroupDetailService } from '../../../../add-ons/ProductPriceGroup/services/VendorPriceGroupDetailService';
 // import { ProductVarientOptionService } from '../../../../add-ons/ProductVariants/services/ProductVarientOptionService';
@@ -83,7 +82,6 @@ export class VendorProductController {
         private productController: ProductController,
         private bulkImport: VendorBulkImport,
         // private emailTemplateService: EmailTemplateService,
-        private vendorSettingsService: VendorSettingsService,
         // private vendorUsersService: VendorUsersService,
         // private vendorPriceGroupDetailService: VendorPriceGroupDetailService,
         // private productVarientOptionService: ProductVarientOptionService,
@@ -235,21 +233,6 @@ export class VendorProductController {
     @Post()
     @Authorized(['vendor', 'create-product'])
     public async createProduct(@Body({ validate: true }) product: VendorProductRequest, @Req() request: any, @Res() response: any): Promise<any> {
-
-        const getVendorSettings = await this.vendorSettingsService.findOne({
-            where: { vendorId: request.user.tenantId },
-        });
-
-        const getVendorProducts: any = await this.vendorProductService.find({
-            where: { vendorId: request.user.tenantId },
-        });
-
-        if (getVendorSettings?.productCreateCount !== null && getVendorProducts?.length >= getVendorSettings.productCreateCount) {
-            return response.status(400).send({
-                status: 0,
-                message: `Please upgrade your plan to create more products`,
-            });
-        }
 
         const category = product.categoryId;
         if (category.length === 0) {

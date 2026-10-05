@@ -12,7 +12,6 @@ import { Blog } from '../../core/models/Blog';
 import { BlogService } from '../../core/services/BlogService';
 import { env } from '../../../../src/env';
 import { CreateBlog } from '../../../../src/api/vendor/controllers/requests/CreateBlogRequest';
-import { DeleteBlog } from '../../../../src/api/vendor/controllers/requests/DeleteBlogRequest';
 import { S3Service } from '../../../../src/api/core/services/S3Service';
 import { ImageService } from '../../../../src/api/core/services/ImageService';
 import { BlogRelatedService } from '../../core/services/BlogRelatedService';
@@ -444,52 +443,6 @@ export class VendorBlogController {
             return response.status(200).send(successResponse);
         }
     }
-    // Delete Multiple Blog API
-    /**
-     * @api {post} /api/blog/delete-multiple-blog Delete Multiple Blog API
-     * @apiGroup Blog
-     * @apiHeader {String} Authorization
-     * @apiParam {Number} blogId Blog Id
-     * @apiParamExample {json} Input
-     * {
-     *   "BlogId" : "1"
-     * }
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     * "message": "Successfully deleted Blog.",
-     * "status": "1"
-     * }
-     * @apiSampleRequest /api/blog/delete-multiple-blog
-     * @apiErrorExample {json} Delete multiple Blog error
-     * HTTP/1.1 500 Internal Server Error
-     */
-    @Post('/delete-multiple-blog')
-    @Authorized(['vendor', 'delete-blogs'])
-    public async deleteMultipleBlog(@Body({ validate: true }) deleteBlog: DeleteBlog, @Res() response: any): Promise<any> {
-        const blogData = deleteBlog.blogId.toString();
-        const blog: any = blogData.split(',');
-        const data: any = blog.map(async (id: any) => {
-            const dataId = await this.blogService.findOne({ where: { id } });
-            if (!dataId) {
-                const errorResponse: any = {
-                    status: 0,
-                    message: 'Invalid Blog Id.',
-                };
-                return response.status(400).send(errorResponse);
-            } else {
-                await this.blogService.delete(dataId);
-            }
-        });
-        const deleteBlogs = await Promise.all(data);
-        if (deleteBlogs) {
-            const successResponse: any = {
-                status: 1,
-                message: 'Successfully deleted blog.',
-            };
-            return response.status(200).send(successResponse);
-        }
-    }
 
     // Blog Detail
     /**
@@ -571,77 +524,6 @@ export class VendorBlogController {
         const successResponse: any = {
             status: 1,
             message: 'Successfully got blog list.',
-            data: blog,
-        };
-        return response.status(200).send(successResponse);
-    }
-
-    // Blog Count API
-    /**
-     * @api {get} /api/blog/blog-count Blog Count API
-     * @apiGroup Blog
-     * @apiHeader {String} Authorization
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "status": 1
-     *      "message": "Successfully get blog count",
-     *      "data": {
-     *           "totalBlog": "1",
-     *           "activeBlog": "1",
-     *           "inActiveBlog": "1"
-     *      },
-     * }
-     * @apiSampleRequest /api/blog/blog-count
-     * @apiErrorExample {json} Blog Count error
-     * HTTP/1.1 500 Internal Server Error
-     */
-    @Get('/blog-count')
-    @Authorized(['vendor', 'list-blogs'])
-    public async blogCount(@Req() request: any, @Res() response: any): Promise<any> {
-
-        const whereConditions = [
-            {
-                name: 'tenantId',
-                op: 'where',
-                value: request.user.tenantId,
-            },
-        ];
-        const allBlogCount = await this.blogService.list(0, 0, [], [], whereConditions, [], 1);
-        const whereConditionsActive = [
-            {
-                name: 'isActive',
-                op: 'where',
-                value: 1,
-            },
-            {
-                name: 'tenantId',
-                op: 'where',
-                value: request.user.tenantId,
-            },
-        ];
-        const activeBlogCount = await this.blogService.list(0, 0, [], [], whereConditionsActive, [], 1);
-        const whereConditionsInActive = [
-            {
-                name: 'isActive',
-                op: 'where',
-                value: 0,
-            },
-            {
-                name: 'tenantId',
-                op: 'where',
-                value: request.user.tenantId,
-            },
-        ];
-        const inActiveBlogCount = await this.blogService.list(0, 0, [], [], whereConditionsInActive, [], 1);
-
-        const blog: any = {};
-        blog.totalBlog = allBlogCount;
-        blog.activeBlog = activeBlogCount;
-        blog.inActiveBlog = inActiveBlogCount;
-        const successResponse: any = {
-            status: 1,
-            message: 'Successfully got the blog count.',
             data: blog,
         };
         return response.status(200).send(successResponse);

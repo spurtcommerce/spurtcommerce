@@ -6,9 +6,8 @@
 * Licensed under the MIT license.
 */
 
-import { JsonController, Get, Req, Res, QueryParam, Post, Body, Authorized } from 'routing-controllers';
+import { JsonController, Get, Req, Res, QueryParam, Authorized } from 'routing-controllers';
 import { ExportLogService } from '../../core/services/ExportLogService';
-import { ExportLog } from '../../core/models/ExportLog';
 import { Service } from 'typedi';
 
 @Service()
@@ -18,57 +17,6 @@ export class VendorExportLogController {
         private exportLogService: ExportLogService
     ) { }
 
-    /**
-     * @api {Post} /api/vendor-export-log Export log list
-     * @apiGroup Export Log
-     * @apiHeader {string} Authorization
-     * @apiParam (Request body) {String} module module
-     * @apiParam (Request body) {Number} recordAvailable recordAvailable
-     * @apiParam (Request body) {Number} createdBy createdBy
-     * @apiSuccessExample {json} Success
-     * {
-     *      "status": "1",
-     *      "message": "Export log created successfully",
-     *      "data": {
-     *                  "id": 1,
-     *                  "module": "",
-     *                  "recordAvailable": 1,
-     *                  "createdDate": "",
-     *                  "createdBy": 1
-     *              }
-     * },
-     * HTTP/1.1 200 Ok
-     * @apiSampleRequest /api/vendor-export-log
-     * @apiErrorExample {json} addExportLog Error
-     * HTTP/1.1 500 Internal server error
-     */
-    // Create Export Log
-    @Post()
-    @Authorized(['vendor', 'create-export-data'])
-    public async addExportLog(@Body({ validate: true }) params: any, @Req() request: any, @Res() response: any): Promise<any> {
-        try {
-            // const createLog = await this.createExportLog(params);
-            const newExportLog = new ExportLog();
-            newExportLog.module = params.module;
-            newExportLog.recordAvailable = params.recordAvailable;
-            newExportLog.tenantId = request.user.tenantId;
-            newExportLog.createdBy = request.user.id;
-            newExportLog.createdBy = request.user.id;
-            newExportLog.referenceType = 2;
-            const createNewExport = await this.exportLogService.create(newExportLog);
-            // return createNewExport;
-            return response.status(200).send({
-                status: 1,
-                message: 'Export log created successfully',
-                data: createNewExport,
-            });
-        } catch (error) {
-            return response.status(400).send({
-                status: 0,
-                message: 'Failed to create export log',
-            });
-        }
-    }
     // List the site map
     /**
      * @api {Get} /api/vendor-export-log Export log list

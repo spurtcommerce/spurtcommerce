@@ -9,7 +9,6 @@ import 'reflect-metadata';
 import { Post, Body, JsonController, Res, Req, BodyParam } from 'routing-controllers';
 import { instanceToPlain } from 'class-transformer';
 import { LoginLog } from '../../core/models/LoginLog';
-import { CustomerService } from '../../core/services/CustomerService';
 import { VendorService } from '../../core/services/VendorService';
 import { LoginLogService } from '../../core/services/LoginLogService';
 import { EmailTemplateService } from '../../core/services/EmailTemplateService';
@@ -22,7 +21,6 @@ import { RegistrationOtpService } from '../../core/services/RegistraionOtpServic
 import { VendorUsersService } from '../../core/services/VendorUsersService';
 import { VendorUserGroupService } from '../../core/services/VendorUserGroupService';
 import { VendorSettingsService } from '../../core/services/VendorSettingsService';
-import { DemoRegisterRequest } from './requests/DemoRegisterRequest';
 import { Service } from 'typedi';
 import { CurrencyService } from '../../core/services/CurrencyService';
 import { RegistrationOtp } from '../../core/models/RegistrationOtpModel';
@@ -97,15 +95,17 @@ async function triggerDemoDataMigration(vendorId: number, vendorPrefixId: string
         return await demoDataMigrate.demoDataMigrate(vendorData, countryId, languageId, currencyId);
     });
 
-    hooks.runHook('vendor-data-migrate-process')
-        .catch(err => console.error(`[DemoMigrate] Migration failed for vendor ${vendorId}:`, err))
-        .finally(() => demoMigrationInFlight.delete(vendorId));
+hooks.runHook('vendor-data-migrate-process')
+    .catch(err => {
+        console.error('[DemoMigrate] FULL ERROR:', err);
+        console.error('[DemoMigrate] STACK:', err?.stack);
+    })
+    .finally(() => demoMigrationInFlight.delete(vendorId));
 }
 @Service()
 @JsonController('/demo-vendor')
 export class DemoVendorController {
     constructor(
-        private customerService: CustomerService,
         private vendorService: VendorService,
         private emailTemplateService: EmailTemplateService,
         private loginLogService: LoginLogService,
@@ -117,71 +117,6 @@ export class DemoVendorController {
         private currencyService: CurrencyService,
         private settingService: SettingService
     ) {
-    }
-
-    // Customer Register API
-    /**
-     * @api {post} /api/demo-vendor/otp-verify Register API
-     * @apiGroup Store
-     * @apiParam (Request body) {String{..32}} otp otp
-     * @apiParam (Request body) {String{..96}} emailId User Email Id
-     * @apiParamExample {json} Input
-     * {
-     *      "otp"      : "",
-     *      "emailId" : "",
-     * }
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Thank you for registering with us and please check your email",
-     *      "status": "1"
-     * }
-     * @apiSampleRequest /api/demo-vendor/otp-verify
-     * @apiErrorExample {json} Register error
-     * HTTP/1.1 500 Internal Server Error
-     */
-    @Post('/otp-verify')
-    public async otpVerify(@Body({ validate: false }) registerParam: DemoRegisterRequest, @Req() request: any, @Res() response: any): Promise<any> {
-
-        const resultUser = await this.customerService.findOne({
-            where: {
-                email: registerParam.emailId, deleteFlag: 0, isVendor: 1,
-            },
-        });
-
-        const vendorInfo = await this.vendorService.findOne({ where: { customerId: resultUser?.id ?? 0, isDelete: 0 } });
-
-        if (vendorInfo) {
-            const successResponse: any = {
-                status: 1,
-                message: 'You have already registered please login',
-            };
-            return response.status(400).send(successResponse);
-        }
-
-        // Chek otp-validation
-        const otpMailCheck = await this.registrationOtpService.findOne({ where: { emailId: registerParam.emailId, isActive: 1, isDelete: 0 } });
-        if (!otpMailCheck) {
-            return response.status(200).send({ status: 0, message: 'Please enter a valid Email' });
-        }
-        const checkOtp = await this.registrationOtpService.findOne({ where: { emailId: registerParam.emailId, userType: 1, otp: registerParam.otp, isActive: 1, isDelete: 0 } });
-        if (!checkOtp) {
-            return response.status(200).send({ status: 0, message: 'Please enter a valid OTP' });
-        }
-
-        if (moment().isAfter(moment(checkOtp.createdDate).add(1, 'hour'))) {
-            return response.status(400).send({
-                status: 0,
-                message: 'Your OTP Got Expired',
-            });
-        }
-        // delete otp
-        await this.registrationOtpService.delete(checkOtp.id);
-
-        return response.status(200).send({
-            status: 1,
-            message: 'Otp verified successfully.',
-        });
     }
 
     @Post('/send-otp')
@@ -527,7 +462,10 @@ export class DemoVendorController {
                 permission,
             },
         };
-
+console.log('[DemoMigrate] Login trigger reached', {
+    vendorId: vendor?.vendorId,
+    vendorSettings: !!vendorSettings,
+});
         // Trigger demo data migration in the background — must not block or fail login
         if (vendor && vendorSettings) {
             triggerDemoDataMigration(

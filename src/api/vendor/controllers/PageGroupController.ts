@@ -139,70 +139,7 @@ export class PageGroupController {
         };
         return response.status(200).send(successResponse);
     }
-    // Page Group Count API
-    /**
-     * @api {get} /api/page-group/pagegroup-count Page Group Count API
-     * @apiGroup Page Group
-     * @apiHeader {String} Authorization
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully get page group count",
-     *      "data": {
-     *                 "totalPage": 18,
-     *                 "activePage": 7,
-     *                 "inActivePage": 11
-     *              },
-     *      "status": "1"
-     * }
-     * @apiSampleRequest /api/page-group/pagegroup-count
-     * @apiErrorExample {json} Page Group error
-     * HTTP/1.1 500 Internal Server Error
-     */
-    @Get('/pagegroup-count')
-    @Authorized(['vendor', 'list-page-group'])
-    public async pageGroupCount(@Res() response: any, @Req() request: any): Promise<any> {
-        const whereConditions = [
-            {
-                name: 'tenantId',
-                value: request.user.tenantId,
-            },
-        ];
-        const allPageGroupCount = await this.pageGroupService.list(0, 0, [], [], [], whereConditions, 1);
-        const whereConditionsActive = [
-            {
-                name: 'tenantId',
-                value: request.user.tenantId,
-            },
-            {
-                name: 'isActive',
-                op: 'where',
-                value: 1,
-            },
-        ];
-        const activePageGroupCount = await this.pageGroupService.list(0, 0, [], [], [], whereConditionsActive, 1);
-        const whereConditionsInActive = [
-            {
-                name: 'tenantId',
-                value: request.user.tenantId,
-            },
-            {
-                name: 'isActive',
-                op: 'where',
-                value: 0,
-            },
-        ];
-        const inActivePageGroupCount = await this.pageGroupService.list(0, 0, [], [], [], whereConditionsInActive, 1);
-        const pageGroup: any = {};
-        pageGroup.totalPage = allPageGroupCount;
-        pageGroup.activePage = activePageGroupCount;
-        pageGroup.inActivePage = inActivePageGroupCount;
-        return response.status(200).send({
-            status: 1,
-            message: 'Successfully got the page group count',
-            data: pageGroup,
-        });
-    }
+
     // update Attribute Group
     /**
      * @api {put} /api/page-group/:id Update Page Group API

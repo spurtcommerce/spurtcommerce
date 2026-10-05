@@ -7,11 +7,10 @@
  */
 
 import 'reflect-metadata';
-import { Get, Delete, QueryParam, JsonController, Authorized, Req, Res, Post, Body } from 'routing-controllers';
+import { Get, QueryParam, JsonController, Authorized, Req, Res, Post, Body } from 'routing-controllers';
 import { In, Not } from 'typeorm';
 import { VendorLanguageService } from '../../core/services/VendorLanguageService';
 import { Service } from 'typedi';
-import { LanguageService } from '../../core/services/LanguageService';
 import { VendorLanguage } from '../../core/models/VendorLanguage';
 import { VendorSettingsService } from '../../core/services/VendorSettingsService';
 // import { VendorService } from '../../core/services/VendorService';
@@ -21,7 +20,6 @@ import { VendorSettingsService } from '../../core/services/VendorSettingsService
 export class VendorLanguageController {
     constructor(
         private vendorLanguageService: VendorLanguageService,
-        private languageService: LanguageService,
         private vendorSettingsService: VendorSettingsService
         // private vendorService: VendorService
     ) {
@@ -130,56 +128,6 @@ export class VendorLanguageController {
         }
     }
 
-    // Delete Language API
-    /**
-     * @api {delete} /api/vendor-language Delete Language API
-     * @apiGroup Language
-     * @apiHeader {String} Authorization
-     *
-     * @apiParam (Request body) {String} vendorLanguageIds Comma-separated list of language IDs
-     *
-     * @apiParamExample {json} Input
-     * {
-     *      "vendorLanguageIds" : "",
-     * }
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully deleted language.",
-     *      "status": "1"
-     * }
-     * @apiSampleRequest /api/vendor-language
-     * @apiErrorExample {json} Language error
-     * HTTP/1.1 500 Internal Server Error
-     */
-    @Delete()
-    @Authorized(['vendor', 'list-setting-localization'])
-    public async deleteLanguage(@Body({ validate: true }) languageParam: { vendorLanguageIds: string }, @Req() request: any, @Res() response: any): Promise<any> {
-        const vendorLanguageIds: any = languageParam.vendorLanguageIds.split(',');
-        const checkLanguageExist = await this.vendorLanguageService.find({ where: { id: In(vendorLanguageIds), tenantId: request.user.tenantId } });
-
-        if (checkLanguageExist.length !== vendorLanguageIds.length) {
-            return response.status(400).send({
-                status: 0,
-                message: 'Invalid vendor languages.',
-            });
-        }
-
-        if (vendorLanguageIds.includes(request.user.vendor.personalizedSettings.defaultLanguageId)) {
-            return response.status(400).send({
-                status: 0,
-                message: 'You cannot remove the default language.',
-            });
-        }
-
-        await this.vendorLanguageService.delete(vendorLanguageIds);
-        const successResponse: any = {
-            status: 1,
-            message: 'Successfully remove the vendor languages.',
-        };
-        return response.status(200).send(successResponse);
-    }
-
     public base64MimeType(encoded: string): string {
         let result = undefined;
 
@@ -194,89 +142,6 @@ export class VendorLanguageController {
         }
 
         return result;
-    }
-
-    // Vendor Master Language List API
-    /**
-     * @api {get} /api/vendor-language/master-language Vendor Master Language List API
-     * @apiGroup Language
-     * @apiHeader {String} Authorization
-     *
-     * @apiParam (Query params) {Number} limit limit
-     * @apiParam (Query params) {Number} offset offset
-     * @apiParam (Query params) {String} keyword keyword
-     * @apiParam (Query params) {String} status status
-     * @apiParam (Query params) {String} defaultLanguage defaultLanguage
-     * @apiParam (Query params) {Number} count count should be number or boolean
-     *
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *   "status": 1,
-     *   "message": "Successfully got all language List",
-     *   "data": []
-     * }
-     *
-     * @apiSampleRequest /api/vendor-language/master-language
-     *
-     * @apiErrorExample {json} Language error
-     * HTTP/1.1 500 Internal Server Error
-     * {
-     *   "status": 0,
-     *   "message": "Unable to fetch language list"
-     * }
-     */
-    @Get('/master-language')
-    @Authorized(['vendor', 'list-setting-localization'])
-    public async masterLanguageList(@QueryParam('limit') limit: number, @QueryParam('offset') offset: number, @QueryParam('keyword') keyword: string, @QueryParam('status') status: string, @QueryParam('defaultLanguage') defaultLanguage: string, @QueryParam('count') count: number | boolean, @Res() response: any): Promise<any> {
-        const searchConditions = [];
-        if (keyword?.trim()) {
-            searchConditions.push({
-                name: ['Language.name', 'Language.code'],
-                value: keyword,
-            });
-        }
-
-        const whereConditions = [];
-        if (status) {
-            whereConditions.push({
-                op: 'where',
-                name: 'Language.isActive',
-                value: status,
-            });
-        }
-        if (defaultLanguage) {
-            whereConditions.push(
-                {
-                    name: 'Language.languageId',
-                    value: Not(defaultLanguage),
-                }
-            );
-        }
-        if (count) {
-            const languageCount = await this.languageService.listByQueryBuilder(limit, offset, [], whereConditions, searchConditions, [], [], [], true, false);
-            const successResponse: any = {
-                status: 1,
-                message: 'Successfully got all Language Count',
-                data: languageCount,
-            };
-            return response.status(200).send(successResponse);
-        }
-        const languageList = await this.languageService.listByQueryBuilder(limit, offset, [], whereConditions, searchConditions, [], [], [], false, false);
-        if (languageList) {
-            const successResponse: any = {
-                status: 1,
-                message: 'Successfully got all language List',
-                data: languageList,
-            };
-            return response.status(200).send(successResponse);
-        } else {
-            const errorResponse: any = {
-                status: 1,
-                message: 'Unable to got language List',
-            };
-            return response.status(400).send(errorResponse);
-        }
     }
 
     // Update Vendor Languages API

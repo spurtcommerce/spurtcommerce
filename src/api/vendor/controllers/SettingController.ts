@@ -8,7 +8,7 @@
 
 import 'reflect-metadata';
 import { Response } from 'express';
-import { Get, JsonController, Res, Body, Post, Authorized, Put, BodyParam, Param, Req } from 'routing-controllers';
+import { Get, JsonController, Res, Body, Post, Authorized, Param, Req } from 'routing-controllers';
 import { Settings } from '../../core/models/Setting';
 import { CreateSettingRequest } from '../../vendor/controllers/requests/CreateSettingRequest';
 import { env } from '../../../env';
@@ -113,53 +113,6 @@ export class VendorSettingController {
         });
         const value = await Promise.all(promise);
         return response.status(200).send({ status: 1, message: 'Successfully got vendor settings', data: value, id: request.user.tenantId });
-    }
-
-    // Get Store Setting API
-    /**
-     * @api {get} /api/settings/store-setting Get Setting API
-     * @apiGroup Settings
-     * @apiHeader {String} Authorization
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully get settings",
-     *      "data":"{
-     *       "id": "",
-     *       "currencyCode": "",
-     *       "symbolLeft": "",
-     *       "symbolRight": "",
-     *       }"
-     *      "status": "1"
-     * }
-     * @apiSampleRequest /api/settings/store-setting
-     * @apiErrorExample {json} getSettings error
-     * HTTP/1.1 500 Internal Server Error
-     */
-    @Get('/store-setting')
-    @Authorized(['vendor', 'view-website-settings'])
-    public async settingsListSpecific(@Res() response: any, @Req() request: any): Promise<Response> {
-
-        const vendorSettings = await this.vendorSettingsService.findOne({
-            where: {
-                vendorId: request.user.tenantId,
-            },
-        });
-
-        const vendorCurrencyData = await this.currencyService.findOne({ where: { currencyId: vendorSettings.storeCurrencyId } });
-
-        const temp: any = {};
-        if (vendorCurrencyData) {
-            temp.currencyCode = vendorCurrencyData?.code;
-            temp.symbolLeft = vendorCurrencyData?.symbolLeft;
-            temp.symbolRight = vendorCurrencyData?.symbolRight;
-        } else {
-            temp.currencyCode = '';
-            temp.symbolLeft = '';
-            temp.symbolRight = '';
-        }
-
-        return response.status(200).send({ status: 1, message: 'Successfully got vendor settings', data: [{ ...vendorSettings, ...temp }] });
     }
 
     //  Settings API
@@ -712,58 +665,5 @@ export class VendorSettingController {
 
         };
         return response.status(200).send(successResponse);
-    }
-
-    // update main API
-    /**
-     * @api {put} /api/settings/maintainance Update maintainance mode API
-     * @apiGroup Settings
-     * @apiParam (Request body) {number} mode mode should be 0 or 1
-     * @apiParamExample {json} Input
-     * {
-     *      "mode" : "",
-     * }
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully updated maintainance mode.",
-     *      "status": "1"
-     * }
-     * @apiSampleRequest /api/settings/maintainance
-     * @apiErrorExample {json} isFeature error
-     * HTTP/1.1 500 Internal Server Error
-     */
-    @Put('/maintainance')
-    @Authorized(['vendor', 'maintenance'])
-    public async updateFeatureProduct(@BodyParam('mode') mode: number, @BodyParam('id') siteId: number, @Res() response: Response): Promise<Response> {
-
-        const setting: VendorSettings = await this.vendorSettingsService.findOne({
-            where: {
-                id: siteId,
-            },
-        });
-        if (!setting) {
-            const errorResponse: VendorSettingsApiResponse<void> = {
-                status: 0,
-                message: 'Invalid Site Id',
-            };
-            return response.status(400).send(errorResponse);
-        }
-        setting.isMaintenance = mode ? mode : 0;
-        const settingSave: Partial<VendorSettings> = await this.vendorSettingsService.save(setting);
-        if (settingSave) {
-            const successResponse = {
-                status: 1,
-                message: 'Maintainance mode updated successfully',
-                data: settingSave,
-            };
-            return response.status(200).send(successResponse);
-        } else {
-            const errorResponse = {
-                status: 0,
-                message: 'Unable to update maintainance',
-            };
-            return response.status(400).send(errorResponse);
-        }
     }
 }

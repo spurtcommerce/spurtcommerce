@@ -470,50 +470,6 @@ export class VendorCustomerGroupController {
         });
     }
 
-    // Update Bulk Vendor CustomerGroup Status
-    /**
-     * @api {get} /api/vendor-customer-group/bulk-status Admin Vendor Update CustomerGroup Status
-     * @apiGroup SellerBuyerGroup
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number[]} customerGroupIds customerGroupIds
-     * @apiParam (Request body) {Number} statusId statusId
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully updated the bulk customerGroup status",
-     *      "status": "1"
-     * }
-     * @apiSampleRequest /api/vendor-customer-group/bulk-status
-     * @apiErrorExample {json} Admin Vendor Update CustomerGroup Status error
-     * HTTP/1.1 500 Internal Server Error
-     */
-    @Authorized(['vendor', 'edit-customer-group'])
-    @Post('/bulk-status')
-    public async vendorCustomerGroupStatus(@Body({ validate: true }) params: { customerGroupIds: number[], statusId: number }, @Res() response: any, @Req() request: any): Promise<any> {
-        const customerGroupIds = params.customerGroupIds;
-        const updateCustomerGroupValue = [];
-        if (customerGroupIds.length) {
-            for (const customerGroupId of customerGroupIds) {
-                const buyerGroupValid: any = await this.customerGroupService.findOne({
-                    where: {
-                        id: customerGroupId,
-                        vendorId: request.user.tenantId,
-                    },
-                });
-                if (!buyerGroupValid) {
-                    return response.status(400).send({
-                        status: 0,
-                        message: `Invalid customer group id`,
-                    });
-                }
-                buyerGroupValid.isActive = params.statusId;
-                updateCustomerGroupValue.push(buyerGroupValid);
-            }
-            await this.customerGroupService.createBulk(updateCustomerGroupValue);
-            return response.status(200).send({ status: 1, message: 'Successfully updated the bulk customer group status' });
-        }
-    }
-
     // BuyerGroupDetail API
     /**
      * @api {Get} /api/vendor-customer-group/:id/customer CustomerGroupDetail API

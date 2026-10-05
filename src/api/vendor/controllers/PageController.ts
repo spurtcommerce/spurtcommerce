@@ -12,7 +12,6 @@ import { Page } from '../../core/models/Page';
 import { CreatePage } from './requests/CreatePageRequest';
 import { PageService } from '../../core/services/PageService';
 import { UpdatePage } from './requests/UpdatePageRequest';
-import { DeletePageRequest } from './requests/DeletePageRequest';
 import { PageGroupService } from '../../core/services/PageGroupService';
 import { Service } from 'typedi';
 
@@ -302,126 +301,6 @@ export class PageController {
             };
             return response.status(400).send(errorResponse);
         }
-    }
-
-    // Delete Multiple Page API
-    /**
-     * @api {post} /api/page/delete-page Delete Multiple Page API
-     * @apiGroup Page
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {number} pageId  pageId
-     * @apiParamExample {json} Input
-     * {
-     * "pageId" : "",
-     * }
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     * "message": "Successfully deleted Page.",
-     * "status": "1"
-     * }
-     * @apiSampleRequest /api/page/delete-page
-     * @apiErrorExample {json} pageDelete error
-     * HTTP/1.1 500 Internal Server Error
-     */
-    @Post('/delete-page')
-    @Authorized(['vendor', 'delete-pages'])
-    public async deleteMultiplePage(@Body({ validate: true }) pageDelete: DeletePageRequest, @Res() response: any, @Req() request: any): Promise<any> {
-        const pageIdNo = pageDelete.pageId.toString();
-        const pageid = pageIdNo.split(',');
-        for (const id of pageid) {
-            const deletePageId = parseInt(id, 10);
-            const dataId = await this.pageService.findOne({
-                where: {
-                    pageId: deletePageId,
-                    tenantId: request.user.tenantId,
-                },
-            });
-            if (!dataId) {
-                const errorResponse: any = {
-                    status: 0,
-                    message: 'Please choose a page that you want to delete',
-                };
-                return response.status(400).send(errorResponse);
-            } else {
-                await this.pageService.delete(dataId.pageId);
-            }
-        }
-        const successResponse: any = {
-            status: 1,
-            message: 'Successfully deleted the page',
-        };
-        return response.status(200).send(successResponse);
-    }
-
-    // Page Count API
-    /**
-     * @api {get} /api/page/page-count Page Count API
-     * @apiGroup Page
-     * @apiHeader {String} Authorization
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully get page count",
-     *      "data": {
-     *                   "totalPage": 14,
-     *                   "activePage": 13,
-     *                   "inActivePage": 1
-     *               }
-     *      "status": "1"
-     * }
-     * @apiSampleRequest /api/page/page-count
-     * @apiErrorExample {json} Page error
-     * HTTP/1.1 500 Internal Server Error
-     */
-    @Get('/page-count')
-    @Authorized(['vendor'])
-    public async pageCount(@Res() response: any, @Req() request: any): Promise<any> {
-        const whereConditions = [
-            {
-                name: 'tenantId',
-                op: 'where',
-                value: request.user.tenantId,
-            },
-        ];
-        const relations = [];
-        const allPageCount = await this.pageService.list(0, 0, [], relations, [], whereConditions, 1);
-        const whereConditionsActive = [
-            {
-                name: 'tenantId',
-                op: 'where',
-                value: request.user.tenantId,
-            },
-            {
-                name: 'isActive',
-                op: 'like',
-                value: 1,
-            },
-        ];
-        const activePageCount = await this.pageService.list(0, 0, [], relations, [], whereConditionsActive, 1);
-        const whereConditionsInActive = [
-            {
-                name: 'tenantId',
-                op: 'where',
-                value: request.user.tenantId,
-            },
-            {
-                name: 'isActive',
-                op: 'like',
-                value: 0,
-            },
-        ];
-        const inActivePageCount = await this.pageService.list(0, 0, [], relations, [], whereConditionsInActive, 1);
-        const page: any = {};
-        page.totalPage = allPageCount;
-        page.activePage = activePageCount;
-        page.inActivePage = inActivePageCount;
-        const successResponse: any = {
-            status: 1,
-            message: 'Successfully got the page count',
-            data: page,
-        };
-        return response.status(200).send(successResponse);
     }
 
     // page Detail

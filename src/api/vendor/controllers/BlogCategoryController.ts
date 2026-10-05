@@ -11,15 +11,13 @@ import { Post, Body, JsonController, Authorized, Res, Put, Req, Delete, QueryPar
 import { BlogCategory } from '../../core/models/BlogCategory';
 import { BlogCategoryService } from '../../core/services/BlogCategoryService';
 import { AddBlogCategory } from '../../../../src/api/vendor/controllers/requests/AddBlogCategoryRequest';
-import { BlogService } from '../../core/services/BlogService';
 import { Service } from 'typedi';
 
 @Service()
 @JsonController('/vendor-blog-category')
 export class VendorBlogCategoryController {
     constructor(
-        private blogCategoryService: BlogCategoryService,
-        private blogService: BlogService
+        private blogCategoryService: BlogCategoryService
     ) {
     }
 
@@ -338,99 +336,4 @@ export class VendorBlogCategoryController {
         }
     }
 
-    /**
-     * @api {get} /api/blog-category/category-count blog Category Count API
-     * @apiGroup Category
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} limit limit
-     * @apiParam (Request body) {Number} offset offset
-     * @apiParam (Request body) {String} keyword keyword
-     * @apiParam (Request body) {Number} sortOrder sortOrder
-     * @apiParam (Request body) {String} status status
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "successfully got the complete blog category count.",
-     *      "data":"{
-     *                  "categoryCount": "1"
-     *              }"
-     *      "status": "1"
-     * }
-     * @apiSampleRequest /api/blog-category/category-count
-     * @apiErrorExample {json} CategoryCount error
-     * HTTP/1.1 500 Internal Server Error
-     */
-    @Get('/category-count')
-    @Authorized(['vendor', 'list-blogs'])
-    public async categorycount(@QueryParam('limit') limit: number, @QueryParam('offset') offset: number, @QueryParam('keyword') keyword: string, @QueryParam('sortOrder') sortOrder: number, @QueryParam('status') status: string, @Res() response: any, @Req() request: any): Promise<any> {
-
-        const blogCategoryCount = await this.blogCategoryService.categoryCount(limit, offset, keyword, sortOrder, status, request.user.tenantId);
-        const successResponse: any = {
-            status: 1,
-            message: 'Successfully got blog category Count',
-            data: {
-                categoryCount: blogCategoryCount?.categoryCount,
-            },
-        };
-        return response.status(200).send(successResponse);
-    }
-    // Update Blog Category status API
-    /**
-     * @api {put} /api/blog-category/update-blog-category-status/:id Update Blog Category status API
-     * @apiGroup Category
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {number} status
-     * @apiParamExample {json} Input
-     * {
-     *      "status" : "1",
-     * }
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully updated blog category status.",
-     *      "status": "1",
-     *      "data": {
-     *                  "isActive": "1",
-     *              }
-     * }
-     * @apiSampleRequest /api/blog-category/update-blog-category-status/:id
-     * @apiErrorExample {json} Update BlogCategoryStatus error
-     * HTTP/1.1 500 Internal Server Error
-     */
-    @Put('/update-blog-category-status/:id')
-    @Authorized(['vendor', 'edit-blogs'])
-    public async updateBlogCategoryStatus(@Param('id') id: number, @BodyParam('status') status: number, @Res() response: any): Promise<any> {
-        const blogCategory = await this.blogCategoryService.findOne({
-            where: {
-                blogCategoryId: id,
-            },
-        });
-        if (!blogCategory) {
-            return response.status(400).send({
-                status: 0,
-                message: 'Invalid blog category ID.',
-            });
-        }
-        const blog = await this.blogService.findOne({ where: { categoryId: id } });
-        if (blog) {
-            return response.status(400).send({
-                status: 0,
-                message: `Can't inactive categories, mapped with blog's`,
-            });
-        }
-        blogCategory.isActive = status;
-        const categorySave = await this.blogCategoryService.create(blogCategory);
-        if (categorySave) {
-            return response.status(200).send({
-                status: 1,
-                message: 'Successfully updated blog category status',
-                data: categorySave,
-            });
-        } else {
-            return response.status(400).send({
-                status: 1,
-                message: 'Unable to update blog category status',
-            });
-        }
-    }
 }

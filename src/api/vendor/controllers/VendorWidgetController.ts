@@ -433,68 +433,6 @@ export class VendorWidgetController {
         }
     }
 
-    // Widget Count API
-    /**
-     * @api {Get} /api/widget/widget-count Widget Count API
-     * @apiGroup Widget
-     * @apiHeader {String} Authorization
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "status": "1"
-     *      "message": "Successfully got widget count.",
-     *      "data": {},
-     * }
-     * @apiSampleRequest /api/widget/widget-count
-     * @apiErrorExample {json} widgetCount error
-     * HTTP/1.1 500 Internal Server Error
-     */
-    @Get('/widget-count')
-    @Authorized(['vendor', 'list-widget'])
-    public async widgetCount(@Res() response: any, @Req() request: any): Promise<any> {
-        const whereConditions = [
-            {
-                name: 'tenantId',
-                value: request.user.tenantId,
-            },
-        ];
-        const allWidgetCount = await this.widgetService.list(0, 0, [], [], whereConditions, [], 1);
-        const whereConditionsActive = [
-            {
-                name: 'tenantId',
-                value: request.user.tenantId,
-            },
-            {
-                name: 'isActive',
-                op: 'like',
-                value: 1,
-            },
-        ];
-        const activeWidgetCount = await this.widgetService.list(0, 0, [], [], whereConditionsActive, [], 1);
-        const whereConditionsInActive = [
-            {
-                name: 'tenantId',
-                value: request.user.tenantId,
-            },
-            {
-                name: 'isActive',
-                op: 'like',
-                value: 0,
-            },
-        ];
-        const inActiveWidgetCount = await this.widgetService.list(0, 0, [], [], whereConditionsInActive, [], 1);
-        const banner: any = {};
-        banner.totalWidget = allWidgetCount;
-        banner.activeWidget = activeWidgetCount;
-        banner.inActiveWidget = inActiveWidgetCount;
-        const successResponse: any = {
-            status: 1,
-            message: 'Successfully got widget count.',
-            data: banner,
-        };
-        return response.status(200).send(successResponse);
-    }
-
     // Widget Detail
     /**
      * @api {Get} /api/widget/widget-detail Widget Detail API

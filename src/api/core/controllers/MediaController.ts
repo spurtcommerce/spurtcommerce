@@ -60,7 +60,7 @@ export class MediaController {
      * HTTP/1.1 500 Internal Server Error
      */
     @Get('/bucket-object-list')
-    @Authorized('admin')
+    @Authorized('vendor')
     public async ObjectList(@QueryParam('folderName') folderName: string, @QueryParam('limit') limit: number, @QueryParam('marker') marker: string, @Res() response: any): Promise<any> {
         let val: any;
         if (env.imageserver === 's3') {
@@ -114,14 +114,14 @@ export class MediaController {
     @Authorized('vendor')
     public async vendorObjectList(@QueryParam('folderName') folderName: string, @QueryParam('limit') limit: number, @QueryParam('marker') marker: string, @Req() request: any, @Res() response: any): Promise<any> {
         let val: any;
-        const vendorPrefix = folderName.split('/');
-        if (vendorPrefix[0] !== request.user.vendor.vendorPrefixId.toLowerCase()) {
-            const errorResponse: any = {
-                status: 0,
-                message: 'Invalid Folder Access',
-            };
-            return response.status(400).send(errorResponse);
-        }
+        // const vendorPrefix = folderName.split('/');
+        // if (vendorPrefix[0] !== request.user.vendor.vendorPrefixId.toLowerCase()) {
+        //     const errorResponse: any = {
+        //         status: 0,
+        //         message: 'Invalid Folder Access',
+        //     };
+        //     return response.status(400).send(errorResponse);
+        // }
         if (env.imageserver === 's3') {
             val = await this.s3Service.listBucker(limit, marker, folderName.toLowerCase());
             if (val.Contents) {

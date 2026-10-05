@@ -11,7 +11,6 @@ import { BaseModel } from '../../../../src/api/core/models/BaseModel';
 import moment = require('moment/moment');
 import { BlogRelated } from '../models/BlogRelated';
 import { IsNotEmpty } from 'class-validator';
-// import { BlogTranslation } from './BlogTranslation';
 
 @Entity('blog')
 export class Blog extends BaseModel {
@@ -45,9 +44,6 @@ export class Blog extends BaseModel {
 
     @OneToMany(type => BlogRelated, blogRelated => blogRelated.blog)
     public blogRelated: BlogRelated[];
-
-    // @OneToMany(type => BlogTranslation, blogTranslation => blogTranslation.blog)
-    // public blogTranslation: BlogTranslation;
 
     @BeforeInsert()
     public async createDetails(): Promise<void> {

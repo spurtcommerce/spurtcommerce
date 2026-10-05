@@ -7,7 +7,7 @@
  */
 
 import 'reflect-metadata';
-import { Get, Delete, JsonController, Authorized, Res, Req, QueryParam, Post, Body } from 'routing-controllers';
+import { Get, JsonController, Authorized, Res, Req, QueryParam, Post, Body } from 'routing-controllers';
 import { VendorTaxService } from '../../core/services/VendorTaxService';
 import { Service } from 'typedi';
 import { TaxService } from '../../core/services/TaxService';
@@ -96,51 +96,6 @@ export class VendorTaxController {
             status: 1,
             message: 'Successfully get all vendor tax list.',
             data: vendorTaxList,
-        };
-        return response.status(200).send(successResponse);
-    }
-
-    // delete Tax API
-    /**
-     * @api {delete} /api/vendor-tax Delete Tax API
-     * @apiGroup Tax
-     * @apiHeader {String} Authorization
-     *
-     * @apiParam (Request body) {String} vendorTaxIds Comma-separated list of vendorTax IDs
-     *
-     * @apiParamExample {json} Input
-     * {
-     *      "taxId" : "",
-     * }
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully deleted Tax.",
-     *      "status": "1"
-     * }
-     * @apiSampleRequest /api/vendor-tax
-     * @apiErrorExample {json} Tax error
-     * HTTP/1.1 500 Internal Server Error
-     */
-    @Delete()
-    @Authorized(['vendor', 'list-setting-localization'])
-    public async deleteTax(@Body({ validate: true }) taxParam: { vendorTaxIds: string }, @Res() response: any, @Req() request: any): Promise<any> {
-
-        const vendorTaxIds: any = taxParam.vendorTaxIds.split(',');
-
-        const checkTaxExist = await this.vendorTaxService.find({ where: { id: In(vendorTaxIds), tenantId: request.user.tenantId } });
-
-        if (checkTaxExist.length !== vendorTaxIds.length) {
-            return response.status(400).send({
-                status: 0,
-                message: 'Invalid vendor tax.',
-            });
-        }
-
-        await this.vendorTaxService.delete(vendorTaxIds);
-        const successResponse: any = {
-            status: 1,
-            message: 'Successfully remove the vendor tax.',
         };
         return response.status(200).send(successResponse);
     }
