@@ -159,7 +159,7 @@ export class StoreSeoController {
      */
     @Get('/page/:pageSlug')
     public async pageSeo(@Param('pageSlug') pageSlug: string, @Req() request: any, @Res() response: any): Promise<any> {
-        const page: any = await this.pageService.findOne({
+        const page: any = await this.pageService.findOneBy({
             where: {
                 slugName: pageSlug,
                 isActive: 1,

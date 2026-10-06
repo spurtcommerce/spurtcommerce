@@ -10,7 +10,6 @@ import { Column, Entity, BeforeInsert, BeforeUpdate, PrimaryGeneratedColumn, One
 import { BaseModel } from './BaseModel';
 import moment = require('moment/moment');
 import { WidgetItem } from '../../core/models/WidgetItem';
-// import { WidgetTranslation } from './WidgetTranslation';
 
 @Entity('widget')
 export class Widget extends BaseModel {
@@ -56,9 +55,6 @@ export class Widget extends BaseModel {
 
     @OneToMany((type) => WidgetItem, widgetItem => widgetItem.widget)
     public widgetItem: WidgetItem[];
-
-    // @OneToMany((type) => WidgetTranslation, widgetTranslation => widgetTranslation.widget, { cascade: true })
-    // public widgetTranslation: WidgetTranslation[];
 
     @BeforeInsert()
     public async createDetails(): Promise<void> {

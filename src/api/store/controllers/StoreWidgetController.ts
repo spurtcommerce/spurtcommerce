@@ -18,8 +18,6 @@ import { TranslationMiddleware } from '../../../../src/api/core/middlewares/Tran
 import { IndustryValidationMiddleware } from '../../../../src/api/core/middlewares/IndustryValidationMiddleware';
 import { TenantValidationMiddleware } from '../../../../src/api/core/middlewares/TenantValidationMiddleware';
 import moment = require('moment');
-import { pluginModule } from '../../../../src/loaders/pluginLoader';
-import { VendorPluginService } from '../../../../src/api/core/services/VendorPluginService';
 import { Service } from 'typedi';
 
 @Service()
@@ -33,14 +31,13 @@ export class StoreWidgetController {
         private productService: ProductService,
         private widgetService: WidgetService,
         private widgetItemService: WidgetItemService,
-        private productToCategoryService: ProductToCategoryService,
-        private vendorPluginService: VendorPluginService
+        private productToCategoryService: ProductToCategoryService
     ) {
     }
 
     // Widget Name List API
     /**
-     * @api {Get} /api/list/widget-menu-name  Widget Name List
+     * @api {Get} /api/store-widget/menu-name  Widget Name List
      * @apiGroup Store Widget
      * @apiHeader {String} Authorization
      * @apiSuccessExample {json} Success
@@ -53,7 +50,7 @@ export class StoreWidgetController {
      *          "widgetSlugName": ""
      *      }
      * }
-     * @apiSampleRequest /api/list/widget-menu-name
+     * @apiSampleRequest /api/store-widget/menu-name
      * @apiErrorExample {json} Widget Name List error
      * HTTP/1.1 500 Internal Server Error
      */
@@ -75,25 +72,18 @@ export class StoreWidgetController {
                 value: request.tenantId,
             },
         ];
-        const relations = ['widgetTranslation'];
-        const widgetList: any = await this.widgetService.list(undefined, undefined, select, undefined, whereConditions, relations, false);
-
-        const widgetListLangugage = widgetList.map((widget) => {
-            const widgetTranslationExist = widget.widgetTranslation.find((widgetTrans) => widgetTrans.languageId === request.languageId);
-            widget.widgetTranslation = widgetTranslationExist ? [widgetTranslationExist] : [];
-            return widget;
-        });
+        const widgetList: any = await this.widgetService.list(undefined, undefined, select, undefined, whereConditions, [], false);
 
         return response.status(200).send({
             status: 1,
             message: 'Got widget name list successfully!',
-            data: widgetListLangugage,
+            data: widgetList,
         });
     }
 
     // Widget List API
     /**
-     * @api {Get} /api/list/widget-list Widget List
+     * @api {Get} /api/store-widget/list Widget List
      * @apiGroup Store List
      * @apiHeader {String} Authorization
      * @apiParam (Request body) {Number} limit Limit
@@ -134,7 +124,7 @@ export class StoreWidgetController {
      *          "productSpecial": "",
      *      }
      * }
-     * @apiSampleRequest /api/list/widget-list
+     * @apiSampleRequest /api/store-widget/list
      * @apiErrorExample {json} Widget List error
      * HTTP/1.1 500 Internal Server Error
      */
@@ -157,8 +147,7 @@ export class StoreWidgetController {
                 value: 1,
             },
         ];
-        const relations = ['widgetTranslation'];
-        const widgetList: any = await this.widgetService.list(limit, offset, select, [], whereConditions, relations, count);
+        const widgetList: any = await this.widgetService.list(limit, offset, select, [], whereConditions, [], count);
         if (count) {
             return response.status(200).send({
                 status: 1,
@@ -166,24 +155,8 @@ export class StoreWidgetController {
                 data: widgetList,
             });
         }
-        const vendorPlugin = await this.vendorPluginService.findOne(
-            {
-                where: {
-                    vendorId: request.tenantId,
-                    isActive: 1,
-                    plugins: {
-                        pluginName: 'ShoppingCart',
-                        pluginStatus: 1,
-                    },
-                },
-                relations: ['plugins'],
-            }
-        );
         const promise = widgetList.map(async (result: any) => {
             const temp: any = result;
-
-            const widgetTranslationExist = result.widgetTranslation.find((widgetTrans) => widgetTrans.languageId === request.languageId);
-            temp.widgetTranslation = widgetTranslationExist ? [widgetTranslationExist] : [];
 
             const BannerItem = await this.widgetItemService.find({
                 where: {
@@ -193,6 +166,11 @@ export class StoreWidgetController {
             const arr: any = [];
             for (const item of BannerItem) {
                 arr.push(item.refId);
+            }
+            // a widget without any reference has no product to look up, "IN ()" would be invalid SQL
+            if (arr.length === 0) {
+                temp.items = [];
+                return temp;
             }
             const selects = [
                 ('DISTINCT Product.productId as productId'),
@@ -221,9 +199,6 @@ export class StoreWidgetController {
                 ' ORDER BY pd2.priority ASC, pd2.price ASC LIMIT 1) AS productDiscount',
                 '(SELECT price FROM product_special ps WHERE ps.product_id = Product.product_id AND ps.sku_id = skuId AND ((ps.date_start <= CURDATE() AND ps.date_end >= CURDATE()))' + ' ' + 'ORDER BY ps.priority ASC, ps.price ASC LIMIT 1) AS productSpecial',
             ];
-            if (pluginModule.includes('ShoppingCart') && vendorPlugin) {
-                selects.push('(SELECT sc.id FROM shopping_cart AS sc INNER JOIN shopping_cart_detail as scd ON sc.id = scd.shopping_cart_id WHERE sc.customer_id = ' + (parseInt(request.id, 10) || 0) + ' AND scd.sku_id = skuId ORDER BY sc.created_date DESC LIMIT 1) AS shoppingCartId');
-            }
             const productWhereConditions = [];
             const prRelations = [];
             const currentDate = moment().format('YYYY-MM-DD');
@@ -303,6 +278,23 @@ export class StoreWidgetController {
                     }
                 );
             }
+            // a widget must never expose a product that belongs to another tenant
+            prRelations.push({
+                tableName: 'Product.vendorProducts',
+                op: 'left',
+                aliasName: 'vendorProducts',
+            });
+            productWhereConditions.push(
+                {
+                    name: 'vendorProducts.vendorId',
+                    op: 'and',
+                    value: request.tenantId,
+                },
+                {
+                    name: 'vendorProducts.reuse',
+                    op: 'IS NULL',
+                }
+            );
             if (request.id) {
                 selects.push('customerWishlist.wishlistProductId as wishlistProductId');
                 prRelations.push({
@@ -331,7 +323,7 @@ export class StoreWidgetController {
                     },
                 });
                 const categories = product.map(async (val: any) => {
-                    const categoryData = await this.categoryService.findOne({ where: { categoryId: val.categoryId } });
+                    const categoryData = await this.categoryService.findOne({ where: { categoryId: val.categoryId, tenantId: request.tenantId } });
                     const tempVals: any = val;
                     tempVals.categoryName = categoryData ? categoryData.name : '';
                     tempVals.categoryId = categoryData ? categoryData.categoryId : '';
@@ -385,7 +377,7 @@ export class StoreWidgetController {
 
     // Widget detail API
     /**
-     * @api {Get} /api/list/widget-detail/:widgetSlug Widget Detail API
+     * @api {Get} /api/store-widget/detail/:slug Widget Detail API
      * @apiGroup Store List
      * @apiParam (Request body) {Number} limit Limit
      * @apiParam (Request body) {Number} offset Offset
@@ -397,7 +389,7 @@ export class StoreWidgetController {
      *      "message": "Successfully got widget detail",
      *      "data": {}
      * }
-     * @apiSampleRequest /api/list/widget-detail/:widgetSlug
+     * @apiSampleRequest /api/store-widget/detail/:slug
      * @apiErrorExample {json} Widget Detail error
      * HTTP/1.1 500 Internal Server Error
      */
@@ -406,9 +398,8 @@ export class StoreWidgetController {
     public async widgetDetail(@Param('slug') widgetSlug: string, @QueryParam('limit') limit: number, @QueryParam('offset') offset: number, @QueryParam('count') count: number | boolean, @Req() request: any, @Res() response: any): Promise<any> {
         const widget = await this.widgetService.findOne({
             where: {
-                widgetSlugName: widgetSlug, tenantId: request.tenantId,
+                widgetSlugName: widgetSlug, tenantId: request.tenantId, isActive: 1,
             },
-            relations: ['widgetTranslation'],
         });
         if (!widget) {
             const errorResponse: any = {
@@ -418,30 +409,29 @@ export class StoreWidgetController {
             return response.status(400).send(errorResponse);
         }
 
-        const widgetTranslationExist = widget.widgetTranslation.find((widgetTrans) => widgetTrans.languageId === request.languageId);
-        widget.widgetTranslation = widgetTranslationExist ? [widgetTranslationExist] : [];
-
         const BannerItem = await this.widgetItemService.find({
             where: {
                 widgetId: widget.widgetId,
             },
         });
         const arr: any = [];
-        const vendorPlugin = await this.vendorPluginService.findOne(
-            {
-                where: {
-                    vendorId: request.tenantId,
-                    isActive: 1,
-                    plugins: {
-                        pluginName: 'ShoppingCart',
-                        pluginStatus: 1,
-                    },
-                },
-                relations: ['plugins'],
-            }
-        );
         for (const item of BannerItem) {
             arr.push(item.refId);
+        }
+        // guard the pagination values, a negative offset/limit produces invalid SQL
+        const parsedLimit = Number(limit);
+        const parsedOffset = Number(offset);
+        const widgetLimit = Number.isFinite(parsedLimit) && parsedLimit > 0 ? Math.floor(parsedLimit) : 0;
+        const widgetOffset = Number.isFinite(parsedOffset) && parsedOffset > 0 ? Math.floor(parsedOffset) : 0;
+        // a widget without any reference has no product to look up, "IN ()" would be invalid SQL
+        if (arr.length === 0) {
+            widget.widgetItems = [];
+            const emptyItemsResponse: any = {
+                status: 1,
+                message: 'Successfully got widget detail.',
+                data: widget,
+            };
+            return response.status(200).send(emptyItemsResponse);
         }
         const selects = [
             ('DISTINCT Product.productId as productId'),
@@ -470,9 +460,6 @@ export class StoreWidgetController {
             ' ORDER BY pd2.priority ASC, pd2.price ASC LIMIT 1) AS productDiscount',
             '(SELECT price FROM product_special ps WHERE ps.product_id = Product.product_id AND ps.sku_id = skuId AND ((ps.date_start <= CURDATE() AND ps.date_end >= CURDATE()))' + ' ' + 'ORDER BY ps.priority ASC, ps.price ASC LIMIT 1) AS productSpecial',
         ];
-        if (pluginModule.includes('ShoppingCart') && vendorPlugin) {
-            selects.push('(SELECT sc.id FROM shopping_cart AS sc INNER JOIN shopping_cart_detail as scd ON sc.id = scd.shopping_cart_id WHERE sc.customer_id = ' + (parseInt(request.id, 10) || 0) + ' AND scd.sku_id = skuId ORDER BY sc.created_date DESC LIMIT 1) AS shoppingCartId');
-        }
         const relations = [];
         const whereConditions = [];
         const currentDate = moment().format('YYYY-MM-DD');
@@ -555,6 +542,23 @@ export class StoreWidgetController {
                 }
             );
         }
+        // a widget must never expose a product that belongs to another tenant
+        relations.push({
+            tableName: 'Product.vendorProducts',
+            op: 'left',
+            aliasName: 'vendorProducts',
+        });
+        whereConditions.push(
+            {
+                name: 'vendorProducts.vendorId',
+                op: 'and',
+                value: request.tenantId,
+            },
+            {
+                name: 'vendorProducts.reuse',
+                op: 'IS NULL',
+            }
+        );
         if (request.id) {
             selects.push('customerWishlist.wishlistProductId as wishlistProductId');
             relations.push(
@@ -577,7 +581,7 @@ export class StoreWidgetController {
             },
         ];
         if (count) {
-            const productCount: any = await this.productService.listByQueryBuilder(limit, offset, selects, whereConditions, [], relations, [], sort, true, true);
+            const productCount: any = await this.productService.listByQueryBuilder(widgetLimit, widgetOffset, selects, whereConditions, [], relations, [], sort, true, true);
             const successCountResponse: any = {
                 status: 1,
                 message: 'Successfully got product count.',
@@ -585,7 +589,7 @@ export class StoreWidgetController {
             };
             return response.status(200).send(successCountResponse);
         }
-        const productList: any = await this.productService.listByQueryBuilder(limit, offset, selects, whereConditions, [], relations, [], sort, false, true);
+        const productList: any = await this.productService.listByQueryBuilder(widgetLimit, widgetOffset, selects, whereConditions, [], relations, [], sort, false, true);
         const promises = productList.map(async (resultData: any) => {
             const tempVal: any = resultData;
             const product = await this.productToCategoryService.findAll({

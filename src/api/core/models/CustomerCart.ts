@@ -53,8 +53,8 @@ export class CustomerCart extends BaseModel {
     @Column({ name: 'ip' })
     public ip: string;
 
-    @Column({ name: 'product_varient_option_id' })
-    public productVarientOptionId: string;
+    @Column({ name: 'product_option_value_id' })
+    public productOptionValueId: string;
 
     @ManyToOne(type => Product, product => product.cart)
     @JoinColumn({ name: 'product_id' })

@@ -137,6 +137,16 @@ export class CommonListController {
         ];
 
         const bannerList: any = await this.bannerService.list(limit, offset, select, relations, search, whereConditions, count);
+
+        // When count=1/true the service returns a number, not an array
+        if (count) {
+            return response.status(200).send({
+                status: 1,
+                message: 'Successfully got banner list.',
+                data: bannerList,
+            });
+        }
+
         const storeUrl = await this.vendorSettingsService.getVendorDomainOrDefault(request.tenantId, request.get('referer'));
 
         const list = bannerList.map(async (value: any) => {
@@ -189,9 +199,9 @@ export class CommonListController {
     // Product list Function
     @UseBefore(TenantValidationMiddleware)
     @Get('/banner/position/:position')
-    public async bannerByPosition(@Param('position') position: string, @Res() response: any): Promise<any> {
+    public async bannerByPosition(@Param('position') position: string, @Res() response: any, @Req() request: any): Promise<any> {
 
-        const banner = await this.bannerService.findOne({ where: { position, isActive: 1 } });
+        const banner = await this.bannerService.findOne({ where: { position, isActive: 1, tenantId: request.tenantId } });
         if (!banner) {
             const error = {
                 status: 0,
@@ -583,26 +593,27 @@ export class CommonListController {
             }
 
             const defaultPriceFilterQuery = '(CASE WHEN (((SELECT price FROM product_special ps WHERE ps.product_id = Product.product_id AND ps.sku_id = Product.skuId AND ((ps.date_start <= CURDATE() AND ps.date_end >= CURDATE()))' + ' ' +
-                'ORDER BY ps.priority ASC, ps.price ASC LIMIT 1) IS NOT NULL) AND `Product`.`tax_type` = 2 AND (Product.taxValue != 0 || Product.taxValue != NULL) THEN (IF(Product.taxType = 2, Product.taxValue )/100 * (SELECT price FROM product_special ps WHERE ps.product_id = Product.product_id AND ps.sku_id = Product.skuId AND ((ps.date_start <= CURDATE() AND ps.date_end >= CURDATE()))' + ' ' +
+                'ORDER BY ps.priority ASC, ps.price ASC LIMIT 1) IS NOT NULL) AND `Product`.`tax_type` = 2 AND (Product.taxValue != 0 || Product.taxValue != NULL)) THEN (IF(Product.taxType = 2, Product.taxValue, 0)/100 * (SELECT price FROM product_special ps WHERE ps.product_id = Product.product_id AND ps.sku_id = Product.skuId AND' +
+                '((ps.date_start <= CURDATE() AND ps.date_end >= CURDATE()))' + ' ' +
                 'ORDER BY ps.priority ASC, ps.price ASC LIMIT 1)) + (SELECT price FROM product_special ps WHERE ps.product_id = Product.product_id AND ps.sku_id = Product.skuId AND ((ps.date_start <= CURDATE() AND ps.date_end >= CURDATE()))' + ' ' +
                 'ORDER BY ps.priority ASC, ps.price ASC LIMIT 1) WHEN (((SELECT price FROM product_special ps WHERE ps.product_id = Product.product_id AND ps.sku_id = Product.skuId AND ((ps.date_start <= CURDATE() AND ps.date_end >= CURDATE()))' + ' ' +
-                'ORDER BY ps.priority ASC, ps.price ASC LIMIT 1) IS NOT NULL) AND `Product`.`tax_type` = 1 AND (IF(Product.taxType = 2, Product.taxValue ) != 0 || IF(Product.taxType = 2, Product.taxValue ) != NULL)) THEN ((SELECT price FROM product_special ps WHERE ps.product_id = Product.product_id AND ps.sku_id = ' +
+                'ORDER BY ps.priority ASC, ps.price ASC LIMIT 1) IS NOT NULL) AND `Product`.`tax_type` = 1 AND (IF(Product.taxType = 2, Product.taxValue, 0) != 0 || IF(Product.taxType = 2, Product.taxValue, 0) != NULL)) THEN ((SELECT price FROM product_special ps WHERE ps.product_id = Product.product_id AND ps.sku_id = ' +
                 ' Product.skuId AND ((ps.date_start <= CURDATE() AND ps.date_end >= CURDATE()))' + ' ' +
-                'ORDER BY ps.priority ASC, ps.price ASC LIMIT 1) + IF(Product.taxType = 2, Product.taxValue )) ' +
+                'ORDER BY ps.priority ASC, ps.price ASC LIMIT 1) + IF(Product.taxType = 2, Product.taxValue, 0)) ' +
                 ' WHEN (((SELECT price FROM product_discount pd2 WHERE pd2.product_id = Product.product_id AND pd2.sku_id = Product.skuId AND ((pd2.date_start <= CURDATE() AND pd2.date_end >= CURDATE())) ' +
-                ' ORDER BY pd2.priority ASC, pd2.price ASC LIMIT 1) IS NOT NULL) AND `Product`.`tax_type` = 2 AND (Product.taxValue != 0 || Product.taxValue != NULL) THEN (IF(Product.taxType = 2, Product.taxValue )/100 * (SELECT price FROM product_discount pd2 WHERE pd2.product_id = Product.product_id AND pd2.sku_id = ' +
+                ' ORDER BY pd2.priority ASC, pd2.price ASC LIMIT 1) IS NOT NULL) AND `Product`.`tax_type` = 2 AND (Product.taxValue != 0 || Product.taxValue != NULL)) THEN (IF(Product.taxType = 2, Product.taxValue, 0)/100 * (SELECT price FROM product_discount pd2 WHERE pd2.product_id = Product.product_id AND pd2.sku_id = ' +
                 'Product.skuId AND ((pd2.date_start <= CURDATE() AND pd2.date_end >= CURDATE())) ' +
                 ' ORDER BY pd2.priority ASC, pd2.price ASC LIMIT 1)) + (SELECT price FROM product_discount pd2 WHERE pd2.product_id = Product.product_id AND pd2.sku_id = Product.skuId AND ((pd2.date_start <= CURDATE() AND pd2.date_end >= CURDATE())) ' +
                 ' ORDER BY pd2.priority ASC, pd2.price ASC LIMIT 1) WHEN ((SELECT price FROM product_discount pd2 WHERE pd2.product_id = Product.product_id AND pd2.sku_id = Product.skuId AND ((pd2.date_start <= CURDATE() AND pd2.date_end >= CURDATE())) ' +
-                ' ORDER BY pd2.priority ASC, pd2.price ASC LIMIT 1) IS NOT NULL AND `Product`.`tax_type` = 1 AND (IF(Product.taxType = 2, Product.taxValue ) != 0 || IF(Product.taxType = 2, Product.taxValue ) != NULL)) THEN (IF(Product.taxType = 2, Product.taxValue ) + (SELECT price FROM product_discount pd2 WHERE pd2.product_id = Product.product_id AND pd2.sku_id = ' +
+                ' ORDER BY pd2.priority ASC, pd2.price ASC LIMIT 1) IS NOT NULL AND `Product`.`tax_type` = 1 AND (IF(Product.taxType = 2, Product.taxValue, 0) != 0 || IF(Product.taxType = 2, Product.taxValue, 0) != NULL)) THEN (IF(Product.taxType = 2, Product.taxValue, 0) + (SELECT price FROM product_discount pd2 WHERE pd2.product_id = Product.product_id AND pd2.sku_id = ' +
                 'Product.skuId AND ((pd2.date_start <= CURDATE() AND pd2.date_end >= CURDATE())) ' +
                 ' ORDER BY pd2.priority ASC, pd2.price ASC LIMIT 1)) WHEN ((SELECT price FROM product_special ps WHERE ps.product_id = Product.product_id AND ps.sku_id = Product.skuId AND ((ps.date_start <= CURDATE() AND ps.date_end >= CURDATE()))' + ' ' +
                 'ORDER BY ps.priority ASC, ps.price ASC LIMIT 1) IS NOT NULL) THEN (SELECT price FROM product_special ps WHERE ps.product_id = Product.product_id AND ps.sku_id = Product.skuId AND ((ps.date_start <= CURDATE() AND ps.date_end >= CURDATE()))'
                 + ' ' + 'ORDER BY ps.priority ASC, ps.price ASC LIMIT 1)' +
                 ' WHEN ((SELECT price FROM product_discount pd2 WHERE pd2.product_id = Product.product_id AND pd2.sku_id = Product.skuId AND ((pd2.date_start <= CURDATE() AND pd2.date_end >= CURDATE())) ' +
                 ' ORDER BY pd2.priority ASC, pd2.price ASC LIMIT 1) IS NOT NULL) THEN (SELECT price FROM product_discount pd2 WHERE pd2.product_id = Product.product_id AND pd2.sku_id = Product.skuId AND ((pd2.date_start <= CURDATE() AND pd2.date_end >= CURDATE())) ' +
-                ' ORDER BY pd2.priority ASC, pd2.price ASC LIMIT 1) WHEN (`Product`.`tax_type` = 2 AND (Product.taxValue != 0 || Product.taxValue != NULL) THEN (IF(Product.taxType = 2, Product.taxValue )/100 * (SELECT sku.price as price FROM sku WHERE sku.id = Product.skuId)) + (SELECT sku.price as price FROM sku WHERE sku.id = ' +
-                ' Product.skuId) WHEN (`Product`.`tax_type` = 1 AND (IF(Product.taxType = 2, Product.taxValue ) != 0 || IF(Product.taxType = 2, Product.taxValue ) != NULL)) THEN (IF(Product.taxType = 2, Product.taxValue ) + (SELECT sku.price as price FROM sku WHERE sku.id = ' +
+                ' ORDER BY pd2.priority ASC, pd2.price ASC LIMIT 1) WHEN (`Product`.`tax_type` = 2 AND (Product.taxValue != 0 || Product.taxValue != NULL)) THEN (IF(Product.taxType = 2, Product.taxValue, 0)/100 * (SELECT sku.price as price FROM sku WHERE sku.id = Product.skuId)) + (SELECT sku.price as price FROM sku WHERE sku.id = ' +
+                ' Product.skuId) WHEN (`Product`.`tax_type` = 1 AND (IF(Product.taxType = 2, Product.taxValue, 0) != 0 || IF(Product.taxType = 2, Product.taxValue, 0) != NULL)) THEN (IF(Product.taxType = 2, Product.taxValue, 0) + (SELECT sku.price as price FROM sku WHERE sku.id = ' +
                 'Product.skuId)) ELSE (SELECT sku.price as price FROM sku WHERE sku.id = ' +
                 'Product.skuId) END)';
 
@@ -1357,6 +1368,12 @@ export class CommonListController {
                 categorySlug: categorySlugParam,
             },
         });
+        if (!categoryDataId) {
+            return response.status(400).send({
+                status: 0,
+                message: 'Invalid category slug.',
+            });
+        }
         const categories = [];
         let tempParentId: number[] = [];
         tempParentId = [categoryDataId.categoryId];
@@ -1444,7 +1461,7 @@ export class CommonListController {
      */
     @UseBefore(TenantValidationMiddleware)
     @Get('/payment')
-    public async paymentSettingList(@Res() response: any, @Res() request: any): Promise<any> {
+    public async paymentSettingList(@Res() response: any, @Req() request: any): Promise<any> {
 
         const vendorPlugins = await this.vendorPluginService.find({
             where: {
@@ -1597,16 +1614,16 @@ export class CommonListController {
                 op: 'and',
                 value: 1,
             },
-            {
-                // (vendor.isActive = 1 AND vendor.isDelete = 0) OR vendor.customer_id IS NULL
-                name: '((vendor.isActive = 1 AND vendor.isDelete = 0) OR vendor.customer_id IS NULL)',
-                op: 'raw',
-            },
-            {
-                name: 'category.category_slug',
-                op: 'and',
-                value: params.categorySlug,
-            }, {
+                {
+                    // (vendor.isActive = 1 AND vendor.isDelete = 0) OR vendor.customer_id IS NULL
+                    name: '((vendor.isActive = 1 AND vendor.isDelete = 0) OR vendor.customer_id IS NULL)',
+                    op: 'raw',
+                },
+                {
+                    name: 'category.category_slug',
+                    op: 'and',
+                    value: params.categorySlug,
+                }, {
                 name: 'Product.dateAvailable',
                 op: 'raw',
                 sign: '<=',
@@ -1817,12 +1834,15 @@ export class CommonListController {
     @Get('/addons')
     public async PluginList(@QueryParam('limit') limit: number, @QueryParam('offset') offset: number, @QueryParam('count') count: number | boolean, @Req() request: any, @Res() response: any): Promise<any> {
         const pluginList = await this.vendorPluginService.pluginList(limit, offset, count, request.tenantId);
-        if (!pluginList) {
+        if (pluginList === null || pluginList === undefined) {
             const errorMessage = {
                 status: 0,
                 message: 'Unable to get the plugin list',
             };
             return response.status(400).send(errorMessage);
+        }
+        if (count) {
+            return response.status(200).send({ status: 1, message: 'Successfully get the list', data: pluginList });
         }
         const values = {};
         for (const value of pluginList) {
@@ -1963,6 +1983,7 @@ export class CommonListController {
                 return response.status(400).send(successResponse);
             }
         }
+        return response.status(400).send({ status: 0, message: 'Invalid plugin name. Supported value: gmap' });
     }
 
 }

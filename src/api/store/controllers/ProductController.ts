@@ -196,7 +196,7 @@ export class StoreProductController {
                     vendorId: request.tenantId,
                 },
             },
-            relations: ['vendorProducts', 'productTranslation'],
+            relations: ['vendorProducts'],
         });
         if (!productDetail) {
             const errResponse: any = {
@@ -208,10 +208,8 @@ export class StoreProductController {
 
         productDetail.vendorProducts = undefined;
 
-        const productTranslation = productDetail.productTranslation.find((productTrans) => productTrans.languageId === request.languageId);
-
-        productDetail.productNameTrans = productTranslation?.name ?? '';
-        productDetail.productDescriptionTrans = productTranslation?.description?.replace(/"/g, `'`) ?? '';
+        productDetail.productNameTrans = productDetail.name ?? '';
+        productDetail.productDescriptionTrans = productDetail.description?.replace(/"/g, `'`) ?? '';
 
         productDetail.description = productDetail.description?.replace(/"/g, `'`) ?? '';
 
@@ -237,7 +235,7 @@ export class StoreProductController {
         productDetails.productImage.map((val) => val.mediaType = 1);
         productDetails.productOriginalImage = productDetails.productImage.slice();
         if (categorySlug) {
-            const category = await this.categoryService.findOne({ where: { categorySlug, isActive: 1 } });
+            const category = await this.categoryService.findOne({ where: { categorySlug, isActive: 1, tenantId: request.tenantId } });
             if (category) {
                 const categoryLevels: any = await this.categoryPathService.find({
                     select: ['level', 'pathId'],
@@ -245,7 +243,7 @@ export class StoreProductController {
                     order: { level: 'ASC' },
                 }).then((values) => {
                     const categories = values.map(async (val: any) => {
-                        const categoryData = await this.categoryService.findOne({ where: { categoryId: val.pathId } });
+                        const categoryData = await this.categoryService.findOne({ where: { categoryId: val.pathId, tenantId: request.tenantId } });
                         const tempVal: any = val;
                         tempVal.categoryName = categoryData ? categoryData.name : '';
                         tempVal.categoryId = categoryData ? categoryData.categoryId : '';
@@ -271,7 +269,7 @@ export class StoreProductController {
                 where: { productId: productDetail.productId },
             }).then((val) => {
                 const category = val.map(async (value: any) => {
-                    const categoryNames = await this.categoryService.findOne({ where: { categoryId: value.categoryId } });
+                    const categoryNames = await this.categoryService.findOne({ where: { categoryId: value.categoryId, tenantId: request.tenantId } });
                     const temp: any = value;
                     if (categoryNames) {
                         temp.categoryName = categoryNames.name;
@@ -360,29 +358,27 @@ export class StoreProductController {
             });
         }
 
-        const vendorProduct = await this.vendorProductService.findOne({ where: { productId: productDetail.productId, reuse: IsNull() }, relations: ['vendor'] });
+        const vendorProduct = await this.vendorProductService.findOne({ where: { productId: productDetail.productId, vendorId: request.tenantId, reuse: IsNull() }, relations: ['vendor'] });
         if (vendorProduct) {
             const vendor = await this.vendorService.findOne({ where: { vendorId: vendorProduct.vendorId } });
-            const customer = await this.customerService.findOne({ where: { id: vendor.customerId } });
-            productDetails.vendorId = vendor.vendorId;
-            productDetails.vendorName = customer.firstName;
-            productDetails.vendorCompanyName = vendor.companyName;
-            productDetails.vendorPrefixId = vendor.vendorPrefixId;
-            productDetails.companyLogo = vendor.companyLogo;
-            productDetails.companyLogoPath = vendor.companyLogoPath;
-            productDetails.vendorCompanyName = vendor.companyName;
-            productDetails.vendorCompanyCity = vendor.companyCity;
-            productDetails.vendorDisplayNameUrl = vendor.displayNameUrl;
-
-            productDetails.vendorSlugName = vendor.vendorSlugName;
+            const customer = vendor ? await this.customerService.findOne({ where: { id: vendor.customerId } }) : undefined;
+            productDetails.vendorId = vendor?.vendorId;
+            productDetails.vendorName = customer?.firstName ?? '';
+            productDetails.vendorCompanyName = vendor?.companyName ?? '';
+            productDetails.vendorPrefixId = vendor?.vendorPrefixId ?? '';
+            productDetails.companyLogo = vendor?.companyLogo ?? '';
+            productDetails.companyLogoPath = vendor?.companyLogoPath ?? '';
+            productDetails.vendorCompanyCity = vendor?.companyCity ?? '';
+            productDetails.vendorDisplayNameUrl = vendor?.displayNameUrl ?? '';
+            productDetails.vendorSlugName = vendor?.vendorSlugName ?? '';
             productDetails.quotationAvailable = vendorProduct.quotationAvailable;
-            productDetails.companyTaxNumber = vendorProduct.vendor.companyTaxNumber ?? '';
-            productDetail.companyPanNumber = vendorProduct.vendor.companyPanNumber ?? '';
-            productDetail.companyCountry = vendorProduct.vendor.companyCountryId ?? '';
-            productDetail.vendorCompanystateId = vendorProduct.vendor.zoneId ?? '';
+            productDetails.companyTaxNumber = vendorProduct.vendor?.companyTaxNumber ?? '';
+            productDetails.companyPanNumber = vendorProduct.vendor?.companyPanNumber ?? '';
+            productDetails.companyCountry = vendorProduct.vendor?.companyCountryId ?? '';
+            productDetails.vendorCompanystateId = vendorProduct.vendor?.zoneId ?? '';
             productDetails.vendorCompanyCountry = '';
             if (vendorProduct.vendor?.companyCountryId) {
-                const vendorCountry = await this.vendorCountryService.findOne({ where: { id: vendorProduct.vendor?.companyCountryId }, relations: ['country'] });
+                const vendorCountry = await this.vendorCountryService.findOne({ where: { id: vendorProduct.vendor.companyCountryId }, relations: ['country'] });
                 productDetails.vendorCompanyCountry = vendorCountry?.country?.name;
             }
         }
@@ -446,7 +442,7 @@ export class StoreProductController {
 
     // Product Details API
     /**
-     * @api {get} /api/product-store/order-product/:productslug   Product Detail API
+     * @api {get} /api/product-store/order-product/:orderProductId  Product Detail API
      * @apiGroup Store
      * @apiParam (Request body) {String} categorySlug categorySlug
      * @apiHeader {String} Authorization
@@ -555,7 +551,7 @@ export class StoreProductController {
      *               }
      *              }
      * }
-     * @apiSampleRequest /api/product-store/productdetail/:productslug
+     * @apiSampleRequest /api/product-store/order-product/:orderProductId
      * @apiErrorExample {json} productDetail error
      * HTTP/1.1 500 Internal Server Error
      */
@@ -564,6 +560,10 @@ export class StoreProductController {
     public async orderProductDetail(@Param('orderProductId') orderProductId: string, @QueryParam('categorySlug') categorySlug: string, @Req() request: any, @Res() response: any): Promise<any> {
 
         const orderProductExist = await this.orderProductService.findOne({ where: { orderProductId } });
+
+        if (!orderProductExist) {
+            return response.status(200).send({ status: 0, message: 'Invalid Order Product Id !' });
+        }
 
         const orderExist = await this.orderService.findOne({ orderId: orderProductExist.orderId, customerId: request.user.customerId });
 
@@ -579,21 +579,14 @@ export class StoreProductController {
             where: {
                 productId: orderProductExist.productId,
             },
-            relations: ['productTranslation'],
         });
 
-        if (!orderProductExist) {
-            const errResponse: any = {
-                status: 0,
-                message: 'Invalid product',
-            };
-            return response.status(200).send(errResponse);
+        if (!productDetail) {
+            return response.status(200).send({ status: 0, message: 'Invalid product' });
         }
 
-        const productTranslation = productDetail.productTranslation.find((productTrans) => productTrans.languageId === request.languageId);
-
-        productDetail.productNameTrans = productTranslation?.name ?? '';
-        productDetail.productDescriptionTrans = productTranslation?.description?.replace(/"/g, `'`) ?? '';
+        productDetail.productNameTrans = productDetail.name ?? '';
+        productDetail.productDescriptionTrans = productDetail.description?.replace(/"/g, `'`) ?? '';
 
         productDetail.description = productDetail.description?.replace(/"/g, `'`) ?? '';
 
@@ -627,7 +620,7 @@ export class StoreProductController {
         productDetails.productImage.map((val) => val.mediaType = 1);
         productDetails.productOriginalImage = productDetails.productImage.slice();
         if (categorySlug) {
-            const category = await this.categoryService.findOne({ categorySlug, isActive: 1 });
+            const category = await this.categoryService.findOne({ where: { categorySlug, isActive: 1, tenantId: request.tenantId } });
             if (category) {
                 const categoryLevels: any = await this.categoryPathService.find({
                     select: ['level', 'pathId'],
@@ -635,7 +628,7 @@ export class StoreProductController {
                     order: { level: 'ASC' },
                 }).then((values) => {
                     const categories = values.map(async (val: any) => {
-                        const categoryData = await this.categoryService.findOne({ categoryId: val.pathId });
+                        const categoryData = await this.categoryService.findOne({ where: { categoryId: val.pathId, tenantId: request.tenantId } });
                         const tempVal: any = val;
                         tempVal.categoryName = categoryData ? categoryData.name : '';
                         tempVal.categoryId = categoryData ? categoryData.categoryId : '';
@@ -661,7 +654,7 @@ export class StoreProductController {
                 where: { productId: productDetail.productId },
             }).then((val) => {
                 const category = val.map(async (value: any) => {
-                    const categoryNames = await this.categoryService.findOne({ categoryId: value.categoryId });
+                    const categoryNames = await this.categoryService.findOne({ where: { categoryId: value.categoryId, tenantId: request.tenantId } });
                     const temp: any = value;
                     if (categoryNames) {
                         temp.categoryName = categoryNames.name;
@@ -750,34 +743,34 @@ export class StoreProductController {
             });
         }
 
-        const vendorProduct = await this.vendorProductService.findOne({ where: { productId: productDetail.productId, reuse: IsNull() }, relations: ['vendor'] });
+        const vendorProduct = await this.vendorProductService.findOne({ where: { productId: productDetail.productId, vendorId: request.tenantId, reuse: IsNull() }, relations: ['vendor'] });
         if (vendorProduct) {
             const vendor = await this.vendorService.findOne({ where: { vendorId: vendorProduct.vendorId } });
-            const customer = await this.customerService.findOne({ where: { id: vendor.customerId } });
-            productDetails.vendorId = vendor.vendorId;
-            productDetails.vendorName = customer.firstName;
-            productDetails.vendorCompanyName = vendor.companyName;
-            productDetails.vendorPrefixId = vendor.vendorPrefixId;
-            productDetails.companyLogo = vendor.companyLogo;
-            productDetails.companyLogoPath = vendor.companyLogoPath;
-            productDetails.vendorCompanyName = vendor.companyName;
-            productDetails.vendorCompanyCity = vendor.companyCity;
-            productDetails.vendorDisplayNameUrl = vendor.displayNameUrl;
-            productDetails.vendorSlugName = vendor.vendorSlugName;
+            const customer = vendor ? await this.customerService.findOne({ where: { id: vendor.customerId } }) : undefined;
+            productDetails.vendorId = vendor?.vendorId;
+            productDetails.vendorName = customer?.firstName ?? '';
+            productDetails.vendorCompanyName = vendor?.companyName ?? '';
+            productDetails.vendorPrefixId = vendor?.vendorPrefixId ?? '';
+            productDetails.companyLogo = vendor?.companyLogo ?? '';
+            productDetails.companyLogoPath = vendor?.companyLogoPath ?? '';
+            productDetails.vendorCompanyCity = vendor?.companyCity ?? '';
+            productDetails.vendorDisplayNameUrl = vendor?.displayNameUrl ?? '';
+            productDetails.vendorSlugName = vendor?.vendorSlugName ?? '';
             productDetails.quotationAvailable = vendorProduct.quotationAvailable;
-            productDetails.companyTaxNumber = vendorProduct.vendor.companyTaxNumber ?? '';
-            productDetail.companyPanNumber = vendorProduct.vendor.companyPanNumber ?? '';
-            productDetail.companyCountry = vendorProduct.vendor.companyCountryId ?? '';
-            productDetail.vendorCompanystateId = vendorProduct.vendor.zoneId ?? '';
+            productDetails.companyTaxNumber = vendorProduct.vendor?.companyTaxNumber ?? '';
+            productDetails.companyPanNumber = vendorProduct.vendor?.companyPanNumber ?? '';
+            productDetails.companyCountry = vendorProduct.vendor?.companyCountryId ?? '';
+            productDetails.vendorCompanystateId = vendorProduct.vendor?.zoneId ?? '';
             productDetails.vendorCompanyCountry = '';
             if (vendorProduct.vendor?.companyCountryId) {
                 const vendorCountry = await this.vendorCountryService.findOne({ where: { id: vendorProduct.vendor?.companyCountryId }, relations: ['country'] });
                 productDetails.vendorCompanyCountry = vendorCountry?.country?.name;
             }
         }
-        if (request.id) {
-            let customerId;
-            customerId = request.id;
+        // CheckCustomerMiddleware authenticates the request but only populates request.user,
+        // so the customer id has to be taken from the authenticated user.
+        const customerId = request.user?.customerId;
+        if (customerId) {
             const wishStatus = await this.customerWishlistService.findOne({
                 where: {
                     productId: productDetail.productId,
@@ -798,20 +791,23 @@ export class StoreProductController {
             const customerDetail = await this.customerService.findOne({ where: { id: customerId } });
             const customerActivity = new CustomerActivity();
             customerActivity.customerId = customerId;
+            customerActivity.customerUserId = request.user?.id;
             customerActivity.activityId = 2;
             customerActivity.description = 'productviewed';
             customerActivity.productId = productDetail.productId;
             await this.customerActivityService.create(customerActivity);
-            const viewLog: any = new ProductViewLog();
-            viewLog.productId = productDetail.productId;
-            viewLog.customerId = customerDetail.id;
-            viewLog.firstName = customerDetail.firstName;
-            viewLog.lastName = customerDetail.lastName;
-            viewLog.username = customerDetail.username;
-            viewLog.email = customerDetail.email;
-            viewLog.mobileNumber = customerDetail.mobileNumber;
-            viewLog.address = customerDetail.address;
-            await this.productViewLogService.create(viewLog);
+            if (customerDetail) {
+                const viewLog: any = new ProductViewLog();
+                viewLog.productId = productDetail.productId;
+                viewLog.customerId = customerDetail.id;
+                viewLog.firstName = customerDetail.firstName;
+                viewLog.lastName = customerDetail.lastName;
+                viewLog.username = customerDetail.username;
+                viewLog.email = customerDetail.email;
+                viewLog.mobileNumber = customerDetail.mobileNumber;
+                viewLog.address = customerDetail.address;
+                await this.productViewLogService.create(viewLog);
+            }
         } else {
             productDetails.wishListStatus = 0;
             productDetails.buyed = 0;
@@ -856,6 +852,13 @@ export class StoreProductController {
      */
     @Get('/Category')
     public async getCategory(@QueryParam('CategoryId') CategoryId: number, @Res() response: any, @Req() request: any): Promise<any> {
+        if (CategoryId === undefined || CategoryId === null || Number.isNaN(Number(CategoryId))) {
+            const errorResponse: any = {
+                status: 0,
+                message: 'Valid CategoryId is required',
+            };
+            return response.status(400).send(errorResponse);
+        }
         const select = ['categoryId', 'name', 'parentInt', 'sortOrder', 'categorySlug'];
         const whereConditions = [
             {
@@ -877,9 +880,9 @@ export class StoreProductController {
                 order: { level: 'ASC' },
             }).then((values) => {
                 const categories = values.map(async (val: any) => {
-                    const categoryNames = await this.categoryService.findOne({ where: { categoryId: val.pathId } });
+                    const categoryNames = await this.categoryService.findOne({ where: { categoryId: val.pathId, tenantId: request.tenantId } });
                     const tempVal: any = val;
-                    tempVal.categoryName = categoryNames.name;
+                    tempVal.categoryName = categoryNames?.name ?? '';
                     return tempVal;
                 });
                 const results = Promise.all(categories);
@@ -1000,12 +1003,27 @@ export class StoreProductController {
 
     @Get('/product-compare')
     public async productCompare(@QueryParam('productId') productId: string, @QueryParam('data') data: string, @Res() response: any, @Req() request: any): Promise<any> {
-        const productid = productId.split(',');
-        if (productid.length === 0) {
-            return response.status(200).send({
-                status: 1,
-                data: [],
+        const rawProductIds = typeof productId === 'string' ? productId.split(',').map((id) => id.trim()) : [];
+        if (rawProductIds.length === 0 || rawProductIds.some((id) => !/^\d+$/.test(id) || Number(id) <= 0)) {
+            return response.status(400).send({ status: 0, message: 'Valid productId values are required' });
+        }
+        const productid = [...new Set(rawProductIds)];
+        if (productid.length > 3) {
+            return response.status(400).send({ status: 0, message: 'Only three products can be compared at a time' });
+        }
+        const tenantProducts = [];
+        for (const id of productid) {
+            const product = await this.productService.findOne({
+                where: {
+                    productId: Number(id),
+                    isActive: 1,
+                    vendorProducts: { vendorId: request.tenantId, reuse: IsNull() },
+                },
             });
+            if (!product) {
+                return response.status(200).send({ status: 0, message: 'Invalid product' });
+            }
+            tenantProducts.push(product);
         }
         if (productid.length === 1) {
             if (data === '0') {
@@ -1016,13 +1034,7 @@ export class StoreProductController {
                 return response.status(200).send(Response);
             } else {
                 const Detail = [];
-                const List = await this.productService.findOne({ where: { productId: productid, isActive: 1 }, relations: ['productTranslation'] });
-                if (!List) {
-                    return response.status(200).send({
-                        status: 0,
-                        message: `Invalid product`,
-                    });
-                }
+                const List = tenantProducts[0];
                 const defaultValue = await this.productImageService.findOne({
                     where: {
                         productId: List.productId,
@@ -1031,7 +1043,7 @@ export class StoreProductController {
                 });
                 const temp: any = List;
                 const id = productid[0];
-                const vendor = await this.vendorProductService.findOne({ where: { productId: id }, relations: ['vendor', 'vendor.customer'] });
+                const vendor = await this.vendorProductService.findOne({ where: { productId: id, vendorId: request.tenantId, reuse: IsNull() }, relations: ['vendor', 'vendor.customer'] });
                 const vendorData = {
                     vendorId: vendor?.vendor?.vendorId,
                     vendorName: vendor?.vendor?.customer?.firstName,
@@ -1042,9 +1054,8 @@ export class StoreProductController {
                     companyLogoPath: vendor?.vendor?.companyLogoPath,
                 };
                 temp.vendorDetails = vendorData;
-                const productTranslation = List.productTranslation.find((productTrans) => productTrans.languageId === request.languageId);
-                temp.productNameTrans = productTranslation?.name ?? '';
-                temp.productDescriptionTrans = productTranslation?.description?.replace(/"/g, `'`) ?? '';
+                temp.productNameTrans = List.name ?? '';
+                temp.productDescriptionTrans = List.description?.replace(/"/g, `'`) ?? '';
                 temp.description = List.description?.replace(/"/g, `'`) ?? '';
                 temp.ratingCount = 0;
                 temp.reviewCount = 'null';
@@ -1105,13 +1116,7 @@ export class StoreProductController {
                     });
                     categoryDataDetail.push(categoryDataValue);
                 }
-                let categoryData;
-                if (categoryDataDetail.length === 2) {
-                    categoryData = categoryDataDetail[0].filter(e => categoryDataDetail[1].indexOf(e) !== -1);
-                } else {
-                    const intersectionsTwo = categoryDataDetail[0].filter(e => categoryDataDetail[1].indexOf(e) !== -1);
-                    categoryData = intersectionsTwo.filter(e => categoryDataDetail[2].indexOf(e) !== -1);
-                }
+                const categoryData = categoryDataDetail.reduce((shared, categories) => shared.filter((id) => categories.includes(id)));
                 if (categoryData.length === 0) {
                     const errorResponse: any = {
                         status: 1,
@@ -1135,13 +1140,7 @@ export class StoreProductController {
                     });
                     categoryDataDetail.push(categoryDataValue);
                 }
-                let categoryData;
-                if (categoryDataDetail.length === 2) {
-                    categoryData = categoryDataDetail[0].filter(e => categoryDataDetail[1].indexOf(e) !== -1);
-                } else {
-                    const intersectionsTwo = categoryDataDetail[0].filter(e => categoryDataDetail[1].indexOf(e) !== -1);
-                    categoryData = intersectionsTwo.filter(e => categoryDataDetail[2].indexOf(e) !== -1);
-                }
+                const categoryData = categoryDataDetail.reduce((shared, categories) => shared.filter((id) => categories.includes(id)));
                 if (categoryData.length === 0) {
                     const errorResponse: any = {
                         status: 1,
@@ -1152,7 +1151,7 @@ export class StoreProductController {
                 let productListData;
                 // find the product to compare
                 for (const id of productid) {
-                    productListData = await this.productService.findOne({ where: { productId: id }, relations: ['productTranslation'] });
+                    productListData = tenantProducts[productid.indexOf(id)];
                     const defaultValue = await this.productImageService.findOne({
                         where: {
                             productId: productListData.productId,
@@ -1160,7 +1159,7 @@ export class StoreProductController {
                         },
                     });
                     const temp: any = productListData;
-                    const vendor = await this.vendorProductService.findOne({ where: { productId: id }, relations: ['vendor', 'vendor.customer'] });
+                    const vendor = await this.vendorProductService.findOne({ where: { productId: id, vendorId: request.tenantId, reuse: IsNull() }, relations: ['vendor', 'vendor.customer'] });
                     const vendorData = {
                         vendorId: vendor?.vendor?.vendorId,
                         vendorName: vendor?.vendor?.customer?.firstName,
@@ -1171,9 +1170,8 @@ export class StoreProductController {
                         companyLogoPath: vendor?.vendor?.companyLogoPath,
                     };
                     temp.vendorDetails = vendorData;
-                    const productTranslation = productListData.productTranslation.find((productTrans) => productTrans.languageId === request.languageId);
-                    temp.productNameTrans = productTranslation?.name ?? '';
-                    temp.productDescriptionTrans = productTranslation?.description?.replace(/"/g, `'`) ?? '';
+                    temp.productNameTrans = productListData.name ?? '';
+                    temp.productDescriptionTrans = productListData.description?.replace(/"/g, `'`) ?? '';
                     temp.description = productListData.description?.replace(/"/g, `'`) ?? '';
                     temp.ratingCount = 0;
                     temp.reviewCount = 'null';
@@ -1248,6 +1246,11 @@ export class StoreProductController {
                 message: 'Advanced product/SKU search is disabled for this vendor.',
             });
         }
+        // guard the pagination values, a negative offset/limit produces invalid SQL
+        const parsedLimit = Number(limit);
+        const parsedOffset = Number(offset);
+        const searchLimit = Number.isFinite(parsedLimit) && parsedLimit > 0 ? Math.floor(parsedLimit) : 0;
+        const searchOffset = Number.isFinite(parsedOffset) && parsedOffset > 0 ? Math.floor(parsedOffset) : 0;
         const select = [
             'Product.productId as productId',
             'Product.name as name',
@@ -1264,9 +1267,9 @@ export class StoreProductController {
             'sku.min_quantity_allowed_cart as minQuantityAllowedCart',
             'sku.max_quantity_allowed_cart as maxQuantityAllowedCart',
             'sku.enable_back_orders as enableBackOrders',
-            '(SELECT price FROM product_discount pd2 WHERE pd2.product_id = Product.productId AND pd2.sku_id = skuId AND ((pd2.date_start <= CURDATE() AND  pd2.date_end >= CURDATE())) ' +
+            '(SELECT price FROM product_discount pd2 WHERE pd2.product_id = Product.productId AND pd2.sku_id = sku.id AND ((pd2.date_start <= CURDATE() AND  pd2.date_end >= CURDATE())) ' +
             ' ORDER BY pd2.priority ASC, pd2.price ASC LIMIT 1) AS productDiscount',
-            '(SELECT price FROM product_special ps WHERE ps.product_id = Product.productId AND ps.sku_id = skuId AND ((ps.date_start <= CURDATE() AND ps.date_end >= CURDATE()))' + ' ' + 'ORDER BY ps.priority ASC, ps.price ASC LIMIT 1) AS productSpecial',
+            '(SELECT price FROM product_special ps WHERE ps.product_id = Product.productId AND ps.sku_id = sku.id AND ((ps.date_start <= CURDATE() AND ps.date_end >= CURDATE()))' + ' ' + 'ORDER BY ps.priority ASC, ps.price ASC LIMIT 1) AS productSpecial',
         ];
         const relations = [
             {
@@ -1306,10 +1309,8 @@ export class StoreProductController {
                 value: '',
             },
             {
-                name: '( customer.id IS NOT NULL',
-                op: 'rawnumber',
-                sign: 'OR',
-                value: `vendorProducts.vendorId IS NULL )`,
+                name: '( customer.id IS NOT NULL OR vendorProducts.vendorId IS NULL )',
+                op: 'raw',
             },
             {
                 name: 'Product.isActive',
@@ -1345,7 +1346,7 @@ export class StoreProductController {
                 value: keyword,
             });
         }
-        const productSearchList = await this.productService.listByQueryBuilder(limit, offset, select, whereConditions, searchConditions, relations, [], [], false, true);
+        const productSearchList = await this.productService.listByQueryBuilder(searchLimit, searchOffset, select, whereConditions, searchConditions, relations, [], [], false, true);
         const productList = productSearchList.map(async (value: any) => {
             const temp = value;
             if (value.productSpecial !== null) {
@@ -1377,6 +1378,7 @@ export class StoreProductController {
                     where: {
                         categoryId: productToCategory.categoryId,
                         isActive: 1,
+                        tenantId: request.tenantId,
                     },
                 });
                 temp.categoryName = category;
