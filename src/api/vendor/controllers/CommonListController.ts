@@ -14,7 +14,6 @@ import { VendorPluginService } from '../../core/services/VendorPluginService';
 import { Service } from 'typedi';
 import { ZoneService } from '../../core/services/zoneService';
 import { CountryService } from '../../core/services/CountryService';
-import { CurrencyService } from '../../core/services/CurrencyService';
 import { LanguageService } from '../../core/services/LanguageService';
 @Service()
 @JsonController('/vendor-list')
@@ -24,9 +23,8 @@ export class VendorCommonListController {
         private zoneService: ZoneService,
         private industryService: IndustryService,
         private vendorPluginService: VendorPluginService,
-        private countryService: CountryService,
-        private currencyService: CurrencyService,
-        private languageService: LanguageService
+        private languageService: LanguageService,
+        private countryService: CountryService
     ) {
         // --
     }
@@ -385,105 +383,6 @@ export class VendorCommonListController {
     }
 
     /**
-     * @api {get} /api/vendor-list/master-currency Master Currency List
-     * @apiGroup Currency
-     * @apiDescription
-     * Retrieves a list of all active currencies with optional search, pagination, and count functionality.
-     *
-     * @apiQuery {Number} [limit] Number of records to retrieve.
-     * @apiQuery {Number} [offset] Number of records to skip.
-     * @apiQuery {String} [keyword] Keyword to search by currency title or code.
-     * @apiQuery {String} [status] Filter by status (currently only active currencies are fetched).
-     * @apiQuery {Boolean|Number} [count=false] If true or 1, returns only the total count instead of the list.
-     *
-     * @apiSuccessExample {json} Success-Response (List):
-     * HTTP/1.1 200 OK
-     * {
-     *   "status": 1,
-     *   "message": "Successfully got the currency list.",
-     *   "data": [
-     *     {
-     *       "currencyId": 1,
-     *       "title": "US Dollar",
-     *       "code": "USD",
-     *       "symbolLeft": "$",
-     *       "symbolRight": null,
-     *       "isActive": 1,
-     *       "createdDate": "2023-10-01T08:15:00.000Z",
-     *       "modifiedDate": "2024-01-05T10:30:00.000Z"
-     *     },
-     *     {
-     *       "currencyId": 2,
-     *       "title": "Euro",
-     *       "code": "EUR",
-     *       "symbolLeft": "€",
-     *       "symbolRight": null,
-     *       "isActive": 1,
-     *       "createdDate": "2023-10-05T09:45:00.000Z",
-     *       "modifiedDate": "2024-01-06T14:20:00.000Z"
-     *     }
-     *   ]
-     * }
-     *
-     * @apiSuccessExample {json} Success-Response (Count):
-     * HTTP/1.1 200 OK
-     * {
-     *   "status": 1,
-     *   "message": "Successfully got the currency count.",
-     *   "data": 170
-     * }
-     *
-     * @apiErrorExample {json} Error-Response:
-     * HTTP/1.1 400 Bad Request
-     * {
-     *   "status": 0,
-     *   "message": "Unable to get currency list."
-     * }
-     *
-     * @apiSampleRequest /api/vendor-list/master-currency
-     */
-    @Get('/master-currency')
-    @Authorized('vendor')
-    public async masterCurrencyList(@QueryParam('limit') limit: number, @QueryParam('offset') offset: number, @QueryParam('keyword') keyword: string, @QueryParam('status') status: string, @QueryParam('count') count: number | boolean, @Res() response: any): Promise<any> {
-        const select = ['Currency.currencyId', 'Currency.title', 'Currency.code', 'Currency.symbolLeft', 'Currency.symbolRight', 'Currency.modifiedDate', 'Currency.createdDate', 'Currency.isActive'];
-        const search = [];
-        if (keyword?.trim()) {
-            search.push({
-                name: ['Currency.title', 'Currency.code'],
-                value: keyword,
-            });
-        }
-        const whereConditions = [
-            {
-                name: 'Currency.isActive',
-                op: 'and',
-                value: 1,
-            },
-        ];
-        const sort = [
-            {
-                name: 'Currency.createdDate',
-                order: 'DESC',
-            },
-        ];
-        if (count) {
-            const currencyCount = await this.currencyService.listByQueryBuilder(limit, offset, select, whereConditions, search, [], [], sort, true, false);
-            return response.status(200).send({
-                status: 1,
-                message: 'Successfully got the currency count.',
-                data: currencyCount,
-            });
-        }
-        const currencyList = await this.currencyService.listByQueryBuilder(limit, offset, select, whereConditions, search, [], [], sort, false, false);
-        const successResponse: any = {
-            status: 1,
-            message: 'Successfully got the currency list.',
-            data: currencyList,
-        };
-        return response.status(200).send(successResponse);
-    }
-
-    /**
      * @api {get} /api/vendor-list/master-language Master Language List
      * @apiGroup Language
      * @apiDescription
@@ -537,7 +436,6 @@ export class VendorCommonListController {
      * @apiSampleRequest /api/vendor-list/master-language
      */
     @Get('/master-language')
-    @Authorized('vendor')
     public async masterLanguageList(@QueryParam('limit') limit: number, @QueryParam('offset') offset: number, @QueryParam('keyword') keyword: string, @QueryParam('count') count: number | boolean, @Res() response: any, @Req() request: any): Promise<any> {
         const select = ['Language.languageId', 'Language.isActive', 'Language.name', 'Language.code', 'Language.image', 'Language.imagePath'];
 

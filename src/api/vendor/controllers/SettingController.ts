@@ -15,12 +15,10 @@ import { env } from '../../../env';
 import { S3Service } from '../../core/services/S3Service';
 import { ImageService } from '../../core/services/ImageService';
 import { VendorSettingsService } from '../../core/services/VendorSettingsService';
-// import { ThemeService } from '../../../../add-ons/Theme/services/ThemeService';
 import { VendorSettings } from '../../core/models/VendorSettings';
 import { VendorService } from '../../core/services/VendorService';
 import { Service } from 'typedi';
 import { CurrencyService } from '../../core/services/CurrencyService';
-// import { VendorSettingsDomainService } from '../../core/services/VendorSettingsDomainService';
 interface VendorSettingsView extends Omit<Settings, 'createDetails' | 'updateDetails'> {
     currencyCode: string;
     symbolLeft: string;
@@ -59,8 +57,6 @@ export class VendorSettingController {
         private imageService: ImageService,
         private vendorSettingsService: VendorSettingsService,
         private currencyService: CurrencyService
-        // private themeService: ThemeService
-        // private vendorSettingsDomainService: VendorSettingsDomainService
     ) {
         // --
     }
@@ -422,25 +418,6 @@ export class VendorSettingController {
             settingValue.siteName = settings.siteName;
             settingValue.storeUrl = settings.siteUrl;
             settingValue.storeTitle = settings.storeTitle;
-            // const checkIsPrimary = await this.vendorSettingsDomainService.findOne({ where: { vendorId: request.user.tenantId, isActive: 1, isDelete: 0, isPrimary: 1 } });
-            // if (checkIsPrimary) {
-            //     checkIsPrimary.isPrimary = 0;
-            //     await this.vendorSettingsDomainService.update(checkIsPrimary.id, checkIsPrimary);
-            // }
-            // const getVendorSettingsDomain = await this.vendorSettingsDomainService.findOne({ where: { vendorId: request.user.tenantId, isActive: 1, isDelete: 0, domainName: settings.siteUrl?.trim() } });
-
-            // const newVendorSettingsDomain: any = {};
-            // if (getVendorSettingsDomain) {
-            //     newVendorSettingsDomain.id = getVendorSettingsDomain.id;
-            // }
-            // newVendorSettingsDomain.domainName = settings.siteUrl?.trim();
-            // newVendorSettingsDomain.vendorSettingsId = settings.settingId;
-            // newVendorSettingsDomain.vendorId = request.user.tenantId;
-            // newVendorSettingsDomain.createdBy = request.user.id;
-            // newVendorSettingsDomain.isActive = 1;
-            // newVendorSettingsDomain.isDelete = 0;
-            // newVendorSettingsDomain.isPrimary = 1;
-            // await this.vendorSettingsDomainService.create(newVendorSettingsDomain);
             vendorData.companyDescription = settings.storeDescription;
         }
         if (settings.settingSection === 'company-details') {

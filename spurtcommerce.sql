@@ -1185,6 +1185,15 @@ CREATE TABLE `customer_user_group` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `customer_user_group`
+--
+
+INSERT INTO `customer_user_group`
+(`id`, `name`, `slug`, `is_active`, `role_type`, `tenant_id`, `customer_id`, `description`, `permission`) VALUES
+(1, 'Buyer', 'buyer', 1, 1, 1, NULL, 'Handles day-to-day purchasing, negotiates with suppliers, and ensures timely, cost-efficient procurement of goods and services.', '{}');
+
+-- --------------------------------------------------------
+--
 -- Table structure for table `customer_wishlist`
 --
 

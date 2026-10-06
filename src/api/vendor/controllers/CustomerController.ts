@@ -26,7 +26,6 @@ import { S3, PutObjectCommand } from '@aws-sdk/client-s3';
 import { VendorSettingsService } from '../../core/services/VendorSettingsService';
 import { Not } from 'typeorm';
 import { CustomerUsersService } from '../../core/services/CustomerUsersService';
-import { VendorSettingsDomainService } from '../../core/services/VendorSettingsDomainService';
 import { CustomerUsers } from '../../core/models/CustomerUsers';
 import { CustomerUserGroupService } from '../../core/services/CustomerUserGroupService';
 const s3 = new S3({ region: aws_setup.AWS_DEFAULT_REGION });
@@ -48,7 +47,6 @@ export class CustomerController {
         private exportLogService: ExportLogService,
         private vendorSettingsService: VendorSettingsService,
         private customerUsersService: CustomerUsersService,
-        private vendorSettingsDomainService: VendorSettingsDomainService,
         private customerUserGroupService: CustomerUserGroupService,
         private customerToGroupService: CustomerToGroupService
     ) {
@@ -181,11 +179,7 @@ export class CustomerController {
                     const mailContents: any = {};
                     mailContents.setting = { ...vendorSetting, ...vendor };
                     mailContents.emailContent = message;
-                    const vendorDomain = await this.vendorSettingsDomainService.findOne({ where: { vendorId: request.user.tenantId, isActive: 1, isDelete: 0 } });
-                    let redirectUrl = vendorSetting.storeUrl;
-                    if (vendorDomain?.name) {
-                        redirectUrl = await this.vendorSettingsService.getVendorDomainOrDefault(request.user.tenantId, vendorDomain.name);
-                    }
+                    const redirectUrl = vendorSetting.storeUrl;
                     mailContents.redirectUrl = redirectUrl;
                     mailContents.productDetailData = '';
                     MAILService.sendMail(mailContents, customerParam.email, emailContent.subject, false, false, '');

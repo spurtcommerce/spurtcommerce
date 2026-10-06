@@ -18,7 +18,6 @@ import * as fs from 'fs';
 import * as path from 'path';
 import { VendorUsersService } from '../../../../src/api/core/services/VendorUsersService';
 import { Service } from 'typedi';
-import { VendorSettingsDomainService } from '../../../../src/api/core/services/VendorSettingsDomainService';
 import { VendorSettingsService } from '../../../../src/api/core/services/VendorSettingsService';
 @Service()
 @JsonController('/vendor-site-map')
@@ -29,7 +28,6 @@ export class VendorSiteMapController {
         private categoryService: CategoryService,
         private pageService: PageService,
         private vendorUsersService: VendorUsersService,
-        private vendorSettingsDomainService: VendorSettingsDomainService,
         private vendorSettingsService: VendorSettingsService
     ) { }
 
@@ -75,11 +73,7 @@ export class VendorSiteMapController {
 
         const allURLs = [];
         const vendorSetting = await this.vendorSettingsService.findOne({ where: { vendorId: request.user.tenantId } });
-        const vendorDomain = await this.vendorSettingsDomainService.findOne({ where: { vendorId: request.user.tenantId, isActive: 1, isDelete: 0 } });
-        let redirectUrl = vendorSetting.storeUrl;
-        if (vendorDomain?.name) {
-            redirectUrl = await this.vendorSettingsService.getVendorDomainOrDefault(request.user.tenantId, vendorDomain.name);
-        }
+        const redirectUrl = vendorSetting.storeUrl;
 
         allURLs.push(redirectUrl);
         const findProduct = await this.productService.find({ select: ['productSlug'], where: { isActive: 1 } });
