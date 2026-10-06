@@ -108,11 +108,6 @@ export class StorePageController {
                 aliasName: 'page',
                 op: 'left',
             },
-            {
-                tableName: 'page.pageTranslation',
-                aliasName: 'pageTranslation',
-                op: 'left',
-            },
         ];
         const pageGroupList = await this.pageGroupService.listByQueryBuilder(limit, offset, [], [], search, relations, [], [], false, false);
 
@@ -120,8 +115,6 @@ export class StorePageController {
             const temp: any = result;
 
             temp.page.map(async (item) => {
-
-                item.pageTranslation = item.pageTranslation.find(data => (data.languageId === request.languageId) ? true : 0) ?? {};
                 item.content = undefined;
                 return item.pageTranslation;
             });
@@ -172,7 +165,7 @@ export class StorePageController {
     @Get('/:slugName')
     @UseBefore(TranslationMiddleware)
     public async pageDetails(@Param('slugName') slugName: string, @Req() request: any, @Res() response: any): Promise<any> {
-        const page = await this.pageService.findOne({
+        const page = await this.pageService.findOneBy({
             where: {
                 slugName,
                 isActive: 1,
@@ -192,20 +185,8 @@ export class StorePageController {
                 value: page.pageId,
             },
         ];
-        const relations = [
-            {
-                tableName: 'page.pageTranslation',
-                aliasName: 'pageTranslation',
-                op: 'left',
-            },
-        ];
-        const getPageDetail = await this.pageService.listByQueryBuilder(0, 0, [], whereConditions, [], relations, [], [], false, false);
-
-        const pageDetail = await Promise.all(getPageDetail.map(async (item) => {
-            const temp: any = item;
-            temp.pageTranslation = item.pageTranslation.find((data) => data.languageId === request.languageId ? true : 0) ?? {};
-            return temp;
-        }));
+        const relations = [];
+        const pageDetail = await this.pageService.listByQueryBuilder(0, 0, [], whereConditions, [], relations, [], [], false, false);
         if (pageDetail) {
             const successResponse: any = {
                 status: 1,

@@ -23,8 +23,8 @@ define({ "api": [
     "url": "",
     "version": "0.0.0",
     "filename": "src/public/apidoc/main.js",
-    "group": "/home/surya/Desktop/spurtcommerce/src/public/apidoc/main.js",
-    "groupTitle": "/home/surya/Desktop/spurtcommerce/src/public/apidoc/main.js",
+    "group": "/home/siva/Music/coumminuty/spurtcommerce-oct-6/src/public/apidoc/main.js",
+    "groupTitle": "/home/siva/Music/coumminuty/spurtcommerce-oct-6/src/public/apidoc/main.js",
     "name": ""
   },
   {
@@ -4674,6 +4674,72 @@ define({ "api": [
     "groupTitle": "Customer_Address"
   },
   {
+    "type": "delete",
+    "url": "/api/cart/delete-cart-item",
+    "title": "Delete Cart items API",
+    "group": "Customer_Cart",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Request body": [
+          {
+            "group": "Request body",
+            "type": "String",
+            "optional": false,
+            "field": "cartId",
+            "description": "<p>Comma-separated cart item IDs to delete (omit to clear entire cart)</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Input",
+          "content": "{\n  \"cartId\": \"1,2,3\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n  \"message\": \"Removed from the cart\",\n  \"status\": \"1\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/cart/delete-cart-item"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "cartDelete error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/api/store/controllers/CustomerCartController.ts",
+    "groupTitle": "Customer_Cart",
+    "name": "DeleteApiCartDeleteCartItem"
+  },
+  {
     "type": "get",
     "url": "/api/cart",
     "title": "Customer Cart List API",
@@ -4722,7 +4788,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully get Customer Cart List\",\n     \"data\":{\n      \"productId\" : 1,\n      \"name\" : \"\",\n      \"quantity\" : 1,\n      \"productPrice\" : \"\",\n      \"total\" : \"\",\n      \"image\" : \"\",\n      \"containerName\" : \"\",\n      \"optionName\" : \"\",\n      \"optionValueName\" : \"\",\n     }\n     \"status\": \"1\"\n}",
+          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully got the cart list.\",\n     \"data\": { \"cartList\": [], \"grandTotal\": 0 },\n     \"status\": \"1\"\n}",
           "type": "json"
         }
       ]
@@ -4769,52 +4835,59 @@ define({ "api": [
         "Request body": [
           {
             "group": "Request body",
+            "type": "Object[]",
+            "optional": false,
+            "field": "cartDetails",
+            "description": "<p>cartDetails</p>"
+          },
+          {
+            "group": "Request body",
             "type": "Number",
             "optional": false,
-            "field": "productId",
+            "field": "cartDetails.productId",
             "description": "<p>productId</p>"
           },
           {
             "group": "Request body",
             "type": "Number",
             "optional": true,
-            "field": "productPrice",
+            "field": "cartDetails.productPrice",
             "description": "<p>productPrice</p>"
           },
           {
             "group": "Request body",
             "type": "Number",
             "optional": true,
-            "field": "tirePrice",
+            "field": "cartDetails.tirePrice",
             "description": "<p>tirePrice</p>"
           },
           {
             "group": "Request body",
             "type": "Number",
-            "optional": true,
-            "field": "quantity",
-            "description": "<p>quantity</p>"
+            "optional": false,
+            "field": "cartDetails.quantity",
+            "description": "<p>quantity (min 1)</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "cartDetails.skuId",
+            "description": "<p>skuId</p>"
           },
           {
             "group": "Request body",
             "type": "String",
             "optional": true,
-            "field": "skuName",
-            "description": "<p>skuName</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "string",
-            "optional": true,
-            "field": "type",
-            "description": "<p>type</p>"
+            "field": "cartDetails.type",
+            "description": "<p>type ('new' to accumulate quantity)</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "Input",
-          "content": "{\n     \"productId\" : \"\",\n     \"productPrice\" : \"\",\n     \"tirePrice\" : \"\",\n     \"quantity\" : \"\",\n     \"skuName\" : \"\",\n     \"type\" : \"\",\n}",
+          "content": "{\n     \"cartDetails\": [{\n         \"productId\": 1,\n         \"productPrice\": 100,\n         \"tirePrice\": 0,\n         \"quantity\": 1,\n         \"skuId\": 1,\n         \"type\": \"new\"\n     }]\n}",
           "type": "json"
         }
       ]
@@ -4823,7 +4896,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully added product to cart\",\n     \"status\": \"1\",\n     \"data\": {\n             \"productId\": 1,\n             \"name\": \"\",\n             \"customerId\": 1,\n             \"quantity\": \"\",\n             \"productPrice\": \"\",\n             \"tirePrice\": \"\",\n             \"vendorId\": 1,\n             \"total\": \"\",\n             \"skuName\": \"\",\n             \"ip\": 127.0.0.1,\n             \"createdDate\": \"\",\n             \"modifiedDate\": \"\",\n             \"id\": 1\n}\n}",
+          "content": "HTTP/1.1 200 OK\n{\n     \"status\": 1,\n     \"message\": \"Cart added successfully.\",\n     \"data\": [...]\n}",
           "type": "json"
         }
       ]
@@ -4836,8 +4909,8 @@ define({ "api": [
     "error": {
       "examples": [
         {
-          "title": "vendor category  error",
-          "content": "HTTP/1.1 500 Internal Server Error",
+          "title": "Error",
+          "content": "HTTP/1.1 400 Bad Request",
           "type": "json"
         }
       ]
@@ -4846,72 +4919,6 @@ define({ "api": [
     "filename": "src/api/store/controllers/CustomerCartController.ts",
     "groupTitle": "Customer_Cart",
     "name": "PostApiCart"
-  },
-  {
-    "type": "post",
-    "url": "/api/customer-cart/delete-cart-item",
-    "title": "Delete Cart items API",
-    "group": "Customer_Cart",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "number",
-            "optional": false,
-            "field": "cartId",
-            "description": "<p>cartId</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Input",
-          "content": "{\n\"cartId\" : \"\",\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n\"message\": \"Successfully deleted items.\",\n\"status\": \"1\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/customer-cart/delete-cart-item"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "cartDelete error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/store/controllers/CustomerCartController.ts",
-    "groupTitle": "Customer_Cart",
-    "name": "PostApiCustomerCartDeleteCartItem"
   },
   {
     "type": "delete",
@@ -12330,7 +12337,7 @@ define({ "api": [
   },
   {
     "type": "get",
-    "url": "/api/product-store/order-product/:productslug",
+    "url": "/api/product-store/order-product/:orderProductId",
     "title": "Product Detail API",
     "group": "Store",
     "parameter": {
@@ -12370,7 +12377,7 @@ define({ "api": [
     },
     "sampleRequest": [
       {
-        "url": "/api/product-store/productdetail/:productslug"
+        "url": "/api/product-store/order-product/:orderProductId"
       }
     ],
     "error": {
@@ -12385,7 +12392,7 @@ define({ "api": [
     "version": "0.0.0",
     "filename": "src/api/store/controllers/ProductController.ts",
     "groupTitle": "Store",
-    "name": "GetApiProductStoreOrderProductProductslug"
+    "name": "GetApiProductStoreOrderProductOrderproductid"
   },
   {
     "type": "get",
@@ -13711,139 +13718,6 @@ define({ "api": [
     "name": "GetApiListRelatedBlogList"
   },
   {
-    "type": "Get",
-    "url": "/api/list/widget-detail/:widgetSlug",
-    "title": "Widget Detail API",
-    "group": "Store_List",
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "limit",
-            "description": "<p>Limit</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "offset",
-            "description": "<p>Offset</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "count",
-            "description": "<p>count in number or boolean</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     \"status\": \"1\"\n     \"message\": \"Successfully got widget detail\",\n     \"data\": {}\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/list/widget-detail/:widgetSlug"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "Widget Detail error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/store/controllers/StoreWidgetController.ts",
-    "groupTitle": "Store_List",
-    "name": "GetApiListWidgetDetailWidgetslug"
-  },
-  {
-    "type": "Get",
-    "url": "/api/list/widget-list",
-    "title": "Widget List",
-    "group": "Store_List",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "limit",
-            "description": "<p>Limit</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "offset",
-            "description": "<p>Offset</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "count",
-            "description": "<p>count in number or boolean</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     \"status\": \"1\"\n     \"message\": \"Successfully got widget list\",\n     \"data\": {\n         \"productId\": 1,\n         \"taxType\": \"\",\n         \"taxValue\": \"\",\n         \"name\": \"\",\n         \"price\": 1,\n         \"taxType\": \"\",\n         \"description\": \"\",\n         \"sku\": \"\",\n         \"skuId\": 1,\n         \"isSimplified\": 1,\n         \"upc\": \"\",\n         \"quantity\": 1,\n         \"rating\": 1,\n         \"productSlug\": \"\",\n         \"hasStock\": \"\",\n         \"outOfStockThreshold\": \"\",\n         \"stockStatusId\": \"\",\n         \"createdDate\": \"\",\n         \"sortOrder\": 1,\n         \"containerName\": \"\",\n         \"image\": \"\",\n         \"defaultImage\": \"\",\n         \"taxValue\": \"\",\n         \"skuName\": \"\",\n         \"price\": 1,\n         \"productDiscount\": 1,\n         \"productSpecial\": \"\",\n     }\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/list/widget-list"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "Widget List error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/store/controllers/StoreWidgetController.ts",
-    "groupTitle": "Store_List",
-    "name": "GetApiListWidgetList"
-  },
-  {
     "type": "get",
     "url": "/api/list/zone",
     "title": "Zone List API",
@@ -14762,6 +14636,139 @@ define({ "api": [
   },
   {
     "type": "Get",
+    "url": "/api/store-widget/detail/:slug",
+    "title": "Widget Detail API",
+    "group": "Store_List",
+    "parameter": {
+      "fields": {
+        "Request body": [
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "limit",
+            "description": "<p>Limit</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "offset",
+            "description": "<p>Offset</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "count",
+            "description": "<p>count in number or boolean</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n     \"status\": \"1\"\n     \"message\": \"Successfully got widget detail\",\n     \"data\": {}\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/store-widget/detail/:slug"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "Widget Detail error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/api/store/controllers/StoreWidgetController.ts",
+    "groupTitle": "Store_List",
+    "name": "GetApiStoreWidgetDetailSlug"
+  },
+  {
+    "type": "Get",
+    "url": "/api/store-widget/list",
+    "title": "Widget List",
+    "group": "Store_List",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Request body": [
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "limit",
+            "description": "<p>Limit</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "offset",
+            "description": "<p>Offset</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "count",
+            "description": "<p>count in number or boolean</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n     \"status\": \"1\"\n     \"message\": \"Successfully got widget list\",\n     \"data\": {\n         \"productId\": 1,\n         \"taxType\": \"\",\n         \"taxValue\": \"\",\n         \"name\": \"\",\n         \"price\": 1,\n         \"taxType\": \"\",\n         \"description\": \"\",\n         \"sku\": \"\",\n         \"skuId\": 1,\n         \"isSimplified\": 1,\n         \"upc\": \"\",\n         \"quantity\": 1,\n         \"rating\": 1,\n         \"productSlug\": \"\",\n         \"hasStock\": \"\",\n         \"outOfStockThreshold\": \"\",\n         \"stockStatusId\": \"\",\n         \"createdDate\": \"\",\n         \"sortOrder\": 1,\n         \"containerName\": \"\",\n         \"image\": \"\",\n         \"defaultImage\": \"\",\n         \"taxValue\": \"\",\n         \"skuName\": \"\",\n         \"price\": 1,\n         \"productDiscount\": 1,\n         \"productSpecial\": \"\",\n     }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/store-widget/list"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "Widget List error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/api/store/controllers/StoreWidgetController.ts",
+    "groupTitle": "Store_List",
+    "name": "GetApiStoreWidgetList"
+  },
+  {
+    "type": "Get",
     "url": "/api/webhook-event",
     "title": "Get WebHook List API",
     "group": "Store_List",
@@ -15046,7 +15053,7 @@ define({ "api": [
   },
   {
     "type": "Get",
-    "url": "/api/list/widget-menu-name",
+    "url": "/api/store-widget/menu-name",
     "title": "Widget Name List",
     "group": "Store_Widget",
     "header": {
@@ -15073,7 +15080,7 @@ define({ "api": [
     },
     "sampleRequest": [
       {
-        "url": "/api/list/widget-menu-name"
+        "url": "/api/store-widget/menu-name"
       }
     ],
     "error": {
@@ -15088,7 +15095,7 @@ define({ "api": [
     "version": "0.0.0",
     "filename": "src/api/store/controllers/StoreWidgetController.ts",
     "groupTitle": "Store_Widget",
-    "name": "GetApiListWidgetMenuName"
+    "name": "GetApiStoreWidgetMenuName"
   },
   {
     "type": "get",

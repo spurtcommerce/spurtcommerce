@@ -7,7 +7,7 @@
 */
 
 import 'reflect-metadata';
-import { Post, JsonController, Res, Req, Get, QueryParam, Body, BodyParam, UseBefore } from 'routing-controllers';
+import { Post, Delete, JsonController, Res, Req, Get, QueryParam, Body, BodyParam, UseBefore } from 'routing-controllers';
 import { CustomerCart } from '../../core/models/CustomerCart';
 import { CreateCartRequest } from './requests/CreateCartRequest';
 import { CheckCustomerMiddleware } from '../../core/middlewares/checkTokenMiddleware';
@@ -42,45 +42,34 @@ export class StoreCustomerCartController {
      * @api {post} /api/cart Add to cart API
      * @apiGroup Customer Cart
      * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} productId productId
-     * @apiParam (Request body) {Number} [productPrice] productPrice
-     * @apiParam (Request body) {Number} [tirePrice] tirePrice
-     * @apiParam (Request body) {Number} [quantity] quantity
-     * @apiParam (Request body) {String} [skuName] skuName
-     * @apiParam (Request body) {string} [type] type
+     * @apiParam (Request body) {Object[]} cartDetails cartDetails
+     * @apiParam (Request body) {Number} cartDetails.productId productId
+     * @apiParam (Request body) {Number} [cartDetails.productPrice] productPrice
+     * @apiParam (Request body) {Number} [cartDetails.tirePrice] tirePrice
+     * @apiParam (Request body) {Number} cartDetails.quantity quantity (min 1)
+     * @apiParam (Request body) {Number} cartDetails.skuId skuId
+     * @apiParam (Request body) {String} [cartDetails.type] type ('new' to accumulate quantity)
      * @apiParamExample {json} Input
      * {
-     *      "productId" : "",
-     *      "productPrice" : "",
-     *      "tirePrice" : "",
-     *      "quantity" : "",
-     *      "skuName" : "",
-     *      "type" : "",
+     *      "cartDetails": [{
+     *          "productId": 1,
+     *          "productPrice": 100,
+     *          "tirePrice": 0,
+     *          "quantity": 1,
+     *          "skuId": 1,
+     *          "type": "new"
+     *      }]
      * }
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
-     *      "message": "Successfully added product to cart",
-     *      "status": "1",
-     *      "data": {
-     *              "productId": 1,
-     *              "name": "",
-     *              "customerId": 1,
-     *              "quantity": "",
-     *              "productPrice": "",
-     *              "tirePrice": "",
-     *              "vendorId": 1,
-     *              "total": "",
-     *              "skuName": "",
-     *              "ip": 127.0.0.1,
-     *              "createdDate": "",
-     *              "modifiedDate": "",
-     *              "id": 1
-     * }
+     *      "status": 1,
+     *      "message": "Cart added successfully.",
+     *      "data": [...]
      * }
      * @apiSampleRequest /api/cart
-     * @apiErrorExample {json} vendor category  error
-     * HTTP/1.1 500 Internal Server Error
+     * @apiErrorExample {json} Error
+     * HTTP/1.1 400 Bad Request
      */
     @Post()
     public async addCustomerCart(
@@ -88,8 +77,12 @@ export class StoreCustomerCartController {
         @Req() request: any,
         @Res() response: any
     ): Promise<any> {
+        if (!cartParam.cartDetails || cartParam.cartDetails.length === 0) {
+            return response.status(400).send({ status: 0, message: 'cartDetails must not be empty.' });
+        }
+
         const productIds = cartParam.cartDetails.map(cartDetail => cartDetail.productId);
-        const skuIds = cartParam.cartDetails.map(cartDetail => cartDetail.skuId);
+        const skuIds = cartParam.cartDetails.map(cartDetail => Number(cartDetail.skuId));
 
         const products = await this.productService.find({ where: { productId: In(productIds) } });
         const skus = await this.skuService.findAll({ where: { id: In(skuIds) } });
@@ -101,49 +94,67 @@ export class StoreCustomerCartController {
             },
         });
 
-        const results = [];
+        // ── Validation pass ─────────────────────────────────────────────────
         for (const cartDetail of cartParam.cartDetails) {
+            // Quantity must be at least 1
+            if (!cartDetail.quantity || cartDetail.quantity <= 0) {
+                return response.status(400).send({
+                    status: 0,
+                    message: `Quantity must be greater than 0. (Product: ${cartDetail.productId})`,
+                });
+            }
+
             const product = products.find(prod => prod.productId === cartDetail.productId);
             if (!product) {
                 return response.status(400).send({ status: 0, message: `Invalid Product ID: ${cartDetail.productId}` });
             }
 
-            const sku = skus.find(skuItem => skuItem.id === cartDetail.skuId);
+            const sku = skus.find(skuItem => skuItem.id === Number(cartDetail.skuId));
             if (!sku) {
-                return response.status(400).send({ status: 0, message: `Invalid SKU for product ${cartDetail.productId}` });
+                return response.status(400).send({ status: 0, message: `Invalid SKU ID: ${cartDetail.skuId}` });
+            }
+
+            // Verify SKU belongs to this product via sku_name on product
+            if (product.skuId && product.skuId !== sku.id) {
+                return response.status(400).send({
+                    status: 0,
+                    message: `SKU ${cartDetail.skuId} does not belong to Product ${cartDetail.productId}.`,
+                });
             }
 
             const cartItem = existingCart.find(
                 existCart => existCart.productId === cartDetail.productId && existCart.skuName === sku.skuName
             );
 
-            if (cartDetail.quantity > 0) {
-                let qty = cartDetail.quantity;
-                if (cartItem && cartDetail.type === 'new') {
-                    qty = Number(cartItem.quantity) + Number(cartDetail.quantity);
-                }
+            let qty = cartDetail.quantity;
+            if (cartItem && cartDetail.type === 'new') {
+                qty = Number(cartItem.quantity) + Number(cartDetail.quantity);
+            }
 
-                if (product.hasStock === 1) {
-                    if (qty < sku.minQuantityAllowedCart) {
-                        return response.status(400).send({
-                            status: 0,
-                            message: `Quantity should be greater than min quantity. (Product: ${product.name})`,
-                        });
-                    }
-                    if (qty > sku.maxQuantityAllowedCart) {
-                        return response.status(400).send({
-                            status: 0,
-                            message: `Reached maximum quantity limit. (Product: ${product.name})`,
-                        });
-                    }
+            if (product.hasStock === 1) {
+                if (sku.minQuantityAllowedCart && qty < sku.minQuantityAllowedCart) {
+                    return response.status(400).send({
+                        status: 0,
+                        message: `Quantity ${qty} is below minimum allowed (${sku.minQuantityAllowedCart}). (Product: ${product.name})`,
+                    });
+                }
+                if (sku.maxQuantityAllowedCart && qty > sku.maxQuantityAllowedCart) {
+                    return response.status(400).send({
+                        status: 0,
+                        message: `Quantity ${qty} exceeds maximum allowed (${sku.maxQuantityAllowedCart}). (Product: ${product.name})`,
+                    });
                 }
             }
         }
 
+        // ── Persistence pass ─────────────────────────────────────────────────
+        const results = [];
         for (const cartDetail of cartParam.cartDetails) {
             const product = products.find(p => p.productId === cartDetail.productId);
-            const sku = skus.find(s => s.id === cartDetail.skuId);
-            const cartItem: any = existingCart.find(c => c.productId === cartDetail.productId && c.skuName === sku.skuName);
+            const sku = skus.find(s => s.id === Number(cartDetail.skuId));
+            const cartItem: any = existingCart.find(
+                c => c.productId === cartDetail.productId && c.skuName === sku.skuName
+            );
 
             let qty = cartDetail.quantity;
             if (cartItem && cartDetail.type === 'new') {
@@ -151,7 +162,7 @@ export class StoreCustomerCartController {
             }
 
             if (cartItem) {
-                // Update existing
+                // Update existing cart item
                 cartItem.quantity = qty;
                 cartItem.productPrice = cartDetail.productPrice;
                 cartItem.total = qty * cartDetail.productPrice;
@@ -159,10 +170,10 @@ export class StoreCustomerCartController {
                 cartItem.vendorId = request.tenantId;
                 cartItem.skuName = sku.skuName;
 
-                await this.customerCartService.createData(cartItem);
-                results.push({ ...cartItem, status: 'updated' });
+                const updated = await this.customerCartService.createData(cartItem);
+                results.push({ ...updated, status: 'updated' });
             } else {
-                // Create new
+                // Create new cart item
                 const newCart: any = {
                     productId: cartDetail.productId,
                     name: product.name,
@@ -173,7 +184,7 @@ export class StoreCustomerCartController {
                     vendorId: request.tenantId,
                     total: qty * cartDetail.productPrice,
                     skuName: sku.skuName,
-                    ip: '',
+                    ip: request.ip || '',
                 };
 
                 const saved = await this.customerCartService.createData(newCart);
@@ -187,6 +198,7 @@ export class StoreCustomerCartController {
             data: results,
         });
     }
+
     // Customer Cart List API
     /**
      * @api {get} /api/cart  Customer Cart List API
@@ -198,18 +210,8 @@ export class StoreCustomerCartController {
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
-     *      "message": "Successfully get Customer Cart List",
-     *      "data":{
-     *       "productId" : 1,
-     *       "name" : "",
-     *       "quantity" : 1,
-     *       "productPrice" : "",
-     *       "total" : "",
-     *       "image" : "",
-     *       "containerName" : "",
-     *       "optionName" : "",
-     *       "optionValueName" : "",
-     *      }
+     *      "message": "Successfully got the cart list.",
+     *      "data": { "cartList": [], "grandTotal": 0 },
      *      "status": "1"
      * }
      * @apiSampleRequest /api/cart
@@ -364,36 +366,35 @@ export class StoreCustomerCartController {
             });
         }
     }
+
     // Delete cart items API
     /**
-     * @api {post} /api/customer-cart/delete-cart-item Delete Cart items API
+     * @api {delete} /api/cart/delete-cart-item Delete Cart items API
      * @apiGroup Customer Cart
      * @apiHeader {String} Authorization
-     * @apiParam (Request body) {number} cartId cartId
+     * @apiParam (Request body) {String} cartId Comma-separated cart item IDs to delete (omit to clear entire cart)
      * @apiParamExample {json} Input
      * {
-     * "cartId" : "",
+     *   "cartId": "1,2,3"
      * }
      * @apiSuccessExample {json} Success
      * HTTP/1.1 200 OK
      * {
-     * "message": "Successfully deleted items.",
-     * "status": "1"
+     *   "message": "Removed from the cart",
+     *   "status": "1"
      * }
-     * @apiSampleRequest /api/customer-cart/delete-cart-item
+     * @apiSampleRequest /api/cart/delete-cart-item
      * @apiErrorExample {json} cartDelete error
      * HTTP/1.1 500 Internal Server Error
      */
-    @Post('/delete-cart-item')
+    @Delete('/delete-cart-item')
     public async deleteCartItem(@BodyParam('cartId') cartId: string, @Res() response: any, @Req() request: any): Promise<CustomerCart> {
-
-        const cartIds = cartId?.split(',');
+        const customerId = request.user.customerId;
 
         if (!cartId) {
+            // Clear entire cart for this customer
             const customerCart: any = await this.customerCartService.find({
-                where: {
-                    customerId: request.user.customerId,
-                },
+                where: { customerId },
             });
             for (const cart of customerCart) {
                 await this.customerCartService.delete(cart.id);
@@ -403,8 +404,13 @@ export class StoreCustomerCartController {
                 message: 'Your cart is Empty..!',
             });
         }
+
+        const cartIds = cartId.split(',').map(id => id.trim()).filter(id => id !== '');
+
+        // Fetch the requested cart items
         const val = await this.customerCartService.find({ where: { id: In(cartIds) } });
 
+        // Validate all requested IDs exist
         if (val.length !== cartIds.length) {
             return response.status(400).send({
                 status: 0,
@@ -414,7 +420,7 @@ export class StoreCustomerCartController {
 
         await this.customerCartService.delete(cartIds);
 
-        return response.status(400).send({
+        return response.status(200).send({
             status: 1,
             message: 'Removed from the cart',
         });

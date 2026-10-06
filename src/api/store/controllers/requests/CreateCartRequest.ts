@@ -7,18 +7,36 @@
 */
 /* tslint:disable:max-classes-per-file */
 
-// import { IsNotEmpty } from 'class-validator';
 import 'reflect-metadata';
+import { IsNotEmpty, IsArray, ValidateNested, IsNumber, IsOptional, Min } from 'class-validator';
+import { Type } from 'class-transformer';
 
-class ProductDetail {
+export class ProductDetail {
+    @IsNotEmpty()
+    @IsNumber()
     public productId: number;
-    public productPrice: number;
-    public tirePrice: number;
-    public quantity: number;
-    public skuId: string;
-    public type: string;
 
+    @IsOptional()
+    @IsNumber()
+    public productPrice: number;
+
+    @IsOptional()
+    @IsNumber()
+    public tirePrice: number;
+
+    @IsNotEmpty()
+    @IsNumber()
+    @Min(1)
+    public quantity: number;
+
+    @IsNotEmpty()
+    @IsNumber()
+    public skuId: number;
+
+    @IsOptional()
+    public type: string;
 }
+
 export class CreateCartRequest {
 
     public optionName: string;
@@ -29,5 +47,9 @@ export class CreateCartRequest {
 
     public productVarientOptionId: string;
 
+    @IsNotEmpty()
+    @IsArray()
+    @ValidateNested({ each: true })
+    @Type(() => ProductDetail)
     public cartDetails: ProductDetail[];
 }

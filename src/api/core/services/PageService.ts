@@ -35,6 +35,11 @@ export class PageService {
         });
     }
 
+    public async findOneBy(condition: any): Promise<Page | null> {
+        this.log.info('findOne method called');
+        return this.pageRepository.repository.findOne(condition);
+    }
+
     public findAll(page: any): Promise<any> {
         this.log.info('findAll method called');
         return this.pageRepository.repository.find(page);

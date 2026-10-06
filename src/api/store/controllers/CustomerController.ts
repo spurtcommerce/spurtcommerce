@@ -145,7 +145,7 @@ export class StoreCustomerController {
                 message: 'Account Already Exist As Customer.Please Login',
             });
         }
-        const customerUser = await this.customerUsersService.findOne({ where: { email: emailId, deleteFlag: 0, isSuperCustomer: 0}});
+        const customerUser = await this.customerUsersService.findOne({ where: { email: emailId, deleteFlag: 0, isSuperCustomer: 0 } });
         if (customerUser) {
             return response.status(200).send({
                 status: 0,
@@ -168,13 +168,7 @@ export class StoreCustomerController {
         // const logo = await this.settingService.findOne();
         const vendorSetting = await this.vendorSettingsService.findOne({ where: { vendorId: request.tenantId } });
         const vendor = await this.vendorService.findOne({ where: { vendorId: request.tenantId } });
-        const findEmailTemplate: any = await this.emailTemplateService.findOne({ where: { title: 'otp' } });
-        if (!findEmailTemplate) {
-            return response.status(200).send({
-                status: createUserOTP ? 1 : 0,
-                message: createUserOTP ? 'OTP successfully sent to the provided email address' : 'Failed to send the OTP',
-            });
-        }
+        const findEmailTemplate: any = await this.emailTemplateService.findOne({ where: { emailTemplateId: 32 } });
         const templateDate = findEmailTemplate.content.replace('{3}', createUserOTP.otp).replace('{appName}', vendorSetting?.siteName ?? '').replace('{type}', 'Buyer').replace('{type}', 'Buyer').replace('{siteName}', vendorSetting?.siteName ?? '').replace('{duration}', 3);
         const storeUrl = await this.vendorSettingsService.getVendorDomainOrDefault(request.tenantId, request.get('referer'));
         const mailContent: any = {};
@@ -274,6 +268,7 @@ export class StoreCustomerController {
         customerUser.deleteFlag = 0;
         customerUser.isSuperCustomer = 1;
         customerUser.customerId = saveCustomer.id;
+        customerUser.customerUserGroupId = 4;
         await this.customerUsersService.create(customerUser);
 
         // delete otp
