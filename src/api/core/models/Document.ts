@@ -1,5 +1,4 @@
-import { BeforeInsert, BeforeUpdate, Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
-import { VendorDocument } from './VendorDocument';
+import { BeforeInsert, BeforeUpdate, Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 import { BaseModel } from './BaseModel';
 import moment from 'moment';
 
@@ -26,9 +25,6 @@ export class Document extends BaseModel {
 
     @Column({ name: 'is_delete' })
     public isDelete: number;
-
-    @OneToMany(type => VendorDocument, vendorDocument => vendorDocument.document)
-    public vendorDocument: VendorDocument[];
 
     @BeforeInsert()
     public async createDetails(): Promise<void> {

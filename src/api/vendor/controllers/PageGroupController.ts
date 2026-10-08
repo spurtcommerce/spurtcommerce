@@ -189,7 +189,7 @@ export class PageGroupController {
             return response.status(400).send(errorResponse);
         }
         group.groupName = pageGroupName;
-        const page = await this.pageService.findOne({ where: { pageGroupId: id } });
+        const page = await this.pageService.findOne({ pageGroupId: id } );
         if (page) {
             if (status === 0) {
                 const errorResponse: any = {
@@ -249,9 +249,7 @@ export class PageGroupController {
             return response.status(400).send(errorResponse);
         }
         const page = await this.pageService.findOne({
-            where: {
-                pageGroupId: id,
-            },
+            pageGroupId: id,
         });
         if (page) {
             const errorResponse: any = {

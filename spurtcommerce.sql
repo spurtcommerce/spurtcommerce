@@ -84,42 +84,6 @@ CREATE TABLE `address` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
-
---
--- Table structure for table `answer_abuse_reason`
---
-
-CREATE TABLE `answer_abuse_reason` (
-  `id` int NOT NULL,
-  `reason` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `is_active` int DEFAULT NULL,
-  `created_by` int DEFAULT NULL,
-  `created_date` datetime DEFAULT CURRENT_TIMESTAMP,
-  `modified_by` int DEFAULT NULL,
-  `modified_date` datetime DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `answer_report_abuse`
---
-
-CREATE TABLE `answer_report_abuse` (
-  `id` int NOT NULL,
-  `customer_id` int NOT NULL,
-  `question_id` int NOT NULL,
-  `answer_id` int NOT NULL,
-  `reason_id` int NOT NULL,
-  `remark` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `is_active` int DEFAULT NULL,
-  `created_by` int DEFAULT NULL,
-  `created_date` datetime DEFAULT CURRENT_TIMESTAMP,
-  `modified_by` int DEFAULT NULL,
-  `modified_date` datetime DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
 --
 -- Table structure for table `audit_log`
 --
@@ -190,24 +154,6 @@ CREATE TABLE `banner_group` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `banner_image`
---
-
-CREATE TABLE `banner_image` (
-  `banner_image_id` int NOT NULL,
-  `banner_id` int NOT NULL,
-  `link` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `image` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `is_active` int DEFAULT NULL,
-  `created_date` datetime DEFAULT NULL,
-  `modified_date` datetime DEFAULT NULL,
-  `created_by` int DEFAULT NULL,
-  `modified_by` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `banner_images`
 --
 
@@ -224,24 +170,6 @@ CREATE TABLE `banner_images` (
   `created_by` int DEFAULT NULL,
   `modified_by` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `banner_image_description`
---
-
-CREATE TABLE `banner_image_description` (
-  `banner_image_description_id` int NOT NULL,
-  `banner_image_id` int NOT NULL,
-  `banner_id` int NOT NULL,
-  `title` varchar(4) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `is_active` int DEFAULT NULL,
-  `created_by` int DEFAULT NULL,
-  `modified_by` int DEFAULT NULL,
-  `created_date` datetime DEFAULT NULL,
-  `modified_date` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -297,41 +225,6 @@ CREATE TABLE `blog_category` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `blog_category_path`
---
-
-CREATE TABLE `blog_category_path` (
-  `blog_category_path_id` int NOT NULL,
-  `blog_category_id` int DEFAULT NULL,
-  `path_id` int DEFAULT NULL,
-  `level` int NOT NULL,
-  `created_by` int DEFAULT NULL,
-  `modified_by` int DEFAULT NULL,
-  `created_date` datetime DEFAULT CURRENT_TIMESTAMP,
-  `modified_date` datetime DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `blog_category_translation`
---
-
-CREATE TABLE `blog_category_translation` (
-  `id` int NOT NULL,
-  `name` varchar(255) DEFAULT NULL,
-  `description` text,
-  `language_id` int DEFAULT NULL,
-  `blog_category_id` int DEFAULT NULL,
-  `created_by` int DEFAULT NULL,
-  `created_date` datetime DEFAULT CURRENT_TIMESTAMP,
-  `modified_by` int DEFAULT NULL,
-  `modified_date` datetime DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `blog_related`
 --
 
@@ -345,24 +238,6 @@ CREATE TABLE `blog_related` (
   `modified_by` int DEFAULT NULL,
   `modified_date` datetime DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `blog_translation`
---
-
-CREATE TABLE `blog_translation` (
-  `id` int NOT NULL,
-  `blog_id` int DEFAULT NULL,
-  `language_id` int DEFAULT NULL,
-  `title` varchar(255) DEFAULT NULL,
-  `description` text,
-  `created_by` int DEFAULT NULL,
-  `created_date` datetime DEFAULT CURRENT_TIMESTAMP,
-  `modified_by` int DEFAULT NULL,
-  `modified_date` datetime DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -407,26 +282,6 @@ CREATE TABLE `category_commission` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `category_description`
---
-
-CREATE TABLE `category_description` (
-  `category_id` int NOT NULL,
-  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `description` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
-  `meta_description` varchar(65) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `meta_keyword` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `category_description_id` int NOT NULL,
-  `is_active` int DEFAULT NULL,
-  `created_date` datetime DEFAULT NULL,
-  `modified_date` datetime DEFAULT NULL,
-  `created_by` int DEFAULT NULL,
-  `modified_by` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `category_path`
 --
 
@@ -458,22 +313,6 @@ CREATE TABLE `category_translation` (
   `created_by` int DEFAULT NULL,
   `modified_by` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `chat_log`
---
-
-CREATE TABLE `chat_log` (
-  `id` int NOT NULL,
-  `sender_id` int NOT NULL,
-  `receiver_id` int NOT NULL,
-  `message` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
-  `created_date` datetime DEFAULT CURRENT_TIMESTAMP,
-  `is_read` int NOT NULL,
-  `message_id` varchar(225) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -943,25 +782,6 @@ CREATE TABLE `customer_contact` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `customer_document`
---
-
-CREATE TABLE `customer_document` (
-  `customer_document_id` int NOT NULL,
-  `customer_id` int NOT NULL,
-  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `path` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `document_status` int DEFAULT '0',
-  `created_by` int DEFAULT NULL,
-  `created_date` datetime DEFAULT NULL,
-  `modified_by` int DEFAULT NULL,
-  `modified_date` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `customer_group`
 --
 
@@ -978,24 +798,6 @@ CREATE TABLE `customer_group` (
   `vendor_id` int DEFAULT NULL,
   `is_delete` int DEFAULT NULL,
   `payment_term_id` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `customer_ip`
---
-
-CREATE TABLE `customer_ip` (
-  `customer_ip_id` int NOT NULL,
-  `customer_id` int DEFAULT NULL,
-  `ip` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `date_added` datetime DEFAULT NULL,
-  `is_active` int DEFAULT NULL,
-  `created_by` int DEFAULT NULL,
-  `modified_by` int DEFAULT NULL,
-  `created_date` datetime DEFAULT NULL,
-  `modified_date` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -1103,25 +905,6 @@ CREATE TABLE `customer_to_group` (
   `customer_id` int DEFAULT NULL,
   `is_active` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `customer_transaction`
---
-
-CREATE TABLE `customer_transaction` (
-  `customer_transaction_id` int NOT NULL,
-  `customer_id` int NOT NULL,
-  `order_id` int NOT NULL,
-  `description` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
-  `amount` decimal(15,4) DEFAULT NULL,
-  `is_active` int DEFAULT NULL,
-  `created_by` int DEFAULT NULL,
-  `modified_by` int DEFAULT NULL,
-  `created_date` datetime DEFAULT NULL,
-  `modified_date` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -1601,23 +1384,6 @@ CREATE TABLE `family` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `geo_zone`
---
-
-CREATE TABLE `geo_zone` (
-  `geo_zone_id` int NOT NULL,
-  `name` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `description` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `is_active` int DEFAULT NULL,
-  `created_date` datetime DEFAULT NULL,
-  `modified_date` datetime DEFAULT NULL,
-  `created_by` int DEFAULT NULL,
-  `modified_by` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `industry`
 --
 
@@ -1651,28 +1417,6 @@ INSERT INTO `industry` (`id`, `name`, `slug`, `is_active`, `is_delete`, `created
 (11, 'Textiles', 'textiles', 1, 0, '2025-12-15 12:26:17', NULL, NULL, NULL, 'Source fabrics, yarns, and garment manufacturing services directly from verified textile producers and mills.'),
 (12, 'Books', 'books', 1, 0, '2025-12-15 12:26:17', NULL, NULL, NULL, 'Bulk order books from publishers, distributors, and printers for retail, institutional, and corporate needs.'),
 (13, 'Automotive', 'automotive', 1, 0, '2025-12-15 12:26:17', NULL, NULL, NULL, 'Procure automotive parts, accessories, and service solutions from OEMs and certified distributors.');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `jobs`
---
-
-CREATE TABLE `jobs` (
-  `job_id` int NOT NULL,
-  `job_title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `job_description` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
-  `salary_type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `job_location` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
-  `contact_person_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `contact_person_email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `contact_person_mobile` bigint DEFAULT NULL,
-  `is_active` int DEFAULT NULL,
-  `created_by` int DEFAULT NULL,
-  `modified_by` int DEFAULT NULL,
-  `created_date` datetime DEFAULT CURRENT_TIMESTAMP,
-  `modified_date` datetime DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 --
@@ -2826,26 +2570,6 @@ CREATE TABLE `order_fulfillment_status` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `order_history`
---
-
-CREATE TABLE `order_history` (
-  `order_history_id` int NOT NULL,
-  `order_id` int NOT NULL,
-  `order_status_id` int NOT NULL,
-  `notify` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
-  `comment` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
-  `date_added` datetime DEFAULT NULL,
-  `is_active` int DEFAULT NULL,
-  `created_by` int DEFAULT NULL,
-  `modified_by` int DEFAULT NULL,
-  `created_date` datetime DEFAULT NULL,
-  `modified_date` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `order_log`
 --
 
@@ -2918,28 +2642,6 @@ CREATE TABLE `order_log` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `order_option`
---
-
-CREATE TABLE `order_option` (
-  `order_option_id` int NOT NULL,
-  `product_option_id` int NOT NULL,
-  `order_id` int DEFAULT NULL,
-  `order_product_id` int DEFAULT NULL,
-  `product_option_value_id` int DEFAULT NULL,
-  `name` varchar(255) NOT NULL,
-  `value` text NOT NULL,
-  `type` varchar(32) NOT NULL,
-  `is_active` int DEFAULT NULL,
-  `created_by` int DEFAULT NULL,
-  `modified_by` int DEFAULT NULL,
-  `created_date` datetime DEFAULT NULL,
-  `modified_date` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `order_product`
 --
 
@@ -2979,50 +2681,6 @@ CREATE TABLE `order_product` (
   `fullfillment_status_id` int DEFAULT NULL,
   `tags` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `order_product_archive`
---
-
-CREATE TABLE `order_product_archive` (
-  `order_product_archive_id` int NOT NULL,
-  `order_archive_id` int DEFAULT NULL,
-  `order_product_id` int DEFAULT NULL,
-  `order_id` int DEFAULT NULL,
-  `product_id` int DEFAULT NULL,
-  `order_product_prefix_id` varchar(255) DEFAULT NULL,
-  `name` varchar(255) DEFAULT NULL,
-  `model` varchar(255) DEFAULT NULL,
-  `quantity` int DEFAULT NULL,
-  `product_price` decimal(10,2) DEFAULT NULL,
-  `discount_amount` decimal(10,2) DEFAULT NULL,
-  `base_price` decimal(10,2) DEFAULT NULL,
-  `tax_type` int DEFAULT NULL,
-  `tax_value` decimal(10,2) DEFAULT NULL,
-  `total` decimal(10,2) DEFAULT NULL,
-  `discounted_amount` decimal(10,2) DEFAULT NULL,
-  `order_status_id` int DEFAULT NULL,
-  `fullfillment_status_id` int DEFAULT NULL,
-  `tags` varchar(255) DEFAULT NULL,
-  `tracking_url` varchar(255) DEFAULT NULL,
-  `tracking_no` varchar(255) DEFAULT NULL,
-  `trace` int DEFAULT NULL,
-  `tax` decimal(10,2) DEFAULT NULL,
-  `cancel_request` int DEFAULT NULL,
-  `cancel_request_status` int DEFAULT NULL,
-  `cancel_reason` varchar(255) DEFAULT NULL,
-  `cancel_reason_description` text,
-  `is_active` int DEFAULT NULL,
-  `sku_name` varchar(255) DEFAULT NULL,
-  `coupon_discount_amount` varchar(255) DEFAULT NULL,
-  `price_group_detail_id` int DEFAULT NULL,
-  `created_by` int DEFAULT NULL,
-  `created_date` timestamp NULL DEFAULT NULL,
-  `modified_by` int DEFAULT NULL,
-  `modified_date` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -3158,23 +2816,6 @@ CREATE TABLE `page_group` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `page_group_translation`
---
-
-CREATE TABLE `page_group_translation` (
-  `id` int NOT NULL,
-  `group_name` varchar(255) DEFAULT NULL,
-  `page_group_id` int DEFAULT NULL,
-  `language_id` int DEFAULT NULL,
-  `created_by` int DEFAULT NULL,
-  `created_date` datetime DEFAULT CURRENT_TIMESTAMP,
-  `modified_date` datetime DEFAULT CURRENT_TIMESTAMP,
-  `modified_by` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `payment`
 --
 
@@ -3230,26 +2871,6 @@ CREATE TABLE `payment_items` (
   `created_by` int DEFAULT NULL,
   `modified_date` datetime DEFAULT CURRENT_TIMESTAMP,
   `modified_by` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `payment_items_archive`
---
-
-CREATE TABLE `payment_items_archive` (
-  `payment_item_archive_id` int NOT NULL,
-  `payment_archive_id` int NOT NULL,
-  `order_product_id` int NOT NULL,
-  `total_amount` decimal(10,2) DEFAULT NULL,
-  `product_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `product_quantity` int DEFAULT NULL,
-  `product_price` decimal(10,2) DEFAULT NULL,
-  `created_by` int DEFAULT NULL,
-  `created_date` datetime DEFAULT CURRENT_TIMESTAMP,
-  `modified_by` int DEFAULT NULL,
-  `modified_date` datetime DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -3652,24 +3273,6 @@ CREATE TABLE `plugin_menu` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `price_update_file_log`
---
-
-CREATE TABLE `price_update_file_log` (
-  `id` int NOT NULL,
-  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `file` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `file_path` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `created_by` int DEFAULT NULL,
-  `modified_by` int DEFAULT NULL,
-  `created_date` datetime DEFAULT CURRENT_TIMESTAMP,
-  `modified_date` datetime DEFAULT CURRENT_TIMESTAMP,
-  `vendor_id` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `product`
 --
 
@@ -3755,26 +3358,6 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
--- Table structure for table `product_description`
---
-
-CREATE TABLE `product_description` (
-  `product_description_id` int NOT NULL,
-  `product_id` int NOT NULL,
-  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
-  `meta_description` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
-  `meta_keyword` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `is_active` int DEFAULT NULL,
-  `created_by` int DEFAULT NULL,
-  `modified_by` int DEFAULT NULL,
-  `created_date` datetime DEFAULT NULL,
-  `modified_date` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `product_discount`
 --
 
@@ -3815,31 +3398,6 @@ CREATE TABLE `product_image` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
-
---
--- Table structure for table `product_price_log`
---
-
-CREATE TABLE `product_price_log` (
-  `product_price_log_id` int NOT NULL,
-  `product_id` int NOT NULL,
-  `vendor_id` int NOT NULL,
-  `sku` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `price` decimal(10,2) DEFAULT NULL,
-  `special_price` decimal(10,2) DEFAULT NULL,
-  `special_start_date` date DEFAULT NULL,
-  `special_end_date` date DEFAULT NULL,
-  `discount_price` decimal(10,2) DEFAULT NULL,
-  `discount_start_date` date DEFAULT NULL,
-  `discount_end_date` date DEFAULT NULL,
-  `created_by` int DEFAULT NULL,
-  `modified_by` int DEFAULT NULL,
-  `created_date` datetime DEFAULT CURRENT_TIMESTAMP,
-  `modified_date` datetime DEFAULT CURRENT_TIMESTAMP,
-  `price_update_file_log_id` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
 --
 -- Table structure for table `product_special`
 --
@@ -3874,23 +3432,6 @@ CREATE TABLE `product_stock_alert` (
   `modified_by` int DEFAULT NULL,
   `modified_date` datetime DEFAULT CURRENT_TIMESTAMP,
   `sku_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `product_tag`
---
-
-CREATE TABLE `product_tag` (
-  `product_tag_id` int NOT NULL,
-  `product_id` int DEFAULT NULL,
-  `product_tagname` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
-  `is_active` int DEFAULT NULL,
-  `created_by` int DEFAULT NULL,
-  `modified_by` int DEFAULT NULL,
-  `created_date` datetime DEFAULT NULL,
-  `modified_date` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -3986,18 +3527,6 @@ CREATE TABLE `registration_user_otp` (
   `tenant_id` int DEFAULT NULL,
   `expires_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `sessions`
---
-
-CREATE TABLE `sessions` (
-  `session_id` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `expires` int UNSIGNED NOT NULL,
-  `data` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -4241,18 +3770,6 @@ CREATE TABLE `sku` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `specification_to_category`
---
-
-CREATE TABLE `specification_to_category` (
-  `id` int NOT NULL,
-  `specification_id` int NOT NULL,
-  `category_id` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `stock_log`
 --
 
@@ -4446,31 +3963,6 @@ CREATE TABLE `vendor` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `vendor_audit_log`
---
-
-CREATE TABLE `vendor_audit_log` (
-  `id` int NOT NULL,
-  `vendor_user_id` int NOT NULL,
-  `user_name` varchar(255) DEFAULT NULL,
-  `method` varchar(255) DEFAULT NULL,
-  `request_url` text,
-  `object` text,
-  `log_type` varchar(255) DEFAULT NULL,
-  `description` text,
-  `params` text,
-  `browser_info` text,
-  `module` varchar(255) DEFAULT NULL,
-  `tenant_id` int NOT NULL,
-  `created_date` datetime DEFAULT CURRENT_TIMESTAMP,
-  `modified_date` datetime DEFAULT CURRENT_TIMESTAMP,
-  `created_by` int DEFAULT NULL,
-  `modified_by` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `vendor_category`
 --
 
@@ -4537,24 +4029,6 @@ CREATE TABLE `vendor_currency` (
   `modified_date` datetime DEFAULT NULL COMMENT 'LAST MODIFIED DATE'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-
--- --------------------------------------------------------
-
---
--- Table structure for table `vendor_customer_price`
---
-
-CREATE TABLE `vendor_customer_price` (
-  `id` int NOT NULL,
-  `price_group_id` int DEFAULT NULL,
-  `customer_id` int DEFAULT NULL,
-  `is_active` int DEFAULT NULL,
-  `is_delete` int DEFAULT NULL,
-  `created_by` int DEFAULT NULL,
-  `created_date` datetime DEFAULT CURRENT_TIMESTAMP,
-  `modified_by` int DEFAULT NULL,
-  `modified_date` datetime DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -4754,82 +4228,6 @@ CREATE TABLE `vendor_orders_log` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `vendor_order_archive`
---
-
-CREATE TABLE `vendor_order_archive` (
-  `vendor_order_archive_id` int NOT NULL,
-  `vendor_id` int NOT NULL,
-  `order_id` int NOT NULL,
-  `sub_order_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `sub_order_status_id` int DEFAULT NULL,
-  `total` decimal(10,2) DEFAULT NULL,
-  `created_by` int DEFAULT NULL,
-  `created_date` datetime DEFAULT NULL,
-  `modified_by` int DEFAULT NULL,
-  `modified_date` datetime DEFAULT NULL,
-  `commission` int DEFAULT '0',
-  `order_product_id` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `vendor_order_archive_log`
---
-
-CREATE TABLE `vendor_order_archive_log` (
-  `vendor_order_archive_log_id` int NOT NULL,
-  `vendor_order_archive_id` int NOT NULL,
-  `vendor_id` int NOT NULL,
-  `order_id` int DEFAULT NULL,
-  `sub_order_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `sub_order_status_id` int DEFAULT NULL,
-  `total` decimal(10,2) DEFAULT NULL,
-  `created_by` int DEFAULT NULL,
-  `created_date` datetime DEFAULT NULL,
-  `modified_by` int DEFAULT NULL,
-  `modified_date` datetime DEFAULT NULL,
-  `commission` int DEFAULT '0',
-  `order_product_id` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `vendor_order_products`
---
-
-CREATE TABLE `vendor_order_products` (
-  `vendor_order_product_id` int NOT NULL,
-  `vendor_order_id` int DEFAULT NULL,
-  `order_product_id` int DEFAULT NULL,
-  `created_by` int DEFAULT NULL,
-  `created_date` datetime DEFAULT NULL,
-  `modified_by` int DEFAULT NULL,
-  `modified_date` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `vendor_order_status`
---
-
-CREATE TABLE `vendor_order_status` (
-  `vendor_order_status_id` int NOT NULL,
-  `order_status_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `color_code` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `is_active` int DEFAULT NULL,
-  `created_date` datetime DEFAULT CURRENT_TIMESTAMP,
-  `created_by` int DEFAULT NULL,
-  `modified_by` int DEFAULT NULL,
-  `modified_date` datetime DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `vendor_payment`
 --
 
@@ -4844,27 +4242,6 @@ CREATE TABLE `vendor_payment` (
   `created_by` int DEFAULT NULL,
   `modified_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `modified_by` int DEFAULT NULL,
-  `order_id` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `vendor_payment_archive`
---
-
-CREATE TABLE `vendor_payment_archive` (
-  `id` int NOT NULL,
-  `vendor_id` int DEFAULT NULL,
-  `vendor_order_id` int NOT NULL,
-  `payment_item_id` int DEFAULT NULL,
-  `amount` decimal(10,2) DEFAULT NULL,
-  `commission_amount` decimal(10,2) DEFAULT NULL,
-  `created_by` int DEFAULT NULL,
-  `created_date` datetime DEFAULT CURRENT_TIMESTAMP,
-  `modified_by` int DEFAULT NULL,
-  `modified_date` datetime DEFAULT CURRENT_TIMESTAMP,
-  `vendor_order_archive` int DEFAULT '0',
   `order_id` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -5129,69 +4506,6 @@ CREATE TABLE `vendor_plugin` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `vendor_price_group`
---
-
-CREATE TABLE `vendor_price_group` (
-  `id` int NOT NULL,
-  `vendor_id` int DEFAULT NULL,
-  `name` varchar(512) DEFAULT NULL,
-  `slug` varchar(255) DEFAULT NULL,
-  `description` varchar(512) DEFAULT NULL,
-  `is_active` int DEFAULT NULL,
-  `is_delete` int DEFAULT NULL,
-  `is_default` int DEFAULT NULL,
-  `created_by` int DEFAULT NULL,
-  `created_date` datetime DEFAULT CURRENT_TIMESTAMP,
-  `modified_by` int DEFAULT NULL,
-  `modified_date` datetime DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `vendor_price_group_detail`
---
-
-CREATE TABLE `vendor_price_group_detail` (
-  `id` int NOT NULL,
-  `price_group_id` int DEFAULT NULL,
-  `sku_id` int NOT NULL,
-  `max_qty` int DEFAULT NULL,
-  `price` decimal(15,4) DEFAULT NULL,
-  `unit_id` int DEFAULT NULL,
-  `is_active` int DEFAULT NULL,
-  `is_delete` int DEFAULT NULL,
-  `is_default` int DEFAULT NULL,
-  `created_by` int DEFAULT NULL,
-  `created_date` datetime DEFAULT CURRENT_TIMESTAMP,
-  `modified_by` int DEFAULT NULL,
-  `modified_date` datetime DEFAULT CURRENT_TIMESTAMP,
-  `priority` int NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `vendor_price_group_schedule`
---
-
-CREATE TABLE `vendor_price_group_schedule` (
-  `id` int NOT NULL,
-  `price_group_detail_id` int DEFAULT NULL,
-  `start_date` datetime DEFAULT NULL,
-  `end_date` datetime DEFAULT NULL,
-  `is_active` int DEFAULT NULL,
-  `is_delete` int DEFAULT NULL,
-  `created_by` int DEFAULT NULL,
-  `created_date` datetime DEFAULT CURRENT_TIMESTAMP,
-  `modified_by` int DEFAULT NULL,
-  `modified_date` datetime DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `vendor_product`
 --
 
@@ -5303,25 +4617,6 @@ CREATE TABLE `vendor_settings` (
 INSERT INTO vendor_settings (id, vendor_id, store_name, store_email, invoice_logo_name, invoice_logo_path, store_logo_name, store_logo_path, store_time_zone, seller_logo_name, seller_logo_path, created_date, modified_date, mail_driver, mail_host, mail_username, mail_password, mail_port, mail_secure, mail_encryption, mail_from, site_name, business_name, store_owner, default_country, store_language_name, store_secondary_language_name, is_active, items_per_page, currency_symbol, seller_logo2, seller_logo2_path, zone_id, order_status, country, copyrights, product_create_count, feature_access, show_badge, customer_service_hours, store_title, store_address_line_1, store_address_line_2, store_country_id, store_city, store_zipcode, store_currency_id, store_language_id)
   VALUES (1, 1, 'My Store', 'community@spurtcart.com', 'InvoiceLogo_1786700017500.png', 'storeLogo/', 'Img_1787746211628.png', 'storeLogo/', NULL, 'logo.jpg', 'ten0010/', '2025-12-12 13:26:43', '2026-09-17 14:41:21', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Spurt', 'iop market vendors', 'SpurtCommerce', 1627, NULL, NULL, 1, 10, '₹', 'spurtlogo2.jpg', 'ten0010/', 76, 31, NULL, '@spurtcommerce', 0, '{"api_access": true, "badges_removal": true, "own_domain_name": true, "custom_email_name": true, "multiple_templates": true, "self_hosted_option": true, "source_code_access": true, "customize_store_templates": true}', 0, 'Monday to Friday: 9:00 AM - 6:00 PM', 'Spurt', '78E/8, 3rd New street', 'KK Nagar', 1627, 'Chennai', 543266, 57, 847);
 -- --------------------------------------------------------
---
--- Table structure for table `vendor_settings_domain`
---
-
-CREATE TABLE `vendor_settings_domain` (
-  `id` int NOT NULL,
-  `domain_name` varchar(255) DEFAULT NULL,
-  `vendor_settings_id` int NOT NULL,
-  `vendor_id` int NOT NULL,
-  `is_active` int DEFAULT NULL,
-  `is_delete` int DEFAULT NULL,
-  `is_primary` int DEFAULT NULL,
-  `created_by` int DEFAULT NULL,
-  `modified_by` int DEFAULT NULL,
-  `created_date` datetime DEFAULT CURRENT_TIMESTAMP,
-  `modified_date` datetime DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
--- --------------------------------------------------------
 
 --
 -- Table structure for table `vendor_tax`
@@ -5395,25 +4690,6 @@ CREATE TABLE `vendor_user_group` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `vendor_zone`
---
-
-CREATE TABLE `vendor_zone` (
-  `id` int NOT NULL,
-  `tenant_id` int NOT NULL,
-  `zone_id` int NOT NULL,
-  `is_active` tinyint DEFAULT '1' COMMENT '0-IN-ACTIVE, 1-ACTIVE',
-  `is_delete` tinyint DEFAULT '0' COMMENT '0-NOT DELETE, 1-DELETED',
-  `created_by` int DEFAULT NULL COMMENT 'CREATED USER ID',
-  `created_date` datetime DEFAULT NULL COMMENT 'CREATED SYSTEM DATE',
-  `modified_by` int DEFAULT NULL COMMENT 'MODIFIED USER ID',
-  `modified_date` datetime DEFAULT NULL COMMENT 'LAST MODIFIED DATE',
-  `vendor_country_id` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `webhook`
 --
 
@@ -5470,26 +4746,6 @@ CREATE TABLE `widget_item` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `widget_translation`
---
-
-CREATE TABLE `widget_translation` (
-  `id` int NOT NULL,
-  `widget_id` int DEFAULT NULL,
-  `language_id` int DEFAULT NULL,
-  `widget_title` varchar(255) DEFAULT NULL,
-  `widget_description` text,
-  `widget_long_title` varchar(255) DEFAULT NULL,
-  `meta_info` json DEFAULT NULL,
-  `created_date` datetime DEFAULT CURRENT_TIMESTAMP,
-  `modified_date` datetime DEFAULT CURRENT_TIMESTAMP,
-  `created_by` int DEFAULT NULL,
-  `modified_by` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `zone`
 --
 
@@ -5537,24 +4793,6 @@ INSERT INTO `zone` (`zone_id`, `country_id`, `code`, `name`, `is_active`, `creat
 (93, 170, 'MV', 'Masovian Voivodeship', 1, '2024-07-23 09:21:25', NULL, NULL, NULL),
 (105, 2, 'qqq', 'qqq', 1, '2024-08-29 07:29:09', NULL, NULL, NULL);
 
--- --------------------------------------------------------
-
---
--- Table structure for table `zone_to_geo_zone`
---
-
-CREATE TABLE `zone_to_geo_zone` (
-  `zone_to_geo_zone_id` int NOT NULL,
-  `country_id` int DEFAULT NULL,
-  `zone_id` int DEFAULT NULL,
-  `geo_zone_id` int DEFAULT NULL,
-  `is_active` int DEFAULT NULL,
-  `created_date` datetime DEFAULT NULL,
-  `modified_date` datetime DEFAULT NULL,
-  `created_by` int DEFAULT NULL,
-  `modified_by` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
 --
 -- Indexes for dumped tables
 --
@@ -5581,22 +4819,6 @@ ALTER TABLE `address`
   ADD KEY `address_id` (`address_id`);
 
 --
--- Indexes for table `answer_abuse_reason`
---
-ALTER TABLE `answer_abuse_reason`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `answer_report_abuse`
---
-ALTER TABLE `answer_report_abuse`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_tbl_question_tbl_report_abuse` (`question_id`),
-  ADD KEY `fk_tbl_answer_tbl_report_abuse` (`answer_id`),
-  ADD KEY `fk_tbl_customer_tbl_report_abuse` (`customer_id`),
-  ADD KEY `fk_answer_report_abuse_answer_abuse_reason_reason_id_idx` (`reason_id`);
-
---
 -- Indexes for table `audit_log`
 --
 ALTER TABLE `audit_log`
@@ -5619,28 +4841,11 @@ ALTER TABLE `banner_group`
   ADD KEY `banner_group_id` (`banner_group_id`);
 
 --
--- Indexes for table `banner_image`
---
-ALTER TABLE `banner_image`
-  ADD PRIMARY KEY (`banner_image_id`),
-  ADD KEY `banner_image_id` (`banner_image_id`),
-  ADD KEY `fk_banner_image_banner_banner_id_idx` (`banner_id`);
-
---
 -- Indexes for table `banner_images`
 --
 ALTER TABLE `banner_images`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_banner_images_banner_banner_id` (`banner_id`);
-
---
--- Indexes for table `banner_image_description`
---
-ALTER TABLE `banner_image_description`
-  ADD PRIMARY KEY (`banner_image_description_id`),
-  ADD KEY `banner_image_description_id` (`banner_image_description_id`),
-  ADD KEY `fk_banner_image_description_banner_image_banner_image_id_idx` (`banner_image_id`),
-  ADD KEY `fk_banner_image_description_banner_banner_id_idx` (`banner_id`);
 
 --
 -- Indexes for table `blog`
@@ -5658,36 +4863,12 @@ ALTER TABLE `blog_category`
   ADD KEY `fk_blog_category_blog_category_parent_id_idx` (`parent_int`);
 
 --
--- Indexes for table `blog_category_path`
---
-ALTER TABLE `blog_category_path`
-  ADD PRIMARY KEY (`blog_category_path_id`),
-  ADD KEY `fk_tbl_blog_path_blog_category` (`blog_category_id`),
-  ADD KEY `fk_blog_category_path_blog_category_path_id_idx` (`path_id`);
-
---
--- Indexes for table `blog_category_translation`
---
-ALTER TABLE `blog_category_translation`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_blog_category_translation_language_language_id_idx` (`language_id`),
-  ADD KEY `fk_blog_category_translation_blog_category_blog_category_id_idx` (`blog_category_id`);
-
---
 -- Indexes for table `blog_related`
 --
 ALTER TABLE `blog_related`
   ADD PRIMARY KEY (`related_id`),
   ADD KEY `fk_tbl_blogRelated_tbl_blog_foreignKey` (`blog_id`),
   ADD KEY `fk_tbl_related_blog_id_tbl_blog` (`related_blog_id`);
-
---
--- Indexes for table `blog_translation`
---
-ALTER TABLE `blog_translation`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_blog_translation_language_language_id_idx` (`language_id`),
-  ADD KEY `fk_blog_translation_blog_blog_id_idx` (`blog_id`);
 
 --
 -- Indexes for table `category`
@@ -5702,14 +4883,6 @@ ALTER TABLE `category`
 ALTER TABLE `category_commission`
   ADD PRIMARY KEY (`category_commission_id`),
   ADD KEY `fk_tbl_category_commission_tbl_category_foreignKey` (`category_id`);
-
---
--- Indexes for table `category_description`
---
-ALTER TABLE `category_description`
-  ADD PRIMARY KEY (`category_description_id`),
-  ADD KEY `fk_Category_CategoryDescription` (`category_id`),
-  ADD KEY `category_description_id` (`category_description_id`);
 
 --
 -- Indexes for table `category_path`
@@ -5727,12 +4900,6 @@ ALTER TABLE `category_translation`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_category_translation_category_category_id_idx` (`category_id`),
   ADD KEY `fk_category_translation_language_language_id_idx` (`language_id`);
-
---
--- Indexes for table `chat_log`
---
-ALTER TABLE `chat_log`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `contact`
@@ -5787,26 +4954,11 @@ ALTER TABLE `customer_contact`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `customer_document`
---
-ALTER TABLE `customer_document`
-  ADD PRIMARY KEY (`customer_document_id`),
-  ADD KEY `fk_tbl_customerDocument_tbl_customer_foreignKey` (`customer_id`);
-
---
 -- Indexes for table `customer_group`
 --
 ALTER TABLE `customer_group`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id` (`id`);
-
---
--- Indexes for table `customer_ip`
---
-ALTER TABLE `customer_ip`
-  ADD PRIMARY KEY (`customer_ip_id`),
-  ADD KEY `customer_ip_id` (`customer_ip_id`),
-  ADD KEY `fk_customer_ip_customer_customer_id_idx` (`customer_id`);
 
 --
 -- Indexes for table `customer_permission_module`
@@ -5828,15 +4980,6 @@ ALTER TABLE `customer_to_group`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_customer_to_group_customer__id` (`customer_id`),
   ADD KEY `fk_customer_to_group_customer_group__id` (`customer_group_id`);
-
---
--- Indexes for table `customer_transaction`
---
-ALTER TABLE `customer_transaction`
-  ADD PRIMARY KEY (`customer_transaction_id`),
-  ADD KEY `fk_customer_transaction_order1` (`order_id`),
-  ADD KEY `fk_customer_transaction_customer1` (`customer_id`),
-  ADD KEY `customer_transaction_id` (`customer_transaction_id`);
 
 --
 -- Indexes for table `customer_users`
@@ -5879,24 +5022,10 @@ ALTER TABLE `family`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `geo_zone`
---
-ALTER TABLE `geo_zone`
-  ADD PRIMARY KEY (`geo_zone_id`),
-  ADD KEY `geo_zone_id` (`geo_zone_id`);
-
---
 -- Indexes for table `industry`
 --
 ALTER TABLE `industry`
   ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `jobs`
---
-ALTER TABLE `jobs`
-  ADD PRIMARY KEY (`job_id`),
-  ADD KEY `job_id` (`job_id`);
 
 --
 -- Indexes for table `live_address`
@@ -5949,15 +5078,6 @@ ALTER TABLE `order_fulfillment_status`
   ADD KEY `fk_order_fulfillment_status_vendor_tenant_id` (`tenant_id`);
 
 --
--- Indexes for table `order_history`
---
-ALTER TABLE `order_history`
-  ADD PRIMARY KEY (`order_history_id`),
-  ADD KEY `fk_order_history_order1` (`order_id`),
-  ADD KEY `fk_order_history_order_status1` (`order_status_id`),
-  ADD KEY `order_history_id` (`order_history_id`);
-
---
 -- Indexes for table `order_log`
 --
 ALTER TABLE `order_log`
@@ -5968,15 +5088,6 @@ ALTER TABLE `order_log`
   ADD KEY `fk_order_log_country_shipping_country_id_idx` (`shipping_country_id`);
 
 --
--- Indexes for table `order_option`
---
-ALTER TABLE `order_option`
-  ADD PRIMARY KEY (`order_option_id`),
-  ADD KEY `fk_order_option_order1` (`order_id`),
-  ADD KEY `fk_order_option_order_product1` (`order_product_id`),
-  ADD KEY `order_option_id` (`order_option_id`);
-
---
 -- Indexes for table `order_product`
 --
 ALTER TABLE `order_product`
@@ -5985,12 +5096,6 @@ ALTER TABLE `order_product`
   ADD KEY `fk_order_product_order1` (`order_id`),
   ADD KEY `order_product_id` (`order_product_id`),
   ADD KEY `fk_tbl_order_status_tbl_order_product_foreignKey` (`order_status_id`);
-
---
--- Indexes for table `order_product_archive`
---
-ALTER TABLE `order_product_archive`
-  ADD PRIMARY KEY (`order_product_archive_id`);
 
 --
 -- Indexes for table `order_product_log`
@@ -6040,14 +5145,6 @@ ALTER TABLE `page_group`
   ADD PRIMARY KEY (`group_id`);
 
 --
--- Indexes for table `page_group_translation`
---
-ALTER TABLE `page_group_translation`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_page_group_translation_page_group_page_group_id_idx` (`page_group_id`),
-  ADD KEY `fk_page_group_translation_language_language_id_idx` (`language_id`);
-
---
 -- Indexes for table `payment`
 --
 ALTER TABLE `payment`
@@ -6068,14 +5165,6 @@ ALTER TABLE `payment_items`
   ADD PRIMARY KEY (`payment_item_id`),
   ADD KEY `payment_id` (`payment_id`),
   ADD KEY `order_product_id` (`order_product_id`);
-
---
--- Indexes for table `payment_items_archive`
---
-ALTER TABLE `payment_items_archive`
-  ADD PRIMARY KEY (`payment_item_archive_id`),
-  ADD KEY `fk_tbl_paymentItemsArchive_tbl_payment_foreignKey` (`payment_archive_id`),
-  ADD KEY `fk_tbl_paymentItemsArchive_tbl_orderProduct_foreignKey` (`order_product_id`);
 
 --
 -- Indexes for table `payment_method`
@@ -6110,13 +5199,6 @@ ALTER TABLE `plugin_menu`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `price_update_file_log`
---
-ALTER TABLE `price_update_file_log`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_tbl_vendor_tbl_price_update_file_log_foreignKey` (`vendor_id`);
-
---
 -- Indexes for table `product`
 --
 ALTER TABLE `product`
@@ -6129,14 +5211,6 @@ ALTER TABLE `product`
   ADD KEY `is_active` (`is_active`),
   ADD KEY `fk_tbl_sku_tbl_product_foreignKey` (`sku_id`);
 
-
---
--- Indexes for table `product_description`
---
-ALTER TABLE `product_description`
-  ADD PRIMARY KEY (`product_description_id`),
-  ADD KEY `product_description_id` (`product_description_id`),
-  ADD KEY `fk_product_description_product_product_id_idx` (`product_id`);
 
 --
 -- Indexes for table `product_discount`
@@ -6160,15 +5234,6 @@ ALTER TABLE `product_image`
   ADD KEY `default_image` (`default_image`);
 
 --
--- Indexes for table `product_price_log`
---
-ALTER TABLE `product_price_log`
-  ADD PRIMARY KEY (`product_price_log_id`),
-  ADD KEY `fk_tbl_product_price_log_tbl_product_foreignKey` (`product_id`),
-  ADD KEY `fk_tbl_product_price_log_tbl_vendor_foreignKey` (`vendor_id`);
-
-
---
 -- Indexes for table `product_special`
 --
 ALTER TABLE `product_special`
@@ -6187,13 +5252,6 @@ ALTER TABLE `product_special`
 ALTER TABLE `product_stock_alert`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_tbl_product_tbl_product_stock_alert_foreign_key` (`product_id`);
-
---
--- Indexes for table `product_tag`
---
-ALTER TABLE `product_tag`
-  ADD PRIMARY KEY (`product_tag_id`),
-  ADD KEY `product_tag_id` (`product_tag_id`);
 
 --
 -- Indexes for table `product_tire_price`
@@ -6232,12 +5290,6 @@ ALTER TABLE `product_view_log`
 --
 ALTER TABLE `registration_user_otp`
   ADD PRIMARY KEY (`otp_id`);
-
---
--- Indexes for table `sessions`
---
-ALTER TABLE `sessions`
-  ADD PRIMARY KEY (`session_id`);
 
 --
 -- Indexes for table `settings`
@@ -6348,13 +5400,6 @@ ALTER TABLE `vendor`
   ADD KEY `fk_vendor_industry_industry_id` (`industry_id`);
 
 --
--- Indexes for table `vendor_audit_log`
---
-ALTER TABLE `vendor_audit_log`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_vendor_audit_log_vendor_user_foreignKey` (`vendor_user_id`);
-
---
 -- Indexes for table `vendor_category`
 --
 ALTER TABLE `vendor_category`
@@ -6384,14 +5429,6 @@ ALTER TABLE `vendor_currency`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_vendor_currency_tenant_id` (`tenant_id`),
   ADD KEY `fk_vendor_currency_currency_id` (`currency_id`);
-
---
--- Indexes for table `vendor_customer_price`
---
-ALTER TABLE `vendor_customer_price`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_vendor_customer_price_customer_customer_idx` (`customer_id`),
-  ADD KEY `fk_vendor_customer_price_vendor_price_group_price_group_idx` (`price_group_id`);
 
 --
 -- Indexes for table `vendor_email_template`
@@ -6470,39 +5507,6 @@ ALTER TABLE `vendor_orders_log`
   ADD KEY `fk_vendor_orders_log_vendor_order_vendor_order_id_idx` (`vendor_order_id`);
 
 --
--- Indexes for table `vendor_order_archive`
---
-ALTER TABLE `vendor_order_archive`
-  ADD PRIMARY KEY (`vendor_order_archive_id`),
-  ADD KEY `FK_71cf32310715a162fbe0a1d3ab4` (`vendor_id`),
-  ADD KEY `FK_4eb695729b08afef5b7794c176f` (`order_id`),
-  ADD KEY `FK_54e8ab35b68535a3f1bca9e0003` (`sub_order_status_id`);
-
---
--- Indexes for table `vendor_order_archive_log`
---
-ALTER TABLE `vendor_order_archive_log`
-  ADD PRIMARY KEY (`vendor_order_archive_log_id`),
-  ADD KEY `fk_tbl_vendorOrderArchiveLog_tbl_vendor_foreignKey` (`vendor_id`),
-  ADD KEY `fk_tbl_vendorOrderArchiveLog_tbl_order_foreignKey` (`order_id`),
-  ADD KEY `fk_tbl_vendorOrderArchiveLog_tbl_vendorOrderArchive_foreignKey` (`vendor_order_archive_id`),
-  ADD KEY `fk_tbl_vendorOrderArchiveLog_tbl_vendorOrderStatus_foreignKey` (`sub_order_status_id`);
-
---
--- Indexes for table `vendor_order_products`
---
-ALTER TABLE `vendor_order_products`
-  ADD PRIMARY KEY (`vendor_order_product_id`),
-  ADD KEY `FK_ab5f080eb3449fd728a7eb912a9` (`vendor_order_id`),
-  ADD KEY `FK_5280eb05a7353ec3bb43ba6f716` (`order_product_id`);
-
---
--- Indexes for table `vendor_order_status`
---
-ALTER TABLE `vendor_order_status`
-  ADD PRIMARY KEY (`vendor_order_status_id`);
-
---
 -- Indexes for table `vendor_payment`
 --
 ALTER TABLE `vendor_payment`
@@ -6510,15 +5514,6 @@ ALTER TABLE `vendor_payment`
   ADD KEY `payment_items_id` (`payment_item_id`),
   ADD KEY `vendor_id` (`vendor_id`),
   ADD KEY `vendor_order_id` (`vendor_order_id`);
-
---
--- Indexes for table `vendor_payment_archive`
---
-ALTER TABLE `vendor_payment_archive`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_tbl_vendorPaymentArchive_tbl_vendor_foreignKey` (`vendor_id`),
-  ADD KEY `fk_tbl_vendorPaymentArchive_tbl_vendorOrders_foreignKey` (`vendor_order_id`),
-  ADD KEY `fk_tbl_vendorPaymentArchive_tbl_paymentItems_foreignKey` (`payment_item_id`);
 
 --
 -- Indexes for table `vendor_permission_module`
@@ -6540,27 +5535,6 @@ ALTER TABLE `vendor_plugin`
   ADD PRIMARY KEY (`id`),
   ADD KEY `FK_31eed89fefcd05ef259d76afcfc` (`plugin_id`),
   ADD KEY `FK_4cd8cbc11c7ea6991b0d37dbd65` (`vendor_id`);
-
---
--- Indexes for table `vendor_price_group`
---
-ALTER TABLE `vendor_price_group`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `vendor_price_group_detail`
---
-ALTER TABLE `vendor_price_group_detail`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_vendor_price_group_detail_vendor_price_group_price_group_idx` (`price_group_id`),
-  ADD KEY `fk_vendor_price_group_detail_sku_sku_id` (`sku_id`);
-
---
--- Indexes for table `vendor_price_group_schedule`
---
-ALTER TABLE `vendor_price_group_schedule`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_vendor_pric_grp_sched_vendor_pric_grp_dets_pric_grp_dets_idx` (`price_group_detail_id`);
 
 --
 -- Indexes for table `vendor_product`
@@ -6586,12 +5560,6 @@ ALTER TABLE `vendor_settings`
   ADD KEY `FK_dd4d271c58fcef10e7fca98d2ee` (`vendor_id`);
 
 --
--- Indexes for table `vendor_settings_domain`
---
-ALTER TABLE `vendor_settings_domain`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `vendor_tax`
 --
 ALTER TABLE `vendor_tax`
@@ -6611,15 +5579,6 @@ ALTER TABLE `vendor_users`
 --
 ALTER TABLE `vendor_user_group`
   ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `vendor_zone`
---
-ALTER TABLE `vendor_zone`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_vendor_zone_tenant_id` (`tenant_id`),
-  ADD KEY `fk_vendor_zone_zone_id` (`zone_id`),
-  ADD KEY `fk_ven_zone_ven_country_id_vendor_country_id` (`vendor_country_id`);
 
 --
 -- Indexes for table `webhook`
@@ -6642,29 +5601,12 @@ ALTER TABLE `widget_item`
   ADD KEY `fk_tbl_widget_item_Related_tbl_widget` (`widget_id`);
 
 --
--- Indexes for table `widget_translation`
---
-ALTER TABLE `widget_translation`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_widget_widget_translation_widget_id` (`widget_id`),
-  ADD KEY `fk_widget_widget_language_language_id` (`language_id`);
-
---
 -- Indexes for table `zone`
 --
 ALTER TABLE `zone`
   ADD PRIMARY KEY (`zone_id`),
   ADD KEY `fk_Zone_Country` (`country_id`),
   ADD KEY `user_id` (`zone_id`);
-
---
--- Indexes for table `zone_to_geo_zone`
---
-ALTER TABLE `zone_to_geo_zone`
-  ADD PRIMARY KEY (`zone_to_geo_zone_id`),
-  ADD KEY `fk_Zone_ZoneGeo` (`zone_id`),
-  ADD KEY `fk_Country_ZoneGeo` (`country_id`),
-  ADD KEY `zone_to_geo_zone_id` (`zone_to_geo_zone_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -6689,18 +5631,6 @@ ALTER TABLE `address`
   MODIFY `address_id` int NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `answer_abuse_reason`
---
-ALTER TABLE `answer_abuse_reason`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `answer_report_abuse`
---
-ALTER TABLE `answer_report_abuse`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `audit_log`
 --
 ALTER TABLE `audit_log`
@@ -6719,22 +5649,10 @@ ALTER TABLE `banner_group`
   MODIFY `banner_group_id` int NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `banner_image`
---
-ALTER TABLE `banner_image`
-  MODIFY `banner_image_id` int NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `banner_images`
 --
 ALTER TABLE `banner_images`
   MODIFY `id` int NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `banner_image_description`
---
-ALTER TABLE `banner_image_description`
-  MODIFY `banner_image_description_id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `blog`
@@ -6749,28 +5667,10 @@ ALTER TABLE `blog_category`
   MODIFY `blog_category_id` int NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `blog_category_path`
---
-ALTER TABLE `blog_category_path`
-  MODIFY `blog_category_path_id` int NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `blog_category_translation`
---
-ALTER TABLE `blog_category_translation`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `blog_related`
 --
 ALTER TABLE `blog_related`
   MODIFY `related_id` int NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `blog_translation`
---
-ALTER TABLE `blog_translation`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `category`
@@ -6785,12 +5685,6 @@ ALTER TABLE `category_commission`
   MODIFY `category_commission_id` int NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `category_description`
---
-ALTER TABLE `category_description`
-  MODIFY `category_description_id` int NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `category_path`
 --
 ALTER TABLE `category_path`
@@ -6800,12 +5694,6 @@ ALTER TABLE `category_path`
 -- AUTO_INCREMENT for table `category_translation`
 --
 ALTER TABLE `category_translation`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `chat_log`
---
-ALTER TABLE `chat_log`
   MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
@@ -6851,22 +5739,10 @@ ALTER TABLE `customer_contact`
   MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `customer_document`
---
-ALTER TABLE `customer_document`
-  MODIFY `customer_document_id` int NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `customer_group`
 --
 ALTER TABLE `customer_group`
   MODIFY `id` int NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `customer_ip`
---
-ALTER TABLE `customer_ip`
-  MODIFY `customer_ip_id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `customer_permission_module`
@@ -6885,12 +5761,6 @@ ALTER TABLE `customer_permission_module_group`
 --
 ALTER TABLE `customer_to_group`
   MODIFY `id` int NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `customer_transaction`
---
-ALTER TABLE `customer_transaction`
-  MODIFY `customer_transaction_id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `customer_users`
@@ -6927,12 +5797,6 @@ ALTER TABLE `export_log`
 --
 ALTER TABLE `family`
   MODIFY `id` int NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `geo_zone`
---
-ALTER TABLE `geo_zone`
-  MODIFY `geo_zone_id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `industry`
@@ -6984,34 +5848,16 @@ ALTER TABLE `order_fulfillment_status`
   MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `order_history`
---
-ALTER TABLE `order_history`
-  MODIFY `order_history_id` int NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `order_log`
 --
 ALTER TABLE `order_log`
   MODIFY `order_log_id` int NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `order_option`
---
-ALTER TABLE `order_option`
-  MODIFY `order_option_id` int NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `order_product`
 --
 ALTER TABLE `order_product`
   MODIFY `order_product_id` int NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `order_product_archive`
---
-ALTER TABLE `order_product_archive`
-  MODIFY `order_product_archive_id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `order_product_log`
@@ -7050,12 +5896,6 @@ ALTER TABLE `page_group`
   MODIFY `group_id` int NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `page_group_translation`
---
-ALTER TABLE `page_group_translation`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
@@ -7072,12 +5912,6 @@ ALTER TABLE `payment_archive`
 --
 ALTER TABLE `payment_items`
   MODIFY `payment_item_id` int NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `payment_items_archive`
---
-ALTER TABLE `payment_items_archive`
-  MODIFY `payment_item_archive_id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- Indexes for table `payment_rule`
@@ -7117,22 +5951,10 @@ ALTER TABLE `plugin_menu`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
--- AUTO_INCREMENT for table `price_update_file_log`
---
-ALTER TABLE `price_update_file_log`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
   MODIFY `product_id` int NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `product_description`
---
-ALTER TABLE `product_description`
-  MODIFY `product_description_id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `product_discount`
@@ -7147,12 +5969,6 @@ ALTER TABLE `product_image`
   MODIFY `product_image_id` int NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `product_price_log`
---
-ALTER TABLE `product_price_log`
-  MODIFY `product_price_log_id` int NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `product_special`
 --
 ALTER TABLE `product_special`
@@ -7163,12 +5979,6 @@ ALTER TABLE `product_special`
 --
 ALTER TABLE `product_stock_alert`
   MODIFY `id` int NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `product_tag`
---
-ALTER TABLE `product_tag`
-  MODIFY `product_tag_id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `product_tire_price`
@@ -7291,12 +6101,6 @@ ALTER TABLE `vendor`
   MODIFY `vendor_id` int NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `vendor_audit_log`
---
-ALTER TABLE `vendor_audit_log`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `vendor_category`
 --
 ALTER TABLE `vendor_category`
@@ -7320,12 +6124,6 @@ ALTER TABLE `vendor_country`
 ALTER TABLE `vendor_currency`
   MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
-
---
--- AUTO_INCREMENT for table `vendor_customer_price`
---
-ALTER TABLE `vendor_customer_price`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `vendor_email_template`
@@ -7388,40 +6186,10 @@ ALTER TABLE `vendor_orders_log`
   MODIFY `vendor_order_log_id` int NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `vendor_order_archive`
---
-ALTER TABLE `vendor_order_archive`
-  MODIFY `vendor_order_archive_id` int NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `vendor_order_archive_log`
---
-ALTER TABLE `vendor_order_archive_log`
-  MODIFY `vendor_order_archive_log_id` int NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `vendor_order_products`
---
-ALTER TABLE `vendor_order_products`
-  MODIFY `vendor_order_product_id` int NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `vendor_order_status`
---
-ALTER TABLE `vendor_order_status`
-  MODIFY `vendor_order_status_id` int NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `vendor_payment`
 --
 ALTER TABLE `vendor_payment`
   MODIFY `vendor_payment_id` int NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `vendor_payment_archive`
---
-ALTER TABLE `vendor_payment_archive`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `vendor_permission_module`
@@ -7439,24 +6207,6 @@ ALTER TABLE `vendor_permission_module_group`
 -- AUTO_INCREMENT for table `vendor_plugin`
 --
 ALTER TABLE `vendor_plugin`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `vendor_price_group`
---
-ALTER TABLE `vendor_price_group`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `vendor_price_group_detail`
---
-ALTER TABLE `vendor_price_group_detail`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `vendor_price_group_schedule`
---
-ALTER TABLE `vendor_price_group_schedule`
   MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
@@ -7478,12 +6228,6 @@ ALTER TABLE `vendor_settings`
   MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `vendor_settings_domain`
---
-ALTER TABLE `vendor_settings_domain`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `vendor_tax`
 --
 ALTER TABLE `vendor_tax`
@@ -7499,12 +6243,6 @@ ALTER TABLE `vendor_users`
 -- AUTO_INCREMENT for table `vendor_user_group`
 --
 ALTER TABLE `vendor_user_group`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `vendor_zone`
---
-ALTER TABLE `vendor_zone`
   MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
@@ -7526,22 +6264,10 @@ ALTER TABLE `widget_item`
   MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `widget_translation`
---
-ALTER TABLE `widget_translation`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `zone`
 --
 ALTER TABLE `zone`
   MODIFY `zone_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=109;
-
---
--- AUTO_INCREMENT for table `zone_to_geo_zone`
---
-ALTER TABLE `zone_to_geo_zone`
-  MODIFY `zone_to_geo_zone_id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
@@ -7565,23 +6291,10 @@ ALTER TABLE `banner`
   ADD CONSTRAINT `fk_banner_banner_group_banner_group_id` FOREIGN KEY (`banner_group_id`) REFERENCES `banner_group` (`banner_group_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `banner_image`
---
-ALTER TABLE `banner_image`
-  ADD CONSTRAINT `fk_banner_image_banner_banner_id` FOREIGN KEY (`banner_id`) REFERENCES `banner` (`banner_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
 -- Constraints for table `banner_images`
 --
 ALTER TABLE `banner_images`
   ADD CONSTRAINT `fk_banner_images_banner_banner_id` FOREIGN KEY (`banner_id`) REFERENCES `banner` (`banner_id`) ON DELETE CASCADE;
-
---
--- Constraints for table `banner_image_description`
---
-ALTER TABLE `banner_image_description`
-  ADD CONSTRAINT `fk_banner_image_description_banner_banner_id` FOREIGN KEY (`banner_id`) REFERENCES `banner` (`banner_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `fk_banner_image_description_banner_image_banner_image_id` FOREIGN KEY (`banner_image_id`) REFERENCES `banner_image` (`banner_image_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `blog`
@@ -7596,20 +6309,6 @@ ALTER TABLE `blog_category`
   ADD CONSTRAINT `fk_blog_category_blog_category_parent_int` FOREIGN KEY (`parent_int`) REFERENCES `blog_category` (`blog_category_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `blog_category_path`
---
-ALTER TABLE `blog_category_path`
-  ADD CONSTRAINT `fk_blog_category_path_blog_category_path_id` FOREIGN KEY (`path_id`) REFERENCES `blog_category` (`blog_category_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `fk_tbl_blog_path_blog_category` FOREIGN KEY (`blog_category_id`) REFERENCES `blog_category` (`blog_category_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `blog_category_translation`
---
-ALTER TABLE `blog_category_translation`
-  ADD CONSTRAINT `fk_blog_category_translation_blog_category_blog_category_id_idx` FOREIGN KEY (`blog_category_id`) REFERENCES `blog_category` (`blog_category_id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `fk_blog_category_translation_language_language_id_idx` FOREIGN KEY (`language_id`) REFERENCES `vendor_language` (`id`) ON DELETE CASCADE;
-
---
 -- Constraints for table `blog_related`
 --
 ALTER TABLE `blog_related`
@@ -7617,23 +6316,10 @@ ALTER TABLE `blog_related`
   ADD CONSTRAINT `fk_tbl_related_blog_id_tbl_blog` FOREIGN KEY (`related_blog_id`) REFERENCES `blog` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `blog_translation`
---
-ALTER TABLE `blog_translation`
-  ADD CONSTRAINT `fk_blog_translation_blog_blog_id_idx` FOREIGN KEY (`blog_id`) REFERENCES `blog` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `fk_blog_translation_language_language_id_idx` FOREIGN KEY (`language_id`) REFERENCES `vendor_language` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT;
-
---
 -- Constraints for table `category_commission`
 --
 ALTER TABLE `category_commission`
   ADD CONSTRAINT `fk_tbl_category_commission_tbl_category_foreignKey` FOREIGN KEY (`category_id`) REFERENCES `category` (`category_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `category_description`
---
-ALTER TABLE `category_description`
-  ADD CONSTRAINT `fk_Category_CategoryDescription` FOREIGN KEY (`category_id`) REFERENCES `category` (`category_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `category_path`
@@ -7669,18 +6355,6 @@ ALTER TABLE `customer_cart`
   ADD CONSTRAINT `fk_tbl_customer_cart_tbl_product_foreignKey` FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `customer_document`
---
-ALTER TABLE `customer_document`
-  ADD CONSTRAINT `fk_tbl_customerDocument_tbl_customer_foreignKey` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `customer_ip`
---
-ALTER TABLE `customer_ip`
-  ADD CONSTRAINT `fk_customer_ip_customer_customer_id` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
 -- Constraints for table `customer_permission_module`
 --
 ALTER TABLE `customer_permission_module`
@@ -7692,13 +6366,6 @@ ALTER TABLE `customer_permission_module`
 ALTER TABLE `customer_to_group`
   ADD CONSTRAINT `fk_customer_to_group_customer__id` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `fk_customer_to_group_customer_group__id` FOREIGN KEY (`customer_group_id`) REFERENCES `customer_group` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `customer_transaction`
---
-ALTER TABLE `customer_transaction`
-  ADD CONSTRAINT `fk_customer_transaction_customer1` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `fk_customer_transaction_order1` FOREIGN KEY (`order_id`) REFERENCES `order` (`order_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `customer_users`
@@ -7733,24 +6400,10 @@ ALTER TABLE `order_fulfillment_status`
   ADD CONSTRAINT `fk_order_fulfillment_status_vendor_tenant_id` FOREIGN KEY (`tenant_id`) REFERENCES `vendor` (`vendor_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `order_history`
---
-ALTER TABLE `order_history`
-  ADD CONSTRAINT `fk_order_history_order1` FOREIGN KEY (`order_id`) REFERENCES `order` (`order_id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `fk_order_history_order_status1` FOREIGN KEY (`order_status_id`) REFERENCES `order_status` (`order_status_id`);
-
---
 -- Constraints for table `order_log`
 --
 ALTER TABLE `order_log`
   ADD CONSTRAINT `fk_order_log_currency_currency_id` FOREIGN KEY (`currency_id`) REFERENCES `currency` (`currency_id`);
-
---
--- Constraints for table `order_option`
---
-ALTER TABLE `order_option`
-  ADD CONSTRAINT `fk_order_option_order1` FOREIGN KEY (`order_id`) REFERENCES `order` (`order_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `fk_order_option_order_product1` FOREIGN KEY (`order_product_id`) REFERENCES `order_product` (`order_product_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `order_product`
@@ -7793,14 +6446,6 @@ ALTER TABLE `page`
   ADD CONSTRAINT `fk_pages_vendor_tenant_id` FOREIGN KEY (`tenant_id`) REFERENCES `vendor` (`vendor_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `page_group_translation`
---
-ALTER TABLE `page_group_translation`
-  ADD CONSTRAINT `fk_page_group_translation_page_group_page_group_id_idx` FOREIGN KEY (`page_group_id`) REFERENCES `page_group` (`group_id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `fk_page_group_translation_vendor_language_language_id` FOREIGN KEY (`language_id`) REFERENCES `vendor_language` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT;
-
-
---
 -- Constraints for table `payment`
 --
 ALTER TABLE `payment`
@@ -7820,13 +6465,6 @@ ALTER TABLE `payment_items`
   ADD CONSTRAINT `fk_payment_items_payment_payment_id` FOREIGN KEY (`payment_id`) REFERENCES `payment` (`payment_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `payment_items_archive`
---
-ALTER TABLE `payment_items_archive`
-  ADD CONSTRAINT `fk_payment_items_archive_order_product_order_product_id` FOREIGN KEY (`order_product_id`) REFERENCES `order_product` (`order_product_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `fk_payment_items_archive_payment_archive_payment_archive_id` FOREIGN KEY (`payment_archive_id`) REFERENCES `payment_archive` (`payment_archive_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
 -- AUTO_INCREMENT for table `payment_rule`
 --
 ALTER TABLE `payment_rule`
@@ -7844,12 +6482,6 @@ ALTER TABLE `permission_module`
 ALTER TABLE `payment_rule`
   ADD CONSTRAINT `fk_pm_rule_pm_id` FOREIGN KEY (`payment_method_id`) REFERENCES `payment_method` (`id`) ON DELETE CASCADE;
   
---
--- Constraints for table `product_description`
---
-ALTER TABLE `product_description`
-  ADD CONSTRAINT `fk_product_description_product_product_id` FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
 --
 -- Constraints for table `product_discount`
 --
@@ -7941,12 +6573,6 @@ ALTER TABLE `vendor`
   ADD CONSTRAINT `fk_vendor_industry_industry_id` FOREIGN KEY (`industry_id`) REFERENCES `industry` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `vendor_audit_log`
---
-ALTER TABLE `vendor_audit_log`
-  ADD CONSTRAINT `fk_vendor_audit_log_vendor_user_foreignKey` FOREIGN KEY (`vendor_user_id`) REFERENCES `vendor_users` (`id`) ON DELETE CASCADE;
-
---
 -- Constraints for table `vendor_category`
 --
 ALTER TABLE `vendor_category`
@@ -7972,13 +6598,6 @@ ALTER TABLE `vendor_country`
 ALTER TABLE `vendor_currency`
   ADD CONSTRAINT `fk_vendor_currency_currency_id` FOREIGN KEY (`currency_id`) REFERENCES `currency` (`currency_id`) ON DELETE CASCADE,
   ADD CONSTRAINT `fk_vendor_currency_tenant_id` FOREIGN KEY (`tenant_id`) REFERENCES `vendor` (`vendor_id`) ON DELETE CASCADE;
-
---
--- Constraints for table `vendor_customer_price`
---
-ALTER TABLE `vendor_customer_price`
-  ADD CONSTRAINT `fk_vendor_customer_price_customer_customer_idx` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `fk_vendor_customer_price_vendor_price_group_price_group_idx` FOREIGN KEY (`price_group_id`) REFERENCES `vendor_price_group` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `vendor_email_template`
@@ -8025,28 +6644,10 @@ ALTER TABLE `vendor_orders_log`
   ADD CONSTRAINT `fk_vendor_orders_log_vendor_order_vendor_order_id` FOREIGN KEY (`vendor_order_id`) REFERENCES `vendor_orders` (`vendor_order_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `vendor_order_archive`
---
-ALTER TABLE `vendor_order_archive`
-  ADD CONSTRAINT `fk_vendor_order_archive_order_order_id` FOREIGN KEY (`order_id`) REFERENCES `order` (`order_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `vendor_order_archive_log`
---
-ALTER TABLE `vendor_order_archive_log`
-  ADD CONSTRAINT `fk_vendor_order_archive_log_vendor_order_archive__id` FOREIGN KEY (`vendor_order_archive_id`) REFERENCES `vendor_order_archive` (`vendor_order_archive_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
 -- Constraints for table `vendor_payment`
 --
 ALTER TABLE `vendor_payment`
   ADD CONSTRAINT `fk_vendor_payment_vendor_order_vendor_order_id` FOREIGN KEY (`vendor_order_id`) REFERENCES `vendor_orders` (`vendor_order_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `vendor_payment_archive`
---
-ALTER TABLE `vendor_payment_archive`
-  ADD CONSTRAINT `fk_vendor_payment_archive_vendor_order_vendor_order_id` FOREIGN KEY (`vendor_order_id`) REFERENCES `vendor_orders` (`vendor_order_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `vendor_permission_module`
@@ -8060,19 +6661,6 @@ ALTER TABLE `vendor_permission_module`
 ALTER TABLE `vendor_plugin`
   ADD CONSTRAINT `FK_31eed89fefcd05ef259d76afcfc` FOREIGN KEY (`plugin_id`) REFERENCES `plugins` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `FK_4cd8cbc11c7ea6991b0d37dbd65` FOREIGN KEY (`vendor_id`) REFERENCES `vendor` (`vendor_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `vendor_price_group_detail`
---
-ALTER TABLE `vendor_price_group_detail`
-  ADD CONSTRAINT `fk_vendor_price_group_detail_sku_sku_id` FOREIGN KEY (`sku_id`) REFERENCES `sku` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `fk_vendor_price_group_detail_vendor_price_group_price_group_idx` FOREIGN KEY (`price_group_id`) REFERENCES `vendor_price_group` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `vendor_price_group_schedule`
---
-ALTER TABLE `vendor_price_group_schedule`
-  ADD CONSTRAINT `fk_vendor_pric_grp_sched_vendor_pric_grp_dets_pric_grp_dets_idx` FOREIGN KEY (`price_group_detail_id`) REFERENCES `vendor_price_group_detail` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `vendor_product`
@@ -8099,14 +6687,6 @@ ALTER TABLE `vendor_tax`
 --
 ALTER TABLE `vendor_users`
   ADD CONSTRAINT `fk_vendor_users_vendor` FOREIGN KEY (`tenant_id`) REFERENCES `vendor` (`vendor_id`) ON DELETE CASCADE;
-
---
--- Constraints for table `vendor_zone`
---
-ALTER TABLE `vendor_zone`
-  ADD CONSTRAINT `fk_ven_zone_ven_country_id_vendor_country_id` FOREIGN KEY (`vendor_country_id`) REFERENCES `vendor_country` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `fk_vendor_zone_tenant_id` FOREIGN KEY (`tenant_id`) REFERENCES `vendor` (`vendor_id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `fk_vendor_zone_zone_id` FOREIGN KEY (`zone_id`) REFERENCES `zone` (`zone_id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `widget`

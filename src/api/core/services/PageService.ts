@@ -28,12 +28,16 @@ export class PageService {
         return this.pageRepository.repository.save(page);
     }
 
-    public async findOne(condition: any): Promise<Page | null> {
-        this.log.info('findOne method called');
-        return this.pageRepository.repository.findOne({
-            where: condition,
-        });
-    }
+public async findOne(condition: any): Promise<Page | null> {
+    this.log.info('findOne method called');
+    console.log('========== PAGE CONDITION ==========');
+    console.log(condition);
+    console.log('====================================');
+
+    return this.pageRepository.repository.findOne({
+        where: condition,
+    });
+}
 
     public async findOneBy(condition: any): Promise<Page | null> {
         this.log.info('findOne method called');

@@ -338,9 +338,7 @@ export class PageController {
     @Authorized(['vendor', 'list-pages'])
     public async PageDetail(@Param('pageId') pageId: number, @Res() response: any): Promise<any> {
         const page = await this.pageService.findOne({
-            where: {
-                pageId,
-            },
+            pageId,
         });
         if (!page) {
             const errorResponse: any = {

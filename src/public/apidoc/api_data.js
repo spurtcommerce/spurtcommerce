@@ -23,8 +23,8 @@ define({ "api": [
     "url": "",
     "version": "0.0.0",
     "filename": "src/public/apidoc/main.js",
-    "group": "/home/siva/Music/coumminuty/spurtcommerce-oct-6/src/public/apidoc/main.js",
-    "groupTitle": "/home/siva/Music/coumminuty/spurtcommerce-oct-6/src/public/apidoc/main.js",
+    "group": "/home/surya/Desktop/spurtcommerce/src/public/apidoc/main.js",
+    "groupTitle": "/home/surya/Desktop/spurtcommerce/src/public/apidoc/main.js",
     "name": ""
   },
   {

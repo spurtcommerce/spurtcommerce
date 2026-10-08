@@ -35,7 +35,6 @@ import { VendorSettingsService } from '../../core/services/VendorSettingsService
 import { CreateOrderRequest } from './requests/CreateOrderRequest';
 import { pluginModule } from '../../../../src/loaders/pluginLoader';
 import { VendorPluginService } from '../../core/services/VendorPluginService';
-// import { VendorTaxService } from '../../core/services/VendorTaxService';
 import { SkuService } from '../../core/services/SkuService';
 import { ProductTirePriceService } from '../../core/services/ProductTirePriceService';
 import { ProductSpecialService } from '../../core/services/ProductSpecialService';
