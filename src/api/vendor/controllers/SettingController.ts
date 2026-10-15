@@ -61,29 +61,39 @@ export class VendorSettingController {
         // --
     }
 
-    // Get Settings list API
     /**
-     * @api {get} /api/settings Get Setting API
-     * @apiGroup Settings
-     * @apiHeader {String} Authorization
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "status": "1"
-     *      "message": "Successfully get settings",
-     *      "data":"[{
-     *                "id": "",
-     *                "storeName": "",
-     *                "storeUrl": "",
-     *                "isActive": "",
-     *                "maintenance": "",
-     *                "storeDescription": "",
-     *                "pendingStatus": ""
-     *              }]"
-     * }
-     * @apiSampleRequest /api/settings
-     * @apiErrorExample {json} getSettings error
-     * HTTP/1.1 500 Internal Server Error
+     * @api {get} /api/vendor-settings List Vendor Settings
+     * @apiGroup Vendor Settings
+     * @apiName GetVendorSettingsList
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully got vendor settings",
+     *         "data": [
+     *             {
+     *                 "id": 1,
+     *                 "vendorId": 1,
+     *                 "storeCurrencyId": 1,
+     *                 "currencyCode": "USD",
+     *                 "symbolLeft": "$",
+     *                 "symbolRight": ""
+     *             }
+     *         ],
+     *         "id": 1
+     *     }
+     *
+     * @apiErrorExample {json} Error-Response:
+     *     HTTP/1.1 500 Internal Server Error
+     *     {
+     *         "status": 0,
+     *         "message": "Internal Server Error"
+     *     }
+     *
+     * @apiSampleRequest /api/vendor-settings
      */
     @Get()
     @Authorized('vendor')
@@ -111,85 +121,39 @@ export class VendorSettingController {
         return response.status(200).send({ status: 1, message: 'Successfully got vendor settings', data: value, id: request.user.tenantId });
     }
 
-    //  Settings API
     /**
-     * @api {get} /api/settings/:id Get Setting API
-     * @apiGroup Settings
-     * @apiHeader {String} Authorization
-     * @apiParamExample {json} Input
-     * {
-     *    "settingsId": "",
-     * }
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "status": "1"
-     *      "message": "Successfully get settings",
-     *     "data": {
-     *        "currencyCode": "",
-     *        "symbolLeft": "",
-     *        "symbolRight": "",
-     *        "createdBy": "",
-     *        "createdDate": "",
-     *        "modifiedBy": "",
-     *        "modifiedDate": "",
-     *        "settingsId": "",
-     *        "siteUrl": "",
-     *        "metaTagTitle": "",
-     *        "metaTagDescription": "",
-     *        "metaTagKeyword": "",
-     *        "siteName": "",
-     *        "businessName": "",
-     *        "storeOwner": "",
-     *        "storeDescription": "",
-     *        "accessKey": "",
-     *        "siteCategory": "",
-     *        "storeAddress1": "",
-     *        "storeAddress2": "",
-     *        "storeCity": "",
-     *        "storePostalCode": "",
-     *        "countryId": "",
-     *        "zoneId": "",
-     *        "orderStatus": "",
-     *        "storeEmail": "",
-     *        "storeTelephone": "",
-     *        "storeFax": "",
-     *        "storeLogo": "",
-     *        "storeLogoPath": "",
-     *        "emailLogo": "",
-     *        "emailLogoPath": "",
-     *        "invoiceLogo": "",
-     *        "invoiceLogoPath": "",
-     *        "maintenanceMode": "",
-     *        "storeLanguageName": "",
-     *        "storeSecondaryLanguageName": "",
-     *        "storeCurrencyId": "",
-     *        "currencySymbol": "",
-     *        "currencyFormat": "",
-     *        "storeImage": "",
-     *        "storeImagePath": "",
-     *        "dateFormat": "",
-     *        "timeFormat": "",
-     *        "defaultCountry": "",
-     *        "country": "",
-     *        "facebook": "",
-     *        "google": "",
-     *        "instagram": "",
-     *        "invoicePrefix": "",
-     *        "categoryProductCount": "",
-     *        "itemsPerPage": "",
-     *        "isActive": "",
-     *        "addons": "{ }",
-     *        "pendingStatus": "",
-     *        "defaultWebsite": "",
-     *        "countryIds": [""]
-     *       }
-     * }
-     * @apiSampleRequest /api/settings/:id
-     * @apiErrorExample {json} getSettings error
-     * HTTP/1.1 500 Internal Server Error
+     * @api {get} /api/vendor-settings/:id Get Vendor Settings Detail
+     * @apiGroup Vendor Settings
+     * @apiName GetVendorSettingsDetail
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiParam (Path) {Number} id Settings ID
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully get vendor settings",
+     *         "data": {
+     *             "id": 1,
+     *             "siteName": "My Store",
+     *             "storeEmail": "vendor@example.com",
+     *             "currencyCode": "USD",
+     *             "symbolLeft": "$",
+     *             "vendor": {}
+     *         }
+     *     }
+     *
+     * @apiErrorExample {json} Invalid-Id:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Invalid Setting Id"
+     *     }
+     *
+     * @apiSampleRequest /api/vendor-settings/:id
      */
-
     @Get('/:id')
     @Authorized(['vendor'])
     public async settingsDetail(@Param('id') id: number, @Res() response: Response, @Req() request: any): Promise<Response> {
@@ -235,143 +199,48 @@ export class VendorSettingController {
         return response.status(200).send(successResponse);
     }
 
-    // create and update settings API
     /**
-     * @api {post} /api/settings Create Settings API
-     * @apiGroup Settings
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {String} siteUrl  store siteurl
-     * @apiParam (Request body) {String} metaTagTitle metaTagTitle
-     * @apiParam (Request body) {String} metaTagDescription metaTagDescription
-     * @apiParam (Request body) {String} metaTagKeywords metaTagKeywords
-     * @apiParam (Request body) {String} storeName storeName
-     * @apiParam (Request body) {String} storeOwner storeOwner
-     * @apiParam (Request body) {String} storeAddress storeAddress
-     * @apiParam (Request body) {Number} countryId countryId
-     * @apiParam (Request body) {String} zoneId zoneId
-     * @apiParam (Request body) {String} storeEmail storeEmail
-     * @apiParam (Request body) {String} storeTelephone storeTelephone
-     * @apiParam (Request body) {String} storeFax storeFax
-     * @apiParam (Request body) {String} storeLogo storeLogo
-     * @apiParam (Request body) {String} emailLogo emailLogo
-     * @apiParam (Request body) {String} invoiceLogo invoiceLogo
-     * @apiParam (Request body) {Number} maintenanceMode maintenanceMode
-     * @apiParam (Request body) {String} storeLanguageName storeLanguageName
-     * @apiParam (Request body) {Number} storeCurrencyId storeCurrencyId
-     * @apiParam (Request body) {String} storeImage storeImage
-     * @apiParam (Request body) {String} invoicePrefix invoicePrefix
-     * @apiParam (Request body) {Number} orderStatus orderStatus
-     * @apiParam (Request body) {Number} categoryProductCount productCount should be 0 or 1
-     * @apiParam (Request body) {Number} itemsPerPage ItemsPerPage
-     * @apiParam (Request body) {String} facebook facebook
-     * @apiParam (Request body) {String} twitter twitter
-     * @apiParam (Request body) {String} instagram instagram
-     * @apiParam (Request body) {String} google google
-     * @apiParam (Request body) {Number} status status
-     * @apiParam (Request body) {String} timeZone time zone
-     * @apiParam (Request body) {String} settingSection settingSection
-     * @apiParamExample {json} Input
-     * {
-     *      "siteUrl" : "",
-     *      "metaTagTitle" : "",
-     *      "metaTagDescription" : "",
-     *      "metaTagKeywords" : "",
-     *      "storeName" : "",
-     *      "storeOwner" : "",
-     *      "storeAddress" : "",
-     *      "countryId" : "",
-     *      "zoneId" : "",
-     *      "storeEmail" : "",
-     *      "storeTelephone" : "",
-     *      "storeFax" : "",
-     *      "storeLogo" : "",
-     *      "invoiceLogo" : "",
-     *      "emailLogo" : "",
-     *      "maintenanceMode" : "",
-     *      "storeLanguageName" : "",
-     *      "storeCurrencyId" : "",
-     *      "storeImage" : "",
-     *      "invoicePrefix" : "",
-     *      "orderStatus" : "",
-     *      "categoryProductCount" : "",
-     *      "itemsPerPage" : "",
-     *      "google" : "",
-     *      "instagram" : "",
-     *      "facebook" : "",
-     *      "twitter" : "",
-     *      "timeZone": "",
-     * }
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully created setting.",
-     *      "status": "1",
-     *      "data": {
-     *        "currencyCode": "",
-     *        "symbolLeft": "",
-     *        "symbolRight": "",
-     *        "createdBy": "",
-     *        "createdDate": "",
-     *        "modifiedBy": "",
-     *        "modifiedDate": "",
-     *        "settingsId": "",
-     *        "siteUrl": "",
-     *        "metaTagTitle": "",
-     *        "metaTagDescription": "",
-     *        "metaTagKeyword": "",
-     *        "siteName": "",
-     *        "businessName": "",
-     *        "storeOwner": "",
-     *        "storeDescription": "",
-     *        "accessKey": "",
-     *        "siteCategory": "",
-     *        "storeAddress1": "",
-     *        "storeAddress2": "",
-     *        "storeCity": "",
-     *        "storePostalCode": "",
-     *        "countryId": "",
-     *        "zoneId": "",
-     *        "orderStatus": "",
-     *        "storeEmail": "",
-     *        "storeTelephone": "",
-     *        "storeFax": "",
-     *        "storeLogo": "",
-     *        "storeLogoPath": "",
-     *        "emailLogo": "",
-     *        "emailLogoPath": "",
-     *        "invoiceLogo": "",
-     *        "invoiceLogoPath": "",
-     *        "maintenanceMode": "",
-     *        "storeLanguageName": "",
-     *        "storeSecondaryLanguageName": "",
-     *        "storeCurrencyId": "",
-     *        "currencySymbol": "",
-     *        "currencyFormat": "",
-     *        "storeImage": "",
-     *        "storeImagePath": "",
-     *        "dateFormat": "",
-     *        "timeFormat": "",
-     *        "defaultCountry": "",
-     *        "country": "",
-     *        "facebook": "",
-     *        "google": "",
-     *        "instagram": "",
-     *        "invoicePrefix": "",
-     *        "categoryProductCount": "",
-     *        "itemsPerPage": "",
-     *        "isActive": "",
-     *        "addons": "{ }",
-     *        "pendingStatus": "",
-     *        "defaultWebsite": "",
-     *        "countryIds": [
-     *                   ""
-     *           ]
-     *        "timeZone": "",
-     *       }
-     * }
-     * @apiSampleRequest /api/settings
-     * @apiErrorExample {json} addSettings error
-     * HTTP/1.1 500 Internal Server Error
+     * @api {post} /api/vendor-settings Create or Update Vendor Settings
+     * @apiGroup Vendor Settings
+     * @apiName CreateOrUpdateVendorSettings
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiBody {String} [settingSection] Settings section name to update
+     * @apiBody {String} [siteUrl] Store site URL
+     * @apiBody {String} [siteName] Store site name
+     * @apiBody {String} [businessName] Business name
+     * @apiBody {String} [storeOwner] Store owner name
+     * @apiBody {String} [storeEmail] Store contact email
+     * @apiBody {String} [storeTelephone] Store contact phone
+     * @apiBody {String} [storeAddress1] Store address line 1
+     * @apiBody {String} [storeAddress2] Store address line 2
+     * @apiBody {String} [storeCity] Store city
+     * @apiBody {String} [storePostalCode] Store zip code
+     * @apiBody {Number} [countryId] Store country ID
+     * @apiBody {Number} [zoneId] Store zone ID
+     * @apiBody {Number} [storeCurrencyId] Store currency ID
+     * @apiBody {Number} [storeLanguageId] Store language ID
+     * @apiBody {String} [storeLogo] Store logo base64 image
+     * @apiBody {String} [emailLogo] Email logo base64 image
+     * @apiBody {String} [invoiceLogo] Invoice logo base64 image
+     * @apiBody {Number} [maintenanceMode] Maintenance mode flag (0: Off, 1: On)
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Website details updated successfully."
+     *     }
+     *
+     * @apiErrorExample {json} Validation-Error:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Invalid setting ID."
+     *     }
+     *
+     * @apiSampleRequest /api/vendor-settings
      */
     @Post()
     @Authorized(['vendor', 'edit-website-settings'])

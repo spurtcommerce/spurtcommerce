@@ -37,18 +37,31 @@ export class VendorImportController {
         private categoryPathService: CategoryPathService
     ) { }
 
-    // Bulk Product Import
     /**
-     * @api {Post} /api/vendor-import-datas Vendor Bulk Product Import
+     * @api {post} /api/vendor-import-datas Vendor Bulk Product Import
      * @apiGroup Vendor Bulk Import
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {String} buffer buffer
-     * HTTP/1.1 200 Ok
+     * @apiName VendorBulkProductImport
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiBody {String} buffer Comma-separated byte string representing the Excel file
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Products imported successfully"
+     *     }
+     *
+     * @apiErrorExample {json} Import-Error:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Internal Server Error"
+     *     }
+     *
      * @apiSampleRequest /api/vendor-import-datas
-     * @apiErrorExample {json} product-import Error
-     * HTTP/1.1 500 Internal server error
      */
-
     @Authorized(['vendor', 'custom-import'])
     @Post()
     public async productImport(@Body({ validate: true }) buffer: any, @Res() response: any, @Req() request: any): Promise<any> {
@@ -167,22 +180,24 @@ export class VendorImportController {
             return response.status(400).send({ status: 0, message: 'Internal Server Error' });
         }
     }
-    // Get Error Bulk Product
     /**
-     * @api {Get} /api/vendor-import-datas/error-bulk-import Vendor Error Bulk Product Import
+     * @api {get} /api/vendor-import-datas/error-bulk-import Download Bulk Import Error File
      * @apiGroup Vendor Bulk Import
-     * @apiParam (Request body) {String} fileName fileName
-     * @apiSuccessExample {file} Success
+     * @apiName VendorErrorBulkProductImport
+     *
+     * @apiQuery {String} fileName Name of the error file to download
+     *
+     * @apiSuccessExample {file} Success-Response:
      *     HTTP/1.1 200 OK
-     *     Content-Type: application/octet-stream
-     *     Content-Disposition: attachment; filename="export.csv"
-     *     ... (binary file content)
-     * @apiSampleRequest /api/vendor-import-datas/error-bulk-import
-     * @apiErrorExample {json} error-bulk-product Error
+     *     Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+     *
+     * @apiErrorExample {json} Error-Response:
      *     HTTP/1.1 500 Internal Server Error
      *     {
-     *       "error": "Internal server error"
+     *         "error": "Internal server error"
      *     }
+     *
+     * @apiSampleRequest /api/vendor-import-datas/error-bulk-import
      */
     @Get('/error-bulk-import')
     public async errorBulkProduct(@QueryParam('fileName') fileName: string, @Res() response: any): Promise<any> {
@@ -198,24 +213,30 @@ export class VendorImportController {
         });
     }
 
-    // Bulk Image Import
-    // Get Error Bulk Product
     /**
-     * @api {Post} /api/vendor-import-datas/import-image Bulk Image Import
+     * @api {post} /api/vendor-import-datas/import-image Bulk Product Image Import
      * @apiGroup Vendor Bulk Import
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {String} file File
-     * @apiSuccessExample {file} Success
+     * @apiName VendorBulkImageImport
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiBody {File} file Zip file containing product images
+     *
+     * @apiSuccessExample {json} Success-Response:
      *     HTTP/1.1 200 OK
-     *     Content-Type: application/octet-stream
-     *     Content-Disposition: attachment; filename="export.csv"
-     *     ... (binary file content)
-     * @apiSampleRequest /api/vendor-import-datas/import-image
-     * @apiErrorExample {json} bulk-image-import Error
-     *     HTTP/1.1 500 Internal Server Error
      *     {
-     *       "error": "Internal server error"
+     *         "status": 1,
+     *         "message": "Given images imported successfully"
      *     }
+     *
+     * @apiErrorExample {json} Upload-Error:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Unable to import given images"
+     *     }
+     *
+     * @apiSampleRequest /api/vendor-import-datas/import-image
      */
     @Authorized(['vendor', 'custom-import'])
     @Post('/import-image')
@@ -275,19 +296,28 @@ export class VendorImportController {
         }
     }
     /**
-     * @api {Post} /api/vendor-import-datas/category Vendor Bulk Category Import
+     * @api {post} /api/vendor-import-datas/category Vendor Bulk Category Import
      * @apiGroup Vendor Bulk Import
-     * @apiHeader {string} Authorization
-     * @apiParam (Request body) {string} buffer buffer
-     * @apiSuccessExample {json} Success
-     * {
-     *      "status": "1",
-     *      "message": "Categories successfully created !!"
-     * },
-     * HTTP/1.1 200 Ok
+     * @apiName VendorBulkCategoryImport
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiBody {String} buffer Comma-separated byte string representing Excel file
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Categories successfully created"
+     *     }
+     *
+     * @apiErrorExample {json} Error-Response:
+     *     HTTP/1.1 500 Internal Server Error
+     *     {
+     *         "error": "Internal Server Error"
+     *     }
+     *
      * @apiSampleRequest /api/vendor-import-datas/category
-     * @apiErrorExample {json} category-import Error
-     * HTTP/1.1 500 Internal server error
      */
     @Authorized('vendor')
     @Post('/category')

@@ -32,50 +32,44 @@ export class VendorBlogController {
         // --
     }
 
-    // Create Blog
     /**
-     * @api {post} /api/blog Add Blog API
-     * @apiGroup Blog
-     * @apiParam (Request body) {String{..255}} title title
-     * @apiParam (Request body) {Number} categoryId category id
-     * @apiParam (Request body) {String} description description
-     * @apiParam (Request body) {String} [image] image
-     * @apiParam (Request body) {Number} status status/isActive
-     * @apiParam (Request body) {String} relatedBlogId relatedBlogId
-     * @apiParam (Request body) {String} blogSlug blogSlug
-     * @apiHeader {String} Authorization
-     * @apiParamExample {json} Input
-     * {
-     *      "title" : "",
-     *      "categoryId" : 1,
-     *      "description" : ""
-     *      "image" : "",
-     *      "status" : "",
-     *      "relatedBlogId" : "1",
-     * }
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "New blog is created successfully",
-     *      "status": "1",
-     *      "data": {
-     *         "image": "",
-     *         "imagePath": "",
-     *         "title": "",
-     *         "categoryId": 1,
-     *         "description": "",
-     *         "isActive": "",
-     *         "createdBy": "",
-     *         "blogSlug": "",
-     *         "createdDate": "",
-     *         "modifiedBy": "",
-     *         "modifiedDate": "",
-     *         "id": 1
-     *       }
-     * }
-     * @apiSampleRequest /api/blog
-     * @apiErrorExample {json} Add Blog error
-     * HTTP/1.1 500 Internal Server Error
+     * @api {post} /api/vendor-blog Create Vendor Blog
+     * @apiGroup Vendor Blog
+     * @apiName CreateVendorBlog
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiBody {String} title Blog title (max 255 chars)
+     * @apiBody {Number} categoryId Blog category ID
+     * @apiBody {String} [description] Blog content description
+     * @apiBody {String} [image] Base64 encoded blog image
+     * @apiBody {Number} status Active status (1: Active, 0: Inactive)
+     * @apiBody {Number[]} [relatedBlogId] Array of related blog IDs
+     * @apiBody {String} [blogSlug] Custom blog slug name
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully created new blog.",
+     *         "data": {
+     *             "id": 1,
+     *             "title": "Blog Title",
+     *             "categoryId": 1,
+     *             "description": "Blog description",
+     *             "isActive": 1,
+     *             "blogSlug": "blog-title"
+     *         }
+     *     }
+     *
+     * @apiErrorExample {json} Invalid-Category:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Invalid Category Id."
+     *     }
+     *
+     * @apiSampleRequest /api/vendor-blog
      */
     @Post()
     @Authorized(['vendor', 'create-blogs'])
@@ -151,40 +145,47 @@ export class VendorBlogController {
             return response.status(400).send(errorResponse);
         }
     }
-    // Blog List
     /**
-     * @api {get} /api/blog Blog List API
-     * @apiGroup Blog
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} limit limit
-     * @apiParam (Request body) {Number} offset offset
-     * @apiParam (Request body) {String} keyword keyword
-     * @apiParam (Request body) {String} categoryId categoryId
-     * @apiParam (Request body) {String} status status
-     * @apiParam (Request body) {Number} count count should be number or boolean
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully got Blog list",
-     *      "data": [
-     *         {
-     *        "createdDate": "",
-     *        "id": 1,
-     *        "title": "",
-     *        "categoryId": 1,
-     *        "description": "",
-     *        "image": "",
-     *        "imagePath": "",
-     *        "isActive": "",
-     *        "blogSlug": "",
-     *        "categoryName": ""
-     *          }
-     *           ]
-     *      "status": "1"
-     * }
-     * @apiSampleRequest /api/blog
-     * @apiErrorExample {json} Blog List error
-     * HTTP/1.1 500 Internal Server Error
+     * @api {get} /api/vendor-blog List Vendor Blogs
+     * @apiGroup Vendor Blog
+     * @apiName VendorBlogList
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiQuery {Number} [limit] Number of records to return
+     * @apiQuery {Number} [offset] Pagination offset
+     * @apiQuery {String} [keyword] Keyword search for blog title
+     * @apiQuery {String} [title] Filter by blog title
+     * @apiQuery {String} [categoryId] Filter by blog category ID
+     * @apiQuery {String} [status] Filter by active status
+     * @apiQuery {Number} [count] Return count only if 1
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully got blog list.",
+     *         "data": [
+     *             {
+     *                 "id": 1,
+     *                 "title": "Blog Title",
+     *                 "categoryId": 1,
+     *                 "description": "Blog description",
+     *                 "isActive": 1,
+     *                 "blogSlug": "blog-title",
+     *                 "categoryName": "Tech"
+     *             }
+     *         ]
+     *     }
+     *
+     * @apiErrorExample {json} Error-Response:
+     *     HTTP/1.1 500 Internal Server Error
+     *     {
+     *         "status": 0,
+     *         "message": "Internal Server Error"
+     *     }
+     *
+     * @apiSampleRequest /api/vendor-blog
      */
     @Get()
     @Authorized(['vendor', 'list-blogs'])
@@ -251,50 +252,44 @@ export class VendorBlogController {
             return response.status(200).send(successResponse);
         }
     }
-    // Update Blog
     /**
-     * @api {put} /api/blog/:id Update Blog API
-     * @apiGroup Blog
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {String{..255}} title title
-     * @apiParam (Request body) {Number} categoryId category id
-     * @apiParam (Request body) {String} description description
-     * @apiParam (Request body) {String} [image] image
-     * @apiParam (Request body) {Number} status status/isActive
-     * @apiParam (Request body) {String} relatedBlogId relatedBlogId
-     * @apiParam (Request body) {String} blogSlug blogSlug
-     * @apiParamExample {json} Input
-     * {
-     *      "title" : "",
-     *      "categoryId" : 1,
-     *      "description" : ""
-     *      "image" : "",
-     *      "status" : "",
-     *      "relatedBlogId" : "1",
-     *      "blogSlug" : "",
-     * }
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully updated blog.",
-     *      "status": "1",
-     *      "data": {
-     *                     "createdDate": "",
-     *                     "modifiedBy": "",
-     *                     "modifiedDate": "",
-     *                     "id": 1,
-     *                     "title": "",
-     *                     "categoryId": "1",
-     *                     "description": "",
-     *                     "image": "",
-     *                     "imagePath": "",
-     *                     "isActive": 1,
-     *                     "blogSlug": ""
-     *               }
-     * }
-     * @apiSampleRequest /api/blog/:id
-     * @apiErrorExample {json} Update Blog error
-     * HTTP/1.1 500 Internal Server Error
+     * @api {put} /api/vendor-blog/:id Update Vendor Blog
+     * @apiGroup Vendor Blog
+     * @apiName UpdateVendorBlog
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiParam (Path) {Number} id Blog ID
+     *
+     * @apiBody {String} title Blog title (max 255 chars)
+     * @apiBody {Number} categoryId Blog category ID
+     * @apiBody {String} [description] Blog content description
+     * @apiBody {String} [image] Base64 encoded blog image
+     * @apiBody {Number} status Active status (1: Active, 0: Inactive)
+     * @apiBody {Number[]} [relatedBlogId] Array of related blog IDs
+     * @apiBody {String} [blogSlug] Custom blog slug name
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully updated blog.",
+     *         "data": {
+     *             "id": 1,
+     *             "title": "Updated Blog Title",
+     *             "categoryId": 1,
+     *             "isActive": 1
+     *         }
+     *     }
+     *
+     * @apiErrorExample {json} Blog-Not-Found:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Invalid blog Id."
+     *     }
+     *
+     * @apiSampleRequest /api/vendor-blog/:id
      */
     @Put('/:id')
     @Authorized(['vendor', 'edit-blogs'])
@@ -403,25 +398,30 @@ export class VendorBlogController {
             return response.status(400).send(errorResponse);
         }
     }
-    // Delete Blog API
     /**
-     * @api {delete} /api/blog/:id Delete Blog API
-     * @apiGroup Blog
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {number} id  id
-     * @apiParamExample {json} Input
-     * {
-     *      "id" : 1,
-     * }
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     * "message": "Successfully deleted Blog.",
-     * "status": "1"
-     * }
-     * @apiSampleRequest /api/blog/:id
-     * @apiErrorExample {json} Delete Blog error
-     * HTTP/1.1 500 Internal Server Error
+     * @api {delete} /api/vendor-blog/:id Delete Vendor Blog
+     * @apiGroup Vendor Blog
+     * @apiName DeleteVendorBlog
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiParam (Path) {Number} id Blog ID
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully deleted Blog"
+     *     }
+     *
+     * @apiErrorExample {json} Blog-Not-Found:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Please choose a blog that you want to delete. "
+     *     }
+     *
+     * @apiSampleRequest /api/vendor-blog/:id
      */
     @Delete('/:id')
     @Authorized(['vendor', 'delete-blogs'])
@@ -444,44 +444,38 @@ export class VendorBlogController {
         }
     }
 
-    // Blog Detail
     /**
-     * @api {get} /api/blog/blog-detail Blog Detail API
-     * @apiGroup Blog
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} blogId Blog Id
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "status": "1"
-     *      "message": "Successfully got blog list.",
-     *      "data": {
-     *                  "createdBy": "",
-     *                  "createdDate": "",
-     *                  "modifiedBy": "",
-     *                  "modifiedDate": "",
-     *                  "id": 1,
-     *                  "title": "",
-     *                  "categoryId": 1,
-     *                  "description": "",
-     *                  "image": "",
-     *                  "imagePath": "",
-     *                  "isActive": "",
-     *                  "blogSlug": "",
-     *                  "categoryName": "",
-     *                  "blogRelated": [
-     *                      {
-     *                          "id": 1,
-     *                          "title": "",
-     *                          "image": "",
-     *                          "imagePath": ""
-     *                      }
-     *                   ]
-     *       }
-     * }
-     * @apiSampleRequest /api/blog/blog-detail
-     * @apiErrorExample {json} Blog Detail error
-     * HTTP/1.1 500 Internal Server Error
+     * @api {get} /api/vendor-blog/blog-detail Get Vendor Blog Detail
+     * @apiGroup Vendor Blog
+     * @apiName GetVendorBlogDetail
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiQuery {Number} blogId Blog ID
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully got blog list.",
+     *         "data": {
+     *             "id": 1,
+     *             "title": "Blog Title",
+     *             "categoryId": 1,
+     *             "description": "Blog description",
+     *             "categoryName": "Technology",
+     *             "blogRelated": []
+     *         }
+     *     }
+     *
+     * @apiErrorExample {json} Blog-Not-Found:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Invalid Blog ID"
+     *     }
+     *
+     * @apiSampleRequest /api/vendor-blog/blog-detail
      */
     @Get('/blog-detail')
     @Authorized(['vendor', 'list-blogs'])

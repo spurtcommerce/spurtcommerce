@@ -25,35 +25,34 @@ export class VendorSeoPageController {
         private pageGroupService: PageGroupService
     ) { }
 
-    // Seo Page List API
     /**
-     * @api {Get} /api/page-seo Seo Page List API
-     * @apiGroup Seo
-     * @apiParam (Request body) {Number} limit limit
-     * @apiParam (Request body) {Number} offset offset
-     * @apiParam (Request body) {String} status status
-     * @apiParam (Request body) {String} keyword keyword
-     * @apiParam (Request body) {Number} count count should be number or boolean
-     * @apiHeader {String} Authorization
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully got the complete list of pages.",
-     *      "data": [
-     *       {
-     *            "pageId": 1,
-     *            "title": "",
-     *            "pageGroupId": 1,
-     *            "content": "",
-     *            "isActive": 1,
-     *            "slugName": "",
-     *       }
-     *      ]
-     *      "status": "1"
-     * }
-     * @apiSampleRequest /api/page-seo
-     * @apiErrorExample {json} page List error
-     * HTTP/1.1 500 Internal Server Error
+     * @api {get} /api/vendor-page-seo Page SEO List
+     * @apiGroup Page SEO
+     * @apiName VendorPageSeoList
+     *
+     * @apiHeader {String} Authorization  Bearer Token
+     *
+     * @apiQuery {Number} [limit]            Number of records to return
+     * @apiQuery {Number} [offset]           Pagination offset
+     * @apiQuery {String} [keyword]          Search keyword
+     * @apiQuery {String} [status]           Status filter
+     * @apiQuery {Number|Boolean} [count]    If true/1, returns total count
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully got page list.",
+     *         "data": [
+     *             {
+     *                 "pageId": 1,
+     *                 "title": "About Us",
+     *                 "isActive": 1
+     *             }
+     *         ]
+     *     }
+     *
+     * @apiSampleRequest /api/vendor-page-seo
      */
     @Get()
     @Authorized(['vendor', 'seo-pages'])
@@ -153,38 +152,42 @@ export class VendorSeoPageController {
         };
         return response.status(200).send(successResponse);
     }
-    // Create/Update Seo API
     /**
-     * @api {Post} /api/page-seo/:pageId Create/Update Seo API
-     * @apiGroup Seo
-     * @apiParam (Request body) {String} metaTagTitle metaTagTitle
-     * @apiParam (Request body) {Number} pageId pageId
-     * @apiParam (Request body) {String} metaTagDescription metaTagDescription
-     * @apiParam (Request body) {String} metaTagKeyword metaTagKeyword
-     * @apiHeader {String} Authorization
-     * @apiParamExample {json} Input
-     * {
-     *      "metaTagTitle" : "",
-     *      "metaTagDescription": "",
-     *      "metaTagKeyword": ""
-     * }
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "SEO Updated successfully",
-     *      "data": {
-     *          "seoId": 1,
-     *          "metaTagTitle": "",
-     *          "metaTagDescription": "",
-     *          "metaTagKeyword": "",
-     *          "refId": 1,
-     *          "seoType": ""
-     *      }
-     *      "status": "1"
-     * }
-     * @apiSampleRequest /api/page-seo/:pageId
-     * @apiErrorExample {json} Update Seo  error
-     * HTTP/1.1 500 Internal Server Error
+     * @api {post} /api/vendor-page-seo/:pageId Update Page SEO
+     * @apiGroup Page SEO
+     * @apiName UpdatePageSeo
+     *
+     * @apiHeader {String} Authorization  Bearer Token
+     *
+     * @apiParam (Path) {Number} pageId      Page ID
+     *
+     * @apiBody {String} [metaTagTitle]       Meta tag title (max 140 chars)
+     * @apiBody {String} [metaTagDescription] Meta tag description (max 160 chars)
+     * @apiBody {String} [metaTagKeyword]     Meta tag keywords (max 255 chars)
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "SEO Updated successfully",
+     *         "data": {
+     *             "id": 1,
+     *             "referenceId": 1,
+     *             "route": "page-details/about-us",
+     *             "metaTitle": "About Us",
+     *             "metaDescription": "Description",
+     *             "metaKeyword": "Keywords"
+     *         }
+     *     }
+     *
+     * @apiErrorExample {json} Invalid-Page:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Invalid page. "
+     *     }
+     *
+     * @apiSampleRequest /api/vendor-page-seo/:pageId
      */
     @Post('/:pageId')
     @Authorized(['vendor', 'seo-pages'])
@@ -245,6 +248,38 @@ export class VendorSeoPageController {
         }
     }
 
+    /**
+     * @api {get} /api/vendor-page-seo/:groupId Page SEO List by Group ID
+     * @apiGroup Page SEO
+     * @apiName VendorPageSeoListByGroupId
+     *
+     * @apiHeader {String} Authorization  Bearer Token
+     *
+     * @apiParam (Path) {Number} groupId     Page Group ID
+     *
+     * @apiQuery {Number} [limit]            Number of records to return
+     * @apiQuery {Number} [offset]           Pagination offset
+     * @apiQuery {String} [keyword]          Search keyword
+     * @apiQuery {String} [status]           Status filter
+     * @apiQuery {Number|Boolean} [count]    If true/1, returns total count
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully got page list.",
+     *         "data": [
+     *             {
+     *                 "pageId": 1,
+     *                 "title": "About Us",
+     *                 "pageGroupId": 1,
+     *                 "isActive": 1
+     *             }
+     *         ]
+     *     }
+     *
+     * @apiSampleRequest /api/vendor-page-seo/:groupId
+     */
     @Get('/:groupId')
     @Authorized(['vendor', 'seo-pages'])
     public async pageListByGroupId(

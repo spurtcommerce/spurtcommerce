@@ -31,27 +31,36 @@ export class VendorSiteMapController {
         private vendorSettingsService: VendorSettingsService
     ) { }
 
-    // Create site map
     /**
-     * @api {Post} /api/site-map Create site map
-     * @apiGroup Site Map
-     * @apiHeader {string} Authorization
-     * @apiSuccessExample {json} Success
-     * {
-     *      "status": "1",
-     *      "message": "Successfully created siteMap!",
-     *      "data": {
-     *         "siteMapId": 1,
-     *         "userId": 1,
-     *         "userName": "",
-     *         "pathName": "",
-     *         "fileName": ""
-     *      }
-     * }
-     * HTTP/1.1 200 Ok
-     * @apiSampleRequest /api/site-map
-     * @apiErrorExample {json } createSiteMap  Error
-     * HTTP/1.1 500 Internal server error
+     * @api {post} /api/vendor-site-map Generate Vendor Sitemap
+     * @apiGroup Vendor Site Map
+     * @apiName CreateVendorSiteMap
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully created siteMap!",
+     *         "data": {
+     *             "siteMapId": 1,
+     *             "userId": 1,
+     *             "userName": "Vendor Admin",
+     *             "pathName": "sitemap/",
+     *             "fileName": "sitemap_1680000000.xml",
+     *             "tenantId": 1
+     *         }
+     *     }
+     *
+     * @apiErrorExample {json} Invalid-User:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Invalid user!"
+     *     }
+     *
+     * @apiSampleRequest /api/vendor-site-map
      */
     @Post()
     @Authorized(['vendor', 'seo-site-map'])
@@ -134,23 +143,40 @@ export class VendorSiteMapController {
             return response.status(400).send(errorResponse);
         }
     }
-    // List the site map
     /**
-     * @api {Get} /api/site-map Site map list
-     * @apiGroup Site Map
-     * @apiHeader {string} Authorization
-     * @apiParam (Request body) {Number} limit limit
-     * @apiParam (Request body) {Number} offset offset
-     * @apiParam (Request body) {Number} count count
-     * @apiSuccessExample {json} Success
-     * {
-     *      "status": "1",
-     *      "message": "Successfully got the list !!"
-     * },
-     * HTTP/1.1 200 Ok
-     * @apiSampleRequest /api/site-map
-     * @apiErrorExample {json} listSiteMap Error
-     * HTTP/1.1 500 Internal server error
+     * @api {get} /api/vendor-site-map List Vendor Sitemaps
+     * @apiGroup Vendor Site Map
+     * @apiName VendorSiteMapList
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiQuery {Number} [limit] Number of records to return
+     * @apiQuery {Number} [offset] Pagination offset
+     * @apiQuery {Number} [count] Return count only if 1
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully got the list !!",
+     *         "data": [
+     *             {
+     *                 "id": 1,
+     *                 "fileName": "sitemap_1680000000.xml",
+     *                 "pathName": "sitemap/",
+     *                 "createdDate": "2024-01-01T00:00:00.000Z"
+     *             }
+     *         ]
+     *     }
+     *
+     * @apiErrorExample {json} Error-Response:
+     *     HTTP/1.1 500 Internal Server Error
+     *     {
+     *         "status": 0,
+     *         "message": "Internal Server Error"
+     *     }
+     *
+     * @apiSampleRequest /api/vendor-site-map
      */
     @Get()
     @Authorized(['vendor', 'seo-site-map'])
@@ -179,21 +205,30 @@ export class VendorSiteMapController {
         }
     }
 
-    // Delete the site map
     /**
-     * @api {Delete} /api/site-map/:id Delete site map
-     * @apiGroup Site Map
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} id id
-     * @apiSuccessExample {json} Success
-     * {
-     *      "status": "1",
-     *      "message": "Successfully Deleted the data !!"
-     * },
-     * HTTP/1.1 200 Ok
-     * @apiSampleRequest /api/site-map/:id
-     * @apiErrorExample {json} Delete SiteMap Error
-     * HTTP/1.1 500 Internal server error
+     * @api {delete} /api/vendor-site-map/:id Delete Vendor Sitemap
+     * @apiGroup Vendor Site Map
+     * @apiName DeleteVendorSiteMap
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiParam (Path) {Number} id Sitemap ID
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully Deleted the data !!"
+     *     }
+     *
+     * @apiErrorExample {json} Delete-Failed:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Unable to Deleted the data !!"
+     *     }
+     *
+     * @apiSampleRequest /api/vendor-site-map/:id
      */
     @Delete('/:id')
     @Authorized(['vendor', 'seo-site-map'])
@@ -213,17 +248,28 @@ export class VendorSiteMapController {
         return response.status(400).send(errorResponse);
     }
 
-    // Download SiteMap API
     /**
-     * @api {Get} /api/site-map/get-sitemap Get Sitemap API
-     * @apiGroup Site Map
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {String} pathName pathName
-     * @apiSampleRequest /api/site-map/get-sitemap
-     * @apiErrorExample {json} Get Profile error
-     * HTTP/1.1 500 Internal Server Error
+     * @api {get} /api/vendor-site-map/get-sitemap Download Vendor Sitemap File
+     * @apiGroup Vendor Site Map
+     * @apiName DownloadVendorSiteMap
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiQuery {String} pathName Relative path to sitemap file
+     *
+     * @apiSuccessExample {file} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     Content-Type: application/xml
+     *
+     * @apiErrorExample {json} Error-Response:
+     *     HTTP/1.1 500 Internal Server Error
+     *     {
+     *         "status": 0,
+     *         "message": "File download failed"
+     *     }
+     *
+     * @apiSampleRequest /api/vendor-site-map/get-sitemap
      */
-    // Get Profile Function
     @Get('/get-sitemap')
     @Authorized(['vendor', 'seo-site-map'])
     public async getSitempap(@QueryParam('pathName') pathName: string, @Res() response: any): Promise<any> {

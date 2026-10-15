@@ -17,38 +17,44 @@ export class VendorExportLogController {
         private exportLogService: ExportLogService
     ) { }
 
-    // List the site map
     /**
-     * @api {Get} /api/vendor-export-log Export log list
-     * @apiGroup Vendr Export Log
-     * @apiHeader {string} Authorization
-     * @apiParam (Request body) {String} moduleName moduleName
-     * @apiParam (Request body) {Number} limit limit
-     * @apiParam (Request body) {Number} offset offset
-     * @apiParam (Request body) {Number} userId userId
-     * @apiParam (Request body) {Number} count count
-     * @apiParam (Request body) {String} createdDate createdDate
-     * @apiParam (Request body) {String} keyword keyword
-     * @apiSuccessExample {json} Success
-     * {
-     *      "status": "1",
-     *      "message": "Successfully got the export log list !!",
-     *      "data": [{
-     *                  {
-     *                       id: 1,
-     *                       module: "User Management",
-     *                       recordAvailable: 5,
-     *                       createdDate: "",
-     *                       "referenceType":"",
-     *                       "tenantId":"",
-     *                       "vendorName":""
-     *                      }
-     *                   }
-     * }]
-     * HTTP/1.1 200 Ok
+     * @api {get} /api/vendor-export-log List Vendor Export Logs
+     * @apiGroup Vendor Export Log
+     * @apiName VendorExportLogList
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiQuery {Number} [limit] Number of records to return
+     * @apiQuery {Number} [offset] Pagination offset
+     * @apiQuery {String} [moduleName] Filter by exported module name
+     * @apiQuery {String} [createdDate] Filter by export date
+     * @apiQuery {Number} [count] Return count only if 1
+     * @apiQuery {String} [keyword] Keyword search
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully got the export log list !!",
+     *         "data": [
+     *             {
+     *                 "id": 1,
+     *                 "module": "Product",
+     *                 "recordAvailable": 10,
+     *                 "createdDate": "2024-01-01T00:00:00.000Z",
+     *                 "vendorUserName": "Vendor User"
+     *             }
+     *         ]
+     *     }
+     *
+     * @apiErrorExample {json} Error-Response:
+     *     HTTP/1.1 500 Internal Server Error
+     *     {
+     *         "status": 0,
+     *         "message": "Internal Server Error"
+     *     }
+     *
      * @apiSampleRequest /api/vendor-export-log
-     * @apiErrorExample {json} listExportLog Error
-     * HTTP/1.1 500 Internal server errorlistExportLog
      */
     @Authorized(['vendor', 'list-export-data'])
     @Get()

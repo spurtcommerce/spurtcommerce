@@ -26,34 +26,36 @@ export class VendorLanguageController {
         // --
     }
 
-    // Language List API
     /**
-     * @api {get} /api/vendor-language Language List API
+     * @api {get} /api/vendor-language Vendor Language List
      * @apiGroup Language
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} limit limit
-     * @apiParam (Request body) {Number} offset offset
-     * @apiParam (Request body) {String} keyword keyword
-     * @apiParam (Request body) {String} status inactive-> 0, active-> 1
-     * @apiParam (Request body) {Number} count count should be number or boolean
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "status": "1"
-     *      "message": "Successfully get language list",
-     *      "data": [{
-     *                "languageId": 57,
-     *                "name": "English",
-     *                "code": "en",
-     *                "image": "Img_1622893818038.png",
-     *                "imagePath": "language/",
-     *                "sortOrder": 1,
-     *                "isActive": 1
-     *              }],
-     * }
+     * @apiName VendorLanguageList
+     *
+     * @apiHeader {String} Authorization  Bearer Token
+     *
+     * @apiQuery {Number} [limit]            Number of records to return
+     * @apiQuery {Number} [offset]           Pagination offset
+     * @apiQuery {String} [keyword]          Search keyword
+     * @apiQuery {String} [status]           Filter by status
+     * @apiQuery {String} [defaultLanguage]  Filter default language (1 or 0)
+     * @apiQuery {Number|Boolean} [count]    If true/1, returns total count
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully got vendor language list",
+     *         "data": [
+     *             {
+     *                 "languageId": 1,
+     *                 "name": "English",
+     *                 "code": "en",
+     *                 "isActive": 1
+     *             }
+     *         ]
+     *     }
+     *
      * @apiSampleRequest /api/vendor-language
-     * @apiErrorExample {json} Language error
-     * HTTP/1.1 500 Internal Server Error
      */
     @Get()
     @Authorized(['vendor', 'list-setting-localization'])
@@ -144,30 +146,30 @@ export class VendorLanguageController {
         return result;
     }
 
-    // Update Vendor Languages API
     /**
-     * @api {post} /api/vendor-language Update Vendor Languages API
+     * @api {post} /api/vendor-language Map Vendor Languages
      * @apiGroup Language
-     * @apiHeader {String} Authorization
+     * @apiName MapVendorLanguage
      *
-     * @apiParam (Request body) {String} languageIds Comma-separated list of language IDs
-     * @apiParam (Request body) {String} deleteVendorLanguageIds Comma-separated list of deleteVendorLanguage IDs
+     * @apiHeader {String} Authorization  Bearer Token
      *
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *   "status": 1,
-     *   "message": "Successfully updated vendor language."
-     * }
+     * @apiBody {String} languageIds         Comma-separated language IDs
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully updated vendor languages."
+     *     }
+     *
+     * @apiErrorExample {json} Invalid-Languages:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Invalid vendor languages."
+     *     }
      *
      * @apiSampleRequest /api/vendor-language
-     *
-     * @apiErrorExample {json} Language error
-     * HTTP/1.1 500 Internal Server Error
-     * {
-     *   "status": 0,
-     *   "message": "Unable to update vendor language."
-     * }
      */
     @Post()
     @Authorized(['vendor', 'list-setting-localization'])

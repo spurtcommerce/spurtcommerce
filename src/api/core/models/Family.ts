@@ -1,6 +1,7 @@
 import moment from 'moment';
-import { BaseModel } from './BaseModel';
-import { BeforeInsert, BeforeUpdate, Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { BaseModel } from '../../core/models/BaseModel';
+import { BeforeInsert, BeforeUpdate, Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { Industry } from '../../../api/core/models/Industry';
 
 @Entity('family')
 export class Family extends BaseModel {
@@ -19,6 +20,13 @@ export class Family extends BaseModel {
 
     @Column({ name: 'tenant_id' })
     public tenantId: number;
+
+    @Column({ name: 'industry_id', nullable: true })
+    public industryId: number;
+
+    @ManyToOne(() => Industry, (industry) => industry.family, { nullable: true })
+    @JoinColumn({ name: 'industry_id' })
+    public industry: Industry;
 
     @BeforeInsert()
     public async createDetails(): Promise<void> {

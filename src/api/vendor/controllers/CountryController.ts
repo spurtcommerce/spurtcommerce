@@ -26,34 +26,39 @@ export class VendorCountryController {
         // --
     }
 
-    // Country List API
     /**
-     * @api {get} /api/vendor-country Country List API
+     * @api {get} /api/vendor-country Vendor Country List
      * @apiGroup Country
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} limit limit
-     * @apiParam (Request body) {Number} offset offset
-     * @apiParam (Request body) {String} keyword keyword
-     * @apiParam (Request body) {String} status status
-     * @apiParam (Request body) {Number} count count should be number or boolean
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "status": "1"
-     *      "message": "Successfully got country list",
-     *      "data":{
-     *              "countryId" : 99
-     *              "name" : "INDIA"
-     *              "isoCode2" : "IN"
-     *              "isoCode3" : "INDIA"
-     *              "addressFormat" : ""
-     *              "postcodeRequired" : ""
-     *              "status" : ""
-     *      }
-     * }
+     * @apiName VendorCountryList
+     *
+     * @apiHeader {String} Authorization  Bearer Token
+     *
+     * @apiQuery {Number} [limit]            Number of records to return
+     * @apiQuery {Number} [offset]           Pagination offset
+     * @apiQuery {String} [keyword]          Search keyword for country name or ISO code
+     * @apiQuery {String} [status]           Filter by status
+     * @apiQuery {Number|Boolean} [count]    If true/1, returns total count
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully get all vendor country list.",
+     *         "data": [
+     *             {
+     *                 "id": 1,
+     *                 "countryId": 99,
+     *                 "name": "INDIA",
+     *                 "isoCode2": "IN",
+     *                 "isoCode3": "IND",
+     *                 "addressFormat": "",
+     *                 "postcodeRequired": 0,
+     *                 "isActive": 1
+     *             }
+     *         ]
+     *     }
+     *
      * @apiSampleRequest /api/vendor-country
-     * @apiErrorExample {json} Country error
-     * HTTP/1.1 500 Internal Server Error
      */
     @Get()
     @Authorized(['vendor', 'list-setting-localization'])
@@ -135,30 +140,30 @@ export class VendorCountryController {
         }
     }
 
-    // Update Vendor Countries API
     /**
-     * @api {post} /api/vendor-country Update Vendor Countries API
+     * @api {post} /api/vendor-country Map Vendor Countries
      * @apiGroup Country
-     * @apiHeader {String} Authorization
+     * @apiName MapVendorCountry
      *
-     * @apiParam (Request body) {String} countryIds Comma-separated list of country IDs
-     * @apiParam (Request body) {String} deleteVendorCountryIds Comma-separated list of deleteVendorCountry IDs
+     * @apiHeader {String} Authorization  Bearer Token
      *
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *   "status": 1,
-     *   "message": "Successfully updated vendor countries."
-     * }
+     * @apiBody {String} countryIds          Comma-separated list of country IDs
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully updated vendor countries."
+     *     }
+     *
+     * @apiErrorExample {json} Invalid-Countries:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Invalid vendor countries."
+     *     }
      *
      * @apiSampleRequest /api/vendor-country
-     *
-     * @apiErrorExample {json} Vendor Country error
-     * HTTP/1.1 500 Internal Server Error
-     * {
-     *   "status": 0,
-     *   "message": "Unable to update vendor countries."
-     * }
      */
     @Post()
     @Authorized(['vendor', 'list-setting-localization'])
@@ -212,27 +217,34 @@ export class VendorCountryController {
         return response.status(200).send(successResponse);
     }
 
-    // Get Country Id API
     /**
-     * @api {get} /api/vendor-country/get-country-id/ Get Country Id API
+     * @api {get} /api/vendor-country/:countryName Get Country ID by Name
      * @apiGroup Country
-     * @apiHeader {String} Authorization
-     * @apiParamExample {json} Input
-     * {
-     *      "countryName" : "",
-     * }
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "status": "1"
-     *      "message": "Successfully  got country Id.",
-     *      "data": {
-     *                  "countryId" : 99
-     *             }
-     * }
+     * @apiName GetCountryIdByName
+     *
+     * @apiHeader {String} Authorization  Bearer Token
+     *
+     * @apiParam (Path) {String} countryName Country name to search
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully got vendor country id.",
+     *         "data": {
+     *             "countryId": 99,
+     *             "name": "India"
+     *         }
+     *     }
+     *
+     * @apiErrorExample {json} Invalid-Country-Name:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Enter valid vendor country name."
+     *     }
+     *
      * @apiSampleRequest /api/vendor-country/:countryName
-     * @apiErrorExample {json} Country error
-     * HTTP/1.1 500 Internal Server Error
      */
     @Get('/:countryName')
     @Authorized(['vendor', 'list-setting-localization'])

@@ -1,5 +1,5 @@
 import moment from 'moment';
-import { ILike, IsNull, QueryRunner } from 'typeorm';
+import { IsNull, QueryRunner } from 'typeorm';
 import { getDataSource } from '../../src/loaders/typeormLoader';
 import * as fs from 'fs';
 import * as path from 'path';
@@ -37,11 +37,6 @@ interface ProductInterface {
     pricingGroup: any;
     productDiscount: number;
     productSpecial: number;
-}
-
-interface Variant {
-    name: string;
-    values: Array<{ name: string }>;
 }
 
 interface CustomerUserInterface {
@@ -85,18 +80,6 @@ interface CustomerInterface {
     pageGroups: PageGroupInterface[];
 }
 
-interface SupportTicketInterface {
-    category: string;
-    subCategory: string;
-    subject: string;
-    description: string;
-    userType: 'buyer' | 'seller';
-    message: Array<{
-        message: string;
-        senderType: 'buyer' | 'seller';
-    }>;
-}
-
 export interface BlogInterface {
     title: string;
     category: string;
@@ -136,20 +119,10 @@ export async function demoDataMigrate(data: any, vendorCountryId: number, vendor
 
     // Get the result with grouped variants
     const queryRunner: QueryRunner = getDataSource().createQueryRunner();
-    const productVariantRepo = queryRunner.manager.getRepository('ProductVarient');
     const skuRepo = queryRunner.manager.getRepository('Sku');
-    const productVarientOptionRepo = queryRunner.manager.getRepository('ProductVarientOption');
-    const productVarientOptionDetailRepo = queryRunner.manager.getRepository('ProductVarientOptionDetail');
     const productRepo = queryRunner.manager.getRepository('Product');
     const productToCategoryRepo = queryRunner.manager.getRepository('ProductToCategory');
-    const productVarientOptionImageRepo = queryRunner.manager.getRepository('ProductVarientOptionImage');
     const vendorProductRepo = queryRunner.manager.getRepository('VendorProducts');
-    const productToSpecificationRepo = queryRunner.manager.getRepository('ProductToSpecification');
-    const productSpecToAttrGroupRepo = queryRunner.manager.getRepository('ProductSpecToAttrGroup');
-    const productSpecAttrGrouptoAttrRepo = queryRunner.manager.getRepository('ProductSpecAttrGrouptoAttr');
-    const productSpecAttrGrpAttrToAttrValRepo = queryRunner.manager.getRepository('ProductSpecAttrGrpAttrToAttrVal');
-    const attributeRepo = queryRunner.manager.getRepository('Attribute');
-    const attributeValueRepo = queryRunner.manager.getRepository('AttributeValue');
     const productImageRepo = queryRunner.manager.getRepository('ProductImage');
     const bannerRepo = queryRunner.manager.getRepository('Banner');
     const widgetRepo = queryRunner.manager.getRepository('Widget');
@@ -159,57 +132,38 @@ export async function demoDataMigrate(data: any, vendorCountryId: number, vendor
     const vendorCountryRepo = queryRunner.manager.getRepository('VendorCountry');
     const vendorLanguageRepo = queryRunner.manager.getRepository('VendorLanguage');
     const zoneRepo = queryRunner.manager.getRepository('Zone');
-    // const vendorCurrencyRepo = queryRunner.manager.getRepository('VendorCurrency');
     const industryRepo = queryRunner.manager.getRepository('Industry');
     const customerRepo = queryRunner.manager.getRepository('Customer');
     const customerUserRepo = queryRunner.manager.getRepository('CustomerUsers');
     const customerUserGroupRepo = queryRunner.manager.getRepository('CustomerUserGroup');
-    // const shoppingCartRepo = queryRunner.manager.getRepository('ShoppingCart');
-    // const shoppingCartDetailsRepo = queryRunner.manager.getRepository('ShoppingCartDetail');
     const addressRepo = queryRunner.manager.getRepository('Address');
-    // const orderRepo = queryRunner.manager.getRepository('Order');
-    // const orderLogRepo = queryRunner.manager.getRepository('OrderLog');
-    // const orderProductRepo = queryRunner.manager.getRepository('OrderProduct');
-    // const orderProductLogRepo = queryRunner.manager.getRepository('OrderProductLog');
     const orderStatusRepo = queryRunner.manager.getRepository('OrderStatus');
-    // const productTirePriceRepo = queryRunner.manager.getRepository('ProductTirePrice');
     const productSpecialRepo = queryRunner.manager.getRepository('ProductSpecial');
     const productDiscountRepo = queryRunner.manager.getRepository('ProductDiscount');
-    // const vendorOrderRepo = queryRunner.manager.getRepository('VendorOrders');
-    // const vendorOrderLogRepo = queryRunner.manager.getRepository('VendorOrderLog');
-    // const vendorInvoiceRepo = queryRunner.manager.getRepository('VendorInvoice');
-    // const vendorInvoiceItemRepo = queryRunner.manager.getRepository('VendorInvoiceItem');
-    // const productStockAlertRepo = queryRunner.manager.getRepository('ProductStockAlert');
-    // const stockLogRepo = queryRunner.manager.getRepository('StockLog');
-    // const orderTotalRepo = queryRunner.manager.getRepository('OrderTotal');
-    const productQuestionRepo = queryRunner.manager.getRepository('ProductQuestion');
-    const productAnswerRepo = queryRunner.manager.getRepository('ProductAnswer');
-    // const quoteRequestRepo = queryRunner.manager.getRepository('QuoteRequest');
-    // const quoteRepo = queryRunner.manager.getRepository('Quote');
     const customerGroupRepo = queryRunner.manager.getRepository('CustomerGroup');
     const pageGroupRepo = queryRunner.manager.getRepository('PageGroup');
-    const ticketCategoriesRepo = queryRunner.manager.getRepository('TicketCategories');
-    const ticketsRepo = queryRunner.manager.getRepository('Tickets');
     const blogCategoryRepo = queryRunner.manager.getRepository('BlogCategory');
     const blogRepo = queryRunner.manager.getRepository('Blog');
-    const vendorPriceGroupRepo = queryRunner.manager.getRepository('VendorPriceGroup');
-    const vendorPriceGroupDetailRepo = queryRunner.manager.getRepository('VendorPriceGroupDetail');
-    const vendorCustomerPriceRepo = queryRunner.manager.getRepository('VendorCustomerPrice');
-    const vendorCustomerGroupPriceRepo = queryRunner.manager.getRepository('VendorCustomerGroupPrice');
-    const vendorPriceGroupScheduleRepo = queryRunner.manager.getRepository('VendorPriceGroupSchedule');
-    const productRatingRepo = queryRunner.manager.getRepository('ProductRating');
     const customerContactRepo = queryRunner.manager.getRepository('CustomerContact');
     const countryRepo = queryRunner.manager.getRepository('Country');
     const languageRepo = queryRunner.manager.getRepository('Language');
     const vendorTaxRepo = queryRunner.manager.getRepository('VendorTax');
     const taxRepo = queryRunner.manager.getRepository('Tax');
     const currencyRepo = queryRunner.manager.getRepository('Currency');
-    // const orderStatusToFullfillmentRepo = queryRunner.manager.getRepository('OrderStatusToFullfillment');
-    // const orderFulfillmentStatusRepository = queryRunner.manager.getRepository('OrderFullfillmentStatus');
     const vendorUserRepo = queryRunner.manager.getRepository('VendorUsers');
     const mSeoMetaRepo = queryRunner.manager.getRepository('MSeoMeta');
     const paymentRuleRepository = queryRunner.manager.getRepository('PaymentRule');
     const customerToGroupRepo = queryRunner.manager.getRepository('CustomerToGroup');
+    const orderRepo = queryRunner.manager.getRepository('Order');
+    const orderLogRepo = queryRunner.manager.getRepository('OrderLog');
+    const orderProductRepo = queryRunner.manager.getRepository('OrderProduct');
+    const orderProductLogRepo = queryRunner.manager.getRepository('OrderProductLog');
+    const orderTotalRepo = queryRunner.manager.getRepository('OrderTotal');
+    const vendorOrderRepo = queryRunner.manager.getRepository('VendorOrders');
+    const vendorOrderLogRepo = queryRunner.manager.getRepository('VendorOrderLog');
+    const vendorInvoiceRepo = queryRunner.manager.getRepository('VendorInvoice');
+    const vendorInvoiceItemRepo = queryRunner.manager.getRepository('VendorInvoiceItem');
+    const stockLogRepo = queryRunner.manager.getRepository('StockLog');
 
     // Upload image buffer to S3
     const uploadImageToS3 = async (key: string, body: Buffer, contentType: string): Promise<void> => {
@@ -409,290 +363,6 @@ export async function demoDataMigrate(data: any, vendorCountryId: number, vendor
     const payload: any = JSON.parse(fs.readFileSync(industryFilePath, 'utf-8'));
     const commonPayload: any = JSON.parse(fs.readFileSync(`./demoData/CommonData.json`, 'utf-8'));
 
-    const groupVariantOptions = (inputData: ProductInterface[]) => {
-        const groupedVariants: Variant[] = [];
-
-        inputData.map((item) => {
-            item.variations.forEach(variant => {
-                const options = [
-                    { name: variant['Variant 1 name'], value: variant['Variant 1 value'] },
-                    { name: variant['Variant 2 name'], value: variant['Variant 2 value'] },
-                ];
-
-                options.forEach(option => {
-                    const existingVariant = groupedVariants.find(v => v.name === option.name);
-
-                    if (existingVariant) {
-                        const existingValue = existingVariant.values.find(v => v.name === option.value);
-                        if (!existingValue) {
-                            existingVariant.values.push({ name: option.value });
-                        }
-                    } else {
-                        groupedVariants.push({
-                            name: option.name,
-                            values: [{ name: option.value }],
-                        });
-                    }
-                });
-            });
-        });
-        return groupedVariants;
-    };
-
-    const checkAndCreateAttributesAndSpecification = async (attributeQueryRunner: QueryRunner, checkAndCreateCategory: any): Promise<any> => {
-        const attributeGroupRepo = attributeQueryRunner.manager.getRepository('AttributeGroup');
-        const attributeToGroupRepo = attributeQueryRunner.manager.getRepository('AttributeToGroup');
-        const specificationRepo = attributeQueryRunner.manager.getRepository('Specification');
-        const specToGroupRepo = attributeQueryRunner.manager.getRepository('SpecificationToAttributeGroup');
-        const specGroupToAttrRepo = attributeQueryRunner.manager.getRepository('SpecificationAttrGrpToAttribute');
-     const specificationToCategoryRepo = attributeQueryRunner.manager.getRepository('SpecificationToCategory');
-
-        const savedAttributes: any[] = [];
-        let specificationDetails: any;
-        // const categoryGroupMap = new Map();
-        // Create Specification and link to group and attributes
-        let specSaved: any = await specificationRepo.findOne({
-            where: {
-                name: 'Additional information',
-                isActive: 1,
-                tenantId,
-            },
-        });
-
-        if (!specSaved) {
-            const specification = specificationRepo.create({
-                name: 'Additional information',
-                isActive: 1,
-                tenantId,
-                slug: 'Additional information'.replace(/\s+/g, '-').replace(/[&\/\\@#,+()$~%.':*?<>{}]/g, ''),
-            });
-
-            specSaved = await specificationRepo.save(specification);
-        }
-        specificationDetails = specSaved;
-        for (const product of payload) {
-            // const topCategory = product.categories?.[0]?.split('>').pop()?.trim()?.toLowerCase();
-            const newlyCreatedAttributeIds: number[] = [];
-            if (product.attributes.length) {
-                for (const attribute of product.attributes) {
-                    if (attribute) {
-                        const rawName = attribute.name?.trim();
-                        const normalizedName = rawName?.toLowerCase();
-
-                        // Check for existing attribute
-                        let attributeData: any = await attributeRepo.findOne({
-                            where: {
-                                name: ILike(normalizedName),
-                                tenantId,
-                            },
-                        });
-
-                        if (!attributeData) {
-                            attributeData = attributeRepo.create({});
-                        }
-
-                        attributeData.name = rawName;
-                        attributeData.sortOrder = attribute.sortOrder;
-                        attributeData.isMandatory = 0;
-                        attributeData.type = 'Drop-down';
-                        attributeData.useAsFilter = 1;
-                        attributeData.defaultValue = attribute?.values[0];
-                        attributeData.sectionName = '';
-                        attributeData.label = rawName;
-                        attributeData.description = attribute?.description;
-                        attributeData.tenantId = tenantId;
-                        // });
-
-                        const savedAttribute = await attributeRepo.save(attributeData);
-                        // }
-                        newlyCreatedAttributeIds.push(savedAttribute.id);
-
-                        // Handle attribute values
-                        const existingValues: any = await attributeValueRepo.find({
-                            where: { attributeId: savedAttribute.id },
-                        });
-
-                        if (existingValues.length) {
-                            await attributeValueRepo.delete(existingValues);
-
-                        }
-
-                        const existingValueSet = new Set();
-
-                        const newValues: string[] = [];
-                        const attributeValuesToInsert: any[] = [];
-
-                        for (const val of attribute.values) {
-                            const trimmedValue = val?.trim();
-                            if (!trimmedValue) {
-                                continue;
-                            }
-
-                            const normalizedValue = trimmedValue.toLowerCase();
-
-                            if (!existingValueSet.has(normalizedValue)) {
-                                attributeValuesToInsert.push({
-                                    attributeId: savedAttribute.id,
-                                    value: trimmedValue,
-                                });
-
-                                existingValueSet.add(normalizedValue);
-                                newValues.push(trimmedValue);
-                            }
-                        }
-
-                        if (attributeValuesToInsert.length > 0) {
-                            await attributeValueRepo.save(attributeValuesToInsert);
-                        }
-
-                        if (newValues.length > 0) {
-                            const existingAttr = savedAttributes.find(
-                                (a) => a.name?.toLowerCase() === rawName?.toLowerCase()
-                            );
-
-                            if (existingAttr) {
-                                existingAttr.values.push(...newValues);
-                            } else {
-                                savedAttributes.push({ name: rawName, values: newValues });
-                            }
-                        }
-                        const attrGroupName = attribute.attrGroupName?.trim();
-                        const normalizedGroupName = attrGroupName;
-                        //  Create static AttributeGroup and map attributes
-                        let attributeGroup: any = await attributeGroupRepo.findOne({
-                            where: {
-                                name: `${normalizedGroupName} Attributes`,
-                                tenantId,
-                            },
-                        });
-
-                        if (!attributeGroup) {
-                            attributeGroup = attributeGroupRepo.create({
-                                name: `${normalizedGroupName} Attributes`,
-                                sortOrder: 0,
-                                tenantId,
-                            });
-                            attributeGroup = await attributeGroupRepo.save(attributeGroup);
-                        }
-
-                        attributeToGroupRepo.save({
-                            attributeId: savedAttribute.id,
-                            attributeGroupId: attributeGroup.id,
-                            tenantId,
-                        });
-
-                        const specToGroup = specToGroupRepo.create({
-                            specificationId: specSaved.id,
-                            attributeGroupId: attributeGroup.id,
-                            tenantId,
-                        });
-
-                        const specToGroupSaved: any = await specToGroupRepo.save(specToGroup);
-
-                        specGroupToAttrRepo.save({
-                            attributeId: savedAttribute.id,
-                            specAttrGrpId: specToGroupSaved.id,
-                            tenantId,
-                        });
-                    }
-
-                    // Category mapping for site filter
-                    for (const category of checkAndCreateCategory) {
-                        for (const id of category.categoryIds ?? []) {
-                            const existsSpecCat = await specificationToCategoryRepo.findOne({
-                                where: {
-                                    categoryId: id,
-                                    specificationId: specSaved.id,
-                                },
-                            });
-                            if (!existsSpecCat) {
-                                const specToCategory: any = {};
-                                specToCategory.categoryId = id;
-                                specToCategory.specificationId = specSaved.id;
-                                await specificationToCategoryRepo.save(specToCategory);
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        return { savedAttributes, specificationDetails };
-    };
-
-    const checkAndCreateVariants = async (variantsData: Variant[], variantQueryRunner: QueryRunner) => {
-        const variantService = variantQueryRunner.manager.getRepository('Variant');
-        const variantValueService = variantQueryRunner.manager.getRepository('VariantValue');
-        const variantNames = variantsData.map(v => v.name);
-        const existingVariants: any[] = await variantService
-            .createQueryBuilder('variant')
-            .leftJoinAndSelect('variant.variantValue', 'variantValue')
-            .where('variant.name IN (:...variantNames)', { variantNames })
-            .andWhere('variant.tenantId =:tenantId', { tenantId })
-            .getMany();
-
-        const variantMap = existingVariants.reduce((map, variant) => {
-            const variantValues = variant.variantValue.map(value => ({
-                id: value.id,
-                value: value.value,
-            }));
-            map[variant.name] = { id: variant.id, values: variantValues };
-            return map;
-        }, {});
-
-        const valuesToCreate: any[] = [];
-        let sortOrder = 0;
-        let variantValueSortOrder = 0;
-        for (const variant of variantsData) {
-            const { name, values } = variant;
-
-            if (!variantMap[name]) {
-                const newVariant = {
-                    name,
-                    tenantId,
-                    sortOrder,
-                    createdDate: moment().format('YYYY-MM-DD HH:mm:ss'),
-                };
-                const newVariantSave: any = await variantService.save(newVariant);
-                sortOrder++;
-                variantMap[name] = { id: newVariantSave.id, values: [] };
-            }
-
-            const existingValueNames = new Set(variantMap[name].values.map(v => v.value));
-            for (const value of values) {
-                const { name: valueName } = value;
-
-                if (!existingValueNames.has(valueName)) {
-                    valuesToCreate.push({
-                        variantId: variantMap[name].id,
-                        value: valueName,
-                        sortOrder: variantValueSortOrder,
-                        createdDate: moment().format('YYYY-MM-DD HH:mm:ss'),
-                    });
-                    variantValueSortOrder++;
-                }
-            }
-
-            const createdValues = await variantValueService.save(valuesToCreate);
-            variantMap[name].values.push(...createdValues);
-
-        }
-        const result = variantsData.map(variant => {
-            return {
-                id: variantMap[variant.name].id,
-                name: variant.name,
-                values: variant.values.map(value => {
-                    const existingValue = variantMap[variant.name].values.find(v => v.value === value.name);
-                    return {
-                        // tslint:disable-next-line:no-null-keyword
-                        id: existingValue ? existingValue.id : null,
-                        name: existingValue.value,
-                    };
-                }),
-            };
-        });
-        return result;
-    };
-
     const checkAndCreateFamilyAndCategory = async (payloadData: ProductInterface[], categoryQueryRunner: QueryRunner) => {
         const categoryRepo = categoryQueryRunner.manager.getRepository('Category');
         const categoryPathRepo = categoryQueryRunner.manager.getRepository('CategoryPath');
@@ -847,6 +517,15 @@ export async function demoDataMigrate(data: any, vendorCountryId: number, vendor
             });
         };
 
+        let saveCustomer: any = await customerRepo.findOne({ where: { email: payloadData.email, tenantId } });
+        if (saveCustomer) {
+            const existingAddress = await addressRepo.findOne({ where: { customerId: saveCustomer.id, addressType: 0 } });
+            const existingCustomerUser = await customerUserRepo.findOne({ where: { customerId: saveCustomer.id } });
+            saveCustomer.address = existingAddress;
+            saveCustomer.customerUser = existingCustomerUser;
+            return saveCustomer;
+        }
+
         const customerGroup: any = {};
         customerGroup.name = payloadData.customerGroup.name;
         customerGroup.description = payloadData.customerGroup.description ?? '';
@@ -871,7 +550,7 @@ export async function demoDataMigrate(data: any, vendorCountryId: number, vendor
         const customerPassword = await hashPassword(payloadData.password);
         newCustomer.password = customerPassword;
         newCustomer.createdDate = moment().format('YYYY-MM-DD HH:mm:ss');
-        const saveCustomer: any = await customerRepo.save(newCustomer);
+        saveCustomer = await customerRepo.save(newCustomer);
 
         const customerToGroup: any = {};
         customerToGroup.customerId = saveCustomer.id;
@@ -1005,90 +684,7 @@ export async function demoDataMigrate(data: any, vendorCountryId: number, vendor
         }
         await pageGroupRepo.save(newPageGroupArr);
     };
-    createPageAndGroup(commonPayload.pageGroups);
-
-    const addQuestionAndAnswer = async (productId: number, skuId: number, question: string, answer: string) => {
-        const questionObj: any = {};
-        questionObj.question = question;
-        questionObj.productId = productId;
-        questionObj.skuId = skuId;
-        questionObj.type = 3;
-        questionObj.referenceId = tenantId;
-        questionObj.isActive = 1;
-        const questionSaved = await productQuestionRepo.save(questionObj);
-        const answerObj: any = {};
-        answerObj.answer = answer;
-        answerObj.questionId = +questionSaved.questionId;
-        answerObj.type = 3;
-        answerObj.referenceId = tenantId;
-        answerObj.defaultAnswer = 0;
-        answerObj.isActive = 1;
-        await productAnswerRepo.save(answerObj);
-    };
-
-    const createTicket = async (ticketParams: [SupportTicketInterface]) => {
-        for (const ticketData of ticketParams) {
-            // create category
-            let parentCategory = await ticketCategoriesRepo.findOne({
-                where: {
-                    categoryName: ticketData.category,
-                    parentCategoryId: 0,
-                    tenantId,
-                },
-            });
-            if (!parentCategory) {
-                const newTicketCategory: any = {};
-                newTicketCategory.categoryName = ticketData.category;
-                newTicketCategory.isActive = 1;
-                newTicketCategory.parentCategoryId = 0;
-                newTicketCategory.tenantId = tenantId;
-                newTicketCategory.createdDate = moment().format('YYYY-MM-DD HH:mm:ss');
-                parentCategory = await ticketCategoriesRepo.save(newTicketCategory);
-            }
-
-            let subCategory = await ticketCategoriesRepo.findOne({
-                where: {
-                    categoryName: ticketData.subCategory,
-                    parentCategoryId: parentCategory.id,
-                    tenantId,
-                },
-            });
-
-            if (!subCategory) {
-                const newSubCategory: any = {};
-                newSubCategory.categoryName = ticketData.subCategory;
-                newSubCategory.isActive = 1;
-                newSubCategory.parentCategoryId = parentCategory.id;
-                newSubCategory.tenantId = tenantId;
-                newSubCategory.createdDate = moment().format('YYYY-MM-DD HH:mm:ss');
-                subCategory = await ticketCategoriesRepo.save(newSubCategory);
-            }
-
-            const newTickets: any = {};
-            newTickets.categoryId = parentCategory.id;
-            newTickets.subCategoryId = subCategory.id;
-            newTickets.refId = `TKT#${Date.now()}`;
-            newTickets.subject = ticketData.subject;
-            newTickets.description = ticketData.description;
-            newTickets.status = 1;
-            newTickets.userId = customerUserData.id;
-            newTickets.userType = 'buyer';
-            newTickets.customerUserId = customerUserData.customerUser.id;
-            newTickets.tenantId = tenantId;
-            newTickets.createdDate = moment().format('YYYY-MM-DD HH:mm:ss');
-
-            newTickets.ticketMessage = ticketData.message.map((messageData) => {
-                const newTicketMessage: any = {};
-                newTicketMessage.message = messageData.message;
-                newTicketMessage.createdByType = messageData.senderType;
-                newTicketMessage.senderId = messageData.senderType === 'buyer' ? customerUserData.id : tenantId;
-                newTicketMessage.senderType = messageData.senderType;
-                newTicketMessage.createdDate = moment().format('YYYY-MM-DD HH:mm:ss');
-                return newTicketMessage;
-            });
-            await ticketsRepo.save(newTickets);
-        }
-    };
+    await createPageAndGroup(commonPayload.pageGroups);
 
     const createBlog = async (blogParams: [BlogInterface]) => {
         for (const blog of blogParams) {
@@ -1114,61 +710,6 @@ export async function demoDataMigrate(data: any, vendorCountryId: number, vendor
             newBlog.createdDate = moment().format('YYYY-MM-DD HH:mm:ss');
             await blogRepo.save(newBlog);
         }
-    };
-
-    const createPricingGroup = async (pricingGroupParams: PricingGroupInterface, skuId: number) => {
-        const priceGroup = pricingGroupParams;
-        const slugName = priceGroup.name.replace(/\s+/g, '-').replace(/[&\/\\@#,+()$~%.':*?<>{}]/g, '').toLowerCase();
-        let pricingGroup: any = await vendorPriceGroupRepo.findOne({ where: { slug: slugName, vendorId: tenantId } });
-        if (!pricingGroup) {
-            const newPriceGroup: any = {};
-            newPriceGroup.name = priceGroup.name;
-            newPriceGroup.slug = slugName;
-            newPriceGroup.description = priceGroup.description ?? '';
-            newPriceGroup.vendorId = tenantId;
-            newPriceGroup.isDefault = priceGroup.isDefault;
-            newPriceGroup.createdBy = tenantId;
-            newPriceGroup.isDelete = 0;
-            newPriceGroup.isActive = 1;
-            newPriceGroup.createdDate = moment().format('YYYY-MM-DD HH:mm:ss');
-            pricingGroup = await vendorPriceGroupRepo.save(newPriceGroup);
-
-        }
-
-        const newVendorPriceGroupDetail: any = {};
-        newVendorPriceGroupDetail.priceGroupId = pricingGroup.id;
-        newVendorPriceGroupDetail.skuId = skuId;
-        newVendorPriceGroupDetail.unitId = 1;
-        newVendorPriceGroupDetail.price = priceGroup.price;
-        newVendorPriceGroupDetail.maxQuantity = priceGroup.maxQuantity;
-        newVendorPriceGroupDetail.isActive = 1;
-        newVendorPriceGroupDetail.isDelete = 0;
-        newVendorPriceGroupDetail.createdDate = moment().format('YYYY-MM-DD HH:mm:ss');
-        const savePriceDetail = await vendorPriceGroupDetailRepo.save(newVendorPriceGroupDetail);
-
-        const sellerBuyerPrice: any = {};
-        sellerBuyerPrice.customerId = customerUserData.id;
-        sellerBuyerPrice.priceGroupId = pricingGroup.id;
-        sellerBuyerPrice.createdBy = tenantId;
-        sellerBuyerPrice.createdDate = moment().format('YYYY-MM-DD HH:mm:ss');
-        await vendorCustomerPriceRepo.save(sellerBuyerPrice);
-
-        const sellerBuyerGroupPrice: any = {};
-        sellerBuyerGroupPrice.customerGroupId = customerUserData.customerGroupId;
-        sellerBuyerGroupPrice.priceGroupId = pricingGroup.id;
-        sellerBuyerGroupPrice.createdBy = tenantId;
-        sellerBuyerGroupPrice.modifiedBy = tenantId;
-        sellerBuyerGroupPrice.createdDate = moment().format('YYYY-MM-DD HH:mm:ss');
-        await vendorCustomerGroupPriceRepo.save(sellerBuyerGroupPrice);
-
-        const newPriceGroupSchedule: any = {};
-        newPriceGroupSchedule.priceGroupDetailId = savePriceDetail.id;
-        newPriceGroupSchedule.startDate = moment().format('YYYY-MM-DD HH:mm:ss');
-        newPriceGroupSchedule.endDate = moment().add(15, 'days').format('YYYY-MM-DD HH:mm:ss');
-        newPriceGroupSchedule.isActive = 1;
-        newPriceGroupSchedule.isDelete = 0;
-        newPriceGroupSchedule.createdDate = moment().format('YYYY-MM-DD HH:mm:ss');
-        await vendorPriceGroupScheduleRepo.save(newPriceGroupSchedule);
     };
 
     const addCustomerContact = async (customerContacts: CustomerContactInterface[]) => {
@@ -1199,20 +740,299 @@ export async function demoDataMigrate(data: any, vendorCountryId: number, vendor
     };
 
     const customerUserData = await checkAndCreateCustomerUser(commonPayload.customer);
-    createTicket(commonPayload.supportTicket);
-    createBlog(commonPayload.blog);
-    addCustomerContact(commonPayload.contacts);
+    await createBlog(commonPayload.blog);
+    await addCustomerContact(commonPayload.contacts);
 
     const sanitizeText = (text: string): string => {
         return text.replace(/[^a-zA-Z0-9, ]/g, '').trim();
     };
 
+    const createOrdersForProducts = async (
+        orderProductsList: Array<{ productId: number; skuId: number; skuName: string; name: string; price: number; quantity: number; hasStock?: number; taxType?: number; taxValue?: number }>,
+        customerData: any,
+        vSettings: any,
+        vData: any
+    ) => {
+        if (!orderProductsList || orderProductsList.length === 0) {
+            return;
+        }
+
+        let orderStatus: any = await orderStatusRepo.findOne({ where: { statusId: 1, tenantId } });
+        if (!orderStatus) {
+            orderStatus = await orderStatusRepo.findOne({ where: { tenantId } });
+        }
+        if (!orderStatus) {
+            orderStatus = await orderStatusRepo.findOne({ where: { defaultStatus: 1 } });
+        }
+        if (!orderStatus) {
+            orderStatus = await orderStatusRepo.findOne({});
+        }
+
+        let currency: any = await currencyRepo.findOne({ where: { currencyId: vSettings?.storeCurrencyId } });
+        if (!currency) {
+            currency = await currencyRepo.findOne({});
+        }
+
+        const vendorCountryData: any = await vendorCountryRepo.findOne({
+            where: { tenantId },
+            relations: ['country'],
+        });
+
+        const createDemoOrder = async (
+            items: Array<{ productId: number; skuId: number; skuName: string; name: string; price: number; quantity: number; hasStock?: number; taxType?: number; taxValue?: number }>,
+            daysAgo: number = 0
+        ) => {
+            const orderDateMoment = moment().subtract(daysAgo, 'days');
+            const orderDateStr = orderDateMoment.format('YYYY-MM-DD HH:mm:ss');
+            const odrDate = orderDateMoment.format('YYYYMMDD');
+
+            const newOrder = {} as any;
+            newOrder.customerId = customerData?.id || 1;
+            newOrder.firstname = customerData?.firstName || 'Demo';
+            newOrder.lastname = customerData?.lastName || 'Buyer';
+            newOrder.email = customerData?.email || 'buyer@spurtcommerce.com';
+            newOrder.telephone = customerData?.address?.phoneNo || 9876543210;
+            newOrder.shippingFirstname = customerData?.firstName || 'Demo';
+            newOrder.shippingLastname = customerData?.lastName || 'Buyer';
+            newOrder.shippingAddress1 = customerData?.address?.address1 || '123 Demo Street';
+            newOrder.shippingAddress2 = customerData?.address?.address2 || '';
+            newOrder.shippingCompany = vData?.company || '';
+            newOrder.shippingCity = customerData?.address?.city || 'Chennai';
+            newOrder.shippingZone = customerData?.address?.state || 'Tamil Nadu';
+            newOrder.shippingCountryId = customerData?.address?.countryId || 99;
+            newOrder.shippingZoneId = customerData?.address?.zoneId || 0;
+            newOrder.shippingCountry = vendorCountryData?.country?.name || 'India';
+            newOrder.shippingPostcode = customerData?.address?.postcode || '600001';
+            newOrder.shippingAddressFormat = '';
+            newOrder.shippingMethod = 'Standard Delivery';
+            newOrder.paymentFirstname = customerData?.firstName || 'Demo';
+            newOrder.paymentLastname = customerData?.lastName || 'Buyer';
+            newOrder.paymentAddress1 = customerData?.address?.address1 || '123 Demo Street';
+            newOrder.paymentAddress2 = customerData?.address?.address2 || '';
+            newOrder.paymentMobileNumber = customerData?.address?.phoneNo || '9876543210';
+            newOrder.paymentCompany = vData?.company || '';
+            newOrder.paymentCity = customerData?.address?.city || 'Chennai';
+            newOrder.paymentZone = customerData?.address?.state || 'Tamil Nadu';
+            newOrder.paymentCountry = vendorCountryData?.country?.name || 'India';
+            newOrder.paymentCountryId = customerData?.address?.countryId || 99;
+            newOrder.paymentZoneId = customerData?.address?.zoneId || 0;
+            newOrder.paymentPostcode = customerData?.address?.postcode || '600001';
+            newOrder.paymentMethod = '1';
+            newOrder.customerGstNo = '';
+            newOrder.ip = '127.0.0.1';
+            newOrder.isActive = 1;
+            newOrder.backOrders = 0;
+            newOrder.paymentProcess = 0;
+            newOrder.paymentStatus = 1;
+            newOrder.paymentFlag = 1;
+            newOrder.orderStatusId = orderStatus?.orderStatusId ?? 1;
+            newOrder.invoicePrefix = vSettings?.invoicePrefix || 'Spurt';
+            newOrder.currencyCode = currency?.code || 'INR';
+            newOrder.currencyValue = currency?.value || 1;
+            newOrder.currencySymbolLeft = currency?.symbolLeft || '₹';
+            newOrder.currencySymbolRight = currency?.symbolRight || '';
+            newOrder.tenantId = tenantId;
+            newOrder.createdDate = orderDateStr;
+            newOrder.modifiedDate = orderDateStr;
+            newOrder.mustShipBefore = moment(orderDateMoment).add(10, 'days').format('YYYY-MM-DD');
+            newOrder.poNumber = 'PO-' + Math.floor(100000 + Math.random() * 900000);
+            newOrder.notes = 'Demo Order';
+            newOrder.paymentRuleId = 1;
+            newOrder.paymentTermId = 1;
+            newOrder.createdByType = 'buyer';
+            newOrder.orderSource = 'shopping-cart';
+            newOrder.shippingCostOverride = 10;
+            newOrder.amount = 0;
+            newOrder.total = 0;
+
+            const savedOrder: any = await orderRepo.save(newOrder);
+
+            savedOrder.invoiceNo = 'INV00'.concat(savedOrder.orderId);
+            savedOrder.orderPrefixId = (vSettings?.invoicePrefix || 'Spurt').concat('-' + odrDate + savedOrder.orderId);
+            await orderRepo.save(savedOrder);
+
+            await orderLogRepo.save({ ...savedOrder, orderLogId: undefined });
+
+            let orderTotalAmount = 0;
+            let j = 1;
+            for (const item of items) {
+                const itemQty = item.quantity || 1;
+                const itemPrice = +item.price || 0;
+                const itemTotal = itemQty * itemPrice;
+                orderTotalAmount += itemTotal;
+
+                const productDetails: any = {};
+                productDetails.productId = item.productId;
+                productDetails.orderProductPrefixId = (savedOrder.invoicePrefix || 'Spurt').concat('-' + odrDate + savedOrder.orderId) + j;
+                productDetails.name = item.name;
+                productDetails.orderId = savedOrder.orderId;
+                productDetails.quantity = itemQty;
+                productDetails.productPrice = itemPrice;
+                productDetails.basePrice = itemPrice;
+                productDetails.discountAmount = 0;
+                productDetails.discountedAmount = 0;
+                productDetails.taxType = item.taxType || 1;
+                productDetails.taxValue = item.taxValue || 10;
+                productDetails.total = itemTotal;
+                productDetails.model = item.name;
+                productDetails.skuName = item.skuName || '';
+                productDetails.priceGroupDetailId = 0;
+                productDetails.orderStatusId = orderStatus?.orderStatusId ?? 1;
+                productDetails.isActive = 1;
+                productDetails.createdDate = orderDateStr;
+                productDetails.modifiedDate = orderDateStr;
+
+                const savedOrderProduct: any = await orderProductRepo.save(productDetails);
+                await orderProductLogRepo.save({ ...savedOrderProduct, orderProductLogId: undefined });
+
+                // Vendor Order
+                const vendorOrder: any = {};
+                vendorOrder.subOrderId = (savedOrder.invoicePrefix || 'Spurt').concat('-' + odrDate + savedOrder.orderId) + tenantId + j;
+                vendorOrder.vendorId = tenantId;
+                vendorOrder.orderId = savedOrder.orderId;
+                vendorOrder.orderProductId = savedOrderProduct.orderProductId;
+                vendorOrder.total = itemTotal;
+                vendorOrder.subOrderStatusId = orderStatus?.orderStatusId ?? 1;
+                vendorOrder.commission = 0;
+                vendorOrder.createdDate = orderDateStr;
+                vendorOrder.modifiedDate = orderDateStr;
+                const savedVendorOrder: any = await vendorOrderRepo.save(vendorOrder);
+
+                // Vendor Order Log
+                const vendorOrderLog: any = {};
+                vendorOrderLog.vendorOrderId = savedVendorOrder.vendorOrderId;
+                vendorOrderLog.subOrderId = savedVendorOrder.subOrderId;
+                vendorOrderLog.vendorId = tenantId;
+                vendorOrderLog.orderId = savedOrder.orderId;
+                vendorOrderLog.subOrderStatusId = orderStatus?.orderStatusId ?? 1;
+                vendorOrderLog.total = itemTotal;
+                vendorOrderLog.createdDate = orderDateStr;
+                vendorOrderLog.modifiedDate = orderDateStr;
+                await vendorOrderLogRepo.save(vendorOrderLog);
+
+                // Vendor Invoice
+                let vendorInvoiceData: any = await vendorInvoiceRepo.findOne({ where: { vendorId: tenantId, orderId: savedOrder.orderId } });
+                if (!vendorInvoiceData) {
+                    const newVendorInvoice: any = {};
+                    newVendorInvoice.vendorId = tenantId;
+                    newVendorInvoice.invoicePrefix = savedOrder.invoicePrefix || 'Spurt';
+                    newVendorInvoice.invoiceNo = 'TEMP';
+                    newVendorInvoice.orderId = savedOrder.orderId;
+                    newVendorInvoice.email = customerData?.email || 'buyer@spurtcommerce.com';
+                    newVendorInvoice.total = 0;
+                    newVendorInvoice.shippingFirstname = customerData?.firstName || 'Demo';
+                    newVendorInvoice.shippingLastname = customerData?.lastName || 'Buyer';
+                    newVendorInvoice.createdDate = orderDateStr;
+                    newVendorInvoice.modifiedDate = orderDateStr;
+                    vendorInvoiceData = await vendorInvoiceRepo.save(newVendorInvoice);
+                }
+                vendorInvoiceData.total = (+vendorInvoiceData.total || 0) + itemTotal;
+                const stringPad = String(vendorInvoiceData.vendorInvoiceId).padStart(5, '0');
+                vendorInvoiceData.invoiceNo = 'INV'.concat(stringPad);
+                await vendorInvoiceRepo.save(vendorInvoiceData);
+
+                const newVendorInvoiceItem: any = {};
+                newVendorInvoiceItem.vendorInvoiceId = vendorInvoiceData.vendorInvoiceId;
+                newVendorInvoiceItem.orderProductId = savedOrderProduct.orderProductId;
+                newVendorInvoiceItem.createdDate = orderDateStr;
+                newVendorInvoiceItem.modifiedDate = orderDateStr;
+                await vendorInvoiceItemRepo.save(newVendorInvoiceItem);
+
+                // Stock log
+                if (item.hasStock === 1) {
+                    const skuRecord: any = await skuRepo.findOne({ where: { skuName: savedOrderProduct.skuName } });
+                    if (skuRecord) {
+                        skuRecord.quantity = Math.max(0, (+skuRecord.quantity || 0) - itemQty);
+                        await skuRepo.save(skuRecord);
+                    }
+                    const stockLog: any = {};
+                    stockLog.productId = savedOrderProduct.productId;
+                    stockLog.orderId = savedOrder.orderId;
+                    stockLog.skuName = savedOrderProduct.skuName;
+                    stockLog.quantity = itemQty;
+                    stockLog.createdDate = orderDateStr;
+                    await stockLogRepo.save(stockLog);
+                }
+
+                j++;
+            }
+
+            // Finalize order amount and total
+            savedOrder.amount = orderTotalAmount;
+            savedOrder.total = orderTotalAmount + (+savedOrder.shippingCostOverride || 0);
+            await orderRepo.save(savedOrder);
+
+            const newOrderTotal: any = {};
+            newOrderTotal.orderId = savedOrder.orderId;
+            newOrderTotal.value = savedOrder.total;
+            newOrderTotal.createdDate = orderDateStr;
+            newOrderTotal.modifiedDate = orderDateStr;
+            await orderTotalRepo.save(newOrderTotal);
+        };
+
+        const p1 = orderProductsList[0];
+        const p2 = orderProductsList[1] || orderProductsList[0];
+        const p3 = orderProductsList[2] || orderProductsList[0];
+
+        // Order 1: 3 days ago
+        await createDemoOrder([{ ...p1, quantity: 1 }], 3);
+
+        // Order 2: 1 day ago
+        await createDemoOrder([{ ...p2, quantity: 2 }], 1);
+
+        // Order 3: today
+        await createDemoOrder([
+            { ...p1, quantity: 1 },
+            { ...p3, quantity: 1 },
+        ], 0);
+    };
+
+    const existingVendorProductCount = await vendorProductRepo.count({ where: { vendorId: tenantId } });
+    const existingVendorOrderCount = await vendorOrderRepo.count({ where: { vendorId: tenantId } });
+
+    if (existingVendorProductCount > 0 && existingVendorOrderCount > 0) {
+        console.log(`[DemoMigrate] Products and orders already exist for vendor ${tenantId}. Skipping.`);
+        return true;
+    }
+
+    if (existingVendorProductCount > 0 && existingVendorOrderCount === 0) {
+        console.log(`[DemoMigrate] Products exist (${existingVendorProductCount}) but orders are missing for vendor ${tenantId}. Generating demo orders...`);
+        const vSettings: any = await vendorSettingsRepo.findOne({ where: { vendorId: tenantId } });
+        const vData: any = await vendorRepo.findOne({ where: { vendorId: tenantId } });
+
+        const existingVendorProducts: any = await vendorProductRepo.find({
+            where: { vendorId: tenantId },
+            relations: ['product', 'sku'],
+        });
+
+        const productsForOrder = existingVendorProducts.map((vp: any) => ({
+            productId: vp.productId,
+            skuId: vp.sku_id || vp.sku?.id,
+            skuName: vp.sku?.skuName || vp.product?.sku || '',
+            name: vp.product?.name || 'Product',
+            price: +(vp.sku?.price || vp.product?.price || 100),
+            quantity: 1,
+            hasStock: vp.product?.hasStock || 0,
+            taxType: vp.product?.taxType || 1,
+            taxValue: vp.product?.taxValue || 10,
+        }));
+
+        await queryRunner.startTransaction();
+        try {
+            await createOrdersForProducts(productsForOrder, customerUserData, vSettings, vData);
+            await queryRunner.commitTransaction();
+            console.log(`[DemoMigrate] Successfully created demo orders for existing vendor ${tenantId}.`);
+            return true;
+        } catch (err: any) {
+            await queryRunner.rollbackTransaction();
+            console.error('[DemoMigrate] Error creating demo orders:', err);
+            return err;
+        }
+    }
+
     await queryRunner.startTransaction();
     try {
-        const variants = groupVariantOptions(payload);
-        const masterVariants = await checkAndCreateVariants(variants, queryRunner);
         const productsWithCategory = await checkAndCreateFamilyAndCategory(payload, queryRunner);
-        const attributeAndSpec = await checkAndCreateAttributesAndSpecification(queryRunner, productsWithCategory);
 
         const validate_sku = async (slug: string, id: number = 0, count: number = 0): Promise<string> => {
 
@@ -1250,6 +1070,7 @@ export async function demoDataMigrate(data: any, vendorCountryId: number, vendor
             }
         };
 
+        const createdProducts: any[] = [];
         for (const product of productsWithCategory) {
 
             let skuValue: any = await skuRepo.find({ where: { skuName: product.slug.split('-').join('').toUpperCase() } });
@@ -1310,6 +1131,18 @@ export async function demoDataMigrate(data: any, vendorCountryId: number, vendor
             vendorProducts.rejectReason = [];
 
             await vendorProductRepo.save(vendorProducts);
+
+            createdProducts.push({
+                productId: productSave.productId,
+                skuId: productSave.skuId,
+                skuName: newSku.skuName,
+                name: product.name,
+                price: +(product.price || 100),
+                quantity: +(product.quantity || 10),
+                hasStock: productSave.hasStock,
+                taxType: productSave.taxType,
+                taxValue: productSave.taxValue,
+            });
             if (product.images) {
                 for (const image of product.images) {
                     const newProductImage: any = {};
@@ -1319,7 +1152,7 @@ export async function demoDataMigrate(data: any, vendorCountryId: number, vendor
                     newProductImage.defaultImage = 1;
                     newProductImage.sortOrder = 1;
                     newProductImage.createdDate = moment().format('YYYY-MM-DD HH:mm:ss');
-                    productImageRepo.save(newProductImage);
+                    await productImageRepo.save(newProductImage);
                 }
             }
 
@@ -1368,144 +1201,6 @@ export async function demoDataMigrate(data: any, vendorCountryId: number, vendor
                 specialPriceData.dateStart = moment().format('YYYY-MM-DD');
                 specialPriceData.dateEnd = moment().add(30, 'days').format('YYYY-MM-DD');
                 await productSpecialRepo.save(specialPriceData);
-            }
-
-            if (product.type === 0 || product.type === 1) {
-                const specMapProduct = {
-                    productId: productSave.productId,
-                    specificationId: attributeAndSpec.specificationDetails.id,
-                    createdDate: moment().format('YYYY-MM-DD HH:mm:ss'),
-                };
-                const savedSpecMap: any = await productToSpecificationRepo.save(specMapProduct);
-
-                const savedSpecToAttrGroup: any = await productSpecToAttrGroupRepo.save({
-                    productSpecId: savedSpecMap.id,
-                    createdDate: moment().format('YYYY-MM-DD HH:mm:ss'),
-                });
-
-                const attributes = product.attributes || [];
-
-                for (const attr of attributes) {
-                    const attrEntity: any = await attributeRepo.findOne({
-                        where: {
-                            name: ILike(attr.name),
-                            tenantId,
-                        },
-                    });
-
-                    if (!attrEntity) {
-                        continue;
-                    }
-                    const savedAttr: any = await productSpecAttrGrouptoAttrRepo.save({
-                        attributeId: attrEntity.id,
-                        productSpecAttrGrpId: savedSpecToAttrGroup.id,
-                    });
-
-                    for (const val of attr.values) {
-                        const attrVal: any = await attributeValueRepo.findOne({
-                            where: {
-                                attributeId: attrEntity.id,
-                                value: val,
-                            },
-                        });
-
-                        if (!attrVal) {
-                            continue;
-                        }
-
-                        await productSpecAttrGrpAttrToAttrValRepo.save({
-                            attributeValueId: attrVal.id,
-                            productSpecAttrGrpAttrId: savedAttr.id,
-                            value: val,
-                        });
-                    }
-                }
-            }
-
-            if (product.type === 0) {
-                const productVariantsMaster: any[] = [];
-                const productVariantByName = product.variations[0];
-
-                for (let optionIndex = 1; optionIndex <= 3; optionIndex++) {
-                    const optionName = `Variant ${optionIndex} name`;
-                    if (productVariantByName[optionName]) {
-                        const getVariantFromMaster = masterVariants.find((masterVariant) => masterVariant.name === productVariantByName[optionName]);
-                        productVariantsMaster.push(getVariantFromMaster);
-                    }
-                }
-
-                const productVarient: any[] = [];
-                const productVariantDetails: any[] = [];
-                for (const productVariant of productVariantsMaster) {
-                    const newProductVariant: any = {};
-                    newProductVariant.productId = productSave.productId;
-                    newProductVariant.variantId = productVariant.id;
-                    newProductVariant.isActive = 1;
-                    productVarient.push(newProductVariant);
-                }
-
-                productVariantDetails.push(...await productVariantRepo.save(productVarient));
-
-                let index = 0;
-                const image: any[] = [];
-
-                for (const productVariant of product.variations) {
-                    const uniqueVariantCode = product.slug.split('-').join('').toUpperCase() + (index + 1).toString();
-
-                    const newVariantSku = {
-                        skuName: uniqueVariantCode,
-                        price: product.price ? parseFloat(product.price).toFixed(2) : null,
-                        quantity: productVariant.quantity ? productVariant.quantity : 0,
-                        isActive: productVariant.isActive,
-                        createdDate: moment().format('YYYY-MM-DD HH:mm:ss'),
-                        tenantId,
-                    };
-                    const saveSkuData: any = await skuRepo.save(newVariantSku);
-
-                    const newProductVarientOption: any = {};
-                    newProductVarientOption.productId = productSave.productId;
-                    newProductVarientOption.skuId = saveSkuData.id;
-                    newProductVarientOption.varientName = uniqueVariantCode;
-                    newProductVarientOption.isActive = 1;
-                    newProductVarientOption.createdDate = moment().format('YYYY-MM-DD HH:mm:ss');
-                    const val = await productVarientOptionRepo.save(newProductVarientOption);
-
-                    const newProductVarientOptionDetails: any[] = [];
-
-                    for (let optionIndex = 1; optionIndex <= 3; optionIndex++) {
-                        const optionName = `Variant ${optionIndex} name`;
-                        const optionValue = `Variant ${optionIndex} value`;
-                        if (productVariant[optionName]) {
-                            const getVariantFromProductVariantsMaster = productVariantsMaster.find((productVariantMaster) => productVariantMaster.name === productVariant[optionName]);
-                            const getVariantValueFromProductVariantsMaster = getVariantFromProductVariantsMaster.values.find((productVariantValue) => productVariantValue.name === productVariant[optionValue]);
-                            newProductVarientOptionDetails.push({
-                                variantValueId: getVariantValueFromProductVariantsMaster.id,
-                                productVariantId: (productVariantDetails.find((productVariantDetail) => productVariantDetail.variantId === getVariantFromProductVariantsMaster.id)).id,
-                            });
-                        }
-                    }
-
-                    const varientValue: any[] = [];
-                    for (const newProductVarientOptionDetail of newProductVarientOptionDetails) {
-                        newProductVarientOptionDetail.productVarientOptionId = val.id;
-                        newProductVarientOptionDetail.createdDate = moment().format('YYYY-MM-DD HH:mm:ss');
-                        varientValue.push(newProductVarientOptionDetail);
-                    }
-                    await productVarientOptionDetailRepo.save(varientValue);
-
-                    if (productVariant.images.length) {
-                        const newProductVarientOptionImage: any = {};
-                        newProductVarientOptionImage.productVarientOptionId = val.id;
-                        newProductVarientOptionImage.image = productVariant.images[0];
-                        newProductVarientOptionImage.containerName = `${data.vendorPrefixId.toLowerCase()}/`;
-                        newProductVarientOptionImage.defaultImage = 1;
-                        newProductVarientOptionImage.sortOrder = 1;
-                        newProductVarientOptionImage.createdDate = moment().format('YYYY-MM-DD HH:mm:ss');
-                        image.push(newProductVarientOptionImage);
-                    }
-                    index++;
-                }
-                await productVarientOptionImageRepo.save(image);
             }
 
             if (product.banner) {
@@ -1561,32 +1256,15 @@ export async function demoDataMigrate(data: any, vendorCountryId: number, vendor
                 const newItem: any = {};
                 newItem.widgetId = widgetValue.widgetId;
                 newItem.refId = productSave.productId;
-                newItem.createdDate = moment().format('YYYY-MM-DD HH:mm:ss'),
-                    await widgetItemRepo.save(newItem);
-            }
-            if (product.type !== 0) {
-                if (product.questionsAnswers) {
-                    addQuestionAndAnswer(productSave.productId, productSave.skuId, product.questionsAnswers.question, product.questionsAnswers.answer);
-                }
-                if (product.pricingGroup) {
-                    createPricingGroup(product.pricingGroup, productSave.skuId);
-                }
-                if (product.ratingAndReview) {
-                    const newRating: any = {};
-                    newRating.review = product.ratingAndReview.review;
-                    newRating.rating = product.ratingAndReview.rating;
-                    newRating.productId = productSave.productId;
-                    newRating.skuId = productSave.skuId;
-                    newRating.customerId = customerUserData.id;
-                    newRating.firstName = customerUserData.firstName;
-                    newRating.lastName = customerUserData.lastName;
-                    newRating.email = customerUserData.email;
-                    newRating.isActive = 1;
-                    newRating.createdDate = moment().format('YYYY-MM-DD HH:mm:ss');
-                    await productRatingRepo.save(newRating);
-                }
+                newItem.createdDate = moment().format('YYYY-MM-DD HH:mm:ss');
+                await widgetItemRepo.save(newItem);
             }
         }
+
+        const vSettings: any = await vendorSettingsRepo.findOne({ where: { vendorId: tenantId } });
+        const vData: any = await vendorRepo.findOne({ where: { vendorId: tenantId } });
+        await createOrdersForProducts(createdProducts, customerUserData, vSettings, vData);
+
         await queryRunner.commitTransaction();
         return true;
     } catch (err: any) {

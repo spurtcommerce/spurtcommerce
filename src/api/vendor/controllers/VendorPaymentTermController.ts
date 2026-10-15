@@ -20,21 +20,36 @@ export class VendorPaymentTermController {
         // --
     }
 
-    // Payment Term Detail API
     /**
-     * @api {get} /api/vendor-payment-term/dropdown-list Payment Term Detail API
+     * @api {get} /api/vendor-payment-term/dropdown-list Get Payment Term Dropdown List
      * @apiGroup Vendor Payment Term
-     * @apiHeader {String} Authorization
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      'message': 'Successfully got payment term drowdown list.',
-     *      "data": {}
-     *      'status': '1'
-     * }
+     * @apiName VendorPaymentTermDropdownList
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully got payment term dropdown list.",
+     *         "data": [
+     *             {
+     *                 "id": 1,
+     *                 "name": "Net 30",
+     *                 "termDays": 30,
+     *                 "isActive": 1
+     *             }
+     *         ]
+     *     }
+     *
+     * @apiErrorExample {json} Error-Response:
+     *     HTTP/1.1 500 Internal Server Error
+     *     {
+     *         "status": 0,
+     *         "message": "Internal Server Error"
+     *     }
+     *
      * @apiSampleRequest /api/vendor-payment-term/dropdown-list
-     * @apiErrorExample {json} Payment Rule Detail Error
-     * HTTP/1.1 500 Internal Server Error
      */
     @Get('/dropdown-list')
     @Authorized(['vendor'])

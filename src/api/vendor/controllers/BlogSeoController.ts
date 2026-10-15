@@ -24,36 +24,40 @@ export class VendorSeoBlogController {
         private blogCategoryService: BlogCategoryService
     ) { }
 
-    // Seo Blog List
     /**
-     * @api {Get} /api/blog-seo Seo Blog List API
-     * @apiGroup Seo
-     * @apiParam (Request body) {Number} limit limit
-     * @apiParam (Request body) {Number} offset offset
-     * @apiParam (Request body) {String} keyword keyword
-     * @apiParam (Request body) {String} categoryId categoryId
-     * @apiParam (Request body) {String} status status
-     * @apiParam (Request body) {Number} count count should be number or boolean
-     * @apiHeader {String} Authorization
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully got Blog list",
-     *      "data": {
-     *      "id": 1,
-     *      "title": "",
-     *      "description": "",
-     *      "image": "",
-     *      "imagePath": "",
-     *      "isActive": 1,
-     *      "blogSlug": "",
-     *      "createdDate": "",
-     *         }
-     *      "status": "1"
-     * }
-     * @apiSampleRequest /api/blog-seo
-     * @apiErrorExample {json} blog List error
-     * HTTP/1.1 500 Internal Server Error
+     * @api {get} /api/vendor-blog-seo Blog SEO List
+     * @apiGroup Blog SEO
+     * @apiName VendorBlogSeoList
+     *
+     * @apiHeader {String} Authorization  Bearer Token
+     *
+     * @apiQuery {Number} [limit]            Number of records to return
+     * @apiQuery {Number} [offset]           Pagination offset
+     * @apiQuery {String} [keyword]          Search keyword for blog title
+     * @apiQuery {String} [categoryId]       Filter by blog category ID
+     * @apiQuery {Number} [status]           Filter by status (1: Active, 0: Inactive)
+     * @apiQuery {Number|Boolean} [count]    If true/1, returns total count
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully got Blog list",
+     *         "data": [
+     *             {
+     *                 "id": 1,
+     *                 "title": "Blog Title",
+     *                 "categoryId": "1",
+     *                 "description": "Content description",
+     *                 "image": "blog.jpg",
+     *                 "imagePath": "blog/",
+     *                 "isActive": 1,
+     *                 "blogSlug": "blog-title"
+     *             }
+     *         ]
+     *     }
+     *
+     * @apiSampleRequest /api/vendor-blog-seo
      */
     @Get()
     @Authorized(['vendor', 'seo-blog'])
@@ -123,38 +127,42 @@ export class VendorSeoBlogController {
         }
     }
 
-    // Create/Update Seo API
     /**
-     * @api {Post} /api/blog-seo/:blogId Create/Update Seo API
-     * @apiGroup Seo
-     * @apiParam (Request body) {String} metaTagTitle metaTagTitle
-     * @apiParam (Request body) {Number} blogId blogId
-     * @apiParam (Request body) {String} metaTagDescription metaTagDescription
-     * @apiParam (Request body) {String} metaTagKeyword metaTagKeyword
-     * @apiHeader {String} Authorization
-     * @apiParamExample {json} Input
-     * {
-     *      "metaTagTitle" : "",
-     *      "metaTagDescription": "",
-     *      "metaTagKeyword": ""
-     * }
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "SEO Updated successfully",
-     *      "data": {
-     *       "seoId": 1,
-     *       "metaTagTitle": "",
-     *       "metaTagDescription": "",
-     *       "metaTagKeyword": "",
-     *       "refId": 1,
-     *       "seoType": ""
-     *      }
-     *      "status": "1"
-     * }
-     * @apiSampleRequest /api/blog-seo/:blogId
-     * @apiErrorExample {json} updateSeo  error
-     * HTTP/1.1 500 Internal Server Error
+     * @api {post} /api/vendor-blog-seo/:blogId Update Blog SEO
+     * @apiGroup Blog SEO
+     * @apiName UpdateBlogSeo
+     *
+     * @apiHeader {String} Authorization  Bearer Token
+     *
+     * @apiParam (Path) {Number} blogId      Blog ID
+     *
+     * @apiBody {String} [metaTagTitle]       Meta tag title (max 140 chars)
+     * @apiBody {String} [metaTagDescription] Meta tag description (max 160 chars)
+     * @apiBody {String} [metaTagKeyword]     Meta tag keywords (max 255 chars)
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "SEO Updated successfully",
+     *         "data": {
+     *             "id": 1,
+     *             "referenceId": 1,
+     *             "route": "blog-details/blog-slug",
+     *             "metaTitle": "Title",
+     *             "metaDescription": "Description",
+     *             "metaKeyword": "Keywords"
+     *         }
+     *     }
+     *
+     * @apiErrorExample {json} Invalid-Blog:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Invalid Blog. "
+     *     }
+     *
+     * @apiSampleRequest /api/vendor-blog-seo/:blogId
      */
     @Post('/:blogId')
     @Authorized(['vendor', 'seo-blog'])
@@ -215,34 +223,38 @@ export class VendorSeoBlogController {
         }
     }
 
-    // Seo Detail API
     /**
-     * @api {Get} /api/blog-seo/:blogId Seo Detail API
-     * @apiGroup seo
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} blogId blogId
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *    "message": "Successfully get SEO detail. ",
-     *    "data": {
-     *    "categoryId": 1,
-     *    "categoryName": "",
-     *       "blogId": 1,
-     *       "title": "",
-     *       "content": "",
-     *       "seoId": 1,
-     *       "metaTagTitle": "",
-     *       "metaTagDescription": "",
-     *       "metaTagKeyword": "",
-     *       "refId": 1,
-     *       "seoType": ""
-     *      }
-     *    "status": "1"
-     *  }
-     * @apiSampleRequest /api/blog-seo/:blogId
-     * @apiErrorExample {json} Seo Detail error
-     * HTTP/1.1 500 Internal Server Error
+     * @api {get} /api/vendor-blog-seo/:blogId Get Blog SEO Detail
+     * @apiGroup Blog SEO
+     * @apiName GetBlogSeoDetail
+     *
+     * @apiHeader {String} Authorization  Bearer Token
+     *
+     * @apiParam (Path) {Number} blogId      Blog ID
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully got SEO detail.",
+     *         "data": {
+     *             "id": 1,
+     *             "referenceId": 1,
+     *             "route": "blog-details/blog-slug",
+     *             "metaTitle": "Title",
+     *             "metaDescription": "Description",
+     *             "metaKeyword": "Keywords"
+     *         }
+     *     }
+     *
+     * @apiErrorExample {json} Invalid-Blog:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Invalid Blog."
+     *     }
+     *
+     * @apiSampleRequest /api/vendor-blog-seo/:blogId
      */
     @Get('/:blogId')
     @Authorized(['vendor', 'seo-blog'])

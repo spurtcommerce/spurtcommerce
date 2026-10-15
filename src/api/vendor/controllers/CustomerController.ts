@@ -53,54 +53,49 @@ export class CustomerController {
         // --
     }
 
-    // Create Customer API
     /**
-     * @api {post} /api/vendor-customer Add Customer API
+     * @api {post} /api/vendor-customer Create Customer
      * @apiGroup Customer
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} customerGroupId Customer customerGroupId
-     * @apiParam (Request body) {String{..32}} username Customer username
-     * @apiParam (Request body) {String{..96}} email Customer email
-     * @apiParam (Request body) {Number{6..15}} mobileNumber Customer mobileNumber
-     * @apiParam (Request body) {String{8..128}} password Customer password
-     * @apiParam (Request body) {String{8..128}} confirmPassword Customer confirmPassword
-     * @apiParam (Request body) {String} avatar Customer avatar
-     * @apiParam (Request body) {Number} mailStatus Customer mailStatus should be 1 or 0
-     * @apiParam (Request body) {Number} status Customer status
-     * @apiParamExample {json} Input
-     * {
-     *      "customerGroupId" : "",
-     *      "userName" : "",
-     *      "email" : "",
-     *      "mobileNumber" : "",
-     *      "password" : "",
-     *      "confirmPassword" : "",
-     *      "avatar" : "",
-     *      "mailStatus" : "",
-     *      "status" : "",
-     * }
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Customer Created successfully",
-     *      "status": "1",
-     *      "data": {
-     *              "customerGroupId": "",
-     *              "firstName": "",
-     *              "username": "",
-     *              "email": "",
-     *              "mobileNumber": "",
-     *              "password": "",
-     *              "mailStatus": "",
-     *              "deleteFlag": "",
-     *              "isActive": "",
-     *              "createdDate": "",
-     *              "id": ""
-     *              }
-     * }
+     * @apiName CreateVendorCustomer
+     *
+     * @apiHeader {String} Authorization  Bearer Token
+     *
+     * @apiBody {Number} customerGroupId     Customer Group ID
+     * @apiBody {String} username            Username (max 32 characters)
+     * @apiBody {String} email               Email address (max 96 characters)
+     * @apiBody {Number} mobileNumber        Mobile number (min 6 digits, max 15)
+     * @apiBody {String} password            Password (min 8 chars, uppercase, lowercase, number/symbol)
+     * @apiBody {String} confirmPassword     Confirm password matching password
+     * @apiBody {Number} [newsletter]        Newsletter subscription (1: Yes, 0: No)
+     * @apiBody {Number} mailStatus          Mail status (1: Enable, 0: Disable)
+     * @apiBody {Number} [status]            Account status (1: Active, 0: Inactive)
+     * @apiBody {String} [firstName]         Customer first name
+     * @apiBody {String} [lastName]          Customer last name
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Customer Created successfully",
+     *         "data": {
+     *             "id": 1,
+     *             "firstName": "John",
+     *             "lastName": "Doe",
+     *             "email": "john@example.com",
+     *             "mobileNumber": "1234567890",
+     *             "customerGroupId": 1,
+     *             "isActive": 1
+     *         }
+     *     }
+     *
+     * @apiErrorExample {json} Duplicate-Email:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "This email already exists."
+     *     }
+     *
      * @apiSampleRequest /api/vendor-customer
-     * @apiErrorExample {json} Customer error
-     * HTTP/1.1 500 Internal Server Error
      */
     @Post()
     @Authorized(['vendor', 'create-customer'])
@@ -207,39 +202,43 @@ export class CustomerController {
         }
     }
 
-    // Customer List API
     /**
-     * @api {get} /api/vendor-customer Customer List API
+     * @api {get} /api/vendor-customer Customer List
      * @apiGroup Customer
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} limit limit
-     * @apiParam (Request body) {Number} offset offset
-     * @apiParam (Request body) {String} name search by name
-     * @apiParam (Request body) {String} email search by email
-     * @apiParam (Request body) {Number} status 0->inactive 1-> active
-     * @apiParam (Request body) {String} customerGroup search by customerGroup
-     * @apiParam (Request body) {String} date search by date
-     * @apiParam (Request body) {Number} count count should be number or boolean
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully get customer list",
-     *      "status": "1"
-     *      "data":{
-     *              "customerGroupId" : "",
-     *              "username" : "",
-     *              "email" : "",
-     *              "mobileNUmber" : "",
-     *              "password" : "",
-     *              "avatar" : "",
-     *              "avatarPath" : "",
-     *              "status" : "",
-     *              "safe" : "",
-     *      }
-     * }
+     * @apiName VendorCustomerList
+     *
+     * @apiHeader {String} Authorization  Bearer Token
+     *
+     * @apiQuery {Number} [limit]            Number of records to return
+     * @apiQuery {Number} [offset]           Pagination offset
+     * @apiQuery {String} [name]             Customer name filter
+     * @apiQuery {String} [keyword]          Search keyword
+     * @apiQuery {String} [status]           Status filter (1: Active, 0: Inactive)
+     * @apiQuery {String} [email]            Email filter
+     * @apiQuery {String} [customerGroup]    Customer group ID filter
+     * @apiQuery {String} [customerGroupName] Customer group name filter
+     * @apiQuery {String} [customerName]     Customer full name filter
+     * @apiQuery {String} [date]             Registration date filter
+     * @apiQuery {Number|Boolean} [count]    If true/1, returns total count
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully got customer list",
+     *         "data": [
+     *             {
+     *                 "id": 1,
+     *                 "firstName": "John",
+     *                 "lastName": "Doe",
+     *                 "email": "john@example.com",
+     *                 "mobileNumber": "1234567890",
+     *                 "isActive": 1
+     *             }
+     *         ]
+     *     }
+     *
      * @apiSampleRequest /api/vendor-customer
-     * @apiErrorExample {json} customer error
-     * HTTP/1.1 500 Internal Server Error
      */
     @Get()
     @Authorized(['vendor', 'list-customer'])
@@ -383,28 +382,31 @@ export class CustomerController {
         });
     }
 
-    // Customer User List API
     /**
-     * @api {get} /api/vendor-customer/user-list Customer User List API
-     * @apiGroup Customer Users
-     * @apiHeader {String} Authorization
-     * @apiParam (Query Parameters) {Number} [limit]
-     * @apiParam (Query Parameters) {Number} [offset]
-     * @apiParam (Query Parameters) {String} [keyword]
-     * @apiParam (Query Parameters) {Number|Boolean} [count]
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *   "status": "1",
-     *   "message": "Successfully get user list",
-     *   "data": []
-     * }
+     * @api {get} /api/vendor-customer/user-list Get Customer Users List
+     * @apiGroup Customer
+     * @apiName FindCustomerUsers
+     *
+     * @apiHeader {String} Authorization  Bearer Token
+     *
+     * @apiQuery {Number} customerId         Customer ID
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "successfully got customer user list",
+     *         "data": [
+     *             {
+     *                 "id": 1,
+     *                 "firstName": "John",
+     *                 "lastName": "Doe",
+     *                 "email": "john@example.com"
+     *             }
+     *         ]
+     *     }
+     *
      * @apiSampleRequest /api/vendor-customer/user-list
-     * @apiErrorExample {json} Customer User Profile error
-     * HTTP/1.1 500 Internal Server Error
-     * {
-     *   "message": "Internal Server Error"
-     * }
      */
     @Get('/user-list')
     @Authorized(['vendor', 'list-customer'])
@@ -427,24 +429,30 @@ export class CustomerController {
         return response.status(200).send(successResponse);
     }
 
-    // Delete Customer API
     /**
-     * @api {delete} /api/vendor-customer/:id Delete Customer API
+     * @api {delete} /api/vendor-customer/:id Delete Customer
      * @apiGroup Customer
-     * @apiHeader {String} Authorization
-     * @apiParamExample {json} Input
-     * {
-     *      "customerId" : "",
-     * }
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully deleted customer",
-     *      "status": "1"
-     * }
+     * @apiName DeleteVendorCustomer
+     *
+     * @apiHeader {String} Authorization  Bearer Token
+     *
+     * @apiParam (Path) {Number} id          Customer ID to delete
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Customer deleted successfully."
+     *     }
+     *
+     * @apiErrorExample {json} Invalid-Customer:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Invalid customer Id"
+     *     }
+     *
      * @apiSampleRequest /api/vendor-customer/:id
-     * @apiErrorExample {json} Customer error
-     * HTTP/1.1 500 Internal Server Error
      */
     @Delete('/:id')
     @Authorized(['vendor', 'delete-customer'])
@@ -534,54 +542,49 @@ export class CustomerController {
         }
     }
 
-    // Update Customer API
     /**
-     * @api {put} /api/vendor-customer/:id Update Customer API
+     * @api {put} /api/vendor-customer/:id Update Customer
      * @apiGroup Customer
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} customerGroupId Customer customerGroupId
-     * @apiParam (Request body) {String{..96}} username Customer username
-     * @apiParam (Request body) {String{..96}} email Customer email
-     * @apiParam (Request body) {Number{6..15}} mobileNumber Customer mobileNumber
-     * @apiParam (Request body) {String} [password] Customer password
-     * @apiParam (Request body) {String} [confirmPassword] Customer confirmPassword
-     * @apiParam (Request body) {String} [avatar] Customer avatar
-     * @apiParam (Request body) {Number} mailStatus Customer mailStatus should be 1 or 0
-     * @apiParam (Request body) {Number} status Customer status
-     * @apiParamExample {json} Input
-     * {
-     *      "customerGroupId" : "",
-     *      "userName" : "",
-     *      "email" : "",
-     *      "mobileNumber" : "",
-     *      "password" : "",
-     *      "confirmPassword" : "",
-     *      "avatar" : "",
-     *      "mailStatus" : "",
-     *      "status" : "",
-     * }
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": " Customer is updated successfully",
-     *      "status": "1",
-     *      "data": {
-     *              "customerGroupId": "",
-     *              "firstName": "",
-     *              "username": "",
-     *              "email": "",
-     *              "mobileNumber": "",
-     *              "password": "",
-     *              "mailStatus": "",
-     *              "deleteFlag": "",
-     *              "isActive": "",
-     *              "createdDate": "",
-     *              "id": ""
-     *      }
-     * }
+     * @apiName UpdateVendorCustomer
+     *
+     * @apiHeader {String} Authorization  Bearer Token
+     *
+     * @apiParam (Path) {Number} id          Customer ID
+     *
+     * @apiBody {Number} customerGroupId     Customer Group ID
+     * @apiBody {String} username            Username
+     * @apiBody {String} email               Email address
+     * @apiBody {Number} mobileNumber        Mobile number
+     * @apiBody {String} [password]          New password (optional)
+     * @apiBody {String} [confirmPassword]  Confirm new password (optional)
+     * @apiBody {Number} [newsletter]        Newsletter subscription
+     * @apiBody {Number} mailStatus          Mail status
+     * @apiBody {Number} status              Status
+     * @apiBody {String} [firstName]         Customer first name
+     * @apiBody {String} [lastName]          Customer last name
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "User Updated successfully",
+     *         "data": {
+     *             "id": 1,
+     *             "firstName": "John",
+     *             "lastName": "Doe",
+     *             "email": "john@example.com",
+     *             "isActive": 1
+     *         }
+     *     }
+     *
+     * @apiErrorExample {json} Invalid-Customer:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Invalid customer Id"
+     *     }
+     *
      * @apiSampleRequest /api/vendor-customer/:id
-     * @apiErrorExample {json} updateCustomer error
-     * HTTP/1.1 500 Internal Server Error
      */
     @Put('/:id')
     @Authorized(['vendor', 'edit-customer'])
@@ -692,48 +695,39 @@ export class CustomerController {
         }
     }
 
-    // Get Customer Detail API
     /**
-     * @api {get} /api/vendor-customer/customer-detail/:id Customer Details API
+     * @api {get} /api/vendor-customer/customer-detail/:id Get Customer Details
      * @apiGroup Customer
-     * @apiHeader {String} Authorization
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "status": "1"
-     *      "message": "Successfully got customer details.",
-     *      "data":{
-     *           "id": "",
-     *           "firstName": "",
-     *           "email": "",
-     *           "mobileNumber": "",
-     *           "address": "",
-     *           "avatar": "",
-     *           "avatarPath": "",
-     *           "customerGroupId": "",
-     *           "lastLogin": "",
-     *           "mailStatus": "",
-     *           "isActive": "",
-     *           "siteId": "",
-     *           "customerGroupName": "",
-     *           "paymentTerm": {
-     *                 "createdBy": 1,
-     *                 "createdDate": "2025-06-16T09:31:35.000Z",
-     *                 "modifiedBy": 1,
-     *                 "modifiedDate": "2025-06-16T09:47:02.000Z",
-     *                 "id": 1,
-     *                 "name": "Net 17",
-     *                 "slug": "net-17",
-     *                 "termDays": 17,
-     *                 "isActive": 1,
-     *                 "isDelete": 1,
-     *                 "tenantId": 4
-     *             },
-     *      }
-     *      }
+     * @apiName GetVendorCustomerDetail
+     *
+     * @apiHeader {String} Authorization  Bearer Token
+     *
+     * @apiParam (Path) {Number} id          Customer ID
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "successfully got Customer details.",
+     *         "data": {
+     *             "id": 1,
+     *             "firstName": "John",
+     *             "lastName": "Doe",
+     *             "email": "john@example.com",
+     *             "mobileNumber": "1234567890",
+     *             "customerGroupId": 1,
+     *             "isActive": 1
+     *         }
+     *     }
+     *
+     * @apiErrorExample {json} Invalid-Customer:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Invalid customer Id"
+     *     }
+     *
      * @apiSampleRequest /api/vendor-customer/customer-detail/:id
-     * @apiErrorExample {json} customer error
-     * HTTP/1.1 500 Internal Server Error
      */
     @Get('/customer-detail/:id')
     @Authorized(['vendor', 'list-customer'])
@@ -765,24 +759,28 @@ export class CustomerController {
         return response.status(200).send(successResponse);
     }
 
-    // Customer Details Excel Document Download
     /**
-     * @api {get} /api/vendor-customer/customer-excel-list Customer Excel
+     * @api {get} /api/vendor-customer/customer-excel-list Export Customer Excel
      * @apiGroup Customer
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {String} customerId customerId
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully download the Customer Excel List",
-     *      "status": "1",
-     *      "data": {},
-     * }
+     * @apiName ExportVendorCustomer
+     *
+     * @apiHeader {String} Authorization  Bearer Token
+     *
+     * @apiQuery {String} [dateFrom]         Start date filter (YYYY-MM-DD)
+     * @apiQuery {String} [dateTo]           End date filter (YYYY-MM-DD)
+     * @apiQuery {String} [title]            Export title
+     * @apiQuery {String} [customerId]       Comma-separated customer IDs
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully exported customer excel",
+     *         "data": "s3-url-or-file-buffer"
+     *     }
+     *
      * @apiSampleRequest /api/vendor-customer/customer-excel-list
-     * @apiErrorExample {json} Customer Excel List error
-     * HTTP/1.1 500 Internal Server Error
      */
-
     @Get('/customer-excel-list')
     @Authorized(['vendor'])
     public async exportVendorCustomer(@QueryParam('dateFrom') dateFrom: string, @QueryParam('dateTo') dateTo: string, @QueryParam('title') title: string, @QueryParam('customerId') customerId: string, @Res() response: any, @Req() request: any): Promise<any> {
@@ -984,58 +982,31 @@ export class CustomerController {
         });
     }
 
-    // ExportVendorCustomerByLog
     /**
-     * @api {Get} /api/vendor-order/customer-excel-download/:logId Download Vendor Customer Export from Log
-     * @apiGroup Vendor Customer
-     * @apiHeader {String} Authorization Vendor JWT Token
-     * @apiParam (Path) {Number} logId Export log table ID containing customer record IDs.
+     * @api {get} /api/vendor-customer/customer-excel-download/:logId Download Exported Customer Excel
+     * @apiGroup Customer
+     * @apiName ExportVendorCustomerByLog
      *
-     * @apiDescription
-     * This API allows a vendor to download an Excel file containing specific customer records
-     * that were previously exported and stored in the export log table for the module **"Manage Customers"**.
+     * @apiHeader {String} Authorization  Bearer Token
      *
-     * The customer IDs are retrieved from the export log entry (`recordIds` field).
-     * The API generates an Excel file that includes detailed customer information such as:
-     * - Email
-     * - Customer Name
-     * - Mobile Number
-     * - Group Name
-     * - Status (Active/Inactive)
+     * @apiParam (Path) {Number} logId       Export Log ID
      *
-     * @apiSampleRequest /api/vendor-order/customer-excel-download/12
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully downloaded customer excel",
+     *         "data": "file-content"
+     *     }
      *
-     * @apiSuccessExample {file} Success-Response:
-     * HTTP/1.1 200 OK
-     * Excel file will be downloaded containing the following columns:
-     * [
-     *   "Email",
-     *   "Customer Name",
-     *   "Mobile Number",
-     *   "Group Name",
-     *   "Status"
-     * ]
+     * @apiErrorExample {json} Invalid-Log:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Invalid log id"
+     *     }
      *
-     * @apiErrorExample {json} Export Log Not Found
-     * HTTP/1.1 404 Not Found
-     * {
-     *   "status": 0,
-     *   "message": "Export log not found"
-     * }
-     *
-     * @apiErrorExample {json} No Customer IDs Found
-     * HTTP/1.1 400 Bad Request
-     * {
-     *   "status": 0,
-     *   "message": "No customer IDs found in export log"
-     * }
-     *
-     * @apiErrorExample {json} No Customers Found
-     * HTTP/1.1 404 Not Found
-     * {
-     *   "status": 0,
-     *   "message": "No customers found for the given export log IDs"
-     * }
+     * @apiSampleRequest /api/vendor-customer/customer-excel-download/:logId
      */
     @Get('/customer-excel-download/:logId')
     @Authorized(['vendor', 'export-customer'])

@@ -24,37 +24,36 @@ export class VendorSeoCategoryController {
         private categoryService: CategoryService
     ) { }
 
-    // Seo Category List
     /**
-     * @api {Get} /api/category-seo Seo Category List API
-     * @apiGroup Seo
-     * @apiParam (Request body) {Number} limit limit
-     * @apiParam (Request body) {Number} offset offset
-     * @apiParam (Request body) {String} keyword keyword
-     * @apiParam (Request body) {Number} sortOrder sortOrder
-     * @apiParam (Request body) {Number} status status
-     * @apiParam (Request body) {String} count count in number or boolean
-     * @apiHeader {String} Authorization
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully got category list.",
-     *      "data": {
-     *          "categoryId": "",
-     *          "sortOrder": "",
-     *          "parentInt": "",
-     *          "name": "",
-     *          "image": "",
-     *          "imagePath": "",
-     *          "isActive": "",
-     *          "createdDate": "",
-     *          "categorySlug": "",
-     *       }
-     *      "status": "1"
-     * }
-     * @apiSampleRequest /api/category-seo
-     * @apiErrorExample {json} category List error
-     * HTTP/1.1 500 Internal Server Error
+     * @api {get} /api/vendor-category-seo Category SEO List
+     * @apiGroup Category SEO
+     * @apiName VendorCategorySeoList
+     *
+     * @apiHeader {String} Authorization  Bearer Token
+     *
+     * @apiQuery {Number} [limit]            Number of records to return
+     * @apiQuery {Number} [offset]           Pagination offset
+     * @apiQuery {String} [keyword]          Search keyword
+     * @apiQuery {Number} [sortOrder]        Sort order
+     * @apiQuery {String} [status]           Filter by status
+     * @apiQuery {Number|Boolean} [count]    If true/1, returns total count
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully got category list.",
+     *         "data": [
+     *             {
+     *                 "categoryId": 1,
+     *                 "name": "Electronics",
+     *                 "categorySlug": "electronics",
+     *                 "isActive": 1
+     *             }
+     *         ]
+     *     }
+     *
+     * @apiSampleRequest /api/vendor-category-seo
      */
     @Get()
     @Authorized(['vendor', 'seo-category'])
@@ -140,38 +139,42 @@ export class VendorSeoCategoryController {
         return response.status(200).send(successResponse);
     }
 
-    // Update Seo API
     /**
-     * @api {Post} /api/category-seo/:categoryId Create/Update Seo API
-     * @apiGroup Seo
-     * @apiParam (Request body) {String} metaTagTitle metaTagTitle
-     * @apiParam (Request body) {Number} categoryId categoryId
-     * @apiParam (Request body) {String} metaTagDescription metaTagDescription
-     * @apiParam (Request body) {String} metaTagKeyword metaTagKeyword
-     * @apiHeader {String} Authorization
-     * @apiParamExample {json} Input
-     * {
-     *      "metaTagTitle" : "",
-     *      "metaTagDescription": "",
-     *      "metaTagKeyword": ""
-     * }
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "SEO Updated successfully",
-     *      "data": {
-     *          "seoId": 1,
-     *          "metaTagTitle": "",
-     *          "metaTagDescription": "",
-     *          "metaTagKeyword": "",
-     *          "refId": 1,
-     *          "seoType": ""
-     *      }
-     *      "status": "1"
-     * }
-     * @apiSampleRequest /api/category-seo/:categoryId
-     * @apiErrorExample {json} Update Seo  error
-     * HTTP/1.1 500 Internal Server Error
+     * @api {post} /api/vendor-category-seo/:categoryId Update Category SEO
+     * @apiGroup Category SEO
+     * @apiName UpdateCategorySeo
+     *
+     * @apiHeader {String} Authorization  Bearer Token
+     *
+     * @apiParam (Path) {Number} categoryId  Category ID
+     *
+     * @apiBody {String} [metaTagTitle]       Meta tag title (max 140 chars)
+     * @apiBody {String} [metaTagDescription] Meta tag description (max 160 chars)
+     * @apiBody {String} [metaTagKeyword]     Meta tag keywords (max 255 chars)
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "SEO Updated successfully",
+     *         "data": {
+     *             "id": 1,
+     *             "referenceId": 1,
+     *             "route": "category-details/electronics",
+     *             "metaTitle": "Title",
+     *             "metaDescription": "Description",
+     *             "metaKeyword": "Keywords"
+     *         }
+     *     }
+     *
+     * @apiErrorExample {json} Invalid-Category:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Invalid Category. "
+     *     }
+     *
+     * @apiSampleRequest /api/vendor-category-seo/:categoryId
      */
     @Post('/:categoryId')
     @Authorized(['vendor', 'seo-category'])
@@ -233,21 +236,38 @@ export class VendorSeoCategoryController {
         }
     }
 
-    // Seo Detail API
     /**
-     * @api {Get} /api/category-seo/:categoryId Seo Detail API
-     * @apiGroup seo
-     * @apiHeader {String} Authorization
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *    "message": "Successfully get SEO Detail. ",
-     *    "data":"{}"
-     *    "status": "1"
-     *  }
-     * @apiSampleRequest /api/category-seo/:categoryId
-     * @apiErrorExample {json} Seo error
-     * HTTP/1.1 500 Internal Server Error
+     * @api {get} /api/vendor-category-seo/:categoryId Get Category SEO Detail
+     * @apiGroup Category SEO
+     * @apiName GetCategorySeoDetail
+     *
+     * @apiHeader {String} Authorization  Bearer Token
+     *
+     * @apiParam (Path) {Number} categoryId  Category ID
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully got SEO details. ",
+     *         "data": {
+     *             "id": 1,
+     *             "referenceId": 1,
+     *             "route": "category-details/electronics",
+     *             "metaTitle": "Title",
+     *             "metaDescription": "Description",
+     *             "metaKeyword": "Keywords"
+     *         }
+     *     }
+     *
+     * @apiErrorExample {json} Invalid-Category:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Invalid category. "
+     *     }
+     *
+     * @apiSampleRequest /api/vendor-category-seo/:categoryId
      */
     @Get('/:categoryId')
     @Authorized(['vendor', 'seo-category'])

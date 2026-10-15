@@ -23,27 +23,29 @@ export class VendorEmailTemplateController {
         // --
     }
 
-    // Create Vendor Email Template API
     /**
-     * @api {post} /api/vendor-email-template Add Email Template API
-     * @apiGroup Vendor Email Template
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {String{..30}} title EmailTemplate title
-     * @apiParam (Request body) {Number} status EmailTemplate status
-     * @apiParamExample {json} Input
-     * {
-     *      "title" : "",
-     *      "status" : "",
-     * }
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully created new email template.",
-     *      "status": "1"
-     * }
+     * @api {post} /api/vendor-email-template Create Email Template
+     * @apiGroup Email Template
+     * @apiName CreateVendorEmailTemplate
+     *
+     * @apiHeader {String} Authorization  Bearer Token
+     *
+     * @apiBody {String} title               Template title (max 30 characters)
+     * @apiBody {Number} status              Status (1: Active, 0: Inactive)
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully created new email template.",
+     *         "data": {
+     *             "emailTemplateId": 1,
+     *             "title": "Order Placed",
+     *             "isActive": 1
+     *         }
+     *     }
+     *
      * @apiSampleRequest /api/vendor-email-template
-     * @apiErrorExample {json} Vendor Email Template error
-     * HTTP/1.1 500 Internal Server Error
      */
     @Post()
     @Authorized(['vendor', 'edit-email-template'])
@@ -71,35 +73,34 @@ export class VendorEmailTemplateController {
         return response.status(200).send(successResponse);
     }
 
-    // Vendor Email Template List API
     /**
-     * @api {get} /api/vendor-email-template Vendor Email Template List API
-     * @apiGroup Vendor Email Template
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} limit limit
-     * @apiParam (Request body) {Number} offset offset
-     * @apiParam (Request body) {String} keyword keyword
-     * @apiParam (Request body) {Number} count count should be number or boolean
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully got email template list",
-     *      "data":{
-     *          "id": "",
-     *          "title": "",
-     *          "emailTemplate": {
-     *              "content": "",
-     *              "subject": "",
-     *              "dynamicFieldsRef": "",
-     *              "templateGroup": "",
-     *      }
-     *          "status": ""
-     *      }
-     *      "status": "1"
-     * }
+     * @api {get} /api/vendor-email-template Email Template List
+     * @apiGroup Email Template
+     * @apiName VendorEmailTemplateList
+     *
+     * @apiHeader {String} Authorization  Bearer Token
+     *
+     * @apiQuery {Number} [limit]            Number of records to return
+     * @apiQuery {Number} [offset]           Pagination offset
+     * @apiQuery {String} [keyword]          Search keyword
+     * @apiQuery {String} [templateGroup]    Template group filter
+     * @apiQuery {Number|Boolean} [count]    If true/1, returns total count
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully got email template list",
+     *         "data": [
+     *             {
+     *                 "emailTemplateId": 1,
+     *                 "title": "Order Placed",
+     *                 "isActive": 1
+     *             }
+     *         ]
+     *     }
+     *
      * @apiSampleRequest /api/vendor-email-template
-     * @apiErrorExample {json} EmailTemplate error
-     * HTTP/1.1 500 Internal Server Error
      */
     @Get()
     @Authorized(['vendor', 'list-email-template'])
@@ -167,27 +168,38 @@ export class VendorEmailTemplateController {
         return response.status(200).send(successResponse);
     }
 
-    // Update Vendor Email Template API
     /**
-     * @api {put} /api/vendor-email-template/:id Update Vendor Email Template API
-     * @apiGroup Vendor Email Template
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {String{..30}} title EmailTemplate title
-     * @apiParam (Request body) {Number} status EmailTemplate status
-     * @apiParamExample {json} Input
-     * {
-     *      "title" : "",
-     *      "status" : "",
-     * }
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully updated the email template.",
-     *      "status": "1"
-     * }
+     * @api {put} /api/vendor-email-template/:id Update Email Template
+     * @apiGroup Email Template
+     * @apiName UpdateVendorEmailTemplate
+     *
+     * @apiHeader {String} Authorization  Bearer Token
+     *
+     * @apiParam (Path) {Number} id          Email Template ID
+     *
+     * @apiBody {String} title               Template title (max 30 characters)
+     * @apiBody {Number} status              Status (1: Active, 0: Inactive)
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully updated email template.",
+     *         "data": {
+     *             "emailTemplateId": 1,
+     *             "title": "Order Placed Updated",
+     *             "isActive": 1
+     *         }
+     *     }
+     *
+     * @apiErrorExample {json} Invalid-Template:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Invalid email template Id"
+     *     }
+     *
      * @apiSampleRequest /api/vendor-email-template/:id
-     * @apiErrorExample {json} Vendor Email Template error
-     * HTTP/1.1 500 Internal Server Error
      */
     @Put('/:id')
     @Authorized(['vendor', 'edit-email-template'])
@@ -229,24 +241,30 @@ export class VendorEmailTemplateController {
 
     }
 
-    // Delete Vendor Email Template API
     /**
-     * @api {delete} /api/vendor-email-template/:id Delete Vendor Email Template API
-     * @apiGroup Vendor Email Template
-     * @apiHeader {String} Authorization
-     * @apiParamExample {json} Input
-     * {
-     *      "id" : "",
-     * }
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Email template deleted sucessfully.",
-     *      "status": "1"
-     * }
+     * @api {delete} /api/vendor-email-template/:id Delete Email Template
+     * @apiGroup Email Template
+     * @apiName DeleteVendorEmailTemplate
+     *
+     * @apiHeader {String} Authorization  Bearer Token
+     *
+     * @apiParam (Path) {Number} id          Email Template ID to delete
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully deleted email template."
+     *     }
+     *
+     * @apiErrorExample {json} Invalid-Template:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Invalid email template Id"
+     *     }
+     *
      * @apiSampleRequest /api/vendor-email-template/:id
-     * @apiErrorExample {json} Vendor Email Template error
-     * HTTP/1.1 500 Internal Server Error
      */
     @Delete('/:id')
     @Authorized(['vendor', 'delete-email-template'])

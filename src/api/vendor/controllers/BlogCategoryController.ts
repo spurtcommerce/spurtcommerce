@@ -21,30 +21,35 @@ export class VendorBlogCategoryController {
     ) {
     }
 
-    // create Blog Category API
     /**
-     * @api {post} /api/blog-category Add Blog Category API
-     * @apiGroup Category
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {String{..255}} name Category name
-     * @apiParamExample {json} Input
-     * {
-     *      "name" : "",
-     * }
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully created new Category.",
-     *      "status": "1",
-     *      "data": {
-     *                   "name": "",
-     *                   "createdDate": "",
-     *                   "blogCategoryId": "1"
-     *              }
-     * }
-     * @apiSampleRequest /api/blog-category
-     * @apiErrorExample {json} AddCategory error
-     * HTTP/1.1 500 Internal Server Error
+     * @api {post} /api/vendor-blog-category Create Blog Category
+     * @apiGroup Blog Category
+     * @apiName CreateBlogCategory
+     *
+     * @apiHeader {String} Authorization  Bearer Token
+     *
+     * @apiBody {String} name                Blog category name
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully created new blog category.",
+     *         "data": {
+     *             "blogCategoryId": 1,
+     *             "name": "E-Commerce Tips",
+     *             "isActive": 1
+     *         }
+     *     }
+     *
+     * @apiErrorExample {json} Create-Failed:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Unable to create the blog category."
+     *     }
+     *
+     * @apiSampleRequest /api/vendor-blog-category
      */
     @Post()
     @Authorized(['vendor', 'create-blogs'])
@@ -70,43 +75,37 @@ export class VendorBlogCategoryController {
         }
     }
 
-    // Update Blog Category API
     /**
-     * @api {put} /api/blog-category/:id Update Blog Category API
-     * @apiGroup Category
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {String} name BlogCategory name
-     * @apiParamExample {json} Input
-     * {
-     *      "name" : "",
-     * }
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully updated blog category.",
-     *      "status": "1",
-     *      "data":  {
-     *            "createdBy": 1,
-     *            "createdDate": "",
-     *            "modifiedBy": 1,
-     *            "modifiedDate": "",
-     *            "blogCategoryId": "1",
-     *            "name": "",
-     *            "image": "",
-     *            "imagePath": "",
-     *            "parentInt": "",
-     *            "sortOrder": "",
-     *            "metaTagTitle": "",
-     *            "metaTagDescription": "",
-     *            "metaTagKeyword": "",
-     *            "categorySlug": "",
-     *            "isActive": 1,
-     *            "categoryDescription": ""
-     *   }
-     * }
-     * @apiSampleRequest /api/blog-category/:id
-     * @apiErrorExample {json} UpdateCategory error
-     * HTTP/1.1 500 Internal Server Error
+     * @api {put} /api/vendor-blog-category/:id Update Blog Category
+     * @apiGroup Blog Category
+     * @apiName UpdateBlogCategory
+     *
+     * @apiHeader {String} Authorization  Bearer Token
+     *
+     * @apiParam (Path) {Number} id          Blog Category ID
+     *
+     * @apiBody {String} name                Updated blog category name
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully updated blog category.",
+     *         "data": {
+     *             "blogCategoryId": 1,
+     *             "name": "Updated Category",
+     *             "isActive": 1
+     *         }
+     *     }
+     *
+     * @apiErrorExample {json} Invalid-Category:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Invalid category ID."
+     *     }
+     *
+     * @apiSampleRequest /api/vendor-blog-category/:id
      */
     @Put('/:id')
     @Authorized(['vendor', 'edit-blogs'])
@@ -141,25 +140,30 @@ export class VendorBlogCategoryController {
             return response.status(400).send(errorResponse);
         }
     }
-    // delete Blog Category API
     /**
-     * @api {delete} /api/blog-category/:id Delete Blog Category API
-     * @apiGroup Category
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {number} blogCategoryId blogCategory blogCategoryId
-     * @apiParamExample {json} Input
-     * {
-     *      "blogCategoryId" : 1,
-     * }
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully deleted category.",
-     *      "status": 1
-     * }
-     * @apiSampleRequest /api/blog-category/:id
-     * @apiErrorExample {json} Category error
-     * HTTP/1.1 500 Internal Server Error
+     * @api {delete} /api/vendor-blog-category/:id Delete Blog Category
+     * @apiGroup Blog Category
+     * @apiName DeleteBlogCategory
+     *
+     * @apiHeader {String} Authorization  Bearer Token
+     *
+     * @apiParam (Path) {Number} id          Blog Category ID to delete
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully deleted blog category."
+     *     }
+     *
+     * @apiErrorExample {json} Invalid-Category:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Invalid category Id."
+     *     }
+     *
+     * @apiSampleRequest /api/vendor-blog-category/:id
      */
     @Delete('/:id')
     @Authorized(['vendor', 'delete-blogs'])
@@ -191,32 +195,34 @@ export class VendorBlogCategoryController {
             return response.status(400).send(errorResponse);
         }
     }
-    // Blog Category List API
     /**
-     * @api {get} /api/blog-category Blog Category List API
-     * @apiGroup Category
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} limit limit
-     * @apiParam (Request body) {Number} offset offset
-     * @apiParam (Request body) {Number} status status
-     * @apiParam (Request body) {String} count count in number or boolean
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully got the blog category list. (or) Successfully got the blog category count",
-     *      "data": [
-     *      {
-     *       "createdDate": "",
-     *       "blogCategoryId": 1,
-     *       "name": "",
-     *       "isActive": 1
-     *      }
-     *   ]
-     *      "status": 1
-     * }
-     * @apiSampleRequest /api/blog-category
-     * @apiErrorExample {json} Category error
-     * HTTP/1.1 500 Internal Server Error
+     * @api {get} /api/vendor-blog-category Blog Category List
+     * @apiGroup Blog Category
+     * @apiName BlogCategoryList
+     *
+     * @apiHeader {String} Authorization  Bearer Token
+     *
+     * @apiQuery {String} [keyword]          Search keyword
+     * @apiQuery {Number} [limit]            Number of records to return
+     * @apiQuery {Number} [offset]           Pagination offset
+     * @apiQuery {String} [status]           Filter by status
+     * @apiQuery {Number|Boolean} [count]    If true/1, returns total count
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully got the blog category list.",
+     *         "data": [
+     *             {
+     *                 "blogCategoryId": 1,
+     *                 "name": "E-Commerce",
+     *                 "isActive": 1
+     *             }
+     *         ]
+     *     }
+     *
+     * @apiSampleRequest /api/vendor-blog-category
      */
     @Get()
     @Authorized(['vendor', 'list-blogs'])
@@ -262,39 +268,35 @@ export class VendorBlogCategoryController {
         };
         return response.status(200).send(successResponse);
     }
-    // Blog category Detail
     /**
-     * @api {get} /api/blog-category/blog-category-detail Blog Category Detail API
-     * @apiGroup Category
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} blogCategoryId blogCategoryId
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully got Blog Category detail",
-     *      "data": {
-     *                  "createdBy": "1",
-     *                  "createdDate": "",
-     *                  "modifiedBy": "1",
-     *                  "modifiedDate": "",
-     *                  "id": "1",
-     *                  "name": "",
-     *                  "image": "",
-     *                  "imagePath": "",
-     *                  "parentInt": "",
-     *                  "sortOrder": "",
-     *                  "metaTagTitle": "",
-     *                  "metaTagDescription": "",
-     *                  "metaTagKeyword": "",
-     *                  "categorySlug": "",
-     *                  "isActive": "1",
-     *                  "categoryDescription": ""
-     *                }
-     *       "status": 1
-     * }
-     * @apiSampleRequest /api/blog-category/blog-category-detail
-     * @apiErrorExample {json} CategoryDetail error
-     * HTTP/1.1 500 Internal Server Error
+     * @api {get} /api/vendor-blog-category/blog-category-detail Get Blog Category Detail
+     * @apiGroup Blog Category
+     * @apiName GetBlogCategoryDetail
+     *
+     * @apiHeader {String} Authorization  Bearer Token
+     *
+     * @apiQuery {Number} blogCategoryId     Blog Category ID
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully got blog category detail",
+     *         "data": {
+     *             "blogCategoryId": 1,
+     *             "name": "E-Commerce",
+     *             "isActive": 1
+     *         }
+     *     }
+     *
+     * @apiErrorExample {json} Invalid-Category:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Invalid Blog Category Id"
+     *     }
+     *
+     * @apiSampleRequest /api/vendor-blog-category/blog-category-detail
      */
     @Get('/blog-category-detail')
     @Authorized(['vendor', 'list-blogs'])

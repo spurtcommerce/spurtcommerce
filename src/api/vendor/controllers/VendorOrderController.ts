@@ -29,20 +29,38 @@ export class VendorOrderController {
     }
 
     /**
-     * @api {Get} /api/vendor-order/revenue-overview  Revenue Overview API
+     * @api {get} /api/vendor-order/revenue-overview Get Vendor Revenue Overview
      * @apiGroup Vendor Order
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} duration 1-> thisWeek 2-> thisMonth 3-> thisYear(default)
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *     "status": 1,
-     *     "message": "Successfully got revenue overview",
-     *     "data": [{ "revenue": 5000, "orderCount": 3, "month": 1, "year": 2026 }]
-     * }
+     * @apiName VendorOrderRevenueOverview
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiQuery {Number} [duration] Duration filter (1: Last Month, 3: Last 3 Months, 6: Last 6 Months, 7: Last 7 Days)
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully got revenue overview",
+     *         "data": [
+     *             {
+     *                 "revenue": 5000,
+     *                 "orderCount": 3,
+     *                 "month": 1,
+     *                 "year": 2026
+     *             }
+     *         ],
+     *         "maxAmount": 5000
+     *     }
+     *
+     * @apiErrorExample {json} Error-Response:
+     *     HTTP/1.1 500 Internal Server Error
+     *     {
+     *         "status": 0,
+     *         "message": "Internal Server Error"
+     *     }
+     *
      * @apiSampleRequest /api/vendor-order/revenue-overview
-     * @apiErrorExample {json} Error
-     * HTTP/1.1 500 Internal Server Error
      */
     @Get('/revenue-overview')
     @Authorized('vendor')
@@ -162,24 +180,44 @@ export class VendorOrderController {
             maxAmount: data.length > 0 ? Math.max(...data.map((d: any) => +d.revenue || 0)) : 0,
         });
     }
-    //  Top Selling Product List API
     /**
-     * @api {Get} /api/vendor-order/top-selling-productlist  Top selling ProductList API
+     * @api {get} /api/vendor-order/top-selling-productlist Get Vendor Top Selling Products
      * @apiGroup Vendor Order
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} duration 1-> thisWeek 2-> thisMonth 3-> thisYear
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully get top selling product..!!",
-     *      "status": "1",
-     *      "data": "",
-     * }
+     * @apiName VendorOrderTopSellingProductList
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiQuery {Number} [duration] Duration filter (1: This Week, 2: This Month, 3: This Year)
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully got top selling product",
+     *         "data": [
+     *             {
+     *                 "product": {
+     *                     "productId": 1,
+     *                     "name": "Sample Product",
+     *                     "price": 100
+     *                 },
+     *                 "soldCount": 15,
+     *                 "buyerCount": 12,
+     *                 "totalAmount": 1500,
+     *                 "soldPercentage": 100
+     *             }
+     *         ]
+     *     }
+     *
+     * @apiErrorExample {json} Error-Response:
+     *     HTTP/1.1 500 Internal Server Error
+     *     {
+     *         "status": 0,
+     *         "message": "Internal Server Error"
+     *     }
+     *
      * @apiSampleRequest /api/vendor-order/top-selling-productlist
-     * @apiErrorExample {json} top selling product error
-     * HTTP/1.1 500 Internal Server Error
      */
-    // Order Detail Function
     @Get('/top-selling-productlist')
     @Authorized('vendor')
     public async topSellingProductList(@QueryParam('duration') duration: number, @Req() request: any, @Res() response: any): Promise<any> {
@@ -223,67 +261,53 @@ export class VendorOrderController {
         return response.status(200).send(successResponse);
     }
 
-    // Vendor Report List API
     /**
-     * @api {Get} /api/vendor-order/sales-report-list  Sales Report list API
+     * @api {get} /api/vendor-order/sales-report-list List Vendor Sales Report
      * @apiGroup Vendor Order
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} limit limit
-     * @apiParam (Request body) {Number} offset offset
-     * @apiParam (Request body) {String} startDate search by startDate
-     * @apiParam (Request body) {String} endDate search by endDate
-     * @apiParam (Request body) {String} productId
-     * @apiParam (Request body) {String} count count
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "status": "1"
-     *      "message": "Successfully got vendor sales list.",
-     *     "data": [{
-     *       "productName": "Sneakers",
-     *       "buyers": [
-     *           {
-     *               "vendorOrderId": 363,
-     *               "orderId": 361,
-     *               "companyState": "",
-     *               "vendorId": 10,
-     *               "orderProductPrefixId": "INV-202407113611",
-     *               "quantity": 1,
-     *               "name": "Sneakers",
-     *               "price": "825.00",
-     *               "basePrice": "800.00",
-     *               "skuName": "Sneakers123",
-     *               "taxType": 1,
-     *               "taxValue": 25,
-     *               "total": "825.00",
-     *               "subOrderId": "INV-20240711361101",
-     *               "commission": 10,
-     *               "createdDate": "2024-07-24T08:19:08.000Z",
-     *               "currencySymbolLeft": "$",
-     *               "currencySymbolRight": "",
-     *               "cancelRequestStatus": 0,
-     *               "paymentZone": "",
-     *               "productName": "Sneakers",
-     *               "orderStatusName": "Order Placed",
-     *               "orderColorCode": "#6798e3",
-     *               "invoiceNo": "INV00186",
-     *               "invoicePrefix": "INV",
-     *               "firstName": "Anangan",
-     *               "lastName": "R",
-     *               "discountAmount": "0.00",
-     *               "couponDiscountAmount": null,
-     *               "customerGroup": null,
-     *               "paymentType": "CashOnDelivery",
-     *               "ipAddress": "2405:201:e061:e03c:58f3:e0f4:e66b:979e"
-     *           }
-     *       ]
-     *   }],
-     * "total": 825,
-     * "orderCount": 1
-     * }
+     * @apiName VendorOrderSalesReportList
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiQuery {Number} [limit] Number of records to return
+     * @apiQuery {Number} [offset] Pagination offset
+     * @apiQuery {String} [startDate] Filter by start date (YYYY-MM-DD)
+     * @apiQuery {String} [endDate] Filter by end date (YYYY-MM-DD)
+     * @apiQuery {String} [productId] Filter by product ID
+     * @apiQuery {Number} [count] Return count only if 1
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully got seller sales list",
+     *         "data": [
+     *             {
+     *                 "productName": "Sneakers",
+     *                 "buyers": [
+     *                     {
+     *                         "vendorOrderId": 363,
+     *                         "orderId": 361,
+     *                         "quantity": 1,
+     *                         "name": "Sneakers",
+     *                         "price": "825.00",
+     *                         "total": "825.00",
+     *                         "orderStatusName": "Order Placed"
+     *                     }
+     *                 ]
+     *             }
+     *         ],
+     *         "total": 825,
+     *         "orderCount": 1
+     *     }
+     *
+     * @apiErrorExample {json} Error-Response:
+     *     HTTP/1.1 500 Internal Server Error
+     *     {
+     *         "status": 0,
+     *         "message": "Internal Server Error"
+     *     }
+     *
      * @apiSampleRequest /api/vendor-order/sales-report-list
-     * @apiErrorExample {json} VendorSalesReportList error
-     * HTTP/1.1 500 Internal Server Error
      */
     @Get('/sales-report-list')
     @Authorized(['vendor', 'list-sales-report'])
@@ -448,19 +472,31 @@ export class VendorOrderController {
         return response.status(200).send(successResponse);
     }
 
-    // Total sales report Download
     /**
-     * @api {Get} /api/vendor-order/sales-report-export-list Sales report excel download
+     * @api {get} /api/vendor-order/sales-report-export-list Export Sales Report Excel
      * @apiGroup Vendor Order
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} limit limit
-     * @apiParam (Request body) {Number} offset offset
-     * @apiParam (Request body) {String} startDate search by startDate
-     * @apiParam (Request body) {String} endDate search by endDate
-     * @apiParam (Request body) {String} productId
+     * @apiName VendorOrderSalesReportExportList
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiQuery {Number} [limit] Number of records to export
+     * @apiQuery {Number} [offset] Pagination offset
+     * @apiQuery {String} [productId] Filter by product ID
+     * @apiQuery {String} [startDate] Filter by start date (YYYY-MM-DD)
+     * @apiQuery {String} [endDate] Filter by end date (YYYY-MM-DD)
+     *
+     * @apiSuccessExample {file} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+     *
+     * @apiErrorExample {json} Error-Response:
+     *     HTTP/1.1 500 Internal Server Error
+     *     {
+     *         "status": 0,
+     *         "message": "Export failed"
+     *     }
+     *
      * @apiSampleRequest /api/vendor-order/sales-report-export-list
-     * @apiErrorExample {json} Total sales report excel error
-     * HTTP/1.1 500 Internal Server Error
      */
     @Get('/sales-report-export-list')
     @Authorized('vendor')

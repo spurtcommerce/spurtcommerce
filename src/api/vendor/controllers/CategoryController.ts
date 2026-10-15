@@ -33,46 +33,44 @@ export class CategoryController {
     ) {
     }
 
-    // create Category API
     /**
-     * @api {post} /api/category Add Category API
+     * @api {post} /api/category Create Category
      * @apiGroup Category
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {String{..255}} name Category name
-     * @apiParam (Request body) {String} [image] Category image
-     * @apiParam (Request body) {Number} [parentInt] Category  parentInt
-     * @apiParam (Request body) {Number{..9999}} sortOrder Category sortOrder
-     * @apiParam (Request body) {Number} status Category status 1-> Active 0-> inactive
-     * @apiParam (Request body) {String} categorySlug
-     * @apiParam (Request body) {String} [categoryDescription] Category categoryDescription
-     * @apiParamExample {json} Input
-     * {
-     *      "name" : "",
-     *      "image" : "",
-     *      "parentInt" : "",
-     *      "sortOrder" : "",
-     *      "status" : "",
-     *      "categoryDescription" : "",
-     * }
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully created new Category",
-     *      "status": "1",
-     * *    "data": {
-     *               "name": "",
-     *               "parentInt": "",
-     *               "sortOrder": "",
-     *               "categorySlug": "",
-     *               "isActive": "",
-     *               "categoryDescription": "",
-     *               "createdDate": "",
-     *               "categoryId": ""
-     *              }
-     * }
+     * @apiName CreateCategory
+     *
+     * @apiHeader {String} Authorization  Bearer Token
+     *
+     * @apiBody {String} name                Category name (max 255 characters)
+     * @apiBody {String} [image]             Base64 encoded category image
+     * @apiBody {Number} [parentInt]         Parent category ID
+     * @apiBody {Number} sortOrder           Sort order (max 9999)
+     * @apiBody {Number} status              Status (1: Active, 0: Inactive)
+     * @apiBody {String} categorySlug        Unique category slug
+     * @apiBody {String} [categoryDescription] Category description
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "New category created successfully.",
+     *         "data": {
+     *             "categoryId": 1,
+     *             "name": "Electronics",
+     *             "categorySlug": "electronics",
+     *             "parentInt": 0,
+     *             "sortOrder": 1,
+     *             "isActive": 1
+     *         }
+     *     }
+     *
+     * @apiErrorExample {json} Max-Levels-Exceeded:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Category can only be mapped up to 3 levels. More than 3 levels are not allowed."
+     *     }
+     *
      * @apiSampleRequest /api/category
-     * @apiErrorExample {json} Category error
-     * HTTP/1.1 500 Internal Server Error
      */
     @Post()
     @Authorized(['vendor', 'create-categories'])
@@ -155,48 +153,44 @@ export class CategoryController {
         });
     }
 
-    // Update Category API
     /**
-     * @api {put} /api/category/:id Update Category API
+     * @api {put} /api/category/:id Update Category
      * @apiGroup Category
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {number} categoryId Category categoryId
-     * @apiParam (Request body) {String} name Category name
-     * @apiParam (Request body) {String} [image] Category image
-     * @apiParam (Request body) {number} [parentInt] Category  parentInt
-     * @apiParam (Request body) {number{..9999}} sortOrder Category sortOrder
-     * @apiParam (Request body) {String} categorySlug
-     * @apiParam (Request body) {Number} [status] Category status 1-> Active 0-> inactive
-     * @apiParam (Request body) {String} [categoryDescription] Category categoryDescription
-     * @apiParamExample {json} Input
-     * {
-     *      "categoryId" : "",
-     *      "name" : "",
-     *      "image" : "",
-     *      "imagePath" : "",
-     *      "parentInt" : "",
-     *      "sortOrder" : "",
-     *      "status" : "",
-     *      "categoryDescription" : "",
-     * }
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully updated Category",
-     *      "status": "1",
-     *      "data":  {
-     *                 "name": "",
-     *                 "parentInt": "",
-     *                 "sortOrder": "",
-     *                 "categorySlug": "",
-     *                 "isActive": "",
-     *                 "categoryDescription": "",
-     *                 "createdDate": "",
-     *               }
-     * }
+     * @apiName UpdateCategory
+     *
+     * @apiHeader {String} Authorization  Bearer Token
+     *
+     * @apiParam (Path) {Number} id          Category ID to update
+     *
+     * @apiBody {Number} categoryId          Category ID
+     * @apiBody {String} name                Category name
+     * @apiBody {String} [image]             Base64 encoded category image
+     * @apiBody {Number} [parentInt]         Parent category ID
+     * @apiBody {Number} sortOrder           Sort order
+     * @apiBody {Number} status              Status (1: Active, 0: Inactive)
+     * @apiBody {String} [categorySlug]      Category slug
+     * @apiBody {String} [categoryDescription] Category description
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "The category has been successfully updated.",
+     *         "data": {
+     *             "categoryId": 1,
+     *             "name": "Electronics Updated",
+     *             "isActive": 1
+     *         }
+     *     }
+     *
+     * @apiErrorExample {json} Invalid-Category:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Invalid category ID."
+     *     }
+     *
      * @apiSampleRequest /api/category/:id
-     * @apiErrorExample {json} Category error
-     * HTTP/1.1 500 Internal Server Error
      */
     @Put('/:id')
     @Authorized(['vendor', 'edit-categories'])
@@ -309,25 +303,30 @@ export class CategoryController {
         }
     }
 
-    // delete Category API
     /**
-     * @api {delete} /api/category/:id Delete Category API
+     * @api {delete} /api/category Delete Category
      * @apiGroup Category
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {number} categoryId Category categoryId
-     * @apiParamExample {json} Input
-     * {
-     *      "categoryId" : "",
-     * }
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully deleted Category",
-     *      "status": "1"
-     * }
-     * @apiSampleRequest /api/category/:id
-     * @apiErrorExample {json} Category error
-     * HTTP/1.1 500 Internal Server Error
+     * @apiName DeleteCategory
+     *
+     * @apiHeader {String} Authorization  Bearer Token
+     *
+     * @apiBody {Number} categoryId          Category ID to delete
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Category deleted successfully."
+     *     }
+     *
+     * @apiErrorExample {json} Invalid-Category:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Invalid category ID."
+     *     }
+     *
+     * @apiSampleRequest /api/category
      */
     @Delete()
     @Authorized(['vendor', 'delete-categories'])
@@ -384,39 +383,41 @@ export class CategoryController {
         }
     }
 
-    // Category List API
     /**
-     * @api {get} /api/category Category List API
+     * @api {get} /api/category Category List
      * @apiGroup Category
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} limit limit
-     * @apiParam (Request body) {Number} offset offset
-     * @apiParam (Request body) {String} keyword keyword
-     * @apiParam (Request body) {String} name name
-     * @apiParam (Request body) {Number} sortOrder sortOrder
-     * @apiParam (Request body) {Number} status status
-     * @apiParam (Request body) {String} count count in number or boolean
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "successfully got the complete category list",
-     *      "status": "1"
-     *      "data":"[{
-     *              "categoryId": "",
-     *              "sortOrder": "",
-     *              "parentInt": "",
-     *              "name": "",
-     *              "image": "",
-     *              "imagePath": "",
-     *              "isActive": "",
-     *              "createdDate": "",
-     *              "categorySlug": "",
-     *              "levels": ""
-     *               }]"
-     * }
+     * @apiName CategoryList
+     *
+     * @apiHeader {String} Authorization  Bearer Token
+     *
+     * @apiQuery {Number} [limit]            Number of records to return
+     * @apiQuery {Number} [offset]           Pagination offset
+     * @apiQuery {String} [keyword]          Search keyword
+     * @apiQuery {Number} [sortOrder]        Sort order
+     * @apiQuery {String} [status]           Filter by status
+     * @apiQuery {String} [name]             Filter by category name
+     * @apiQuery {Number} [industryId]       Filter by industry ID
+     * @apiQuery {Number|Boolean} [count]    If true/1, returns total count
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully got category path list.",
+     *         "data": [
+     *             {
+     *                 "categoryId": 1,
+     *                 "name": "Electronics",
+     *                 "categorySlug": "electronics",
+     *                 "parentInt": 0,
+     *                 "sortOrder": 1,
+     *                 "levels": "Electronics",
+     *                 "isActive": 1
+     *             }
+     *         ]
+     *     }
+     *
      * @apiSampleRequest /api/category
-     * @apiErrorExample {json} Category error
-     * HTTP/1.1 500 Internal Server Error
      */
     @Get()
     @Authorized(['vendor', 'list-categories'])
@@ -523,36 +524,38 @@ export class CategoryController {
         return response.status(200).send(successResponse);
     }
 
-    // category Detail
     /**
-     * @api {get} /api/category/category-detail Category Detail API
+     * @api {get} /api/category/category-detail Get Category Detail
      * @apiGroup Category
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} categoryId categoryId
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully got Category detail",
-     *      "status": "1"
-     *      "data":{
-     *           "createdBy": "",
-     *           "createdDate": "",
-     *           "modifiedBy": "",
-     *           "modifiedDate": "2024-05-17T12:46:35.000Z",
-     *           "categoryId": 6,
-     *           "name": "Mens Top Wear",
-     *           "image": "Img_1715949995235.png",
-     *           "imagePath": "category/",
-     *           "parentInt": 304,
-     *           "sortOrder": 1,
-     *           "categorySlug": "mens-top-wear11111111111",
-     *           "isActive": "1",
-     *           "categoryDescription": ""
-     *  }
-     * }
+     * @apiName GetCategoryDetail
+     *
+     * @apiHeader {String} Authorization  Bearer Token
+     *
+     * @apiQuery {Number} categoryId         Category ID
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Category details retrieved successfully.",
+     *         "data": {
+     *             "categoryId": 1,
+     *             "name": "Electronics",
+     *             "categorySlug": "electronics",
+     *             "parentInt": 0,
+     *             "sortOrder": 1,
+     *             "isActive": 1
+     *         }
+     *     }
+     *
+     * @apiErrorExample {json} Invalid-Category:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Invalid category ID."
+     *     }
+     *
      * @apiSampleRequest /api/category/category-detail
-     * @apiErrorExample {json} category error
-     * HTTP/1.1 500 Internal Server Error
      */
     @Get('/category-detail')
     @Authorized(['vendor', 'list-categories'])

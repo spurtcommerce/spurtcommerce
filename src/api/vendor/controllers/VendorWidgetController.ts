@@ -33,59 +33,46 @@ export class VendorWidgetController {
     ) {
     }
 
-    // Add Widget API
     /**
-     * @api {Post} /api/widget Add Widget API
-     * @apiGroup Widget
-     * @apiParam (Request body) {String{..255}} title title
-     * @apiParam (Request body) {String} [content] content
-     * @apiParam (Request body) {String} ShowHomePageWidget ShowHomePageWidget
-     * @apiParam (Request body) {String} widgetLongTitle widgetLongTitle
-     * @apiParam (Request body) {String} widgetLinkType widgetLinkType 1-> catgeory 2-> product
-     * @apiParam (Request body) {String{..70}} [metaTagTitle] metaTagTitle
-     * @apiParam (Request body) {String{..160}} [metaTagDescription] metaTagDescription
-     * @apiParam (Request body) {String{..255}} [metaTagKeyword] metaTagKeyword
-     * @apiParam (Request body) {String} [refId] refId
-     * @apiParam (Request body) {String} [position] position
-     * @apiParam (Request body) {Number} status status
-     * @apiHeader {String} Authorization
-     * @apiParamExample {json} Input
-     * {
-     *      "title" : "",
-     *      "content" : "",
-     *      "widgetLinkType" : "",
-     *      "widgetLongTitle" : "",
-     *      "metaTagTitle" : "",
-     *      "metaTagDescription" : "",
-     *      "metaTagKeyword" : "",
-     *      "ShowHomePageWidget": "",
-     *      "position" : "",
-     *      "refId" : [],
-     *      "status" : "",
-     * }
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Widget created successfully.",
-     *      "status": "1",
-     *       "data": {
-     *          "widgetId": 1,
-     *          "widgetTitle": "",
-     *          "widgetLongTitle": "",
-     *          "ShowHomePageWidget": "",
-     *          "widgetDescription": "",
-     *          "widgetLinkType": "",
-     *          "metaTagTitle": "",
-     *          "metaTagKeyword": "",
-     *          "metaTagDescription": "",
-     *          "position": "",
-     *          "isActive": 1,
-     *          "widgetSlugName": ""
-     *       }
-     * }
-     * @apiSampleRequest /api/widget
-     * @apiErrorExample {json} createWidget error
-     * HTTP/1.1 500 Internal Server Error
+     * @api {post} /api/vendor-widget Create Vendor Widget
+     * @apiGroup Vendor Widget
+     * @apiName CreateVendorWidget
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiBody {String} title Widget title (max 255 chars)
+     * @apiBody {String} [widgetLongTitle] Widget full/long title
+     * @apiBody {String} [content] Widget description content
+     * @apiBody {Number} ShowHomePageWidget Show on home page flag (1: Yes, 0: No)
+     * @apiBody {Number} widgetLinkType Widget link type (1: Category, 2: Product)
+     * @apiBody {String} [metaTagTitle] Meta tag title (max 70 chars)
+     * @apiBody {String} [metaTagDescription] Meta tag description (max 160 chars)
+     * @apiBody {String} [metaTagKeyword] Meta tag keyword (max 255 chars)
+     * @apiBody {Number} [position] Widget position ordering
+     * @apiBody {Number[]} [refId] Array of referenced item IDs (category or product IDs)
+     * @apiBody {Number} status Active status (1: Active, 0: Inactive)
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Widget created successfully.",
+     *         "data": {
+     *             "widgetId": 1,
+     *             "widgetTitle": "Featured Products",
+     *             "widgetSlugName": "featured-products",
+     *             "isActive": 1
+     *         }
+     *     }
+     *
+     * @apiErrorExample {json} Limit-Exceeded:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Set-Home-Page Widget exceeds the Limit (MAX 10)..!"
+     *     }
+     *
+     * @apiSampleRequest /api/vendor-widget
      */
     @Post()
     @Authorized(['vendor', 'create-widget'])
@@ -158,39 +145,42 @@ export class VendorWidgetController {
         }
     }
 
-    // Widget List
     /**
-     * @api {Get} /api/widget Widget List API
-     * @apiGroup Widget
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} limit limit
-     * @apiParam (Request body) {Number} offset offset
-     * @apiParam (Request body) {String} keyword keyword
-     * @apiParam (Request body) {String} status status
-     * @apiParam (Request body) {number} count count should be number or boolean
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "status": "1"
-     *      "message": "Successfully got Widget list",
-     *      "data": {
-     *          "widgetId": 1,
-     *          "widgetTitle": "",
-     *          "widgetLongTitle": "",
-     *          "content": "",
-     *          "metaTagTitle": "",
-     *          "widgetDescription": "",
-     *          "metaTagKeyword": "",
-     *          "widgetlinkType": "",
-     *          "position": "",
-     *          "isActive": 1,
-     *          "ShowHomePageWidget": "",
-     *          "widgetSlugName": ""
-     *      }
-     * }
-     * @apiSampleRequest /api/widget
-     * @apiErrorExample {json} widgetList error
-     * HTTP/1.1 500 Internal Server Error
+     * @api {get} /api/vendor-widget List Vendor Widgets
+     * @apiGroup Vendor Widget
+     * @apiName VendorWidgetList
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiQuery {Number} [limit] Number of records to return
+     * @apiQuery {Number} [offset] Pagination offset
+     * @apiQuery {String} [keyword] Keyword search for widget title
+     * @apiQuery {String} [status] Filter by active status
+     * @apiQuery {Number} [count] Return count only if 1
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully got Widget list.",
+     *         "data": [
+     *             {
+     *                 "widgetId": 1,
+     *                 "widgetTitle": "Featured Products",
+     *                 "position": 1,
+     *                 "isActive": 1
+     *             }
+     *         ]
+     *     }
+     *
+     * @apiErrorExample {json} Error-Response:
+     *     HTTP/1.1 500 Internal Server Error
+     *     {
+     *         "status": 0,
+     *         "message": "Internal Server Error"
+     *     }
+     *
+     * @apiSampleRequest /api/vendor-widget
      */
     @Get()
     @Authorized(['vendor', 'list-widget'])
@@ -231,24 +221,30 @@ export class VendorWidgetController {
         return response.status(200).send(successResponse);
     }
 
-    // Delete Widget API
     /**
-     * @api {Delete} /api/widget/:id Delete Widget API
-     * @apiGroup Widget
-     * @apiHeader {String} Authorization
-     * @apiParamExample {json} Input
-     * {
-     *      "id" : 1,
-     * }
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Widget deleted successfully.",
-     *      "status": "1"
-     * }
-     * @apiSampleRequest /api/widget/:id
-     * @apiErrorExample {json} deleteWidget error
-     * HTTP/1.1 500 Internal Server Error
+     * @api {delete} /api/vendor-widget/:id Delete Vendor Widget
+     * @apiGroup Vendor Widget
+     * @apiName DeleteVendorWidget
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiParam (Path) {Number} id Widget ID
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Widget deleted successfully."
+     *     }
+     *
+     * @apiErrorExample {json} Widget-Not-Found:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Invalid widget ID."
+     *     }
+     *
+     * @apiSampleRequest /api/vendor-widget/:id
      */
     @Delete('/:id')
     @Authorized(['vendor', 'delete-widget'])
@@ -284,56 +280,47 @@ export class VendorWidgetController {
         }
     }
 
-    // Update widget
     /**
-     * @api {Put} /api/widget/:id Update widget API
-     * @apiGroup Widget
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {String{..255}} title widget title
-     * @apiParam (Request body) {String} [content] widget content
-     * @apiParam (Request body) {String{..70}} [metaTagTitle] metaTagTitle
-     * @apiParam (Request body) {String{..160}} [metaTagDescription] metaTagDescription
-     * @apiParam (Request body) {String{..255}} [metaTagKeyword] metaTagkeyword
-     * @apiParam (Request body) {String} widgetLinkType widgetLinkType
-     * @apiParam (Request body) {Number} [position] widget position
-     * @apiParam (Request body) {String} [refId] refId
-     * @apiParam (Request body) {Number} status status
-     * @apiParamExample {json} Input
-     * {
-     *      "title" : "",
-     *      "content" : "",
-     *      "widgetLinkType" : "",
-     *      "metaTagTitle" : "",
-     *      "metaTagKeyword" : "",
-     *      "metaTagDescription" : "",
-     *      "ShowHomePageWidget":"",
-     *      "position" : "",
-     *      "refId" : 1,
-     *      "status" : 1,
-     * }
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "status": "1"
-     *      "message": "Successfully updated the widget.",
-     *      "data": {
-     *          "widgetId": 1,
-     *          "widgetTitle": "",
-     *          "widgetLongTitle": "",
-     *          "content": "",
-     *          "metaTagTitle": "",
-     *          "widgetDescription": "",
-     *          "metaTagKeyword": "",
-     *          "widgetlinkType": "",
-     *          "position": "",
-     *          "isActive": 1,
-     *          "ShowHomePageWidget": "",
-     *          "widgetSlugName": ""
-     *      }
-     * }
-     * @apiSampleRequest /api/widget/:id
-     * @apiErrorExample {json} updateWidget error
-     * HTTP/1.1 500 Internal Server Error
+     * @api {put} /api/vendor-widget/:id Update Vendor Widget
+     * @apiGroup Vendor Widget
+     * @apiName UpdateVendorWidget
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiParam (Path) {Number} id Widget ID
+     *
+     * @apiBody {String} title Widget title (max 255 chars)
+     * @apiBody {String} [widgetLongTitle] Widget full/long title
+     * @apiBody {String} [content] Widget description content
+     * @apiBody {Number} ShowHomePageWidget Show on home page flag (1: Yes, 0: No)
+     * @apiBody {Number} widgetLinkType Widget link type (1: Category, 2: Product)
+     * @apiBody {String} [metaTagTitle] Meta tag title (max 70 chars)
+     * @apiBody {String} [metaTagDescription] Meta tag description (max 160 chars)
+     * @apiBody {String} [metaTagKeyword] Meta tag keyword (max 255 chars)
+     * @apiBody {Number} [position] Widget position ordering
+     * @apiBody {Number[]} [refId] Array of referenced item IDs (category or product IDs)
+     * @apiBody {Number} status Active status (1: Active, 0: Inactive)
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully updated the widget.",
+     *         "data": {
+     *             "widgetId": 1,
+     *             "widgetTitle": "Updated Featured Products",
+     *             "isActive": 1
+     *         }
+     *     }
+     *
+     * @apiErrorExample {json} Widget-Not-Found:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Invalid widget ID."
+     *     }
+     *
+     * @apiSampleRequest /api/vendor-widget/:id
      */
     @Put('/:id')
     @Authorized(['vendor', 'edit-widget'])
@@ -433,35 +420,38 @@ export class VendorWidgetController {
         }
     }
 
-    // Widget Detail
     /**
-     * @api {Get} /api/widget/widget-detail Widget Detail API
-     * @apiGroup Widget
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} widgetId widgetId
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "status": "1"
-     *      "message": "Successfully got widget detail",
-     *      "data": {
-     *          "widgetId": 1,
-     *          "widgetTitle": "",
-     *          "widgetLongTitle": "",
-     *          "content": "",
-     *          "metaTagTitle": "",
-     *          "widgetDescription": "",
-     *          "metaTagKeyword": "",
-     *          "widgetlinkType": "",
-     *          "position": "",
-     *          "isActive": 1,
-     *          "ShowHomePageWidget": "",
-     *          "widgetSlugName": ""
-     *      }
-     * }
-     * @apiSampleRequest /api/widget/widget-detail
-     * @apiErrorExample {json} widget Detail error
-     * HTTP/1.1 500 Internal Server Error
+     * @api {get} /api/vendor-widget/widget-detail Get Vendor Widget Detail
+     * @apiGroup Vendor Widget
+     * @apiName GetVendorWidgetDetail
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiQuery {Number} widgetId Widget ID
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully got widget detail.",
+     *         "data": {
+     *             "widgetId": 1,
+     *             "widgetTitle": "Featured Products",
+     *             "widgetLinkType": 2,
+     *             "position": 1,
+     *             "isActive": 1,
+     *             "refId": []
+     *         }
+     *     }
+     *
+     * @apiErrorExample {json} Widget-Not-Found:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Invalid widget ID"
+     *     }
+     *
+     * @apiSampleRequest /api/vendor-widget/widget-detail
      */
     @Get('/widget-detail')
     @Authorized(['vendor', 'list-widget'])

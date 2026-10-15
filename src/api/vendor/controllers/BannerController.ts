@@ -36,72 +36,60 @@ export class BannerController {
     ) {
     }
 
-    // Create Banner
     /**
-     * @api {post} /api/banner Add Banner API
+     * @api {post} /api/banner Create Banner
      * @apiGroup Banner
-     * @apiParam (Request body) {String{..255}} title title
-     * @apiParam (Request body) {String} [content] content
-     * @apiParam (Request body) {String} [link] link
-     * @apiParam (Request body) {String} [position] position
-     * @apiParam (Request body) {Number} status status
-     * @apiParam (Request body) {Number} [linkType] linkType
-     * @apiParam (Request body) {Array} [bannerImage] bannerImage
-     * @apiHeader {String} Authorization
-     * @apiParamExample {json} Input
-     * {
-     *      "title" : "",
-     *      "content" : "",
-     *      "link" : "",
-     *      "position" : "",
-     *      "status" : "",
-     *      "linkType" : "",
-     *      "bannerImage": [
-     *          {
-     *              "containerName": "",
-     *              "image": "",
-     *              "isPrimary": ""
-     *          }
-     *      ]
-     * }
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "status": "1",
-     *      "message": "New banner is created successfully.",
-     *      "data": {
-     *                  "createdBy": "",
-     *                  "createdDate": "",
-     *                  "modifiedBy": "",
-     *                  "modifiedDate": "",
-     *                  "bannerId": 1,
-     *                  "title": "",
-     *                  "sortOrder": "",
-     *                  "url": "",
-     *                  "link": "",
-     *                  "content": "",
-     *                  "position": "",
-     *                  "bannerGroupId": 1,
-     *                  "containerName": "",
-     *                  "viewPageCount": "",
-     *                  "isActive": "",
-     *                  "linkType": "",
-     *                  "bannerImages": [{
-     *                        "imageName": "",
-     *                        "imagePath": "",
-     *                        "isPrimary": "",
-     *                        "createdDate": "",
-     *                        "modifiedDate": "",
-     *                        "id": "",
-     *                        "bannerId": "",
-     *                        "isActive": "",
-     *                        "isDelete": ""
-     *                  }]
-     *                }
-     * }
+     * @apiName CreateBanner
+     *
+     * @apiHeader {String} Authorization  Bearer Token
+     *
+     * @apiBody {String} title               Banner title (max 255 characters)
+     * @apiBody {String} [content]           Banner content/HTML
+     * @apiBody {String} [link]              Banner target link/URL
+     * @apiBody {String} [position]          Banner position
+     * @apiBody {Number} status              Status (1: Active, 0: Inactive)
+     * @apiBody {Number} [linkType]          Link type (1: None, 2: Category, 3: Product)
+     * @apiBody {Object[]} bannerImage       Array of banner image objects
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "New banner is created successfully.",
+     *         "data": {
+     *             "bannerId": 1,
+     *             "title": "Summer Sale",
+     *             "content": "Special Offers",
+     *             "link": "summer-sale",
+     *             "position": "top",
+     *             "linkType": 1,
+     *             "isActive": 1,
+     *             "bannerImages": [
+     *                 {
+     *                     "id": 1,
+     *                     "imageName": "banner.jpg",
+     *                     "imagePath": "banners/",
+     *                     "isPrimary": 1
+     *                 }
+     *             ]
+     *         }
+     *     }
+     *
+     * @apiErrorExample {json} Link-Required:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Link is required."
+     *     }
+     *
+     * @apiErrorExample {json} Position-Exists:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Banner Position Already Exist.!"
+     *     }
+     *
      * @apiSampleRequest /api/banner
-     * @apiErrorExample {json} Banner error
-     * HTTP/1.1 500 Internal Server Error
      */
     @Post()
     @Authorized(['vendor', 'create-banners'])
@@ -216,45 +204,38 @@ export class BannerController {
         });
     }
 
-    // Banner List
     /**
-     * @api {get} /api/banner Banner List API
+     * @api {get} /api/banner Banner List
      * @apiGroup Banner
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} limit limit
-     * @apiParam (Request body) {Number} offset offset
-     * @apiParam (Request body) {String} keyword keyword
-     * @apiParam (Request body) {String} status status
-     * @apiParam (Request body) {number} count count should be number or boolean
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "status": "1"
-     *      "message": "Successfully got banner list",
-     *      "data":"{
-     *              "bannerId": 1,
-     *              "title": "",
-     *              "content": "",
-     *              "image": "",
-     *              "imagePath": "",
-     *              "link": "",
-     *              "position": "",
-     *              "bannerImages": [
-     *                  {
-     *                      "createdDate": "",
-     *                      "modifiedDate": "",
-     *                      "id": "",
-     *                      "imageName": "",
-     *                      "imagePath": "",
-     *                      "isPrimary": "",
-     *                      "bannerId": "",
-     *                      }
-     *                  ]
-     *              }"
-     * }
+     * @apiName BannerList
+     *
+     * @apiHeader {String} Authorization  Bearer Token
+     *
+     * @apiQuery {Number} [limit]            Number of records to return
+     * @apiQuery {Number} [offset]           Pagination offset
+     * @apiQuery {String} [keyword]          Search keyword for banner title
+     * @apiQuery {String} [status]           Filter by status (1: Active, 0: Inactive)
+     * @apiQuery {Number|Boolean} [count]    If true/1, returns total count
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully got banner list.",
+     *         "data": [
+     *             {
+     *                 "bannerId": 1,
+     *                 "title": "Summer Sale",
+     *                 "content": "Special Offers",
+     *                 "link": "summer-sale",
+     *                 "position": "top",
+     *                 "isActive": 1,
+     *                 "bannerImages": []
+     *             }
+     *         ]
+     *     }
+     *
      * @apiSampleRequest /api/banner
-     * @apiErrorExample {json} Banner error
-     * HTTP/1.1 500 Internal Server Error
      */
     @Get()
     @Authorized(['vendor', 'list-banners'])
@@ -313,24 +294,30 @@ export class BannerController {
         return response.status(200).send(successResponse);
     }
 
-    // Delete Banner
     /**
-     * @api {delete} /api/banner/:id Delete Banner API
+     * @api {delete} /api/banner/:id Delete Banner
      * @apiGroup Banner
-     * @apiHeader {String} Authorization
-     * @apiParamExample {json} Input
-     * {
-     *      "bannerId" : "",
-     * }
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully deleted Banner",
-     *      "status": "1"
-     * }
+     * @apiName DeleteBanner
+     *
+     * @apiHeader {String} Authorization  Bearer Token
+     *
+     * @apiParam (Path) {Number} id          Banner ID to delete
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully deleted banner."
+     *     }
+     *
+     * @apiErrorExample {json} Invalid-Banner:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Invalid banner ID."
+     *     }
+     *
      * @apiSampleRequest /api/banner/:id
-     * @apiErrorExample {json} Banner error
-     * HTTP/1.1 500 Internal Server Error
      */
     @Delete('/:id')
     @Authorized(['vendor', 'delete-banners'])
@@ -366,74 +353,55 @@ export class BannerController {
         }
     }
 
-    // Update Banner
     /**
-     * @api {put} /api/banner/:id Update Banner API
+     * @api {put} /api/banner/:id Update Banner
      * @apiGroup Banner
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} bannerId Banner bannerId
-     * @apiParam (Request body) {String{..255}} title Banner title
-     * @apiParam (Request body) {String} bannerImages Banner images
-     * @apiParam (Request body) {String} [content] Banner content
-     * @apiParam (Request body) {String{..255}} [link] Banner link
-     * @apiParam (Request body) {Number} [position] Banner position
-     * @apiParam (Request body) {Number} status status
-     * @apiParam (Request body) {Number} [linkType] 1--> static 2--> product 3--> category
-     * @apiParam (Request body) {Array} [bannerImage] bannerImage
-     * @apiParamExample {json} Input
-     * {
-     *      "bannerId" : "",
-     *      "title" : "",
-     *      "content" : "",
-     *      "link" : "",
-     *      "position" : "",
-     *      "status" : "",
-     *      "linkType" : "",
-     *      "bannerImage": [{
-     *                      "containerName": "",
-     *                      "image": "",
-     *                      "isPrimary": ""
-     *                      }]
-     * }
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully updated banner.",
-     *      "status": "1",
-     *      "data": "{
-     *                "createdBy": "",
-     *                "createdDate": "",
-     *                "modifiedBy": "",
-     *                "modifiedDate": "",
-     *                "bannerId": "",
-     *                "title": "",
-     *                "sortOrder": "",
-     *                "url": "",
-     *                "link": "",
-     *                "content": "",
-     *                "position": "",
-     *                "bannerGroupId": "",
-     *                "bannerImages": "",
-     *                "containerName": "",
-     *                "viewPageCount": "",
-     *                "isActive": "",
-     *                "linkType": "",
-     *                "bannerImages": [
-     *                  {
-     *                      "createdDate": "",
-     *                      "modifiedDate": "",
-     *                      "id": "",
-     *                      "imageName": "",
-     *                      "imagePath": "",
-     *                      "isPrimary": "",
-     *                      "bannerId": "",
-     *                      }
-     *                  ]
-     *              }"
-     * }
+     * @apiName UpdateBanner
+     *
+     * @apiHeader {String} Authorization  Bearer Token
+     *
+     * @apiParam (Path) {Number} id          Banner ID
+     *
+     * @apiBody {Number} bannerId            Banner ID
+     * @apiBody {String} title               Banner title (max 255 characters)
+     * @apiBody {String} [content]           Banner content/HTML
+     * @apiBody {String} [link]              Banner target link/URL
+     * @apiBody {Number} [position]          Banner position
+     * @apiBody {Number} status              Status (1: Active, 0: Inactive)
+     * @apiBody {Number} [linkType]          Link type (1: None, 2: Category, 3: Product)
+     * @apiBody {Number[]} [deleteImageIds]  Array of image IDs to delete
+     * @apiBody {Object[]} [bannerImage]     Array of new banner images
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully updated banner.",
+     *         "data": {
+     *             "bannerId": 1,
+     *             "title": "Summer Sale Updated",
+     *             "content": "Special Offers",
+     *             "link": "summer-sale",
+     *             "position": 1,
+     *             "isActive": 1
+     *         }
+     *     }
+     *
+     * @apiErrorExample {json} Invalid-Banner:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Invalid banner ID."
+     *     }
+     *
+     * @apiErrorExample {json} Position-Exists:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Banner Position Already Exist.!"
+     *     }
+     *
      * @apiSampleRequest /api/banner/:id
-     * @apiErrorExample {json} Banner error
-     * HTTP/1.1 500 Internal Server Error
      */
     @Put('/:id')
     @Authorized(['vendor', 'edit-banners'])
@@ -584,48 +552,39 @@ export class BannerController {
         // return response.status(200).send(successResponse);
     }
 
-    // Blog Detail
     /**
-     * @api {get} /api/banner/banner-detail Banner Detail API
+     * @api {get} /api/banner/banner-detail Get Banner Detail
      * @apiGroup Banner
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} bannerId BannerId
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "status": "1",
-     *      "message": "Successfully got Banner detail",
-     *      "data": "{
-     *               "createdBy": "",
-     *               "createdDate": "",
-     *               "modifiedBy": "",
-     *               "modifiedDate": "",
-     *               "bannerId": "",
-     *               "title": "",
-     *               "sortOrder": "",
-     *               "url": "",
-     *               "link": "",
-     *               "content": "",
-     *               "position": "",
-     *               "bannerGroupId": "",
-     *               "containerName": "",
-     *               "viewPageCount": "",
-     *               "isActive": "",
-     *               "linkType": "",
-     *               "bannerImages": [{
-     *                                    "createdDate": "",
-     *                                    "modifiedDate": "",
-     *                                    "id": "",
-     *                                    "imageName": "",
-     *                                    "imagePath": "",
-     *                                    "isPrimary": "",
-     *                                    "bannerId": "",
-     *                                    }]
-     *               }"
-     * }
+     * @apiName GetBannerDetail
+     *
+     * @apiHeader {String} Authorization  Bearer Token
+     *
+     * @apiQuery {Number} bannerId           Banner ID
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully got banner detail.",
+     *         "data": {
+     *             "bannerId": 1,
+     *             "title": "Summer Sale",
+     *             "content": "Special Offers",
+     *             "link": "summer-sale",
+     *             "position": "top",
+     *             "isActive": 1,
+     *             "bannerImages": []
+     *         }
+     *     }
+     *
+     * @apiErrorExample {json} Invalid-Banner-Id:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Invalid Banner Id"
+     *     }
+     *
      * @apiSampleRequest /api/banner/banner-detail
-     * @apiErrorExample {json} banner Detail error
-     * HTTP/1.1 500 Internal Server Error
      */
     @Get('/banner-detail')
     @Authorized(['vendor', 'list-banners'])

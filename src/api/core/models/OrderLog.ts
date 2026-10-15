@@ -183,9 +183,6 @@ export class OrderLog extends BaseModel {
     @Column({ name: 'payment_rule_id' })
     public paymentRuleId: number;
 
-    @Column({ name: 'payment_term_id' })
-    public paymentTermId: number;
-
     @Column({ name: 'shipping_cost_override', type: 'decimal', precision: 10, scale: 2 })
     public shippingCostOverride: number;
 

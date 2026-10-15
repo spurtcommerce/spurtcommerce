@@ -40,38 +40,53 @@ export class SeoVendorProductController {
         private vendorProductServics: VendorProductService
     ) { }
 
-    // Seo Product List
     /**
-     * @api {Get} /api/vendor-product-seo Seo Product List API
-     * @apiGroup Seo
-     * @apiParam (Request body) {Number} limit limit
-     * @apiParam (Request body) {Number} offset offset
-     * @apiParam (Request body) {String} keyword keyword
-     * @apiParam (Request body) {Number} count count in number or boolean
-     * @apiParam (Request body) {String} price price
-     * @apiParam (Request body) {String} productName productName
-     * @apiParam (Request body) {String} vendorName vendorName
-     * @apiParam (Request body) {String} sku sku
-     * @apiHeader {String} Authorization
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully got Product list",
-     *       "data": {
-     *       "total": 1,
-     *       "items": [
-     *         {
-     *           "productId": 1,
-     *           "productName": "",
-     *           "price": 1,
-     *           "sku": "",
-     *           "vendorName": ""
-     *         }
-     *      "status": "1"
-     * }
+     * @api {get} /api/vendor-product-seo List Vendor SEO Products
+     * @apiGroup Vendor SEO
+     * @apiName VendorSeoProductList
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiQuery {Number} [limit] Number of records to return
+     * @apiQuery {Number} [offset] Pagination offset
+     * @apiQuery {String} [status] Product active status
+     * @apiQuery {String} [keyword] Keyword search for product/vendor
+     * @apiQuery {String} [price] Filter by product price
+     * @apiQuery {String} [approvalFlag] Product approval status
+     * @apiQuery {String} [productName] Filter by product name
+     * @apiQuery {String} [vendorName] Filter by vendor name
+     * @apiQuery {String} [sortBy] Field to sort by ('productName', 'stock', 'sku', 'modifiedDate', 'createdDate')
+     * @apiQuery {String} [updatedOn] Filter by modified date
+     * @apiQuery {String} [sortOrder] Sort order ('ASC' or 'DESC')
+     * @apiQuery {Number} [count] Return count only if 1
+     * @apiQuery {String} [sku] Filter by SKU
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully got your product list.",
+     *         "data": [
+     *             {
+     *                 "vendorProductId": 1,
+     *                 "productId": 1,
+     *                 "name": "Product Name",
+     *                 "sku": "SKU001",
+     *                 "price": 100,
+     *                 "isActive": 1,
+     *                 "vendorCategory": []
+     *             }
+     *         ]
+     *     }
+     *
+     * @apiErrorExample {json} Error-Response:
+     *     HTTP/1.1 500 Internal Server Error
+     *     {
+     *         "status": 0,
+     *         "message": "Internal Server Error"
+     *     }
+     *
      * @apiSampleRequest /api/vendor-product-seo
-     * @apiErrorExample {json} Vendor ProductList error
-     * HTTP/1.1 500 Internal Server Error
      */
     @Get()
     @Authorized(['vendor', 'seo-product'])
@@ -291,38 +306,34 @@ export class SeoVendorProductController {
         };
     }
 
-    // Create/Update Seo API
     /**
-     * @api {Post} /api/product-seo/:productId Create/Update Seo API
-     * @apiGroup Seo
-     * @apiParam (Request body) {String} metaTagTitle metaTagTitle
-     * @apiParam (Request body) {Number} productId productId
-     * @apiParam (Request body) {String} metaTagDescription metaTagDescription
-     * @apiParam (Request body) {String} metaTagKeyword metaTagKeyword
-     * @apiHeader {String} Authorization
-     * @apiParamExample {json} Input
-     * {
-     *      "metaTagTitle" : "",
-     *      "metaTagDescription": "",
-     *      "metaTagKeyword": ""
-     * }
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "SEO Updated successfully",
-     *      "data": {
-     *          "seoId": 1,
-     *          "metaTagTitle": "",
-     *          "metaTagDescription": "",
-     *          "metaTagKeyword": "",
-     *          "refId": 1,
-     *          "seoType": ""
-     *            }
-     *       "status": "1"
-     * }
-     * @apiSampleRequest /api/product-seo/:productId
-     * @apiErrorExample {json} UpdateSeo error
-     * HTTP/1.1 500 Internal Server Error
+     * @api {post} /api/vendor-product-seo/:productId Create or Update Product SEO
+     * @apiGroup Vendor SEO
+     * @apiName VendorUpdateProductSeo
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiParam (Path) {Number} productId Product ID
+     *
+     * @apiBody {String} [metaTagTitle] Meta title (max 140 chars)
+     * @apiBody {String} [metaTagDescription] Meta description (max 160 chars)
+     * @apiBody {String} [metaTagKeyword] Meta keywords (max 255 chars)
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Seo Updated successfully"
+     *     }
+     *
+     * @apiErrorExample {json} Invalid-Product:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Invalid product. "
+     *     }
+     *
+     * @apiSampleRequest /api/vendor-product-seo/:productId
      */
     @Post('/:productId')
     @Authorized(['vendor', 'seo-product'])
@@ -381,29 +392,45 @@ export class SeoVendorProductController {
         }
     }
 
-    // Seo Detail API
     /**
-     * @api {Get} /api/vendor-product-seo/:productId Seo Detail API
-     * @apiGroup seo
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} productId productId
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully got Seo details.",
-     *      "data": {
-     *          "seoId": 1,
-     *          "metaTagTitle": "",
-     *          "metaTagDescription": "",
-     *          "metaTagKeyword": "",
-     *          "refId": 1,
-     *          "seoType": ""
-     *      }
-     *      "status": "1"
-     *  }
+     * @api {get} /api/vendor-product-seo/:productId Get Product SEO Details
+     * @apiGroup Vendor SEO
+     * @apiName VendorProductSeoDetail
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiParam (Path) {Number} productId Product ID
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully got Seo details.",
+     *         "data": {
+     *             "productId": 1,
+     *             "name": "Product Name",
+     *             "sku": "SKU001",
+     *             "productSlug": "product-name",
+     *             "price": 100,
+     *             "seo": {
+     *                 "seoId": 1,
+     *                 "metaTagTitle": "Meta Title",
+     *                 "metaTagDescription": "Meta Description",
+     *                 "metaTagKeyword": "keywords",
+     *                 "refId": 1,
+     *                 "seoType": "product"
+     *             }
+     *         }
+     *     }
+     *
+     * @apiErrorExample {json} Product-Not-Found:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Invalid product ID."
+     *     }
+     *
      * @apiSampleRequest /api/vendor-product-seo/:productId
-     * @apiErrorExample {json} seoDetail error
-     * HTTP/1.1 500 Internal Server Error
      */
     @Get('/:productId')
     @Authorized(['vendor', 'seo-product'])

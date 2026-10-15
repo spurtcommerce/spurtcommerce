@@ -22,33 +22,28 @@ export class PageGroupController {
     ) {
     }
 
-    // Create Page Group API
     /**
-     * @api {post} /api/page-group Add Page group API
+     * @api {post} /api/page-group Create Page Group
      * @apiGroup Page Group
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {String} pageGroupName
-     * @apiParam (Request body) {Number} status
-     * @apiParamExample {json} Input
-     * {
-     *      "pageGroupName" : "",
-     *      "status" : "",
-     *      "data": {
-     *          "groupName": "",
-     *          "isActive": 1,
-     *          "createdDate": "",
-     *          "groupId": 1
-     *       }
-     * }
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully created page group.",
-     *      "status": "1"
-     * }
+     * @apiName CreatePageGroup
+     *
+     * @apiHeader {String} Authorization  Bearer Token
+     *
+     * @apiBody {String} groupName           Page group name (max 255 characters)
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully created new page group.",
+     *         "data": {
+     *             "groupId": 1,
+     *             "groupName": "Company Information",
+     *             "isActive": 1
+     *         }
+     *     }
+     *
      * @apiSampleRequest /api/page-group
-     * @apiErrorExample {json} Page group error
-     * HTTP/1.1 500 Internal Server Error
      */
     @Post()
     @Authorized(['vendor', 'create-page-group'])
@@ -74,32 +69,35 @@ export class PageGroupController {
         }
     }
 
-    // Page Group List API
     /**
-     * @api {get} /api/page-group Page Group list API
+     * @api {get} /api/page-group Page Group List
      * @apiGroup Page Group
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} limit limit
-     * @apiParam (Request body) {Number} offset offset
-     * @apiParam (Request body) {Number} status status
-     * @apiParam (Request body) {Number} groupName groupName
-     * @apiParam (Request body) {Number} count count should be number or boolean
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully get Page Group list API",
-     *      "data":[
-     *                  {
-     *                      "groupId" : "",
-     *                      "pageGroupName" : "",
-     *                      "isActive": 1
-     *                  }
-     *              ]
-     *      "status": "1"
-     * }
+     * @apiName PageGroupList
+     *
+     * @apiHeader {String} Authorization  Bearer Token
+     *
+     * @apiQuery {Number} [limit]            Number of records to return
+     * @apiQuery {Number} [offset]           Pagination offset
+     * @apiQuery {String} [status]           Status filter
+     * @apiQuery {String} [keyword]          Search keyword
+     * @apiQuery {String} [groupName]        Group name filter
+     * @apiQuery {Number|Boolean} [count]    If true/1, returns total count
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully got page group list.",
+     *         "data": [
+     *             {
+     *                 "groupId": 1,
+     *                 "groupName": "Company Info",
+     *                 "isActive": 1
+     *             }
+     *         ]
+     *     }
+     *
      * @apiSampleRequest /api/page-group
-     * @apiErrorExample {json} Page Group error
-     * HTTP/1.1 500 Internal Server Error
      */
     @Get()
     @Authorized(['vendor', 'list-page-group'])
@@ -140,36 +138,37 @@ export class PageGroupController {
         return response.status(200).send(successResponse);
     }
 
-    // update Attribute Group
     /**
-     * @api {put} /api/page-group/:id Update Page Group API
+     * @api {put} /api/page-group/:id Update Page Group
      * @apiGroup Page Group
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {String} pageGroupName pageGroupName
-     * @apiParam (Request body) {Number} status status
-     * @apiParamExample {json} Input
-     * {
-     *      "pageGroupName" : "",
-     *      "status" : "",
-     * }
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully updated page group.",
-     *      "status": "1"
-     *      "data": {
-     *                 "createdBy": 1,
-     *                 "createdDate": "",
-     *                 "modifiedBy": 1,
-     *                 "modifiedDate": "",
-     *                 "groupId": 1,
-     *                 "groupName": "",
-     *                 "isActive": 1
-     *               }
-     * }
+     * @apiName UpdatePageGroup
+     *
+     * @apiHeader {String} Authorization  Bearer Token
+     *
+     * @apiParam (Path) {Number} id          Page Group ID
+     *
+     * @apiBody {String} groupName           Updated page group name
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully updated page group.",
+     *         "data": {
+     *             "groupId": 1,
+     *             "groupName": "Company Info Updated",
+     *             "isActive": 1
+     *         }
+     *     }
+     *
+     * @apiErrorExample {json} Invalid-Page-Group:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Invalid page group Id"
+     *     }
+     *
      * @apiSampleRequest /api/page-group/:id
-     * @apiErrorExample {json} Page Group error
-     * HTTP/1.1 500 Internal Server Error
      */
     @Put('/:id')
     @Authorized(['vendor', 'edit-page-group'])
@@ -217,20 +216,30 @@ export class PageGroupController {
         }
     }
 
-    // delete Page Group API
     /**
-     * @api {delete} /api/page-group/:id Delete Page group API
+     * @api {delete} /api/page-group/:id Delete Page Group
      * @apiGroup Page Group
-     * @apiHeader {String} Authorization
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully deleted Page group.",
-     *      "status": "1"
-     * }
+     * @apiName DeletePageGroup
+     *
+     * @apiHeader {String} Authorization  Bearer Token
+     *
+     * @apiParam (Path) {Number} id          Page Group ID to delete
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully deleted page group."
+     *     }
+     *
+     * @apiErrorExample {json} Invalid-Page-Group:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Invalid page group Id"
+     *     }
+     *
      * @apiSampleRequest /api/page-group/:id
-     * @apiErrorExample {json} Page error
-     * HTTP/1.1 500 Internal Server Error
      */
     @Delete('/:id')
     @Authorized(['vendor', 'delete-page-group'])
@@ -274,29 +283,35 @@ export class PageGroupController {
         }
     }
 
-    //   Get Page Group API
     /**
-     * @api {get} /api/page-group/get-page-group/:id Get Page Group API
+     * @api {get} /api/page-group/get-page-group/:id Get Page Group Detail
      * @apiGroup Page Group
-     * @apiHeader {String} Authorization
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully get page Group",
-     *      "status": "1",
-     *      "data": {
-     *                   "createdBy": 1,
-     *                   "createdDate": "",
-     *                   "modifiedBy": 1,
-     *                   "modifiedDate": "",
-     *                   "groupId": 1,
-     *                   "groupName": "",
-     *                   "isActive": 1
-     *               }
-     * }
+     * @apiName GetPageGroupDetail
+     *
+     * @apiHeader {String} Authorization  Bearer Token
+     *
+     * @apiParam (Path) {Number} id          Page Group ID
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully got page group details.",
+     *         "data": {
+     *             "groupId": 1,
+     *             "groupName": "Company Info",
+     *             "isActive": 1
+     *         }
+     *     }
+     *
+     * @apiErrorExample {json} Invalid-Page-Group:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Invalid page group Id"
+     *     }
+     *
      * @apiSampleRequest /api/page-group/get-page-group/:id
-     * @apiErrorExample {json} Page Group error
-     * HTTP/1.1 500 Internal Server Error
      */
     @Get('/get-page-group/:id')
     @Authorized(['vendor', 'list-page-group'])

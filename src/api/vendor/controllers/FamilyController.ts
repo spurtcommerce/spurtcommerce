@@ -19,30 +19,37 @@ export class FamilyController {
         // --
     }
 
-    // create family
     /**
-     * @api {post} /api/family Add Family API
+     * @api {post} /api/family Create Product Family
      * @apiGroup Family
-     * @apiDescription This API allows users to add a new family.
-     * @apiParam (Request body) {String} familyName "".
-     * @apiParam (Request body) {Number[]} categoryIds "".
-     * @apiHeader {String} Authorization Bearer token is required.
-     * @apiParamExample {json} Request Example
-     * {
-     *   "familyName": "",
-     *   "categoryIds": []
-     * }
-     * @apiSuccessExample {json} Success Response
-     * HTTP/1.1 200 OK
-     * {
-     *   "status": 1,
-     *   "message": "Family has been created successfully."
-     * }
+     * @apiName CreateVendorFamily
+     *
+     * @apiHeader {String} Authorization  Bearer Token
+     *
+     * @apiBody {String} familyName          Family name
+     * @apiBody {Number[]} [categoryIds]     Array of category IDs to map
+     * @apiBody {Number[]} [deleteCategoryIds] Array of category IDs to unmap
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully created new family.",
+     *         "data": {
+     *             "id": 1,
+     *             "name": "Electronics Family"
+     *         }
+     *     }
+     *
+     * @apiErrorExample {json} Duplicate-Family:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Family Name already exists."
+     *     }
+     *
      * @apiSampleRequest /api/family
-     * @apiErrorExample {json} Error Response
-     * HTTP/1.1 500 Internal Server Error
      */
-
     @Post()
     @Authorized(['vendor', 'create-vendor-product-family'])
     public async createFamily(@Body({ validate: true }) createFamily: CreateFamily, @Req() request: any, @Res() response: any): Promise<any> {
@@ -60,33 +67,39 @@ export class FamilyController {
         return response.status(200).send(successResponse);
     }
 
-    // update family
     /**
-     * @api {put} /api/family/:id Update Family API
+     * @api {put} /api/family/:id Update Product Family
      * @apiGroup Family
-     * @apiDescription This API allows users to update an existing family by ID.
-     * @apiParam (Request body) {String} familyName "".
-     * @apiParam (Request body) {Number[]} categoryIds "".
-     * @apiParam (Request body) {Number[]} deleteCategoryIds "".
-     * @apiParam (URL parameter) {Number} id Family ID to update.
-     * @apiHeader {String} Authorization Bearer token is required.
-     * @apiParamExample {json} Request Example
-     * {
-     *   "familyName": "",
-     *   "categoryIds": [""],
-     *   "deleteCategoryIds": [""]
-     * }
-     * @apiSuccessExample {json} Success Response
-     * HTTP/1.1 200 OK
-     * {
-     *   "status": 1,
-     *   "message": "Family updated successfully."
-     * }
+     * @apiName UpdateVendorFamily
+     *
+     * @apiHeader {String} Authorization  Bearer Token
+     *
+     * @apiParam (Path) {Number} id          Family ID
+     *
+     * @apiBody {String} familyName          Family name
+     * @apiBody {Number[]} [categoryIds]     Array of category IDs to map
+     * @apiBody {Number[]} [deleteCategoryIds] Array of category IDs to unmap
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully updated family.",
+     *         "data": {
+     *             "id": 1,
+     *             "name": "Updated Family"
+     *         }
+     *     }
+     *
+     * @apiErrorExample {json} Invalid-Family:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Invalid family Id"
+     *     }
+     *
      * @apiSampleRequest /api/family/:id
-     * @apiErrorExample {json} Error Response
-     * HTTP/1.1 500 Internal Server Error
      */
-
     @Put('/:id')
     @Authorized(['vendor', 'edit-vendor-product-family'])
     public async updateFamily(@Param('id') id: number, @Body({ validate: false }) updateFamily: CreateFamily, @Req() request: any, @Res() response: any): Promise<any> {
@@ -121,39 +134,33 @@ export class FamilyController {
         return response.status(200).send(successResponse);
     }
 
-    // get family list
     /**
-     * @api {get} /api/family Get Family List API
+     * @api {get} /api/family Product Family List
      * @apiGroup Family
-     * @apiDescription This API retrieves a list of families with optional filtering and pagination.
-     * @apiParam (Query Parameters) {Number} limit Number of records to return.
-     * @apiParam (Query Parameters) {Number} offset Number of records to skip.
-     * @apiParam (Query Parameters) {String} keyword Keyword to filter families by name.
-     * @apiParam (Query Parameters) {Number} count If set to 1, returns only the count.
-     * @apiHeader {String} Authorization Bearer token is required.
-     * @apiSuccessExample {json} Success Response
-     * HTTP/1.1 200 OK
-     * {
-     *   "status": 1,
-     *   "message": "Family retrieved successfully.",
-     *   "data": [
+     * @apiName GetVendorFamilyList
+     *
+     * @apiHeader {String} Authorization  Bearer Token
+     *
+     * @apiQuery {Number} [limit]            Number of records to return
+     * @apiQuery {Number} [offset]           Pagination offset
+     * @apiQuery {String} [keyword]          Search keyword
+     * @apiQuery {Number} [count]            If true/1, returns total count
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
      *     {
-     *       "createdBy": "",
-     *       "createdDate": "",
-     *       "modifiedBy": "",
-     *       "modifiedDate": "",
-     *       "id": "",
-     *       "familyName": "",
-     *       "isActive": "",
-     *       "isDelete": ""
+     *         "status": 1,
+     *         "message": "Successfully got family list",
+     *         "data": [
+     *             {
+     *                 "id": 1,
+     *                 "name": "Electronics Family"
+     *             }
+     *         ]
      *     }
-     *   ]
-     * }
+     *
      * @apiSampleRequest /api/family
-     * @apiErrorExample {json} Error Response
-     * HTTP/1.1 500 Internal Server Error
      */
-
     @Get()
     @Authorized(['vendor', 'list-vendor-product-family'])
     public async getFamilyList(@QueryParam('limit') limit: number, @QueryParam('offset') offset: number, @QueryParam('keyword') keyword: string, @QueryParam('count') count: number, @Req() request: any, @Res() response: any): Promise<any> {
@@ -197,56 +204,31 @@ export class FamilyController {
         return response.status(200).send(successResponse);
     }
 
-    // Get Category List Family API
     /**
-     * @api {get} /api/family/category Get category list family API
-     * @apiGroup Admin Family
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} limit limit
-     * @apiParam (Request body) {Number} offset offset
-     * @apiParam (Request body) {Number} status status
-     * @apiParam (Request body) {Number} count count
-     * @apiParam (Request body) {Number} keyword keyword
-     * @apiParam (Request body) {Number} familyName familyName
-     * @apiParam (Request body) {Number} sortOrder sortOrder
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *    "status": 1,
-     *    "message": "Successfully Got family Category List.",
-     *    "data": [
-     *        {
-     *            "categoryId": 1,
-     *            "sortOrder": 1,
-     *            "parentInt": 1,
-     *            "name": "",
-     *            "image": "",
-     *            "imagePath": "",
-     *            "isActive": 1,
-     *            "createdDate": "",
-     *            "levels": "",
-     *            "familyName":"",
-     *            "specifications": [
-     *                {
-     *                    "createdBy": 1,
-     *                    "createdDate": "",
-     *                    "modifiedBy": 1,
-     *                    "modifiedDate": "",
-     *                    "id": 1,
-     *                    "name": "",
-     *                    "slug": "",
-     *                    "isActive": 1,
-     *                    "isDelete": 0
-     *                }
-     *            ]
-     *        }
-     *    ]
-     * }
+     * @api {get} /api/family/category Get Family Category Attributes List
+     * @apiGroup Family
+     * @apiName GetCategoryListFamily
+     *
+     * @apiHeader {String} Authorization  Bearer Token
+     *
+     * @apiQuery {Number} [limit]            Number of records to return
+     * @apiQuery {Number} [offset]           Pagination offset
+     * @apiQuery {Number} [status]           Status filter
+     * @apiQuery {String} [keyword]          Search keyword
+     * @apiQuery {Number} [familyId]         Family ID
+     * @apiQuery {Number} [sortOrder]        Sort order
+     * @apiQuery {Number} [count]            If true/1, returns total count
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully got category list",
+     *         "data": []
+     *     }
+     *
      * @apiSampleRequest /api/family/category
-     * @apiErrorExample {json} family category error
-     * HTTP/1.1 500 Internal Server Error
      */
-
     @Get('/category')
     @Authorized(['vendor', 'list-product-attribute'])
     public async getCategoryListFamily(@Res() response: any, @QueryParam('limit') limit: number, @QueryParam('offset') offset: number, @QueryParam('status') status: number, @QueryParam('keyword') keyword: string, @QueryParam('familyId') familyId: number, @QueryParam('sortOrder') sortOrder: number, @QueryParam('count') count: number, @Req() request: any): Promise<any> {
@@ -341,35 +323,35 @@ export class FamilyController {
         });
     }
 
-    // Get family detail
     /**
-     * @api {get} /api/family/:id Get family detail API
+     * @api {get} /api/family/:id Get Family Detail
      * @apiGroup Family
-     * @apiHeader {String} Authorization Bearer token is required.
-     * @apiParam (Query Parameters) {Number} id id.
-     * @apiSuccessExample {json} Success Response
-     * HTTP/1.1 200 OK
-     * {
-     *   "status": 1,
-     *   "message": "Family details retrieved successfully.",
-     *   "data": [
+     * @apiName GetVendorFamilyDetail
+     *
+     * @apiHeader {String} Authorization  Bearer Token
+     *
+     * @apiParam (Path) {Number} id          Family ID
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
      *     {
-     *       "createdBy": "",
-     *       "createdDate": "",
-     *       "modifiedBy": "",
-     *       "modifiedDate": "",
-     *       "id": "",
-     *       "familyName": "",
-     *       "isActive": "",
-     *       "isDelete": ""
+     *         "status": 1,
+     *         "message": "Successfully got family details.",
+     *         "data": {
+     *             "id": 1,
+     *             "name": "Electronics Family"
+     *         }
      *     }
-     *   ]
-     * }
+     *
+     * @apiErrorExample {json} Invalid-Family:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Invalid family Id"
+     *     }
+     *
      * @apiSampleRequest /api/family/:id
-     * @apiErrorExample {json} Error Response
-     * HTTP/1.1 500 Internal Server Error
      */
-
     @Get('/:id')
     @Authorized(['vendor', 'vendor-product-family'])
     public async getFamilyDetail(@Param('id') familyId: number, @Req() request: any, @Res() response: any): Promise<any> {
@@ -406,26 +388,31 @@ export class FamilyController {
         return response.status(200).send(successResponse);
     }
 
-    // delete family
     /**
-     * @api {delete} /api/family/:id Delete Family API
+     * @api {delete} /api/family/:id Delete Product Family
      * @apiGroup Family
-     * @apiDescription This API allows users to delete a family by ID.
-     * @apiParam (URL parameter) {Number} id Family ID to delete.
-     * @apiHeader {String} Authorization Bearer token is required.
-     * @apiParamExample {url} Request Example
-     * /api/family/1
-     * @apiSuccessExample {json} Success Response
-     * HTTP/1.1 200 OK
-     * {
-     *   "status": 1,
-     *   "message": "Successfully deleted family."
-     * }
+     * @apiName DeleteVendorFamily
+     *
+     * @apiHeader {String} Authorization  Bearer Token
+     *
+     * @apiParam (Path) {Number} id          Family ID to delete
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully deleted family."
+     *     }
+     *
+     * @apiErrorExample {json} Invalid-Family:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Invalid family Id"
+     *     }
+     *
      * @apiSampleRequest /api/family/:id
-     * @apiErrorExample {json} Error Response
-     * HTTP/1.1 500 Internal Server Error
      */
-
     @Delete('/:id')
     @Authorized(['vendor', 'delete-vendor-product-family'])
     public async deleteFamily(@Param('id') id: number, @Req() request: any, @Res() response: any): Promise<any> {

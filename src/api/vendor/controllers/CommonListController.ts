@@ -29,31 +29,43 @@ export class VendorCommonListController {
         // --
     }
 
-    // Zone List API
     /**
-     * @api {get} /api/list/zone Zone List API
-     * @apiGroup Store List
-     * @apiParam (Request body) {Number} limit limit
-     * @apiParam (Request body) {Number} offset offset
-     * @apiParam (Request body) {String} keyword keyword
-     * @apiParam (Request body) {String} countryId countryId
-     * @apiParam (Request body) {Number} count count should be number or boolean
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "status": "1"
-     *      "message": "Successfully get zone list",
-     *      "data":{
-     *              "zoneId": 1
-     *              "countryId": 99
-     *              "code": ""
-     *              "name": "",
-     *              "isActive": 1
+     * @api {get} /api/vendor-list/zone List Available Zones
+     * @apiGroup Vendor Common List
+     * @apiName VendorCommonZoneList
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiQuery {Number} [limit] Number of records to return
+     * @apiQuery {Number} [offset] Pagination offset
+     * @apiQuery {Number} [countryId] Filter by country ID
+     * @apiQuery {String} [keyword] Keyword search for zone name
+     * @apiQuery {Number} [count] Return count only if 1
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully get all zone list",
+     *         "data": [
+     *             {
+     *                 "zoneId": 1,
+     *                 "countryId": 99,
+     *                 "code": "CA",
+     *                 "name": "California",
+     *                 "isActive": 1
      *             }
-     * }
-     * @apiSampleRequest /api/list/zone
-     * @apiErrorExample {json} Zone error
-     * HTTP/1.1 500 Internal Server Error
+     *         ]
+     *     }
+     *
+     * @apiErrorExample {json} Error-Response:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "unable to get zone list"
+     *     }
+     *
+     * @apiSampleRequest /api/vendor-list/zone
      */
     @Get('/zone')
     @Authorized('vendor')
@@ -103,33 +115,45 @@ export class VendorCommonListController {
         }
     }
 
-    // Language List API
     /**
-     * @api {get} /api/list/language Language List API
-     * @apiGroup Store List
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} limit limit
-     * @apiParam (Request body) {Number} offset offset
-     * @apiParam (Request body) {String} keyword keyword
-     * @apiParam (Request body) {Number} count count should be number or boolean
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "status": "1"
-     *      "message": "Successfully got language list",
-     *      "data":{
-     *              "languageId": 1
-     *              "name": ""
-     *              "status": 1
-     *              "code": ""
-     *              "sortOrder": 1,
-     *              "image": "",
-     *              "imagePath": ""
-     *      }
-     * }
-     * @apiSampleRequest /api/list/language
-     * @apiErrorExample {json} Language error
-     * HTTP/1.1 500 Internal Server Error
+     * @api {get} /api/vendor-list/language List Vendor Languages
+     * @apiGroup Vendor Common List
+     * @apiName VendorCommonLanguageList
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiQuery {Number} [limit] Number of records to return
+     * @apiQuery {Number} [offset] Pagination offset
+     * @apiQuery {String} [keyword] Keyword search for language name
+     * @apiQuery {String} [status] Filter by active status
+     * @apiQuery {String} [defaultLanguage] Exclude default language ID
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "successfully got the complete language list",
+     *         "data": [
+     *             {
+     *                 "id": 1,
+     *                 "isActive": 1,
+     *                 "language": {
+     *                     "languageId": 1,
+     *                     "name": "French",
+     *                     "code": "fr"
+     *                 }
+     *             }
+     *         ]
+     *     }
+     *
+     * @apiErrorExample {json} Error-Response:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "unable to show language list"
+     *     }
+     *
+     * @apiSampleRequest /api/vendor-list/language
      */
     @Get('/language')
     @Authorized('vendor')
@@ -199,26 +223,36 @@ export class VendorCommonListController {
         }
     }
 
-    // Industry list
     /**
-     * @api /api/vendor-list/industry Industry List
-     * @apiGroup Store
-     * @apiSuccessExample {json} success
-     * HTTP/1.1 200 Ok
-     * {
-     *      "status": "1",
-     *      "message": "Successfully Got Industry List..!",
-     *      "data": {
-     *              "id": "",
-     *              "name": "",
-     *              "slug": """,
-     *              "isActive": "",
-     *              "isDelete": ""
-     *              }
-     * }
-     * @apiSampleRequest /api/list/industry
-     * @apiErrorExample {json} Error
-     * HTTP/1.1 500 Internal server error
+     * @api {get} /api/vendor-list/industry List Industries
+     * @apiGroup Vendor Common List
+     * @apiName VendorCommonIndustryList
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully got industry list",
+     *         "data": [
+     *             {
+     *                 "id": 1,
+     *                 "name": "Retail",
+     *                 "slug": "retail",
+     *                 "isActive": 1
+     *             }
+     *         ]
+     *     }
+     *
+     * @apiErrorExample {json} Error-Response:
+     *     HTTP/1.1 500 Internal Server Error
+     *     {
+     *         "status": 0,
+     *         "message": "Internal Server Error"
+     *     }
+     *
+     * @apiSampleRequest /api/vendor-list/industry
      */
     @Get('/industry')
     @Authorized('vendor')
@@ -235,34 +269,39 @@ export class VendorCommonListController {
         });
     }
 
-    // Plugin list
     /**
-     * @api /api/list/addons Plugin List
-     * @apiGroup Store
-     * @apiParam (Request Body) {number} limit limit
-     * @apiParam (Request Body) {number} offset offset
-     * @apiParam (Request Body) {number} count count
-     * @apiSuccessExample {json} success
-     * HTTP/1.1 200 Ok
-     * {
-     *      "status": "1",
-     *      "message": "Successfully get the plugin list. ",
-     *      "data": {
-     *      "status": ,
-     *      "additionalInfo": {
-     *           "clientId": "",
-     *           "clientSecret": "",
-     *           "defaultRoute": "",
-     *           "isTest": ""
-     *       }
-     *   }
-     *  }
-     * }
-     * @apiSampleRequest /api/list/addons
-     * @apiErrorExample {json} Error
-     * HTTP/1.1 500 Internal server error
+     * @api {get} /api/vendor-list/addons List Active Vendor Addons
+     * @apiGroup Vendor Common List
+     * @apiName VendorCommonAddonList
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiQuery {Number} [limit] Number of records to return
+     * @apiQuery {Number} [offset] Pagination offset
+     * @apiQuery {Number} [count] Return count only if 1
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully get the plugin list",
+     *         "data": {
+     *             "paypal": {
+     *                 "status": 1,
+     *                 "additionalInfo": {}
+     *             }
+     *         }
+     *     }
+     *
+     * @apiErrorExample {json} Error-Response:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Unable to get the plugin list"
+     *     }
+     *
+     * @apiSampleRequest /api/vendor-list/addons
      */
-
     @Get('/addons')
     @Authorized('vendor')
     public async PluginList(@QueryParam('limit') limit: number, @QueryParam('offset') offset: number, @QueryParam('count') count: number | boolean, @Res() response: any, @Req() request: any): Promise<any> {
@@ -285,53 +324,39 @@ export class VendorCommonListController {
         return response.status(200).send({ status: 1, message: 'Successfully get the plugin list', data: values });
     }
     /**
-     * @api {get} /api/vendor-list/master-country Master Country List
-     * @apiGroup Country
-     * @apiDescription
-     * Retrieves a list of all active countries with optional search, pagination, and count functionality.
+     * @api {get} /api/vendor-list/master-country List Master Countries
+     * @apiGroup Vendor Common List
+     * @apiName VendorCommonMasterCountryList
      *
-     * @apiQuery {Number} [limit] Number of records to retrieve.
-     * @apiQuery {Number} [offset] Number of records to skip.
-     * @apiQuery {String} [keyword] Keyword to search by country name or ISO codes.
-     * @apiQuery {Boolean|Number} [count=false] If true or 1, returns only the total count instead of the list.
+     * @apiHeader {String} Authorization Bearer Token
      *
-     * @apiSuccessExample {json} Success-Response (List):
-     * HTTP/1.1 200 OK
-     * {
-     *   "status": 1,
-     *   "message": "Successfully get all country List",
-     *   "data": [
+     * @apiQuery {Number} [limit] Number of records to return
+     * @apiQuery {Number} [offset] Pagination offset
+     * @apiQuery {String} [keyword] Keyword search for country name or ISO codes
+     * @apiQuery {Number} [count] Return count only if 1
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
      *     {
-     *       "countryId": 1,
-     *       "name": "United States",
-     *       "isoCode2": "US",
-     *       "isoCode3": "USA",
-     *       "isActive": 1
-     *     },
-     *     {
-     *       "countryId": 2,
-     *       "name": "United Kingdom",
-     *       "isoCode2": "GB",
-     *       "isoCode3": "GBR",
-     *       "isActive": 1
+     *         "status": 1,
+     *         "message": "Successfully get all country List",
+     *         "data": [
+     *             {
+     *                 "countryId": 1,
+     *                 "name": "United States",
+     *                 "isoCode2": "US",
+     *                 "isoCode3": "USA",
+     *                 "isActive": 1
+     *             }
+     *         ]
      *     }
-     *   ]
-     * }
-     *
-     * @apiSuccessExample {json} Success-Response (Count):
-     * HTTP/1.1 200 OK
-     * {
-     *   "status": 1,
-     *   "message": "Successfully got all Country Count",
-     *   "data": 250
-     * }
      *
      * @apiErrorExample {json} Error-Response:
-     * HTTP/1.1 400 Bad Request
-     * {
-     *   "status": 0,
-     *   "message": "Unable to get country List"
-     * }
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Unable to get country List"
+     *     }
      *
      * @apiSampleRequest /api/vendor-list/master-country
      */
@@ -383,55 +408,36 @@ export class VendorCommonListController {
     }
 
     /**
-     * @api {get} /api/vendor-list/master-language Master Language List
-     * @apiGroup Language
-     * @apiDescription
-     * Retrieves a list of all active languages with optional search, pagination, and count functionality.
+     * @api {get} /api/vendor-list/master-language List Master Languages
+     * @apiGroup Vendor Common List
+     * @apiName VendorCommonMasterLanguageList
      *
-     * @apiQuery {Number} [limit] Number of records to retrieve.
-     * @apiQuery {Number} [offset] Number of records to skip.
-     * @apiQuery {String} [keyword] Keyword to search by language name or code.
-     * @apiQuery {Boolean|Number} [count=false] If true or 1, returns only the total count instead of the list.
+     * @apiQuery {Number} [limit] Number of records to return
+     * @apiQuery {Number} [offset] Pagination offset
+     * @apiQuery {String} [keyword] Keyword search for language name or code
+     * @apiQuery {Number} [count] Return count only if 1
      *
-     * @apiSuccessExample {json} Success-Response (List):
-     * HTTP/1.1 200 OK
-     * {
-     *   "status": 1,
-     *   "message": "Successfully got all vendor language list.",
-     *   "data": [
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
      *     {
-     *       "languageId": 1,
-     *       "name": "English",
-     *       "code": "en",
-     *       "isActive": 1,
-     *       "image": "en.png",
-     *       "imagePath": "/uploads/language/"
-     *     },
-     *     {
-     *       "languageId": 2,
-     *       "name": "French",
-     *       "code": "fr",
-     *       "isActive": 1,
-     *       "image": "fr.png",
-     *       "imagePath": "/uploads/language/"
+     *         "status": 1,
+     *         "message": "Successfully got all vendor language list.",
+     *         "data": [
+     *             {
+     *                 "languageId": 1,
+     *                 "name": "English",
+     *                 "code": "en",
+     *                 "isActive": 1
+     *             }
+     *         ]
      *     }
-     *   ]
-     * }
-     *
-     * @apiSuccessExample {json} Success-Response (Count):
-     * HTTP/1.1 200 OK
-     * {
-     *   "status": 1,
-     *   "message": "Successfully got all vendor language count.",
-     *   "data": 12
-     * }
      *
      * @apiErrorExample {json} Error-Response:
-     * HTTP/1.1 400 Bad Request
-     * {
-     *   "status": 0,
-     *   "message": "Unable to get language list."
-     * }
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Unable to get language list."
+     *     }
      *
      * @apiSampleRequest /api/vendor-list/master-language
      */

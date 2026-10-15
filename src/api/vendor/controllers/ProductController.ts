@@ -93,6 +93,45 @@ export class ProductController {
     ) {
     }
 
+    /**
+     * @api {get} /api/product Get Vendor Product List
+     * @apiGroup Vendor Product
+     * @apiName VendorGetProductList
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiQuery {Number} [limit] Number of records to return
+     * @apiQuery {Number} [offset] Pagination offset
+     * @apiQuery {String} [keyword] Keyword search for product name
+     * @apiQuery {String} [sku] Filter by SKU
+     * @apiQuery {String} [status] Filter by status
+     * @apiQuery {Number} [price] Filter by price
+     * @apiQuery {Number} [count] Return count only if 1
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully got the complete list of products.",
+     *         "data": [
+     *             {
+     *                 "productId": 1,
+     *                 "productName": "Sample Product",
+     *                 "sku": "SKU-001",
+     *                 "price": 100
+     *             }
+     *         ]
+     *     }
+     *
+     * @apiErrorExample {json} Error-Response:
+     *     HTTP/1.1 500 Internal Server Error
+     *     {
+     *         "status": 0,
+     *         "message": "Internal Server Error"
+     *     }
+     *
+     * @apiSampleRequest /api/product
+     */
     @Get()
     @Authorized('vendor')
     public async getProductList(@QueryParam('limit') limit: number, @QueryParam('offset') offset: number, @QueryParam('keyword') keyword: string, @QueryParam('sku') sku: string, @QueryParam('status') status: string, @QueryParam('price') price: number, @QueryParam('count') count: number | boolean, @Res() response: any, @Req() request: any): Promise<Product> {
@@ -179,148 +218,40 @@ export class ProductController {
         });
     }
 
-    // Create Product API
     /**
-     * @api {post} /api/product Add Product API
-     * @apiGroup Product
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {String{..255}} productName productName
-     * @apiParam (Request body) {String} [productDescription] productDescription
-     * @apiParam (Request body) {String{..64}} sku stock keeping unit
-     * @apiParam (Request body) {String{..12}} upc upc
-     * @apiParam (Request body) {String{..64}} hsn hsn
-     * @apiParam (Request body) {String} image product Image
-     * @apiParam (Request body) {String{..255}} [productSlug] productSlug
-     * @apiParam (Request body) {String} quantity quantity
-     * @apiParam (Request body) {Number} [packingCost] packingCost
-     * @apiParam (Request body) {Number} [shippingCost] shippingCost
-     * @apiParam (Request body) {Number} [tax] tax
-     * @apiParam (Request body) {Number} [taxType] taxType
-     * @apiParam (Request body) {Number} [others] others
-     * @apiParam (Request body) {String} categoryId CategoryId
-     * @apiParam (Request body) {String} [relatedProductId] relatedProductId
-     * @apiParam (Request body) {Number} price price
-     * @apiParam (Request body) {Number} [outOfStockStatus] outOfStockStatus
-     * @apiParam (Request body) {Number} [requiredShipping] requiredShipping
-     * @apiParam (Request body) {String} dateAvailable dateAvailable
-     * @apiParam (Request body) {Number} status status
-     * @apiParam (Request body) {Number{..9999}} sortOrder sortOrder
-     * @apiParam (Request body) {Number} [quotationAvailable] quotationAvailable
-     * @apiParam (Request body) {Number} [hasTirePrice] hasTirePrice
-     * @apiParam (Request body) {String} [productSpecial] productSpecial
-     * @apiParam (Request body) {String} [productDiscount] productDiscount
-     * @apiParam (Request body) {String} [tirePrices] tirePrices
-     * @apiParam (Request body) {String} [height] height
-     * @apiParam (Request body) {String} [weight] weight
-     * @apiParam (Request body) {String} [length] length
-     * @apiParam (Request body) {String} [width] width
-     * @apiParam (Request body) {Object} [productVideo] video
-     * @apiParam (Request body) {String} productVideo.name video name
-     * @apiParam (Request body) {String} productVideo.path for embedded have to pass path only
-     * @apiParam (Request body) {Number} productVideo.type 1 -> video 2 -> embedded
-     * @apiParamExample {json} Input
-     * {
-     *      "productName" : "",
-     *      "productDescription" : "",
-     *      "sku" : "",
-     *      "image" : "",
-     *      "categoryId" : [],
-     *      "productSlug" : "",
-     *      "upc" : "",
-     *      "hsn" : "",
-     *      "price" : "",
-     *      "packingCost" : "",
-     *      "shippingCost" : "",
-     *      "tax" : "",
-     *      "taxType" : "",
-     *      "others" : "",
-     *      "outOfStockStatus" : "",
-     *      "requiredShipping" : "",
-     *      "dateAvailable" : "",
-     *      "status" : "",
-     *      "outOfStockStatus" : "",
-     *      "sortOrder" : "",
-     *      "quotationAvailable" : "",
-     *      "hasTirePrice" : "",
-     *      "image":[
-     *      {
-     *      "image":""
-     *      "containerName":""
-     *      "defaultImage":""
-     *      }
-     *      ]
-     *      "tirePrices":[
-     *      {
-     *      "quantity":""
-     *      "price":""
-     *      }
-     *      ]
-     *     "relatedProductId":[ ]
-     *     "productSpecial":[
-     *      {
-     *     "customerGroupId":""
-     *     "specialPriority":""
-     *     "specialPrice":""
-     *     "specialDateStart":""
-     *     "specialDateEnd":""
-     *      }],
-     *     "productDiscount":[
-     *      {
-     *         "discountQuantity":""
-     *         "discountPriority":""
-     *         "discountPrice":""
-     *         "discountDateStart":""
-     *         "discountDateEnd"""
-     *      }],
-     *      "productVideo":{
-     *               "name": "",
-     *               "path": "",
-     *               "type": ""
-     *      }
-     * }
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully created new product.",
-     *      "status": "1",
-     *      "data": {
-     *                "name": "",
-     *                "description": "",
-     *                "productSlug": "",
-     *                "sku": "",
-     *                "upc": "",
-     *                "hsn": "",
-     *                "quantity": "",
-     *                "quotationAvailable": "",
-     *                "serviceCharges": "",
-     *                "price": "",
-     *                "taxType": "",
-     *                "taxValue": "",
-     *                "stockStatusId": "",
-     *                "skuId": "",
-     *                "shipping": "",
-     *                "dateAvailable": "",
-     *                "isActive": "",
-     *                "isFeatured": "",
-     *                "todayDeals": "",
-     *                "sortOrder": "",
-     *                "height": "",
-     *                "weight": "",
-     *                "length": "",
-     *                "width": "",
-     *                "hasTirePrice": "",
-     *                "keywords": "",
-     *                "owner": "",
-     *                "createdBy": "",
-     *                "createdDate": "",
-     *                "productId": "",
-     *                "isSimplified": "",
-     *                "modifiedDate": ""
+     * @api {post} /api/product Add Product
+     * @apiGroup Vendor Product
+     * @apiName VendorAddProduct
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiBody {String} productName Product name
+     * @apiBody {String} sku Product SKU
+     * @apiBody {Number} quantity Available quantity
+     * @apiBody {Number} price Product price
+     * @apiBody {Number[]} categoryId Array of category IDs
+     * @apiBody {Object[]} [productImage] Array of image objects
+     * @apiBody {Number} status Active status (1: Active, 0: Inactive)
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully created new product.",
+     *         "data": {
+     *             "productId": 1,
+     *             "name": "Sample Product"
+     *         }
      *     }
-     * }
+     *
+     * @apiErrorExample {json} Error-Response:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Unable to create product"
+     *     }
+     *
      * @apiSampleRequest /api/product
-     * @apiErrorExample {json} AddProduct error
-     * HTTP/1.1 500 Internal Server Error
      */
     @Post()
     @Authorized(['vendor', 'create-product'])
@@ -524,116 +455,41 @@ export class ProductController {
         });
     }
 
-    // update Product API
     /**
-     * @api {post} /api/product/update-product/:id Update Product API
-     * @apiGroup Product
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} productId productId
-     * @apiParam (Request body) {String{..255}} productName productName
-     * @apiParam (Request body) {String} [productDescription] productDescription
-     * @apiParam (Request body) {String{..64}} sku stock keeping unit
-     * @apiParam (Request body) {String{..12}} upc upc
-     * @apiParam (Request body) {String{..64}} hsn hsn
-     * @apiParam (Request body) {String} image product Image
-     * @apiParam (Request body) {String} quantity quantity
-     * @apiParam (Request body) {String{.255}} [productSlug] productSlug
-     * @apiParam (Request body) {String} categoryId CategoryId
-     * @apiParam (Request body) {String} [relatedProductId] relatedProductId
-     * @apiParam (Request body) {Number} price price
-     * @apiParam (Request body) {Number} [packingCost] packingCost
-     * @apiParam (Request body) {Number} [shippingCost] shippingCost
-     * @apiParam (Request body) {Number} [tax] tax
-     * @apiParam (Request body) {Number} [taxType] taxType
-     * @apiParam (Request body) {Number} [others] others
-     * @apiParam (Request body) {Number} [outOfStockStatus] outOfStockStatus
-     * @apiParam (Request body) {Number} [requiredShipping] requiredShipping
-     * @apiParam (Request body) {String} [dateAvailable] dateAvailable
-     * @apiParam (Request body) {Number} status status
-     * @apiParam (Request body) {Number{..9999}} [sortOrder] sortOrder
-     * @apiParam (Request body) {Number} quotationAvailable quotationAvailable
-     * @apiParam (Request body) {Number} hasTirePrice
-     * @apiParam (Request body) {String} [productSpecial] productSpecial
-     * @apiParam (Request body) {String} [productDiscount] productDiscount
-     * @apiParam (Request body) {String} [height] height
-     * @apiParam (Request body) {String} [weight] weight
-     * @apiParam (Request body) {String} [length] length
-     * @apiParam (Request body) {String} [width] width
-     * @apiParam (Request body) {String} [tirePrices] tirePrices
-     * @apiParam (Request body) {Object} [productVideo] video
-     * @apiParam (Request body) {String} productVideo.name video name
-     * @apiParam (Request body) {String} productVideo.path for embedded have to pass path only
-     * @apiParam (Request body) {Number} productVideo.type 1 -> video 2 -> embedded
-     * @apiParamExample {json} Input
-     * {
-     *      "productName" : "",
-     *      "productDescription" : "",
-     *      "sku" : "",
-     *      "image" : "",
-     *      "categoryId" : [],
-     *      "upc" : "",
-     *      "hsn" : "",
-     *      "price" : "",
-     *      "packingCost" : "",
-     *      "shippingCost" : "",
-     *      "tax" : "",
-     *      "taxType" : "",
-     *      "others" : "",
-     *      "outOfStockStatus" : "",
-     *      "requiredShipping" : "",
-     *      "dateAvailable" : "",
-     *      "status" : "",
-     *      "hasTirePrice" : "",
-     *      "outOfStockStatus" : "",
-     *      "sortOrder" : "",
-     *      "quotationAvailable" : "",
-     *      "tirePrices":[
-     *      {
-     *      "quantity":""
-     *      "price":"",
-     *      "skuName":""
-     *      }
-     *      ]
-     *      "image":[
-     *      {
-     *      "image":""
-     *      "containerName":""
-     *      "defaultImage":""
-     *      }
-     *      ],
-     *       "relatedProductId":[ "", ""],
-     *      "productSpecial":[
-     *      {
-     *     "customerGroupId":""
-     *     "specialPriority":""
-     *     "skuName":""
-     *     "specialPrice":""
-     *     "specialDateStart":""
-     *     "specialDateEnd":""
-     *      }],
-     *       "productDiscount":[
-     *      {
-     *         "discountPriority":""
-     *         "discountPrice":""
-     *         "skuName":""
-     *         "discountDateStart":""
-     *         "discountDateEnd"""
-     *      }],
-     *       "productVideo":{
-     *               "name": "",
-     *               "path": "",
-     *               "type": ""
-     *      }
-     * }
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully updated product.",
-     *      "status": "1"
-     * }
+     * @api {post} /api/product/update-product/:id Update Product By ID
+     * @apiGroup Vendor Product
+     * @apiName VendorUpdateProductById
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiParam (Path) {Number} id Product ID
+     *
+     * @apiBody {String} productName Product name
+     * @apiBody {String} sku Product SKU
+     * @apiBody {Number} quantity Available quantity
+     * @apiBody {Number} price Product price
+     * @apiBody {Number[]} categoryId Array of category IDs
+     * @apiBody {Object[]} [productImage] Array of image objects
+     * @apiBody {Number} status Active status (1: Active, 0: Inactive)
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully updated product.",
+     *         "data": {
+     *             "productId": 1
+     *         }
+     *     }
+     *
+     * @apiErrorExample {json} Invalid-Product:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Invalid product ID"
+     *     }
+     *
      * @apiSampleRequest /api/product/update-product/:id
-     * @apiErrorExample {json} updateProduct error
-     * HTTP/1.1 500 Internal Server Error
      */
     @Post('/update-product/:id')
     @Authorized(['vendor', 'edit-product'])
@@ -956,21 +812,36 @@ export class ProductController {
         }
     }
 
-    // Product Detail API
     /**
-     * @api {get} /api/product/product-detail/:id Product Detail API
-     * @apiGroup Product
-     * @apiHeader {String} Authorization
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "status": "1"
-     *      "message": "Successfully get product Detail",
-     *      "data":"{}"
-     * }
+     * @api {get} /api/product/product-detail/:id Get Product Detail By ID
+     * @apiGroup Vendor Product
+     * @apiName VendorGetProductDetailById
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiParam (Path) {Number} id Product ID
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully got product detail.",
+     *         "data": {
+     *             "productId": 1,
+     *             "name": "Sample Product",
+     *             "sku": "SKU-001",
+     *             "price": 100
+     *         }
+     *     }
+     *
+     * @apiErrorExample {json} Not-Found:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Invalid product ID"
+     *     }
+     *
      * @apiSampleRequest /api/product/product-detail/:id
-     * @apiErrorExample {json} productDetail error
-     * HTTP/1.1 500 Internal Server Error
      */
     @Get('/product-detail/:id')
     @Authorized('vendor')
@@ -1099,23 +970,32 @@ export class ProductController {
         return response.status(200).send(successResponse);
     }
 
-    //  Top Selling Product List API
     /**
-     * @api {get} /api/product/top-selling-productlist  Top selling ProductList API
-     * @apiGroup Product
-     * @apiHeader {String} Authorization
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully get top selling product..!!",
-     *      "status": "1",
-     *      "data": {},
-     * }
+     * @api {get} /api/product/top-selling-productlist Get Top Selling Products Dashboard
+     * @apiGroup Vendor Dashboard
+     * @apiName VendorTopSellingProductListDashboard
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiQuery {Number} [duration] Duration filter (1: This Week, 2: This Month, 3: This Year)
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully got top selling products.",
+     *         "data": []
+     *     }
+     *
+     * @apiErrorExample {json} Error-Response:
+     *     HTTP/1.1 500 Internal Server Error
+     *     {
+     *         "status": 0,
+     *         "message": "Internal Server Error"
+     *     }
+     *
      * @apiSampleRequest /api/product/top-selling-productlist
-     * @apiErrorExample {json} top selling product error
-     * HTTP/1.1 500 Internal Server Error
      */
-    // Order Detail Function
     @Get('/top-selling-productlist')
     @Authorized('vendor')
     public async topSellingProductList(@Req() request: any, @Res() response: any): Promise<any> {
@@ -1160,29 +1040,29 @@ export class ProductController {
         };
         return response.status(200).send(successResponse);
     }
-    //  Top Five Repeatedly Purchased Customer List API
     /**
-     * @api {get} /api/product/top-five-repeatedly-purchased-customers  Top Five Repeatedly Purchased Customer List API
-     * @apiGroup Product
-     * @apiHeader {String} Authorization
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully get top 5 repeatedly purchased customer list!!",
-     *      "status": "1",
-     *      "data":[{
-     *               "customerId": "",
-     *               "firstName": "",
-     *               "lastName": "",
-     *               "avatar": "",
-     *               "avatarPath": "",
-     *               "paymentCity": "",
-     *               "orderCount": ""
-     *             },,
-     * }
+     * @api {get} /api/product/top-five-repeatedly-purchased-customers Get Top Repeated Customers
+     * @apiGroup Vendor Dashboard
+     * @apiName VendorTopFiveRepeatedlyPurchasedCustomers
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully got repeated customers.",
+     *         "data": []
+     *     }
+     *
+     * @apiErrorExample {json} Error-Response:
+     *     HTTP/1.1 500 Internal Server Error
+     *     {
+     *         "status": 0,
+     *         "message": "Internal Server Error"
+     *     }
+     *
      * @apiSampleRequest /api/product/top-five-repeatedly-purchased-customers
-     * @apiErrorExample {json} top five repeatedly purchased customer list error
-     * HTTP/1.1 500 Internal Server Error
      */
     @Get('/top-five-repeatedly-purchased-customers')
     @Authorized('vendor')
@@ -1234,34 +1114,29 @@ export class ProductController {
             });
         }
     }
-    //  Top Performing Product List API
     /**
-     * @api {get} /api/product/top-performing-products  Top Performing Product List API
-     * @apiGroup Product
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} limit limit
-     * @apiParam (Request body) {Number} offset offset
-     * @apiParam (Request body) {Number} count count in number or boolean
-     * @apiParam (Request body) {Number} duration 1-> today 2-> this week 3-> this month 4-> this year
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully get top performing product list!!",
-     *      "status": "1",
-     *      "data": [{
-     *                "topPerformingProductCount": "7",
-     *                "productName": "Dream Catcher with Lights",
-     *                "productId": 1130,
-     *                "image": "dream1_1717400542385.jpeg",
-     *                "containerName": "",
-     *                "defaultImage": 1,
-     *                "vendor": 9,
-     *                "companyName": "Fathima silks"
-     *              }],
-     * }
+     * @api {get} /api/product/top-performing-products Get Top Performing Products
+     * @apiGroup Vendor Dashboard
+     * @apiName VendorTopPerformingProducts
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully got top performing products.",
+     *         "data": []
+     *     }
+     *
+     * @apiErrorExample {json} Error-Response:
+     *     HTTP/1.1 500 Internal Server Error
+     *     {
+     *         "status": 0,
+     *         "message": "Internal Server Error"
+     *     }
+     *
      * @apiSampleRequest /api/product/top-performing-products
-     * @apiErrorExample {json} top performing product list error
-     * HTTP/1.1 500 Internal Server Error
      */
     @Get('/top-performing-products')
     @Authorized('vendor')
@@ -1290,22 +1165,29 @@ export class ProductController {
             });
         }
     }
-    // Dashboard Customer Count API
     /**
-     * @api {get} /api/product/dashboard/admin-customers-count Dashboard Customer Count API
-     * @apiGroup Product
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} duration 1-> today 2-> this week 3-> this month 4-> this year
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully get dashboard customers count",
-     *      "status": "1",
-     *      "data": ""
-     * }
+     * @api {get} /api/product/dashboard/admin-customers-count Get Dashboard Customers Count
+     * @apiGroup Vendor Dashboard
+     * @apiName VendorDashboardCustomerCount
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully got customer count.",
+     *         "data": 10
+     *     }
+     *
+     * @apiErrorExample {json} Error-Response:
+     *     HTTP/1.1 500 Internal Server Error
+     *     {
+     *         "status": 0,
+     *         "message": "Internal Server Error"
+     *     }
+     *
      * @apiSampleRequest /api/product/dashboard/admin-customers-count
-     * @apiErrorExample {json} dashboard customers count list error
-     * HTTP/1.1 500 Internal Server Error
      */
     @Get('/dashboard/admin-customers-count')
     @Authorized('vendor')
@@ -1317,22 +1199,29 @@ export class ProductController {
             data: customerCount ?? 0,
         });
     }
-    // Dashboard Orders Count API
     /**
-     * @api {get} /api/product/orders-count Dashboard Orders Count API
-     * @apiGroup Product
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} duration 1-> today 2-> this week 3-> this month 4-> this year
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully get dashboard orders and vendor count based on orders",
-     *      "status": "1",
-     *      "data": "",
-     * }
-     * @apiSampleRequest /api/dashboard/orders-count
-     * @apiErrorExample {json} dashboard orders count list error
-     * HTTP/1.1 500 Internal Server Error
+     * @api {get} /api/product/orders-count Get Dashboard Orders Count
+     * @apiGroup Vendor Dashboard
+     * @apiName VendorDashboardOrderCount
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully got orders count.",
+     *         "data": 25
+     *     }
+     *
+     * @apiErrorExample {json} Error-Response:
+     *     HTTP/1.1 500 Internal Server Error
+     *     {
+     *         "status": 0,
+     *         "message": "Internal Server Error"
+     *     }
+     *
+     * @apiSampleRequest /api/product/orders-count
      */
     @Get('/orders-count')
     @Authorized('vendor')
@@ -1347,22 +1236,29 @@ export class ProductController {
             data: count,
         });
     }
-    // Dashboard Average Order Value API
     /**
-     * @api {get} /api/dashboard/average-order-value Dashboard Average Order Value API
-     * @apiGroup Product
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} duration 1-> today 2-> this week 3-> this month 4-> this year
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully get average order value",
-     *      "status": "1",
-     *      "data": "1108.07"
-     * }
-     * @apiSampleRequest /api/dashboard/average-order-value
-     * @apiErrorExample {json} average order value error
-     * HTTP/1.1 500 Internal Server Error
+     * @api {get} /api/product/average-order-value Get Dashboard Average Order Value
+     * @apiGroup Vendor Dashboard
+     * @apiName VendorDashboardAverageOrderValue
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully got average order value.",
+     *         "data": 150.00
+     *     }
+     *
+     * @apiErrorExample {json} Error-Response:
+     *     HTTP/1.1 500 Internal Server Error
+     *     {
+     *         "status": 0,
+     *         "message": "Internal Server Error"
+     *     }
+     *
+     * @apiSampleRequest /api/product/average-order-value
      */
     @Get('/average-order-value')
     @Authorized('vendor')
@@ -1379,22 +1275,29 @@ export class ProductController {
             data: averageOrderValue.toFixed(2),
         });
     }
-    // Dashboard Get Total Revenue API
     /**
-     * @api {get} /api/product/total-revenue Dashboard Get Total Revenue API
-     * @apiGroup Product
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} duration 1-> today 2-> this week 3-> this month 4-> this year
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully get total revenue amount",
-     *      "status": "1",
-     *      "data": 32134.01
-     * }
+     * @api {get} /api/product/total-revenue Get Dashboard Total Revenue
+     * @apiGroup Vendor Dashboard
+     * @apiName VendorDashboardTotalRevenue
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully got total revenue.",
+     *         "data": 50000.00
+     *     }
+     *
+     * @apiErrorExample {json} Error-Response:
+     *     HTTP/1.1 500 Internal Server Error
+     *     {
+     *         "status": 0,
+     *         "message": "Internal Server Error"
+     *     }
+     *
      * @apiSampleRequest /api/product/total-revenue
-     * @apiErrorExample {json} total revenue error
-     * HTTP/1.1 500 Internal Server Error
      */
     @Get('/total-revenue')
     @Authorized('vendor')
@@ -1410,22 +1313,29 @@ export class ProductController {
             data: totalRevenue,
         });
     }
-    // Dashboard Average Conversion Ratio API
     /**
-     * @api {get} /api/dashboard/average-conversion-ratio Dashboard Average Conversion Ratio API
-     * @apiGroup Product
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} duration 1-> today 2-> this week 3-> this month 4-> this year
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully get average conversion ratio",
-     *      "status": "1",
-     *      "data": "",
-     * }
-     * @apiSampleRequest /api/dashboard/average-conversion-ratio
-     * @apiErrorExample {json} average conversion ratio error
-     * HTTP/1.1 500 Internal Server Error
+     * @api {get} /api/product/average-conversion-ratio Get Dashboard Conversion Ratio
+     * @apiGroup Vendor Dashboard
+     * @apiName VendorDashboardAverageConversionRatio
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully got average conversion ratio.",
+     *         "data": 3.5
+     *     }
+     *
+     * @apiErrorExample {json} Error-Response:
+     *     HTTP/1.1 500 Internal Server Error
+     *     {
+     *         "status": 0,
+     *         "message": "Internal Server Error"
+     *     }
+     *
+     * @apiSampleRequest /api/product/average-conversion-ratio
      */
     @Get('/average-conversion-ratio')
     @Authorized('vendor')
@@ -1439,29 +1349,29 @@ export class ProductController {
             data: averageConversionRatio.toFixed(2),
         });
     }
-    // Dashboard Graph Weekly Sales List API
     /**
-     * @api {get} /api/product/dashboard/graph-weekly-saleslist Dashboard Graph Weekly Sales List API
-     * @apiGroup Product
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} productId
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully get top ten weekly sales list",
-     *      "status": "1",
-     *      "data": [{
-     *                "productName": "",
-     *                "productId": 1,
-     *                "value": [{
-     *                    "value": "",
-     *                    "days": 10
-     *                  }]
-     *              }]
-     * }
+     * @api {get} /api/product/dashboard/graph-weekly-saleslist Get Dashboard Weekly Sales Graph
+     * @apiGroup Vendor Dashboard
+     * @apiName VendorDashboardWeeklySalesGraph
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully got weekly sales list.",
+     *         "data": []
+     *     }
+     *
+     * @apiErrorExample {json} Error-Response:
+     *     HTTP/1.1 500 Internal Server Error
+     *     {
+     *         "status": 0,
+     *         "message": "Internal Server Error"
+     *     }
+     *
      * @apiSampleRequest /api/product/dashboard/graph-weekly-saleslist
-     * @apiErrorExample {json} dashboard graph weekly sales list error
-     * HTTP/1.1 500 Internal Server Error
      */
     @Get('/dashboard/graph-weekly-saleslist')
     @Authorized('vendor')
@@ -1499,38 +1409,30 @@ export class ProductController {
             data: weeklysaleslist,
         });
     }
-    // Recent Selling Product List
     /**
-     * @api {get} /api/product/recent-selling-product  Recent Selling Product List API
-     * @apiGroup Product
-     * @apiHeader {String} Authorization
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "successfully listed recent product selling!",
-     *      "status": "1"
-     *      "data": "[{
-     *                 "productId": 929,
-     *                 "orderId": 410,
-     *                 "ProductName": "LG Gram16",
-     *                 "Quantity": 1,
-     *                 "Total": "118499.00",
-     *                 "CreatedDate": "2024-07-20T08:55:42.000Z",
-     *                 "skuName": "LG45676543",
-     *                 "invoiceNo": "INV00410",
-     *                 "invoicePrefix": "INV",
-     *                 "orderStatusId": 1,
-     *                 "orderPrefixId": "INV-20240720410",
-     *                 "image": "LGGRAM~1_1716895001645.jpeg",
-     *                 "containerName": "",
-     *                 "defaultImage": "1"
-     *               }]"
-     * }
+     * @api {get} /api/product/recent-selling-product Get Recent Selling Products
+     * @apiGroup Vendor Dashboard
+     * @apiName VendorDashboardRecentSellingProduct
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully got recent selling products.",
+     *         "data": []
+     *     }
+     *
+     * @apiErrorExample {json} Error-Response:
+     *     HTTP/1.1 500 Internal Server Error
+     *     {
+     *         "status": 0,
+     *         "message": "Internal Server Error"
+     *     }
+     *
      * @apiSampleRequest /api/product/recent-selling-product
-     * @apiErrorExample {json} Selling Product List error
-     * HTTP/1.1 500 Internal Server Errorproduct
      */
-    // Recent selling product function
     @Get('/recent-selling-product')
     @Authorized('vendor')
     public async sellingProduct(@Req() request: any, @Res() response: any): Promise<any> {
@@ -1578,41 +1480,34 @@ export class ProductController {
         return response.status(200).send(successResponse);
     }
 
-    // Recent viewLog list API
     /**
-     * @api {get} /api/product/viewLog-list Product View Log List
-     * @apiGroup Product
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} limit limit
-     * @apiParam (Request body) {Number} offset offset
-     * @apiParam (Request body) {Number} count count in number or boolean
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully got Product view Log List..!!",
-     *      "status": "1",
-     *      "data": [{
-     *               "createdBy": "",
-     *               "createdDate": "",
-     *               "modifiedBy": "",
-     *               "modifiedDate": "",
-     *               "id": "",
-     *               "productId": "",
-     *               "customerId": "",
-     *               "firstName": "",
-     *               "lastName": "",
-     *               "username": "",
-     *               "email": "",
-     *               "mobileNumber": "",
-     *               "address": "",
-     *               "isActive": ""
-     *               }]
-     * }
+     * @api {get} /api/product/viewLog-list List Product View Logs
+     * @apiGroup Vendor Product
+     * @apiName VendorProductViewLogList
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiQuery {Number} [limit] Number of records to return
+     * @apiQuery {Number} [offset] Pagination offset
+     * @apiQuery {Number} [count] Return count only if 1
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully got product view logs.",
+     *         "data": []
+     *     }
+     *
+     * @apiErrorExample {json} Error-Response:
+     *     HTTP/1.1 500 Internal Server Error
+     *     {
+     *         "status": 0,
+     *         "message": "Internal Server Error"
+     *     }
+     *
      * @apiSampleRequest /api/product/viewLog-list
-     * @apiErrorExample {json} ViewLog List error
-     * HTTP/1.1 500 Internal Server Error
      */
-
     @Get('/viewLog-list')
     @Authorized('vendor')
     public async productViewLogList(@QueryParam('limit') limit: number, @QueryParam('offset') offset: number, @QueryParam('count') count: number | boolean, @Req() request: any, @Res() response: any): Promise<any> {
@@ -1635,41 +1530,36 @@ export class ProductController {
         }
     }
 
-    // Customer product view list API
     /**
-     * @api {get} /api/product/customerProductView-list/:id Customer product View List
-     * @apiGroup Product
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} limit limit
-     * @apiParam (Request body) {Number} offset offset
-     * @apiParam (Request body) {Number} count count in number or boolean
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully got Product view Log List..!!",
-     *      "status": "1",
-     *      "data": [{
-     *                "createdBy": null,
-     *                "createdDate": "2024-03-26T07:06:33.000Z",
-     *                "modifiedBy": null,
-     *                "modifiedDate": null,
-     *                "id": 218,
-     *                "productId": 51,
-     *                "customerId": 1,
-     *                "firstName": "adithya",
-     *                "lastName": "",
-     *                "username": "piccotalents191@gmail.com",
-     *                "email": "piccotalents191@gmail.com",
-     *                "mobileNumber": null,
-     *                "address": null,
-     *                "isActive": null
-     *              }],
-     * }
+     * @api {get} /api/product/customerProductView-list/:id Get Customer Product View Logs
+     * @apiGroup Vendor Product
+     * @apiName VendorCustomerProductViewList
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiParam (Path) {Number} id Customer ID
+     *
+     * @apiQuery {Number} [limit] Number of records to return
+     * @apiQuery {Number} [offset] Pagination offset
+     * @apiQuery {Number} [count] Return count only if 1
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully got customer product view logs.",
+     *         "data": []
+     *     }
+     *
+     * @apiErrorExample {json} Error-Response:
+     *     HTTP/1.1 500 Internal Server Error
+     *     {
+     *         "status": 0,
+     *         "message": "Internal Server Error"
+     *     }
+     *
      * @apiSampleRequest /api/product/customerProductView-list/:id
-     * @apiErrorExample {json} customerProductView List error
-     * HTTP/1.1 500 Internal Server Error
      */
-
     @Get('/customerProductView-list/:id')
     @Authorized('vendor')
     public async customerProductView(@Param('id') id: number, @QueryParam('limit') limit: number, @QueryParam('offset') offset: number, @QueryParam('count') count: number | boolean, @Req() request: any, @Res() response: any): Promise<any> {
@@ -1694,24 +1584,28 @@ export class ProductController {
         });
     }
 
-    // Product Details Excel Document download
     /**
-     * @api {get} /api/product/product-excel-list Product Excel
-     * @apiGroup Product
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {String} productId productId
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully download the Product Excel List..!!",
-     *      "status": "1",
-     *      "data": {},
-     * }
+     * @api {get} /api/product/product-excel-list Export Products Excel
+     * @apiGroup Vendor Product
+     * @apiName VendorProductExcelExport
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiQuery {String} [productId] Comma-separated product IDs to export
+     *
+     * @apiSuccessExample {file} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+     *
+     * @apiErrorExample {json} Error-Response:
+     *     HTTP/1.1 500 Internal Server Error
+     *     {
+     *         "status": 0,
+     *         "message": "Export failed"
+     *     }
+     *
      * @apiSampleRequest /api/product/product-excel-list
-     * @apiErrorExample {json} product Excel List error
-     * HTTP/1.1 500 Internal Server Error
      */
-
     @Get('/product-excel-list')
     @Authorized(['vendor', 'export-product'])
     public async excelProductView(@QueryParam('productId') productId: string, @QueryParam('keyword') keyword: string, @QueryParam('sku') sku: string, @QueryParam('status') status: string, @QueryParam('count') count: number | boolean, @Req() request: any, @Res() response: any): Promise<any> {
@@ -1862,23 +1756,26 @@ export class ProductController {
         });
     }
 
-    // ExportAllProducts
     /**
-     * @api {get} /api/product/allproduct-excel-list AllProduct Excel sheet
-     * @apiGroup Product
-     * @apiHeader {String} Authorization
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully download the All Product Excel List..!!",
-     *      "status": "1",
-     *      "data": {},
-     * }
+     * @api {get} /api/product/allproduct-excel-list Export All Products Excel
+     * @apiGroup Vendor Product
+     * @apiName VendorAllProductsExcelExport
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiSuccessExample {file} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+     *
+     * @apiErrorExample {json} Error-Response:
+     *     HTTP/1.1 500 Internal Server Error
+     *     {
+     *         "status": 0,
+     *         "message": "Export failed"
+     *     }
+     *
      * @apiSampleRequest /api/product/allproduct-excel-list
-     * @apiErrorExample {json} Allproduct Excel List error
-     * HTTP/1.1 500 Internal Server Error
      */
-
     @Get('/allproduct-excel-list')
     @Authorized(['vendor', 'export-product'])
     public async ExportAllProducts(@Req() request: any, @Res() response: any): Promise<any> {
@@ -2037,24 +1934,30 @@ export class ProductController {
         });
     }
 
-    // Delete Product API
     /**
-     * @api {delete} /api/product/:id Delete Single Product API
-     * @apiGroup Product
-     * @apiHeader {String} Authorization
-     * @apiParamExample {json} Input
-     * {
-     *      "id" : "",
-     * }
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     * "message": "Successfully deleted Product.",
-     * "status": "1"
-     * }
+     * @api {delete} /api/product/:id Delete Product By ID
+     * @apiGroup Vendor Product
+     * @apiName VendorDeleteProductById
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiParam (Path) {Number} id Product ID
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully deleted product."
+     *     }
+     *
+     * @apiErrorExample {json} Invalid-Product:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Cannot delete product that has existing orders"
+     *     }
+     *
      * @apiSampleRequest /api/product/:id
-     * @apiErrorExample {json} productDelete error
-     * HTTP/1.1 500 Internal Server Error
      */
     @Delete('/:id')
     @Authorized(['vendor', 'delete-product'])
@@ -2116,23 +2019,29 @@ export class ProductController {
     // Delete Multiple Product API
 
     /**
-     * @api {post} /api/product/delete-product Delete Product API
-     * @apiGroup Product
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {number} productId productId
-     * @apiParamExample {json} Input
-     * {
-     * "productId" : "",
-     * }
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     * "message": "Successfully deleted Product.",
-     * "status": "1"
-     * }
+     * @api {post} /api/product/delete-product Delete Multiple Products
+     * @apiGroup Vendor Product
+     * @apiName VendorDeleteMultipleProducts
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiBody {Number[]} productIds Array of product IDs to delete
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully deleted products."
+     *     }
+     *
+     * @apiErrorExample {json} Error-Response:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Unable to delete products."
+     *     }
+     *
      * @apiSampleRequest /api/product/delete-product
-     * @apiErrorExample {json} productDelete error
-     * HTTP/1.1 500 Internal Server Error
      */
     @Post('/delete-product')
     @Authorized('vendor')
@@ -2193,20 +2102,28 @@ export class ProductController {
         return response.status(200).send(successResponse);
     }
 
-    // Update Product Slug API
     /**
-     * @api {put} /api/product/update-product-slug Update Product Slug API
-     * @apiGroup Product
-     * @apiHeader {String} Authorization
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully updated Product Slug.",
-     *      "status": "1"
-     * }
+     * @api {put} /api/product/update-product-slug Update Product Slugs
+     * @apiGroup Vendor Product
+     * @apiName VendorUpdateProductSlug
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully updated product slug."
+     *     }
+     *
+     * @apiErrorExample {json} Error-Response:
+     *     HTTP/1.1 500 Internal Server Error
+     *     {
+     *         "status": 0,
+     *         "message": "Internal Server Error"
+     *     }
+     *
      * @apiSampleRequest /api/product/update-product-slug
-     * @apiErrorExample {json} Product error
-     * HTTP/1.1 500 Internal Server Error
      */
     @Authorized('vendor')
     @Put('/update-product-slug')
@@ -2257,21 +2174,33 @@ export class ProductController {
         return response.status(200).send(successResponse);
     }
 
-    // Dashboard Count API
     /**
-     * @api {get} /api/product/dashboard-count Dashboard Count API
-     * @apiGroup Product
-     * @apiHeader {String} Authorization
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "status": "1"
-     *      "message": "Successfully get dashboard count",
-     *      "data":"{ "products": "" }"
-     * }
+     * @api {get} /api/product/dashboard-count Get Product Dashboard Summary Count
+     * @apiGroup Vendor Dashboard
+     * @apiName VendorDashboardCount
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully got dashboard count.",
+     *         "data": {
+     *             "totalProduct": 50,
+     *             "activeProduct": 45,
+     *             "inActiveProduct": 5
+     *         }
+     *     }
+     *
+     * @apiErrorExample {json} Error-Response:
+     *     HTTP/1.1 500 Internal Server Error
+     *     {
+     *         "status": 0,
+     *         "message": "Internal Server Error"
+     *     }
+     *
      * @apiSampleRequest /api/product/dashboard-count
-     * @apiErrorExample {json} product error
-     * HTTP/1.1 500 Internal Server Error
      */
     @Get('/dashboard-count')
     @Authorized('vendor')
@@ -2303,21 +2232,29 @@ export class ProductController {
         return response.status(200).send(successResponse);
     }
 
-    // Dashboard Admin Total Vendor and Total Product Count API
     /**
-     * @api {get} /api/product/dashboard-admin-totalvendor-totalproduct-count Dashboard Admin Total Vendor and Total Product Count API
-     * @apiGroup Product
-     * @apiHeader {String} Authorization
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "status": "1"
-     *      "message": "Successfully get total vendor and total product count",
-     *      "data":"{ "products": "" }"
-     * }
+     * @api {get} /api/product/dashboard-admin-totalvendor-totalproduct-count Get Total Vendor Product Count
+     * @apiGroup Vendor Dashboard
+     * @apiName VendorDashboardAdminCount
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully got count.",
+     *         "data": 100
+     *     }
+     *
+     * @apiErrorExample {json} Error-Response:
+     *     HTTP/1.1 500 Internal Server Error
+     *     {
+     *         "status": 0,
+     *         "message": "Internal Server Error"
+     *     }
+     *
      * @apiSampleRequest /api/product/dashboard-admin-totalvendor-totalproduct-count
-     * @apiErrorExample {json} dashboard admin total vendor and total product count error
-     * HTTP/1.1 500 Internal Server Error
      */
     @Get('/dashboard-admin-totalvendor-totalproduct-count')
     @Authorized('vendor')
@@ -2351,26 +2288,29 @@ export class ProductController {
         };
         return response.status(200).send(successResponse);
     }
-    // Product Count API
     /**
-     * @api {get} /api/product/product-count Product Count API
-     * @apiGroup Product
-     * @apiHeader {String} Authorization
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "status": "1"
-     *      "message": "Successfully get product count",
-     *      "data":"{
-     *              "totalProduct": "",
-     *              "activeProduct": "",
-     *              "inActiveProduct": "",
-     *              "totalCategory": ""
-     *              }"
-     * }
+     * @api {get} /api/product/product-count Get Total Products Count
+     * @apiGroup Vendor Product
+     * @apiName VendorProductCount
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully got product count.",
+     *         "data": 50
+     *     }
+     *
+     * @apiErrorExample {json} Error-Response:
+     *     HTTP/1.1 500 Internal Server Error
+     *     {
+     *         "status": 0,
+     *         "message": "Internal Server Error"
+     *     }
+     *
      * @apiSampleRequest /api/product/product-count
-     * @apiErrorExample {json} productCount error
-     * HTTP/1.1 500 Internal Server Error
      */
     @Get('/product-count')
     @Authorized('vendor')
@@ -2406,23 +2346,31 @@ export class ProductController {
         return response.status(200).send(successResponse);
     }
 
-    // Import Product data
     /**
-     * @api {post} /api/product/import-product-data Import product Data
-     * @apiGroup Product
-     * @apiParam (Request body) {String} file File
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully saved imported data..!!",
-     *      "status": "1",
-     *      "data": {},
-     * }
+     * @api {post} /api/product/import-product-data Import Product Data File
+     * @apiGroup Vendor Product
+     * @apiName VendorImportProductData
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiBody {String} buffer Byte buffer representing Excel file
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Products successfully imported"
+     *     }
+     *
+     * @apiErrorExample {json} Error-Response:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Import failed"
+     *     }
+     *
      * @apiSampleRequest /api/product/import-product-data
-     * @apiErrorExample {json} Import product Data
-     * HTTP/1.1 500 Internal Server Error
      */
-
     @Post('/import-product-data')
     @Authorized(['vendor', 'standard-import'])
     public async ImportProductPrice(@UploadedFile('file') files: any, @Req() request: any, @Res() response: any): Promise<any> {
@@ -3000,19 +2948,23 @@ export class ProductController {
             await queryRunner.release();
         }
     }
-    // Download sample zip for product import
     /**
-     * @api {get} /api/product/download-product-sample Download Product Import Sample Zip
-     * @apiGroup Product
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully download the file..!!",
-     *      "status": "1",
-     * }
+     * @api {get} /api/product/download-product-sample Download Product Import Sample File
+     * @apiGroup Vendor Product
+     * @apiName VendorDownloadProductSample
+     *
+     * @apiSuccessExample {file} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+     *
+     * @apiErrorExample {json} Error-Response:
+     *     HTTP/1.1 500 Internal Server Error
+     *     {
+     *         "status": 0,
+     *         "message": "Download failed"
+     *     }
+     *
      * @apiSampleRequest /api/product/download-product-sample
-     * @apiErrorExample {json} Download Data
-     * HTTP/1.1 500 Internal Server Error
      */
     @Get('/download-product-sample')
     public async downloadSample(@Res() response: any): Promise<any> {
@@ -3098,100 +3050,31 @@ export class ProductController {
         });
     }
 
-    // update stock  API
     /**
-     * @api {post} /api/product/update-stock Update Stock API
-     * @apiGroup Product
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {number} productId productId
-     * @apiParam (Request body) {number} [hasStock] send 0 or 1
-     * @apiParam (Request body) {object} [productStock]
-     * @apiParam (Request body) {number} productStock.skuId skuId
-     * @apiParam (Request body) {number} productStock.outOfStockThreshold for setting out of stock threshold
-     * @apiParam (Request body) {number} productStock.notifyMinQuantity notifyMinQuantity
-     * @apiParam (Request body) {number} productStock.minQuantityAllowedCart  minQuantityAllowedCart
-     * @apiParam (Request body) {number} productStock.maxQuantityAllowedCart maxQuantityAllowedCart
-     * @apiParam (Request body) {number} productStock.enableBackOrders enableBackOrders
-     * @apiParamExample {json} Input
-     * {
-     *      "hasStock" : "",
-     *      "productId" : "",
-     *      "productStock": [{
-     *      "skuId" : "",
-     *      "outOfStockThreshold" : "",
-     *      "notifyMinQuantity" : "",
-     *      "minQuantityAllowedCart" : "",
-     *      "maxQuantityAllowedCart" : "",
-     *      "enableBackOrders" : "",
-     *      }]
-     * }
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully updated product stock.",
-     *      "status": "1",
-     *      "data": {
-     *               "createdBy": "",
-     *               "createdDate": "",
-     *               "modifiedBy": "",
-     *               "modifiedDate": "",
-     *               "productId": "",
-     *               "sku": "",
-     *               "upc": "",
-     *               "hsn": "",
-     *               "location": "",
-     *               "quantity": "",
-     *               "minimumQuantity": "",
-     *               "subtractStock": "",
-     *               "stockStatusId": "",
-     *               "quotationAvailable": "",
-     *               "image": "",
-     *               "imagePath": "",
-     *               "manufacturerId": "",
-     *               "shipping": "",
-     *               "serviceCharges": "",
-     *               "taxType": "",
-     *               "taxValue": "",
-     *               "price": "",
-     *               "priceUpdateFileLogId": "",
-     *               "dateAvailable": "",
-     *               "sortOrder": "",
-     *               "name": "",
-     *               "description": "",
-     *               "amount": "",
-     *               "keywords": "",
-     *               "discount": "",
-     *               "deleteFlag": "",
-     *               "isFeatured": "",
-     *               "todayDeals": "",
-     *               "condition": "",
-     *               "rating": "",
-     *               "wishListStatus": "",
-     *               "productSlug": "",
-     *               "isActive": "",
-     *               "width": "",
-     *               "height": "",
-     *               "length": "",
-     *               "weight": "",
-     *               "hasStock": "",
-     *               "isSimplified": "",
-     *               "owner": "",
-     *               "isCommon": "",
-     *               "skuId": "",
-     *               "hasTirePrice": "",
-     *               "outOfStockThreshold": "",
-     *               "notifyMinQuantity": "",
-     *               "minQuantityAllowedCart": "",
-     *               "maxQuantityAllowedCart": "",
-     *               "enableBackOrders": "",
-     *               "pincodeBasedDelivery": "",
-     *               "attributeKeyword": "",
-     *               "settedAsCommonOn": ""
-     *                }
-     * }
+     * @api {post} /api/product/update-stock Manage Product Stock
+     * @apiGroup Vendor Product
+     * @apiName VendorManageProductStock
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiBody {Number} productId Product ID
+     * @apiBody {Number} hasStock In-stock quantity
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully updated stock."
+     *     }
+     *
+     * @apiErrorExample {json} Error-Response:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Unable to update stock"
+     *     }
+     *
      * @apiSampleRequest /api/product/update-stock
-     * @apiErrorExample {json} stock error
-     * HTTP/1.1 500 Internal Server Error
      */
     @Post('/update-stock')
     @Authorized('vendor')
@@ -3260,38 +3143,32 @@ export class ProductController {
         }
     }
 
-    // add tire price  API
     /**
-     * @api {post} /api/product/add-tire-price Add tire price API
-     * @apiGroup Product
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {number} [hasTirePrice] send 0 or 1
-     * @apiParam (Request body) {number} productId productId
-     * @apiParam (Request body) {number} quantity
-     * @apiParam (Request body) {number} price price
-     * @apiParamExample {json} Input
-     * {
-     *      "hasTirePrice" : "",
-     *      "productId" : "",
-     *      "price" : "",
-     *      "quantity" : "",
-     * }
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully added tire price.",
-     *      "status": "1",
-     *      "data": {
-     *              "productId": "",
-     *              "quantity": "",
-     *              "price": "",
-     *              "createdDate": "",
-     *              "id": ""
-     *              }
-     * }
+     * @api {post} /api/product/add-tire-price Add Product Tier Prices
+     * @apiGroup Vendor Product
+     * @apiName VendorAddTierPrice
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiBody {Number} productId Product ID
+     * @apiBody {Number} skuId SKU ID
+     * @apiBody {Object[]} tierPrices Array of tier price rules
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully added tire price."
+     *     }
+     *
+     * @apiErrorExample {json} Error-Response:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Unable to add tier price"
+     *     }
+     *
      * @apiSampleRequest /api/product/add-tire-price
-     * @apiErrorExample {json} tire price error
-     * HTTP/1.1 500 Internal Server Error
      */
     @Post('/add-tire-price')
     @Authorized('vendor')
@@ -3334,20 +3211,30 @@ export class ProductController {
         }
     }
 
-    // Delete tire price API
     /**
-     * @api {delete} /api/product/delete-tire-price/:id Delete Product Tire Price API
-     * @apiGroup Product
-     * @apiHeader {String} Authorization
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully deleted.",
-     *      "status": "1"
-     * }
+     * @api {delete} /api/product/delete-tire-price/:id Delete Product Tier Price
+     * @apiGroup Vendor Product
+     * @apiName VendorDeleteTierPrice
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiParam (Path) {Number} id Tier price ID
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully deleted tire price."
+     *     }
+     *
+     * @apiErrorExample {json} Error-Response:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Unable to delete tier price"
+     *     }
+     *
      * @apiSampleRequest /api/product/delete-tire-price/:id
-     * @apiErrorExample {json} Product error
-     * HTTP/1.1 500 Internal Server Error
      */
     @Delete('/delete-tire-price/:id')
     @Authorized('vendor')
@@ -3381,39 +3268,32 @@ export class ProductController {
         }
     }
 
-    //   Get Product Price List API
     /**
-     * @api {get} /api/product/get-product-tire-price-list Get product tire price list API
-     * @apiGroup Product
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} productId productId
-     * @apiParam (Request body) {Number} limit limit
-     * @apiParam (Request body) {Number} offset offset
-     * @apiParam (Request body) {String} count count
-     * @apiParamExample {json} Input
-     * {
-     *      "productId" : "",
-     * }
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully get tire price list",
-     *      "data": [{
-     *                 "createdBy": "",
-     *                 "createdDate": "",
-     *                 "modifiedBy": "",
-     *                 "modifiedDate": "",
-     *                 "id": "",
-     *                 "productId": "",
-     *                 "skuId": "",
-     *                 "quantity": "",
-     *                 "price": ""
-     *               }]"
-     *      "status": "1"
-     * }
+     * @api {get} /api/product/get-product-tire-price-list Get Product Tier Price List
+     * @apiGroup Vendor Product
+     * @apiName VendorGetTierPriceList
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiQuery {Number} productId Product ID
+     * @apiQuery {Number} [skuId] SKU ID
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully got tier prices.",
+     *         "data": []
+     *     }
+     *
+     * @apiErrorExample {json} Error-Response:
+     *     HTTP/1.1 500 Internal Server Error
+     *     {
+     *         "status": 0,
+     *         "message": "Internal Server Error"
+     *     }
+     *
      * @apiSampleRequest /api/product/get-product-tire-price-list
-     * @apiErrorExample {json} product error
-     * HTTP/1.1 500 Internal Server Error
      */
     @Get('/get-product-tire-price-list')
     @Authorized('vendor')
@@ -3433,47 +3313,36 @@ export class ProductController {
         return response.status(200).send(successResponse);
     }
 
-    // Inventory Product List API
     /**
-     * @api {get} /api/product/inventory-product-list Invendory Product List API
-     * @apiGroup Product
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} limit limit
-     * @apiParam (Request body) {Number} offset offset
-     * @apiParam (Request body) {String} keyword keyword
-     * @apiParam (Request body) {String} sku sku
-     * @apiParam (Request body) {String} status status
-     * @apiParam (Request body) {Number} price=1/2 if 1->asc 2->desc
-     * @apiParam (Request body) {Number} count count in number or boolean
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "status": "1"
-     *      "message": "Successfully get product list",
-     *      "data": [{
-     *                 "productId": "",
-     *                 "sku":"",
-     *                 "name":"",
-     *                 "quantity":"",
-     *                 "price":"",
-     *                 "productSlug":"",
-     *                 "isActive":"",
-     *                 "hasStock":"",
-     *                 "hasTirePrice":"",
-     *                 "outOfStockThreshold":"",
-     *                 "notifyMinQuantity":"",
-     *                 "minQuantityAllowedCart":"",
-     *                 "maxQuantityAllowedCart":"",
-     *                 "maxQuantityAllowedCart":"",
-     *                 "enableBackOrders":"",
-     *                 "modifiedDate":"",
-     *                 "isSimplified":"",
-     *                 "skuId":""
-     *              }]
-     * }
+     * @api {get} /api/product/inventory-product-list List Inventory Products
+     * @apiGroup Vendor Product
+     * @apiName VendorInventoryProductList
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiQuery {Number} [limit] Number of records to return
+     * @apiQuery {Number} [offset] Pagination offset
+     * @apiQuery {String} [keyword] Keyword search
+     * @apiQuery {String} [sku] Filter by SKU
+     * @apiQuery {String} [status] Filter by status
+     * @apiQuery {Number} [count] Return count only if 1
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully got inventory product list.",
+     *         "data": []
+     *     }
+     *
+     * @apiErrorExample {json} Error-Response:
+     *     HTTP/1.1 500 Internal Server Error
+     *     {
+     *         "status": 0,
+     *         "message": "Internal Server Error"
+     *     }
+     *
      * @apiSampleRequest /api/product/inventory-product-list
-     * @apiErrorExample {json} productList error
-     * HTTP/1.1 500 Internal Server Error
      */
     @Get('/inventory-product-list')
     @Authorized(['vendor', 'inventory-list'])
@@ -3526,22 +3395,33 @@ export class ProductController {
         return response.status(200).send(successResponse);
     }
 
-    //  Update sku for product API
     /**
-     * @api {post} /api/product/update-sku   Update sku API
-     * @apiGroup Product
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} limit limit
-     * @apiParam (Request body) {Number} offset offset
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully updated sku.",
-     *      "status": "1"
-     * }
+     * @api {post} /api/product/update-sku Update Product SKU Details
+     * @apiGroup Vendor Product
+     * @apiName VendorUpdateProductSku
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiBody {Number} productId Product ID
+     * @apiBody {String} sku SKU name
+     * @apiBody {Number} price SKU price
+     * @apiBody {Number} quantity Available quantity
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully updated SKU."
+     *     }
+     *
+     * @apiErrorExample {json} Error-Response:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Unable to update SKU"
+     *     }
+     *
      * @apiSampleRequest /api/product/update-sku
-     * @apiErrorExample {json} product error
-     * HTTP/1.1 500 Internal Server Error
      */
     @Post('/update-sku')
     @Authorized('vendor')
@@ -3605,24 +3485,34 @@ export class ProductController {
         }
     }
 
-    // Inventory Product List API
     /**
-     * @api {get} /api/product/update-owner-product-list Invendory Product List API
-     * @apiGroup Product
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} limit limit
-     * @apiParam (Request body) {Number} offset offset
-     * @apiParam (Request body) {Number} count count in number or boolean
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "status": "1"
-     *      "message": "Successfully get product list",
-     *      "data":"{}"
-     * }
+     * @api {get} /api/product/update-owner-product-list List Owner Products For Update
+     * @apiGroup Vendor Product
+     * @apiName VendorUpdateOwnerProductList
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiQuery {Number} [limit] Number of records to return
+     * @apiQuery {Number} [offset] Pagination offset
+     * @apiQuery {String} [keyword] Keyword search
+     * @apiQuery {Number} [count] Return count only if 1
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully got owner product list.",
+     *         "data": []
+     *     }
+     *
+     * @apiErrorExample {json} Error-Response:
+     *     HTTP/1.1 500 Internal Server Error
+     *     {
+     *         "status": 0,
+     *         "message": "Internal Server Error"
+     *     }
+     *
      * @apiSampleRequest /api/product/update-owner-product-list
-     * @apiErrorExample {json} productList error
-     * HTTP/1.1 500 Internal Server Error
      */
     @Get('/update-owner-product-list')
     @Authorized('vendor')
@@ -3660,24 +3550,34 @@ export class ProductController {
         return response.status(200).send(successResponse);
     }
 
-    // Update Vendor Product Sku
     /**
-     * @api {get} /api/product/update-vendor-sku-list Update Vendor Product Sku
-     * @apiGroup Product
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} limit limit
-     * @apiParam (Request body) {Number} offset offset
-     * @apiParam (Request body) {Number} count count in number or boolean
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "status": "1"
-     *      "message": "Successfully get product list",
-     *      "data":"{}"
-     * }
+     * @api {get} /api/product/update-vendor-sku-list List Vendor SKUs For Update
+     * @apiGroup Vendor Product
+     * @apiName VendorUpdateVendorSkuList
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiQuery {Number} [limit] Number of records to return
+     * @apiQuery {Number} [offset] Pagination offset
+     * @apiQuery {String} [keyword] Keyword search
+     * @apiQuery {Number} [count] Return count only if 1
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully got vendor SKU list.",
+     *         "data": []
+     *     }
+     *
+     * @apiErrorExample {json} Error-Response:
+     *     HTTP/1.1 500 Internal Server Error
+     *     {
+     *         "status": 0,
+     *         "message": "Internal Server Error"
+     *     }
+     *
      * @apiSampleRequest /api/product/update-vendor-sku-list
-     * @apiErrorExample {json} productList error
-     * HTTP/1.1 500 Internal Server Error
      */
     @Get('/update-vendor-sku-list')
     @Authorized('vendor')

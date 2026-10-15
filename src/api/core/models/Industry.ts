@@ -2,6 +2,7 @@ import { BeforeInsert, BeforeUpdate, Column, Entity, OneToMany, PrimaryGenerated
 import { Vendor } from './Vendor';
 import { BaseModel } from './BaseModel';
 import moment from 'moment';
+import { Family } from '../../../api/core/models/Family';
 
 @Entity('industry')
 export class Industry extends BaseModel {
@@ -21,11 +22,14 @@ export class Industry extends BaseModel {
     @Column({ name: 'is_delete' })
     public isDelete: number;
 
-    @Column({ name: 'description'})
-    public 	description: string;
+    @Column({ name: 'description' })
+    public description: string;
 
     @OneToMany(type => Vendor, vendor => vendor.industry)
     public vendor: Vendor[];
+
+    @OneToMany(type => Family, family => family.industry)
+    public family: Family[];
 
     @BeforeInsert()
     public async createDetails(): Promise<void> {

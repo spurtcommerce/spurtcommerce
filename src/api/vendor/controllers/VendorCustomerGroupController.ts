@@ -19,42 +19,45 @@ export class VendorCustomerGroupController {
     ) {
         // --
     }
-    // BuyerGroupList API
     /**
-     * @api {Get} /api/vendor-customer-group BuyerGroupList API
-     * @apiGroup VendorCustomerGroup
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} limit limit
-     * @apiParam (Request body) {Number} offset offset
-     * @apiParam (Request body) {String} keyword keyword
-     * @apiParam (Request body) {String} groupName groupName
-     * @apiParam (Request body) {Number} status status
-     * @apiParam (Request body) {Number} count count
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *    "status": 1,
-     *    "message": "Successfully got customer List..!",
-     *    "data": [
-     *       {
-     *       "createdBy": 1,
-     *       "createdDate": "",
-     *       "modifiedBy": 1,
-     *       "modifiedDate": "",
-     *       "id": 1,
-     *       "name": "",
-     *       "description": "",
-     *       "colorCode": "",
-     *       "vendorId": 1,
-     *       "isActive": 1,
-     *       "isDelete": 0,
-     *       "isMapped": 1
-     *       }
-     *    ]
-     * }
-     * @apiSampleRequest  /api/vendor-customer-group
-     * @apiErrorExample {json} BuyerGroupList error
-     * HTTP/1.1 500 Internal Server Error
+     * @api {get} /api/vendor-customer-group List Vendor Customer Groups
+     * @apiGroup Vendor Customer Group
+     * @apiName VendorCustomerGroupList
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiQuery {Number} [limit] Number of records to return
+     * @apiQuery {Number} [offset] Pagination offset
+     * @apiQuery {String} [keyword] Keyword search for group name
+     * @apiQuery {String} [groupName] Filter by group name
+     * @apiQuery {Number} [status] Filter by active status (0 or 1)
+     * @apiQuery {Number} [count] Return count only if 1
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully got customer list.",
+     *         "data": [
+     *             {
+     *                 "id": 1,
+     *                 "name": "Wholesale Buyers",
+     *                 "description": "Wholesale customer tier",
+     *                 "colorCode": "#336699",
+     *                 "isActive": 1,
+     *                 "buyerCount": 10
+     *             }
+     *         ]
+     *     }
+     *
+     * @apiErrorExample {json} Error-Response:
+     *     HTTP/1.1 500 Internal Server Error
+     *     {
+     *         "status": 0,
+     *         "message": "Internal Server Error"
+     *     }
+     *
+     * @apiSampleRequest /api/vendor-customer-group
      */
     @Get()
     @Authorized(['vendor', 'list-customer-group'])
@@ -133,41 +136,40 @@ export class VendorCustomerGroupController {
             data: customerGroupList,
         });
     }
-    // CreateBuyerGroup API
     /**
-     * @api {Post} /api/vendor-customer-group CreateBuyerGroup API
-     * @apiGroup VendorCustomerGroup
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {string} name name
-     * @apiParam (Request body) {string} description description
-     * @apiParam (Request body) {string} colorCode colorCode
-     * @apiParam (Request body) {number} status status
-     * @apiParamExample {json} Input
-     * {
-     *  "name": "",
-     *  "description": "",
-     *  "colorCode": "",
-     *  "status": ""
-     * }
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *  "status": 1,
-     *  "message": "Successfully Created Customer Group..!",
-     *   "data": {
-     *   "name": "",
-     *   "description": "",
-     *   "colorCode": "",
-     *   "vendorId": 1,
-     *   "isDelete": 1,
-     *   "isActive": 1,
-     *   "createdDate": "",
-     *   "id": 1
-     *    }
-     * }
-     * @apiSampleRequest  /api/vendor-customer-group
-     * @apiErrorExample {json} createBuyerGroup error
-     * HTTP/1.1 500 Internal Server Error
+     * @api {post} /api/vendor-customer-group Create Vendor Customer Group
+     * @apiGroup Vendor Customer Group
+     * @apiName CreateVendorCustomerGroup
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiBody {String} name Customer group name
+     * @apiBody {String} [description] Customer group description
+     * @apiBody {String} [colorCode] Color tag code (hex)
+     * @apiBody {Number} [status] Active status (1: Active, 0: Inactive)
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully created customer group",
+     *         "data": {
+     *             "id": 1,
+     *             "name": "VIP Group",
+     *             "description": "VIP Customers",
+     *             "colorCode": "#FF9900",
+     *             "isActive": 1
+     *         }
+     *     }
+     *
+     * @apiErrorExample {json} Error-Response:
+     *     HTTP/1.1 500 Internal Server Error
+     *     {
+     *         "status": 0,
+     *         "message": "Internal Server Error"
+     *     }
+     *
+     * @apiSampleRequest /api/vendor-customer-group
      */
     @Post()
     @Authorized(['vendor', 'create-customer-group'])
@@ -189,37 +191,32 @@ export class VendorCustomerGroupController {
             data: customerGroupSave,
         });
     }
-    // UpdateBuyerGroup API
     /**
-     * @api {Put} /api/vendor-customer-group/:id/customer UpdateBuyerGroupCustomer API
-     * @apiGroup VendorCustomerGroup
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} customerIds id
-     * @apiParamExample {json} Input
-     * {
-     *   "customerIds": []
-     * }
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *  "status": 1,
-     *  "message": "Successfully Updated Buyer Groups..!",
-     *   "data": {
-     *   "createdBy": "1,
-     *   "createdDate": "",
-     *   "modifiedBy": 1,
-     *   "modifiedDate": "",
-     *   "id": 1,
-     *   "name": "",
-     *   "description": "",
-     *   "colorCode": "",
-     *   "vendorId": 1,
-     *   "isDelete": 0
-     *    }
-     * }
-     * @apiSampleRequest  /api/vendor-customer-group/:id/customer
-     * @apiErrorExample {json} addBuyerUser error
-     * HTTP/1.1 500 Internal Server Error
+     * @api {put} /api/vendor-customer-group/:id/customer Update Customer Group Members
+     * @apiGroup Vendor Customer Group
+     * @apiName UpdateVendorCustomerGroupMembers
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiParam (Path) {Number} id Customer Group ID
+     *
+     * @apiBody {Number[]} customerIds Array of Customer IDs to assign to this group
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully updated customer groups"
+     *     }
+     *
+     * @apiErrorExample {json} Invalid-Group:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Invalid customer group ID."
+     *     }
+     *
+     * @apiSampleRequest /api/vendor-customer-group/:id/customer
      */
     @Put('/:id/customer')
     @Authorized(['vendor', 'edit-customer-group'])
@@ -251,34 +248,37 @@ export class VendorCustomerGroupController {
             data: updateBuyerGroup,
         });
     }
-    // BuyerGroupDetails API
     /**
-     * @api {Get} /api/vendor-customer-group/:id BuyerGroupDetails API
-     * @apiGroup VendorCustomerGroup
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} id id
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *  "status": 1,
-     *  "message": "Successfully Get Customer Groups Detail..!",
-     *  "data": {
-     *   "createdBy": 1
-     *   "createdDate": "",
-     *   "modifiedBy": "",
-     *   "modifiedDate": 1,
-     *   "id": 1,
-     *   "name": "",
-     *   "description": "",
-     *   "colorCode": "",
-     *   "vendorId": 1,
-     *   "isActive": 1,
-     *   "isDelete": 1
-     *    }
-     * }
-     * @apiSampleRequest  /api/vendor-customer-group/:id
-     * @apiErrorExample {json} groupDetail error
-     * HTTP/1.1 500 Internal Server Error
+     * @api {get} /api/vendor-customer-group/:id Get Customer Group Detail
+     * @apiGroup Vendor Customer Group
+     * @apiName GetVendorCustomerGroupDetail
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiParam (Path) {Number} id Customer Group ID
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully got customer groups detail",
+     *         "data": {
+     *             "id": 1,
+     *             "name": "VIP Group",
+     *             "description": "VIP Customers",
+     *             "colorCode": "#FF9900",
+     *             "isActive": 1
+     *         }
+     *     }
+     *
+     * @apiErrorExample {json} Invalid-Group:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Invalid group ID for customer"
+     *     }
+     *
+     * @apiSampleRequest /api/vendor-customer-group/:id
      */
     @Get('/:id')
     @Authorized(['vendor', 'list-customer-group'])
@@ -303,41 +303,43 @@ export class VendorCustomerGroupController {
             data: customerGroup,
         });
     }
-    // UpdateBuyerGroup API
     /**
-     * @api {Put} /api/vendor-customer-group/:id UpdateCustomerGroup API
-     * @apiGroup VendorCustomerGroup
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} id id
-     * @apiParamExample {json} Input
-     * {
-     *   "name": "",
-     *   "description": "",
-     *   "colorCode": "",
-     *   "status": ""
-     * }
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *   "status": 1,
-     *   "message": "Successfully Updated Customer Group..!",
-     *   "data": {
-     *       "createdBy": 1,
-     *       "createdDate": "",
-     *       "modifiedDate": "",
-     *       "id": 1,
-     *       "name": "",
-     *       "description": "",
-     *       "colorCode": "",
-     *       "vendorId": 1,
-     *       "isDelete": 0
-     *   }
-     * }
-     * @apiSampleRequest  /api/vendor-customer-group/:id
-     * @apiErrorExample {json} updateBuyerGroup error
-     * HTTP/1.1 500 Internal Server Error
+     * @api {put} /api/vendor-customer-group/:id Update Vendor Customer Group
+     * @apiGroup Vendor Customer Group
+     * @apiName UpdateVendorCustomerGroup
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiParam (Path) {Number} id Customer Group ID
+     *
+     * @apiBody {String} name Customer group name
+     * @apiBody {String} [description] Customer group description
+     * @apiBody {String} [colorCode] Color tag code (hex)
+     * @apiBody {Number} [status] Active status (1: Active, 0: Inactive)
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully updated customer group",
+     *         "data": {
+     *             "id": 1,
+     *             "name": "Updated VIP Group",
+     *             "description": "Updated description",
+     *             "colorCode": "#FF9900",
+     *             "isActive": 1
+     *         }
+     *     }
+     *
+     * @apiErrorExample {json} Group-Exists:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Group name already exist"
+     *     }
+     *
+     * @apiSampleRequest /api/vendor-customer-group/:id
      */
-
     @Put('/:id')
     @Authorized(['vendor', 'edit-customer-group'])
     public async updateBuyerGroup(@Param('id') customerGroupId: number, @Body({ validate: true }) bodyParam: CreateCustomerGroup, @Req() request: any, @Res() response: any): Promise<any> {
@@ -384,21 +386,30 @@ export class VendorCustomerGroupController {
             data: buyerGroupSave,
         });
     }
-    // DeleteSellerBuyerGroup API
     /**
-     * @api {Delete} /api/vendor-customer-group/:id DeleteSellerCustomerGroup API
-     * @apiGroup VendorCustomerGroup
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} id id
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *  "status": 1,
-     *  "message": "Successfully Deleted Customer Group..",
-     *  }
-     * @apiSampleRequest  /api/vendor-customer-group/:id
-     * @apiErrorExample {json} customer error
-     * HTTP/1.1 500 Internal Server Error
+     * @api {delete} /api/vendor-customer-group/:id Delete Vendor Customer Group
+     * @apiGroup Vendor Customer Group
+     * @apiName DeleteVendorCustomerGroup
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiParam (Path) {Number} id Customer Group ID
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully deleted customer group"
+     *     }
+     *
+     * @apiErrorExample {json} Invalid-Group:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Invalid customer group id"
+     *     }
+     *
+     * @apiSampleRequest /api/vendor-customer-group/:id
      */
     @Delete('/:id')
     @Authorized(['vendor', 'delete-customer-group'])
@@ -425,26 +436,32 @@ export class VendorCustomerGroupController {
         });
     }
 
-    // SellerBuyerGroupStatus API
     /**
-     * @api {Put} /api/vendor-customer-group/status/:id StatusUpdateSellerCustomerGroup API
-     * @apiGroup VendorCustomerGroup
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} id id
-     * @apiParam (Request body) {Number} status status
-     *  @apiParamExample {json} Input
-     * {
-     *  "status": ""
-     * }
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *  "status": 1,
-     *  "message": "Successfully Update Customer Group Status..!",
-     *  }
-     * @apiSampleRequest  /api/vendor-customer-group/status/:id
-     * @apiErrorExample {json} Update Seller Customer Group API error
-     * HTTP/1.1 500 Internal Server Error
+     * @api {put} /api/vendor-customer-group/status/:id Update Customer Group Status
+     * @apiGroup Vendor Customer Group
+     * @apiName UpdateVendorCustomerGroupStatus
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiParam (Path) {Number} id Customer Group ID
+     *
+     * @apiBody {Number} status Active status (1: Active, 0: Inactive)
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully update customer group status"
+     *     }
+     *
+     * @apiErrorExample {json} Invalid-Group:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Invalid customer group id"
+     *     }
+     *
+     * @apiSampleRequest /api/vendor-customer-group/status/:id
      */
     @Put('/status/:id')
     @Authorized(['vendor', 'edit-customer-group'])
@@ -470,67 +487,45 @@ export class VendorCustomerGroupController {
         });
     }
 
-    // BuyerGroupDetail API
     /**
-     * @api {Get} /api/vendor-customer-group/:id/customer CustomerGroupDetail API
-     * @apiGroup VendorCustomerGroup
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} id id
-     * @apiParam (Request body) {Number} status status
-     * @apiParam (Request body) {Number} limit limit
-     * @apiParam (Request body) {Number} offset status
-     * @apiParam (Request body) {Number} keyword keyword
-     * @apiParam (Request body) {Number} count count
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *    "status": 1,
-     *    "message": "Successfully Get Customer List For Group !",
-     *     "data": [
-     *        {
-     *       "createdBy": 1,
-     *       "createdDate": "",
-     *       "modifiedBy": 1,
-     *       "modifiedDate": "",
-     *       "id": 1,
-     *       "firstName": "",
-     *       "lastName": "",
-     *       "gender": "",
-     *       "dob": "",
-     *       "username": "",
-     *       "password": "",
-     *       "email": "",
-     *       "mobileNumber": "",
-     *       "address": "",
-     *       "countryId": 1,
-     *       "zoneId": 1,
-     *       "city": "",
-     *       "local": "",
-     *       "oauthData": "",
-     *       "avatar": "",
-     *       "newsletter": "",
-     *       "avatarPath": "",
-     *       "customerGroupId": "",
-     *       "lastLogin": "",
-     *       "safe": "",
-     *       "ip": "",
-     *       "mailStatus": "",
-     *       "pincode": "",
-     *       "deleteFlag": "",
-     *       "isActive": 1,
-     *       "forgetPasswordKey": "",
-     *       "linkExpires": "",
-     *       "lockedOn": "",
-     *       "siteId": 1,
-     *       "address2": "",
-     *       "landmark": "",
-     *       "mailOtp": "",
-     *       "mailOtpExpireTime": ""
-     *       }
-     * }
-     * @apiSampleRequest  /api/vendor-customer-group/:id/customer
-     * @apiErrorExample {json} getCustomerGroupDetail error
-     * HTTP/1.1 500 Internal Server Error
+     * @api {get} /api/vendor-customer-group/:id/customer Get Customers in Customer Group
+     * @apiGroup Vendor Customer Group
+     * @apiName GetVendorCustomerGroupCustomers
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiParam (Path) {Number} id Customer Group ID
+     *
+     * @apiQuery {Number} [limit] Number of records to return
+     * @apiQuery {Number} [offset] Pagination offset
+     * @apiQuery {String} [keyword] Keyword search for customer name/email
+     * @apiQuery {Number} [status] Customer status
+     * @apiQuery {Number} [count] Return count only if 1
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully got customer list for group",
+     *         "data": [
+     *             {
+     *                 "id": 1,
+     *                 "firstName": "John",
+     *                 "lastName": "Doe",
+     *                 "email": "john@example.com",
+     *                 "mobileNumber": "1234567890"
+     *             }
+     *         ]
+     *     }
+     *
+     * @apiErrorExample {json} Invalid-Group:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Invalid customer group id"
+     *     }
+     *
+     * @apiSampleRequest /api/vendor-customer-group/:id/customer
      */
     @Get('/:id/customer')
     @Authorized(['vendor', 'manage-customer-group'])
@@ -591,62 +586,36 @@ export class VendorCustomerGroupController {
         });
     }
 
-    // Buyer list API
     /**
-     * @api {Get} /api/vendor-customer-group/customer/list Buyer list API
-     * @apiGroup SellerBuyerGroup
-     * @apiHeader {String} Authorization
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *    "status": 1,
-     *    "message": "Successfully Get Customer List..!",
-     *    "data": [
-     *        {
-     *            "createdBy": 1,
-     *            "createdDate": "",
-     *            "modifiedBy": 1,
-     *            "modifiedDate": "",
-     *            "id": 1,
-     *            "firstName": "",
-     *            "lastName": "",
-     *            "gender": "",
-     *            "dob": "",
-     *            "username": "",
-     *            "password": "",
-     *            "email": "",
-     *            "mobileNumber": "",
-     *            "address": "",
-     *            "countryId": 1,
-     *            "zoneId": 1,
-     *            "city": "",
-     *            "local": "",
-     *            "oauthData": "",
-     *            "avatar": "",
-     *            "newsletter": "",
-     *            "avatarPath": "",
-     *            "customerGroupId": "",
-     *            "lastLogin": "",
-     *            "safe": "",
-     *            "ip": "",
-     *            "mailStatus": "",
-     *            "pincode": "",
-     *            "deleteFlag": 0,
-     *            "isActive": 1,
-     *            "forgetPasswordKey": "",
-     *            "linkExpires": "",
-     *            "lockedOn": "",
-     *            "siteId": 1,
-     *            "address2": "",
-     *            "landmark": "",
-     *            "mailOtp": "",
-     *            "mailOtpExpireTime": ""
-     *        }
-     *    ]
-     * }
+     * @api {get} /api/vendor-customer-group/customer/list Get Available Customers List
+     * @apiGroup Vendor Customer Group
+     * @apiName GetVendorCustomerGroupMemberList
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully got customer list.",
+     *         "data": [
+     *             {
+     *                 "id": 1,
+     *                 "firstName": "John",
+     *                 "lastName": "Doe",
+     *                 "email": "john@example.com"
+     *             }
+     *         ]
+     *     }
+     *
+     * @apiErrorExample {json} Error-Response:
+     *     HTTP/1.1 500 Internal Server Error
+     *     {
+     *         "status": 0,
+     *         "message": "Internal Server Error"
+     *     }
+     *
      * @apiSampleRequest /api/vendor-customer-group/customer/list
-     * @apiErrorExample {json} customer error
-     * HTTP/1.1 500 Internal Server Error
      */
     @Get('/customer/list')
     @Authorized(['vendor', 'manage-customer-group'])

@@ -30,32 +30,39 @@ export class VendorPluginController {
         // --
     }
 
-    // Plugin List API
     /**
-     * @api {get} /api/vendor-plugin Plugin List API
-     * @apiGroup Product
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {String} module Module
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "status": "1"
-     *      "message": "Successfully get product list",
-     *      "data":"{
-     *      "pluginName": "",
-     *      "pluginAvatar": "",
-     *      "pluginAvatarPath": "",
-     *      "pluginType": "",
-     *      "pluginAdditionalInfo": "",
-     *      "pluginFormInfo": "",
-     *      "pluginStatus": "",
-     *      "pluginTimestamp": "",
-     *      "routes": ""
-     *      }"
-     * }
-     * @apiSampleRequest /api/vendor-plugin
-     * @apiErrorExample {json} productList error
-     * HTTP/1.1 500 Internal Server Error
+     * @api {get} /api/vendor-plugins List Vendor Plugins
+     * @apiGroup Vendor Plugin
+     * @apiName VendorPluginList
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiQuery {String} [module] Filter plugins by module
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully got the plugin list",
+     *         "data": [
+     *             {
+     *                 "id": 1,
+     *                 "pluginName": "PayPal",
+     *                 "pluginType": "Payment",
+     *                 "slugName": "paypal",
+     *                 "isActive": 1
+     *             }
+     *         ]
+     *     }
+     *
+     * @apiErrorExample {json} Error-Response:
+     *     HTTP/1.1 500 Internal Server Error
+     *     {
+     *         "status": 0,
+     *         "message": "Internal Server Error"
+     *     }
+     *
+     * @apiSampleRequest /api/vendor-plugins
      */
     @Get()
     @Authorized(['vendor', 'add-on'])
@@ -106,22 +113,34 @@ export class VendorPluginController {
         return response.status(200).send(successResponse);
     }
 
-    // Update Plugin API
     /**
-     * @api {put} /api/plugins/additional-info/:id Update Plugin API
-     * @apiGroup Product
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {String} pluginAdditionalInfo
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "status": "1"
-     *      "message": "Successfully updated plugin",
-     *      "data":"{}"
-     * }
-     * @apiSampleRequest /api/plugins/additional-info/:id
-     * @apiErrorExample {json} plugin update error
-     * HTTP/1.1 500 Internal Server Error
+     * @api {put} /api/vendor-plugins/additional-info/:id Update Plugin Additional Info
+     * @apiGroup Vendor Plugin
+     * @apiName UpdateVendorPluginAdditionalInfo
+     *
+     * @apiParam (Path) {Number} id Vendor Plugin ID
+     *
+     * @apiBody {Object} payload Plugin additional info configuration object
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully updated plugin.",
+     *         "data": {
+     *             "id": 1,
+     *             "pluginAdditionalInfo": "{}"
+     *         }
+     *     }
+     *
+     * @apiErrorExample {json} Invalid-Plugin:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Invalid plugin ID"
+     *     }
+     *
+     * @apiSampleRequest /api/vendor-plugins/additional-info/:id
      */
     @Put('/additional-info/:id')
     public async updatePlugin(@Param('id') id: number, @Body({ validate: true }) payload: any, @Res() response: any): Promise<any> {
@@ -151,32 +170,35 @@ export class VendorPluginController {
 
     }
 
-    // Plugin Detail API
     /**
-     * @api {get} /api/vendor-plugin/:id Plugin Detail API
-     * @apiGroup Product
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {String} id Plugin Id
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "status": "1"
-     *      "message": "Successfully get product list",
-     *      "data":"{
-     *      "pluginName": "",
-     *      "pluginAvatar": "",
-     *      "pluginAvatarPath": "",
-     *      "pluginType": "",
-     *      "pluginAdditionalInfo": "",
-     *      "pluginFormInfo": "",
-     *      "pluginStatus": "",
-     *      "pluginTimestamp": "",
-     *      "routes": ""
-     *      }"
-     * }
-     * @apiSampleRequest /api/vendor-plugin/:id
-     * @apiErrorExample {json} productList error
-     * HTTP/1.1 500 Internal Server Error
+     * @api {get} /api/vendor-plugins/:id Get Vendor Plugin Detail
+     * @apiGroup Vendor Plugin
+     * @apiName GetVendorPluginDetail
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiParam (Path) {Number} id Vendor Plugin ID
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully got the plugin detail.",
+     *         "data": {
+     *             "id": 1,
+     *             "pluginAdditionalInfo": "{}",
+     *             "plugins": {}
+     *         }
+     *     }
+     *
+     * @apiErrorExample {json} Plugin-Not-Found:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Invalid Plugin ID"
+     *     }
+     *
+     * @apiSampleRequest /api/vendor-plugins/:id
      */
     @Get('/:id')
     @Authorized(['vendor', 'add-on'])
@@ -216,6 +238,38 @@ export class VendorPluginController {
         return response.status(200).send(successResponse);
     }
 
+    /**
+     * @api {put} /api/vendor-plugins/logo/:id Update Vendor Plugin Logo
+     * @apiGroup Vendor Plugin
+     * @apiName UpdateVendorPluginLogo
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiParam (Path) {Number} id Vendor Plugin ID
+     *
+     * @apiBody {String} image Base64 encoded plugin logo image
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully updated the plugin image",
+     *         "data": {
+     *             "id": 1,
+     *             "pluginAvatar": "Img_1680000000.png",
+     *             "pluginAvatarPath": "logo/"
+     *         }
+     *     }
+     *
+     * @apiErrorExample {json} Invalid-Plugin:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Invalid Plugin ID"
+     *     }
+     *
+     * @apiSampleRequest /api/vendor-plugins/logo/:id
+     */
     @Put('/logo/:id')
     @Authorized(['vendor'])
     public async updatePluginLogo(@Param('id') pluginId: number, @Body({ validate: true }) updateParam: { image: string }, @Req() request: any, @Res() response: any): Promise<any> {
@@ -270,24 +324,36 @@ export class VendorPluginController {
         });
     }
 
-    // Update Plugin Status API
     /**
-     * @api {put} /api/vendor-plugin/:id Update Plugin Status API
-     * @apiGroup Product
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} pluginStatus
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "status": "1"
-     *      "message": "Successfully updated plugin status",
-     *      "data": {
-     *      "isActive": ""
-     *      }
-     * }
-     * @apiSampleRequest /api/vendor-plugin/:id
-     * @apiErrorExample {json} productList error
-     * HTTP/1.1 500 Internal Server Error
+     * @api {put} /api/vendor-plugins/:id Update Vendor Plugin Status
+     * @apiGroup Vendor Plugin
+     * @apiName UpdateVendorPluginStatus
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiParam (Path) {Number} id Vendor Plugin ID
+     *
+     * @apiBody {Number} isActive Plugin active status (1: Active, 0: Inactive)
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Plugin updated successfully.",
+     *         "data": {
+     *             "id": 1,
+     *             "isActive": 1
+     *         }
+     *     }
+     *
+     * @apiErrorExample {json} Invalid-Plugin:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Invalid Plugin ID"
+     *     }
+     *
+     * @apiSampleRequest /api/vendor-plugins/:id
      */
     @Put('/:id')
     @Authorized(['vendor'])

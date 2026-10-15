@@ -37,29 +37,32 @@ export class VendorUserController {
         // --
     }
 
-    // Change Password API
     /**
-     * @api {put} /api/auth/change-password Change Password API
-     * @apiGroup Authentication
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {String} oldPassword User oldPassword
-     * @apiParam (Request body) {String} newPassword User newPassword
-     * @apiParamExample {json} Input
-     * {
-     *      "oldPassword" : "",
-     *      "newPassword" : "",
-     * }
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully Password changed",
-     *      "status": "1"
-     * }
-     * @apiSampleRequest /api/auth/change-password
-     * @apiErrorExample {json} User error
-     * HTTP/1.1 500 Internal Server Error
+     * @api {put} /api/vendor-user/change-password Change Vendor User Password
+     * @apiGroup Vendor User
+     * @apiName VendorUserChangePassword
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiBody {String} oldPassword Current user password
+     * @apiBody {String} newPassword New password (8-128 chars, uppercase, lowercase, digit/special)
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Your password changed successfully."
+     *     }
+     *
+     * @apiErrorExample {json} Incorrect-Password:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "The old password you entered is incorrect."
+     *     }
+     *
+     * @apiSampleRequest /api/vendor-user/change-password
      */
-
     @Put('/change-password')
     @Authorized(['vendor', 'edit-user'])
     public async changePassword(@Body({ validate: true }) payload: VendorPwdChangeRequest, @Req() request: any, @Res() response: any): Promise<any> {
@@ -129,75 +132,41 @@ export class VendorUserController {
         return response.status(400).send(errorResponse);
     }
 
-    // Edit Profile API
     /**
-     * @api {post} /api/auth/edit-profile Edit Profile API
-     * @apiGroup Authentication
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {String{..96}} username User username
-     * @apiParam (Request body) {String{..96}} email User email
-     * @apiParam (Request body) {String{..15}} phoneNumber User phoneNumber
-     * @apiParam (Request body) {String{.255}} address User address
-     * @apiParam (Request body) {String} [avatar] User avatar
-     * @apiParamExample {json} Input
-     * {
-     *      "username" : "",
-     *      "email" : "",
-     *      "phoneNumber" : "",
-     *      "address" : "",
-     *      "avatar" : "",
-     *      "personalizedSettings":{
-     *              "defaultLanguage": "",
-     *              "dateFormat": "",
-     *              "timeFormat": "",
-     *              "timeZone": ""
-     *          }
-     * }
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully updated User.",
-     *      "status": "1",
-     *      "data": {
-     *              "createdBy": "",
-     *              "createdDate": "",
-     *              "modifiedBy": "",
-     *              "modifiedDate": "",
-     *              "userId": "",
-     *              "userGroupId": "",
-     *              "username": "",
-     *              "password": "",
-     *              "firstName": "",
-     *              "lastName": "",
-     *              "email": "",
-     *              "avatar": "",
-     *              "avatarPath": "",
-     *              "isActive": "",
-     *              "code": "",
-     *              "ip": "",
-     *              "phoneNumber": "",
-     *              "address": "",
-     *              "deleteFlag": "",
-     *              "linkExpires": "",
-     *              "forgetPasswordKey": "",
-     *              "permission": "",
-     *              "userGroup": {
-     *                "createdBy": "",
-     *                "createdDate": "",
-     *                "modifiedBy": "",
-     *                "modifiedDate": "",
-     *                "groupId": "",
-     *                "name": "",
-     *                "slug": "",
-     *                "permission": "",
-     *                "isActive": ""
-     * }
-     * }
-     * @apiSampleRequest /api/auth/edit-profile
-     * @apiErrorExample {json} User error
-     * HTTP/1.1 500 Internal Server Error
+     * @api {post} /api/vendor-user/edit-profile Edit Vendor User Profile
+     * @apiGroup Vendor User
+     * @apiName VendorUserEditProfile
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiBody {String} [username] User username
+     * @apiBody {String} [email] User email address
+     * @apiBody {String} [phoneNumber] User contact phone number
+     * @apiBody {String} [address] User address
+     * @apiBody {String} [avatar] User avatar base64 string
+     * @apiBody {String} [avatarFileName] Original avatar file name
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully updated the vendor user profile.",
+     *         "data": {
+     *             "id": 1,
+     *             "username": "vendoruser",
+     *             "email": "user@vendor.com"
+     *         }
+     *     }
+     *
+     * @apiErrorExample {json} File-Too-Large:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Not Able To Update as The File Size Is Too Large"
+     *     }
+     *
+     * @apiSampleRequest /api/vendor-user/edit-profile
      */
-
     @Post('/edit-profile')
     @Authorized(['vendor', 'edit-user'])
     public async editProfile(@Body({ validate: false }) payload: VendorUserEditProfileRequest, @Res() response: any, @Req() request: any): Promise<any> {
@@ -295,37 +264,37 @@ export class VendorUserController {
         return response.status(200).send(successResponse);
     }
 
-    // Get User Profile API
     /**
-     * @api {get} /api/auth/get-profile Get User Profile API
-     * @apiGroup Authentication
-     * @apiHeader {String} Authorization
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully Get the Profile..!",
-     *      "status": "1"
-     *     "data": {
-     *     "userId": "",
-     *     "username": "",
-     *     "email": "",
-     *     "avatar": "",
-     *     "avatarPath": "",
-     *     "address": "",
-     *     "createdDate": "",
-     *     "firstName": "",
-     *     "lastName": "",
-     *     "deleteFlag": "",
-     *     "phoneNumber": "",
-     *     "isActive": "",
-     *     "code": "",
-     *   }
-     * }
-     * @apiSampleRequest /api/auth/get-profile
-     * @apiErrorExample {json} Get Profile error
-     * HTTP/1.1 500 Internal Server Error
+     * @api {get} /api/vendor-user/get-profile Get Vendor User Profile
+     * @apiGroup Vendor User
+     * @apiName VendorUserGetProfile
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Profile fetched successfully.",
+     *         "data": {
+     *             "id": 1,
+     *             "firstName": "John",
+     *             "lastName": "Doe",
+     *             "email": "john@vendor.com",
+     *             "phoneNumber": "1234567890",
+     *             "vendorPrefixId": "VND"
+     *         }
+     *     }
+     *
+     * @apiErrorExample {json} Error-Response:
+     *     HTTP/1.1 500 Internal Server Error
+     *     {
+     *         "status": 0,
+     *         "message": "Internal Server Error"
+     *     }
+     *
+     * @apiSampleRequest /api/vendor-user/get-profile
      */
-
     @Get('/get-profile')
     @Authorized(['vendor', 'list-user'])
     public async getProfile(@Req() request: any, @Res() response: any): Promise<any> {

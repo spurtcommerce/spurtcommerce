@@ -20,46 +20,53 @@ export class CustomerContactController {
         private customerContactService: CustomerContactService
     ) { }
 
-    // Add Customer Contact API
     /**
-     * @api {post} /api/customer-contact Add Customer Contact
+     * @api {post} /api/customer-contact Create Customer Contact
      * @apiGroup Customer Contact
+     * @apiName CreateCustomerContact
      *
-     * @apiHeader {String} Authorization Bearer token.
+     * @apiHeader {String} Authorization  Bearer Token
      *
-     * @apiParam (Request body) {String{..96}} firstName Customer Contact First Name
-     * @apiParam (Request body) {String{..96}} lastName Customer Contact Last Name
-     * @apiParam (Request body) {String{..96}} email Customer Contact Email
-     * @apiParam (Request body) {String{..20}} phoneNumber Customer Contact Phone Number
-     * @apiParam (Request body) {String{..255}} [description] Notes or description
-     * @apiParam (Request body) {Number} customerId Customer ID
-     * @apiParam (Request body) {String} status status
-     * @apiParam (Request body) {String{..255}} shippingAddress1 Shipping Address Line 1
-     * @apiParam (Request body) {String{..255}} [shippingAddress2] Shipping Address Line 2
-     * @apiParam (Request body) {String{..100}} shippingCity Shipping City
-     * @apiParam (Request body) {String{..20}} shippingPostcode Shipping Postcode
-     * @apiParam (Request body) {String{..10}} shippingCountryId Shipping Country ID
-     * @apiParam (Request body) {String{..10}} shippingZoneId Shipping Zone/State ID
-     * @apiParam (Request body) {String{..96}} [shippingFirstName] Shipping First Name
-     * @apiParam (Request body) {String{..96}} [shippingLastName] Shipping Last Name
-     * @apiParam (Request body) {Number} count count
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *   "status": 1,
-     *   "message": "customerContact Saved Successfully",
-     *   "data": {}
-     * }
-     * @apiErrorExample {json} Server Error
-     * HTTP/1.1 500 Internal Server Error
-     * {
-     *   "status": 0,
-     *   "message": "Internal server error"
-     * }
+     * @apiBody {String} firstName           First name
+     * @apiBody {String} lastName            Last name
+     * @apiBody {String} email               Email address
+     * @apiBody {String} phoneNumber         Contact phone number
+     * @apiBody {String} [description]       Description
+     * @apiBody {Number} [customerId]        Customer ID
+     * @apiBody {Number} isActive            Active status (1: Active, 0: Inactive)
+     * @apiBody {String} shippingAddress1    Shipping address line 1
+     * @apiBody {String} [shippingAddress2]  Shipping address line 2
+     * @apiBody {String} [shippingCity]      Shipping city
+     * @apiBody {String} [shippingPostcode]  Shipping postal code
+     * @apiBody {Number} [shippingCountryId] Shipping country ID
+     * @apiBody {Number} [shippingZoneId]    Shipping zone ID
+     * @apiBody {String} [shippingFirstName] Shipping first name
+     * @apiBody {String} [shippingLastName]  Shipping last name
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Contact created successfully",
+     *         "data": {
+     *             "id": 1,
+     *             "firstName": "John",
+     *             "lastName": "Doe",
+     *             "email": "john@example.com",
+     *             "phoneNumber": "1234567890",
+     *             "isActive": 1
+     *         }
+     *     }
+     *
+     * @apiErrorExample {json} Create-Failed:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Unable to create contact"
+     *     }
      *
      * @apiSampleRequest /api/customer-contact
      */
-
     @Post()
     @Authorized(['vendor', 'create-contacts'])
     public async addCustomerContact(@Body({ validate: true }) customerParam: CreateCustomerContact, @Res() response: any, @Req() request: any): Promise<any> {
@@ -125,37 +132,41 @@ export class CustomerContactController {
 
     }
 
-    // Get Customer Contact List API
     /**
-     * @api {get} /api/customer-contact Get Customer Contact List
+     * @api {get} /api/customer-contact Customer Contact List
      * @apiGroup Customer Contact
-     * @apiHeader {String} Authorization Bearer token.
+     * @apiName CustomerContactList
      *
-     * @apiParam (Query Parameters) {Number} [limit] Number of records to return
-     * @apiParam (Query Parameters) {Number} [offset] Number of records to skip
-     * @apiParam (Query Parameters) {String} [name] Filter by first name (case-insensitive)
-     * @apiParam (Query Parameters) {String} [email] Filter by email (case-insensitive)
-     * @apiParam (Query Parameters) {String="0","1"} [status] Filter by active status (0 = Inactive, 1 = Active)
-     * @apiParam (Query Parameters) {String} [date] Filter by creation date (e.g., "2025-07-18")
-     * @apiParam (Query Parameters) {String} [keyword] Keyword search across name and email
+     * @apiHeader {String} Authorization  Bearer Token
      *
+     * @apiQuery {Number} [limit]            Number of records to return
+     * @apiQuery {Number} [offset]           Pagination offset
+     * @apiQuery {String} [name]             Customer name filter
+     * @apiQuery {String} [keyword]          Search keyword
+     * @apiQuery {String} [status]           Status filter
+     * @apiQuery {String} [email]            Email filter
+     * @apiQuery {String} [createdate]       Creation date filter
+     * @apiQuery {Number|Boolean} [count]    If true/1, returns total count
      *
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *   "status": 1,
-     *   "message": "Successfully got Customer Contact list.",
-     *   "data": []
-     * }
-     * @apiErrorExample {json} Server Error
-     * HTTP/1.1 500 Internal Server Error
-     * {
-     *   "status": 0,
-     *   "message": "Internal server error"
-     * }
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully got customer contact list",
+     *         "data": [
+     *             {
+     *                 "id": 1,
+     *                 "firstName": "John",
+     *                 "lastName": "Doe",
+     *                 "email": "john@example.com",
+     *                 "phoneNumber": "1234567890",
+     *                 "isActive": 1
+     *             }
+     *         ]
+     *     }
+     *
      * @apiSampleRequest /api/customer-contact
      */
-
     @Get()
     @Authorized(['vendor', 'list-contacts'])
     public async customerContactList(
@@ -252,28 +263,39 @@ export class CustomerContactController {
         });
     }
 
-    // Customer Contact Detail API
     /**
      * @api {get} /api/customer-contact/:id Get Customer Contact Detail
      * @apiGroup Customer Contact
-     * @apiHeader {String} Authorization Bearer token.
+     * @apiName GetCustomerContactDetail
      *
-     * @apiParam (Path Parameters) {Number} id Customer Contact ID
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *   "status": 1,
-     *   "message": "Got customer Contact detail successfully.",
-     *   "data": {}
-     * @apiErrorExample {json} Server Error
-     * HTTP/1.1 500 Internal Server Error
-     * {
-     *   "status": 0,
-     *   "message": "Internal server error"
-     * }
+     * @apiHeader {String} Authorization  Bearer Token
+     *
+     * @apiParam (Path) {Number} id          Contact ID
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully got contact details.",
+     *         "data": {
+     *             "id": 1,
+     *             "firstName": "John",
+     *             "lastName": "Doe",
+     *             "email": "john@example.com",
+     *             "phoneNumber": "1234567890",
+     *             "isActive": 1
+     *         }
+     *     }
+     *
+     * @apiErrorExample {json} Contact-Not-Found:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Invalid contact id"
+     *     }
+     *
      * @apiSampleRequest /api/customer-contact/:id
      */
-
     @Get('/:id')
     @Authorized(['vendor', 'list-contacts'])
     public async CustomerContactDetail(@Param('id') id: number, @Req() request: any, @Res() response: any): Promise<any> {
@@ -294,42 +316,55 @@ export class CustomerContactController {
         return response.status(200).send(successResponse);
     }
 
-    // Update Customer Contact API
     /**
-     * @api {put} /api/customer-contact/:id Update Customer Contact API
+     * @api {put} /api/customer-contact/:id Update Customer Contact
      * @apiGroup Customer Contact
-     * @apiHeader {String} Authorization Bearer token
-     * @apiParam (Path) {Number} id Customer Contact ID
-     * @apiParam (Request Body) {String} firstName Customer Contact First Name
-     * @apiParam (Request Body) {String} lastName Customer Contact Last Name
-     * @apiParam (Request Body) {String} email Customer Contact Email
-     * @apiParam (Request Body) {String} phoneNumber Customer Contact Phone Number
-     * @apiParam (Request Body) {String} [description] Description or notes
-     * @apiParam (Request Body) {Number} customerId Related Customer ID
-     * @apiParam (Request body) {String} status status
-     * @apiParam (Request Body) {String} shippingAddress1 Shipping Address Line 1
-     * @apiParam (Request Body) {String} [shippingAddress2] Shipping Address Line 2
-     * @apiParam (Request Body) {String} shippingCity Shipping City
-     * @apiParam (Request Body) {String} shippingPostcode Shipping Postcode
-     * @apiParam (Request Body) {String} shippingCountryId Shipping Country ID
-     * @apiParam (Request Body) {String} shippingZoneId Shipping Zone/State ID
-     * @apiParam (Request Body) {String} [shippingFirstName] Shipping First Name
-     * @apiParam (Request Body) {String} [shippingLastName] Shipping Last Name
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *   "status": 1,
-     *   "message": "customerContact Saved Successfully"
-     * }
-     * @apiErrorExample {json} Server Error
-     * HTTP/1.1 500 Internal Server Error
-     * {
-     *   "status": 0,
-     *   "message": "Internal server error"
-     * }
+     * @apiName UpdateCustomerContact
+     *
+     * @apiHeader {String} Authorization  Bearer Token
+     *
+     * @apiParam (Path) {Number} id          Contact ID
+     *
+     * @apiBody {String} firstName           First name
+     * @apiBody {String} lastName            Last name
+     * @apiBody {String} email               Email address
+     * @apiBody {String} phoneNumber         Contact phone number
+     * @apiBody {String} [description]       Description
+     * @apiBody {Number} [customerId]        Customer ID
+     * @apiBody {Number} isActive            Active status (1: Active, 0: Inactive)
+     * @apiBody {String} shippingAddress1    Shipping address line 1
+     * @apiBody {String} [shippingAddress2]  Shipping address line 2
+     * @apiBody {String} [shippingCity]      Shipping city
+     * @apiBody {String} [shippingPostcode]  Shipping postal code
+     * @apiBody {Number} [shippingCountryId] Shipping country ID
+     * @apiBody {Number} [shippingZoneId]    Shipping zone ID
+     * @apiBody {String} [shippingFirstName] Shipping first name
+     * @apiBody {String} [shippingLastName]  Shipping last name
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Contact updated successfully",
+     *         "data": {
+     *             "id": 1,
+     *             "firstName": "John",
+     *             "lastName": "Doe",
+     *             "email": "john@example.com",
+     *             "phoneNumber": "1234567890",
+     *             "isActive": 1
+     *         }
+     *     }
+     *
+     * @apiErrorExample {json} Invalid-Contact:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Invalid contact Id"
+     *     }
+     *
      * @apiSampleRequest /api/customer-contact/:id
      */
-
     @Put('/:id')
     @Authorized(['vendor', 'edit-contacts'])
     public async updateCustomerContact(@Param('id') id: number, @Body({ validate: false }) customerContactParam: CreateCustomerContact, @Req() request: any, @Res() response: any): Promise<any> {
@@ -372,23 +407,31 @@ export class CustomerContactController {
         });
     }
 
-    // Delete Customer Contact API
     /**
      * @api {delete} /api/customer-contact/:id Delete Customer Contact
      * @apiGroup Customer Contact
-     * @apiParam (Request body) {Number} id Customer Contact ID
-     * @apiHeader {String} Authorization
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Customer contact is deleted successfully",
-     *      "status": "1"
-     * }
-     * @apiErrorExample {json} Delete Customer Contact error
-     * HTTP/1.1 500 Internal Server Error
+     * @apiName DeleteCustomerContact
+     *
+     * @apiHeader {String} Authorization  Bearer Token
+     *
+     * @apiParam (Path) {Number} id          Contact ID to delete
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Contact deleted successfully."
+     *     }
+     *
+     * @apiErrorExample {json} Invalid-Contact:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Invalid contact Id"
+     *     }
+     *
      * @apiSampleRequest /api/customer-contact/:id
      */
-
     @Delete('/:id')
     @Authorized(['vendor', 'delete-contacts'])
     public async deleteCustomerContact(@Param('id') id: number, @Req() request: any, @Res() response: any): Promise<any> {

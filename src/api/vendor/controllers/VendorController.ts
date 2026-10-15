@@ -39,138 +39,40 @@ export class VendorController {
     ) {
     }
 
-    // Get vendor profile API
     /**
-     * @api {Get} /api/vendor/vendor-profile Vendor Get Profile  API
-     * @apiGroup  Vendor
-     * @apiHeader {String} Authorization
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *  "status": "1"
-     *  "message": "successfully got Vendor profile.",
-     *  "data": {
-     *   "createdBy": 1,
-     *   "createdDate": "",
-     *   "modifiedBy": 1,
-     *   "modifiedDate": "",
-     *   "vendorId": 1,
-     *   "vendorPrefixId": 1,
-     *   "customerId": 1,
-     *   "vendorGroupId": 1,
-     *   "commission": "",
-     *   "industryId": 1,
-     *   "contactPersonName": "",
-     *   "vendorSlugName": "",
-     *   "designation": "",
-     *   "companyName": "",
-     *   "companyLocation": "",
-     *   "companyAddress1": "",
-     *   "companyAddress2": "",
-     *   "companyCity": "",
-     *   "companyState": "",
-     *   "zoneId": 1,
-     *   "companyCountryId": 1,
-     *   "pincode": "",
-     *   "companyDescription": "",
-     *   "companyMobileNumber": "",
-     *   "companyEmailId": 1,
-     *   "companyWebsite": "",
-     *   "companyTaxNumber": "",
-     *   "companyPanNumber": "",
-     *   "companyLogo": "",
-     *   "companyLogoPath": "",
-     *   "paymentInformation": "",
-     *   "verification": {
-     *       "email": "",
-     *       "policy": "",
-     *       "category": "",
-     *       "decision": "",
-     *       "document": "",
-     *       "storeFront": "",
-     *       "bankAccount": "",
-     *       "paymentInfo": "",
-     *       "companyDetail": "",
-     *       "deliveryMethod": "",
-     *       "subscriptionPlan": "",
-     *       "distributionPoint": ""
-     *    },
-     *    "verificationComment": [],
-     *    "verificationDetailComment": [],
-     *    "bankAccount": {
-     *       "bic": "",
-     *       "ifsc": "",
-     *       "branch": "",
-     *       "bankName": "",
-     *       "accountNumber": "",
-     *       "accountCreatedOn": ""
-     *     },
-     *    "approvalFlag": "",
-     *    "approvedBy": "",
-     *    "approvalDate": "",
-     *    "companyCoverImage": "",
-     *    "companyCoverImagePath": "",
-     *    "displayNameUrl": "",
-     *    "instagram": "",
-     *    "twitter": "",
-     *    "youtube": "",
-     *    "facebook": "",
-     *    "whatsapp": "",
-     *    "bankName": "",
-     *    "bankAccountNumber": "",
-     *    "accountHolderName": "",
-     *    "ifscCode": "",
-     *    "businessSegment": "",
-     *    "businessType": "",
-     *    "mailOtp": "",
-     *    "loginOtpExpireTime": "",
-     *    "businessNumber": "",
-     *    "preferredShippingMethod": "",
-     *    "capabilities": [
-     *       {
-     *           "data": "",
-     *           "status": 1
-     *       }
-     *       ],
-     *    "vendorDescription": "",
-     *    "isEmailVerify": "",
-     *    "customerDetail": {
-     *       "firstName": "",
-     *       "lastName": "",
-     *       "email": "",
-     *       "mobileNumber": "",
-     *       "avatar": "",
-     *       "avatarPath": "",
-     *       "isActive": 1,
-     *       "dob": "",
-     *       "gender": ""
-     *    },
-     *    "countryName": "",
-     *    "vendorCategories": [],
-     *    "vendorMedia": [
-     *       {
-     *           "createdBy": 1,
-     *           "createdDate": "",
-     *           "modifiedBy": 1,
-     *           "modifiedDate": "",
-     *           "id": 1,
-     *           "vendorId": 1,
-     *           "fileName": "",
-     *           "filePath": "",
-     *           "mediaType": "",
-     *           "defaultImage": "",
-     *           "videoType": "",
-     *           "sortOrder": "",
-     *           "showHomePage": "",
-     *           "url": "",
-     *           "title": "",
-     *           "isActive": 1,
-     *           "isDelete": 1
-     *         },
-     * }
+     * @api {get} /api/vendor/vendor-profile Get Vendor Profile
+     * @apiGroup Vendor Profile
+     * @apiName VendorGetProfile
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "successfully got seller profile",
+     *         "data": {
+     *             "id": 1,
+     *             "firstName": "Vendor",
+     *             "lastName": "User",
+     *             "email": "vendor@example.com",
+     *             "phoneNumber": "1234567890",
+     *             "isSuperVendor": 1,
+     *             "vendor": {
+     *                 "vendorId": 1,
+     *                 "companyName": "Acme Corp"
+     *             }
+     *         }
+     *     }
+     *
+     * @apiErrorExample {json} Error-Response:
+     *     HTTP/1.1 500 Internal Server Error
+     *     {
+     *         "status": 0,
+     *         "message": "Internal Server Error"
+     *     }
+     *
      * @apiSampleRequest /api/vendor/vendor-profile
-     * @apiErrorExample {json} vendor error
-     * HTTP/1.1 500 Internal Server Error
      */
     @Get('/vendor-profile')
     @Authorized('vendor')
@@ -229,28 +131,36 @@ export class VendorController {
         return response.status(200).send(successResponse);
     }
 
-    // Dashboard Counts
     /**
-     * @api {Get} /api/vendor/total-Dashboard-counts Total Dashboard Counts
-     * @apiGroup Vendor
-     * @apiHeader {String} Authorization
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *  "message": "Successfully get Total Dashboard count",
-     *  "data": {
-     *      "inActiveVendorProductList": "",
-     *      "activeProductCount": "",
-     *      "totalProductCount": "",
-     *      "totalOrderCount": "",
-     *      "salesCount": "",
-     *      "revenue": ""
-     *   }
-     *   "status": 1
-     * }
-     * @apiSampleRequest /api/vendor/total-Dashboard-counts
-     * @apiErrorExample {json} totalProductCounts error
-     * HTTP/1.1 500 Internal Server Error
+     * @api {get} /api/vendor/total-dashboard-counts Get Total Dashboard Counts
+     * @apiGroup Vendor Dashboard
+     * @apiName VendorTotalDashboardCounts
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully get Total Dashboard count",
+     *         "data": {
+     *             "inActiveVendorProductList": 2,
+     *             "activeProductCount": 10,
+     *             "totalProductCount": 12,
+     *             "totalOrderCount": 25,
+     *             "salesCount": 20,
+     *             "revenue": 5000
+     *         }
+     *     }
+     *
+     * @apiErrorExample {json} Error-Response:
+     *     HTTP/1.1 500 Internal Server Error
+     *     {
+     *         "status": 0,
+     *         "message": "Internal Server Error"
+     *     }
+     *
+     * @apiSampleRequest /api/vendor/total-dashboard-counts
      */
     @Get('/total-dashboard-counts')
     @Authorized('vendor')
@@ -348,32 +258,42 @@ export class VendorController {
         return response.status(200).send(successResponse);
     }
 
-    //  Order chart API
     /**
-     * @api {Get} /api/vendor/order-graph  Order Graph API
-     * @apiGroup Vendor
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} duration 1-> thisWeek 2-> thisMonth 3-> thisYear
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *     "message": "Successfully get order statics..!!",
-     *     "status": "1",
-     *     "data": {
-     *     "value": [
-     *       {
-     *           "orderStatusId": "",
-     *           "name": "",
-     *           "isActive": 1,
-     *           "colorCode": "",
-     *           "orderCount": ""
-     *       }
-     * }
+     * @api {get} /api/vendor/order-graph Get Vendor Order Graph Statistics
+     * @apiGroup Vendor Dashboard
+     * @apiName VendorOrderGraphAPI
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiQuery {Number} duration Filter duration (1: This Week, 2: This Month, 3: This Year)
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully get order count",
+     *         "data": {
+     *             "value": [
+     *                 {
+     *                     "orderStatusId": 1,
+     *                     "name": "Processing",
+     *                     "colorCode": "#FF0000",
+     *                     "orderCount": 5
+     *                 }
+     *             ],
+     *             "orderCount": 5
+     *         }
+     *     }
+     *
+     * @apiErrorExample {json} Error-Response:
+     *     HTTP/1.1 500 Internal Server Error
+     *     {
+     *         "status": 0,
+     *         "message": "Internal Server Error"
+     *     }
+     *
      * @apiSampleRequest /api/vendor/order-graph
-     * @apiErrorExample {json} order statics error
-     * HTTP/1.1 500 Internal Server Error
      */
-    // Order Detail Function
     @Get('/order-graph')
     @Authorized('vendor')
     public async topSellingProductList(@QueryParam('duration') duration: number, @Req() request: any, @Res() response: any): Promise<any> {

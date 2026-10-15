@@ -21,42 +21,36 @@ export class PageController {
     constructor(private pageService: PageService, private pageGroupService: PageGroupService) {
     }
 
-    // Create Page API
     /**
-     * @api {post} /api/page Add Page API
+     * @api {post} /api/page Create Page
      * @apiGroup Page
-     * @apiParam (Request body) {String{..255}} title title
-     * @apiParam (Request body) {String} content content
-     * @apiParam (Request body) {String} pageGroupId pageGroupId
-     * @apiParam (Request body) {String} [pageSlug] pageSlug
-     * @apiParam (Request body) {Number} active active
-     * @apiHeader {String} Authorization
-     * @apiParamExample {json} Input
-     * {
-     *      "title" : "",
-     *      "content" : "",
-     *      "pageGroupId" : "",
-     *      "pageSlug" : "",
-     *      "active" : "",
-     * }
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "New page is created successfully",
-     *      "status": "1"
-     *      "data": {
-     *                  "title": "",
-     *                  "content": "",
-     *                  "isActive": 1,
-     *                  "pageGroupId": 1,
-     *                  "slugName": "",
-     *                  "createdDate": "",
-     *                  "pageId": 1
-     *               }
-     * }
+     * @apiName CreateVendorPage
+     *
+     * @apiHeader {String} Authorization  Bearer Token
+     *
+     * @apiBody {String} title               Page title (max 255 characters)
+     * @apiBody {String} content             Page content/HTML
+     * @apiBody {Number} active              Active status (1: Active, 0: Inactive)
+     * @apiBody {Number} pageGroupId         Page Group ID
+     * @apiBody {String} [pageSlug]          Page slug
+     * @apiBody {String} [metaTagTitle]       Meta tag title (max 70 chars)
+     * @apiBody {String} [metaTagContent]     Meta tag content (max 160 chars)
+     * @apiBody {String} [metaTagKeyword]     Meta tag keyword (max 255 chars)
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully created new page.",
+     *         "data": {
+     *             "pageId": 1,
+     *             "title": "About Us",
+     *             "pageGroupId": 1,
+     *             "isActive": 1
+     *         }
+     *     }
+     *
      * @apiSampleRequest /api/page
-     * @apiErrorExample {json} Page error
-     * HTTP/1.1 500 Internal Server Error
      */
     @Post()
     @Authorized(['vendor', 'create-pages'])
@@ -88,36 +82,34 @@ export class PageController {
         }
     }
 
-    // Page List API
     /**
-     * @api {get} /api/page Page List API
+     * @api {get} /api/page Page List
      * @apiGroup Page
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} limit limit
-     * @apiParam (Request body) {Number} offset offset
-     * @apiParam (Request body) {String} keyword keyword
-     * @apiParam (Request body) {String} status status
-     * @apiParam (Request body) {Number} count count should be number or boolean
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully get page list",
-     *      "data": [
-     *                  {
-     *                     "pageId": 57,
-     *                     "title": "About us",
-     *                     "content": "",
-     *                     "pageGroupId": 4,
-     *                     "slugName": "about-us1",
-     *                     "isActive": 1,
-     *                     "pageGroupName": "Policy"
-     *                   }
-     *              ]
-     *      "status": "1"
-     * }
+     * @apiName VendorPageList
+     *
+     * @apiHeader {String} Authorization  Bearer Token
+     *
+     * @apiQuery {Number} [limit]            Number of records to return
+     * @apiQuery {Number} [offset]           Pagination offset
+     * @apiQuery {String} [keyword]          Search keyword
+     * @apiQuery {String} [status]           Status filter
+     * @apiQuery {Number|Boolean} [count]    If true/1, returns total count
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully got page list.",
+     *         "data": [
+     *             {
+     *                 "pageId": 1,
+     *                 "title": "About Us",
+     *                 "isActive": 1
+     *             }
+     *         ]
+     *     }
+     *
      * @apiSampleRequest /api/page
-     * @apiErrorExample {json} Page error
-     * HTTP/1.1 500 Internal Server Error
      */
     @Get()
     @Authorized(['vendor', 'list-pages'])
@@ -166,50 +158,45 @@ export class PageController {
         return response.status(200).send(successResponse);
     }
 
-    // Update Page API
     /**
-     * @api {put} /api/page/:id Update Page API
+     * @api {put} /api/page/:id Update Page
      * @apiGroup Page
-     * @apiParam (Request body) {Number} pageId pageId
-     * @apiParam (Request body) {String{..255}} title title
-     * @apiParam (Request body) {String} content content
-     * @apiParam (Request body) {Number} pageGroupId pageGroupId
-     * @apiParam (Request body) {Number} active active
-     * @apiParam (Request body) {String} pageSlug pageSlug
-     * @apiHeader {String} Authorization
-     * @apiParamExample {json} Input
-     * {
-     *      "pageId" : "",
-     *      "title" : "",
-     *      "content" : "",
-     *      "pageGroupId" : "",
-     *      "active" : "",
-     *      "pageSlug" : "",
-     * }
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": " Page is updated successfully",
-     *      "status": "1"
-     *      "data": {
-     *                 "createdBy": 1,
-     *                 "createdDate": "",
-     *                 "modifiedBy": 1,
-     *                 "modifiedDate": "",
-     *                 "pageId": 57,
-     *                 "title": "",
-     *                 "intro": "",
-     *                 "content": "",
-     *                 "pageGroupId": 2,
-     *                 "sortOrder": 1,
-     *                 "slugName": "",
-     *                 "viewPageCount": 1,
-     *                 "isActive": 1
-     *              }
-     * }
+     * @apiName UpdateVendorPage
+     *
+     * @apiHeader {String} Authorization  Bearer Token
+     *
+     * @apiParam (Path) {Number} id          Page ID
+     *
+     * @apiBody {Number} pageId              Page ID
+     * @apiBody {String} title               Page title
+     * @apiBody {String} content             Page content
+     * @apiBody {Number} active              Active status
+     * @apiBody {Number} pageGroupId         Page Group ID
+     * @apiBody {String} [pageSlug]          Page slug
+     * @apiBody {String} [metaTagTitle]       Meta tag title
+     * @apiBody {String} [metaTagContent]     Meta tag content
+     * @apiBody {String} [metaTagKeyword]     Meta tag keyword
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully updated page.",
+     *         "data": {
+     *             "pageId": 1,
+     *             "title": "About Us Updated",
+     *             "isActive": 1
+     *         }
+     *     }
+     *
+     * @apiErrorExample {json} Invalid-Page:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Invalid page Id"
+     *     }
+     *
      * @apiSampleRequest /api/page/:id
-     * @apiErrorExample {json} updatePage error
-     * HTTP/1.1 500 Internal Server Error
      */
     @Put('/:id')
     @Authorized(['vendor', 'edit-pages'])
@@ -250,24 +237,30 @@ export class PageController {
             return response.status(400).send(errorResponse);
         }
     }
-    // Delete Page API
     /**
-     * @api {delete} /api/page/:id Delete Page API
+     * @api {delete} /api/page/:id Delete Page
      * @apiGroup Page
-     * @apiHeader {String} Authorization
-     * @apiParamExample {json} Input
-     * {
-     *      "pageId" : "",
-     * }
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully deleted page.",
-     *      "status": "1"
-     * }
+     * @apiName DeleteVendorPage
+     *
+     * @apiHeader {String} Authorization  Bearer Token
+     *
+     * @apiParam (Path) {Number} id          Page ID to delete
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully deleted page."
+     *     }
+     *
+     * @apiErrorExample {json} Invalid-Page:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Invalid page Id"
+     *     }
+     *
      * @apiSampleRequest /api/page/:id
-     * @apiErrorExample {json} Page error
-     * HTTP/1.1 500 Internal Server Error
      */
     @Delete('/:id')
     @Authorized(['vendor', 'delete-pages'])
@@ -303,36 +296,36 @@ export class PageController {
         }
     }
 
-    // page Detail
     /**
-     * @api {get} /api/page/page-detail Page Detail API
+     * @api {get} /api/page/:pageId Get Page Detail
      * @apiGroup Page
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} pageId pageId
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully got Page detail",
-     *      "data": {
-     *                 "createdBy": 1,
-     *                 "createdDate": "",
-     *                 "modifiedBy": 1,
-     *                 "modifiedDate": "",
-     *                 "pageId": 1,
-     *                 "title": "1",
-     *                 "intro": "",
-     *                 "content": "1",
-     *                 "pageGroupId": 1,
-     *                 "sortOrder": 1,
-     *                 "slugName": "1",
-     *                 "viewPageCount": 1,
-     *                 "isActive": 1
-     *               }
-     *      "status": "1"
-     * }
+     * @apiName GetVendorPageDetail
+     *
+     * @apiHeader {String} Authorization  Bearer Token
+     *
+     * @apiParam (Path) {Number} pageId      Page ID
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully got page details.",
+     *         "data": {
+     *             "pageId": 1,
+     *             "title": "About Us",
+     *             "content": "Page content...",
+     *             "isActive": 1
+     *         }
+     *     }
+     *
+     * @apiErrorExample {json} Invalid-Page:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Invalid page Id"
+     *     }
+     *
      * @apiSampleRequest /api/page/:pageId
-     * @apiErrorExample {json} page Detail error
-     * HTTP/1.1 500 Internal Server Error
      */
     @Get('/:pageId')
     @Authorized(['vendor', 'list-pages'])

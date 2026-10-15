@@ -96,47 +96,56 @@ export class OrderController {
     ) {
     }
 
-    // order List API
     /**
-     * @api {get} /api/order Order List API
+     * @api {get} /api/order List Vendor Orders
      * @apiGroup Vendor Order
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} limit limit
-     * @apiParam (Request body) {Number} offset offset
-     * @apiParam (Request body) {String} orderId search by orderId
-     * @apiParam (Request body) {String} orderStatusId search by orderStatusId
-     * @apiParam (Request body) {String} customerName search by customerName
-     * @apiParam (Request body) {String} totalAmount search by totalAmount
-     * @apiParam (Request body) {String} dateAdded search by dateAdded
-     * @apiParam (Request body) {Number} count count should be number or boolean
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "status": "1"
-     *      "message": "Successfully shown the order list",
-     *      "data":{
-     *              "NoOfItems": "",
-     *              "orderProductId": "",
-     *              "createdDate": "",
-     *              "orderPrefixId": "",
-     *              "orderId": "",
-     *              "shippingFirstname": "",
-     *              "total": "",
-     *              "currencyCode": "",
-     *              "currencySymbolLeft": "",
-     *              "currencySymbolRight": "",
-     *              "orderStatusId": "",
-     *              "modifiedDate": "",
-     *              "shippingAddress1": "",
-     *              "shippingAddress2": "",
-     *              "shippingCity": "",
-     *              "shippingPostcode": "",
-     *              "shippingZone": ""
-     *              }
-     * }
+     * @apiName VendorOrderList
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiQuery {Number} [limit] Number of records to return
+     * @apiQuery {Number} [offset] Pagination offset
+     * @apiQuery {String} [orderId] Filter by order prefix ID
+     * @apiQuery {String} [orderDate] Filter by order date
+     * @apiQuery {String} [productCount] Filter by number of products
+     * @apiQuery {String} [customerName] Filter by customer name
+     * @apiQuery {String} [paymentStatus] Filter by payment status
+     * @apiQuery {String} [orderStatusId] Filter by order status ID
+     * @apiQuery {String} [totalAmount] Filter by order total amount
+     * @apiQuery {String} [dateAdded] Filter by order date added
+     * @apiQuery {String} [keyword] Keyword search for customer name or order ID
+     * @apiQuery {String} [paymentProcess] Filter by payment process status
+     * @apiQuery {String} [sortBy] Field to sort by
+     * @apiQuery {String} [sortOrder] Sort order ('ASC' or 'DESC')
+     * @apiQuery {Number} [count] Return count only if 1
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully shown the order list",
+     *         "data": [
+     *             {
+     *                 "orderId": 1,
+     *                 "orderPrefixId": "ORD-001",
+     *                 "customerName": "John Doe",
+     *                 "total": "100.00",
+     *                 "orderStatusId": 1,
+     *                 "paymentStatus": 1,
+     *                 "createdDate": "2024-01-01T00:00:00.000Z"
+     *             }
+     *         ],
+     *         "statusCount": []
+     *     }
+     *
+     * @apiErrorExample {json} Error-Response:
+     *     HTTP/1.1 500 Internal Server Error
+     *     {
+     *         "status": 0,
+     *         "message": "Internal Server Error"
+     *     }
+     *
      * @apiSampleRequest /api/order
-     * @apiErrorExample {json} order error
-     * HTTP/1.1 500 Internal Server Error
      */
     @Get()
     @Authorized(['vendor', 'list-order'])
@@ -407,28 +416,37 @@ export class OrderController {
         return response.status(200).send(successResponse);
     }
 
-    //  Order Export PDF API
     /**
-     * @api {get} /api/order/order-export-pdf  Order Export PDF API
+     * @api {get} /api/order/order-export-pdf Get Order Detail for PDF Export
      * @apiGroup Vendor Order
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} orderId Order Id
-     * @apiParamExample {json} Input
-     * {
-     *      "orderId" : "",
-     * }
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully show the Order Detail..!!",
-     *      "status": "1",
-     *      "data": {},
-     * }
+     * @apiName VendorOrderExportPdf
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiQuery {Number} orderId Order ID
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully show the Order Detail..!!",
+     *         "data": {
+     *             "orderId": 1,
+     *             "orderPrefixId": "ORD-001",
+     *             "total": 100,
+     *             "productList": []
+     *         }
+     *     }
+     *
+     * @apiErrorExample {json} Invalid-Order:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Invalid Order Id"
+     *     }
+     *
      * @apiSampleRequest /api/order/order-export-pdf
-     * @apiErrorExample {json} Order Detail error
-     * HTTP/1.1 500 Internal Server Error
      */
-    // Order Detail Function
     @Get('/order-export-pdf')
     @Authorized('vendor')
     public async orderExportPdf(@QueryParam('orderId') orderid: number, @Req() request: any, @Res() response: any): Promise<any> {
@@ -541,26 +559,31 @@ export class OrderController {
         // await archive.finalize();
     }
 
-    // Change order Status API
     /**
-     * @api {post} /api/order/order-change-status Change Order Status API
+     * @api {post} /api/order/order-change-status Change Vendor Order Status
      * @apiGroup Vendor Order
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} orderId Order Id
-     * @apiParam (Request body) {Number} orderStatusId order Status Id
-     * @apiParamExample {json} Input
-     * {
-     *   "orderDetails" : "",
-     * }
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully updated order change status.",
-     *      "status": "1"
-     * }
+     * @apiName VendorOrderChangeStatus
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiBody {Number} orderId Order ID
+     * @apiBody {Number} orderStatusId New order status ID
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully updated the order status"
+     *     }
+     *
+     * @apiErrorExample {json} Update-Error:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Unable to update order status"
+     *     }
+     *
      * @apiSampleRequest /api/order/order-change-status
-     * @apiErrorExample {json} order error
-     * HTTP/1.1 500 Internal Server Error
      */
     @Post('/order-change-status')
     @Authorized(['vendor', 'update-order-status'])
@@ -573,27 +596,28 @@ export class OrderController {
     }
 
     /**
-     * @api {get} /api/order/order-excel-list Download Order Excel
+     * @api {get} /api/order/order-excel-list Export Orders Excel
      * @apiGroup Vendor Order
-     * @apiHeader {String} Authorization Vendor's access token.
+     * @apiName VendorOrderExcelExport
      *
-     * @apiQuery {String} [orderId] One or more order IDs (comma-separated). Example: "12345,12346".
-     * @apiQuery {Boolean|Number} [failedOrder] Set to `1` or `true` for failed orders, `0` or `false` for successful orders.
+     * @apiHeader {String} Authorization Bearer Token
      *
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *   "message": "Successfully download the Order Excel List..!!",
-     *   "status": "1",
-     *   "data": {}
-     * }
+     * @apiQuery {String} [dateFrom] Filter orders from date (YYYY-MM-DD)
+     * @apiQuery {String} [dateTo] Filter orders to date (YYYY-MM-DD)
+     * @apiQuery {String} [title] Export report title
+     * @apiQuery {String} [orderId] Comma-separated list of order IDs
+     * @apiQuery {Number} [failedOrder] Failed orders flag
      *
-     * @apiErrorExample {json} Error
-     * HTTP/1.1 500 Internal Server Error
-     * {
-     *   "message": "Order Excel List error",
-     *   "status": "0"
-     * }
+     * @apiSuccessExample {file} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+     *
+     * @apiErrorExample {json} Error-Response:
+     *     HTTP/1.1 500 Internal Server Error
+     *     {
+     *         "status": 0,
+     *         "message": "Failed to generate Excel report"
+     *     }
      *
      * @apiSampleRequest /api/order/order-excel-list
      */
@@ -770,56 +794,27 @@ export class OrderController {
         });
     }
 
-    // DownloadOrderExportFromLog
     /**
-     * @api {Get} /api/vendor-order/export-log-download/:id Download Order Export from Log
+     * @api {get} /api/order/export-log-download/:id Download Order Export From Log
      * @apiGroup Vendor Order
-     * @apiHeader {String} Authorization Vendor JWT Token
-     * @apiParam (Path) {Number} id Export log table ID that contains selected order IDs.
+     * @apiName VendorOrderExportLogDownload
      *
-     * @apiDescription
-     * This API allows the vendor to download an Excel sheet of specific orders
-     * that were previously exported and recorded in the export log table.
+     * @apiHeader {String} Authorization Bearer Token
      *
-     * The Excel file includes detailed order information such as:
-     * - Order ID
-     * - Customer name
-     * - Email
-     * - Mobile number
-     * - Total amount
-     * - Created and updated dates
-     *
-     * Each record is fetched based on the order IDs stored in the export log entry
-     * for the module **"Manage Orders"**.
-     *
-     * @apiSampleRequest /api/vendor-order/export-log-download/1
+     * @apiParam (Path) {Number} id Export Log ID
      *
      * @apiSuccessExample {file} Success-Response:
-     * HTTP/1.1 200 OK
-     * Excel file will be downloaded containing the order details:
-     * [
-     *   "Order Id",
-     *   "Customer Name",
-     *   "Email",
-     *   "Mobile Number",
-     *   "Total Amount",
-     *   "Created Date",
-     *   "Updated Date"
-     * ]
+     *     HTTP/1.1 200 OK
+     *     Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
      *
-     * @apiErrorExample {json} Export Log Not Found
-     * HTTP/1.1 404 Not Found
-     * {
-     *   "status": 0,
-     *   "message": "Export log not found or contains no order data"
-     * }
+     * @apiErrorExample {json} Not-Found:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Export log not found or contains no order data"
+     *     }
      *
-     * @apiErrorExample {json} No Orders Found
-     * HTTP/1.1 404 Not Found
-     * {
-     *   "status": 0,
-     *   "message": "No orders found for this export log"
-     * }
+     * @apiSampleRequest /api/order/export-log-download/:id
      */
     @Get('/export-log-download/:id')
     @Authorized('vendor')
@@ -968,24 +963,30 @@ export class OrderController {
         });
     }
 
-    // Delete Order API
     /**
-     * @api {delete} /api/order/delete-order/:id Delete Single Order API
+     * @api {delete} /api/order/delete-order/:id Delete Vendor Order
      * @apiGroup Vendor Order
-     * @apiHeader {String} Authorization
-     * @apiParamExample {json} Input
-     * {
-     *      "id" : "",
-     * }
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     * "message": "Successfully deleted Order.",
-     * "status": "1"
-     * }
+     * @apiName VendorDeleteOrder
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiParam (Path) {Number} id Order ID
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Order Deleted Successfully"
+     *     }
+     *
+     * @apiErrorExample {json} Invalid-Order:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Invalid order Id"
+     *     }
+     *
      * @apiSampleRequest /api/order/delete-order/:id
-     * @apiErrorExample {json} orderDelete error
-     * HTTP/1.1 500 Internal Server Error
      */
     @Delete('/delete-order/:id')
     @Authorized(['vendor', 'delete-order'])
@@ -1014,30 +1015,39 @@ export class OrderController {
         }
     }
 
-    // order log List API
     /**
-     * @api {get} /api/order/orderLoglist Order Log List API
+     * @api {get} /api/order/orderLoglist Get Order Status Log List
      * @apiGroup Vendor Order
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} orderId orderId
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully get order list",
-     *      "data":{
-     *      "orderId" : "",
-     *      "orderStatusId" : "",
-     *      "customerName" : "",
-     *      "totalAmount" : "",
-     *      "dateAdded" : "",
-     *      "dateModified" : "",
-     *      "status" : "",
-     *      }
-     *      "status": "1"
-     * }
+     * @apiName VendorOrderLogList
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiQuery {Number} orderId Order ID
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully got the complete order Log list",
+     *         "data": [
+     *             {
+     *                 "orderLogId": 1,
+     *                 "orderId": 1,
+     *                 "orderStatusId": 1,
+     *                 "name": "Order Placed",
+     *                 "createdDate": "2024-01-01T00:00:00.000Z"
+     *             }
+     *         ]
+     *     }
+     *
+     * @apiErrorExample {json} Error-Response:
+     *     HTTP/1.1 500 Internal Server Error
+     *     {
+     *         "status": 0,
+     *         "message": "Internal Server Error"
+     *     }
+     *
      * @apiSampleRequest /api/order/orderLoglist
-     * @apiErrorExample {json} order error
-     * HTTP/1.1 500 Internal Server Error
      */
     @Get('/orderLoglist')
     @Authorized('vendor')
@@ -1072,27 +1082,31 @@ export class OrderController {
         return response.status(200).send(successResponse);
     }
 
-    //  Update Payment Status API
     /**
-     * @api {post} /api/order/update-payment-status Update Payment Status API
+     * @api {post} /api/order/update-payment-status Update Order Payment Status
      * @apiGroup Vendor Order
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} orderId Order Id
-     * @apiParam (Request body) {Number} paymentStatusId 1->paid 2->fail 3-> refund
-     * @apiParamExample {json} Input
-     * {
-     *   "orderId" : "",
-     *   "paymentStatusId" : "",
-     * }
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully updated payment status.",
-     *      "status": "1"
-     * }
+     * @apiName VendorOrderUpdatePaymentStatus
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiBody {Number} orderId Order ID
+     * @apiBody {Number} paymentStatusId Payment status ID (1: Paid, 2: Pending/Failed)
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully updated the Payment Status"
+     *     }
+     *
+     * @apiErrorExample {json} Invalid-Order:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Invalid order Id"
+     *     }
+     *
      * @apiSampleRequest /api/order/update-payment-status
-     * @apiErrorExample {json} order error
-     * HTTP/1.1 500 Internal Server Error
      */
     @Post('/update-payment-status')
     @Authorized('vendor')
@@ -1192,39 +1206,38 @@ export class OrderController {
         return response.status(200).send(successResponse);
     }
 
-    // order product log List API
     /**
-     * @api {get} /api/order/order-product-log-list Order Product Log List API
+     * @api {get} /api/order/order-product-log-list Get Order Product Fulfillment Log
      * @apiGroup Vendor Order
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} orderProductId orderProductId
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully got order product log list",
-     *      "data":{
-     *      "orderProductLogId" : "",
-     *      "orderProductId" : "",
-     *      "productId" : "",
-     *      "orderId" : "",
-     *      "name" : "",
-     *      "model" : "",
-     *      "quantity" : "",
-     *      "trace" : "",
-     *      "total" : "",
-     *      "tax" : "",
-     *      "orderStatusId" : "",
-     *      "trackingUrl" : "",
-     *      "trackingNo" : "",
-     *      "isActive" : "",
-     *      "createdDate" : "",
-     *      "modifiedDate" : "",
-     *      }
-     *      "status": "1"
-     * }
+     * @apiName VendorOrderProductLogList
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiQuery {Number} orderProductId Order Product ID
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully got the complete Order Product Log list",
+     *         "data": [
+     *             {
+     *                 "orderProductLogId": 1,
+     *                 "orderProductId": 1,
+     *                 "orderStatus": "Processing",
+     *                 "createdDate": "2024-01-01T00:00:00.000Z"
+     *             }
+     *         ]
+     *     }
+     *
+     * @apiErrorExample {json} Error-Response:
+     *     HTTP/1.1 500 Internal Server Error
+     *     {
+     *         "status": 0,
+     *         "message": "Internal Server Error"
+     *     }
+     *
      * @apiSampleRequest /api/order/order-product-log-list
-     * @apiErrorExample {json} orderProductLog error
-     * HTTP/1.1 500 Internal Server Error
      */
     @Get('/order-product-log-list')
     @Authorized('vendor')
@@ -1259,100 +1272,39 @@ export class OrderController {
         return response.status(200).send(successResponse);
     }
 
-    //  Order Detail API
     /**
-     * @api {get} /api/order/:orderId  Order Detail API
+     * @api {get} /api/order/:orderId Get Vendor Order Detail
      * @apiGroup Vendor Order
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} orderId Order Id
-     * @apiParamExample {json} Input
-     * {
-     *      "orderId" : "",
-     * }
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully show the Order Detail..!!",
-     *      "status": "1",
-     *      "data": {
-     *               "createdDate": "2024-06-28T07:26:54.000Z",
-     *               "orderId": 11,
-     *               "customerId": 0,
-     *               "invoiceNo": null,
-     *               "invoicePrefix": "INV",
-     *               "email": "piccotalent194@gmail.com",
-     *               "telephone": "123567890",
-     *               "shippingFirstname": "spurtcommerce",
-     *               "shippingLastname": "spurtcommerce",
-     *               "shippingCompany": "spurtcommerce",
-     *               "shippingAddress1": "Chennai",
-     *               "shippingAddress2": "Chennai2",
-     *               "shippingCity": "Chennai3",
-     *               "shippingPostcode": "123",
-     *               "shippingCountry": "Belarus",
-     *               "shippingZone": "India",
-     *               "shippingAddressFormat": "",
-     *               "paymentFirstname": null,
-     *               "paymentLastname": null,
-     *               "paymentCompany": null,
-     *               "paymentAddress1": null,
-     *               "paymentAddress2": null,
-     *               "paymentCity": null,
-     *               "paymentPostcode": null,
-     *               "paymentCountry": null,
-     *               "paymentZone": null,
-     *               "paymentAddressFormat": "",
-     *               "total": null,
-     *               "orderStatusId": 1,
-     *               "orderPrefixId": null,
-     *               "currencyCode": null,
-     *               "currencySymbolLeft": null,
-     *               "currencySymbolRight": null,
-     *               "paymentStatus": 0,
-     *               "customerGstNo": null,
-     *               "productList": [
-     *                 {
-     *                   "modifiedDate": null,
-     *                   "orderProductId": 2,
-     *                   "productId": 1,
-     *                   "orderProductPrefixId": "INV-20240628111",
-     *                   "orderId": 11,
-     *                   "name": "Printed Floral Print Daily Wear Chiffon Saree White",
-     *                   "model": "Printed Floral Print Daily Wear Chiffon Saree White",
-     *                   "quantity": 1,
-     *                   "productPrice": "599.00",
-     *                   "discountAmount": "0.00",
-     *                   "basePrice": "599.00",
-     *                   "taxType": 1,
-     *                   "taxValue": 0,
-     *                   "total": "599.00",
-     *                   "discountedAmount": "0.00",
-     *                   "orderStatusId": 1,
-     *                   "trackingUrl": null,
-     *                   "trackingNo": null,
-     *                   "cancelRequest": 0,
-     *                   "cancelRequestStatus": 0,
-     *                   "cancelReason": null,
-     *                   "cancelReasonDescription": null,
-     *                   "skuName": "sar4534",
-     *                   "couponDiscountAmount": null,
-     *                   "image": "printed bhagalpuri art silk saree1710481555207.png",
-     *                   "containerName": "women ethnic/",
-     *                   "orderStatusName": "Order Placed",
-     *                   "statusColorCode": "#6798e3",
-     *                   "taxValueInAmount": 0,
-     *                   "rating": 0,
-     *                   "review": ""
-     *                 }
-     *               ],
-     *               "orderStatusName": "Order Placed",
-     *               "statusColorCode": "#6798e3"
-     * }
+     * @apiName VendorOrderDetail
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiParam (Path) {Number} orderId Order ID
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully shown the order detail",
+     *         "data": {
+     *             "orderId": 1,
+     *             "orderPrefixId": "ORD-001",
+     *             "shippingFirstname": "John",
+     *             "shippingLastname": "Doe",
+     *             "total": "100.00",
+     *             "productList": []
+     *         }
+     *     }
+     *
+     * @apiErrorExample {json} Invalid-Order:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Invalid Order Id"
+     *     }
+     *
      * @apiSampleRequest /api/order/:orderId
-     * @apiErrorExample {json} Order Detail error
-     * HTTP/1.1 500 Internal Server Error
      */
-    // Order Detail Function
     @Get('/:orderId')
     @Authorized('vendor')
     public async orderDetail(@Param('orderId') orderid: number, @Req() request: any, @Res() response: any): Promise<any> {
@@ -1436,202 +1388,44 @@ export class OrderController {
         return response.status(200).send(successResponse);
     }
 
-    // customer checkout
     /**
-     * @api {post} /api/orders/create-order
+     * @api {post} /api/order/create-order Create Vendor Order
      * @apiGroup Vendor Order
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} customerId customerId
-     * @apiParam (Request body) {String} productDetail Product Details
-     * @apiParam (Request body) {Number} paymentMethod paymentMethod
-     * @apiParam (Request body) {String{1..32}} shippingFirstName Shipping First name
-     * @apiParam (Request body) {String{..32}} [shippingLastName] Shipping Last Name
-     * @apiParam (Request body) {String{..32}} [shippingCompany] Shipping Company
-     * @apiParam (Request body) {String{..128}} shippingAddress_1 Shipping Address 1
-     * @apiParam (Request body) {String{..128}} [shippingAddress_2] Shipping Address 2
-     * @apiParam (Request body) {String{..128}} shippingCity Shipping City
-     * @apiParam (Request body) {Number{..10}} shippingPostCode Shipping PostCode
-     * @apiParam (Request body) {String} shippingCountryId ShippingCountryId
-     * @apiParam (Request body) {String{..128}} shippingZone Shipping Zone
-     * @apiParam (Request body) {String} [shippingAddressFormat] Shipping Address Format
-     * @apiParam (Request body) {String{..32}} [paymentFirstName] Payment First name
-     * @apiParam (Request body) {String{..32}} [PaymentLastName] Payment Last Name
-     * @apiParam (Request body) {String{..32}} [PaymentCompany] Payment Company
-     * @apiParam (Request body) {String{..128}} [paymentAddress_1] Payment Address 1
-     * @apiParam (Request body) {String{..128}} [paymentAddress_2] Payment Address 2
-     * @apiParam (Request body) {String{..10}} [paymentCity] Payment City
-     * @apiParam (Request body) {Number{..10}} [paymentPostCode] Payment PostCode
-     * @apiParam (Request body) {String} [paymentCountryId] PaymentCountryId
-     * @apiParam (Request body) {String{..128}} [paymentZone] Payment Zone
-     * @apiParam (Request body) {String{..15}} phoneNumber Customer Phone Number
-     * @apiParam (Request body) {String{..96}} emailId Customer Email Id
-     * @apiParam (Request body) {String} [password] Customer password
-     * @apiParam (Request body) {String{..255}} [couponCode] couponCode
-     * @apiParam (Request body) {Number} [couponDiscountAmount] couponDiscountAmount
-     * @apiParam (Request body) {String} [couponData]
-     * @apiParam (Request body) {String} [gstNo] gstNo
-     * @apiParamExample {json} Input
-     * {
-     *      "productDetails" :[
-     *      {
-     *      "productId" : "",
-     *      "quantity" : "",
-     *      "price" : "",
-     *      "model" : "",
-     *      "productName" : "",
-     *      "skuName" : "",
-     *      "vendorId" : "",
-     *      "skuId":""
-     *      }],
-     *      "shippingFirstName" : "",
-     *      "shippingLastName" : "",
-     *      "shippingCompany" : "",
-     *      "shippingAddress_1" : "",
-     *      "shippingAddress_2" : "",
-     *      "shippingCity" : "",
-     *      "shippingPostCode" : "",
-     *      "shippingCountryId" : "",
-     *      "shippingZone" : "",
-     *      "paymentFirstName" : "",
-     *      "paymentLastName" : "",
-     *      "paymentCompany" : "",
-     *      "paymentAddress_1" : "",
-     *      "paymentAddress_2" : "",
-     *      "paymentCity" : "",
-     *      "paymentPostCode" : "",
-     *      "paymentCountryId" : "",
-     *      "paymentZone" : "",
-     *      "shippingAddressFormat" : "",
-     *      "phoneNumber" : "",
-     *      "emailId" : "",
-     *      "password" : "",
-     *      "paymentMethod" : "",
-     *      "vendorId" : "",
-     *      "couponCode" : "",
-     *      "couponDiscountAmount" : "",
-     *      "couponData" : "",
-     *      "customerId": "",
-     *      "orderSource":"",
-     *      "quoteRequestId":""
-     * }
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Check Out the product successfully And Send order detail in your mail ..!!",
-     *      "status": "1".
-     *      "data": {
-     *              "createdBy": "",
-     *              "createdDate": "",
-     *              "modifiedBy": "",
-     *              "modifiedDate": "",
-     *              "orderId": "",
-     *              "customerId": "",
-     *              "currencyId": "",
-     *              "shippingZoneId": "",
-     *              "paymentZoneId": "",
-     *              "shippingCountryId": "",
-     *              "paymentCountryId": "",
-     *              "invoiceNo": "",
-     *              "invoicePrefix": "",
-     *              "firstname": "",
-     *              "lastname": "",
-     *              "email": "",
-     *              "telephone": "",
-     *              "fax": "",
-     *              "shippingFirstname": "",
-     *              "shippingLastname": "",
-     *              "shippingCompany": "",
-     *              "shippingAddress1": "",
-     *              "shippingAddress2": "",
-     *              "shippingCity": "",
-     *              "shippingPostcode": "",
-     *              "shippingCountry": "",
-     *              "shippingZone": "",
-     *              "shippingAddressFormat": "",
-     *              "shippingMethod": "",
-     *              "paymentFirstname": "",
-     *              "paymentLastname": "",
-     *              "paymentCompany": "",
-     *              "paymentAddress1": "",
-     *              "paymentAddress2": "",
-     *              "paymentCity": "",
-     *              "paymentPostcode": "",
-     *              "paymentCountry": ,
-     *              "paymentZone": "",
-     *              "paymentAddressFormat": "",
-     *              "paymentMethod": "",
-     *              "comment": "",
-     *              "couponCode": "",
-     *              "discountAmount": "",
-     *              "amount": "",
-     *              "total": "",
-     *              "reward": "",
-     *              "orderStatusId": "",
-     *              "orderPrefixId": "",
-     *              "affiliateId": "",
-     *              "commision": "",
-     *              "currencyCode": "",
-     *              "currencyValue": "",
-     *              "currencySymbolLeft": "",
-     *              "currencySymbolRight": "",
-     *              "ip": "",
-     *              "paymentFlag": "",
-     *              "paymentStatus": "",
-     *              "trackingUrl": "",
-     *              "trackingNo": "",
-     *              "orderName": "",
-     *              "paymentType": "",
-     *              "paymentProcess": "",
-     *              "paymentDetails": "",
-     *              "backOrders": "",
-     *              "isActive": "",
-     *              "customerGstNo": "",
-     *              "productDetail": [
-     *                {
-     *                    "createdBy": "",
-     *                    "createdDate": "",
-     *                    "modifiedBy": "",
-     *                    "modifiedDate": "",
-     *                    "orderProductId": "",
-     *                    "productId": "",
-     *                    "orderProductPrefixId": "",
-     *                    "orderId": "",
-     *                    "name": "",
-     *                    "model": "",
-     *                    "quantity": ,
-     *                    "productPrice": "",
-     *                    "discountAmount": "",
-     *                    "basePrice": "",
-     *                    "taxType": "",
-     *                    "taxValue": "",
-     *                    "total": "",
-     *                    "discountedAmount": "",
-     *                    "orderStatusId": "",
-     *                    "cancelRequestStatus": "",
-     *                    "cancelReason": "",
-     *                    "cancelReasonDescription": "",
-     *                    "isActive": "",
-     *                    "skuName": "",
-     *                    "couponDiscountAmount": "",
-     *                    "image": {
-     *                        "createdBy": "",
-     *                        "createdDate": "",
-     *                        "modifiedBy": "",
-     *                        "modifiedDate": "",
-     *                        "productImageId": "",
-     *                        "productId": "",
-     *                        "image": "",
-     *                        "containerName": "",
-     *                        "sortOrder": "",
-     *                        "defaultImage": "",
-     *                        "isActive":""
-     *                    }
-     *                  }]
-     *                }
-     *  }
+     * @apiName VendorCreateOrder
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiBody {String} shippingFirstName Customer shipping first name
+     * @apiBody {String} shippingLastName Customer shipping last name
+     * @apiBody {String} shippingAddress1 Customer shipping address line 1
+     * @apiBody {String} [shippingAddress2] Customer shipping address line 2
+     * @apiBody {String} shippingCity Customer shipping city
+     * @apiBody {String} shippingPostCode Customer shipping postal code
+     * @apiBody {String} shippingCountry Customer shipping country
+     * @apiBody {String} [shippingZone] Customer shipping zone/state
+     * @apiBody {String} email Customer email address
+     * @apiBody {Number} phoneNumber Customer contact phone number
+     * @apiBody {Object[]} productDetails Array of products to order
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Order created successfully",
+     *         "data": {
+     *             "orderId": 1,
+     *             "orderPrefixId": "ORD-001"
+     *         }
+     *     }
+     *
+     * @apiErrorExample {json} Checkout-Error:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "item is Out of stock"
+     *     }
+     *
      * @apiSampleRequest /api/order/create-order
-     * @apiErrorExample {json} Checkout error
-     * HTTP/1.1 500 Internal Server Error
      */
     @Post('/create-order')
     @Authorized(['vendor', 'create-order'])

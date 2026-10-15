@@ -7,8 +7,9 @@
  */
 
 import { IsNotEmpty } from 'class-validator';
-import { Column, Entity, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn, OneToMany, ManyToOne, JoinColumn } from 'typeorm';
 import { SiteFilterSectionItem } from './SiteFilterSectionItem';
+import { SiteFilter } from './SiteFilter';
 
 @Entity('site_filter_section')
 export class SiteFilterSection {
@@ -33,6 +34,10 @@ export class SiteFilterSection {
 
     @Column({ name: 'sequence' })
     public sequence: number;
+
+        @ManyToOne(type => SiteFilter, filter => filter.filterSection)
+    @JoinColumn({ name: 'site_filter_id' })
+    public filterDetail: SiteFilter;
 
     @OneToMany(type => SiteFilterSectionItem, filterSectionItem => filterSectionItem.filterSectionDetail)
     public filterSectionItem: SiteFilterSectionItem[];

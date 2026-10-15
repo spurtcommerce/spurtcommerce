@@ -21,35 +21,37 @@ export class VendorCurrencyController {
     ) {
     }
 
-    // Currency List API
     /**
-     * @api {get} /api/currency/currencylist Currency List API
+     * @api {get} /api/vendor-currency/master-currency Master Currency List
      * @apiGroup Currency
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} limit limit
-     * @apiParam (Request body) {Number} offset offset
-     * @apiParam (Request body) {String} keyword keyword
-     * @apiParam (Request body) {String} status status
-     * @apiParam (Request body) {Number} count count should be number or boolean
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "status": "1"
-     *      "message": "Successfully get currency list",
-     *      "data":[{
-     *       "createdDate": "2022-10-04T06:15:48.000Z",
-     *       "modifiedDate": "2024-08-05T09:12:36.000Z",
-     *       "currencyId": 73,
-     *       "title": "שקל",
-     *       "code": "ILS",
-     *       "symbolLeft": null,
-     *       "symbolRight": "₪",
-     *       "isActive": 1
-     *   }]
-     * }
-     * @apiSampleRequest /api/currency
-     * @apiErrorExample {json} Currency error
-     * HTTP/1.1 500 Internal Server Error
+     * @apiName MasterCurrencyList
+     *
+     * @apiHeader {String} Authorization  Bearer Token
+     *
+     * @apiQuery {Number} [limit]            Number of records to return
+     * @apiQuery {Number} [offset]           Pagination offset
+     * @apiQuery {String} [keyword]          Search keyword for currency title or code
+     * @apiQuery {String} [status]           Filter by status
+     * @apiQuery {Number|Boolean} [count]    If true/1, returns total count
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully got the complete currency list",
+     *         "data": [
+     *             {
+     *                 "currencyId": 73,
+     *                 "title": "US Dollar",
+     *                 "code": "USD",
+     *                 "symbolLeft": "$",
+     *                 "symbolRight": null,
+     *                 "isActive": 1
+     *             }
+     *         ]
+     *     }
+     *
+     * @apiSampleRequest /api/vendor-currency/master-currency
      */
     @Get('/master-currency')
     @Authorized(['vendor', 'list-setting-localization'])

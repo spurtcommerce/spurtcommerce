@@ -24,31 +24,45 @@ export class VendorTaxController {
         // --
     }
 
-    // Tax List API
     /**
-     * @api {get} /api/vendor-tax Tax List API
-     * @apiGroup Tax
-     * @apiHeader {String} Authorization
-     * @apiParam (Request body) {Number} limit limit
-     * @apiParam (Request body) {Number} offset offset
-     * @apiParam (Request body) {String} keyword keyword
-     * @apiParam (Request body) {String} status status
-     * @apiParam (Request body) {Number} count count should be number or boolean
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *      "message": "Successfully get tax list",
-     *      "status": "1",
-     *      "data": {
-     *              "taxId": ""
-     *              "taxName": "",
-     *              "taxPercentage": "",
-     *              "taxStatus": "",
-     *              }
-     * }
+     * @api {get} /api/vendor-tax List Vendor Taxes
+     * @apiGroup Vendor Tax
+     * @apiName VendorTaxList
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiQuery {Number} [limit] Number of records to return
+     * @apiQuery {Number} [offset] Pagination offset
+     * @apiQuery {String} [status] Tax active status ('0' or '1')
+     * @apiQuery {Number} [count] Return count only if 1
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully get all vendor tax list.",
+     *         "data": [
+     *             {
+     *                 "id": 1,
+     *                 "isActive": 1,
+     *                 "tax": {
+     *                     "taxId": 1,
+     *                     "taxName": "VAT",
+     *                     "taxPercentage": "5.00",
+     *                     "taxStatus": 1
+     *                 }
+     *             }
+     *         ]
+     *     }
+     *
+     * @apiErrorExample {json} Error-Response:
+     *     HTTP/1.1 500 Internal Server Error
+     *     {
+     *         "status": 0,
+     *         "message": "Internal Server Error"
+     *     }
+     *
      * @apiSampleRequest /api/vendor-tax
-     * @apiErrorExample {json} Tax error
-     * HTTP/1.1 500 Internal Server Error
      */
     @Get()
     @Authorized(['vendor', 'list-setting-localization'])
@@ -100,34 +114,42 @@ export class VendorTaxController {
         return response.status(200).send(successResponse);
     }
 
-    // Vendor Master Tax List API
     /**
-     * @api {get} /api/vendor-tax/master-tax Vendor Master Tax List API
-     * @apiGroup Tax
-     * @apiHeader {String} Authorization
+     * @api {get} /api/vendor-tax/master-tax List Master Taxes
+     * @apiGroup Vendor Tax
+     * @apiName VendorMasterTaxList
      *
-     * @apiParam (Query params) {Number} limit limit
-     * @apiParam (Query params) {Number} offset offset
-     * @apiParam (Query params) {String} keyword keyword
-     * @apiParam (Query params) {String} status status
-     * @apiParam (Query params) {Number} count count should be number or boolean
+     * @apiHeader {String} Authorization Bearer Token
      *
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *   "status": 1,
-     *   "message": "Successfully get all tax list",
-     *   "data": []
-     * }
+     * @apiQuery {Number} [limit] Number of records to return
+     * @apiQuery {Number} [offset] Pagination offset
+     * @apiQuery {String} [keyword] Keyword search for tax name
+     * @apiQuery {String} [status] Tax status
+     * @apiQuery {Number} [count] Return count only if 1
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully get all tax list",
+     *         "data": [
+     *             {
+     *                 "taxId": 1,
+     *                 "taxName": "GST",
+     *                 "taxPercentage": "18.00",
+     *                 "taxStatus": 1
+     *             }
+     *         ]
+     *     }
+     *
+     * @apiErrorExample {json} Error-Response:
+     *     HTTP/1.1 500 Internal Server Error
+     *     {
+     *         "status": 0,
+     *         "message": "Unable to fetch tax list"
+     *     }
      *
      * @apiSampleRequest /api/vendor-tax/master-tax
-     *
-     * @apiErrorExample {json} Tax error
-     * HTTP/1.1 500 Internal Server Error
-     * {
-     *   "status": 0,
-     *   "message": "Unable to fetch tax list"
-     * }
      */
     @Get('/master-tax')
     @Authorized(['vendor', 'list-setting-localization'])
@@ -149,30 +171,31 @@ export class VendorTaxController {
         return response.status(200).send(successResponse);
     }
 
-    // Update Vendor Taxes API
     /**
-     * @api {post} /api/vendor-tax Update Vendor Taxes API
-     * @apiGroup Tax
-     * @apiHeader {String} Authorization
+     * @api {post} /api/vendor-tax Update Vendor Tax Mapping
+     * @apiGroup Vendor Tax
+     * @apiName MapVendorTax
      *
-     * @apiParam (Request body) {String} taxIds Comma-separated list of tax IDs
-     * @apiParam (Request body) {String} deleteVendorTaxIds Comma-separated list of deleteVendorTax IDs
+     * @apiHeader {String} Authorization Bearer Token
      *
-     * @apiSuccessExample {json} Success
-     * HTTP/1.1 200 OK
-     * {
-     *   "status": 1,
-     *   "message": "Successfully updated vendor tax."
-     * }
+     * @apiBody {String} taxIds Comma-separated list of tax IDs to map
+     * @apiBody {String} deleteVendorTaxIds Comma-separated list of vendor tax IDs to remove
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully updated vendor tax."
+     *     }
+     *
+     * @apiErrorExample {json} Invalid-Tax:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *         "status": 0,
+     *         "message": "Invalid vendor tax."
+     *     }
      *
      * @apiSampleRequest /api/vendor-tax
-     *
-     * @apiErrorExample {json} Tax error
-     * HTTP/1.1 500 Internal Server Error
-     * {
-     *   "status": 0,
-     *   "message": "Unable to update vendor tax."
-     * }
      */
     @Post()
     @Authorized(['vendor', 'list-setting-localization'])
