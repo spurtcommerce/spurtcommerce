@@ -31,7 +31,7 @@ export class AddTenantIdColumnsAndForeignKey1738133683062 implements MigrationIn
             const indexExists = table?.indices.some(
                 index => index.name === item.indexName ||
                     (index.columnNames.length === item.columnNames.length &&
-                     item.columnNames.every((col, idx) => index.columnNames[idx] === col))
+                        item.columnNames.every((col, idx) => index.columnNames[idx] === col))
             );
 
             if (!indexExists) {
@@ -43,9 +43,8 @@ export class AddTenantIdColumnsAndForeignKey1738133683062 implements MigrationIn
         }
 
         const attrToGroupTable = await queryRunner.getTable('attribute_to_group');
-
         const fkAttrExists = attrToGroupTable?.foreignKeys.some(
-            fk => fk.name === 'fk_attribute_to_group_attribute_tenant'
+            fk => fk.name === 'fk_attribute_to_group_attribute_tenant' || (fk.referencedTableName === 'attribute' && fk.columnNames?.includes('attribute_id'))
         );
         if (!fkAttrExists) {
             await queryRunner.createForeignKey(
@@ -62,7 +61,7 @@ export class AddTenantIdColumnsAndForeignKey1738133683062 implements MigrationIn
         }
 
         const fkGroupExists = attrToGroupTable?.foreignKeys.some(
-            fk => fk.name === 'fk_attribute_to_group_group_tenant'
+            fk => fk.name === 'fk_attribute_to_group_group_tenant' || (fk.referencedTableName === 'attribute_group' && fk.columnNames?.includes('attribute_group_id'))
         );
         if (!fkGroupExists) {
             await queryRunner.createForeignKey(

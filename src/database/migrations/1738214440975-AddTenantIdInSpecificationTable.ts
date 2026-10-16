@@ -25,25 +25,37 @@ export class AddTenantIdInSpecificationToAttributeGroup1738214440975 implements 
             columnNames: ['tenant_id'],
         }));
 
+        const attrToGroupTable = await queryRunner.getTable('specification_to_attribute_group');
+        const fkAttrExists = attrToGroupTable?.foreignKeys.some(
+            fk => fk.name === 'fk_specification_to_attribute_group_specification_tenant_id' || (fk.referencedTableName === 'specification' && fk.columnNames?.includes('tenant_id'))
+        );
+        console.log('fkAttrExistsewfwfw', fkAttrExists);
         // 3. Add foreign key constraint for tenant_id in specification_to_attribute_group referencing specification's tenant_id
-        await queryRunner.createForeignKey('specification_to_attribute_group', new TableForeignKey({
-            name: 'fk_specification_to_attribute_group_specification_tenant_id',
-            columnNames: ['tenant_id'],
-            referencedTableName: 'specification',
-            referencedColumnNames: ['tenant_id'],
-            onDelete: 'CASCADE', // Adjust delete behavior
-            onUpdate: 'CASCADE',  // Adjust update behavior
-        }));
-
+        if (fkAttrExists === false) {
+            console.log(attrToGroupTable?.foreignKeys, 'regergerergerggregegre');
+            await queryRunner.createForeignKey('specification_to_attribute_group', new TableForeignKey({
+                name: 'fk_specification_to_attribute_group_specification_tenant_id',
+                columnNames: ['tenant_id'],
+                referencedTableName: 'specification',
+                referencedColumnNames: ['tenant_id'],
+                onDelete: 'CASCADE', // Adjust delete behavior
+                onUpdate: 'CASCADE',  // Adjust update behavior
+            })).catch((e) => console.log(e));
+        }
+        const fkAttrExists1 = attrToGroupTable?.foreignKeys.some(
+            fk => fk.name === 'FK_specification_to_attribute_group_attribute_group_tenant_id' || (fk.referencedTableName === 'attribute_group' && fk.columnNames?.includes('tenant_id'))
+        );
         // 4. Add foreign key constraint for tenant_id in specification_to_attribute_group referencing attribute_group's tenant_id
-        await queryRunner.createForeignKey('specification_to_attribute_group', new TableForeignKey({
-            name: 'FK_specification_to_attribute_group_attribute_group_tenant_id',
-            columnNames: ['tenant_id'],
-            referencedTableName: 'attribute_group',
-            referencedColumnNames: ['tenant_id'],
-            onDelete: 'CASCADE', // Adjust delete behavior
-            onUpdate: 'CASCADE',  // Adjust update behavior
-        }));
+        if (fkAttrExists1 === false) {
+            await queryRunner.createForeignKey('specification_to_attribute_group', new TableForeignKey({
+                name: 'FK_specification_to_attribute_group_attribute_group_tenant_id',
+                columnNames: ['tenant_id'],
+                referencedTableName: 'attribute_group',
+                referencedColumnNames: ['tenant_id'],
+                onDelete: 'CASCADE', // Adjust delete behavior
+                onUpdate: 'CASCADE',  // Adjust update behavior
+            })).catch((e) => console.log(e));
+        }
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
