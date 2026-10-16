@@ -4,35 +4,35 @@ export class AddSpecificationMappingPermissionModuless1770191087594 implements M
 
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.query(`
-            INSERT INTO vendor_permission_module_group
+            INSERT IGNORE INTO vendor_permission_module_group
             (module_group_id, name, slug_name, sort_order, description)
             VALUES
             (41, 'Product Attribute Group', 'product-attribute-group', 41, 'Vendor Product Attribute Group Permissions')
         `);
 
         await queryRunner.query(`
-            INSERT INTO vendor_permission_module_group
+            INSERT IGNORE INTO vendor_permission_module_group
             (module_group_id, name, slug_name, sort_order)
             VALUES
             (42, 'Product Specification', 'vendor-product-specification-group', 42)
         `);
 
         await queryRunner.query(`
-            INSERT INTO vendor_permission_module_group
+            INSERT IGNORE INTO vendor_permission_module_group
             (module_group_id, name, slug_name, sort_order)
             VALUES
             (43, 'Product Family', 'vendor-product-family-group', 43)
         `);
 
         await queryRunner.query(`
-            INSERT INTO vendor_permission_module_group
+            INSERT IGNORE INTO vendor_permission_module_group
             (module_group_id, name, slug_name, sort_order)
             VALUES
             (44, 'Specification Mapping', 'vendor-specification-mapping-group', 44)
         `);
 
         await queryRunner.query(`
-            INSERT INTO vendor_permission_module
+            INSERT IGNORE INTO vendor_permission_module
             (module_group_id, name, slug_name, sort_order)
             VALUES
             (41, 'List Product Attribute Group', 'vendor-product-attribute-group', 1),
@@ -42,7 +42,7 @@ export class AddSpecificationMappingPermissionModuless1770191087594 implements M
         `);
 
         await queryRunner.query(`
-            INSERT INTO vendor_permission_module
+            INSERT IGNORE INTO vendor_permission_module
             (module_group_id, name, slug_name, sort_order)
             VALUES
             (42, 'List Product Specification', 'vendor-product-specification', 1),
@@ -52,7 +52,7 @@ export class AddSpecificationMappingPermissionModuless1770191087594 implements M
         `);
 
         await queryRunner.query(`
-            INSERT INTO vendor_permission_module
+            INSERT IGNORE INTO vendor_permission_module
             (module_group_id, name, slug_name, sort_order)
             VALUES
             (43, 'List Product Family', 'vendor-product-family', 1),
@@ -62,7 +62,7 @@ export class AddSpecificationMappingPermissionModuless1770191087594 implements M
         `);
 
         await queryRunner.query(`
-            INSERT INTO vendor_permission_module
+            INSERT IGNORE INTO vendor_permission_module
             (module_group_id, name, slug_name, sort_order)
             VALUES
             (44, 'List Specification Mapping', 'vendor-specification-mapping', 1),

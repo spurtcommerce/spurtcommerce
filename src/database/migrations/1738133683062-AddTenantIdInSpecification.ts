@@ -19,82 +19,96 @@ export class AddTenantIdColumnsAndForeignKey1738133683062 implements MigrationIn
             }
         }
         // const ifExist = await queryRunner.hasColumn('attribute', 'tenant_id');
-        const tables = [['attribute', 'IDX_ATTRIBUTE_TENANT_ID'], ['attribute_group', 'IDX_ATTRIBUTE_GROUP_TENANT_ID']];
+        const indexesToCreate = [
+            { tableName: 'attribute', indexName: 'IDX_ATTRIBUTE_TENANT_ID', columnNames: ['tenant_id'] },
+            { tableName: 'attribute_group', indexName: 'IDX_ATTRIBUTE_GROUP_TENANT_ID', columnNames: ['tenant_id'] },
+            { tableName: 'attribute', indexName: 'IDX_ATTRIBUTE_ID_TENANT_ID', columnNames: ['id', 'tenant_id'] },
+            { tableName: 'attribute_group', indexName: 'IDX_ATTRIBUTE_GROUP_ID_TENANT_ID', columnNames: ['id', 'tenant_id'] },
+        ];
 
-        // const table = await queryRunner.getTables(['attribute_group', 'attribute']);
-        for (const val of tables) {
-            const table = await queryRunner.getTable(val[0]);
-            // console.log()
+        for (const item of indexesToCreate) {
+            const table = await queryRunner.getTable(item.tableName);
             const indexExists = table?.indices.some(
-                index => index.columnNames.includes('tenant_id')
+                index => index.name === item.indexName ||
+                    (index.columnNames.length === item.columnNames.length &&
+                     item.columnNames.every((col, idx) => index.columnNames[idx] === col))
             );
 
             if (!indexExists) {
-                await queryRunner.createIndex(val[0], new TableIndex({
-                    name: val[1],
-                    columnNames: ['tenant_id'],
+                await queryRunner.createIndex(item.tableName, new TableIndex({
+                    name: item.indexName,
+                    columnNames: item.columnNames,
                 }));
             }
         }
 
-        // // 6. Create foreign key from attribute_to_group's tenant_id to attribute's tenant_id
-        // await queryRunner.createForeignKey('attribute_to_group', new TableForeignKey({
-        //     name: 'fk_attribute_to_group_attribute_tenant_id',
-        //     columnNames: ['tenant_id'],
-        //     referencedTableName: 'attribute',
-        //     referencedColumnNames: ['tenant_id'],
-        //     onDelete: 'CASCADE',
-        // }));
+        const attrToGroupTable = await queryRunner.getTable('attribute_to_group');
 
-        // // 7. Create foreign key from attribute_to_group's tenant_id to attribute_group's tenant_id
-        // await queryRunner.createForeignKey('attribute_to_group', new TableForeignKey({
-        //     name: 'fk_attribute_to_group_attribute_group_tenant_id',
-        //     columnNames: ['tenant_id'],
-        //     referencedTableName: 'attribute_group',
-        //     referencedColumnNames: ['tenant_id'],
-        //     onDelete: 'CASCADE',
-        // }));
-
-        await queryRunner.createForeignKey(
-            'attribute_to_group',
-            new TableForeignKey({
-                name: 'fk_attribute_to_group_attribute_tenant',
-                columnNames: ['attribute_id', 'tenant_id'],
-                referencedTableName: 'attribute',
-                referencedColumnNames: ['id', 'tenant_id'],
-                onDelete: 'CASCADE',
-                onUpdate: 'CASCADE',
-            })
+        const fkAttrExists = attrToGroupTable?.foreignKeys.some(
+            fk => fk.name === 'fk_attribute_to_group_attribute_tenant'
         );
+        if (!fkAttrExists) {
+            await queryRunner.createForeignKey(
+                'attribute_to_group',
+                new TableForeignKey({
+                    name: 'fk_attribute_to_group_attribute_tenant',
+                    columnNames: ['attribute_id', 'tenant_id'],
+                    referencedTableName: 'attribute',
+                    referencedColumnNames: ['id', 'tenant_id'],
+                    onDelete: 'CASCADE',
+                    onUpdate: 'CASCADE',
+                })
+            );
+        }
 
-        await queryRunner.createForeignKey(
-            'attribute_to_group',
-            new TableForeignKey({
-                name: 'fk_attribute_to_group_group_tenant',
-                columnNames: ['attribute_group_id', 'tenant_id'],
-                referencedTableName: 'attribute_group',
-                referencedColumnNames: ['id', 'tenant_id'],
-                onDelete: 'CASCADE',
-                onUpdate: 'CASCADE',
-            })
+        const fkGroupExists = attrToGroupTable?.foreignKeys.some(
+            fk => fk.name === 'fk_attribute_to_group_group_tenant'
         );
+        if (!fkGroupExists) {
+            await queryRunner.createForeignKey(
+                'attribute_to_group',
+                new TableForeignKey({
+                    name: 'fk_attribute_to_group_group_tenant',
+                    columnNames: ['attribute_group_id', 'tenant_id'],
+                    referencedTableName: 'attribute_group',
+                    referencedColumnNames: ['id', 'tenant_id'],
+                    onDelete: 'CASCADE',
+                    onUpdate: 'CASCADE',
+                })
+            );
+        }
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
         // 1. Drop foreign keys related to tenant_id
         const table = await queryRunner.getTable('attribute_to_group');
-        const foreignKeys = table.foreignKeys.filter(fk => fk.columnNames.includes('tenant_id'));
-        for (const fk of foreignKeys) {
-            await queryRunner.dropForeignKey('attribute_to_group', fk);
+        if (table) {
+            const foreignKeys = table.foreignKeys.filter(fk => fk.columnNames.includes('tenant_id'));
+            for (const fk of foreignKeys) {
+                await queryRunner.dropForeignKey('attribute_to_group', fk);
+            }
         }
 
-        // 2. Drop tenant_id columns from each table
+        // 2. Drop indexes created for tenant_id
+        const attributeTable = await queryRunner.getTable('attribute');
+        if (attributeTable?.indices.some(i => i.name === 'IDX_ATTRIBUTE_ID_TENANT_ID')) {
+            await queryRunner.dropIndex('attribute', 'IDX_ATTRIBUTE_ID_TENANT_ID');
+        }
+        if (attributeTable?.indices.some(i => i.name === 'IDX_ATTRIBUTE_TENANT_ID')) {
+            await queryRunner.dropIndex('attribute', 'IDX_ATTRIBUTE_TENANT_ID');
+        }
+
+        const attributeGroupTable = await queryRunner.getTable('attribute_group');
+        if (attributeGroupTable?.indices.some(i => i.name === 'IDX_ATTRIBUTE_GROUP_ID_TENANT_ID')) {
+            await queryRunner.dropIndex('attribute_group', 'IDX_ATTRIBUTE_GROUP_ID_TENANT_ID');
+        }
+        if (attributeGroupTable?.indices.some(i => i.name === 'IDX_ATTRIBUTE_GROUP_TENANT_ID')) {
+            await queryRunner.dropIndex('attribute_group', 'IDX_ATTRIBUTE_GROUP_TENANT_ID');
+        }
+
+        // 3. Drop tenant_id columns from each table
         await queryRunner.dropColumn('attribute_to_group', 'tenant_id');
         await queryRunner.dropColumn('attribute_group', 'tenant_id');
         await queryRunner.dropColumn('attribute', 'tenant_id');
-
-        // 3. Drop indexes created for tenant_id
-        await queryRunner.dropIndex('attribute', 'IDX_ATTRIBUTE_TENANT_ID');
-        await queryRunner.dropIndex('attribute_group', 'IDX_ATTRIBUTE_GROUP_TENANT_ID');
     }
 }
