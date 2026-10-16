@@ -4,7 +4,7 @@ export class CreateTableAttribute1702961616255 implements MigrationInterface {
 
   public async up(queryRunner: QueryRunner): Promise<void> {
 
-    const tablesExist = await queryRunner.getTables(['product_attribute', 'attribute', 'attribute_group']);
+    const tablesExist = await queryRunner.getTables(['product_attribute', 'attribute', 'attribute_group', 'attribute_to_group', 'attribute_value', 'specification', 'product_to_specification', 'product_spec_to_attribute_group', 'prd_spec_attr_grp_to_attribute', 'prd_spec_attr_grp_attr_to_attr_val', 'specification_to_attribute_group', 'specification_to_category']);
 
     for (const table of tablesExist) {
       await queryRunner.dropTable(table.name, true, true, true);

@@ -4,22 +4,25 @@ export class AddTenantIdInSpecificationToAttributeGroup1738214440975 implements 
 
     public async up(queryRunner: QueryRunner): Promise<void> {
 
-        await queryRunner.addColumn('specification', new TableColumn({
-            name: 'tenant_id',
-            type: 'int',
-            isNullable: false, // Make tenant_id non-nullable
-        }));
+        // Column check and execute
+        const columns = ['specification', 'specification_to_attribute_group'];
+
+        // const ifExist = await queryRunner.hasColumn('customer', 'local');
+
+        for (const val of columns) {
+            const ifExist = await queryRunner.hasColumn(val, 'tenant_id');
+            if (!ifExist) {
+                await queryRunner.addColumn(val, new TableColumn({
+                    name: 'tenant_id',
+                    type: 'int',
+                    isNullable: false, // Make tenant_id non-nullable
+                }));
+            }
+        }
 
         await queryRunner.createIndex('specification', new TableIndex({
             name: 'IDX_SPECIFICATION_TENANT_ID',
             columnNames: ['tenant_id'],
-        }));
-
-        // 1. Add tenant_id column to the specification_to_attribute_group table
-        await queryRunner.addColumn('specification_to_attribute_group', new TableColumn({
-            name: 'tenant_id',
-            type: 'int', // Assuming you're using UUIDs for tenant identifiers
-            isNullable: false, // Adjust based on your requirements
         }));
 
         // 3. Add foreign key constraint for tenant_id in specification_to_attribute_group referencing specification's tenant_id

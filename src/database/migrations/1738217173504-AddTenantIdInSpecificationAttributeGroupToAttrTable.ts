@@ -3,12 +3,15 @@ import { MigrationInterface, QueryRunner, TableColumn, TableForeignKey, TableInd
 export class AddTenantIdInSpecificationAttributeGroupToAttrTable1738217173504 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.addColumn('spec_attr_grp_to_attribute', new TableColumn({
-            name: 'tenant_id',
-            type: 'int',
-            isNullable: false, // Make tenant_id non-nullable
-        }));
 
+        const ifExist = await queryRunner.hasColumn('spec_attr_grp_to_attribute', 'tenant_id');
+        if (!ifExist) {
+            await queryRunner.addColumn('spec_attr_grp_to_attribute', new TableColumn({
+                name: 'tenant_id',
+                type: 'int',
+                isNullable: false, // Make tenant_id non-nullable
+            }));
+        }
         await queryRunner.createIndex('spec_attr_grp_to_attribute', new TableIndex({
             name: 'IDX_SPECIFICATION_ATTR_GRP_TO_ATTR_TENANT_ID',
             columnNames: ['tenant_id'],
