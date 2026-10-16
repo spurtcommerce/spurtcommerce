@@ -4,9 +4,9 @@
             <img src="https://www.spurtcommerce.com/spurtcommerce.svg" width="318px" alt="SpurtCommerce logo" />
         </a>
         <br>
-        🚀 <strong>SpurtCommerce v5.4</strong>
+        🚀 <strong>SpurtCommerce v6.0</strong>
         <br>
-        B2C Single Vendor API
+        <!-- B2C & B2B APIs -->
     </div>
 </h1>
 
@@ -16,7 +16,7 @@
 
 <p align="center">
     <a href="https://www.spurtcommerce.com"><b>Website</b></a> •
-    <a href="https://www.spurtcommerce.dev"><b>Documentation</b></a> •
+    <a href="https://docs.spurtcommerce.com"><b>Documentation</b></a> •
     <a href="https://discord.com/invite/hyW4MXXn8n"><b>Discord</b></a> •
     <a href="https://github.com/spurtcommerce"><b>GitHub</b></a>
 </p>
@@ -24,15 +24,15 @@
 <br />
 
 > [!IMPORTANT]
-> 🎉 <strong>SpurtCommerce 5.4 — B2C Single Vendor API</strong>
+> 🎉 <strong>SpurtCommerce 6.0 — B2C & B2B APIs</strong>
 >
 > This documentation explains how to install, configure, run, and deploy the B2C Single Vendor backend API.
 
 ---
 
-## ❯ 🚀 B2C Single Vendor API
+## ❯ 🚀 B2C & B2B APIs
 
-SpurtCommerce **5.4 B2C Single Vendor API** is a backend application built using:
+SpurtCommerce **6.0 B2C & B2B APIs** is a backend application built using:
 
 * Node.js
 * TypeScript
@@ -54,7 +54,7 @@ This guide covers the complete backend setup including:
 
 ## ❯ Prerequisites
 
-Before setting up the SpurtCommerce 5.4 B2C Single Vendor API, make sure the following software is installed.
+Before setting up the SpurtCommerce 6.0 B2C & B2B APIs, make sure the following software is installed.
 
 * Node.js (v22.23.1)
 * npm  (recommended >= 10.9.8)
@@ -76,7 +76,7 @@ git --version
 
 ### 1. Navigate to Backend
 
-Navigate to the SpurtCommerce 5.4 backend project directory.
+Navigate to the SpurtCommerce 6.0 backend project directory.
 
 ```bash
 cd <BACKEND_DIRECTORY>
@@ -118,7 +118,7 @@ APP_PORT=<YOUR_API_PORT>
 
 ### 1. Create Database
 
-Create the MySQL database used by the SpurtCommerce 5.4 backend.
+Create the MySQL database used by the SpurtCommerce 6.0 backend.
 
 ```sql
 CREATE DATABASE <YOUR_DB_NAME>;
@@ -141,13 +141,13 @@ If the project uses TypeORM migrations, run the migration command configured in 
 ```
 
 > [!NOTE]
-> Use the migration command configured in the SpurtCommerce 5.4 project. The exact command may vary depending on the project configuration.
+> Use the migration command configured in the SpurtCommerce 6.0 project. The exact command may vary depending on the project configuration.
 
 ---
 
 ## ❯ ▶️ Start Backend
 
-Start the SpurtCommerce 5.4 B2C Single Vendor API using the configured start command.
+Start the SpurtCommerce 6.0 B2C & B2B APIs using the configured start command.
 
 ```bash
 npm start
@@ -175,7 +175,7 @@ http://localhost:8000
 
 ## ❯ 🏗️ Backend Architecture
 
-The request flow for the SpurtCommerce 5.4 B2C Single Vendor backend is:
+The request flow for the SpurtCommerce 6.0 B2C Single Vendor backend is:
 
 ```text
 B2C API Request
@@ -233,7 +233,7 @@ MySQL
 
 ## ❯ ⚙️ Environment Configuration
 
-The following environment variables are used by the B2C Single Vendor API.
+The following environment variables are used by the B2C & B2B APIs.
 
 | Configuration      | Purpose                                                       |
 | ------------------ | ------------------------------------------------------------- |
@@ -253,7 +253,7 @@ The following environment variables are used by the B2C Single Vendor API.
 
 `TenantValidationMiddleware` is responsible for resolving vendor and tenant information for incoming API requests.
 
-In the SpurtCommerce 5.4 single-vendor setup, the configured `APP_ID` can be used as the application identifier.
+In the SpurtCommerce 6.0 single-vendor setup, the configured `APP_ID` can be used as the application identifier.
 
 Depending on the middleware implementation, the application ID can be obtained from:
 
@@ -323,7 +323,7 @@ Continue with the authenticated API requests.
 ---
 ## ❯ 🔌 API Access
 
-Once the SpurtCommerce 5.4 backend is running, the API can be accessed using the configured backend URL.
+Once the SpurtCommerce 6.0 backend is running, the API can be accessed using the configured backend URL.
 
 ```text
 http://localhost:<YOUR_API_PORT>
@@ -426,8 +426,8 @@ http://localhost:<YOUR_API_PORT>/apidoc/
 | Property        | Value                 |
 | --------------- | --------------------- |
 | **Platform**    | SpurtCommerce         |
-| **Version**     | 5.4                   |
-| **Application** | B2C Single Vendor API |
+| **Version**     | 6.0                   |
+| **Application** | B2C & B2B APIs |
 | **Backend**     | Node.js               |
 | **Language**    | TypeScript            |
 | **ORM**         | TypeORM               |
@@ -456,7 +456,7 @@ http://localhost:8000/apidoc/
 
 ## ❯ 🐞 Troubleshooting and Issues
 
-If you encounter an issue while installing or running the SpurtCommerce 5.4 B2C Single Vendor API, check:
+If you encounter an issue while installing or running the SpurtCommerce 6.0 B2C & B2B APIs, check:
 
 1. Node.js and npm versions
 2. Database credentials
@@ -473,16 +473,16 @@ If you encounter an issue while installing or running the SpurtCommerce 5.4 B2C 
 
 ## ❯ 📦 Version
 
-**SpurtCommerce 5.4**
+**SpurtCommerce 6.0**
 
-**Application:** B2C Single Vendor API
+**Application:** B2C & B2B APIs
 
 **Backend:** Node.js + TypeScript + TypeORM + MySQL
 
 ---
 
 <p align="center">
-    <strong>SpurtCommerce 5.4 — B2C Single Vendor API</strong>
+    <strong>SpurtCommerce 6.0 — B2C & B2B APIs</strong>
     <br>
     Backend Run &amp; Deploy Guide
 </p>
