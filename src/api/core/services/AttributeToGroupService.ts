@@ -33,6 +33,6 @@ export class AttributeToGroupService {
 
     public findAttributeDistinct(attributeGroupId: number): Promise<Array<{ attribute_id: number }>> {
         return this.attributeToGroupService.repository.createQueryBuilder().select('DISTINCT(AttributeToGroup.attributeId)')
-            .where(`AttributeToGroup.attributeGroupId = ${attributeGroupId}`).getRawMany();
+            .where('AttributeToGroup.attributeGroupId = :attributeGroupId', { attributeGroupId }).getRawMany();
     }
 }

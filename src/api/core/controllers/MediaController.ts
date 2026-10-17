@@ -172,7 +172,7 @@ export class MediaController {
      * HTTP/1.1 500 Internal Server Error
      */
     @Get('/bucket-object-count')
-    @Authorized('admin-vendor')
+    @Authorized('vendor')
     public async ObjectCount(@QueryParam('folderName') folderName: string, @QueryParam('limit') limit: number, @QueryParam('marker') marker: string, @Res() response: any): Promise<any> {
         let isTruncated = true;
         let count: any = 0;
@@ -310,7 +310,7 @@ export class MediaController {
      * HTTP/1.1 500 Internal Server Error
      */
     @Post('/delete-folder')
-    @Authorized('admin-vendor')
+    @Authorized('vendor')
     public async DeleteFolder(@Body({ validate: true }) folderNameValidation: FolderNameRequest, @Res() response: any): Promise<any> {
         const val: any = await this.s3Service.deleteFolder(folderNameValidation.folderName);
         if (val) {
@@ -343,7 +343,7 @@ export class MediaController {
      * HTTP/1.1 500 Internal Server Error
      */
     @Get('/delete-file')
-    @Authorized('admin-vendor')
+    @Authorized('vendor')
     public async DeleteFile(@QueryParam('fileName') fileName: string, @Res() response: any): Promise<any> {
         if (fileName === '') {
             const successResponse: any = {
@@ -400,6 +400,7 @@ export class MediaController {
      *    }
      */
     @Post('/upload-file')
+    @Authorized('vendor')
     public async uploadFile(@Body({ validate: true }) fileNameRequest: FileNameRequest, @Res() response: any): Promise<any> {
 
         const base64 = fileNameRequest.image;
@@ -514,6 +515,7 @@ export class MediaController {
      *    }
      */
     @Post('/upload-video')
+    @Authorized('vendor')
     public async uploadVideo(@UploadedFile('file') files: any, @Res() response: any): Promise<any> {
         const name = files.originalname;
         const path = 'video';
@@ -953,6 +955,7 @@ export class MediaController {
      * HTTP/1.1 500 Internal Server Error
      */
     @Post('/upload-multi-image')
+    @Authorized('vendor')
     public async multiImage(@Body({ validate: true }) multipleImage: MultipleImageUpload, @Res() response: any): Promise<any> {
         let val: any;
         const images: any = multipleImage.image;
@@ -1015,7 +1018,7 @@ export class MediaController {
      * HTTP/1.1 500 Internal Server Error
      */
     @Post('/multiple-delete')
-    @Authorized('admin-vendor')
+    @Authorized('vendor')
     public async deleteMultipleImage(@Body({ validate: true }) deleteFileNameRequest: DeleteMultipleImage, @Res() response: any): Promise<any> {
         const image = deleteFileNameRequest.delete;
         let val;

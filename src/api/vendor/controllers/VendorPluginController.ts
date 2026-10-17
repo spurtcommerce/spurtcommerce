@@ -143,6 +143,7 @@ export class VendorPluginController {
      * @apiSampleRequest /api/vendor-plugins/additional-info/:id
      */
     @Put('/additional-info/:id')
+    @Authorized(['vendor', 'add-on'])
     public async updatePlugin(@Param('id') id: number, @Body({ validate: true }) payload: any, @Res() response: any): Promise<any> {
 
         const vendorPlugin: VendorPlugin = await this.vendorPluginService.findOne({

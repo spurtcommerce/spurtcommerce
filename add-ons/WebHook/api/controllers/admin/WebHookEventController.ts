@@ -1,4 +1,4 @@
-import { BodyParam, Get, JsonController, Param, Put, QueryParam, Res } from 'routing-controllers';
+import { Authorized, BodyParam, Get, JsonController, Param, Put, QueryParam, Res } from 'routing-controllers';
 import { WebHookService } from '../../services/WebHookService';
 import { FindManyOptions, Like } from 'typeorm';
 import { WebHook } from '../../models/WebHook';
@@ -33,6 +33,7 @@ export class WebHookEventController {
      */
 
     @Get()
+    @Authorized()
     public async getWebHookList(@Res() response: any, @QueryParam('limit') limit: number, @QueryParam('offset') offset: number, @QueryParam('keyword') keyword: string, @QueryParam('count') count: number): Promise<any> {
 
         const condition: FindManyOptions<WebHook> = {};
@@ -81,6 +82,7 @@ export class WebHookEventController {
      * HTTP/1.1 500 Internal Server Error
      */
     @Put('/:id')
+    @Authorized()
     public async webHookUpdate(@Res() response: any, @BodyParam('urls') urls: string, @BodyParam('isActive') isActive: string, @Param('id') id: number): Promise<any> {
 
         const webHookExist = await this.webHookService.findOne({ where: { id } });

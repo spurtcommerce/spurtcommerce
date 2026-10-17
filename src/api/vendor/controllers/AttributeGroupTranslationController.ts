@@ -1,4 +1,4 @@
-import { Body, Get, JsonController, Param, Post, QueryParam, Res, Req } from 'routing-controllers';
+import { Authorized, Body, Get, JsonController, Param, Post, QueryParam, Res, Req } from 'routing-controllers';
 import { CreateAttributeGroupTranslationRequest } from './requests/CreateAttributeGroupTranslationRequest';
 import { AttributeGroupTranslationService } from '../../core/services/AttributeGroupTranslationService';
 import { AttributeGroupService } from '../../core/services/AttributeGroupService';
@@ -62,6 +62,7 @@ export class VendorAttributeGroupTranslationController {
      */
 
     @Get('/attribute-group')
+    @Authorized(['vendor'])
     public async getAttributeTranslationList(@Req() request: any, @Res() response: any, @QueryParam('limit') limit: number, @QueryParam('offset') offset: number, @QueryParam('keyword') keyword: string, @QueryParam('count') count: number): Promise<any> {
 
         const condition: FindManyOptions<AttributeGroup> = {};
@@ -140,6 +141,7 @@ export class VendorAttributeGroupTranslationController {
      */
 
     @Get('/attribute-group/:id')
+    @Authorized(['vendor'])
     public async listAttributeGroupTranslation(@Res() response: any, @Param('id') id: number): Promise<any> {
 
         const attributeGroupExist = await this.attributeGroupService.findOne({
@@ -202,6 +204,7 @@ export class VendorAttributeGroupTranslationController {
      * HTTP/1.1 500 Internal Server Error
      */
     @Post('/attribute-group/:id')
+    @Authorized(['vendor'])
     public async createattributeGroupTranslation(@Res() response: any, @Param('id') id: number, @Body({ validate: true }) payload: CreateAttributeGroupTranslationRequest): Promise<any> {
 
         const attributeGroupExist = await this.attributeGroupService.findOne({

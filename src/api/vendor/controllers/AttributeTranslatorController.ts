@@ -1,4 +1,4 @@
-import { Body, Get, JsonController, Param, Post, QueryParam, Req, Res } from 'routing-controllers';
+import { Authorized, Body, Get, JsonController, Param, Post, QueryParam, Req, Res } from 'routing-controllers';
 import { CreateAttributeTranslatorRequest } from './requests/CreateAttributeTranslatorRequest';
 import { AttributeTranslationService } from '../../core/services/AttributeTranslationService';
 import { AttributeValueTranslationService } from '../../core/services/AttributeValueTranslationService';
@@ -78,6 +78,7 @@ export class VendorAttributeTranslatorController {
      */
 
     @Get('/attribute')
+    @Authorized(['vendor'])
     public async getAttributeTranslationList(@Req() request: any, @Res() response: any, @QueryParam('limit') limit: number, @QueryParam('offset') offset: number, @QueryParam('keyword') keyword: string, @QueryParam('count') count: number): Promise<any> {
 
         const condition: FindManyOptions<Attribute> = {};
@@ -192,6 +193,7 @@ export class VendorAttributeTranslatorController {
      */
 
     @Get('/attribute/:id')
+    @Authorized(['vendor'])
     public async getAttributeTranslation(@Param('id') id: number, @Res() response: any): Promise<any> {
 
         const attributeExist = await this.attributeService.findOne({
@@ -297,6 +299,7 @@ export class VendorAttributeTranslatorController {
      * HTTP/1.1 500 Internal Server Error
      */
     @Post('/attribute/:id')
+    @Authorized(['vendor'])
     public async createAttributeTranslation(@Param('id') id: number, @Res() response: any, @Req() request: any, @Body({ validate: true }) payload: CreateAttributeTranslatorRequest): Promise<any> {
 
         const attributeExist = await this.attributeService.findOne({
