@@ -304,93 +304,6 @@
   {
     "type": "get",
     "url": "/api/specification",
-    "title": "Specification list API",
-    "group": "Admin_Specification",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "limit",
-            "description": "<p>limit</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "offset",
-            "description": "<p>offset</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "count",
-            "description": "<p>count</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "keyword",
-            "description": "<p>keyword</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "categoryIds",
-            "description": "<p>categoryIds</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n   \"status\": 1,\n   \"messge\": \"Successfully got Specification List.\",\n   \"data\": [\n       {\n           \"createdBy\": 1,\n           \"createdDate\": \"\",\n           \"modifiedBy\": 1,\n           \"modifiedDate\": \"\",\n           \"id\": 1,\n           \"name\": \"\",\n           \"slug\": \"\",\n           \"isActive\": 1,\n           \"isDelete\": 0,\n           \"attributeGroups\": [\n               {\n                   \"createdBy\": 1,\n                   \"createdDate\": \"\",\n                   \"modifiedBy\": 1,\n                   \"modifiedDate\": \"\",\n                   \"id\": 1,\n                   \"name\": \"\",\n                   \"sortOrder\": 1,\n                   \"isActive\": 1,\n                   \"isDelete\": 1,\n                   \"attributes\": [\n                       {\n                           \"createdBy\": 1,\n                           \"createdDate\": \"\",\n                           \"modifiedBy\": 1,\n                           \"modifiedDate\": \"\",\n                           \"id\": 1,\n                           \"name\": \"\",\n                           \"type\": \"\",\n                           \"sortOrder\": 1,\n                           \"isMandatory\": 1,\n                           \"description\": \"\",\n                           \"label\": \"\",\n                           \"useAsFilter\": 1,\n                           \"sectionName\": \"\",\n                           \"defaultValue\": 1,\n                           \"isActive\": 1,\n                           \"isDelete\": 0,\n                           \"attributeValues\": [\n                               {\n                                   \"createdBy\": 1,\n                                   \"createdDate\": \"\",\n                                   \"modifiedBy\": 1,\n                                   \"modifiedDate\": \"\",\n                                   \"id\": 1,\n                                   \"attributeId\": 1,\n                                   \"value\": \"\",\n                                   \"isActive\": 1,\n                                   \"isDelete\": 0\n                               }\n                           ]\n                       }\n                   ]\n               }\n           ],\n           \"attributeCount\": 1,\n           \"attributeGroupCount\": 1\n       }\n   ]\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/specification"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "Specification error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/SpecificationController.ts",
-    "groupTitle": "Admin_Specification",
-    "name": "GetApiSpecification"
-  },
-  {
-    "type": "get",
-    "url": "/api/specification",
     "title": "Specification list V1 API",
     "group": "Admin_Specification",
     "header": {
@@ -568,65 +481,6 @@
     "filename": "src/api/vendor/controllers/SpecificationController.ts",
     "groupTitle": "Admin_Specification",
     "name": "GetApiSpecificationCategory"
-  },
-  {
-    "type": "get",
-    "url": "/api/specification/:id",
-    "title": "Get attribute API",
-    "group": "Admin_Specification",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "Number",
-            "optional": false,
-            "field": "id",
-            "description": "<p>id (Required)</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n   \"status\": 1,\n   \"message\": \"Successfully Got Specification.\",\n   \"data\": {\n       \"createdBy\": 1,\n       \"createdDate\": \"\",\n       \"modifiedBy\": 1,\n       \"modifiedDate\": \"\",\n       \"id\": 1,\n       \"name\": \"\",\n       \"slug\": \"\",\n       \"isActive\": 1,\n       \"isDelete\": 0,\n       \"attributeGroups\": [\n           {\n               \"id\": 1,\n               \"specificationId\": 1,\n               \"attributeGroupId\": 1,\n               \"attributes\": [\n                   {\n                       \"createdBy\": 1,\n                       \"createdDate\": \"\",\n                       \"modifiedBy\": 1,\n                       \"modifiedDate\": \"\",\n                       \"id\": 1,\n                       \"name\": \"\",\n                       \"type\": \"\",\n                       \"sortOrder\": 1,\n                       \"isMandatory\": 1,\n                       \"description\": \"\",\n                       \"label\": \"\",\n                       \"useAsFilter\": 1,\n                       \"sectionName\": \"\",\n                       \"defaultValue\": 1,\n                       \"isActive\": 1,\n                       \"isDelete\": 0,\n                       \"attributeValues\": [\n                           {\n                               \"createdBy\": 1,\n                               \"createdDate\": \"\",\n                               \"modifiedBy\": 1,\n                               \"modifiedDate\": \"\",\n                               \"id\": 1,\n                               \"attributeId\": 1,\n                               \"value\": \"\",\n                               \"isActive\": 1,\n                               \"isDelete\": 0\n                           }\n                       ]\n                   }\n               ]\n           }\n       ]\n   }\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/specification/:id"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "Specification attribute error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/SpecificationController.ts",
-    "groupTitle": "Admin_Specification",
-    "name": "GetApiSpecificationId"
   },
   {
     "type": "post",
@@ -8647,6 +8501,111 @@
     "groupTitle": "Page_SEO"
   },
   {
+    "type": "Delete",
+    "url": "/api/vendor-product-variant/:id",
+    "title": "Delete Product Varient  API",
+    "group": "Product",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Request body": [
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "id",
+            "description": "<p>id</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully Deleted Product Variant..!\",\n     \"status\": \"1\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/vendor-product-variant/:id"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "DeleteProductVarient error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/api/vendor/controllers/VendorProductVariantController.ts",
+    "groupTitle": "Product",
+    "name": "DeleteApiVendorProductVariantId"
+  },
+  {
+    "type": "Delete",
+    "url": "/api/vendor-product-variant/variant-option/:id",
+    "title": "Delete Product Varient Option API",
+    "group": "Product",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully deleted.\",\n     \"status\": \"1\",\n     \"data\": {\n        }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/vendor-product-variant/variant-option/:id"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "DeleteProductVarientOption error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/api/vendor/controllers/VendorProductVariantController.ts",
+    "groupTitle": "Product",
+    "name": "DeleteApiVendorProductVariantVariantOptionId"
+  },
+  {
     "type": "get",
     "url": "/api/store-product-attributes",
     "title": "Product Specification API",
@@ -8737,6 +8696,678 @@
     "filename": "src/api/store/controllers/ProductAttributeController.ts",
     "groupTitle": "Product",
     "name": "GetApiStoreProductAttributesProductProductslug"
+  },
+  {
+    "type": "Get",
+    "url": "/api/store-product-variant/product/:productSlug",
+    "title": "Product Variants Product Detail API",
+    "group": "Product",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n     \"status\": 1\n     \"message\": \"Successfully get product Detail\",\n     \"data\": {\n       \"productId\": 1,\n       \"productSlug\": \"\",\n       \"productImage\": [\n         {\n           \"productId\": 1,\n           \"image\": \"\",\n           \"containerName\": \"\",\n           \"defaultImage\": \"\"\n         }\n       ],\n       \"productOriginalImage\": [\n         {\n           \"productId\": 1,\n           \"image\": \"\",\n           \"containerName\": \"\",\n           \"defaultImage\": \"\"\n         }\n       ],\n       \"selectedVariant\": {\n         \"1\": \"\",\n         \"2\": \"\"\n       },\n       \"productVarientOption\": [\n         {\n           \"id\": 1,\n           \"productVarientOptionId\": 1,\n           \"variantValueId\": 1,\n           \"value\": \"\"\n         },\n       ],\n       \"productVarient\": [\n         {\n           \"id\": 1,\n           \"variantId\": 1,\n           \"productId\": ,\n           \"variantNameTrans\": \"\",\n           \"variantValue\": [\n             {\n               \"id\": 1,\n               \"value\": \"\",\n               \"valueTrans\": \"\"\n             }\n           ]\n         }\n       ],\n       \"productvarientList\": [\n         {\n           \"id\": 1,\n           \"productId\": 1,\n           \"skuId\": 1,\n           \"varientName\": \"\",\n           \"isActive\": 1,\n           \"createdDate\": \"\",\n           \"skuName\": \"\",\n           \"price\": 1,\n           \"quantity\": 1,\n           \"optionImage\": [\n             {\n               \"id\": 1,\n               \"image\": \"\",\n               \"containerName\": \"\",\n               \"defaultImage\": \"\"\n             }\n           ],\n           \"discountPrice\": [\n             {\n               \"discountPrice\": 1,\n               \"startDate\": \"\",\n               \"endDate\": \"\"\n             }\n           ],\n           \"specialPrice\": [\n             {\n               \"specialPrice\": \"\",\n               \"startDate\": \"\",\n               \"endDate\": \"\"\n             }\n           ],\n           \"stockStatus\": 1\n         }\n       ]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/store-product-variant/product/:productSlug"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "productDetail error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/api/store/controllers/ProductVariantsController.ts",
+    "groupTitle": "Product",
+    "name": "GetApiStoreProductVariantProductProductslug"
+  },
+  {
+    "type": "Get",
+    "url": "/api/vendor-product-rating/:ratingId",
+    "title": "Get product Rating API",
+    "group": "Product",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Request body": [
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "ratingId",
+            "description": "<p>ratingId</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "limit",
+            "description": "<p>limit</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "offset",
+            "description": "<p>offset</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "count",
+            "description": "<p>count in number</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"successfully got the product rating\",\n     \"data\": [{\n     \"ratingId\": 1,\n     \"review\": \"\",\n     \"rating\": \"\",\n     \"createdDate\": \"\",\n     \"firstName\": \"\",\n     \"lastName\": \"\",\n     \"productId\": 1,\n     \"customerId\": 1,\n     \"orderProductId\": 1,\n     \"productRatingImages\":\"\"\n     \"isActive\": 1,\n       }]\n     \"status\": \"1\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/vendor-product-rating/:ratingId"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "GetProductRating error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/api/vendor/controllers/VendorRatingController.ts",
+    "groupTitle": "Product",
+    "name": "GetApiVendorProductRatingRatingid"
+  },
+  {
+    "type": "Get",
+    "url": "/api/vendor-product-rating/:skuId",
+    "title": "Get product Rating API",
+    "group": "Product",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Request body": [
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "skuId",
+            "description": "<p>skuId</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "limit",
+            "description": "<p>limit</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "offset",
+            "description": "<p>offset</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "count",
+            "description": "<p>count in number</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"successfully got the product rating\",\n     \"data\": [{\n     \"ratingId\": 1,\n     \"review\": \"\",\n     \"rating\": \"\",\n     \"createdDate\": \"\",\n     \"firstName\": \"\",\n     \"lastName\": \"\",\n     \"productId\": 1,\n     \"customerId\": 1,\n     \"orderProductId\": 1,\n     \"isActive\": 1,\n       }]\n     \"status\": \"1\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/vendor-product-rating/:skuId"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "GetProductRating error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/api/vendor/controllers/VendorRatingController.ts",
+    "groupTitle": "Product",
+    "name": "GetApiVendorProductRatingSkuid"
+  },
+  {
+    "type": "Get",
+    "url": "/api/vendor-product-variant",
+    "title": "Vendor Product Variant Product List API",
+    "group": "Product",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Request body": [
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "limit",
+            "description": "<p>limit</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "offset",
+            "description": "<p>offset</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "String",
+            "optional": false,
+            "field": "keyword",
+            "description": "<p>keyword</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "String",
+            "optional": false,
+            "field": "productName",
+            "description": "<p>productName</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "String",
+            "optional": false,
+            "field": "sku",
+            "description": "<p>search by sku</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "String",
+            "optional": false,
+            "field": "status",
+            "description": "<p>status</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "price",
+            "defaultValue": "1/2",
+            "description": "<p>if 1-&gt; asc 2-&gt; desc</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "count",
+            "description": "<p>count in number or boolean</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n     \"status\": \"1\"\n     \"message\": \"Successfully get vendor product list\",\n     \"data\":{\n     \"productId\" : 1,\n     \"sku\" : \"\",\n     \"name\" : \"\",\n     \"quantity\" : 1,\n     \"price\" : 1,\n     \"isFeatured\" : 1,\n     \"todayDeals\" : \"\",\n     \"productSlug\" : \"\",\n     \"isActive\" : 1,\n     \"image\" : \"\",\n     \"containerName\" : \"\",\n     \"defaultImage\" : \"\",\n     \"skuId\" : 1,\n     \"sku\" : \"\",\n     \"price\" : 1,\n     \"modifiedPrice\" : \"\",\n     \"productDiscount\" : 1,\n     \"productSpecial\" : \"\",\n     }\n}\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/vendor-product-variant"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "vendorProductList error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/api/vendor/controllers/VendorProductVariantController.ts",
+    "groupTitle": "Product",
+    "name": "GetApiVendorProductVariant"
+  },
+  {
+    "type": "Get",
+    "url": "/api/vendor-product-variant/inventory",
+    "title": "Vendor Product Variant Inventory List API",
+    "group": "Product",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Request body": [
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "limit",
+            "description": "<p>limit</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "offset",
+            "description": "<p>offset</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "String",
+            "optional": false,
+            "field": "keyword",
+            "description": "<p>keyword</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "String",
+            "optional": false,
+            "field": "productName",
+            "description": "<p>productName</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "String",
+            "optional": false,
+            "field": "sku",
+            "description": "<p>sku</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "String",
+            "optional": false,
+            "field": "status",
+            "description": "<p>status</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "price",
+            "defaultValue": "1/2",
+            "description": "<p>if 1-&gt;asc 2-&gt;desc</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "count",
+            "description": "<p>count in number or boolean</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n     \"status\": \"1\"\n     \"message\": \"Successfully got Vendor Product list\",\n     \"data\":{\n     \"vendorProductId\" : 1,\n     \"approvalFlag\" : 1,\n     \"vendorId\" : 1,\n     \"pincodeBasedDelivery\" : \"\",\n     \"name\" : \"\",\n     \"sku\" : \"\",\n     \"productprice\" : \"\",\n     \"quantity\" : 1,\n     \"sortOrder\" : \"\",\n     \"isActive\" : 1,\n     \"productSlug\" : \"\",\n     \"hasStock\" : \"\",\n     \"hasTirePrice\" : \"\",\n     \"outOfStockThreshold\" : \"\",\n     \"notifyMinQuantity\" : 1,\n     \"minQuantityAllowedCart\" : 1,\n     \"maxQuantityAllowedCart\" : 1,\n     \"enableBackOrders\" : \"\",\n     \"modifiedDate\" : \"\",\n     \"isSimplified\" : 1,\n     \"skuId\" : 1,\n     \"createdDate\": \"\",\n     \"keywords\" : \"\",\n     \"attributeKeyword\" : \"\",\n     }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/vendor-product-variant/inventory"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "inventoryVendorProductList error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/api/vendor/controllers/VendorProductVariantController.ts",
+    "groupTitle": "Product",
+    "name": "GetApiVendorProductVariantInventory"
+  },
+  {
+    "type": "Get",
+    "url": "/api/vendor-product-variant/product/:id",
+    "title": "Vendor Product Variants Product Detail API",
+    "group": "Product",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n     \"status\": \"1\"\n     \"message\": \"Successfully get product Detail\",\n     \"data\": {\n      \"productId\": 1,\n      \"name\": \"\",\n      \"description\": \"\",\n      \"price\": 1,\n      \"productImage\": [\n          {\n              \"productId\": 1,\n              \"image\": \"\",\n              \"containerName\": \"\",\n              \"defaultImage\": \"\"\n          }\n    ]\n      \"productVariants\": [\n          {\n              \"id\": 1,\n              \"variantId\": 1,\n              \"productId\": 1\n          }\n      ],\n      \"productVariantList\": [\n          {\n              \"id\": 1,\n              \"productId\": 1,\n              \"skuId\": 1,\n              \"varientName\": \"\",\n              \"isActive\": 1,\n              \"createdDate\": \"\",\n              \"skuName\": \"\",\n              \"price\": 1,\n              \"quantity\": 1,\n              \"isActive\": 1,\n              \"outOfStockThreshold\": \"\",\n              \"notifyMinQuantity\": 1,\n              \"minQuantityAllowedCart\": \"\",\n              \"maxQuantityAllowedCart\": \"\",\n              \"enableBackOrders\": \"\",\n              \"vendorId\": 1,\n              \"optionImage\": [\n                  {\n                      \"id\": 1,\n                      \"image\": \"\",\n                      \"containerName\": \"\",\n                      \"defaultImage\": \"\",\n                      \"productVarientOptionId\": 1\n                  }\n              ],\n              \"productVarientOptionDetails\": [\n                  {\n                      \"id\": 1,\n                      \"productVarientOptionId\": 1,\n                      \"variantValueId\": 1,\n                      \"productVariantId\": 1,\n                      \"value\": \"\"\n                  }\n              ],\n              \"discountPrice\": [\n                  {\n                      \"skuId\": 1,\n                      \"discount\": 1\n                  }\n              ],\n              \"specialPrice\": [\n                  {\n                      \"skuId\": 1,\n                      \"specialPrice\": \"\"\n                  }\n              ]\n          }\n      ]\n     }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/vendor-product-variant/product/:id"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "productDetail error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/api/vendor/controllers/VendorProductVariantController.ts",
+    "groupTitle": "Product",
+    "name": "GetApiVendorProductVariantProductId"
+  },
+  {
+    "type": "Post",
+    "url": "/api/vendor-product-variant",
+    "title": "Vendor Product Variants Update Product API",
+    "group": "Product",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Request body": [
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "productId",
+            "description": "<p>productId</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "String",
+            "optional": true,
+            "field": "productVarient",
+            "description": "<p>productVarient</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "String",
+            "optional": true,
+            "field": "productVarientOption",
+            "description": "<p>productVarientOption</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Input",
+          "content": "{\n     \"productVarient\" : [],\n     \"productVarientOption\" : [{\n     \"id\":1\n     \"varientName\":\"\"\n     \"price\":\"\",\n     \"sku\":\"\",\n     \"quantity\":1\n     \"optionValue\":[],\n     \"optionImage\":[{\n     \"image\":\"\",\n     \"containerName\": \"\",\n     \"defaultImage\": \"\",\n     \"sortOrder\": 1,\n      }]\n      }]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Product variant updated successfully.\",\n     \"status\": \"1\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/vendor-product-variant"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "updateProduct error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/api/vendor/controllers/VendorProductVariantController.ts",
+    "groupTitle": "Product",
+    "name": "PostApiVendorProductVariant"
+  },
+  {
+    "type": "Put",
+    "url": "/api/vendor-product-variant/stock",
+    "title": "Update Stock API",
+    "group": "Product",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Request body": [
+          {
+            "group": "Request body",
+            "type": "number",
+            "optional": false,
+            "field": "productId",
+            "description": "<p>productId</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "number",
+            "optional": true,
+            "field": "hasStock",
+            "description": "<p>send 0 or 1</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "object",
+            "optional": true,
+            "field": "productStock",
+            "description": ""
+          },
+          {
+            "group": "Request body",
+            "type": "number",
+            "optional": false,
+            "field": "productStock.skuId",
+            "description": "<p>skuId</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "number",
+            "optional": false,
+            "field": "productStock.outOfStockThreshold",
+            "description": "<p>for setting out of stock threshold</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "number",
+            "optional": false,
+            "field": "productStock.notifyMinQuantity",
+            "description": "<p>notifyMinQuantity</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "number",
+            "optional": false,
+            "field": "productStock.minQuantityAllowedCart",
+            "description": "<p>minQuantityAllowedCart</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "number",
+            "optional": false,
+            "field": "productStock.maxQuantityAllowedCart",
+            "description": "<p>maxQuantityAllowedCart</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "number",
+            "optional": false,
+            "field": "productStock.enableBackOrders",
+            "description": "<p>enableBackOrders</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Input",
+          "content": "{\n     \"hasStock\" : \"\",\n     \"productId\" : 1,\n     \"productStock\": [{\n     \"skuId\" : 1,\n     \"outOfStockThreshold\" : \"\",\n     \"notifyMinQuantity\" : 1,\n     \"minQuantityAllowedCart\" : 1,\n     \"maxQuantityAllowedCart\" : 1,\n     \"enableBackOrders\" : \"\",\n     }]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"successfully updated stock \",\n     \"data\": {\n      \"productId\": 1,\n      \"name\": \"\",\n      \"description\": \"\",\n      \"price\": \"\",\n      \"productImage\": [\n          {\n              \"productId\": 1,\n              \"image\": \"\",\n              \"containerName\": \"\",\n              \"defaultImage\": \"\"\n          }\n    ]\n      \"productVariants\": [\n          {\n              \"id\": 1,\n              \"variantId\": 1,\n              \"productId\": 1\n          }\n      ],\n      \"productVariantList\": [\n          {\n              \"id\": 1,\n              \"productId\": 1,\n              \"skuId\": 1,\n              \"varientName\": \"\",\n              \"isActive\": 1,\n              \"createdDate\": \"\",\n              \"skuName\": \"\",\n              \"price\": 1,\n              \"quantity\": 1,\n              \"isActive\": 1,\n              \"outOfStockThreshold\": \"\",\n              \"notifyMinQuantity\": 1,\n              \"minQuantityAllowedCart\": 1,\n              \"maxQuantityAllowedCart\": 1,\n              \"enableBackOrders\": \"\",\n              \"vendorId\": 1,\n              \"optionImage\": [\n                  {\n                      \"id\": 1,\n                      \"image\": \"\",\n                      \"containerName\": \"\",\n                      \"defaultImage\": \"\",\n                      \"productVarientOptionId\": 1\n                  }\n              ],\n              \"productVarientOptionDetails\": [\n                  {\n                      \"id\": \"1,\n                      \"productVarientOptionId\": 1,\n                      \"variantValueId\": 1,\n                      \"productVariantId\": 1,\n                      \"value\": \"\"\n                  }\n              ],\n              \"discountPrice\": [\n                  {\n                      \"skuId\": 1,\n                      \"discount\": 1\n                  }\n              ],\n              \"specialPrice\": [\n                  {\n                      \"skuId\": 1,\n                      \"specialPrice\": \"\"\n                  }\n              ]\n          }\n      ]\n     }\n     \"status\": \"1\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/vendor-product-variant/stock"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "stock error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/api/vendor/controllers/VendorProductVariantController.ts",
+    "groupTitle": "Product",
+    "name": "PutApiVendorProductVariantStock"
   },
   {
     "type": "get",
@@ -13746,6 +14377,615 @@
     "name": "PostApiCustomerAddProductToWishlist"
   },
   {
+    "type": "Get",
+    "url": "/api/variant-translation/variant",
+    "title": "Variant Translation List API",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "group": "Variant_Translation",
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n \"status\": 1,\n \"message\": \"Successfully Got Variant Translations..!\",\n \"data\": [\n {\n   \"id\": 1,\n   \"name\": \"\",\n   \"variantTranslation\": [\n     {\n       \"id\": 1,\n       \"name\": \"\",\n       \"modifiedDate\": \"\"\n     }\n    ]\n }\n \"lastModifieDate\": \"\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/variant-translation/variant"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "AttributeTranslationList error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/api/vendor/controllers/MasterVariantTranslationController.ts",
+    "groupTitle": "Variant_Translation",
+    "name": "GetApiVariantTranslationVariant"
+  },
+  {
+    "type": "Get",
+    "url": "/api/variant-translation/variant/:id",
+    "title": "Variant Language Detail API",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "group": "Variant_Translation",
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n \"status\": 1,\n \"message\": \"Successfully Got Variant Translation Detail..!\",\n \"data\": {\n     \"id\": 1,\n     \"name\": \"\",\n     \"variantTranslation\": [\n       {\n         \"id\": 1,\n         \"name\": \"\",\n         \"languageId\": 1\n       }\n     ]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/variant-translation/variant/:id"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "AttributeTranslationn error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/api/vendor/controllers/MasterVariantTranslationController.ts",
+    "groupTitle": "Variant_Translation",
+    "name": "GetApiVariantTranslationVariantId"
+  },
+  {
+    "type": "Post",
+    "url": "/api/variant-translation/variant/:id",
+    "title": "Variant Language Create API",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "group": "Variant_Translation",
+    "parameter": {
+      "examples": [
+        {
+          "title": "Input",
+          "content": "{\n     \"variantTranslation\": [\n         {\n             \"name\": \"\",\n             \"languageId\": 1,\n         }\n      ],\n     \"variantValues\": [\n         {\n             \"variantValueId\": 1,\n             \"variantValueTranslation\": [\n                 {\n                     \"languageId': 1,\n                     \"value\": \"\"\n                 }\n             ]\n         }\n     ]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n \"status\": 1,\n \"message\": \"Successfully Saved Variant Translation..!\"\",\n  \"data\": {\n   \"attributeTranslation\": [\n     {\n       \"id\": 1,\n       \"variantId\": 1,\n       \"name\": \"\",\n       \"languageId\": 1\n     }\n   ],\n   \"variantValues\": [\n     {\n       \"variantValueId\": 1,\n       \"variantValueAliases\": [\n         {\n           \"id\": 1,\n           \"value\": \"\",\n           \"variantValueId\": 1,\n           \"languageId\": 1\n         }\n       ]\n     }\n    ]\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/variant-translation/variant/:id"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "Variant Translation error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/api/vendor/controllers/MasterVariantTranslationController.ts",
+    "groupTitle": "Variant_Translation",
+    "name": "PostApiVariantTranslationVariantId"
+  },
+  {
+    "type": "Delete",
+    "url": "/api/variants/:id",
+    "title": "Delete Varient API",
+    "group": "Variants",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully deleted variant.\",\n     \"status\": \"1\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/variants/:id"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "deleteVariant error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/api/vendor/controllers/MasterVariantsController.ts",
+    "groupTitle": "Variants",
+    "name": "DeleteApiVariantsId"
+  },
+  {
+    "type": "Get",
+    "url": "/api/variants",
+    "title": "Variant List API",
+    "group": "Variants",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Request body": [
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "limit",
+            "description": "<p>limit</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "offset",
+            "description": "<p>offset</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "count",
+            "description": "<p>count should be number or boolean</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully get varient list\",\n     \"data\":{\n         \"id\" : 1,\n         \"name\" : \"\",\n         \"type\" : \"\",\n         \"sortOrder\" : 1,\n         \"variantValues\": []\n     }\n     \"status\": \"1\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/variants"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "Variantlist error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/api/vendor/controllers/MasterVariantsController.ts",
+    "groupTitle": "Variants",
+    "name": "GetApiVariants"
+  },
+  {
+    "type": "Get",
+    "url": "/api/variants/variant-detail",
+    "title": "Variant Detail API",
+    "group": "Variants",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Request body": [
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "id",
+            "description": "<p>id</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully got variant detail.\",\n     \"data\": {\n         \"id\": 1,\n         \"name\": \"\",\n         \"sortOrder\": \"\",\n         \"type\": \"\",\n         \"variantValue\": [\n           {\n             \"id\": 1,\n             \"value\": \"\",\n             \"sortOrder\": \"\"\n           },\n           {\n             \"id\": 1,\n             \"value\": \"\",\n             \"sortOrder\": \"\"\n           }\n         ]\n     \"status\": 1\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/variants/variant-detail"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "variant Detail error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/api/vendor/controllers/MasterVariantsController.ts",
+    "groupTitle": "Variants",
+    "name": "GetApiVariantsVariantDetail"
+  },
+  {
+    "type": "Get",
+    "url": "/api/vendor-product-variant/variants",
+    "title": "Varients List API",
+    "group": "Variants",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Request body": [
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "limit",
+            "description": "<p>limit</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "offset",
+            "description": "<p>offset</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "count",
+            "description": "<p>count should be number or boolean</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully got the complete list of varients. \",\n     \"data\":{\n     \"id\" : 1,\n     \"name\" : \"\",\n     \"type\" : \"\",\n     \"sortOrder\" : 1,\n     }\n     \"status\": \"1\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/vendor-product-variant/variants"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "Variantlist error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/api/vendor/controllers/VendorProductVariantController.ts",
+    "groupTitle": "Variants",
+    "name": "GetApiVendorProductVariantVariants"
+  },
+  {
+    "type": "Post",
+    "url": "/api/variants",
+    "title": "Add Variant API",
+    "group": "Variants",
+    "parameter": {
+      "fields": {
+        "Request body": [
+          {
+            "group": "Request body",
+            "type": "String",
+            "optional": true,
+            "field": "type",
+            "description": "<p>type</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "String",
+            "size": "..255",
+            "optional": false,
+            "field": "name",
+            "description": "<p>name</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "String",
+            "optional": false,
+            "field": "sortOrder",
+            "description": "<p>sortOrder</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "Object",
+            "optional": true,
+            "field": "variantValue",
+            "description": "<p>variantValue</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "String",
+            "optional": false,
+            "field": "variantValue.valueName",
+            "description": "<p>valueName</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "String",
+            "optional": false,
+            "field": "variantValue.sortOrder",
+            "description": "<p>valueName</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Input",
+          "content": "{\n     \"type\" : \"\",\n     \"name\" : \"\",\n     \"sortOrder\" : \"\",\n     \"variantValue\" : [\n         {\n              \"valueName\" : \"\",\n              \"sortOrder\" : \"\",\n         }\n     ]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"The vendor variant was created successfully.\",\n     \"data\": {\n         \"name\": \"\",\n         \"sortOrder\": \"\",\n         \"type\": \"\",\n         \"variantValue\": \"\"\n         \"isActive\": 1\n     }\n     \"status\": 1\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/variants"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "createPage error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/api/vendor/controllers/MasterVariantsController.ts",
+    "groupTitle": "Variants",
+    "name": "PostApiVariants"
+  },
+  {
+    "type": "Put",
+    "url": "/api/variants/:id",
+    "title": "Update Variant API",
+    "group": "Variants",
+    "parameter": {
+      "fields": {
+        "Request body": [
+          {
+            "group": "Request body",
+            "type": "String",
+            "optional": true,
+            "field": "type",
+            "description": "<p>type</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>name</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "Number",
+            "size": "..9999",
+            "optional": false,
+            "field": "sortOrder",
+            "description": "<p>sortOrder</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "Object",
+            "optional": true,
+            "field": "variantValue",
+            "description": "<p>variantValue</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "String",
+            "optional": false,
+            "field": "variantValue.valueName",
+            "description": "<p>valueName</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "String",
+            "optional": false,
+            "field": "variantValue.sortOrder",
+            "description": "<p>sortOrder</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "String",
+            "optional": false,
+            "field": "variantValue.id",
+            "description": "<p>varient value id</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Input",
+          "content": "{\n     \"type\" : \"\",\n     \"name\" : \"\",\n     \"sortOrder\" : \"\",\n     \"variantValue\" : [\n         {\n              \"id\" : 1,\n              \"valueName\" : \"\",\n              \"sortOrder\" : \"\",\n         }\n     ]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \" Variant are updated successfully\",\n     \"data\": {\n       \"id\": 1,\n       \"name\": \"\",\n       \"sortOrder\": 1,\n       \"type\": \"\",\n       \"variantValue\": [\n          {\n            \"id\": 1,\n            \"value\": \"\",\n            \"sortOrder\":\"\"\n          }\n        ]\n      }\n     \"status\": 1\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/variants/:id"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "updateVariants error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/api/vendor/controllers/MasterVariantsController.ts",
+    "groupTitle": "Variants",
+    "name": "PutApiVariantsId"
+  },
+  {
     "type": "get",
     "url": "/api/vendor-specification/:id",
     "title": "Get Attribute API",
@@ -18459,6 +19699,107 @@
     "groupTitle": "Vendor_Product"
   },
   {
+    "type": "Get",
+    "url": "/api/vendor-product-rating",
+    "title": "Vendor Product review List API",
+    "group": "Vendor_Product",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Request body": [
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "limit",
+            "description": "<p>limits</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "offset",
+            "description": "<p>offset</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "String",
+            "optional": false,
+            "field": "productName",
+            "description": "<p>productName</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "String",
+            "optional": false,
+            "field": "startDate",
+            "description": "<p>createDate</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "String",
+            "optional": false,
+            "field": "endDate",
+            "description": "<p>createDate</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "String",
+            "optional": false,
+            "field": "starCount",
+            "description": "<p>rating</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "count",
+            "description": "<p>count in number or boolean</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n     \"status\": \"1\"\n     \"message\": \"Successfully got the vendor product review and rating list\",\n     \"data\": [{\n       \"ratingId\": 1,\n       \"review\": \"\",\n       \"rating\": 1,\n       \"reviewImage\": \"\",\n       \"reviewImagePath\": \"\",\n       \"reviewVideo\": \"\",\n       \"reviewVideoPath\": \"\",\n       \"createdDate\": \"\",\n       \"firstName\": \"\",\n       \"lastName\": \"\",\n       \"email\": \"\",\n       \"productId\": 1,\n       \"customerId\": 1,\n       \"orderProductId\": 1,\n       \"isActive\": 1,\n       \"productName\": \"\"\n       \"image\": \"\",\n       \"imagePath\": \"\",\n          }]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/vendor-product-rating"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "VendorRatingList error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/api/vendor/controllers/VendorRatingController.ts",
+    "groupTitle": "Vendor_Product",
+    "name": "GetApiVendorProductRating"
+  },
+  {
     "type": "get",
     "url": "/api/vendor-product/:id",
     "title": "Get Vendor Product Detail",
@@ -18686,6 +20027,74 @@
     "version": "0.0.0",
     "filename": "src/api/vendor/controllers/VendorProductController.ts",
     "groupTitle": "Vendor_Product"
+  },
+  {
+    "type": "Put",
+    "url": "/api/vendor-product-rating/status",
+    "title": "Vendor Product Rating Status API",
+    "group": "Vendor_Product",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "body": [
+      {
+        "group": "Request body",
+        "type": "Array",
+        "optional": false,
+        "field": "ids",
+        "description": "<p>rating ids</p>"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Request body": [
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "status",
+            "description": "<p>status should be 0-&gt; In-Active or 1-&gt; Active</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully Updated Vendor product Rating Status.\",\n     \"data\": {\n         \"ratingId\": 1,\n         \"status\": 1\n     },\n     \"status\": \"1\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/vendor-product-rating/status"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "VendorProduct error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/api/vendor/controllers/VendorRatingController.ts",
+    "groupTitle": "Vendor_Product",
+    "name": "PutApiVendorProductRatingStatus"
   },
   {
     "type": "put",
@@ -24034,6 +25443,73 @@
     "filename": "src/api/store/controllers/CustomerController.ts",
     "groupTitle": "vendor_store",
     "name": "DeleteApiCustomerId"
+  },
+  {
+    "type": "Get",
+    "url": "/api/product-store/vendor-product-review",
+    "title": "Vendor product review List",
+    "group": "vendor_store",
+    "parameter": {
+      "fields": {
+        "Request body": [
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "vendorId",
+            "description": "<p>vendorId</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "limit",
+            "description": "<p>Limit</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "offset",
+            "description": "<p>Offset</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "count",
+            "description": "<p>count in number or boolean</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully got rating list\",\n     \"data\": [{\n      \"review\": \"\",\n       \"rating\": \"\",\n       \"productId\": 1,\n       \"createdDate\": \"\",\n       \"firstName\": \"\",\n       \"lastName\": \"\",\n       \"customerId\": 1,\n       \"isActive\": 1,\n       \"avatar\": \"\",\n       \"avatarPath\": \"\"\n     }]\n     \"status\": \"1\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/product-store/vendor-product-review"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "Vendor Product Review List error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/api/store/controllers/VendorStoreRatingController.ts",
+    "groupTitle": "vendor_store",
+    "name": "GetApiProductStoreVendorProductReview"
   },
   {
     "type": "get",
