@@ -23,8 +23,8 @@ define({ "api": [
     "url": "",
     "version": "0.0.0",
     "filename": "src/public/apidoc/main.js",
-    "group": "/home/surya/Music/spurtcommerce/src/public/apidoc/main.js",
-    "groupTitle": "/home/surya/Music/spurtcommerce/src/public/apidoc/main.js",
+    "group": "/home/siva/Music/coumminuty/spurtcommerce-oct-6/src/public/apidoc/main.js",
+    "groupTitle": "/home/siva/Music/coumminuty/spurtcommerce-oct-6/src/public/apidoc/main.js",
     "name": ""
   },
   {
@@ -12945,6 +12945,79 @@ define({ "api": [
     "name": "GetApiWebhookEvent"
   },
   {
+    "type": "get",
+    "url": "/api/vendor-order/order",
+    "title": "Put Update Order",
+    "group": "Store_order",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Request body": [
+          {
+            "group": "Request body",
+            "type": "String",
+            "optional": false,
+            "field": "isBackOrder",
+            "description": "<p>isBackOrder</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "String",
+            "optional": false,
+            "field": "vendorOrderIds",
+            "description": "<p>vendorOrderIds</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Input",
+          "content": "{\n     \"isBackOrder\" : \"\",\n     \"vendorOrderIds\" : \"\",\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully Updated Order..!\",\n     \"status\": \"1\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/vendor-order/order"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "Store order error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/api/vendor/controllers/VendorOrderController.ts",
+    "groupTitle": "Store_order",
+    "name": "GetApiVendorOrderOrder"
+  },
+  {
     "type": "post",
     "url": "/api/store-list/contact-us",
     "title": "Contact Us API",
@@ -18034,6 +18107,490 @@ define({ "api": [
     "version": "0.0.0",
     "filename": "src/api/vendor/controllers/VendorExportController.ts",
     "groupTitle": "Vendor_Export_Log"
+  },
+  {
+    "type": "Get",
+    "url": "/api/vendor-order/back-order-excel-list",
+    "title": "Back order Excel list",
+    "group": "Vendor_Order",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Request body": [
+          {
+            "group": "Request body",
+            "type": "String",
+            "optional": false,
+            "field": "orderProductId",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/vendor-order/back-order-excel-list"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "Back Order Excel List error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/api/vendor/controllers/VendorOrderController.ts",
+    "groupTitle": "Vendor_Order",
+    "name": "GetApiVendorOrderBackOrderExcelList"
+  },
+  {
+    "type": "get",
+    "url": "/api/vendor-order/back-order-list",
+    "title": "Back Order List",
+    "group": "Vendor_Order",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Request body": [
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "limit",
+            "description": "<p>limit</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "offset",
+            "description": "<p>offset</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "String",
+            "optional": false,
+            "field": "keyword",
+            "description": "<p>keyword</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "count",
+            "description": "<p>count in number or boolean</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully show the Back Order List..!!\",\n     \"status\": \"1\",\n     \"data\": {},\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/vendor-order/back-order-list"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "back order List error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/api/vendor/controllers/VendorOrderController.ts",
+    "groupTitle": "Vendor_Order",
+    "name": "GetApiVendorOrderBackOrderList"
+  },
+  {
+    "type": "get",
+    "url": "/api/vendor-order/bulk-back-order-excel-list",
+    "title": "Bulk back order Excel list",
+    "group": "Vendor_Order",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Request body": [
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "limit",
+            "description": "<p>limit</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "offset",
+            "description": "<p>offset</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "String",
+            "optional": false,
+            "field": "keyword",
+            "description": "<p>keyword</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully download the Bulk Order Cancel Excel List..!!\",\n     \"status\": \"1\",\n     \"data\": {},\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/order/bulk-order-cancel-excel-list"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "Order Cancel Excel List error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/api/vendor/controllers/VendorOrderController.ts",
+    "groupTitle": "Vendor_Order",
+    "name": "GetApiVendorOrderBulkBackOrderExcelList"
+  },
+  {
+    "type": "Get",
+    "url": "/api/vendor-order/order-detail/:vendorOrderId",
+    "title": "Order Detail API",
+    "group": "Vendor_Order",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "examples": [
+        {
+          "title": "Input",
+          "content": "{\n     \"orderId\" : \"\",\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully show the Order Detail..!!\",\n     \"status\": \"1\",\n     \"data\": {\n         \"createdDate\": \"2024-08-01T10:28:17.000Z\",\n         \"vendorOrderId\": 702,\n         \"subOrderId\": \"INV-20240801612101\",\n         \"vendorId\": 10,\n         \"subOrderStatusId\": 5,\n         \"orderProductId\": 1150,\n         \"orderId\": 612,\n         \"total\": \"4100.00\",\n         \"trackingUrl\": \"\",\n         \"trackingNo\": \"\",\n         \"productList\": [\n             {\n                 \"orderProductId\": 1150,\n                 \"productId\": 928,\n                 \"orderProductPrefixId\": \"INV-202408016121\",\n                 \"name\": \"SONME ENTERPRISES Men\",\n                 \"quantity\": 1,\n                 \"discountAmount\": \"0.00\",\n                 \"basePrice\": \"4000.00\",\n                 \"taxType\": 1,\n                 \"taxValue\": 100,\n                 \"total\": \"4100.00\",\n                 \"discountedAmount\": \"0.00\",\n                 \"skuName\": \"SKU83838\",\n                 \"couponDiscountAmount\": \"\",\n                 \"image\": \"200608478556.jpeg\",\n                 \"containerName\": \"\"\n             }\n         ],\n         \"customerFirstName\": \"Henry \",\n         \"shippingAddress1\": \"34 pier\",\n         \"shippingAddress2\": \"Malitios street\",\n         \"shippingCity\": \"Chennai\",\n         \"shippingPostcode\": \"627005\",\n         \"shippingCountry\": \"India\",\n         \"shippingZone\": \"Tamil Nadu\",\n         \"orderPrefixId\": \"INV-20240801612\",\n         \"email\": \"example@gmail.com\",\n         \"mobileNumber\": \"9789929028\",\n         \"orderStatusName\": \"Order Delivered\",\n         \"statusColorCode\": \"#501332\",\n         \"paymentMethod\": \"CashOnDelivery\",\n         \"currencySymbolLeft\": \"\",\n         \"currencySymbolRight\": \"$\",\n         \"paymentStatus\": 0\n     },\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/vendor-order/order-detail/:vendorOrderId"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "Order Detail error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/api/vendor/controllers/VendorOrderController.ts",
+    "groupTitle": "Vendor_Order",
+    "name": "GetApiVendorOrderOrderDetailVendororderid"
+  },
+  {
+    "type": "Get",
+    "url": "/api/vendor-order/vendor-order-status-list",
+    "title": "OrderStatus List API",
+    "group": "Vendor_Order",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Request body": [
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "limit",
+            "description": "<p>limit</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "offset",
+            "description": "<p>offset</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "orderStatus",
+            "description": "<p>orderStatus</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "String",
+            "optional": false,
+            "field": "keyword",
+            "description": "<p>keyword</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "String",
+            "optional": false,
+            "field": "status",
+            "description": "<p>status</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "String",
+            "optional": false,
+            "field": "count",
+            "description": "<p>count</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully got the complete order status list\",\n     \"data\": [\n       {\n      \"createdBy\": 1,\n      \"createdDate\": \"\",\n      \"modifiedBy\": 1,\n      \"modifiedDate\": \"\",\n      \"orderStatusId\": 1,\n      \"name\": \"\",\n      \"isActive\": \"\",\n      \"priority\": \"\",\n      \"parentId\": 1,\n      \"defaultStatus\": 1,\n      \"isAdmin\": \"\",\n      \"isVendor\": 1,\n      \"isBuyer\": 1,\n      \"isApi\": 1,\n      \"colorCode\": \"\"\n        }]\n      \"status\": \"1\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/vendor-order/vendor-order-status-list"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "orderStatusList error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/api/vendor/controllers/VendorOrderController.ts",
+    "groupTitle": "Vendor_Order",
+    "name": "GetApiVendorOrderVendorOrderStatusList"
+  },
+  {
+    "type": "Get",
+    "url": "/api/vendor-order/vendor-order-status-list-based-on-parent",
+    "title": "Getting A Child Order Status List Based On Parent List API",
+    "group": "Vendor_Order",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Request body": [
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "limit",
+            "description": "<p>limit</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "offset",
+            "description": "<p>offset</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "parentId",
+            "description": "<p>parentId</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully got order status list based on parent\",\n     \"status\": 1\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/vendor-order/vendor-order-status-list-based-on-parent"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "OrderStatusListBasedOnParent error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/api/vendor/controllers/VendorOrderController.ts",
+    "groupTitle": "Vendor_Order",
+    "name": "GetApiVendorOrderVendorOrderStatusListBasedOnParent"
+  },
+  {
+    "type": "Get",
+    "url": "/api/vendor-order/vendorOrderLoglist",
+    "title": "Vendor Order Log List API",
+    "group": "Vendor_Order",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Request body": [
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "vendorOrderId",
+            "description": "<p>vendorOrderId</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully got the complete Vendor Order Status Log list\",\n     \"data\":{\n     \"orderId\" : \"\",\n     \"orderStatusId\" : \"\",\n     \"customerName\" : \"\",\n     \"totalAmount\" : \"\",\n     \"dateAdded\" : \"\",\n     \"dateModified\" : \"\",\n     \"status\" : \"\",\n     }\n     \"status\": \"1\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/vendor-order/vendorOrderLoglist"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "orderLogList error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/api/vendor/controllers/VendorOrderController.ts",
+    "groupTitle": "Vendor_Order",
+    "name": "GetApiVendorOrderVendororderloglist"
   },
   {
     "type": "post",
