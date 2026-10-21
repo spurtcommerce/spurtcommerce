@@ -1130,6 +1130,7 @@ export class CustomerOrderController {
         newOrder.telephone = checkoutParam.phoneNumber;
         newOrder.shippingFirstname = checkoutParam.shippingFirstName;
         newOrder.shippingLastname = checkoutParam.shippingLastName;
+        newOrder.tenantId = request.tenantId;
         newOrder.shippingAddress1 = checkoutParam.shippingAddress_1;
         newOrder.shippingAddress2 = checkoutParam.shippingAddress_2;
         newOrder.shippingCompany = checkoutParam.shippingCompany;
