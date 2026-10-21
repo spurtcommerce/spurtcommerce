@@ -872,7 +872,7 @@ export class VendorProductVariantsController {
         ];
         const whereConditions = [
             {
-                name: '(' + 'product.isSimplified',
+                name: 'product.isSimplified',
                 op: 'and',
                 value: 0,
             },
@@ -884,7 +884,7 @@ export class VendorProductVariantsController {
             {
                 name: 'VendorProducts.reuse',
                 op: 'IS NULL',
-                value: ')',
+                value: '',
             },
         ];
         if (price && price !== '') {

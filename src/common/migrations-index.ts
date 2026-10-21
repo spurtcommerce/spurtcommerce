@@ -594,10 +594,15 @@ export * from '../database/migrations/1771940248132-AddColumnInPermissionModule'
 export * from '../database/migrations/1772003546348-AddColumnInPermissionModule1';
 export * from '../database/migrations/1772090512237-UpdateColorCode';
 export * from '../database/migrations/1772880628383-AddColumnInCustomerUser';
+export * from '../database/migrations/1781153566721-CrateTableSuggestionKeywords';
+export * from '../database/migrations/1781765023680-CreateProductKeywordMapping';
+export * from '../database/migrations/1781768460463-AddColumnOFBaseModel';
+export * from '../database/migrations/1782451269983-UpdateKeywordSearchColumn';
 export * from '../database/migrations/1782719107118-addCurrecnyInPluginTable';
 export * from '../database/migrations/1787000000000-AddIndustryIdInFamilyTable';
 export * from '../database/migrations/1790317064820-CreateDefultVendorDetails';
 export * from '../database/migrations/1791185872357-UpdateVendorUsersAvatarPath';
 export * from '../database/migrations/1792000000000-EnsureVendorOrderStatusData';
+export * from '../database/migrations/1792579448961-CreateProductRelated';
 export * from '../../add-ons/WebHook/api/migrations/1714024644076-AddPluginWebhook';
 export * from '../../add-ons/WebHook/api/migrations/1714025757863-CreateWebHookTable';

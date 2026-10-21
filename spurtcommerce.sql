@@ -1848,8 +1848,6 @@ INSERT INTO `migrations` (`id`, `timestamp`, `name`) VALUES
 (418, 1680168497836, 'SiteFilterSectionItemTable1680168497836'),
 (421, 1685946242614, 'CreateTableLiveAddress1685946242614'),
 (426, 1680166368791, 'AddColumnInSiteFilterSection1680166368791'),
-(427, 1546529746397, 'CreateProductRelatedTable1546529746397'),
-(428, 1546578412979, 'AddProductRelatedRelationToProductTable1546578412979'),
 (431, 1561108919611, 'CreatePaypalOrderTable1561108919611'),
 (432, 1561109413675, 'CreatePaypalOrderTransactionTable1561109413675'),
 (434, 1581676736347, 'CreateRazorpayOrderTable1581676736347'),

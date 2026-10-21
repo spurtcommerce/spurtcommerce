@@ -11903,6 +11903,79 @@ define({ "api": [
   },
   {
     "type": "get",
+    "url": "/api/list/related-product-list",
+    "title": "Related Product List",
+    "group": "Store_List",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Request body": [
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "productId",
+            "description": "<p>Product Id</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "count",
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Input",
+          "content": "{\n     \"productId\" : 1,\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Related Product List Showing Successfully..!\",\n     \"status\": \"1\",\n     \"data\": {\n                      \"productId\": 1,\n                      \"id\": 1,\n                      \"taxType\": \"\",\n                      \"taxValue\": \"\",\n                      \"skuId\": 1,\n                      \"price\": \"\",\n                      \"name\": \"\",\n                      \"isSimplified\": 1,\n                      \"description\": \"\",\n                      \"quantity\": 1,\n                      \"rating\": 1,\n                      \"productSlug\": \"\",\n                      \"hasStock\": \"\",\n                      \"outOfStockThreshold\": \"\",\n                      \"containerName\": \"\",\n                      \"image\": \"\",\n                      \"defaultImage\": \"\",\n                      \"skuName\": \"\",\n                      \"productDiscount\": 1,\n                      \"productSpecial\": \"\",\n                      \"productNameTrans\": \"\",\n                      \"productDescriptionTrans\": \"\",\n                      \"categoryLevels\": [\n                        {\n                              \"createdDate\": \"\",\n                              \"productToCategoryId\": 1,\n                              \"categoryId\": 1,\n                              \"categoryName\": \"\",\n                              \"categorySlug\": \"\",\n                              \"parentInt\": 1,\n                              \"categoryDescription\": \"\"\n                        }\n                    ],\n                      \"pricerefer\": \"\",\n                      \"flag\": 1,\n                      \"stockStatus\": 1,\n                      \"wishListStatus\": 1\n        }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/list/related-product-list"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "Related Product List error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/api/store/controllers/StoreProductRelatedController.ts",
+    "groupTitle": "Store_List",
+    "name": "GetApiListRelatedProductList"
+  },
+  {
+    "type": "get",
     "url": "/api/site-filter/:categorySlug",
     "title": "Get filter detail API",
     "group": "Store_List",
@@ -14375,6 +14448,29 @@ define({ "api": [
     "filename": "src/api/store/controllers/CustomerWishListController.ts",
     "groupTitle": "Store_wishlist",
     "name": "PostApiCustomerAddProductToWishlist"
+  },
+  {
+    "type": "post",
+    "url": "/api/suggestion-keyword/create",
+    "title": "Create Keyword Mapping",
+    "group": "Suggestion_Keyword",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "src/api/store/controllers/StoreKeywordController.ts",
+    "groupTitle": "Suggestion_Keyword",
+    "name": "PostApiSuggestionKeywordCreate"
   },
   {
     "type": "Get",
@@ -22231,6 +22327,232 @@ define({ "api": [
     "version": "0.0.0",
     "filename": "src/api/vendor/controllers/VendorController.ts",
     "groupTitle": "Vendor_Profile"
+  },
+  {
+    "type": "Get",
+    "url": "/api/vendor-related-product/vendor-related-product-details/:id",
+    "title": "Vendor Product Related Detail APIs",
+    "group": "Vendor_Related_Product",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Request body": [
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "id",
+            "description": "<p>id</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "success",
+          "content": "HTTP/1.1 200 success\n{\n     \"status\": \"1\",\n     \"message\": \"Successfully got the vendor related product detail.\",\n     \"data\": {\n        \"productId\": 1,\n        \"description\": \"\",\n        \"sku\": \"\",\n        \"name\": \"\",\n        \"price\": 1,\n        \"vendorRelatedProduct\": [\n            {\n                \"vendorProductId\": \"1\n                \"productId\": 1,\n                \"name\": \"\",\n                \"sku\": \"\",\n                \"containerName\": \"\",\n                \"image\": \"\"\n            },\n            {\n                \"vendorProductId\":1,\n                \"productId\": 1,\n                \"name\": \"\",\n                \"sku\": \"\",\n                \"containerName\": \"\",\n                \"image\": \"\"\n            }\n        ]\n    },\n    \"category\": [\n        {\n            \"categoryId\": 1,\n            \"name\": \"\"\n        },\n        {\n            \"categoryId\": 1,\n            \"name\": \"\"\n        }\n     ]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/vendor-related-product/vendor-related-product-details/:id"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/api/vendor/controllers/VendorRelatedProductController.ts",
+    "groupTitle": "Vendor_Related_Product",
+    "name": "GetApiVendorRelatedProductVendorRelatedProductDetailsId"
+  },
+  {
+    "type": "Get",
+    "url": "/api/vendor-related-product/vendor-related-product-list",
+    "title": "Vendor related Product List API",
+    "group": "Vendor_Related_Product",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Request body": [
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "limit",
+            "description": "<p>limit</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "offset",
+            "description": "<p>offset</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "String",
+            "optional": false,
+            "field": "status",
+            "description": "<p>0-&gt;inactive 1-&gt; active</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "String",
+            "optional": false,
+            "field": "keyword",
+            "description": "<p>keyword</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "String",
+            "optional": false,
+            "field": "productName",
+            "description": "<p>productName</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "String",
+            "optional": false,
+            "field": "price",
+            "description": "<p>price</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "count",
+            "description": "<p>count</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n     \"status\": \"1\"\n     \"message\": \"Successfully got your product list\",\n     \"data\":{\n         \"vendorProductId\" : 1,\n         \"vendorProductCommission\" : \"\",\n         \"quotationAvailable\" : \"\",\n         \"approvalFlag\" : \"\",\n         \"vendorId\" : 1,\n         \"productId\" : 1,\n         \"pincodeBasedDelivery\" : \"\",\n         \"name\" : \"\",\n         \"sku\" : \"\",\n         \"skuId\" : 1,\n         \"productprice\" : \"\",\n         \"quantity\" : 1,\n         \"vendorName\" : \"\",\n         \"price\" : 1,\n         \"quantity\" : 1,\n         \"sortOrder\" : 1,\n         \"sku\" : \"\",\n         \"price\" : 1,\n         \"modifiedPrice\" : \"\",\n         \"productDiscount\" : 1,\n         \"productSpecial\" : \"\"\n     }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/vendor-related-product/vendor-related-product-list"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "vendor error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/api/vendor/controllers/VendorRelatedProductController.ts",
+    "groupTitle": "Vendor_Related_Product",
+    "name": "GetApiVendorRelatedProductVendorRelatedProductList"
+  },
+  {
+    "type": "Post",
+    "url": "/api/vendor-related-product/update-vendor-related-product",
+    "title": "Update Product Related API",
+    "group": "Vendor_Related_Product",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Request body": [
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "productId",
+            "description": "<p>productId</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "relatedProductId",
+            "description": "<p>relatedProductId</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n     \"status\": 1,\n     \"message\": \"successfully updated the vendor related products\",\n      \"data\"  :   {\n         \"productId\": 1,\n         \"relatedProductId\": 1\n      }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/vendor-related-product/update-vendor-related-product"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "ProductRelated error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/api/vendor/controllers/VendorRelatedProductController.ts",
+    "groupTitle": "Vendor_Related_Product",
+    "name": "PostApiVendorRelatedProductUpdateVendorRelatedProduct"
   },
   {
     "type": "get",
