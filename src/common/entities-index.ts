@@ -27,6 +27,8 @@ export * from '../api/core/models/CustomerActivity';
 export * from '../api/core/models/CustomerCart';
 export * from '../api/core/models/CustomerContact';
 export * from '../api/core/models/CustomerGroup';
+export * from '../api/core/models/CustomerPermissionModule';
+export * from '../api/core/models/CustomerPermissionModuleGroup';
 export * from '../api/core/models/CustomerToGroup';
 export * from '../api/core/models/CustomerUserGroup';
 export * from '../api/core/models/CustomerUsers';

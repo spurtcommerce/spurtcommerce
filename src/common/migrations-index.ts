@@ -604,5 +604,7 @@ export * from '../database/migrations/1790317064820-CreateDefultVendorDetails';
 export * from '../database/migrations/1791185872357-UpdateVendorUsersAvatarPath';
 export * from '../database/migrations/1792000000000-EnsureVendorOrderStatusData';
 export * from '../database/migrations/1792579448961-CreateProductRelated';
+export * from '../database/migrations/1792589406509-AddIndusryInIndustryTable';
+export * from '../database/migrations/1792665121984-UpdateStoreLanguageId';
 export * from '../../add-ons/WebHook/api/migrations/1714024644076-AddPluginWebhook';
 export * from '../../add-ons/WebHook/api/migrations/1714025757863-CreateWebHookTable';

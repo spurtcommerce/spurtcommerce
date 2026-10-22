@@ -43,18 +43,26 @@ export class ErrorHandlerMiddleware implements ExpressErrorMiddlewareInterface {
         const responseObject = {} as any;
 
         // if its an array of ValidationError
-        if (error && Array.isArray(error.errors) && error.errors.every((element) => element instanceof ValidationError)) {
-            res.status(422);
-            responseObject.message = "You have an error in your request's body. Check 'errors' field for more details!";
-            responseObject.status = 0;
-            responseObject.data = {};
-            responseObject.data.message = [];
-            error.errors.forEach((element: ValidationError) => {
-                Object.keys(element.constraints).forEach((type) => {
-                    responseObject.data.message.push(`property ${element.constraints[type]}`);
-                });
-            });
-        } else {
+if (
+    error &&
+    Array.isArray(error.errors) &&
+    error.errors.every((element) => element instanceof ValidationError)
+) {
+    res.status(422);
+    responseObject.message =
+        "You have an error in your request's body. Check 'errors' field for more details!";
+    responseObject.status = 0;
+    responseObject.data = {};
+    responseObject.data.message = [];
+
+    error.errors.forEach((element: ValidationError) => {
+        Object.keys(element.constraints || {}).forEach((type) => {
+            responseObject.data.message.push(
+                `property ${element.constraints[type]}`
+            );
+        });
+    });
+} else {
             // set http status
             if (error instanceof HttpError && error.httpCode) {
                 res.status(error.httpCode);

@@ -1499,7 +1499,7 @@ export class CustomerOrderController {
     @UseBefore(TranslationMiddleware)
     @Get('/order-list')
     @Authorized(['customer', 'view-order-history'])
-    public async orderList(@QueryParam('limit') limit: number, @QueryParam('offset') offset: number, @QueryParam('keyword') keyword: string, @QueryParam('count') count: number | boolean, @Req() request: any, @Res() response: any): Promise<any> {
+    public async orderList(@QueryParam('limit') limit: number, @QueryParam('offset') offset: number, @QueryParam('keyword') keyword: string, @QueryParam('status') status: string, @QueryParam('count') count: number | boolean, @Req() request: any, @Res() response: any ): Promise<any> {
         const select = [
             'Order.orderId as orderId',
             'Order.createdDate as createdDate',
@@ -1520,6 +1520,20 @@ export class CustomerOrderController {
             },
         ];
         const searchConditions = [];
+
+        if (keyword) {
+            searchConditions.push({
+            name: ['Order.orderPrefixId'],
+            value: keyword.toLowerCase(),
+            });
+        }
+
+        if (status) {
+            searchConditions.push({
+            name: ['OrderStatus.name'],
+            value: status.toLowerCase(),
+            });
+        }
         const sort = [
             {
                 name: 'Order.createdDate',
@@ -1527,7 +1541,14 @@ export class CustomerOrderController {
             },
         ];
 
-        const orderList = await this.orderService.listByQueryBuilder(limit, offset, select, whereConditions, searchConditions, [], [], sort, count, true);
+        const relations = [
+            {
+               tableName: 'Order.orderStatus',
+               aliasName: 'OrderStatus',
+               op: 'left',
+            },
+        ];
+        const orderList = await this.orderService.listByQueryBuilder(limit, offset, select, whereConditions, searchConditions, relations, [], sort, count, true);
 
         const successResponse: any = {
             status: 1,

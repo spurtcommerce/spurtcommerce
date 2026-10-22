@@ -763,7 +763,7 @@ export class VendorStoreController {
     public async settingsListSpecific(@Res() response: any, @Req() request: any): Promise<Response> {
 
         const vendorSettings = await this.vendorSettingsService.findOne({
-            select: ['showBadge', 'storeName', 'storeLogoName', 'isMaintenance', 'storeLogoPath', 'storeEmail', 'storeMobileNo', 'storeUrl', 'storeAddressLine1', 'storeAddressLine2', 'storeCountryId', 'zoneId', 'storeCity', 'storeZipcode', 'storeCurrencyId', 'storeLanguageId', 'sellerLogoName', 'sellerLogoPath', 'sellerLogo2', 'sellerLogo2Path', 'siteName', 'defaultCountry', 'isActive', 'orderStatus', 'copyrights', 'customerServiceHours', 'storeTitle', 'enableAdvancedSkuSearch', 'allowBulkCsvOrdering', 'showRequestForQuote', 'heroImageName', 'heroImagePath', 'heroHeadline', 'heroSubHeadline', 'heroCtaText', 'heroCtaLink'],
+            select: ['showBadge', 'storeName', 'storeLogoName', 'isMaintenance', 'storeLogoPath', 'storeEmail', 'storeMobileNo', 'storeUrl', 'storeAddressLine1', 'storeAddressLine2', 'storeCountryId', 'zoneId', 'storeCity', 'storeZipcode', 'storeCurrencyId', 'storeLanguageId', 'sellerLogoName', 'sellerLogoPath', 'sellerLogo2', 'sellerLogo2Path', 'siteName', 'defaultCountry', 'isActive', 'orderStatus', 'copyrights', 'customerServiceHours', 'storeTitle', 'enableAdvancedSkuSearch', 'allowBulkCsvOrdering', 'showRequestForQuote', 'vendorId'],
             where: {
                 vendorId: request.tenantId,
             },

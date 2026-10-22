@@ -41,7 +41,7 @@ export const expressLoader: MicroframeworkLoader = (settings: MicroframeworkSett
         // Value is a comma-separated list of allowed frontend origins,
         // e.g. CORS_ORIGIN=https://store.example.com,https://admin.example.com
         const allowedOrigins: string[] = env.corsOrigin
-            ? env.corsOrigin.split(',').map((o: string) => o.trim()).filter(Boolean)
+            ? env.corsOrigin.split(',').map(origin => origin.trim().replace(/\/+$/, '')).filter(Boolean)
             : [];
         const corsOptions = {
             origin: (origin: string | undefined, callback: (err: Error | null, allow?: boolean) => void) => {

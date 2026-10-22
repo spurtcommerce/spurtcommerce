@@ -7,7 +7,7 @@
  */
 
 import 'reflect-metadata';
-import { Post, Body, JsonController, Res, Get, Authorized, Put, Req, UseBefore } from 'routing-controllers';
+import { Post, Body, JsonController, Res, Get, Authorized, Put, Req } from 'routing-controllers';
 import { VendorUsersService } from '../../core/services/VendorUsersService';
 import { VendorUserGroupService } from '../../core/services/VendorUserGroupService';
 import { VendorUsers } from '../../core/models/VendorUsers';
@@ -19,10 +19,10 @@ import { ImageService } from '../../core/services/ImageService';
 import { CustomerService } from '../../core/services/CustomerService';
 import { VendorPwdChangeRequest } from './requests/VendorPwdChangeRequest';
 import { Service } from 'typedi';
-import { CheckAddonMiddleware } from '../../core/middlewares/AddonValidationMiddleware';
+// import { CheckAddonMiddleware } from '../../core/middlewares/AddonValidationMiddleware';
 
 @Service()
-@UseBefore(CheckAddonMiddleware)
+// @UseBefore(CheckAddonMiddleware)
 @JsonController('/vendor-user')
 export class VendorUserController {
 

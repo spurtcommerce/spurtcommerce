@@ -23,8 +23,8 @@ define({ "api": [
     "url": "",
     "version": "0.0.0",
     "filename": "src/public/apidoc/main.js",
-    "group": "/home/siva/Music/coumminuty/spurtcommerce-oct-6/src/public/apidoc/main.js",
-    "groupTitle": "/home/siva/Music/coumminuty/spurtcommerce-oct-6/src/public/apidoc/main.js",
+    "group": "/home/surya/Music/spurtcommerce/src/public/apidoc/main.js",
+    "groupTitle": "/home/surya/Music/spurtcommerce/src/public/apidoc/main.js",
     "name": ""
   },
   {
@@ -6529,6 +6529,52 @@ define({ "api": [
   },
   {
     "type": "get",
+    "url": "/api/customer-permission-module",
+    "title": "Permission for current customer user API",
+    "group": "Customer_Permission_Module",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n     \"status\": \"1\"\n     \"message\": \"Successfully got permission for user\",\n     \"data\":{\n        \"permission\": {},\n     }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/customer-permission-module/permission-me"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "permission-module error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/api/store/controllers/CustomerPermissionModuleController.ts",
+    "groupTitle": "Customer_Permission_Module",
+    "name": "GetApiCustomerPermissionModule"
+  },
+  {
+    "type": "get",
     "url": "/api/customer-user-profile",
     "title": "Get Customer User Profile API",
     "group": "Customer_Users",
@@ -8499,6 +8545,204 @@ define({ "api": [
     "version": "0.0.0",
     "filename": "src/api/vendor/controllers/PageSeoController.ts",
     "groupTitle": "Page_SEO"
+  },
+  {
+    "type": "get",
+    "url": "/api/customer-permission-module",
+    "title": "Permission Module List API",
+    "group": "Permission_Module",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Request body": [
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "limit",
+            "description": "<p>limit</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "offset",
+            "description": "<p>offset</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "count",
+            "description": "<p>count should be number or boolean</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n     \"status\": \"1\",\n     \"message\": \"Successfully get page list\",\n     \"data\": [\n         {\n             \"id\": 61,\n             \"name\": \"Settings Delivery Location\",\n             \"slugName\": \"settings-delivery-location\",\n             \"sortOrder\": 1,\n             \"customerPermissionModule\": [\n               {\n                 \"id\": 210,\n                 \"name\": \"Add Delivery Location\",\n                 \"slugName\": \"add-delivery-location\",\n                 \"moduleGroupId\": 61\n               }\n             ]\n         }\n     ],\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/customer-permission-module"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "Page error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/api/store/controllers/CustomerPermissionModuleController.ts",
+    "groupTitle": "Permission_Module",
+    "name": "GetApiCustomerPermissionModule"
+  },
+  {
+    "type": "get",
+    "url": "/api/customer-permission-module/group/:id/permission",
+    "title": "Get Permission API",
+    "group": "Permission_Module",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Request body": [
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "refType",
+            "description": "<p>1-&gt;role 2-&gt;user</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "refId",
+            "description": "<p>refId roleId | userId</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully got permission data\",\n     \"data\":{\n     \"pageId\" : \"\",\n     }\n     \"status\": \"1\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/customer-permission-module/group/:id/permission"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "permission-module error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/api/store/controllers/CustomerPermissionModuleController.ts",
+    "groupTitle": "Permission_Module",
+    "name": "GetApiCustomerPermissionModuleGroupIdPermission"
+  },
+  {
+    "type": "put",
+    "url": "/api/customer-permission-module/group/:id",
+    "title": "Add Permission API",
+    "group": "Permission_Module",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Request body": [
+          {
+            "group": "Request body",
+            "type": "String",
+            "optional": false,
+            "field": "permission",
+            "description": "<p>stringified data</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully added permission\",\n     \"data\":{\n     \"pageId\" : \"\",\n     }\n     \"status\": \"1\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/customer-permission-module/group/:id"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "permission-module error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/api/store/controllers/CustomerPermissionModuleController.ts",
+    "groupTitle": "Permission_Module",
+    "name": "PutApiCustomerPermissionModuleGroupId"
   },
   {
     "type": "Delete",
@@ -10771,6 +11015,277 @@ define({ "api": [
     "name": "GetApiProductStoreProductdetailProductslug"
   },
   {
+    "type": "Get",
+    "url": "/api/product-store/rating-by-order",
+    "title": "Customer Rating Detail By Order",
+    "group": "Store",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Request body": [
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "orderProductId",
+            "description": "<p>orderProductId</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully show the Order Detail..!!\",\n     \"status\": \"1\",\n     \"data\": [{\n     \"orderedDate\": \"\",\n     \"orderProductPrefixId\": \"\",\n     \"total\": 1,\n     \"currencySymbolLeft\": \"\",\n     \"currencySymbolRight\": \"\",\n     \"discountAmount\": 1,\n     \"discountedAmount\": 1,\n     \"couponDiscountAmount\": 1,\n     \"orderProductPrefixId\": \"\",\n     \"productImage\": \"\",\n     \"basePrice\": \"\",\n     \"taxValue\": \"\",\n     \"taxType\": \"\",\n     \"orderId\": 1,\n     \"orderProductId\": 1,\n     \"productId\": 1,\n     \"productName\": \"\",\n     \"productQuantity\": 1,\n     \"productPrice\": 1,\n     \"skuName\": \"\",\n     \"rating\": 1,\n     \"review\": \"\",\n   }]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/product-store/rating-by-order"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "Order Detail error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/api/store/controllers/StoreRatingController.ts",
+    "groupTitle": "Store",
+    "name": "GetApiProductStoreRatingByOrder"
+  },
+  {
+    "type": "Get",
+    "url": "/api/product-store/rating-count/:skuId",
+    "title": "Get product Rating Count API",
+    "group": "Store",
+    "parameter": {
+      "fields": {
+        "Request body": [
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "skuId",
+            "description": "<p>skuId</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"successfully got the product rating.\",\n     \"data\": {\n     \"ratingCount\": 1,\n     \"reviewCount\": 1,\n     \"rating\": 1\n       },\n     \"status\": \"1\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/product-store/rating-count/:skuId"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "GetProduct RatingCount error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/api/store/controllers/StoreRatingController.ts",
+    "groupTitle": "Store",
+    "name": "GetApiProductStoreRatingCountSkuid"
+  },
+  {
+    "type": "Get",
+    "url": "/api/product-store/rating/:skuId",
+    "title": "Get product Rating API",
+    "group": "Store",
+    "parameter": {
+      "fields": {
+        "Request body": [
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "skuId",
+            "description": "<p>skuId</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "limit",
+            "description": "<p>limit</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "String",
+            "optional": false,
+            "field": "customerId",
+            "description": "<p>customerId</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "offset",
+            "description": "<p>offset</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "count",
+            "description": "<p>count in number</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"successfully got the product Rating.\",\n     \"data\": [{\n     \"review\": \"\",\n     \"rating\": 1,\n     \"createdDate\": \"\",\n     \"firstName\": \"\",\n     \"lastName\": \"\",\n     \"image\": \"\",\n     \"imagePath\": \"\",\n     \"video\": \"\",\n     \"videoPath\": \"\",\n     \"productId\": 1,\n     \"customerId\": 1,\n     \"isActive\": 1\n       }]\n     \"status\": \"1\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/product-store/rating/:skuId"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "getProductRating error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/api/store/controllers/StoreRatingController.ts",
+    "groupTitle": "Store",
+    "name": "GetApiProductStoreRatingSkuid"
+  },
+  {
+    "type": "Get",
+    "url": "/api/product-store/rating-statistics/:skuId",
+    "title": "Get Rating Statistics API",
+    "group": "Store",
+    "parameter": {
+      "fields": {
+        "Request body": [
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "skuId",
+            "description": "<p>skuId</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"successfully got the product ratings & review count\",\n     \"data\":  [{\n     \"starsCount\": 1,\n     \"totalRatingReview\": 1\n      }]\n     \"status\": \"1\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/product-store/rating-statistics/:skuId"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "Product error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/api/store/controllers/StoreRatingController.ts",
+    "groupTitle": "Store",
+    "name": "GetApiProductStoreRatingStatisticsSkuid"
+  },
+  {
+    "type": "Get",
+    "url": "/api/product-store/vendor-product-rating-count",
+    "title": "Get Product Rating And Review Based On Vendor API",
+    "group": "Store",
+    "parameter": {
+      "fields": {
+        "Request body": [
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "vendorId",
+            "description": "<p>vendorId</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"successfully got the product Rating.\",\n     \"data\": {\n      \"totalRatings\": 1,\n      \"averageRating\": 1,\n        }\n     \"status\": \"1\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/product-store/vendor-product-rating-count"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "vendorBasedProductRatingCount error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/api/store/controllers/StoreRatingController.ts",
+    "groupTitle": "Store",
+    "name": "GetApiProductStoreVendorProductRatingCount"
+  },
+  {
     "type": "get",
     "url": "/api/:slugName",
     "title": "Page Details API",
@@ -13018,79 +13533,6 @@ define({ "api": [
     "name": "GetApiWebhookEvent"
   },
   {
-    "type": "get",
-    "url": "/api/vendor-order/order",
-    "title": "Put Update Order",
-    "group": "Store_order",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "fields": {
-        "Request body": [
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "isBackOrder",
-            "description": "<p>isBackOrder</p>"
-          },
-          {
-            "group": "Request body",
-            "type": "String",
-            "optional": false,
-            "field": "vendorOrderIds",
-            "description": "<p>vendorOrderIds</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Input",
-          "content": "{\n     \"isBackOrder\" : \"\",\n     \"vendorOrderIds\" : \"\",\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully Updated Order..!\",\n     \"status\": \"1\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "/api/vendor-order/order"
-      }
-    ],
-    "error": {
-      "examples": [
-        {
-          "title": "Store order error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/api/vendor/controllers/VendorOrderController.ts",
-    "groupTitle": "Store_order",
-    "name": "GetApiVendorOrderOrder"
-  },
-  {
     "type": "post",
     "url": "/api/store-list/contact-us",
     "title": "Contact Us API",
@@ -13705,6 +14147,79 @@ define({ "api": [
     "name": "GetApiOrdersTrackOrderProduct"
   },
   {
+    "type": "get",
+    "url": "/api/vendor-order/order",
+    "title": "Put Update Order",
+    "group": "Store_order",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Request body": [
+          {
+            "group": "Request body",
+            "type": "String",
+            "optional": false,
+            "field": "isBackOrder",
+            "description": "<p>isBackOrder</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "String",
+            "optional": false,
+            "field": "vendorOrderIds",
+            "description": "<p>vendorOrderIds</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Input",
+          "content": "{\n     \"isBackOrder\" : \"\",\n     \"vendorOrderIds\" : \"\",\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully Updated Order..!\",\n     \"status\": \"1\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/vendor-order/order"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "Store order error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/api/vendor/controllers/VendorOrderController.ts",
+    "groupTitle": "Store_order",
+    "name": "GetApiVendorOrderOrder"
+  },
+  {
     "type": "post",
     "url": "/api/orders/back-order-checkout",
     "title": "Back Order Checkout",
@@ -14313,6 +14828,194 @@ define({ "api": [
     "filename": "src/api/store/controllers/CustomerOrderController.ts",
     "groupTitle": "Store_order",
     "name": "PostApiOrdersOrderCancelRequest"
+  },
+  {
+    "type": "Post",
+    "url": "/api/product-store/rating",
+    "title": "Add Rating  API",
+    "group": "Store_order",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Request body": [
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "productId",
+            "description": ""
+          },
+          {
+            "group": "Request body",
+            "type": "String",
+            "optional": false,
+            "field": "skuName",
+            "description": ""
+          },
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "orderProductId",
+            "description": ""
+          },
+          {
+            "group": "Request body",
+            "type": "String",
+            "optional": false,
+            "field": "reviews",
+            "description": "<p>productReviews</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "String",
+            "optional": false,
+            "field": "image",
+            "description": "<p>image</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "rating",
+            "description": "<p>productRatings</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Input",
+          "content": "{\n     \"productId\": 1,\n     \"skuId\": 1,\n     \"orderProductId\": 1,\n     \"reviews\": \"\",\n     \"image\": \"\",\n     \"rating\": 1\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully created your ratings and reviews!!\",\n     \"status\": \"1\",\n     \"data\": {},\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/product-store/rating"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "rating error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/api/store/controllers/StoreRatingController.ts",
+    "groupTitle": "Store_order",
+    "name": "PostApiProductStoreRating"
+  },
+  {
+    "type": "Post",
+    "url": "/api/product-store/review",
+    "title": "Add Reviews  API",
+    "group": "Store_order",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Request body": [
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "productId",
+            "description": "<p>productId</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "String",
+            "optional": false,
+            "field": "skuName",
+            "description": "<p>skuName</p>"
+          },
+          {
+            "group": "Request body",
+            "type": "Number",
+            "optional": false,
+            "field": "orderProductId",
+            "description": ""
+          },
+          {
+            "group": "Request body",
+            "type": "String",
+            "optional": false,
+            "field": "reviews",
+            "description": "<p>productReviews</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Input",
+          "content": "{\n     \"productId\": \"\",\n     \"orderProductId\": \"\",\n     \"reviews\": \"\",\n     \"skuId\": \"\",\n     \"rating\": \"\",\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Successfully created your reviews.\",\n     \"status\": \"1\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/product-store/review"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "reviews error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/api/store/controllers/StoreRatingController.ts",
+    "groupTitle": "Store_order",
+    "name": "PostApiProductStoreReview"
   },
   {
     "type": "put",
