@@ -159,6 +159,7 @@
     "nps-utils": "^1.7.0",
     "passport": "^0.7.0",
     "path-to-regexp": "^8.4.2",
+    "paypal-rest-sdk": "^1.8.1",
     "peer": "^1.0.2",
     "puppeteer": "^24.18.0",
     "qrcode": "^1.5.4",

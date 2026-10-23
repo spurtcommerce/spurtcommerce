@@ -85,7 +85,7 @@ export class WebHookClientController {
             const transporter = nodemailer.createTransport(smtpTransport({
                 host: mail.HOST,
                 port: mail.PORT,
-                secure: mail.SECURE,
+                secure: mail.SECURE === 'true',
                 auth: {
                     user: mail.AUTH.user,
                     pass: mail.AUTH.pass,

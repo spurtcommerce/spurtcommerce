@@ -204,6 +204,9 @@ export class Product extends BaseModel {
     @Column({ name: 'is_specification' })
     public isSpecification: number;
 
+    @Column({ name: 'product_type', type: 'enum', enum: ['physical', 'virtual', 'giftcard'], default: 'physical' })
+    public productType: string;
+
     @OneToOne(type => Sku, skuDetail => skuDetail.product)
     @JoinColumn({ name: 'sku_id' })
     public skuDetail: Sku;

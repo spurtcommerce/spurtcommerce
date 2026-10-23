@@ -45,6 +45,11 @@ export class VendorProductRequest {
 
     public productSlug: string;
 
+    @IsNotEmpty({
+        message: 'productType is required',
+    })
+    public productType: string;
+
     @IsNotEmpty()
     public quantity: number;
 

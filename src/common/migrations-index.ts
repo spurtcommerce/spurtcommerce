@@ -606,5 +606,7 @@ export * from '../database/migrations/1792000000000-EnsureVendorOrderStatusData'
 export * from '../database/migrations/1792579448961-CreateProductRelated';
 export * from '../database/migrations/1792589406509-AddIndusryInIndustryTable';
 export * from '../database/migrations/1792665121984-UpdateStoreLanguageId';
+export * from '../database/migrations/1792749275688-AddColumnProductTypeToProductTable';
+export * from '../database/migrations/1792754722718-AddEmailTemaplateForCUstomerRegisterOtp';
 export * from '../../add-ons/WebHook/api/migrations/1714024644076-AddPluginWebhook';
 export * from '../../add-ons/WebHook/api/migrations/1714025757863-CreateWebHookTable';

@@ -142,6 +142,7 @@ export class VendorProductController {
         newProduct.name = product.productName;
         newProduct.description = product.productDescription ?? '';
         const metaTagTitle = product.productSlug ? product.productSlug : product.productName;
+        newProduct.productType = product.productType;
         const slug = metaTagTitle.trim();
         const data = slug.replace(/\s+/g, '-').replace(/[&\/\\@#,+()$~%.'":*?<>{}]/g, '').toLowerCase();
         newProduct.productSlug = await this.validate_slug(data);

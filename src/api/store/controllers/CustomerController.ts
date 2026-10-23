@@ -168,7 +168,7 @@ export class StoreCustomerController {
         // const logo = await this.settingService.findOne();
         const vendorSetting = await this.vendorSettingsService.findOne({ where: { vendorId: request.tenantId } });
         const vendor = await this.vendorService.findOne({ where: { vendorId: request.tenantId } });
-        const findEmailTemplate: any = await this.emailTemplateService.findOne({ where: { emailTemplateId: 32 } });
+        const findEmailTemplate: any = await this.emailTemplateService.findOne({ where: { emailTemplateId: 31 } });
         const templateDate = findEmailTemplate.content.replace('{3}', createUserOTP.otp).replace('{appName}', vendorSetting?.siteName ?? '').replace('{type}', 'Buyer').replace('{type}', 'Buyer').replace('{siteName}', vendorSetting?.siteName ?? '').replace('{duration}', 3);
         const storeUrl = await this.vendorSettingsService.getVendorDomainOrDefault(request.tenantId, request.get('referer'));
         const mailContent: any = {};
