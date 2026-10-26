@@ -30,15 +30,17 @@ export class PageService {
 
 public async findOne(condition: any): Promise<Page | null> {
     this.log.info('findOne method called');
-    console.log('========== PAGE CONDITION ==========');
-    console.log(condition);
-    console.log('====================================');
+
+    const whereCondition = condition?.where ?? condition;
+
+    if (!whereCondition || Object.keys(whereCondition).length === 0) {
+        throw new Error('PageService.findOne requires a valid where condition');
+    }
 
     return this.pageRepository.repository.findOne({
-        where: condition,
+        where: whereCondition,
     });
 }
-
     public async findOneBy(condition: any): Promise<Page | null> {
         this.log.info('findOne method called');
         return this.pageRepository.repository.findOne(condition);

@@ -1,194 +1,395 @@
 /*
-* Spurtcommerce
-* https://www.spurtcommerce.com
-* Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
-* Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
-* Licensed under the MIT license.
-*/
+ * Spurtcommerce
+ * https://www.spurtcommerce.com
+ * Copyright (c) 2023  Spurtcommerce E-solutions Private Limited
+ * Author Spurtcommerce E-solutions Private Limited <support@spurtcommerce.com>
+ * Licensed under the MIT license.
+ */
 /* tslint:disable:max-classes-per-file */
 
+// import 'reflect-metadata';
+// import { IsNotEmpty, IsString, MaxLength, MinLength, Validate, IsEmail, IsNumber, IsOptional, ArrayMinSize, IsArray } from 'class-validator';
+// import { EscapeValidation } from './EscapeValidation';
 import 'reflect-metadata';
-import { IsNotEmpty, IsString, MaxLength, MinLength, Validate, IsEmail, IsNumber, IsOptional, ArrayMinSize, IsArray } from 'class-validator';
+import {
+  IsNotEmpty,
+  IsString,
+  MaxLength,
+  MinLength,
+  Validate,
+  IsEmail,
+  IsNumber,
+  IsOptional,
+  ValidateIf,
+} from 'class-validator';
 import { EscapeValidation } from './EscapeValidation';
 
-class ProductDetail {
-    public productId: number;
+// class ProductDetail {
+//     public productId: number;
 
-    public skuName: string;
+//     public skuName: string;
 
-    public price: number;
+//     public price: number;
 
-    public quantity: number;
+//     public quantity: number;
 
-    public name: string;
+//     public name: string;
 
-    public skuId: number;
+//     public skuId: number;
+// }
+// export class CustomerCheckoutRequest {
+//     @MaxLength(32, {
+//         message: 'shipping first name should be maximum 32 character',
+//     })
+//     @MinLength(1, {
+//         message: 'shipping first name should be minimum 1 character',
+//     })
+//     @Validate(EscapeValidation, {
+//         message: 'Invalid input for the name',
+//     })
+//     @IsNotEmpty({
+//         message: 'Shipping First name is required',
+//     })
+//     public shippingFirstName: string;
+
+//     @MaxLength(32, {
+//         message: 'shipping last name should be maximum 32 character',
+//     })
+//     public shippingLastName: string;
+
+//     @IsNotEmpty({
+//         message: 'Shipping Address 1 is required',
+//     })
+//     @MaxLength(128, {
+//         message: 'shipping address 1  should be maximum 128 character',
+//     })
+//     public shippingAddress_1: string;
+
+//     @IsNotEmpty({
+//         message: 'Shipping City is required',
+//     })
+//     @MaxLength(128, {
+//         message: 'shipping city should be maximum 128 character',
+//     })
+//     @IsString()
+//     public shippingCity: string;
+
+//     // @MaxLength(10, {
+//     //     message: 'shipping postcode should be maximum 10 character',
+//     // })
+//     @IsNotEmpty({
+//         message: 'Shipping Post Code is required',
+//     })
+//     public shippingPostCode: number;
+
+//     @MaxLength(128, {
+//         message: 'shipping zone should be maximum 128 character',
+//     })
+//     @IsNotEmpty({
+//         message: 'Shipping Zone is required',
+//     })
+//     public shippingZone: string;
+
+//     @IsNotEmpty({ message: 'Phone Number is required' })
+//     @MaxLength(15, { message: 'Phone should be maximum 15 digits' })
+//     public phoneNumber: number;
+
+//     @MaxLength(96, {
+//         message: 'emailId should be maximum 96 character',
+//     })
+//     @IsNotEmpty({
+//         message: 'Email Id is required',
+//     })
+//     @IsEmail({}, { message: 'Invalid email' })
+//     public emailId: string;
+
+//     @MaxLength(128, {
+//         message: 'shipping address 2  should be maximum 128 character',
+//     })
+//     public shippingAddress_2: string;
+
+//     @MaxLength(32, {
+//         message: 'shipping company should be maximum 32 character',
+//     })
+//     public shippingCompany: string;
+
+//     @IsNotEmpty({
+//         message: 'Country is required',
+//     })
+//     @IsNumber()
+//     public shippingCountryId: number;
+
+//     public shippingAddressFormat: string;
+
+//     public password: string;
+
+//     public paymentMethod: number;
+//     @MaxLength(255, {
+//         message: 'coupon code should be maximum 32 character',
+//     })
+//     public couponCode: string;
+
+//     public couponDiscountAmount: number;
+
+//     public couponData: string;
+
+//     @IsNotEmpty()
+//     @IsArray()
+//     @ArrayMinSize(1)
+//     public productDetails: ProductDetail[];
+
+//     public isMobile: boolean;
+
+//     public taxNumber: string;
+//     @MaxLength(32, {
+//         message: 'payment first name should be maximum 32 character',
+//     })
+//     public paymentFirstName: string;
+
+//     @MaxLength(32, {
+//         message: 'payment last name should be maximum 32 character',
+//     })
+//     public paymentLastName: string;
+
+//     @MaxLength(128, {
+//         message: 'payment address 1  should be maximum 128 character',
+//     })
+//     public paymentAddress_1: string;
+
+//     @MaxLength(128, {
+//         message: 'payment city  should be maximum 128 character',
+//     })
+//     public paymentCity: string;
+
+//     // @MaxLength(10, {
+//     //     message: 'payment postcode should be maximum 10 character',
+//     // })
+//     public paymentPostCode: number;
+
+//     @MaxLength(128, {
+//         message: 'payment zone should be maximum 128 character',
+//     })
+//     public paymentZone: string;
+
+//     @MaxLength(128, {
+//         message: 'paymentAddress2 should be maximum 128 character',
+//     })
+//     public paymentAddress_2: string;
+
+//     @MaxLength(32, {
+//         message: 'paymentCompany should be maximum 32 character',
+//     })
+//     public paymentCompany: string;
+
+//     @IsNumber()
+//     public paymentCountryId: number;
+
+//     @IsOptional()
+//     public paymentMobileNumber: string;
+
+//     public mustShipBefore: string;
+
+//     public poNumber: string;
+
+//     public notes: string;
+
+//     @IsNotEmpty({
+//         message: 'Payment rule is required',
+//     })
+//     public paymentRuleId: number;
+
+//     public paymentTermId: number;
+
+//     @IsNotEmpty()
+//     public shippingCostOverride: number;
+
+//     public orderSource: string;
+
+//     public quoteRequestId: number;
+
+//     public quoteId: number;
+
+//     public shoppingCartId: number;
+// }
+
+export enum ProductType {
+  PHYSICAL = 'physical',
+  VIRTUAL = 'virtual',
 }
 export class CustomerCheckoutRequest {
-    @MaxLength(32, {
-        message: 'shipping first name should be maximum 32 character',
-    })
-    @MinLength(1, {
-        message: 'shipping first name should be minimum 1 character',
-    })
-    @Validate(EscapeValidation, {
-        message: 'Invalid input for the name',
-    })
-    @IsNotEmpty({
-        message: 'Shipping First name is required',
-    })
-    public shippingFirstName: string;
+  @ValidateIf((o) => o.productType === ProductType.PHYSICAL)
+  @MaxLength(32, {
+    message: '  shipping first name should be maximum 32 character',
+  })
+  @MinLength(1, {
+    message: 'shipping first name should be minimum 1 character',
+  })
+  @Validate(EscapeValidation, {
+    message: 'Invalid input for the name',
+  })
+  @IsNotEmpty({
+    message: 'Shipping First name is required',
+  })
+  public shippingFirstName: string;
 
-    @MaxLength(32, {
-        message: 'shipping last name should be maximum 32 character',
-    })
-    public shippingLastName: string;
+  @ValidateIf((o) => o.productType === ProductType.PHYSICAL)
+  @MaxLength(32, {
+    message: 'shipping last name should be maximum 32 character',
+  })
+  public shippingLastName: string;
 
-    @IsNotEmpty({
-        message: 'Shipping Address 1 is required',
-    })
-    @MaxLength(128, {
-        message: 'shipping address 1  should be maximum 128 character',
-    })
-    public shippingAddress_1: string;
+  @ValidateIf((o) => o.productType === ProductType.PHYSICAL)
+  @IsNotEmpty({
+    message: '  Shipping Address 1 is required',
+  })
+  @MaxLength(128, {
+    message: 'shipping address 1  should be maximum 128 character',
+  })
+  public shippingAddress_1: string;
 
-    @IsNotEmpty({
-        message: 'Shipping City is required',
-    })
-    @MaxLength(128, {
-        message: 'shipping city should be maximum 128 character',
-    })
-    @IsString()
-    public shippingCity: string;
+  @ValidateIf((o) => o.productType === ProductType.PHYSICAL)
+  @IsNotEmpty({
+    message: 'Shipping City is required',
+  })
+  @MaxLength(128, {
+    message: 'shipping city should be maximum 128 character',
+  })
+  @IsString()
+  public shippingCity: string;
 
-    @IsNotEmpty({
-        message: 'Shipping Post Code is required',
-    })
-    public shippingPostCode: number;
+  @ValidateIf((o) => o.productType === ProductType.PHYSICAL)
+  @MaxLength(10, {
+    message: 'shipping postcode should be maximum 10 character',
+  })
+  @IsNotEmpty({
+    message: 'Shipping Post Code is required',
+  })
+  public shippingPostCode: number;
 
-    @MaxLength(128, {
-        message: 'shipping zone should be maximum 128 character',
-    })
-    @IsNotEmpty({
-        message: 'Shipping Zone is required',
-    })
-    public shippingZone: string;
+  @ValidateIf((o) => o.productType === ProductType.PHYSICAL)
+  @MaxLength(128, {
+    message: 'shipping zone should be maximum 128 character',
+  })
+  @IsNotEmpty({
+    message: 'Shipping Zone is required',
+  })
+  public shippingZone: string;
 
-    @IsNotEmpty({ message: 'Phone Number is required' })
-    @MaxLength(15, { message: 'Phone should be maximum 15 digits' })
-    public phoneNumber: number;
+  @IsNotEmpty({
+    message: 'Phone Number is required',
+  })
+  public phoneNumber: number;
+  @MaxLength(96, {
+    message: 'emailId should be maximum 96 character',
+  })
+  @IsNotEmpty({
+    message: 'Email Id is required',
+  })
+  @IsEmail({}, { message: 'Invalid email' })
+  public emailId: string;
 
-    @MaxLength(96, {
-        message: 'emailId should be maximum 96 character',
-    })
-    @IsNotEmpty({
-        message: 'Email Id is required',
-    })
-    @IsEmail({}, { message: 'Invalid email' })
-    public emailId: string;
+  @IsOptional()
+  @ValidateIf((o) => o.productType === ProductType.PHYSICAL)
+  @MaxLength(128, {
+    message: 'shipping address 2  should be maximum 128 character',
+  })
+  public shippingAddress_2: string;
 
-    @MaxLength(128, {
-        message: 'shipping address 2  should be maximum 128 character',
-    })
-    public shippingAddress_2: string;
+  @IsOptional()
+  @ValidateIf((o) => o.productType === ProductType.PHYSICAL)
+  @MaxLength(32, {
+    message: 'shipping company should be maximum 32 character',
+  })
+  public shippingCompany: string;
 
-    @MaxLength(32, {
-        message: 'shipping company should be maximum 32 character',
-    })
-    public shippingCompany: string;
+  @ValidateIf((o) => o.productType === ProductType.PHYSICAL)
+  @IsNotEmpty({
+    message: 'Country is required',
+  })
+  @IsNumber()
+  public shippingCountryId: number;
+  public shippingAddressFormat: string;
 
-    @IsNotEmpty({
-        message: 'Country is required',
-    })
-    @IsNumber()
-    public shippingCountryId: number;
+  public password: string;
+  public paymentMethod: number;
+  @IsOptional()
+  @MaxLength(255, {
+    message: 'coupon code should be maximum 32 character',
+  })
+  public couponCode: string;
+  public couponDiscountAmount: number;
+  public couponData: string;
+  @IsNotEmpty()
+  public productDetails: [];
+  public isMobile: boolean;
+  public taxNumber: string;
+  @MaxLength(32, {
+    message: 'payment first name should be maximum 32 character',
+  })
+  public paymentFirstName: string;
+  @MaxLength(32, {
+    message: 'payment last name should be maximum 32 character',
+  })
+  public paymentLastName: string;
+  @MaxLength(128, {
+    message: 'payment address 1  should be maximum 128 character',
+  })
+  public paymentAddress_1: string;
+  @MaxLength(128, {
+    message: 'payment city  should be maximum 128 character',
+  })
+  public paymentCity: string;
+  @MaxLength(10, {
+    message: 'payment postcode should be maximum 10 character',
+  })
+  public paymentPostCode: number;
+  @MaxLength(128, {
+    message: 'payment zone should be maximum 128 character',
+  })
+  public paymentZone: string;
+  @IsOptional()
+  @MaxLength(128, {
+    message: 'paymentAddress2 should be maximum 128 character',
+  })
+  public paymentAddress_2: string;
+  @IsOptional()
+  @MaxLength(32, {
+    message: 'paymentCompany should be maximum 32 character',
+  })
+  public paymentCompany: string;
+  @IsNumber()
+  public paymentCountryId: number;
 
-    public shippingAddressFormat: string;
+  @IsOptional()
+  public paymentMobileNumber: string;
 
-    public password: string;
+  @IsNotEmpty()
+  public productType: ProductType;
 
-    public paymentMethod: number;
-    @MaxLength(255, {
-        message: 'coupon code should be maximum 32 character',
-    })
-    public couponCode: string;
+  public paymentRuleId: number;
 
-    public couponDiscountAmount: number;
+  public paymentTermId: number;
 
-    public couponData: string;
+  public shippingCostOverride: number;
 
-    @IsNotEmpty()
-    @IsArray()
-    @ArrayMinSize(1)
-    public productDetails: ProductDetail[];
+  public orderSource: string;
 
-    public isMobile: boolean;
+  public quoteRequestId: number;
 
-    public taxNumber: string;
-    @MaxLength(32, {
-        message: 'payment first name should be maximum 32 character',
-    })
-    public paymentFirstName: string;
+  public quoteId: number;
 
-    @MaxLength(32, {
-        message: 'payment last name should be maximum 32 character',
-    })
-    public paymentLastName: string;
+  public shoppingCartId: number;
 
-    @MaxLength(128, {
-        message: 'payment address 1  should be maximum 128 character',
-    })
-    public paymentAddress_1: string;
+  public poNumber: number;
 
-    @MaxLength(128, {
-        message: 'payment city  should be maximum 128 character',
-    })
-    public paymentCity: string;
+  public mustShipBefore: number;
 
-    public paymentPostCode: number;
-
-    @MaxLength(128, {
-        message: 'payment zone should be maximum 128 character',
-    })
-    public paymentZone: string;
-
-    @MaxLength(128, {
-        message: 'paymentAddress2 should be maximum 128 character',
-    })
-    public paymentAddress_2: string;
-
-    @MaxLength(32, {
-        message: 'paymentCompany should be maximum 32 character',
-    })
-    public paymentCompany: string;
-
-    @IsNumber()
-    public paymentCountryId: number;
-
-    @IsOptional()
-    public paymentMobileNumber: string;
-
-    public mustShipBefore: string;
-
-    public poNumber: string;
-
-    public notes: string;
-
-    @IsNotEmpty({
-        message: 'Payment rule is required',
-    })
-    public paymentRuleId: number;
-
-    public paymentTermId: number;
-
-    @IsNotEmpty()
-    public shippingCostOverride: number;
-
-    public orderSource: string;
-
-    public quoteRequestId: number;
-
-    public quoteId: number;
-
-    public shoppingCartId: number;
+    public notes: number;
+  /**
+   * Set to true when checkout is triggered from the Shopping Cart flow.
+   * When true, the order will be marked as isShoppingList = true.
+   * Add to Cart flow leaves this false (default).
+   */
+  @IsOptional()
+  public isShoppingCart: boolean;
 }

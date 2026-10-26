@@ -34,7 +34,6 @@ import { VendorService } from '../../core/services/VendorService';
 
 import { pluginModule } from '../../../../src/loaders/pluginLoader';
 import { IndustryService } from '../../core/services/IndustryService';
-import { instanceToPlain } from 'class-transformer';
 import moment = require('moment');
 import { In, Not } from 'typeorm';
 import { getDataSource } from '../../../loaders/typeormLoader';
@@ -1459,29 +1458,29 @@ export class CommonListController {
      * @apiErrorExample {json} get payment setting error
      * HTTP/1.1 500 Internal Server Error
      */
-    @UseBefore(TenantValidationMiddleware)
+  @UseBefore(TenantValidationMiddleware)
     @Get('/payment')
-    public async paymentSettingList(@Res() response: any, @Req() request: any): Promise<any> {
+    public async paymentSettingList(@QueryParam('limit') limit: number, @QueryParam('offset') offset: number, @QueryParam('keyword') keyword: string, @QueryParam('count') count: number | boolean, @Res() response: any): Promise<any> {
+        const select = ['id', 'pluginName', 'pluginAvatar', 'pluginAvatarPath', 'pluginType', 'pluginAdditionalInfo', 'pluginStatus'];
 
-        const vendorPlugins = await this.vendorPluginService.find({
-            where: {
-                vendorId: request.tenantId,
-                isActive: 1,
+        const search = [
+            {
+                name: 'pluginType',
+                op: 'like',
+                value: keyword,
             },
-        });
-
-        const plugins = await this.pluginService.findAll({
-            select: ['id', 'pluginName', 'pluginAvatar', 'pluginAvatarPath'],
-            where: {
-                id: In(vendorPlugins.map((vendorPlugin) => vendorPlugin.pluginId)),
-                pluginStatus: 1,
+            {
+                name: 'pluginStatus',
+                op: 'where',
+                value: 1,
             },
-        });
-
+        ];
+        const WhereConditions = [];
+        const paymentSettingList = await this.pluginService.list(limit, offset, select, search, WhereConditions, count);
         const successResponse: any = {
             status: 1,
-            message: 'Successfully got the plugin list',
-            data: instanceToPlain(plugins),
+            message: 'Successfully got payment list',
+            data: paymentSettingList,
         };
         return response.status(200).send(successResponse);
 

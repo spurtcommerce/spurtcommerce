@@ -96,3 +96,63 @@ export function CheckCustomerMiddleware(request: any, response: any, next?: (err
         return response.status(401).send({ status: 0, message: 'UnAuthorized user' });
     }
 }
+
+export function CheckTokenMiddlewares(request: any, response: any, next: any): any {
+    // const customerRepository = getDataSource().getRepository(Customer);
+    const customerUserRepository = getDataSource().getRepository(CustomerUsers);
+    const accessTokenRepository = getDataSource().getRepository(AccessToken);
+    const jwt = require('jsonwebtoken');
+    const authorization = request.header('authorization');
+    if (authorization) {
+        const encryptString = authorization.split(' ')[1];
+        const Crypto = require('crypto-js');
+        const bytes = Crypto.AES.decrypt(encryptString, env.cryptoSecret);
+        const originalEncryptedString = bytes.toString(Crypto.enc.Utf8);
+        jwt.verify(originalEncryptedString, env.jwtSecret, async (err: any, decoded: any) => {
+            if (err) {
+                request.id = '';
+                request.user = {};
+                next();
+            } else {
+                const checkTokenRevoke: any = await accessTokenRepository.findOne({
+                    where: {
+                        token: originalEncryptedString,
+                    }
+                    ,
+
+                });
+                if (checkTokenRevoke) {
+                    const customerUser = await customerUserRepository.findOne({
+                        where: {
+                            id: decoded.id,
+                            deleteFlag: 0,
+                            isActive: 1,
+                        },
+                        relations: ['customer'],
+                    });
+                    if (customerUser) {
+                        request.id = customerUser.customer.id;
+                        request.user = {
+                            customerUserId: customerUser.id,
+                            customerId: customerUser.customer.id,
+                        };
+                        next();
+                    } else {
+                        return response.status(401).send({
+                            status: 0,
+                            message: 'UnAuthorized user',
+                        });
+                    }
+                } else {
+                    request.id = '';
+                    request.user = {};
+                    next();
+                }
+            }
+        });
+    } else {
+        request.id = '';
+        request.user = {};
+        next();
+    }
+}

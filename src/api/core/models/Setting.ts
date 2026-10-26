@@ -132,6 +132,12 @@ export class Settings extends BaseModel {
     @Column({ name: 'country' })
     public country: string;
 
+    @Column({ name: 'access_key' })
+    public accessKey: string;
+
+    @Column({ name: 'site_category' })
+    public siteCategory: string;
+
     @Column({ name: 'facebook' })
     public facebook: string;
 

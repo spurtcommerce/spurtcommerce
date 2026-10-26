@@ -146,6 +146,10 @@ export class OrderService {
         return await this.orderRepository.findAllTodayOrderCount(todaydate);
     }
 
+        public findOnes(options: any): Promise<any | null> {
+    this.log.info('findOne method called');
+    return this.orderRepository.repository.findOne(options);
+        }
     public async listByQueryBuilder(
         limit: number,
         offset: number,

@@ -8548,6 +8548,164 @@ define({ "api": [
   },
   {
     "type": "get",
+    "url": "/api/paypal-payment/cancel",
+    "title": "Cancel PayPal Payment API",
+    "group": "PayPal",
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n     \"status\": \"1\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/paypal-payment/cancel"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "paypal error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "add-ons/Payment/Paypal/controllers/PaypalController.ts",
+    "groupTitle": "PayPal",
+    "name": "GetApiPaypalPaymentCancel"
+  },
+  {
+    "type": "get",
+    "url": "/api/paypal-payment/proceed/:id",
+    "title": "Proceed PayPal Payment API",
+    "group": "PayPal",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "number",
+            "optional": false,
+            "field": "orderId",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n     \"status\": \"1\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/paypal-payment/proceed/:id"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "paypal error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "add-ons/Payment/Paypal/controllers/PaypalController.ts",
+    "groupTitle": "PayPal",
+    "name": "GetApiPaypalPaymentProceedId"
+  },
+  {
+    "type": "get",
+    "url": "/api/paypal-payment/process/:id",
+    "title": "Process PayPal Payment API",
+    "group": "PayPal",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "number",
+            "optional": false,
+            "field": "orderPrefixId",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n     \"status\": \"1\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/paypal-payment/process/:id"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "paypal error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "add-ons/Payment/Paypal/controllers/PaypalController.ts",
+    "groupTitle": "PayPal",
+    "name": "GetApiPaypalPaymentProcessId"
+  },
+  {
+    "type": "get",
+    "url": "/api/paypal-payment/success",
+    "title": "success PayPal Payment API",
+    "group": "PayPal",
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n     \"status\": \"1\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/paypal-payment/success"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "paypal error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "add-ons/Payment/Paypal/controllers/PaypalController.ts",
+    "groupTitle": "PayPal",
+    "name": "GetApiPaypalPaymentSuccess"
+  },
+  {
+    "type": "get",
     "url": "/api/customer-permission-module",
     "title": "Permission Module List API",
     "group": "Permission_Module",
@@ -9746,6 +9904,324 @@ define({ "api": [
     "filename": "src/api/core/controllers/MediaController.ts",
     "groupTitle": "Resize-Image",
     "name": "GetApiMediaPlugin"
+  },
+  {
+    "type": "post",
+    "url": "/api/admin-razor-pay-payment",
+    "title": "Update Setting API",
+    "group": "Setting",
+    "parameter": {
+      "fields": {
+        "Request body": [
+          {
+            "group": "Request body",
+            "type": "String",
+            "optional": false,
+            "field": "postParams",
+            "description": "<p>postParams</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Input",
+          "content": "{\n     \"clientId\" : 1,\n     \"clientSecret\": \"\",\n     \"isTest\": 1,\n     \"paypalAdditionalInfo\": \"\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Razorpay settings updated successfully.\",\n     \"status\": \"1\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/admin-razor-pay-payment"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "Update Setting API error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "add-ons/Payment/Razorpay/controllers/admin/AdminRazorPayController.ts",
+    "groupTitle": "Setting",
+    "name": "PostApiAdminRazorPayPayment"
+  },
+  {
+    "type": "post",
+    "url": "/api/admin-razor-pay-payment",
+    "title": "Update Setting API",
+    "group": "Setting",
+    "parameter": {
+      "fields": {
+        "Request body": [
+          {
+            "group": "Request body",
+            "type": "String",
+            "optional": false,
+            "field": "postParams",
+            "description": "<p>postParams</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Input",
+          "content": "{\n     \"clientId\" : 1,\n     \"clientSecret\": \"\",\n     \"isTest\": 1,\n     \"paypalAdditionalInfo\": \"\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Razorpay settings updated successfully.\",\n     \"status\": \"1\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/admin-razor-pay-payment"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "Update Setting API error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "add-ons/Payment/Razorpay/controllers/vendor/VendorRazorPayController.ts",
+    "groupTitle": "Setting",
+    "name": "PostApiAdminRazorPayPayment"
+  },
+  {
+    "type": "post",
+    "url": "/api/admin-stripe-payment",
+    "title": "Update Setting API",
+    "group": "Setting",
+    "parameter": {
+      "fields": {
+        "Request body": [
+          {
+            "group": "Request body",
+            "type": "String",
+            "optional": false,
+            "field": "postParams",
+            "description": "<p>postParams</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Input",
+          "content": "{\n     \"clientId\" : \"\",\n     \"clientSecret\": \"\",\n     \"isTest\": \"\",\n     \"paypalAdditionalInfo\": \"\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Stripe settings updated successfully.\",\n     \"status\": \"1\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/admin-stripe-payment"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "Update Setting API error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "add-ons/Payment/Stripe/controllers/admin/AdminStripeController.ts",
+    "groupTitle": "Setting",
+    "name": "PostApiAdminStripePayment"
+  },
+  {
+    "type": "post",
+    "url": "/api/admin-stripe-payment",
+    "title": "Update Setting API",
+    "group": "Setting",
+    "parameter": {
+      "fields": {
+        "Request body": [
+          {
+            "group": "Request body",
+            "type": "String",
+            "optional": false,
+            "field": "postParams",
+            "description": "<p>postParams</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Input",
+          "content": "{\n     \"clientId\" : \"\",\n     \"clientSecret\": \"\",\n     \"isTest\": \"\",\n     \"paypalAdditionalInfo\": \"\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Stripe settings updated successfully.\",\n     \"status\": \"1\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/admin-stripe-payment"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "Update Setting API error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "add-ons/Payment/Stripe/controllers/vendor/VendorStripeController.ts",
+    "groupTitle": "Setting",
+    "name": "PostApiAdminStripePayment"
+  },
+  {
+    "type": "post",
+    "url": "/api/paypal-payment",
+    "title": "Update Setting API",
+    "group": "Setting",
+    "parameter": {
+      "fields": {
+        "Request body": [
+          {
+            "group": "Request body",
+            "type": "String",
+            "optional": false,
+            "field": "postParams",
+            "description": "<p>postParams</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Input",
+          "content": "{\n     \"clientId\" : 1,\n     \"clientSecret\": \"\",\n     \"isTest\": 1,\n     \"paypalAdditionalInfo\": \"\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Paypal settings updated successfully.\",\n     \"status\": \"1\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/paypal-payment"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "Update Setting API error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "add-ons/Payment/Paypal/controllers/admin/AdminPaypalController.ts",
+    "groupTitle": "Setting",
+    "name": "PostApiPaypalPayment"
+  },
+  {
+    "type": "post",
+    "url": "/api/paypal-payment",
+    "title": "Update Setting API",
+    "group": "Setting",
+    "parameter": {
+      "fields": {
+        "Request body": [
+          {
+            "group": "Request body",
+            "type": "String",
+            "optional": false,
+            "field": "postParams",
+            "description": "<p>postParams</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Input",
+          "content": "{\n     \"clientId\" : 1,\n     \"clientSecret\": \"\",\n     \"isTest\": 1,\n     \"paypalAdditionalInfo\": \"\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Vendor paypal settings updated successfully.\",\n     \"status\": \"1\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/paypal-payment"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "Update Setting API error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "add-ons/Payment/Paypal/controllers/vendor/VendorPaypalController.ts",
+    "groupTitle": "Setting",
+    "name": "PostApiPaypalPayment"
   },
   {
     "type": "get",
@@ -26732,6 +27208,223 @@ define({ "api": [
     "name": "PostApiMediaVendorCreateFolder"
   },
   {
+    "type": "get",
+    "url": "/api/razorpay-payment/cancel",
+    "title": "Cancel RazorPay Payment API",
+    "group": "razorpay",
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n     \"status\": \"1\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/razorpay-payment/cancel"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "razorpay error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "add-ons/Payment/Razorpay/controllers/RazorPayController.ts",
+    "groupTitle": "razorpay",
+    "name": "GetApiRazorpayPaymentCancel"
+  },
+  {
+    "type": "get",
+    "url": "/api/razorpay-payment/process-api/:orderPrefixId",
+    "title": "Razorpay Payment Process API",
+    "group": "razorpay",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "number",
+            "optional": false,
+            "field": "orderPrefixId",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n     \"status\": \"1\",\n      \"message\": \"payment made successful\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/razorpay-payment/process-api/:orderPrefixId"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "razorpay error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "add-ons/Payment/Razorpay/controllers/RazorPayController.ts",
+    "groupTitle": "razorpay",
+    "name": "GetApiRazorpayPaymentProcessApiOrderprefixid"
+  },
+  {
+    "type": "get",
+    "url": "/api/razorpay-payment/process-api/:orderPrefixId",
+    "title": "Payment SuccessAPI",
+    "group": "razorpay",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "number",
+            "optional": false,
+            "field": "orderPrefixId",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{    \"message\": \"payment made successful\",\n     \"status\": \"1\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/razorpay-payment/process-api/:orderPrefixId"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "razorpay error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "add-ons/Payment/Razorpay/controllers/RazorPayController.ts",
+    "groupTitle": "razorpay",
+    "name": "GetApiRazorpayPaymentProcessApiOrderprefixid"
+  },
+  {
+    "type": "get",
+    "url": "/api/razorpay-payment/process/:id",
+    "title": "Process razorpay Payment API",
+    "group": "razorpay",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "number",
+            "optional": false,
+            "field": "orderPrefixId",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n     \"status\": \"1\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/razorpay-payment/process/:id"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "razorpay error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "add-ons/Payment/Razorpay/controllers/RazorPayController.ts",
+    "groupTitle": "razorpay",
+    "name": "GetApiRazorpayPaymentProcessId"
+  },
+  {
+    "type": "get",
+    "url": "/api/razorpay-payment/success/:id",
+    "title": "Success razorpay Payment API",
+    "group": "razorpay",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "number",
+            "optional": false,
+            "field": "orderPrefixId",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n     \"status\": \"1\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/razorpay-payment/success/:id"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "razorpay error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "add-ons/Payment/Razorpay/controllers/RazorPayController.ts",
+    "groupTitle": "razorpay",
+    "name": "GetApiRazorpayPaymentSuccessId"
+  },
+  {
     "type": "Get",
     "url": "/api/seo/blog/:blogSlug",
     "title": "Blog Seo Detail API",
@@ -26966,6 +27659,98 @@ define({ "api": [
     "filename": "src/api/store/controllers/StoreSeoController.ts",
     "groupTitle": "seo_store",
     "name": "GetApiSeoProductProductslug"
+  },
+  {
+    "type": "get",
+    "url": "/api/stripe-payment/process-api/:orderPrefixId",
+    "title": "Payment SuccessAPI",
+    "group": "stripe",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "number",
+            "optional": false,
+            "field": "orderPrefixId",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n     \"status\": \"1\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/stripe-payment/process-api/:orderPrefixId"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "stripe error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "add-ons/Payment/Stripe/controllers/StripeController.ts",
+    "groupTitle": "stripe",
+    "name": "GetApiStripePaymentProcessApiOrderprefixid"
+  },
+  {
+    "type": "get",
+    "url": "/api/stripe-payment/process/:id",
+    "title": "Process Stripe Payment API",
+    "group": "stripe",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "orderPrefixId",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n     \"status\": \"1\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/stripe-payment/process/:id"
+      }
+    ],
+    "error": {
+      "examples": [
+        {
+          "title": "stripe error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "add-ons/Payment/Stripe/controllers/StripeController.ts",
+    "groupTitle": "stripe",
+    "name": "GetApiStripePaymentProcessId"
   },
   {
     "type": "delete",

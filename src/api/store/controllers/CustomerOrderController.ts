@@ -8,6 +8,7 @@
 
 import 'reflect-metadata';
 import { Post, JsonController, Req, Res, Get, QueryParam, Body, UseBefore, Put, Param, Authorized } from 'routing-controllers';
+import { CheckTokenMiddlewares } from '../../core/middlewares/checkTokenMiddleware';
 import { instanceToPlain } from 'class-transformer';
 import { CustomerCheckoutRequest } from './requests/CustomerCheckoutRequest';
 import { OrderCancelRequest } from './requests/OrderCancelRequest';
@@ -30,6 +31,7 @@ import { env } from '../../../env';
 import { VendorOrdersService } from '../../core/services/VendorOrderService';
 import { VendorProductService } from '../../core/services/VendorProductService';
 import { OrderLogService } from '../../core/services/OrderLogService';
+import { pluginModule } from '../../../loaders/pluginLoader';
 import { VendorOrderLogService } from '../../core/services/VendorOrderLogService';
 import { VendorOrderLog } from '../../core/models/VendorOrderLog';
 import { VendorGlobalSettingService } from '../../core/services/VendorGlobalSettingService';
@@ -65,6 +67,12 @@ import { PaymentRuleService } from '../../core/services/PaymentRuleService';
 import { ZoneService } from '../../core/services/zoneService';
 import { CurrencyService } from '../../core/services/CurrencyService';
 import { Service } from 'typedi';
+import { SettingService } from '../../core/services/SettingService';
+import { CountryService } from '../../core/services/CountryService';
+import { PluginService } from '../../core/services/PluginService';
+import { TaxService } from '../../core/services/TaxService';
+import { AddressService } from '../../core/services/AddressService';
+import { StoreCategoryValidator } from '../../core/middlewares/StoreCategoryValidator';
 
 interface CustomerCartCondition {
     productId: number;
@@ -113,7 +121,12 @@ export class CustomerOrderController {
         private currencyService: CurrencyService,
         private vendorPluginService: VendorPluginService,
         private vendorUsersService: VendorUsersService,
-        private paymentRuleService: PaymentRuleService
+        private paymentRuleService: PaymentRuleService,
+        private settingService: SettingService,
+        private countryService: CountryService,
+        private pluginService: PluginService,
+        private taxService: TaxService,
+        private addressService: AddressService
     ) {
         // --
     }
@@ -317,492 +330,84 @@ export class CustomerOrderController {
      */
 
     // Customer Checkout Function
-    @UseBefore(CheckTokenMiddleware)
+    @UseBefore(CheckTokenMiddlewares)
+    @UseBefore(StoreCategoryValidator)
     @Post('/customer-checkout')
-    public async customerCheckout(@Body({ validate: true }) checkoutParam: CustomerCheckoutRequest, @Req() request: any, @Res() response: any): Promise<any> {
+    public async customerCheckout(@Body({ validate: true }) checkoutParam: CustomerCheckoutRequest, @Res() response: any, @Req() request: any): Promise<any> {
 
-        // const logo = await this.settingService.findOne();
-        const vendorSetting = await this.vendorSettingsService.findOne({ where: { vendorId: request.tenantId } });
-        const vendorData = await this.vendorService.findOne({ where: { vendorId: request.tenantId } });
-        const dynamicData: any = {};
-        const orderProducts: any = checkoutParam.productDetails;
-
-        for (const val of orderProducts) {
-            /// for find product price with tax , option price, special, discount and tire price /////
-            let price: any;
-            let taxType: any;
-            let taxValue: any;
-            let tirePrice = 0;
-            let priceWithTax: any;
-            const productTire: any = await this.productService.findOne({ where: { productId: val.productId } });
-            taxType = productTire.taxType;
-            taxValue = productTire.taxValue;
-            const sku: any = await this.skuService.findOne({ where: { skuName: val.skuName } });
-            if (sku) {
-                    if (!tirePrice) {
-                        const findWithQty = await this.productTirePriceService.findTirePrice(val.productId, sku.id, val.quantity);
-                        if (findWithQty) {
-                            tirePrice = findWithQty.price;
-                        } else {
-                            const dateNow = new Date();
-                            const todaydate = dateNow.getFullYear() + '-' + (dateNow.getMonth() + 1) + '-' + dateNow.getDate();
-                            const productSpecial = await this.productSpecialService.findSpecialPriceWithSku(val.productId, sku.id, todaydate);
-                            const productDiscount = await this.productDiscountService.findDiscountPricewithSku(val.productId, sku.id, todaydate);
-                            if (productSpecial) {
-                                tirePrice = productSpecial.price;
-                            } else if (productDiscount) {
-                                tirePrice = productDiscount.price;
-                            } else {
-                                tirePrice = sku.price;
-                            }
-                        }
-                    }
-            } else {
-                tirePrice = productTire.price;
-            }
-            if (taxType && taxType === 2) {
-                const percentAmt = +tirePrice * (+taxValue / 100);
-                priceWithTax = +tirePrice + +percentAmt;
-            } else if (taxType && taxType === 1) {
-                priceWithTax = +tirePrice + +taxValue;
-            } else {
-                priceWithTax = +tirePrice;
-            }
-            price = priceWithTax;
-            ///// finding price from backend ends /////
-            const obj: any = {};
-            obj.skuPrice = sku ? sku.price : productTire.price;
-            obj.skuId = sku ? sku.id : productTire.skuId;
-            obj.price = price;
-            obj.taxType = taxType;
-            obj.taxValue = taxValue;
-            obj.tirePrice = tirePrice;
-            obj.productTire = productTire;
-            obj.quantity = val.quantity;
-            dynamicData[val.skuName] = obj;
-        }
-        for (const val of orderProducts) {
-            const product: any = await this.productService.findOne({ where: { productId: val.productId } });
-            const sku: any = await this.skuService.findOne({ where: { skuName: val.skuName } });
-            if (product.hasStock === 1) {
-                if (!(+sku.minQuantityAllowedCart <= +val.quantity)) {
-
-                    return response.status(400).send({
-                        status: 0,
-                        message: 'Quantity should be greater than min Quantity.',
-                    });
-                } else if (!(+sku.maxQuantityAllowedCart >= +val.quantity)) {
-                    return response.status(400).send({
-                        status: 0,
-                        message: 'Reached maximum quantity limit',
-                    });
-                }
-                if ((+sku.quantity <= 0)) {
-                    return response.status(400).send({
-                        status: 0,
-                        message: 'item is Out of stock',
-                    });
-                }
-                if (!(+sku.quantity >= +val.quantity)) {
-                    return response.status(400).send({
-                        status: 0,
-                        message: 'Available stock for ' + product.name + ' - ' + val.skuName + 'is' + sku.quantity,
-                    });
-                }
-            }
-        }
-
-        const newOrder = {} as any;
-        const newOrderTotal = {} as any;
-        let orderProduct = [];
-        let i;
-        let n;
-        let totalProductAmount;
-        let totalAmount = 0;
-        const productDetailData = [];
-        if (request.id) {
-            let customerId;
-            customerId = request.id;
-            newOrder.customerId = customerId;
-        } else {
-            const customerEmail = await this.customerService.findOne({
-                where: {
-                    email: checkoutParam.emailId,
-                    deleteFlag: 0,
-                },
-            });
-            if (customerEmail) {
-                if (checkoutParam.password) {
-                    const newUser = {} as any;
-                    newUser.firstName = checkoutParam.shippingFirstName;
-                    newUser.lastName = checkoutParam.shippingLastName;
-                    const pattern = /^(?=.*?[A-Z])(?=.*?[a-z])((?=.*?[0-9])|(?=.*?[#?!@$%^&*-])).{8,}$/;
-                    if (!checkoutParam.password.match(pattern)) {
-                        const passwordValidatingMessage = [];
-                        passwordValidatingMessage.push('Password must contain at least one number and one uppercase and lowercase letter, and at least 6 or more characters');
-                        return {
-                            status: 0,
-                            message: "You have an error in your request's body. Check 'errors' field for more details!",
-                            data: { message: passwordValidatingMessage },
-                        };
-                    }
-
-                    newUser.password = await Customer.hashPassword(checkoutParam.password);
-                    newUser.email = checkoutParam.emailId;
-                    newUser.username = checkoutParam.emailId;
-                    newUser.mobileNumber = checkoutParam.phoneNumber;
-                    newUser.isActive = 1;
-                    newUser.siteId = request.site.Id;
-                    newUser.ip = '';
-                    newUser.createdDate = moment().format('YYYY-MM-DD HH:mm:ss');
-                    newUser.modifiedDate = moment().format('YYYY-MM-DD HH:mm:ss');
-                    const resultDatas: any = await this.customerService.create(newUser);
-                    const emailContents: any = await this.emailTemplateService.findOne({ where: { emailTemplateId: 1 } });
-                    const message = emailContents.content.replace('{name}', resultDatas.firstName);
-                    const storeUrl = await this.vendorSettingsService.getVendorDomainOrDefault(request.tenantId, request.get('referer'));
-                    const mailContent: any = {};
-                    mailContent.setting = { ...vendorSetting, ...vendorData };
-                    mailContent.emailContent = message;
-                    mailContent.redirectUrl = storeUrl ?? '';
-                    mailContent.productDetailData = undefined;
-
-                    MAILService.sendMail(mailContent, resultDatas.email, emailContents.subject.replace('{storeName}', vendorSetting.siteName ? vendorSetting.siteName : ''), false, false, '');
-
-                    newOrder.customerId = resultDatas.id;
-                } else {
-                    newOrder.customerId = 0;
-                }
-            } else {
-                return {
-                    status: 0,
-                    message: 'Please login for checkout, emailId already exist',
-                };
-            }
-        }
-        newOrder.email = checkoutParam.emailId;
-        newOrder.telephone = checkoutParam.phoneNumber;
-        newOrder.shippingFirstname = checkoutParam.shippingFirstName;
-        newOrder.shippingLastname = checkoutParam.shippingLastName;
-        newOrder.shippingAddress1 = checkoutParam.shippingAddress_1;
-        newOrder.shippingAddress2 = checkoutParam.shippingAddress_2;
-        newOrder.shippingCompany = checkoutParam.shippingCompany;
-        newOrder.shippingCity = checkoutParam.shippingCity;
-        newOrder.shippingZone = checkoutParam.shippingZone;
-        newOrder.shippingCountryId = checkoutParam.shippingCountryId;
-        const vendorCountry = await this.vendorCountryService.findOne({
-            where: {
-                id: checkoutParam.shippingCountryId,
-            },
-            relations: ['country'],
+        console.log('Before orderCreate');
+        const currencyCode = request.headers['x-currency'] || 'INR';
+        const orderResponse = await this.createOrder({
+            checkoutPayload: checkoutParam,
+            pluginModule,
+            ipAddress: (request.headers['x-forwarded-for'] ||
+                request.connection.remoteAddress ||
+                request.socket.remoteAddress ||
+                request.connection.socket.remoteAddress).split(',')[0],
+            customerId: request.user?.customerId ?? 0,
+            tenantId: request.tenantId,
+            storeRedirectUrl: env.storeRedirectUrl,
+            adminRedirectUrl: env.adminRedirectUrl,
+            vendorRedirectUrl: env.vendorRedirectUrl,
+            baseUrl: env.baseUrl,
+            dirName: __dirname,
+            siteId: request.store.Id,
+            currencyCode,
+            isShoppingCart: checkoutParam.isShoppingCart ?? false,
         });
-        if (vendorCountry) {
-            newOrder.shippingCountry = vendorCountry.country?.name;
+        if (orderResponse.status && orderResponse.data.order) {
+            const emailPayload = orderResponse.data.email;
+
+            if (Object.keys(emailPayload.newCustomerMail).length) {
+                const customerNew = emailPayload.newCustomerMail;
+                MAILService.sendMail(
+                    customerNew.mailContent,
+                    customerNew.email,
+                    customerNew.subject,
+                    customerNew.bcc,
+                    customerNew.isAttachment,
+                    customerNew.attachmentDetails
+                );
+            }
+            if (emailPayload?.stockNotifyMails) {
+                if (Object.keys(emailPayload.stockNotifyMails).length) {
+                    const notifyProduct = emailPayload.stockNotifyMails;
+                    const mailContent = notifyProduct.vendorEmailContents;
+                    mailContent.templateName = 'emailTemplates.ejs';
+                    mailContent.productInfo = [];
+                    MAILService.sendMail(
+                        mailContent,
+                        notifyProduct.vendorEmail,
+                        notifyProduct.subject,
+                        notifyProduct.bcc,
+                        notifyProduct.isAttachment,
+                        notifyProduct.attachmentDetails
+                    );
+                }
+            }
+
+            const adminEmail = emailPayload.codAdminMail;
+            adminEmail.adminMailContents.templateName = 'invoice-order';
+            MAILService.sendMail(adminEmail.adminMailContents, adminEmail.adminId, adminEmail.subject, adminEmail.bcc, adminEmail.isAttachment, adminEmail.attachmentDetails);
+
+            if (emailPayload.codVendorMails.length) {
+                for (const codVendorMail of emailPayload.codVendorMails) {
+                    const vendorMail = codVendorMail;
+                    vendorMail.vendorEmailContents.templateName = 'invoice-order';
+                    MAILService.sendMail(vendorMail.vendorEmailContents, vendorMail.vendorEmail, vendorMail.subject, vendorMail.bcc, vendorMail.isAttachment, vendorMail.attachmentDetails);
+                }
+            }
+
+            const customerEmail = emailPayload.codCustomerMail;
+            customerEmail.storeMailContents.templateName = 'invoice-order';
+            MAILService.sendMail(customerEmail.storeMailContents, customerEmail.email, customerEmail.subject, customerEmail.bcc, customerEmail.isAttachment, customerEmail.attachmentDetails);
         }
-        newOrder.shippingPostcode = checkoutParam.shippingPostCode;
-        newOrder.shippingAddressFormat = checkoutParam.shippingAddressFormat;
-        newOrder.paymentFirstname = checkoutParam.paymentFirstName;
-        newOrder.paymentLastname = checkoutParam.paymentLastName;
-        newOrder.paymentAddress1 = checkoutParam.paymentAddress_1;
-        newOrder.paymentAddress2 = checkoutParam.paymentAddress_2;
-        newOrder.paymentMobileNumber = checkoutParam.paymentMobileNumber;
-        newOrder.paymentCompany = checkoutParam.paymentCompany;
-        const paymentVendorCountry: any = await this.vendorCountryService.findOne({
-            where: {
-                id: checkoutParam.paymentCountryId,
-            },
-            relations: ['country'],
+
+        return response.status(orderResponse.status ? 200 : 400).send({
+            status: orderResponse.status,
+            message: orderResponse.message,
+            data: orderResponse.status ? (orderResponse.status === 1 ? orderResponse.data.order : orderResponse.data.route) : undefined,
         });
-        if (paymentVendorCountry) {
-            newOrder.paymentCountry = paymentVendorCountry?.country?.name;
-        }
-        newOrder.paymentCity = checkoutParam.paymentCity;
-        newOrder.paymentZone = checkoutParam.paymentZone;
-        newOrder.paymentPostcode = checkoutParam.paymentPostCode;
-        newOrder.paymentMethod = checkoutParam.paymentMethod;
-        newOrder.customerGstNo = checkoutParam.taxNumber;
-        newOrder.ip = '';
-        newOrder.isActive = 1;
-        const vendorSettings = await this.vendorSettingsService.findOne({ where: { vendorId: request.tenantId } });
-        newOrder.orderStatusId = vendorSettings ? vendorSettings.orderStatus : 0;
-        newOrder.invoicePrefix = vendorSettings ? vendorSettings.invoicePrefix : '';
-        const vendorCurrency: any = await this.currencyService.findOne({ where: { currencyId: vendorSettings.storeCurrencyId } });
-        newOrder.currencyCode = vendorCurrency?.code ?? '';
-        newOrder.currencyValue = vendorCurrency?.value ?? 0;
-        newOrder.currencySymbolLeft = vendorCurrency?.symbolLeft ?? '';
-        newOrder.currencySymbolRight = vendorCurrency?.symbolRight ?? '';
-        newOrder.paymentAddressFormat = checkoutParam.shippingAddressFormat;
-        newOrder.tenantId = request.tenantId;
-        newOrder.createdDate = moment().format('YYYY-MM-DD HH:mm:ss');
-        newOrder.modifiedDate = moment().format('YYYY-MM-DD HH:mm:ss');
-        newOrder.mustShipBefore = checkoutParam.mustShipBefore;
-        newOrder.poNumber = checkoutParam.poNumber;
-        newOrder.notes = checkoutParam.notes;
-        newOrder.paymentRuleId = checkoutParam.paymentRuleId;
-        newOrder.paymentTermId = checkoutParam.paymentTermId;
-        newOrder.createdByType = 'buyer';
-        newOrder.shippingCostOverride = checkoutParam.shippingCostOverride;
-        const orderData: any = await this.orderService.create(newOrder);
-        await this.orderLogService.create({ orderLogId: undefined, ...orderData });
-
-        orderProduct = checkoutParam.productDetails;
-        let j = 1;
-        for (i = 0; i < orderProduct.length; i++) {
-            // finding price from backend ends
-            const dynamicPrices = dynamicData[orderProduct[i].skuName];
-            const productDetails = {} as any;
-            productDetails.productId = orderProduct[i].productId;
-            const nwDate = new Date();
-            const odrDate = nwDate.getFullYear() + ('0' + (nwDate.getMonth() + 1)).slice(-2) + ('0' + nwDate.getDate()).slice(-2);
-            productDetails.orderProductPrefixId = orderData.invoicePrefix.concat('-' + odrDate + orderData.orderId) + j;
-            productDetails.name = orderProduct[i].name;
-            productDetails.orderId = orderData.orderId;
-            productDetails.quantity = orderProduct[i].quantity;
-            productDetails.productPrice = dynamicPrices.price;
-            productDetails.basePrice = dynamicPrices.skuPrice;
-            productDetails.discountAmount = parseFloat(dynamicPrices.skuPrice) - parseFloat(dynamicPrices.tirePrice);
-            productDetails.discountedAmount = productDetails.discountAmount !== 0.00 ? dynamicPrices.tirePrice : '0.00';
-            productDetails.taxType = dynamicPrices.taxType;
-            productDetails.taxValue = dynamicPrices.taxValue;
-            productDetails.total = +orderProduct[i].quantity * dynamicPrices.price;
-            productDetails.model = dynamicPrices.productTire.name;
-            productDetails.skuName = orderProduct[i].skuName ? orderProduct[i].skuName : '';
-            const orderStatus = await this.orderStatusService.findOne({ where: { statusId: 1, tenantId: request.tenantId } });
-            productDetails.orderStatusId = orderStatus.orderStatusId;
-            productDetails.createdDate = moment().format('YYYY-MM-DD HH:mm:ss');
-            productDetails.modifiedDate = moment().format('YYYY-MM-DD HH:mm:ss');
-            const productInformation = await this.orderProductService.createData(productDetails);
-            await this.orderProductLogService.create(productInformation);
-            // Remove product from Cart..!
-            const customerCartCondition = {} as any;
-            customerCartCondition.productId = orderProduct[i].productId;
-            customerCartCondition.customerId = orderData.customerId;
-            const cart: any = await this.customerCartService.findOne({ where: customerCartCondition });
-            if (cart) {
-                await this.customerCartService.delete(cart.id);
-            }
-            // -- VEN
-            if (request.tenantId !== 0) {
-                const val: any = await this.vendorProductService.findOne({ where: { productId: orderProduct[i].productId, vendorId: request.tenantId } });
-                if (val) {
-                    // const vendor: any = await this.vendorService.findOne({ where: { vendorId: val.vendorId } });
-                    const vendororders = {} as any;
-                    vendororders.subOrderId = orderData.invoicePrefix.concat('-' + odrDate + orderData.orderId) + request.tenantId + j;
-                    vendororders.vendorId = request.tenantId;
-                    vendororders.orderId = orderData.orderId;
-                    vendororders.orderProductId = productInformation.orderProductId;
-                    vendororders.total = productDetails.total;
-                    vendororders.subOrderStatusId = 1;
-                    vendororders.commission = 0;
-                    vendororders.modifiedDate = moment().format('YYYY-MM-DD HH:mm:ss');
-                    vendororders.createdDate = moment().format('YYYY-MM-DD HH:mm:ss');
-                    const value = await this.vendorOrderService.create(vendororders);
-                    const vendorOrderLog = {} as any;
-                    vendorOrderLog.vendorOrderId = value.vendorOrderId;
-                    vendorOrderLog.subOrderId = orderData.invoicePrefix.concat('-' + odrDate + orderData.orderId) + request.tenantId + j;
-                    vendorOrderLog.vendorId = request.tenantId;
-                    vendorOrderLog.orderId = orderData.orderId;
-                    vendorOrderLog.subOrderStatusId = orderStatus.orderStatusId;
-                    vendorOrderLog.createdDate = moment().format('YYYY-MM-DD HH:mm:ss');
-                    vendorOrderLog.modifiedDate = moment().format('YYYY-MM-DD HH:mm:ss');
-
-                    await this.vendorOrderLogService.create(vendorOrderLog);
-
-                    const getVendorInvoice = await this.vendorInvoiceService.findOne({ where: { vendorId: request.tenantId, orderId: orderData.orderId } });
-                    if (!getVendorInvoice) {
-                        const newVendorInvoice = {} as any;
-                        newVendorInvoice.vendorId = request.tenantId;
-                        newVendorInvoice.invoicePrefix = orderData.invoicePrefix;
-                        newVendorInvoice.orderId = orderData.orderId;
-                        newVendorInvoice.email = checkoutParam.emailId;
-                        newVendorInvoice.total = 0;
-                        newVendorInvoice.shippingFirstname = checkoutParam.shippingFirstName;
-                        newVendorInvoice.shippingLastname = checkoutParam.shippingLastName;
-                        newVendorInvoice.createdDate = moment().format('YYYY-MM-DD HH:mm:ss');
-                        newVendorInvoice.modifiedDate = moment().format('YYYY-MM-DD HH:mm:ss');
-                        await this.vendorInvoiceService.create(newVendorInvoice);
-                    }
-                    const vendorInvoiceData: any = await this.vendorInvoiceService.findOne({ where: { vendorId: request.tenantId, orderId: orderData.orderId } });
-                    vendorInvoiceData.total = vendorInvoiceData.total + +productDetails.total;
-                    const stringPad = String(vendorInvoiceData.vendorInvoiceId).padStart(5, '0');
-                    vendorInvoiceData.invoiceNo = 'INV'.concat(stringPad);
-
-                    await this.vendorInvoiceService.create(vendorInvoiceData);
-
-                    const newVendorInvoiceItem = {} as any;
-                    newVendorInvoiceItem.vendorInvoiceId = vendorInvoiceData.vendorInvoiceId;
-                    newVendorInvoiceItem.orderProductId = productInformation.orderProductId;
-                    newVendorInvoiceItem.createdDate = moment().format('YYYY-MM-DD HH:mm:ss');
-                    newVendorInvoiceItem.modifiedDate = moment().format('YYYY-MM-DD HH:mm:ss');
-                    await this.vendorInvoiceItemService.create(newVendorInvoiceItem);
-                }
-            }
-
-            const productImageData: any = await this.productService.findOne({ where: { productId: productInformation.productId } });
-            // for stock management
-            if (productImageData.hasStock === 1) {
-                const product: any = await this.skuService.findOne({ where: { skuName: productInformation.skuName } });
-                product.quantity = +product.quantity - +productInformation.quantity;
-                const prod: any = await this.skuService.create(product);
-                if (productImageData.isSimplified === 0) {
-                    const findSku: any = await this.skuService.findOne({ where: { skuName: productInformation.skuName } });
-                    findSku.quantity = +findSku.quantity - +productInformation.quantity;
-                    await this.skuService.create(findSku);
-                }
-                if (+prod.quantity <= +prod.notifyMinQuantity) {
-                    const productStockAlert = {} as any;
-                    productStockAlert.productId = productInformation.productId;
-                    productStockAlert.skuName = productInformation.skuName;
-                    productStockAlert.mailFlag = 1;
-                    await this.productStockAlertService.create(productStockAlert);
-                    // Send email for stock notify
-                    const findVendorProduct: any = await this.vendorProductService.findOne({ where: { productId: productInformation.productId }, relations: ['vendor'] });
-                    const findProductNotifyTemp: any = await this.emailTemplateService.findOne({ where: { emailTemplateId: 46 } });
-                    if (findVendorProduct) {
-                        const customer: any = await this.customerService.findOne({ where: { id: findVendorProduct.vendor.customerId } });
-                        const vendorMessage = findProductNotifyTemp.content.replace(/{name}/g, customer.firstName + ' ' + customer.lastName).replace(/{productName}/g, productImageData.name);
-                        const vendorMailContents: any = {};
-                        vendorMailContents.setting = { ...vendorSetting, ...vendorData };
-                        vendorMailContents.productDetailData = undefined;
-                        vendorMailContents.emailContent = vendorMessage;
-                        vendorMailContents.redirectUrl = env.vendorRedirectUrl;
-                    }
-                }
-                const stockLog = {} as any;
-                stockLog.productId = productInformation.productId;
-                stockLog.orderId = orderData.orderId;
-                stockLog.skuName = productInformation.skuName;
-                stockLog.quantity = productInformation.quantity;
-                stockLog.createdDate = moment().format('YYYY-MM-DD HH:mm:ss');
-                await this.stockLogService.create(stockLog);
-            }
-            let productImageDetail;
-            productImageDetail = await this.productImageService.findOne({ where: { productId: productInformation.productId, defaultImage: 1 } });
-            productImageData.productInformationData = productInformation;
-            productImageData.productImage = productImageDetail;
-            totalProductAmount = await this.orderProductService.find({ where: { productId: orderProduct[i].productId, orderId: orderData.orderId, orderProductId: productInformation.orderProductId } });
-            for (n = 0; n < totalProductAmount.length; n++) {
-                totalAmount += +totalProductAmount[n].total;
-            }
-            productDetailData.push(productImageData);
-            j++;
-        }
-
-        newOrderTotal.createdDate = moment().format('YYYY-MM-DD HH:mm:ss');
-        newOrderTotal.modifiedDate = moment().format('YYYY-MM-DD HH:mm:ss');
-        newOrder.amount = totalAmount;
-        newOrder.total = totalAmount + (+checkoutParam.shippingCostOverride);
-        newOrderTotal.value = totalAmount + (+checkoutParam.shippingCostOverride);
-        newOrder.invoiceNo = 'INV00'.concat(orderData.orderId);
-        const nowDate = new Date();
-        const orderDate = nowDate.getFullYear() + ('0' + (nowDate.getMonth() + 1)).slice(-2) + ('0' + nowDate.getDate()).slice(-2);
-        newOrder.orderPrefixId = vendorSettings.invoicePrefix.concat('-' + orderDate + orderData.orderId);
-        newOrderTotal.orderId = orderData.orderId;
-        await this.orderService.update(orderData.orderId, newOrder);
-        await this.orderTotalService.createOrderTotalData(newOrderTotal);
-
-        if (!checkoutParam.paymentRuleId) {
-            return {
-                status: 0,
-                message: 'paymentRuleId is invalid',
-            };
-        }
-
-        const emailContent: any = await this.emailTemplateService.findOne({ where: { emailTemplateId: 5 } });
-        const adminEmailContent: any = await this.emailTemplateService.findOne({ where: { emailTemplateId: 6 } });
-        const today = ('0' + nowDate.getDate()).slice(-2) + '.' + ('0' + (nowDate.getMonth() + 1)).slice(-2) + '.' + nowDate.getFullYear();
-        const customerFirstName = orderData.shippingFirstname;
-        const customerLastName = orderData.shippingLastname;
-        const customerName = customerFirstName + ' ' + customerLastName;
-        const customerMessage = emailContent.content.replace('{name}', customerName);
-        const adminId: any = [];
-        const vendorUser = await this.vendorUsersService.find({
-            where: {
-                tenantId: request.tenantId,
-                deleteFlag: 0,
-                vendorUserGroup: {
-                    slug: 'admin',
-                },
-            },
-            relations: ['vendorUserGroup'],
-        });
-        for (const user of vendorUser) {
-            const value = user.username;
-            adminId.push(value);
-        }
-        const codVendorMails: any[] = [];
-        const vendorInvoice: any[] = await this.vendorInvoiceService.findAll({ where: { orderId: orderData.orderId } });
-        if (vendorInvoice.length > 0) {
-            for (const vendInvoice of vendorInvoice) {
-                const vendorProductDetailData = [];
-                const vendor: any = await this.vendorService.findOne({ where: { vendorId: vendInvoice.vendorId } });
-                const customer: any = await this.customerService.findOne({ where: { id: vendor.customerId } });
-                const vendorMessage = adminEmailContent.content.replace('{adminname}', vendor.companyName).replace('{name}', customerName).replace('{orderId}', orderData.orderId);
-                const vendorInvoiceItem: any[] = await this.vendorInvoiceItemService.findAll({ where: { vendorInvoiceId: vendInvoice.vendorInvoiceId } });
-                for (const vendInvoiceItem of vendorInvoiceItem) {
-                    const vendorProductInformation: any = await this.orderProductService.findOne({ where: { orderProductId: vendInvoiceItem.orderProductId }, select: ['orderProductId', 'orderId', 'productId', 'name', 'model', 'quantity', 'total', 'productPrice', 'basePrice', 'skuName', 'taxValue', 'taxType', 'orderProductPrefixId'] });
-                    const vendorProductImageData: any = await this.productService.findOne({ where: { productId: vendorProductInformation.productId } });
-                    let vendorProductImageDetail;
-                    vendorProductImageDetail = await this.productImageService.findOne({ where: { productId: vendorProductInformation.productId, defaultImage: 1 } });
-                    vendorProductImageData.productInformationData = vendorProductInformation;
-                    vendorProductImageData.productImage = vendorProductImageDetail;
-                    vendorProductDetailData.push(vendorProductImageData);
-
-                }
-                const vendorRedirectUrl = env.vendorRedirectUrl;
-                const vendorMailContents: any = {};
-                vendorMailContents.setting = { ...vendorSetting, ...vendor };
-                vendorMailContents.emailContent = vendorMessage;
-                vendorMailContents.redirectUrl = vendorRedirectUrl;
-                vendorMailContents.productDetailData = vendorProductDetailData;
-                vendorMailContents.today = today;
-                vendorMailContents.orderData = orderData;
-                const codVendorMail: any = {};
-                codVendorMail.vendorEmailContents = vendorMailContents;
-                codVendorMail.vendorEmail = customer.email;
-                codVendorMail.subject = adminEmailContent.subject;
-                codVendorMail.bcc = false;
-                codVendorMail.isAttachment = false;
-                codVendorMail.attachmentDetails = '';
-
-                codVendorMails.push({ ...codVendorMail });
-            }
-        }
-        if (codVendorMails.length) {
-            for (const codVendorMail of codVendorMails) {
-                const vendorMail = codVendorMail;
-                vendorMail.vendorEmailContents.templateName = 'invoice-order';
-                MAILService.sendMail(vendorMail.vendorEmailContents, vendorMail.vendorEmail, vendorMail.subject.replace('{orderId}', orderData.orderId), vendorMail.bcc, vendorMail.isAttachment, vendorMail.attachmentDetails);
-            }
-        }
-        const storeUrls = await this.vendorSettingsService.getVendorDomainOrDefault(request.tenantId, request.get('referer'));
-        const storeMailContents: any = {};
-        storeMailContents.setting = { ...vendorSetting, ...vendorData };
-        storeMailContents.emailContent = customerMessage;
-        storeMailContents.redirectUrl = storeUrls ?? '';
-        storeMailContents.productDetailData = productDetailData;
-        storeMailContents.today = today;
-        storeMailContents.orderData = orderData;
-        storeMailContents.templateName = 'invoice-order';
-        MAILService.sendMail(storeMailContents, orderData.email, emailContent.subject.replace('{storeName}', vendorSetting?.siteName ? vendorSetting.siteName : ''), false, false, '');
-
-        const order: any = await this.orderService.findOne({ orderId: orderData.orderId });
-        order.productDetail = await this.orderProductService.find({ where: { orderId: orderData.orderId } }).then((val) => {
-            const productImage = val.map(async (value: any) => {
-                let image;
-                image = await this.productImageService.findOne({ where: { productId: value.productId } });
-                const temp: any = value;
-                temp.image = image;
-                return temp;
-            });
-            const results = Promise.all(productImage);
-            return results;
-        });
-
-        return {
-            status: 1,
-            message: 'You have successfully placed order. order details sent to your mail',
-            data: { order },
-        };
     }
 
     // customer  Back Order
@@ -1288,17 +893,17 @@ export class CustomerOrderController {
                 vendororders.commission = 0;
                 const date = new Date();
                 vendororders.modifiedDate = moment(date).format('YYYY-MM-DD HH:mm:ss');
-                const vendorGroup = await this.vendorGroupService.findOne({ where: { groupId: vendor.vendorGroupId, isActive: 1 } });
+                const vendorGroup = vendor?.vendorGroupId ? await this.vendorGroupService.findOne({ where: { groupId: vendor.vendorGroupId, isActive: 1 } }) : null;
                 if (val.vendorProductCommission > 0) {
                     vendororders.commission = val.vendorProductCommission;
-                } else if (vendor.commission > 0) {
+                } else if (vendor && vendor.commission > 0) {
                     vendororders.commission = vendor.commission;
-                } else if (vendorGroup.commission > 0) {
+                } else if (vendorGroup && vendorGroup.commission > 0) {
                     vendororders.commission = vendorGroup.commission;
                 } else {
                     const defaultCommission = await this.vendorGlobalSettingService.findOne({ where: { settingId: 1 } });
                     const defCommission = defaultCommission?.defaultCommission;
-                    vendororders.commission = defCommission;
+                    vendororders.commission = defCommission || 0;
                 }
                 const value = await this.vendorOrderService.create(vendororders);
                 const vendorOrderLog = new VendorOrderLog();
@@ -2536,4 +2141,690 @@ export class CustomerOrderController {
         // Return false if the date is more than 1 day away, true otherwise
         return diffInDays <= 1;
     }
+
+        private async createOrder(payload: any): Promise<any> {
+        const checkoutParam = payload.checkoutPayload;
+        const logo = await this.settingService.findOne({ where: {} });
+        const coupon = {
+            couponCode: checkoutParam.couponCode,
+            couponData: checkoutParam.couponData,
+            couponDiscount: checkoutParam.couponDiscountAmount,
+        };
+
+        const newCustomerMail: any = {};
+        const codAdminMail: any = {};
+        const codCustomerMail: any = {};
+        const stockNotifyMails: any = {};
+
+        // Coupon Validation
+        if (payload.pluginModule.includes('Coupon')) {
+            const importPath = payload.dirName + '/../../../../add-ons/Coupon/coupon';
+            const Coupon = await require(importPath);
+            const pluginResponse: any = await Coupon.process(coupon);
+            if (pluginResponse === 'error') {
+                return { status: 0, message: 'Invalid Coupon' };
+            }
+        }
+
+        const dynamicData: any = {};
+        const orderProducts: any = checkoutParam.productDetails;
+        let priceGroupAddonExist = false;
+        let customerPriceBySkuAndCustomerId: any;
+
+        if (payload.pluginModule.includes('ProductPriceGroup') && await this.pluginService.findOne({ where: { slugName: 'product-price-group', pluginStatus: 1 } })) {
+            priceGroupAddonExist = true;
+            const importPath = payload.dirName + '/../../../../add-ons/ProductPriceGroup/priceGroupHook';
+            const { getCustomerPriceBySkuAndCustomerId } = require(importPath);
+            customerPriceBySkuAndCustomerId = getCustomerPriceBySkuAndCustomerId;
+        }
+
+        for (const val of orderProducts) {
+            let price: any;
+            let taxType: any;
+            let taxValue: any;
+            let tirePrice = 0;
+            let priceWithTax: any;
+            let priceGroupDetailId = 0;
+            const productTire: any = await this.productService.findOne({ where: { productId: val.productId } });
+            taxType = productTire.taxType;
+            if (taxType === 2 && taxType) {
+                const tax: any = await this.taxService.findOne({ where: { taxId: productTire.taxValue } });
+                taxValue = (tax) ? tax.taxPercentage : 0;
+            } else if (taxType === 1 && taxType) {
+                taxValue = productTire.taxValue;
+            }
+            const sku: any = await this.skuService.findOne({ where: { skuName: val.skuName } });
+            if (sku) {
+                const customerPrice = [];
+                if (priceGroupAddonExist) {
+                    customerPrice.push(...(await customerPriceBySkuAndCustomerId(sku.id, payload.customerId)));
+                }
+                if (customerPrice.length) {
+                    const customerPriceSort = customerPrice.sort((a: any, b: any) => b.maxQuantity - a.maxQuantity);
+                    const priceByQuantity = customerPriceSort.find((custPrice: any) => val.quantity >= custPrice.maxQuantity);
+                    if (priceByQuantity) {
+                        tirePrice = priceByQuantity.price;
+                        priceGroupDetailId = priceByQuantity.id;
+                    }
+                }
+                if (!tirePrice) {
+                    const findWithQty = await this.productTirePriceService.findTirePrice(val.productId, sku.id, val.quantity);
+                    if (findWithQty) {
+                        tirePrice = findWithQty.price;
+                    } else {
+                        const dateNow = new Date();
+                        const todaydate = dateNow.getFullYear() + '-' + (dateNow.getMonth() + 1) + '-' + dateNow.getDate();
+                        const productSpecial = await this.productSpecialService.findSpecialPriceWithSku(val.productId, sku.id, todaydate);
+                        const productDiscount = await this.productDiscountService.findDiscountPricewithSku(val.productId, sku.id, todaydate);
+                        if (productSpecial) {
+                            tirePrice = productSpecial.price;
+                        } else if (productDiscount) {
+                            tirePrice = productDiscount.price;
+                        } else {
+                            tirePrice = sku.price;
+                        }
+                    }
+                }
+            } else {
+                tirePrice = productTire.price;
+            }
+            if (taxType && taxType === 2) {
+                const percentAmt = +tirePrice * (+taxValue / 100);
+                priceWithTax = +tirePrice + +percentAmt;
+            } else if (taxType && taxType === 1) {
+                priceWithTax = +tirePrice + +taxValue;
+            } else {
+                priceWithTax = +tirePrice;
+            }
+            price = priceWithTax;
+            const obj: any = {};
+            obj.skuPrice = sku ? sku.price : productTire.price;
+            obj.skuId = sku ? sku.id : productTire.skuId;
+            obj.price = price;
+            obj.taxType = taxType;
+            obj.taxValue = taxValue;
+            obj.tirePrice = tirePrice;
+            obj.productTire = productTire;
+            obj.quantity = val.quantity ?? 1;
+            obj.priceGroupDetailId = priceGroupDetailId;
+            dynamicData[val.skuName] = obj;
+        }
+
+        for (const val of orderProducts) {
+            const product: any = await this.productService.findOne({ where: { productId: val.productId } });
+            const sku: any = await this.skuService.findOne({ where: { skuName: val.skuName } });
+            if (product.productType === 'physical' && product.hasStock === 1) {
+                if (!(+sku.minQuantityAllowedCart <= +val.quantity)) {
+                    return { status: 0, message: 'Quantity should be greater than min Quantity.' };
+                } else if (!(+sku.maxQuantityAllowedCart >= +val.quantity)) {
+                    return { status: 0, message: 'Reached maximum quantity limit' };
+                }
+                if ((+sku.quantity <= 0)) {
+                    return { status: 0, message: 'item is Out of stock' };
+                }
+                if (!(+sku.quantity >= +val.quantity)) {
+                    return { status: 0, message: `Available stock for ${product.name} - ${val.skuName} is ${sku.quantity}` };
+                }
+            }
+        }
+
+        const plugin: any = await this.pluginService.findOne({ where: { id: checkoutParam.paymentMethod } });
+        if (!plugin) {
+            return { status: 0, message: 'Payment method is invalid' };
+        }
+        if (checkoutParam.productType !== 'physical' && plugin.pluginName === 'CashOnDelivery') {
+            return { status: 0, message: 'Payment method is invalid' };
+        }
+
+        // Uses a pre-flight estimate — final authoritative check is at deduction time.
+        if (plugin.pluginName === 'Wallet' && payload.pluginModule.includes('Wallet')) {
+            try {
+                const walletHook = require(payload.dirName + '/../../../../add-ons/Wallet/walletOrderHook');
+                // Use dynamicData to compute an estimated total for early validation
+                const estimatedTotal = Object.values(dynamicData).reduce((sum: number, item: any) => {
+                    return sum + (+item.price * +item.quantity);
+                }, 0);
+                const validation = await walletHook.validateWalletPayment(payload.customerId, estimatedTotal, payload.tenantId);
+                if (!validation.valid) {
+                    return { status: 0, message: validation.message };
+                }
+            } catch (_e) {
+                return { status: 0, message: 'Wallet payment is not available.' };
+            }
+        }
+
+        const newOrder = {} as any;
+        const newOrderTotal = {} as any;
+        let orderProduct = [];
+        let i: number;
+        let n: number;
+        let totalProductAmount: any;
+        let totalAmount = 0;
+        const productDetailData: any[] = [];
+
+        if (payload.customerId) {
+            newOrder.customerId = payload.customerId;
+        } else {
+            const customerEmail = await this.customerService.findOne({
+                where: { email: checkoutParam.emailId, deleteFlag: 0 },
+            });
+            if (!customerEmail) {
+                if (checkoutParam.password) {
+                    const newUser = {} as any;
+                    newUser.firstName = checkoutParam.shippingFirstName;
+                    newUser.lastName = checkoutParam.shippingLastName;
+                    const pattern = /^(?=.*?[A-Z])(?=.*?[a-z])((?=.*?[0-9])|(?=.*?[#?!@$%^&*-])).{8,}$/;
+                    if (!checkoutParam.password.match(pattern)) {
+                        return {
+                            status: 0,
+                            message: "You have an error in your request's body. Check 'errors' field for more details!",
+                            data: { message: ['Password must contain at least one number and one uppercase and lowercase letter, and at least 6 or more characters'] },
+                        };
+                    }
+                    newUser.password = await Customer.hashPassword(checkoutParam.password);
+                    newUser.email = checkoutParam.emailId;
+                    newUser.username = checkoutParam.emailId;
+                    newUser.mobileNumber = checkoutParam.phoneNumber;
+                    newUser.isActive = 1;
+                    newUser.siteId = payload.siteId;
+                    newUser.ip = payload.ipAddress;
+                    newUser.createdDate = moment().format('YYYY-MM-DD HH:mm:ss');
+                    newUser.modifiedDate = moment().format('YYYY-MM-DD HH:mm:ss');
+                    const resultDatas: any = await this.customerService.create(newUser);
+                    const newAddress = {} as any;
+                    newAddress.firstName = checkoutParam.shippingFirstName;
+                    newAddress.lastName = checkoutParam.shippingLastName ?? '';
+                    newAddress.customerId = resultDatas.id;
+                    newAddress.address1 = checkoutParam.shippingAddress_1;
+                    newAddress.address2 = checkoutParam.shippingAddress_2;
+                    newAddress.city = checkoutParam.shippingCity;
+                    newAddress.state = checkoutParam.shippingZone ?? '';
+                    newAddress.zoneId = checkoutParam.state ?? 0;
+                    newAddress.countryId = checkoutParam.shippingCountryId;
+                    newAddress.postcode = checkoutParam.shippingPostCode;
+                    newAddress.addressType = 0;
+                    newAddress.company = checkoutParam.shippingCompany ?? '';
+                    newAddress.landmark = '';
+                    newAddress.phoneNo = checkoutParam.phoneNumber;
+                    await this.addressService.create(newAddress);
+                    const emailContents: any = await this.emailTemplateService.findOne({ where: { emailTemplateId: 1 } });
+                    const message = emailContents.content.replace('{name}', resultDatas.firstName);
+                    const mailContent: any = {};
+                    mailContent.logo = logo;
+                    mailContent.emailContent = message;
+                    mailContent.redirectUrl = payload.storeRedirectUrl;
+                    mailContent.productDetailData = undefined;
+                    newCustomerMail.mailContent = mailContent;
+                    newCustomerMail.email = resultDatas.email;
+                    newCustomerMail.subject = emailContents.subject;
+                    newCustomerMail.bcc = false;
+                    newCustomerMail.isAttachment = false;
+                    newCustomerMail.attachmentDetails = '';
+                    newOrder.customerId = resultDatas.id;
+                } else {
+                    newOrder.customerId = 0;
+                }
+            } else {
+                return { status: 0, message: 'Please login for checkout, emailId already exist' };
+            }
+        }
+
+        newOrder.email = checkoutParam.emailId;
+        newOrder.telephone = checkoutParam.phoneNumber;
+
+        if (checkoutParam.productType === 'physical') {
+            newOrder.shippingFirstname = checkoutParam.shippingFirstName;
+            newOrder.shippingLastname = checkoutParam.shippingLastName;
+            newOrder.shippingAddress1 = checkoutParam.shippingAddress_1;
+            newOrder.shippingAddress2 = checkoutParam.shippingAddress_2;
+            newOrder.shippingCompany = checkoutParam.shippingCompany;
+            newOrder.shippingCity = checkoutParam.shippingCity;
+            newOrder.shippingZone = checkoutParam.shippingZone;
+            newOrder.shippingCountryId = checkoutParam.shippingCountryId;
+            const country: any = await this.countryService.findOne({ where: { countryId: checkoutParam.shippingCountryId } });
+            if (country) { newOrder.shippingCountry = country.name; }
+            newOrder.shippingPostcode = checkoutParam.shippingPostCode;
+            newOrder.shippingAddressFormat = checkoutParam.shippingAddressFormat;
+        } else {
+            newOrder.shippingFirstname = '';
+            newOrder.shippingLastname = '';
+            newOrder.shippingAddress1 = '';
+            newOrder.shippingAddress2 = '';
+            newOrder.shippingCompany = '';
+            newOrder.shippingCity = '';
+            newOrder.shippingZone = '';
+            newOrder.shippingCountryId = 0;
+            newOrder.shippingCountry = '';
+            newOrder.shippingPostcode = '';
+            newOrder.shippingAddressFormat = '';
+        }
+
+        newOrder.paymentFirstname = checkoutParam.paymentFirstName;
+        newOrder.paymentLastname = checkoutParam.paymentLastName;
+        newOrder.paymentAddress1 = checkoutParam.paymentAddress_1;
+        newOrder.paymentAddress2 = checkoutParam.paymentAddress_2;
+        newOrder.paymentMobileNumber = checkoutParam.paymentMobileNumber;
+        newOrder.paymentCompany = checkoutParam.paymentCompany;
+        newOrder.tenantId = payload.tenantId;
+        newOrder.poNumber = checkoutParam.poNumber ?? '';
+        newOrder.mustShipBefore = moment().format('YYYY-MM-DD HH:mm:ss');
+        newOrder.notes = '';
+        newOrder.paymentRuleId = checkoutParam.paymentRuleId;
+        newOrder.paymentTermId = checkoutParam.paymentTermId;
+        newOrder.shippingCostOverride = checkoutParam.shippingCostOverride;
+        newOrder.orderSource = 'shopping-cart';
+        newOrder.createdByType = 'buyer';
+        const paymentCountry: any = await this.countryService.findOne({ where: { countryId: checkoutParam.paymentCountryId } });
+        if (paymentCountry) { newOrder.paymentCountry = paymentCountry.name; }
+        newOrder.paymentCity = checkoutParam.paymentCity;
+        newOrder.paymentZone = checkoutParam.paymentZone;
+        newOrder.paymentPostcode = checkoutParam.paymentPostCode;
+        newOrder.paymentMethod = checkoutParam.paymentMethod;
+        newOrder.customerGstNo = checkoutParam.taxNumber;
+        newOrder.ip = payload.ipAddress;
+        newOrder.isActive = 1;
+
+        const setting: any = await this.settingService.findOne({ where: { settingsId: payload.siteId } });
+        newOrder.orderStatusId = setting ? setting.orderStatus : 0;
+        newOrder.invoicePrefix = setting ? setting.invoicePrefix : '';
+        const currencyVal: any = await this.currencyService.findOne({ where: { currencyId: setting.storeCurrencyId } });
+        newOrder.currencyCode = currencyVal ? currencyVal.code : '';
+        newOrder.currencyValue = currencyVal ? currencyVal.value : '';
+        newOrder.currencySymbolLeft = currencyVal ? currencyVal.symbolLeft : '';
+        newOrder.currencySymbolRight = currencyVal?.symbolRight ?? '';
+        newOrder.paymentAddressFormat = checkoutParam.shippingAddressFormat;
+        newOrder.createdDate = moment().format('YYYY-MM-DD HH:mm:ss');
+        newOrder.modifiedDate = moment().format('YYYY-MM-DD HH:mm:ss');
+        const currencyCode = payload.currencyCode || 'INR';
+        let validCurrency = await this.currencyService.findOne({ where: { code: currencyCode, isActive: 1 } });
+        if (!validCurrency) {
+            validCurrency = await this.currencyService.findOne({ where: { code: 'INR', isActive: 1 } });
+        }
+        newOrder.currencyExchangeCode = validCurrency.code;
+        newOrder.currencyExchangeSymbolLeft = validCurrency.symbolLeft;
+        newOrder.rateUsed = validCurrency.value;
+        newOrder.isShoppingList = payload.isShoppingCart ?? false;
+        const orderData: any = await this.orderService.create(newOrder);
+        await this.orderLogService.create({ orderLogId: undefined, ...orderData });
+        if (payload.pluginModule.includes('GiftCard')) {
+            const importPath = payload.dirName + '/../../../../add-ons/GiftCard/GiftCardHook';
+            const giftCard = await require(importPath);
+            await giftCard.attachGiftCardsToOrder(
+                orderData.orderId,
+                orderData.customerId,
+                checkoutParam.productDetails);
+        }
+        orderProduct = checkoutParam.productDetails;
+        let j = 1;
+        for (i = 0; i < orderProduct.length; i++) {
+            const dynamicPrices = dynamicData[orderProduct[i].skuName];
+            const productDetails = {} as any;
+            productDetails.productId = orderProduct[i].productId;
+            const productData: any = await this.productService.findOne({ where: { productId: orderProduct[i].productId } });
+            const nwDate = new Date();
+            const odrDate = nwDate.getFullYear() + ('0' + (nwDate.getMonth() + 1)).slice(-2) + ('0' + nwDate.getDate()).slice(-2);
+            productDetails.orderProductPrefixId = orderData.invoicePrefix.concat('-' + odrDate + orderData.orderId) + j;
+            productDetails.name = orderProduct[i].name;
+            productDetails.orderId = orderData.orderId;
+            productDetails.quantity = productData.productType === 'physical' ? orderProduct[i].quantity : 1;
+            productDetails.productPrice = dynamicPrices.price;
+            productDetails.basePrice = dynamicPrices.skuPrice;
+            productDetails.discountAmount = parseFloat(dynamicPrices.skuPrice) - parseFloat(dynamicPrices.tirePrice);
+            productDetails.discountedAmount = productDetails.discountAmount !== 0.00 ? dynamicPrices.tirePrice : '0.00';
+            productDetails.taxType = dynamicPrices.taxType;
+            productDetails.taxValue = dynamicPrices.taxValue;
+            productDetails.total = +orderProduct[i].quantity * dynamicPrices.price;
+            productDetails.model = dynamicPrices.productTire.name;
+            productDetails.skuName = orderProduct[i].skuName ? orderProduct[i].skuName : '';
+            productDetails.priceGroupDetailId = dynamicPrices.priceGroupDetailId;
+            productDetails.orderStatusId = 1;
+            productDetails.createdDate = moment().format('YYYY-MM-DD HH:mm:ss');
+            productDetails.modifiedDate = moment().format('YYYY-MM-DD HH:mm:ss');
+            const productInformation = await this.orderProductService.createData(productDetails);
+            await this.orderProductLogService.create(productInformation);
+
+            const customerCartCondition = {} as any;
+            customerCartCondition.productId = orderProduct[i].productId;
+            customerCartCondition.customerId = orderData.customerId;
+            if (!payload.customerId && payload.pluginModule.includes('AbandonedCart')) {
+                customerCartCondition.ip = orderData.ip;
+            }
+            const cart: any = await this.customerCartService.findOne({ where: customerCartCondition });
+            if (cart) { await this.customerCartService.delete({ id: cart.id }); }
+
+            // Remove ordered product from Shopping List
+            if (payload.isShoppingCart === true ) {
+
+                const shoppingCartHook =
+                    await require('../../core/ShoppingCartHook');
+
+                const shoppingCartData = await shoppingCartHook.findOne({
+                    where: {
+                        id: payload.shoppingCartId,
+                        customerId: orderData.customerId,
+                        isOrdered: 0,
+                        isDelete: 0,
+                    },
+                });
+
+                if (shoppingCartData) {
+                    await shoppingCartHook.update(
+                        shoppingCartData.id,
+                        {
+                            isOrdered: 1,
+                        });
+                }
+            }
+            if (orderProduct[i].vendorId !== 0) {
+                const val: any = await this.vendorProductService.findOne({ where: { productId: orderProduct[i].productId, vendorId: orderProduct[i].vendorId } });
+                if (val) {
+                    const vendor: any = await this.vendorService.findOne({ where: { vendorId: val.vendorId } });
+                    const vendororders = {} as any;
+                    vendororders.subOrderId = orderData.invoicePrefix.concat('-' + odrDate + orderData.orderId) + val.vendorId + j;
+                    vendororders.vendorId = val.vendorId;
+                    vendororders.orderId = orderData.orderId;
+                    vendororders.orderProductId = productInformation.orderProductId;
+                    vendororders.total = productDetails.total;
+                    vendororders.subOrderStatusId = 1;
+                    vendororders.commission = 0;
+                    vendororders.modifiedDate = moment().format('YYYY-MM-DD HH:mm:ss');
+                    if (val.vendorProductCommission > 0) {
+                        vendororders.commission = val.vendorProductCommission;
+                    } else if (vendor && vendor.commission > 0) {
+                        vendororders.commission = vendor.commission;
+                    } else {
+                        const vendorGroup: any = vendor?.vendorGroupId ? await this.vendorGroupService.findOne({
+                            select: ['groupId', 'name', 'description', 'commission'],
+                            where: { groupId: vendor.vendorGroupId },
+                        }) : null;
+                        const defaultCommission: any = await this.vendorGlobalSettingService.findOne({ where: {} });
+                        vendororders.commission = (vendorGroup && vendorGroup.commission) ? vendorGroup.commission : (defaultCommission?.defaultCommission || 0);
+                    }
+                    vendororders.createdDate = moment().format('YYYY-MM-DD HH:mm:ss');
+                    const value = await this.vendorOrderService.create(vendororders);
+                    const vendorOrderLog = {} as any;
+                    vendorOrderLog.vendorOrderId = value.vendorOrderId;
+                    vendorOrderLog.subOrderId = orderData.invoicePrefix.concat('-' + odrDate + orderData.orderId) + val.vendorId + j;
+                    vendorOrderLog.vendorId = val.vendorId;
+                    vendorOrderLog.orderId = orderData.orderId;
+                    vendorOrderLog.subOrderStatusId = 1;
+                    vendorOrderLog.createdDate = moment().format('YYYY-MM-DD HH:mm:ss');
+                    vendorOrderLog.modifiedDate = moment().format('YYYY-MM-DD HH:mm:ss');
+                    await this.vendorOrderLogService.create(vendorOrderLog);
+
+                    const vendorInvoice = await this.vendorInvoiceService.findOne({ where: { vendorId: val.vendorId, orderId: orderData.orderId } });
+                    if (!vendorInvoice) {
+                        const newVendorInvoice = {} as any;
+                        newVendorInvoice.vendorId = val.vendorId;
+                        newVendorInvoice.invoicePrefix = orderData.invoicePrefix;
+                        newVendorInvoice.orderId = orderData.orderId;
+                        newVendorInvoice.email = checkoutParam.emailId;
+                        newVendorInvoice.total = 0;
+                        newVendorInvoice.shippingFirstname = checkoutParam.shippingFirstName;
+                        newVendorInvoice.shippingLastname = checkoutParam.shippingLastName;
+                        newVendorInvoice.createdDate = moment().format('YYYY-MM-DD HH:mm:ss');
+                        newVendorInvoice.modifiedDate = moment().format('YYYY-MM-DD HH:mm:ss');
+                        await this.vendorInvoiceService.create(newVendorInvoice);
+                    }
+
+                    const vendorInvoiceData: any = await this.vendorInvoiceService.findOne({ where: { vendorId: val.vendorId, orderId: orderData.orderId } });
+                    vendorInvoiceData.total = vendorInvoiceData.total + +productDetails.total;
+                    const stringPad = String(vendorInvoiceData.vendorInvoiceId).padStart(5, '0');
+                    vendorInvoiceData.invoiceNo = 'INV'.concat(stringPad);
+                    await this.vendorInvoiceService.create(vendorInvoiceData);
+
+                    const newVendorInvoiceItem = {} as any;
+                    newVendorInvoiceItem.vendorInvoiceId = vendorInvoiceData.vendorInvoiceId;
+                    newVendorInvoiceItem.orderProductId = productInformation.orderProductId;
+                    newVendorInvoiceItem.createdDate = moment().format('YYYY-MM-DD HH:mm:ss');
+                    newVendorInvoiceItem.modifiedDate = moment().format('YYYY-MM-DD HH:mm:ss');
+                    await this.vendorInvoiceItemService.create(newVendorInvoiceItem);
+                }
+            }
+
+            if (productData.productType === 'physical' && productData.hasStock === 1) {
+                const skuValue: any = await this.skuService.findOne({ where: { skuName: productInformation.skuName } });
+                skuValue.quantity = +skuValue.quantity - +productInformation.quantity;
+                const prod: any = await this.skuService.create(skuValue);
+                if (productData.isSimplified !== 0) {
+                    const productValue: any = await this.productService.findOne({ where: { productId: productInformation.productId } });
+                    productValue.quantity = productValue.quantity - +productInformation.quantity;
+                    await this.productService.create(productValue);
+                }
+                if (+prod.quantity <= +prod.notifyMinQuantity) {
+                    const productStockAlert = {} as any;
+                    productStockAlert.productId = productInformation.productId;
+                    productStockAlert.skuName = productInformation.skuName;
+                    productStockAlert.mailFlag = 1;
+                    await this.productStockAlertService.create(productStockAlert);
+                    const findVendorProduct: any = await this.vendorProductService.findOne({ where: { productId: productInformation.productId }, relations: ['vendor'] });
+                    const findProductNotifyTemp: any = await this.emailTemplateService.findOne(46);
+                    if (findVendorProduct) {
+                        const customer: any = await this.customerService.findOne({ where: { id: findVendorProduct.vendor.customerId } });
+                        const vendorMessage = findProductNotifyTemp.content.replace(/{name}/g, customer.firstName + ' ' + customer.lastName).replace(/{productName}/g, productData.name);
+                        const vendorMailContents: any = {};
+                        vendorMailContents.logo = logo;
+                        vendorMailContents.productDetailData = undefined;
+                        vendorMailContents.emailContent = vendorMessage;
+                        vendorMailContents.redirectUrl = payload.vendorRedirectUrl;
+                        stockNotifyMails.vendorEmailContents = vendorMailContents;
+                        stockNotifyMails.vendorEmail = customer.email;
+                        stockNotifyMails.subject = findProductNotifyTemp.subject;
+                        stockNotifyMails.bcc = false;
+                        stockNotifyMails.isAttachment = false;
+                        stockNotifyMails.attachmentDetails = '';
+                    }
+                }
+                const stockLog = {} as any;
+                stockLog.productId = productInformation.productId;
+                stockLog.orderId = orderData.orderId;
+                stockLog.skuName = productInformation.skuName;
+                stockLog.quantity = productInformation.quantity;
+                stockLog.createdDate = moment().format('YYYY-MM-DD HH:mm:ss');
+                await this.stockLogService.create(stockLog);
+            }
+
+            const productImageDetail = await this.productImageService.findOne({ where: { productId: productInformation.productId, defaultImage: 1 } });
+            productData.productInformationData = productInformation;
+            productData.productImage = productImageDetail;
+            totalProductAmount = await this.orderProductService.find({ where: { productId: orderProduct[i].productId, orderId: orderData.orderId, orderProductId: productInformation.orderProductId } });
+            for (n = 0; n < totalProductAmount.length; n++) {
+                totalAmount += +totalProductAmount[n].total;
+            }
+            productDetailData.push(productData);
+            j++;
+        }
+
+        let couponData: { total: any; couponCode: string; discountAmount: any } = { total: 0, couponCode: '', discountAmount: 0 };
+        if (payload.pluginModule.includes('Coupon')) {
+            const importPath = payload.dirName + '/../../../../add-ons/Coupon/coupon';
+            const Coupon = await require(importPath);
+            couponData = await Coupon.process(coupon, orderData, dynamicData, totalAmount);
+        }
+
+        newOrder.invoiceNo = 'INV00'.concat(orderData.orderId);
+        const nowDate = new Date();
+        const orderDate = nowDate.getFullYear() + ('0' + (nowDate.getMonth() + 1)).slice(-2) + ('0' + nowDate.getDate()).slice(-2);
+        newOrder.orderPrefixId = setting.invoicePrefix.concat('-' + orderDate + orderData.orderId);
+        newOrderTotal.orderId = orderData.orderId;
+        newOrderTotal.createdDate = moment().format('YYYY-MM-DD HH:mm:ss');
+        newOrderTotal.modifiedDate = moment().format('YYYY-MM-DD HH:mm:ss');
+        if (couponData.discountAmount) {
+            newOrder.total = couponData.total;
+            newOrder.couponCode = couponData.couponCode;
+            newOrder.discountAmount = couponData.discountAmount;
+            newOrder.amount = totalAmount;
+            newOrderTotal.value = totalAmount - couponData.discountAmount;
+        } else {
+            newOrder.amount = totalAmount;
+            newOrder.total = totalAmount;
+            newOrderTotal.value = totalAmount;
+        }
+        await this.orderService.update(orderData.orderId, newOrder);
+        await this.orderTotalService.createOrderTotalData(newOrderTotal);
+
+        const finalOrderTotal = +newOrder.total;
+
+        if (plugin.pluginName === 'CashOnDelivery') {
+            const emailContent: any = await this.emailTemplateService.findOne({ where: { emailTemplateId: 5 } });
+            const adminEmailContent: any = await this.emailTemplateService.findOne({ where: { emailTemplateId: 6 } });
+            const today = ('0' + nowDate.getDate()).slice(-2) + '.' + ('0' + (nowDate.getMonth() + 1)).slice(-2) + '.' + nowDate.getFullYear();
+            const customerName = orderData.shippingFirstname + ' ' + orderData.shippingLastname;
+            const adminMessage = adminEmailContent.content.replace('{adminname}', 'Admin').replace('{name}', customerName).replace('{orderId}', orderData.orderId);
+            const customerMessage = emailContent.content.replace('{name}', customerName);
+            const adminId: any[] = [];
+            const adminUser: any = await this.userService.findAll({ select: ['username'], where: { userGroupId: 1, deleteFlag: 0 } });
+            for (const user of adminUser) { adminId.push(user.username); }
+
+            const codVendorMails: any[] = [];
+            const vendorInvoiceList: any[] = await this.vendorInvoiceService.findAll({ where: { orderId: orderData.orderId } });
+            if (vendorInvoiceList.length > 0) {
+                for (const vendInvoice of vendorInvoiceList) {
+                    const vendorProductDetailData: any[] = [];
+                    const vendor: any = await this.vendorService.findOne({ where: { vendorId: vendInvoice.vendorId } });
+                    const customer: any = await this.customerService.findOne({ where: { id: vendor.customerId } });
+                    const vendorMessage = adminEmailContent.content.replace('{adminname}', vendor.companyName).replace('{name}', customerName).replace('{orderId}', orderData.orderId);
+                    const vendorInvoiceItem: any[] = await this.vendorInvoiceItemService.findAll({ where: { vendorInvoiceId: vendInvoice.vendorInvoiceId } });
+                    for (const vendInvoiceItem of vendorInvoiceItem) {
+                        const vendorProductInformation: any = await this.orderProductService.findOne({ where: { orderProductId: vendInvoiceItem.orderProductId }, select: ['orderProductId', 'orderId', 'productId', 'name', 'model', 'quantity', 'total', 'productPrice', 'basePrice', 'skuName', 'taxValue', 'taxType', 'orderProductPrefixId'] });
+                        const vendorProductImageData: any = await this.productService.findOne({ where: { productId: vendorProductInformation.productId } });
+                        const vendorProductImageDetail = await this.productImageService.findOne({ where: { productId: vendorProductInformation.productId, defaultImage: 1 } });
+                        vendorProductImageData.productInformationData = vendorProductInformation;
+                        vendorProductImageData.productImage = vendorProductImageDetail;
+                        vendorProductDetailData.push(vendorProductImageData);
+                    }
+                    const vendorMailContents: any = {};
+                    vendorMailContents.logo = logo;
+                    vendorMailContents.emailContent = vendorMessage;
+                    vendorMailContents.redirectUrl = payload.vendorRedirectUrl;
+                    vendorMailContents.productDetailData = vendorProductDetailData;
+                    vendorMailContents.today = today;
+                    vendorMailContents.orderData = orderData;
+                    const codVendorMail: any = {};
+                    codVendorMail.vendorEmailContents = vendorMailContents;
+                    codVendorMail.vendorEmail = customer.email;
+                    codVendorMail.subject = adminEmailContent.subject;
+                    codVendorMail.bcc = false;
+                    codVendorMail.isAttachment = false;
+                    codVendorMail.attachmentDetails = '';
+                    codVendorMails.push({ ...codVendorMail });
+                }
+            }
+
+            const adminMailContents: any = {};
+            adminMailContents.logo = logo;
+            adminMailContents.emailContent = adminMessage;
+            adminMailContents.redirectUrl = payload.adminRedirectUrl;
+            adminMailContents.productDetailData = productDetailData;
+            adminMailContents.today = today;
+            adminMailContents.orderData = orderData;
+            codAdminMail.adminMailContents = adminMailContents;
+            codAdminMail.adminId = adminId;
+            codAdminMail.subject = adminEmailContent.subject;
+            codAdminMail.bcc = false;
+            codAdminMail.isAttachment = false;
+            codAdminMail.attachmentDetails = '';
+
+            const storeMailContents: any = {};
+            storeMailContents.logo = logo;
+            storeMailContents.emailContent = customerMessage;
+            storeMailContents.redirectUrl = payload.storeRedirectUrl;
+            storeMailContents.productDetailData = productDetailData;
+            storeMailContents.today = today;
+            storeMailContents.orderData = orderData;
+            codCustomerMail.storeMailContents = storeMailContents;
+            codCustomerMail.email = orderData.email;
+            codCustomerMail.subject = emailContent.subject;
+            codCustomerMail.bcc = false;
+            codCustomerMail.isAttachment = false;
+            codCustomerMail.attachmentDetails = '';
+
+            const order: any = await this.orderService.findOnes({ where: { orderId: orderData.orderId } });
+            order.paymentType = plugin ? plugin.pluginName : '';
+            order.productDetail = await this.orderProductService.find({ where: { orderId: orderData.orderId } }).then((val) => {
+                const productImage = val.map(async (value: any) => {
+                    const image = await this.productImageService.findOne({ where: { productId: value.productId } });
+                    const temp: any = value;
+                    temp.image = image;
+                    return temp;
+                });
+                return Promise.all(productImage);
+            });
+            return {
+                status: 1,
+                message: 'You have successfully placed order. order details sent to your mail',
+                data: { order, email: { newCustomerMail, codAdminMail, codCustomerMail, codVendorMails, stockNotifyMails } },
+            };
+        } else if (plugin.pluginName === 'Wallet' && payload.pluginModule.includes('Wallet')) {
+            // WALLET CHANGE 3: deduct using finalOrderTotal — backend-computed after coupon,
+            // never from frontend payload.
+            try {
+                const walletHook = require(payload.dirName + '/../../../../add-ons/Wallet/walletOrderHook');
+
+                // Re-validate with the real final total (coupon may have reduced it)
+                const validation = await walletHook.validateWalletPayment(payload.customerId, finalOrderTotal, payload.tenantId);
+                if (!validation.valid) {
+                    return { status: 0, message: validation.message };
+                }
+
+                const result = await walletHook.deductWalletForOrder(payload.customerId, finalOrderTotal, payload.tenantId);
+                if (!result.success) {
+                    return { status: 0, message: result.message };
+                }
+            } catch (_e) {
+                return { status: 0, message: 'Wallet deduction failed. Please try again.' };
+            }
+
+            // Mark order as paid instantly (same as COD)
+            orderData.paymentFlag = 1;
+            orderData.paymentStatus = 1;
+            orderData.paymentProcess = 1;
+            orderData.paymentType = 'Wallet';
+            await this.orderService.update(orderData.orderId, orderData);
+
+            const order: any = await this.orderService.findOne({ where: { orderId: orderData.orderId } });
+            order.paymentType = 'Wallet';
+            order.productDetail = await this.orderProductService.find({ where: { orderId: orderData.orderId } }).then((val) => {
+                const productImage = val.map(async (value: any) => {
+                    const image = await this.productImageService.findOne({ where: { productId: value.productId } });
+                    const temp: any = value;
+                    temp.image = image;
+                    return temp;
+                });
+                return Promise.all(productImage);
+            });
+            if (payload.pluginModule.includes('GiftCard')) {
+                const importPath = payload.dirName + '/../../../../add-ons/GiftCard/GiftCardHook';
+                const giftCard = await require(importPath);
+                await giftCard.activateGiftCard(
+                    orderData.orderId,
+                    orderData.customerId);
+            }
+            return {
+                status: 1,
+                message: 'You have successfully placed order. order details sent to your mail',
+                data: { order, email: { newCustomerMail, stockNotifyMails } },
+            };
+
+        } else {
+            const pluginInfo = JSON.parse(plugin.pluginAdditionalInfo);
+            orderData.paymentProcess = 0;
+            await this.orderService.update(orderData.orderId, orderData);
+            let route = payload.baseUrl + pluginInfo.processRoute + '/' + orderData.orderPrefixId;
+            if (plugin.pluginName === 'razorpay' && checkoutParam.isMobile) {
+                route = payload.baseUrl + pluginInfo.processAPIRoute + '/' + orderData.orderPrefixId;
+                return {
+                    status: 4,
+                    message: 'Redirect to this url',
+                    data: { route, email: { newCustomerMail, stockNotifyMails } },
+                };
+            }
+            return {
+                status: 3,
+                message: 'Redirect to this url',
+                data: { route, email: { newCustomerMail, stockNotifyMails } },
+            };
+        }
+    }
+
 }
