@@ -29,7 +29,8 @@ import { VendorInvoice } from '../models/VendorInvoice';
 import { VendorInvoiceItem } from '../models/VendorInvoiceItem';
 import { Customer } from '../models/Customer';
 import { getDataSource } from '../../../loaders/typeormLoader';
-
+import { Service } from 'typedi';
+@Service()
 export class OrderProcessService {
 
     constructor() {
@@ -37,7 +38,6 @@ export class OrderProcessService {
     }
 
     public async processOrder(orderId: number, transactionsParams: any): Promise<any> {
-
         const EmailTemplateRepository = getDataSource().getRepository(EmailTemplate);
         const orderProductRepository = getDataSource().getRepository(OrderProduct);
         const productImageRepository = getDataSource().getRepository(ProductImage);
@@ -65,7 +65,7 @@ export class OrderProcessService {
                 message: 'Invalid Order Id',
             };
         }
-        const setting = await settingRepository.findOne({});
+        const setting = await settingRepository.findOne({ where : { }});
         const currencySymbol = await currencyRepository.findOne({ where: { currencyId: setting.storeCurrencyId } });
         orderData.currencyRight = currencySymbol.symbolRight;
         orderData.currencyLeft = currencySymbol.symbolLeft;
@@ -104,7 +104,7 @@ export class OrderProcessService {
                 } else if (vendor.commission > 0) {
                     vendorPayments.commissionAmount = vendorPayments.amount * (vendor.commission / 100);
                 } else {
-                    const defaultCommission = await VendorGlobalSettingRepository.findOne({});
+                    const defaultCommission = await VendorGlobalSettingRepository.findOne({ where: { } });
                     const defCommission = defaultCommission.defaultCommission;
                     vendorPayments.commissionAmount = vendorPayments.amount * (defCommission / 100);
                 }
@@ -118,7 +118,7 @@ export class OrderProcessService {
             productImageData.productImage = productImageDetail;
             productDetailData.push(productImageData);
             const cart = await CustomerCartRepository.findOne({ where: { productId: orderProduct[i].productId, customerId: orderData.customerId } });
-            if (cart !== undefined) {
+            if (cart !== null) {
                 await CustomerCartRepository.delete(cart.id);
             }
         }
@@ -137,7 +137,7 @@ export class OrderProcessService {
             const val = user.username;
             adminId.push(val);
         }
-        const logo = await settingRepository.findOne({});
+        const logo = await settingRepository.findOne({ where : { }});
         const vendorInvoice = await VendorInvoiceRepository.find({ where: { orderId: orderData.orderId } });
         if (vendorInvoice.length > 0) {
             for (const vendInvoice of vendorInvoice) {

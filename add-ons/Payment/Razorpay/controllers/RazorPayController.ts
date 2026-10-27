@@ -47,7 +47,6 @@ export class RazorPayController {
 
         const orderRepository = getDataSource().getRepository(Order);
         const razorpayOrderRepository = getDataSource().getRepository(RazorpayOrder);
-        const vendorPluginRepository = getDataSource().getRepository(VendorPlugin);
         const order = await orderRepository.findOne({
             where: { orderPrefixId },
             select: ['orderId'],
@@ -80,20 +79,7 @@ export class RazorPayController {
                 message: 'You not install this plugin. or problem in installation',
             });
         }
-        const vendorPlugin = await vendorPluginRepository.findOne({
-            where: {
-                pluginId: pluginDetail.id,
-                vendorId: orderDetail.tenantId,
-                isActive: true,
-            },
-        });
-        if (!vendorPlugin) {
-            return response.status(400).send({
-                status: 1,
-                message: 'Plugin Not Activated',
-            });
-        }
-        const paypalAdditionalInfo = vendorPlugin.pluginAdditionalInfo ? (vendorPlugin.pluginAdditionalInfo) : {};
+        const paypalAdditionalInfo = pluginDetail.pluginAdditionalInfo ? JSON.parse(pluginDetail.pluginAdditionalInfo) : {};
         if (!paypalAdditionalInfo.clientId || !paypalAdditionalInfo.clientSecret) {
             return response.status(400).send({
                 status: 0,
@@ -182,6 +168,7 @@ export class RazorPayController {
         const vendorpluginRepository = getDataSource().getRepository(VendorPlugin);
 
         const queryParams = request.query;
+        const razorpayOrderId = queryParams.razorpay_order_id;
         if (!queryParams.razorpay_payment_id) {
             return response.status(400).send({
                 status: 0,
@@ -202,7 +189,7 @@ export class RazorPayController {
 
         const razorpayOrderDetail = await razorpayOrderRepository.findOne({
             where: {
-                razorpayRefId: paymentId,
+                razorpayRefId: razorpayOrderId,
             },
         });
         if (!razorpayOrderDetail) {
@@ -219,23 +206,7 @@ export class RazorPayController {
                 message: 'Invalid Order Id',
             });
         }
-
-        const vendorPluginDetails = await vendorpluginRepository.findOne({
-            where: {
-                pluginId: pluginDetail.id,
-                vendorId: orderdetails.tenantId,
-                isActive: true,
-            },
-        });
-        if (!vendorPluginDetails) {
-            return response.status(400).send({
-                status: 1,
-                message: 'Plugin Not Activated',
-            });
-        }
-
-        const paypalAdditionalInfo = vendorPluginDetails.pluginAdditionalInfo ? (vendorPluginDetails.pluginAdditionalInfo) : {};
-
+        const paypalAdditionalInfo = pluginDetail.pluginAdditionalInfo ? JSON.parse(pluginDetail.pluginAdditionalInfo) : {};
         if (!paypalAdditionalInfo.clientId || !paypalAdditionalInfo.clientSecret) {
             return response.status(400).send({
                 status: 0,

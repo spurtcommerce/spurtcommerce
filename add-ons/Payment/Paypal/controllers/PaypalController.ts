@@ -109,7 +109,6 @@ export class PayPalController {
         const paypalOrderRepository = getDataSource().getRepository(PaypalOrder);
         const orderProductRepository = getDataSource().getRepository(OrderProduct);
         const productRepository = getDataSource().getRepository(Product);
-        const vendorPluginRepository = getDataSource().getRepository(VendorPlugin);
         const orderDetail = await orderRepository.findOne({ where: { orderId: +orderId } });
         if (!orderDetail) {
             return response.status(400).send({
@@ -130,20 +129,7 @@ export class PayPalController {
                 message: 'You not install this plugin. or problem in installation',
             });
         }
-        const vendorPlugin = await vendorPluginRepository.findOne({
-            where: {
-                pluginId: pluginDetail.id,
-                vendorId: orderDetail.tenantId,
-                isActive: true,
-            },
-        });
-        if (!vendorPlugin) {
-            return response.status(400).send({
-                status: 1,
-                message: 'Plugin Not Activated',
-            });
-        }
-        const paypalAdditionalInfo = vendorPlugin.pluginAdditionalInfo ? (vendorPlugin.pluginAdditionalInfo) : {};
+        const paypalAdditionalInfo = pluginDetail.pluginAdditionalInfo ? JSON.parse(pluginDetail.pluginAdditionalInfo) : {};
         paypal.configure({
             mode: paypalAdditionalInfo.isTest ? 'sandbox' : 'live', // sandbox or live
             client_id: paypalAdditionalInfo.clientId,
@@ -272,22 +258,7 @@ export class PayPalController {
                 message: 'Invalid Order Id',
             });
         }
-
-        const vendorPlugin = await vendorPluginRepository.findOne({
-            where: {
-                pluginId: pluginDetail.id,
-                vendorId: orderData.tenantId,
-                isActive: true,
-            },
-        });
-
-        if (!vendorPlugin) {
-            return response.status(400).send({
-                status: 1,
-                message: 'Plugin Not Activated',
-            });
-        }
-        const paypalAdditionalInfo = vendorPlugin.pluginAdditionalInfo ? (vendorPlugin.pluginAdditionalInfo) : {};
+        const paypalAdditionalInfo = pluginDetail.pluginAdditionalInfo ? JSON.parse(pluginDetail.pluginAdditionalInfo) : {};
         const config: ConfigureOptions = {
             mode: paypalAdditionalInfo.isTest ? 'sandbox' : 'live', // sandbox or live
             client_id: paypalAdditionalInfo.clientId,

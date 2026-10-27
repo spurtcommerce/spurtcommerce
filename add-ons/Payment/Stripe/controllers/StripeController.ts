@@ -78,22 +78,7 @@ export class StripeController {
                 message: 'You not install this plugin. or problem in installation',
             });
         }
-        const vendorpluginRepository = getDataSource().getRepository(VendorPlugin);
-        const vendorPlugin = await vendorpluginRepository.findOne({
-            where: {
-                pluginId: pluginDetail.id,
-                vendorId: orderDetail.tenantId,
-                isActive: true,
-            },
-        });
-        if (!vendorPlugin) {
-            return response.status(400).send({
-                status: 1,
-                message: 'Plugin Not Activated',
-            });
-        }
-
-        const stripeAdditionalInfo = vendorPlugin.pluginAdditionalInfo ? (vendorPlugin.pluginAdditionalInfo) : {};
+        const stripeAdditionalInfo = pluginDetail.pluginAdditionalInfo ? JSON.parse(pluginDetail.pluginAdditionalInfo) : {};
 
         const product = await orderProductRepository.find({ where: { orderId: orderDetail.orderId }, select: ['orderProductId', 'orderId', 'productId', 'name', 'model', 'quantity', 'total', 'productPrice', 'discountedAmount', 'discountAmount'] });
 
@@ -204,22 +189,7 @@ export class StripeController {
                 message: 'Invalid Order Id',
             });
         }
-
-        const vendorPluginDetails = await vendorpluginRepository.findOne({
-            where: {
-                pluginId: pluginDetail.id,
-                vendorId: orderData.tenantId,
-                isActive: true,
-            },
-        });
-        if (!vendorPluginDetails) {
-            return response.status(400).send({
-                status: 1,
-                message: 'Plugin Not Activated',
-            });
-        }
-
-        const stripeAdditionalInfo = vendorPluginDetails.pluginAdditionalInfo ? (vendorPluginDetails.pluginAdditionalInfo) : {};
+        const stripeAdditionalInfo = pluginDetail.pluginAdditionalInfo ? JSON.parse(pluginDetail.pluginAdditionalInfo) : {};
         const stripe = require('stripe')(stripeAdditionalInfo.clientSecret);
         const session = await stripe.checkout.sessions.retrieve(queryParams.session_id);
         if (session) {
