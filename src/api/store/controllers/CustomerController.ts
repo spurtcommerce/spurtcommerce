@@ -165,7 +165,6 @@ export class StoreCustomerController {
         newUserOtp.otp = random;
         newUserOtp.createdDate = (moment().add(3, 'hours')).format('YYYY-MM-DD HH:mm:ss');
         const createUserOTP = await this.registrationOtpService.create(newUserOtp);
-        // const logo = await this.settingService.findOne();
         const vendorSetting = await this.vendorSettingsService.findOne({ where: { vendorId: request.tenantId } });
         const vendor = await this.vendorService.findOne({ where: { vendorId: request.tenantId } });
         const findEmailTemplate: any = await this.emailTemplateService.findOne({ where: { emailTemplateId: 31 } });
@@ -268,7 +267,7 @@ export class StoreCustomerController {
         customerUser.deleteFlag = 0;
         customerUser.isSuperCustomer = 1;
         customerUser.customerId = saveCustomer.id;
-        customerUser.customerUserGroupId = 4;
+        customerUser.customerUserGroupId = 1;
         await this.customerUsersService.create(customerUser);
 
         // delete otp

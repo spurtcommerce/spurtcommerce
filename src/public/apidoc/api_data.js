@@ -23,8 +23,8 @@ define({ "api": [
     "url": "",
     "version": "0.0.0",
     "filename": "src/public/apidoc/main.js",
-    "group": "/home/surya/Music/spurtcommerce/src/public/apidoc/main.js",
-    "groupTitle": "/home/surya/Music/spurtcommerce/src/public/apidoc/main.js",
+    "group": "/home/maheshwaran-angular/Documents/community/spurtcommerce/src/public/apidoc/main.js",
+    "groupTitle": "/home/maheshwaran-angular/Documents/community/spurtcommerce/src/public/apidoc/main.js",
     "name": ""
   },
   {

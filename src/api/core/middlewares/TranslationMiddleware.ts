@@ -14,7 +14,7 @@ export async function TranslationMiddleware(request: any, response: any, next: a
     const languageKey: number = request.header('languagekey');
     const validLanguage = await vendorLanguageRepository.findOne({
     where: { languageId: languageKey ?? 0 },
-});
+    });
     // Single-tenant fallback: use static APP_ID from env if header not provided
     const appId = request.get('app-id') || env.app.appId;
 

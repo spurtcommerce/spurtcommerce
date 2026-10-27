@@ -1099,66 +1099,174 @@ export class CustomerOrderController {
      *   "message": "Something went wrong."
      * }
      */
-    // Order List Function
     @UseBefore(CheckCustomerMiddleware)
     @UseBefore(TranslationMiddleware)
     @Get('/order-list')
     @Authorized(['customer', 'view-order-history'])
-    public async orderList(@QueryParam('limit') limit: number, @QueryParam('offset') offset: number, @QueryParam('keyword') keyword: string, @QueryParam('status') status: string, @QueryParam('count') count: number | boolean, @Req() request: any, @Res() response: any ): Promise<any> {
+    public async orderList(@QueryParam('limit') limit: number, @QueryParam('offset') offset: number, @QueryParam('keyword') keyword: string, @QueryParam('status') status: string, @QueryParam('count') count: number | boolean, @Req() request: any, @Res() response: any): Promise<any> {
         const select = [
-            'Order.orderId as orderId',
-            'Order.createdDate as createdDate',
-            'Order.orderPrefixId as orderPrefixId',
-            'Order.total as total',
-            '(SELECT COUNT(order_id) FROM order_product WHERE order_id = orderId) AS itemCount',
+            'order.createdDate as createdDate',
+            'order.orderPrefixId as orderPrefixId',
+            'order.orderId as orderId',
+            'order.telephone as mobileNumber',
+            'order.paymentMobileNumber as paymentMobileNumber',
+            'order.shippingFirstname as customerFirstName',
+            'order.shippingCity as shippingCity',
+            'order.shippingCountry as shippingCountry',
+            'order.shippingAddress1 as shippingAddress1',
+            'order.shippingAddress2 as shippingAddress2',
+            'order.shippingZone as shippingZone',
+            'order.shippingZone as shippingPostcode',
+            'order.currencyCode as currencyCode',
+            'order.currencySymbolLeft as currencySymbolLeft',
+            'order.currencySymbolRight as currencySymbolRight',
+            'OrderProduct.orderProductId as orderProductId',
+            'OrderProduct.orderStatusId as orderProductStatusId',
+            'OrderProduct.productId as productId',
+            'OrderProduct.name as name',
+            'OrderProduct.total as total',
+            'OrderProduct.orderProductPrefixId as orderProductPrefixId',
+            'OrderProduct.productPrice as productPrice',
+            'OrderProduct.quantity as quantity',
+            'OrderProduct.cancelRequest as cancelRequest',
+            'OrderProduct.cancelRequestStatus as cancelRequestStatus',
+            'OrderProduct.skuName as skuName',
+            'orderStatus.orderStatusId as orderStatusId',
+            'orderStatus.name as name',
         ];
-        const whereConditions = [
-            {
-                name: 'Order.customerId',
-                op: 'where',
-                value: request.user.customerId,
-            },
-            {
-                name: 'Order.tenantId',
-                op: 'and',
-                value: request.tenantId,
-            },
-        ];
-        const searchConditions = [];
 
-        if (keyword) {
+        const relations: any[] = [
+            {
+                tableName: 'OrderProduct.order',
+                aliasName: 'order',
+            },
+            {
+                tableName: 'order.orderStatus',
+                aliasName: 'orderStatus',
+            },
+        ];
+
+        const groupBy = [];
+        const searchParams = [];
+        searchParams.push(...['OrderProduct.name', 'order.orderPrefixId', 'OrderProduct.orderProductPrefixId']);
+        const searchConditions = [];
+        if (keyword && keyword !== '') {
             searchConditions.push({
-            name: ['Order.orderPrefixId'],
-            value: keyword.toLowerCase(),
+                name: searchParams,
+                value: keyword.toLowerCase(),
             });
         }
 
-        if (status) {
-            searchConditions.push({
-            name: ['OrderStatus.name'],
-            value: status.toLowerCase(),
+        const whereConditions: any[] = [
+            {
+                name: 'order.customerId',
+                op: 'and',
+                value: request.user.customerId,
+            }, {
+                name: 'order.paymentProcess',
+                op: 'and',
+                value: status ? (status === 'failed' ? 0 : 1) : 1,
+            },
+        ];
+
+        if (status && status === 'closed') {
+            whereConditions.push({
+                name: 'orderStatus.name',
+                op: 'andWhere',
+                value: 'Closed',
             });
+        }
+        if (status && (status === 'open' || status === 'opened')) {
+            whereConditions.push(
+                {
+                    name: 'orderStatus.name',
+                    op: 'raw',
+                    sign: '!=',
+                    value: 'Delivered',
+                },
+                {
+                    name: 'OrderProduct.cancelRequestStatus',
+                    op: 'cancel',
+                    value: 1,
+                },
+                {
+                    name: 'orderStatus.name',
+                    op: 'raw',
+                    sign: '!=',
+                    value: 'Closed',
+                });
+        }
+        if (status && status === 'cancelled') {
+            whereConditions.push(
+                {
+                    name: 'OrderProduct.cancelRequestStatus',
+                    op: 'and',
+                    value: 1,
+                }
+            );
         }
         const sort = [
             {
-                name: 'Order.createdDate',
+                name: 'OrderProduct.createdDate',
                 order: 'DESC',
             },
         ];
-
-        const relations = [
-            {
-               tableName: 'Order.orderStatus',
-               aliasName: 'OrderStatus',
-               op: 'left',
-            },
-        ];
-        const orderList = await this.orderService.listByQueryBuilder(limit, offset, select, whereConditions, searchConditions, relations, [], sort, count, true);
-
+        if (count) {
+            const orderCount: any = await this.orderProductService.listByQueryBuilder(limit, offset, select, whereConditions, searchConditions, relations, groupBy, sort, true, true);
+            const Response: any = {
+                status: 1,
+                message: 'Successfully get Count. ',
+                data: orderCount,
+            };
+            return response.status(200).send(Response);
+        }
+        const orderList: any = await this.orderProductService.listByQueryBuilder(limit, offset, select, whereConditions, searchConditions, relations, groupBy, sort, false, true);
+        const promises = orderList.map(async (results: any) => {
+            const temp = results;
+            const productImage = await this.productImageService.findOne({
+                where: { productId: results.productId, defaultImage: 1 },
+                select: ['image', 'containerName'],
+            });
+            if (productImage !== undefined) {
+                temp.image = productImage.image;
+                temp.containerName = productImage.containerName;
+            } else {
+                temp.image = '';
+                temp.containerName = '';
+            }
+            const passingOrderStatus = await this.orderStatusService.findOne({
+                where: {
+                    orderStatusId: results.orderProductStatusId,
+                },
+            });
+            if (passingOrderStatus) {
+                temp.orderStatusName = passingOrderStatus.name;
+                temp.orderStatusColorCode = passingOrderStatus.colorCode;
+            }
+            const products = await this.productService.findOne({
+                where: { productId: results.productId },
+                select: ['productId', 'productSlug', 'name'],
+            });
+            if (products) {
+                temp.productSlug = products.productSlug;
+                temp.productName = products.name;
+            }
+            const orderStatus = await this.orderProductLogService.findOne({
+                where: {
+                    orderStatusId: 5,
+                    orderProductId: results.orderProductId,
+                },
+            });
+            if (orderStatus) {
+                temp.deliveryDate = orderStatus.createdDate;
+            }
+            return results;
+        });
+        const result = await Promise.all(promises);
         const successResponse: any = {
             status: 1,
             message: 'Successfully shown the order list. ',
-            data: orderList,
+            data: instanceToPlain(result),
         };
         return response.status(200).send(successResponse);
     }
@@ -1240,14 +1348,12 @@ export class CustomerOrderController {
         const orderStatus = await this.orderStatusService.findOne({ where: { orderStatusId: orderDetail.orderStatusId } });
         orderDetail.orderStatusName = orderStatus.name;
         orderDetail.orderStatusColorCode = orderStatus.colorCode;
-        console.log('orderStatus');
         orderDetail.orderStatusDescription = orderStatus.description;
         const paymentMethod = await this.paymentRuleService.findOne({
             where: {
                 id: orderDetail.paymentRuleId,
             },
         });
-
         const select = [
             'OrderProduct.productId as productId',
             'OrderProduct.orderProductId as orderProductId',
@@ -2409,7 +2515,7 @@ export class CustomerOrderController {
         newOrder.poNumber = checkoutParam.poNumber ?? '';
         newOrder.mustShipBefore = moment().format('YYYY-MM-DD HH:mm:ss');
         newOrder.notes = '';
-        newOrder.paymentRuleId = checkoutParam.paymentRuleId;
+        newOrder.paymentRuleId = checkoutParam.paymentMethod;
         newOrder.paymentTermId = checkoutParam.paymentTermId;
         newOrder.shippingCostOverride = checkoutParam.shippingCostOverride;
         newOrder.orderSource = 'shopping-cart';
