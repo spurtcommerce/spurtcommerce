@@ -97,15 +97,17 @@ export class OrderProcessService {
                 const vendorPayments = new VendorPayment();
                 vendorPayments.vendorId = vendorProduct.vendorId;
                 vendorPayments.paymentItemId = payItem.paymentItemId;
-                vendorPayments.vendorOrderId = vendorOrders.vendorOrderId;
+                vendorPayments.vendorOrderId = vendorOrders ? vendorOrders.vendorOrderId : 0;
                 vendorPayments.amount = orderProduct[i].total;
-                if (vendorProduct.vendorProductCommission > 0) {
+                if (vendorOrders && vendorOrders.commission > 0) {
+                    vendorPayments.commissionAmount = vendorPayments.amount * (vendorOrders.commission / 100);
+                } else if (vendorProduct.vendorProductCommission > 0) {
                     vendorPayments.commissionAmount = vendorPayments.amount * (vendorProduct.vendorProductCommission / 100);
-                } else if (vendor.commission > 0) {
+                } else if (vendor && vendor.commission > 0) {
                     vendorPayments.commissionAmount = vendorPayments.amount * (vendor.commission / 100);
                 } else {
-                    const defaultCommission = await VendorGlobalSettingRepository.findOne({ where: { } });
-                    const defCommission = defaultCommission.defaultCommission;
+                    const defaultCommission = await VendorGlobalSettingRepository.findOne({ where: {} });
+                    const defCommission = defaultCommission?.defaultCommission || 0;
                     vendorPayments.commissionAmount = vendorPayments.amount * (defCommission / 100);
                 }
                 await vendorPaymentRepository.save(vendorPayments);

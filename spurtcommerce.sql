@@ -2468,8 +2468,34 @@ CREATE TABLE `order` (
   `payment_term_id` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- --------------------------------------------------------
 
+-- --------------------------------------------------------
+ 
+--
+-- Table structure for table `order_cancel_reason`
+--
+ 
+CREATE TABLE `order_cancel_reason` (
+  `id` int NOT NULL,
+  `reason` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `is_active` int DEFAULT NULL,
+  `created_by` int DEFAULT NULL,
+  `created_date` datetime DEFAULT CURRENT_TIMESTAMP,
+  `modified_by` int DEFAULT NULL,
+  `modified_date` datetime DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+ 
+--
+-- Dumping data for table `order_cancel_reason`
+--
+ 
+INSERT INTO `order_cancel_reason` (`id`, `reason`, `is_active`, `created_by`, `created_date`, `modified_by`, `modified_date`) VALUES
+(1, 'Wrongly Ordered', 1, 1, '2024-06-10 12:44:21', NULL, '2024-06-10 12:44:21'),
+(2, 'Found Better Then This Product', 1, 1, '2024-06-11 05:30:05', NULL, '2024-06-11 05:30:05'),
+(3, 'Not In Need ', 1, 1, '2024-06-11 05:30:05', NULL, '2024-06-11 05:30:05');
+ 
+-- --------------------------------------------------------
+ 
 --
 -- Table structure for table `order_fulfillment_status`
 --
@@ -2854,12 +2880,12 @@ CREATE TABLE `payment_rule` (
 --
 
 INSERT INTO payment_rule
-    (name, slug, sort_order, is_active, is_delete, instructions, tenant_id)
+    (id, name, slug, sort_order, is_active, is_delete, instructions, tenant_id)
 VALUES
-    ('Cash on Delivery', 'cash-on-delivery', 1, 1, 0, 'Pay when the order is delivered', 10),
-    ('Razorpay', 'razorpay', 2, 1, 0, 'Pay securely using Razorpay', 10),
-    ('PayPal', 'paypal', 3, 1, 0, 'Pay securely using PayPal', 10),
-    ('Stripe', 'stripe', 4, 1, 0, 'Pay securely using Stripe', 10);
+    (1, 'Cash on Delivery', 'cash-on-delivery', 1, 1, 0, 'Pay when the order is delivered', 1),
+    (25,'Razorpay', 'razorpay', 2, 1, 0, 'Pay securely using Razorpay', 1),
+    (23, 'PayPal', 'paypal', 3, 1, 0, 'Pay securely using PayPal', 1),
+    (24, 'Stripe', 'stripe', 4, 1, 0, 'Pay securely using Stripe', 1);
 
 -----------------------------------------------------------    
 --
