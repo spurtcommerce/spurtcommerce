@@ -2850,6 +2850,19 @@ CREATE TABLE `payment_rule` (
 -- --------------------------------------------------------
 
 --
+-- Dumping data for table `payment_rule`
+--
+
+INSERT INTO payment_rule
+    (name, slug, sort_order, is_active, is_delete, instructions, tenant_id)
+VALUES
+    ('Cash on Delivery', 'cash-on-delivery', 1, 1, 0, 'Pay when the order is delivered', 10),
+    ('Razorpay', 'razorpay', 2, 1, 0, 'Pay securely using Razorpay', 10),
+    ('PayPal', 'paypal', 3, 1, 0, 'Pay securely using PayPal', 10),
+    ('Stripe', 'stripe', 4, 1, 0, 'Pay securely using Stripe', 10);
+
+-----------------------------------------------------------    
+--
 -- Table structure for table `payment_term`
 --
 
