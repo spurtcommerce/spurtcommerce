@@ -1,6 +1,7 @@
 export * from '../api/core/models/AccessTokenModel';
 export * from '../api/core/models/Activity';
 export * from '../api/core/models/Address';
+export * from '../api/core/models/ApiKeyModel';
 export * from '../api/core/models/Attribute';
 export * from '../api/core/models/AttributeGroup';
 export * from '../api/core/models/AttributeGroupTranslation';

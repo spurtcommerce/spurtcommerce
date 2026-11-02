@@ -9,7 +9,7 @@
 import * as express from 'express';
 import jwt from 'jsonwebtoken';
 import { Service } from 'typedi';
-
+import * as crypto from 'crypto';
 import { User } from '../api/core/models/User';
 import { UserRepository } from '../api/core/repositories/UserRepository';
 import { env } from '../env';
@@ -20,6 +20,8 @@ import { VendorUsersRepository } from '../api/core/repositories/VendorUsersRepos
 import { VendorUserGroupRepository } from '../api/core/repositories/VendorUserGroupRepository';
 import { CustomerUsersRepository } from '../api/core/repositories/CustomerUsersRepository';
 // import { CustomerUserGroupRepository } from '../api/core/repositories/CustomerUserGroupRepository';
+import { ApiKeyRepository } from '../api/core/repositories/ApiKeyRepository';
+import { VendorRepository } from '../api/core/repositories/VendorRepository';
 
 @Service()
 export class AuthService {
@@ -31,8 +33,11 @@ export class AuthService {
         private userGroupRepository: UserGroupRepository,
         private accessTokenRepository: AccessTokenRepository,
         private vendorUsersRepository: VendorUsersRepository,
-        private vendorUserGroupRepository: VendorUserGroupRepository
-        // private customerUserGroupRepository: CustomerUserGroupRepository
+        private vendorUserGroupRepository: VendorUserGroupRepository,
+        // private customerUserGroupRepository: CustomerUserGroupRepository,
+        private apiKeyRepository: ApiKeyRepository,
+        private vendorRepository: VendorRepository
+
     ) { }
 
     public async parseBasicAuthFromRequest(request: express.Request): Promise<any> {
@@ -188,4 +193,42 @@ export class AuthService {
         return undefined;
     }
 
+    public async validateApiKey(apiKey: string): Promise<any> {
+        if (!apiKey) {
+            return undefined;
+        }
+        const apiKeyHash = crypto.createHash('sha256').update(apiKey).digest('hex');
+        const apiKeyData = await this.apiKeyRepository.repository.findOne({
+            where: {
+                apiKeyHash,
+                status: 1,
+            },
+        });
+        if (!apiKeyData) {
+            return undefined;
+        }
+        if (apiKeyData.expireDate && new Date(apiKeyData.expireDate) <= new Date()) {
+            return undefined;
+        }
+        return apiKeyData;
+    }
+
+    public async validateTenant(tenantId: number): Promise<any> {
+        if (!tenantId) {
+            return undefined;
+        }
+        const vendor = await this.vendorRepository.repository.findOne({
+            where: {
+                vendorId: tenantId,
+                isActive: 1,
+                isDelete: 0,
+                approvalFlag: 1,
+            },
+            relations: ['customer'],
+        });
+        if (vendor) {
+            return vendor;
+        }
+        return undefined;
+    }
 }

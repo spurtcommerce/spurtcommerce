@@ -23,9 +23,143 @@ define({ "api": [
     "url": "",
     "version": "0.0.0",
     "filename": "src/public/apidoc/main.js",
-    "group": "/home/surya/Music/spurtcommerce/src/public/apidoc/main.js",
-    "groupTitle": "/home/surya/Music/spurtcommerce/src/public/apidoc/main.js",
+    "group": "/home/maheshwaran-angular/Documents/community/spurtcommerce/src/public/apidoc/main.js",
+    "groupTitle": "/home/maheshwaran-angular/Documents/community/spurtcommerce/src/public/apidoc/main.js",
     "name": ""
+  },
+  {
+    "type": "get",
+    "url": "/api/api-key/detail/:id",
+    "title": "API Key Detail",
+    "group": "API_Key",
+    "name": "ApiKeyDetail",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Bearer Token</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Path": [
+          {
+            "group": "Path",
+            "type": "Number",
+            "optional": false,
+            "field": "id",
+            "description": "<p>API Key ID</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "src/api/vendor/controllers/ApiKeyController.ts",
+    "groupTitle": "API_Key"
+  },
+  {
+    "type": "get",
+    "url": "/api/api-key/list",
+    "title": "API Key List",
+    "group": "API_Key",
+    "name": "ApiKeyList",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Bearer Token</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "src/api/vendor/controllers/ApiKeyController.ts",
+    "groupTitle": "API_Key"
+  },
+  {
+    "type": "post",
+    "url": "/api/api-key/generate",
+    "title": "Generate API Key",
+    "group": "API_Key",
+    "name": "GenerateApiKey",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Bearer Token</p>"
+          }
+        ]
+      }
+    },
+    "body": [
+      {
+        "group": "Body",
+        "type": "String",
+        "optional": false,
+        "field": "expiryType",
+        "description": "<p>API key expiry type</p>"
+      },
+      {
+        "group": "Body",
+        "type": "String",
+        "optional": true,
+        "field": "keyName",
+        "description": "<p>API key name</p>"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "src/api/vendor/controllers/ApiKeyController.ts",
+    "groupTitle": "API_Key"
+  },
+  {
+    "type": "delete",
+    "url": "/api/api-key/revoke/:id",
+    "title": "Revoke API Key",
+    "group": "API_Key",
+    "name": "RevokeApiKey",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Bearer Token</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Path": [
+          {
+            "group": "Path",
+            "type": "Number",
+            "optional": false,
+            "field": "id",
+            "description": "<p>API Key ID</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "src/api/vendor/controllers/ApiKeyController.ts",
+    "groupTitle": "API_Key"
   },
   {
     "type": "get",
