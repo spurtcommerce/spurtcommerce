@@ -16,17 +16,44 @@ export function authorizationChecker(connection: DataSourceOptions): (action: Ac
     const log = new Logger(__filename);
     const authService = Container.get<AuthService>(AuthService);
     return async function innerAuthorizationChecker(action: Action, roles: any): Promise<boolean> {
-        const userId = await authService.parseBasicAuthFromRequest(action.request);
+        // const userId = await authService.parseBasicAuthFromRequest(action.request);
+        // if (userId === undefined) {
+        //     log.warn('No credentials given');
+        //     return false;
+        // }
+        // // Check the token is revocked or not
+        // const checkRevoke = await authService.checkTokenExist(action.request);
+        // if (!checkRevoke) {
+        //     log.warn('Invalid token');
+        //     return false;
+        // }
+
+        let userId: any;
+        let isApiKeyAuthenticated = false;
+        const apiKey = action.request.header('x-api-key');
+        if (roles[0] === 'vendor' && apiKey) {
+        const apiKeyData = await authService.validateApiKey(apiKey);
+        if (!apiKeyData) {
+            log.warn('Invalid API Key');
+            return false;
+        }
+        action.request.user = await authService.validateTenant(apiKeyData.tenantId);
+        if (!action.request.user) {
+            log.warn('Invalid Vendor Tenant');
+            return false;
+        }
+        isApiKeyAuthenticated = true;
+        } else {
+        userId = await authService.parseBasicAuthFromRequest(action.request);
         if (userId === undefined) {
             log.warn('No credentials given');
             return false;
         }
-        // Check the token is revocked or not
         const checkRevoke = await authService.checkTokenExist(action.request);
         if (!checkRevoke) {
             log.warn('Invalid token');
             return false;
-        }
+        }}
 
         if (roles[0] === 'customer') {
             action.request.user = await authService.validateUSerCustomer(userId.id);
@@ -62,6 +89,10 @@ export function authorizationChecker(connection: DataSourceOptions): (action: Ac
             return true;
 
         } else if (roles[0] === 'vendor') { // roles[0] === 'vendor'
+            if (isApiKeyAuthenticated) {
+                log.info('Successfully authenticated using API Key');
+                return true;
+            }
             action.request.user = await authService.validateVendor(userId.id);
             if (action.request.user === undefined) {
                 log.warn('Invalid credentials given');

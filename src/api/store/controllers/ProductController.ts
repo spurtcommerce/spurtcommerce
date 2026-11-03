@@ -38,6 +38,7 @@ import { OrderService } from '../../core/services/OrderService';
 import { TenantValidationMiddleware } from '../../../../src/api/core/middlewares/TenantValidationMiddleware';
 import { VendorCountryService } from '../../core/services/VendorCountryService';
 import { Service } from 'typedi';
+import { FeaturedProductService } from '../../../../src/api/core/services/FeaturedProductService';
 
 @Service()
 @UseBefore(TranslationMiddleware)
@@ -65,7 +66,8 @@ export class StoreProductController {
         private productVideoService: ProductVideoService,
         private orderService: OrderService,
         private vendorCountryService: VendorCountryService,
-        private vendorSettingsService: VendorSettingsService
+        private vendorSettingsService: VendorSettingsService,
+        private featuredProductService: FeaturedProductService
     ) {
         // --
     }
@@ -1396,5 +1398,122 @@ export class StoreProductController {
             };
             return response.status(200).send(successReponse);
         }
+    }
+
+    @Get('/featured-product-list')
+    public async storeFeaturedProductList(
+        @QueryParam('limit') limit: number,
+        @QueryParam('offset') offset: number,
+        @QueryParam('keyword') keyword: string,
+        @QueryParam('count') count: number | boolean | string,
+        @Req() request: any,
+        @Res() response: any
+    ): Promise<any> {
+        const tenantId = request.tenantId;
+        const selects = [
+            'featuredProduct.id as id',
+            'featuredProduct.tenantId as tenantId',
+            'featuredProduct.productId as productId',
+            'featuredProduct.sortOrder as sortOrder',
+            'featuredProduct.isActive as featuredStatus',
+            'featuredProduct.createdDate as createdDate',
+            'product.name as name',
+            'product.sku as sku',
+            'product.price as price',
+            'product.image as image',
+            'product.imagePath as imagePath',
+            'product.productSlug as productSlug',
+            'product.quantity as quantity',
+            'product.description as description',
+            'product.isActive as isActive',
+        ];
+        const relations = [
+            {
+                tableName: 'product',
+                aliasName: 'product',
+                op: 'left-cond',
+                cond: 'product.product_id = featuredProduct.product_id',
+            },
+        ];
+        const whereConditions = [
+            {
+                name: 'featuredProduct.tenantId',
+                op: 'and',
+                value: tenantId,
+            },
+            {
+                name: 'featuredProduct.isActive',
+                op: 'and',
+                value: 1,
+            },
+            {
+                name: 'product.is_active',
+                op: 'raw',
+                sign: '=',
+                value: 1,
+            },
+            {
+                name: 'product.delete_flag',
+                op: 'raw',
+                sign: '=',
+                value: 0,
+            },
+        ];
+        const searchConditions = [];
+        if (keyword && keyword.trim() !== '') {
+            searchConditions.push({
+                name: [
+                    'product.name',
+                    'product.sku',
+                ],
+                value: keyword.trim().toLowerCase(),
+            });
+        }
+        const sort = [
+            {
+                name: 'featuredProduct.sortOrder',
+                order: 'ASC',
+            },
+        ];
+        // Featured product count
+        if (count === 1 || count === true || count === 'true') {
+            const featuredProductCount: any =
+                await this.featuredProductService.listByQueryBuilder(
+                    limit,
+                    offset,
+                    selects,
+                    whereConditions,
+                    searchConditions,
+                    relations,
+                    [],
+                    sort,
+                    true,
+                    true
+                );
+            return response.status(200).send({
+                status: 1,
+                message: 'Featured product count fetched successfully',
+                data: featuredProductCount,
+            });
+        }
+        // Featured product list
+        const featuredProductList: any =
+            await this.featuredProductService.listByQueryBuilder(
+                limit,
+                offset,
+                selects,
+                whereConditions,
+                searchConditions,
+                relations,
+                [],
+                sort,
+                false,
+                true
+            );
+        return response.status(200).send({
+            status: 1,
+            message: 'Featured products fetched successfully',
+            data: featuredProductList,
+        });
     }
 }

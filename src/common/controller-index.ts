@@ -21,6 +21,7 @@ export * from '../api/store/controllers/StoreWidgetController';
 export * from '../api/store/controllers/VendorController';
 export * from '../api/store/controllers/VendorStoreRatingController';
 export * from '../api/vendor/controllers/AddressController';
+export * from '../api/vendor/controllers/ApiKeyController';
 export * from '../api/vendor/controllers/AttributeController';
 export * from '../api/vendor/controllers/AttributeGroupController';
 export * from '../api/vendor/controllers/AttributeGroupTranslationController';

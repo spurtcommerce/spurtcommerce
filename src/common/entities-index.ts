@@ -1,6 +1,7 @@
 export * from '../api/core/models/AccessTokenModel';
 export * from '../api/core/models/Activity';
 export * from '../api/core/models/Address';
+export * from '../api/core/models/ApiKeyModel';
 export * from '../api/core/models/Attribute';
 export * from '../api/core/models/AttributeGroup';
 export * from '../api/core/models/AttributeGroupTranslation';
@@ -37,6 +38,7 @@ export * from '../api/core/models/Document';
 export * from '../api/core/models/EmailTemplate';
 export * from '../api/core/models/ExportLog';
 export * from '../api/core/models/Family';
+export * from '../api/core/models/FeaturedProduct';
 export * from '../api/core/models/HeaderTextModel';
 export * from '../api/core/models/Industry';
 export * from '../api/core/models/Language';

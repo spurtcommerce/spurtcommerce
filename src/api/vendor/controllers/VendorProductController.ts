@@ -46,6 +46,9 @@ import { VendorPluginService } from '../../core/services/VendorPluginService';
 import { Service } from 'typedi';
 import { ExportLog } from '../../core/models/ExportLog';
 import { ExportLogService } from '../../core/services/ExportLogService';
+import { FeaturedProductService } from '../../../../src/api/core/services/FeaturedProductService';
+import { FeaturedProduct } from '../../../../src/api/core/models/FeaturedProduct';
+import { FeaturedProductRequest } from './requests/FeaturedProductRequest';
 
 @Service()
 @JsonController('/vendor-product')
@@ -67,7 +70,8 @@ export class VendorProductController {
         private productVideoService: ProductVideoService,
         private categoryPathService: CategoryPathService,
         private vendorPluginService: VendorPluginService,
-        private exportLogService: ExportLogService
+        private exportLogService: ExportLogService,
+        private featuredProductService: FeaturedProductService
     ) {
     }
 
@@ -980,6 +984,215 @@ export class VendorProductController {
         };
     }
 
+    @Post('/featured-product')
+    @Authorized(['vendor'])
+    public async addFeaturedProduct(
+        @Body({ validate: true }) params: FeaturedProductRequest,
+        @Req() request: any,
+        @Res() response: any
+    ): Promise<any> {
+    const tenantId = request.user.tenantId;
+    if (!params.productIds || params.productIds.length === 0) {
+        return response.status(400).send({
+            status: 0,
+            message: 'Please select at least one product',
+        });
+    }
+    const productIds = [...new Set(params.productIds)];
+    const featuredProductData: any[] = [];
+    for (const productId of productIds) {
+        const product = await this.productService.findOne({
+            where: {
+                productId,
+                deleteFlag: 0,
+                isActive: 1,
+            },
+        });
+        if (!product) {
+            return response.status(400).send({
+                status: 0,
+                message: 'Invalid product ID: ' + productId,
+            });
+        }
+        const vendorProduct = await this.vendorProductService.findOne({
+            where: {
+                productId,
+                vendorId: tenantId,
+                reuse: null,
+            },
+        });
+        if (!vendorProduct) {
+            return response.status(400).send({
+                status: 0,
+                message: 'Product does not belong to this vendor: ' + productId,
+            });
+        }
+        const existingFeaturedProduct = await this.featuredProductService.findOne({
+            where: {
+                productId,
+                tenantId,
+            },
+        });
+        if (existingFeaturedProduct) {
+            continue;
+        }
+        const featuredProduct: any = new FeaturedProduct();
+        featuredProduct.productId = productId;
+        featuredProduct.tenantId = tenantId;
+        featuredProduct.isActive = 1;
+        featuredProduct.sortOrder = 0;
+        featuredProductData.push(featuredProduct);
+        }
+        if (featuredProductData.length === 0) {
+            return response.status(200).send({
+                status: 1,
+                message: 'All selected products are already featured',
+                data: [],
+            });
+        }
+        const savedFeaturedProducts: any[] = [];
+        for (const featuredProduct of featuredProductData) {
+            const saveFeaturedProduct = await this.featuredProductService.create(featuredProduct);
+            savedFeaturedProducts.push(saveFeaturedProduct);
+        }
+        return response.status(200).send({
+            status: 1,
+            message: 'Featured products added successfully',
+            data: savedFeaturedProducts,
+        });
+    }
+
+    @Get('/featured-product')
+    @Authorized(['vendor'])
+    public async listFeaturedProducts(
+        @Req() request: any,
+        @Res() response: any,
+        @QueryParam('limit') limit: number,
+        @QueryParam('offset') offset: number,
+        @QueryParam('count') count: number | boolean | string
+    ): Promise<any> {
+    try {
+        const user = request.user;
+        const whereConditions = [
+            {
+                name: 'tenantId',
+                value: user.tenantId,
+                sign: '=',
+            },
+            {
+                name: 'isActive',
+                value: 1,
+                sign: '=',
+            },
+        ];
+
+        if (count === 1 || count === true || count === 'true') {
+
+            const featuredProductCount = await this.featuredProductService.list(
+                limit,
+                offset,
+                [],
+                [],
+                whereConditions,
+                [],
+                false
+            );
+
+            return response.status(200).send({
+                status: 1,
+                message: 'Featured product count fetched successfully',
+                data: featuredProductCount,
+            });
+        }
+
+        const featuredProducts = await this.featuredProductService.list(
+            limit,
+            offset,
+            [],
+            [],
+            whereConditions,
+            [],
+            false
+        );
+
+        const result = [];
+
+        for (const item of featuredProducts) {
+
+            const product = await this.productService.findOne({
+                where: {
+                    productId: item.productId,
+                },
+            });
+
+            result.push({
+                id: item.id,
+                tenantId: item.tenantId,
+                productId: item.productId,
+                sortOrder: item.sortOrder,
+                isActive: item.isActive,
+                createdDate: item.createdDate,
+                product: product ? {
+                    productId: product.productId,
+                    name: product.name,
+                    sku: product.sku,
+                    price: product.price,
+                    image: product.image,
+                    imagePath: product.imagePath,
+                    productSlug: product.productSlug,
+                } : null,
+            });
+        }
+        return response.status(200).send({
+            status: 1,
+            message: 'Featured product list fetched successfully',
+            data: result,
+        });
+    } catch (error) {
+            return response.status(500).send({
+                status: 0,
+                message: 'Unable to fetch featured product list',
+            });
+        }
+    }
+
+    @Delete('/featured-product/:id')
+    @Authorized(['vendor'])
+    public async deleteFeaturedProduct(
+        @Param('id') id: number,
+        @Req() request: any,
+        @Res() response: any
+    ): Promise<any> {
+    try {
+        const user = request.user;
+        const featuredProduct = await this.featuredProductService.findOne({
+            where: {
+                id,
+                tenantId: user.tenantId,
+            },
+        });
+        if (!featuredProduct) {
+            return response.status(400).send({
+                status: 0,
+                message: 'Featured product not found',
+            });
+        }
+        const deleteFeaturedProduct = await this.featuredProductService.delete(
+            featuredProduct.id
+        );
+        return response.status(200).send({
+            status: 1,
+            message: 'Featured product deleted successfully',
+            data: deleteFeaturedProduct,
+        });
+    } catch (error) {
+    return response.status(500).send({
+        status: 0,
+        message: 'Unable to delete featured product',
+    });
+
+    }
+  }
     /**
      * @api {delete} /api/vendor-product/:id Delete Vendor Product
      * @apiGroup Vendor Product
