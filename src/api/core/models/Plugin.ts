@@ -55,6 +55,9 @@ export class Plugins extends BaseModel {
     @Column({ name: 'display_Name' })
     public displayName: string;
 
+    @Column({ name: 'is_active', type: 'int', default: 1, nullable: true })
+    public isActive: number;
+
     @Column({ name: 'description', type: 'varchar', length: 255, nullable: true })
     public description: string;
 

@@ -2193,7 +2193,6 @@ INSERT INTO `migrations` (`id`, `timestamp`, `name`) VALUES
 (867, 1748433168399, 'CreateTableQuoteDetail1748433168399'),
 (868, 1748437668047, 'AddQuoteStatusSeed1748437668047'),
 (869, 1748513468189, 'AddVendorPluginQuoteRfqSeed1748513468189'),
-(870, 1748514150206, 'AlterShoppingCartPluginSeed1748514150206'),
 (871, 1749037822455, 'AddEmailTemplate1749037822455'),
 (872, 1749279888714, 'AddCollumnIsOrdered1749279888714'),
 (873, 1749451857458, 'UpdateWidgetRoutingUrl1749451857458'),
@@ -2209,7 +2208,6 @@ INSERT INTO `migrations` (`id`, `timestamp`, `name`) VALUES
 (883, 1749643605443, 'AddValuesCustomerPermissionModule1749643605443'),
 (884, 1749645395283, 'AddCollumnLoginAttemptsModelTable1749645395283'),
 (885, 1749720666308, 'InsertValuesCustomerUserGroupTable1749720666308'),
-(887, 1750051962853, 'UpdatePluginRoutingUrl1750051962853'),
 (888, 1750055934650, 'CreatePaymentTermTable1750055934650'),
 (889, 1750066197446, 'AddCollumnShoppingCart1750066197446'),
 (890, 1750068444824, 'AddColumnPaymentMethodIdInOrderTable1750068444824'),
@@ -2230,7 +2228,6 @@ INSERT INTO `migrations` (`id`, `timestamp`, `name`) VALUES
 (905, 1750829781467, 'AddCollumnCustomerTable1750829781467'),
 (906, 1751107028827, 'AddCollumnQuoteStatusTable1751107028827'),
 (907, 1751269405707, 'UpdateWidgetPluginRoutes1751269405707'),
-(908, 1751352779017, 'UpdatePluginRouteUrl1751352779017'),
 (909, 1751354061776, 'AddVendorPluginSupportSeed1751354061776'),
 (910, 1751354996136, 'UpdatePluginRouteUrl1751354996136'),
 (911, 1751355324996, 'UpdatePluginRouteUrl1751355324996'),
@@ -2887,7 +2884,7 @@ VALUES
     (23, 'PayPal', 'paypal', 3, 1, 0, 'Pay securely using PayPal', 1),
     (24, 'Stripe', 'stripe', 4, 1, 0, 'Pay securely using Stripe', 1);
 
------------------------------------------------------------    
+-- --------------------------------------------------------
 --
 -- Table structure for table `payment_term`
 --

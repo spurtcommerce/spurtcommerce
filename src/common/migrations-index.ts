@@ -613,6 +613,7 @@ export * from '../database/migrations/1793018313175-AddColumnsInSettings';
 export * from '../database/migrations/1793167251414-UpdateClientIdForPaymentGateways';
 export * from '../../add-ons/Payment/Paypal/migrations/1561108919611-CreatePaypalOrderTable';
 export * from '../../add-ons/Payment/Paypal/migrations/1561109413675-CreatePaypalOrderTransactionTable';
+export * from '../database/migrations/1648018102672-AddColumnIsActiveInPluings';
 export * from '../../add-ons/Payment/Paypal/migrations/1648018102673-AddPaypalData';
 export * from '../../add-ons/Payment/Paypal/migrations/1679897095718-AddPluginTimestampInPaypal';
 export * from '../../add-ons/Payment/Paypal/migrations/1736487481075-UpdatePaypalSettings';

@@ -47,6 +47,7 @@ import { CustomerUsers } from '../../core/models/CustomerUsers';
 import { CustomerUsersService } from '../../core/services/CustomerUsersService';
 import { VendorUsersService } from '../../core/services/VendorUsersService';
 import { Service } from 'typedi';
+import { HookUtil } from '../../core/utils/HookUtil';
 
 @Service()
 @UseBefore(TenantValidationMiddleware)
@@ -269,6 +270,11 @@ export class StoreCustomerController {
         customerUser.customerId = saveCustomer.id;
         customerUser.customerUserGroupId = 1;
         await this.customerUsersService.create(customerUser);
+
+        await HookUtil.trigger('customer_created', {
+            customerId: saveCustomer.id,
+            tenantId: request.tenantId || 1,
+        });
 
         // delete otp
         await this.registrationOtpService.delete(checkOtp.id);
@@ -858,6 +864,10 @@ export class StoreCustomerController {
                 request.socket.remoteAddress ||
                 request.connection.socket.remoteAddress).split(',')[0];
             const newCustomer = await this.customerService.create(newUser);
+            await HookUtil.trigger('customer_created', {
+                customerId: newCustomer.id,
+                tenantId: request.tenantId || 1,
+            });
             // create a token
             const token = jwt.sign({ id: newCustomer.id }, env.jwtSecret, {
                 expiresIn: 86400, // expires in 24 hours

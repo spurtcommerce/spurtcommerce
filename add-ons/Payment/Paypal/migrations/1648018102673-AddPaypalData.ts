@@ -45,7 +45,9 @@ export class AddPaypalData1648018102673 implements MigrationInterface {
         };
         const PaypalSeed = [
             {
+                id: 23,
                 pluginName: 'Paypal',
+                slugName: 'paypal',
                 pluginAvatar: 'Img_1564650679795.png',
                 pluginAvatarPath: 'logo/',
                 pluginType: 'Payment',
@@ -55,10 +57,12 @@ export class AddPaypalData1648018102673 implements MigrationInterface {
                 pluginFormInfo: JSON.stringify(pluginFormInfo),
                 pluginStatus: 1,
                 isEditable: 1,
+                isActive: 1,
                 createdDate: `${moment().format('YYYY-MM-DD HH:mm:ss')}`,
                 updatedDate: `${moment().format('YYYY-MM-DD HH:mm:ss')}`,
             },
         ];
+        await queryRunner.query(`DELETE FROM \`plugins\` WHERE \`plugin_name\` = 'Paypal' AND \`id\` != 23;`);
         await getDataSource().getRepository('Plugins').save(PaypalSeed);
     }
 

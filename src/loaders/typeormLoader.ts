@@ -11,6 +11,7 @@ import * as entities from '../common/entities-index';
 import * as migrations from '../common/migrations-index';
 import { env } from '../env';
 import { DataSource, DataSourceOptions } from 'typeorm';
+import { getAddonEntities, getAddonMigrations, initializeAddons } from '../registry/addonRegistry';
 // Singleton map to hold DataSource instances by connection name
 const dataSourceInstances: Map<string, DataSource> = new Map();
 
@@ -29,13 +30,22 @@ export const typeormLoader: MicroframeworkLoader = async (settings: Microframewo
             synchronize: env.db.synchronize,
             logging: true,
             logger: 'advanced-console',
-            entities: Object.values(entities)?.filter(e => typeof e === 'function'),
-            migrations: Object.values(migrations),
+            entities: [
+                ...(Object.values(entities)?.filter(e => typeof e === 'function') || []),
+                ...getAddonEntities(),
+            ],
+            migrations: [
+                ...Object.values(migrations),
+                ...getAddonMigrations(),
+            ],
         };
 
         const dataSource = new DataSource(dbConfig);
         await dataSource.initialize();
         dataSourceInstances.set(CONNECTION_NAME, dataSource);
+
+        // Dynamically initialize any installed SpurtCommerce add-ons (Coupon, Order, etc.)
+        await initializeAddons(dataSource);
 
         if (env.app.type === 'cloud') {
             // admin db config

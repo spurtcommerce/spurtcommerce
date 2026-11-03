@@ -23,10 +23,14 @@ export const publicLoader: MicroframeworkLoader = (settings: MicroframeworkSetti
             // A favicon is a visual cue that client software, like browsers, use to identify a site
             .use(favicon(path.join(__dirname, '..', 'public', 'favicon.ico')));
     }
-    const webhookAddon = require('../../add-ons/WebHook/WebHookConfig');
-    if (webhookAddon) {
-        (async () => {
-            await webhookAddon.webHookInit();
-        })();
+    try {
+        const webhookAddon = require('../../add-ons/WebHook/WebHookConfig');
+        if (webhookAddon) {
+            (async () => {
+                await webhookAddon.webHookInit();
+            })();
+        }
+    } catch {
+        // WebHook add-on is optional; skip gracefully if not present
     }
 };

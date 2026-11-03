@@ -6,6 +6,7 @@
 import fs from 'fs';
 import path from 'path';
 import { DataSource } from 'typeorm';
+import { HookUtil } from '../api/core/utils/HookUtil';
 
 export interface SpurtcommerceAddonManifest {
     name: string;
@@ -59,6 +60,33 @@ export function validateManifest(packageName: string, manifest: any): asserts ma
 export function inferManifestFromExports(packageName: string, pkgJson: any, loadedModule: any): SpurtcommerceAddonManifest | null {
     if (!loadedModule || typeof loadedModule !== 'object') {
         return null;
+    }
+
+    // Support pluginConfig or default export containing { pluginName, controllers, entities, migrations }
+    const config = loadedModule.pluginConfig || (loadedModule.default && loadedModule.default.pluginName ? loadedModule.default : null);
+    if (config && config.pluginName && Array.isArray(config.controllers) && Array.isArray(config.entities)) {
+        return {
+            name: (pkgJson && typeof pkgJson.name === 'string' && pkgJson.name.trim()) ? pkgJson.name : (config.slugName || packageName),
+            pluginName: config.pluginName,
+            controllers: config.controllers,
+            entities: config.entities,
+            migrations: Array.isArray(config.migrations) ? config.migrations : [],
+            ...(typeof config.initialize === 'function' ? { initialize: config.initialize } : {}),
+        };
+    }
+
+    // Support direct exports.controllers and exports.entities
+    if (Array.isArray(loadedModule.controllers) && Array.isArray(loadedModule.entities)) {
+        const resolvedPluginName = loadedModule.pluginConfig?.pluginName ||
+            packageName.replace(/^(@spurtcommerce\/|spurtcommerce-)/, '').replace(/^[a-z]/, c => c.toUpperCase());
+        return {
+            name: (pkgJson && typeof pkgJson.name === 'string' && pkgJson.name.trim()) ? pkgJson.name : packageName,
+            pluginName: resolvedPluginName,
+            controllers: loadedModule.controllers,
+            entities: loadedModule.entities,
+            migrations: Array.isArray(loadedModule.migrations) ? loadedModule.migrations : [],
+            ...(typeof loadedModule.initialize === 'function' ? { initialize: loadedModule.initialize } : {}),
+        };
     }
 
     const keys = Object.keys(loadedModule);
@@ -294,13 +322,98 @@ export function discoverAddons(): DiscoveredAddon[] {
         }
 
         validateManifest(dep, manifest);
-        discovered.push({
+        const discoveredItem: DiscoveredAddon = {
             packageName: dep,
             manifest,
-        });
+        };
+        registerAddonHooks(discoveredItem, loadedModule);
+        discovered.push(discoveredItem);
     }
 
     return discovered;
+}
+
+/**
+ * Dynamically binds generic hooks and payment processors exported by an add-on.
+ */
+function registerAddonHooks(addon: DiscoveredAddon, loadedModule: any): void {
+    if (!loadedModule || !addon.manifest.pluginName) {
+        return;
+    }
+
+    const pluginName = addon.manifest.pluginName;
+
+    // Check for payment validation and processing functions
+    const validateFn = loadedModule.validatePayment ||
+        loadedModule[`validate${pluginName}Payment`] ||
+        loadedModule[`validate${pluginName.toLowerCase()}Payment`];
+
+    const processFn = loadedModule.processPayment ||
+        loadedModule[`deduct${pluginName}ForOrder`] ||
+        loadedModule[`deduct${pluginName.toLowerCase()}ForOrder`];
+
+    if (typeof validateFn === 'function' || typeof processFn === 'function') {
+        HookUtil.registerPaymentHandler(pluginName, {
+            validate: async (params) => {
+                if (typeof validateFn === 'function') {
+                    return await validateFn(params.customerId, params.amount, params.tenantId);
+                }
+                return { valid: true };
+            },
+            process: async (params) => {
+                if (typeof processFn === 'function') {
+                    return await processFn(params.customerId, params.amount, params.tenantId);
+                }
+                return { success: true };
+            },
+        });
+    }
+
+    // Check for customer creation hook
+    const customerFn = loadedModule.onCustomerCreate ||
+        loadedModule[`create${pluginName}ForCustomer`] ||
+        loadedModule[`create${pluginName.toLowerCase()}ForCustomer`];
+
+    if (typeof customerFn === 'function') {
+        HookUtil.on('customer_created', async (payload: { customerId: number; tenantId?: number }) => {
+            try {
+                await customerFn(payload.customerId, payload.tenantId || 1);
+            } catch (err: any) {
+                console.error(`[AddonRegistry] Error in ${pluginName} customer_created hook:`, err.message);
+            }
+        });
+    }
+
+    // Check for payment list filter or tenant-specific availability check
+    const isEnabledFn = loadedModule.isPaymentEnabled ||
+        loadedModule[`is${pluginName}PaymentEnabled`] ||
+        loadedModule[`is${pluginName.toLowerCase()}PaymentEnabled`];
+
+    const filterListFn = loadedModule.filterPaymentSettings ||
+        loadedModule[`filter${pluginName}PaymentSettings`];
+
+    if (typeof filterListFn === 'function') {
+        HookUtil.registerPaymentListFilter(pluginName, filterListFn);
+    } else if (typeof isEnabledFn === 'function') {
+        HookUtil.registerPaymentListFilter(pluginName, async (list, context) => {
+            const tenantId = context?.tenantId;
+            if (!tenantId) {
+                return list;
+            }
+            try {
+                const enabled = await isEnabledFn(tenantId);
+                if (enabled === false) {
+                    return list.filter((p: any) =>
+                        p.pluginName?.toLowerCase() !== pluginName.toLowerCase() &&
+                        p.slugName?.toLowerCase() !== pluginName.toLowerCase()
+                    );
+                }
+            } catch (err: any) {
+                console.error(`[AddonRegistry] Error in ${pluginName} isPaymentEnabled:`, err.message);
+            }
+            return list;
+        });
+    }
 }
 
 /**

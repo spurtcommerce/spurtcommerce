@@ -63,6 +63,7 @@ import { VendorSettingsService } from '../../core/services/VendorSettingsService
 import { VendorCountryService } from '../../core/services/VendorCountryService';
 import { VendorPluginService } from '../../core/services/VendorPluginService';
 import { VendorUsersService } from '../../core/services/VendorUsersService';
+import { HookUtil } from '../../core/utils/HookUtil';
 import { PaymentRuleService } from '../../core/services/PaymentRuleService';
 import { ZoneService } from '../../core/services/zoneService';
 import { CurrencyService } from '../../core/services/CurrencyService';
@@ -2382,20 +2383,28 @@ export class CustomerOrderController {
             return { status: 0, message: 'Payment method is invalid' };
         }
 
-        // Uses a pre-flight estimate — final authoritative check is at deduction time.
-        if (plugin.pluginName === 'Wallet' && payload.pluginModule.includes('Wallet')) {
+        // Pre-flight validation hook for internal / add-on payment plugins
+        if (HookUtil.hasPaymentHandler(plugin.pluginName)) {
+            if (!payload.pluginModule.includes(plugin.pluginName)) {
+                return { status: 0, message: `${plugin.pluginName} payment is not available.` };
+            }
             try {
-                const walletHook = require(payload.dirName + '/../../../../add-ons/Wallet/walletOrderHook');
                 // Use dynamicData to compute an estimated total for early validation
                 const estimatedTotal = Object.values(dynamicData).reduce((sum: number, item: any) => {
                     return sum + (+item.price * +item.quantity);
                 }, 0);
-                const validation = await walletHook.validateWalletPayment(payload.customerId, estimatedTotal, payload.tenantId);
+                const validation = await HookUtil.validatePayment({
+                    pluginName: plugin.pluginName,
+                    customerId: payload.customerId,
+                    amount: estimatedTotal,
+                    tenantId: payload.tenantId,
+                    pluginModule: payload.pluginModule,
+                });
                 if (!validation.valid) {
                     return { status: 0, message: validation.message };
                 }
             } catch (_e) {
-                return { status: 0, message: 'Wallet payment is not available.' };
+                return { status: 0, message: `${plugin.pluginName} payment is not available.` };
             }
         }
 
@@ -2437,6 +2446,10 @@ export class CustomerOrderController {
                     newUser.createdDate = moment().format('YYYY-MM-DD HH:mm:ss');
                     newUser.modifiedDate = moment().format('YYYY-MM-DD HH:mm:ss');
                     const resultDatas: any = await this.customerService.create(newUser);
+                    await HookUtil.trigger('customer_created', {
+                        customerId: resultDatas.id,
+                        tenantId: payload.tenantId || 1,
+                    });
                     const newAddress = {} as any;
                     newAddress.firstName = checkoutParam.shippingFirstName;
                     newAddress.lastName = checkoutParam.shippingLastName ?? '';
@@ -2598,28 +2611,14 @@ export class CustomerOrderController {
             const cart: any = await this.customerCartService.findOne({ where: customerCartCondition });
             if (cart) { await this.customerCartService.delete({ id: cart.id }); }
 
-            // Remove ordered product from Shopping List
-            if (payload.isShoppingCart === true ) {
-
-                const shoppingCartHook =
-                    await require('../../core/ShoppingCartHook');
-
-                const shoppingCartData = await shoppingCartHook.findOne({
-                    where: {
-                        id: payload.shoppingCartId,
-                        customerId: orderData.customerId,
-                        isOrdered: 0,
-                        isDelete: 0,
-                    },
+            // Remove ordered product from Shopping List / Shopping Cart via WebHook / Hook
+            if (payload.isShoppingCart === true || payload.shoppingCartId) {
+                await HookUtil.trigger('shopping_cart_order', {
+                    shoppingCartId: payload.shoppingCartId,
+                    customerId: orderData.customerId,
+                    orderId: orderData.orderId,
+                    isOrdered: 1,
                 });
-
-                if (shoppingCartData) {
-                    await shoppingCartHook.update(
-                        shoppingCartData.id,
-                        {
-                            isOrdered: 1,
-                        });
-                }
             }
             if (orderProduct[i].vendorId !== 0) {
                 const val: any = await this.vendorProductService.findOne({ where: { productId: orderProduct[i].productId, vendorId: orderProduct[i].vendorId } });
@@ -2861,35 +2860,48 @@ export class CustomerOrderController {
                 message: 'You have successfully placed order. order details sent to your mail',
                 data: { order, email: { newCustomerMail, codAdminMail, codCustomerMail, codVendorMails, stockNotifyMails } },
             };
-        } else if (plugin.pluginName === 'Wallet' && payload.pluginModule.includes('Wallet')) {
-            // WALLET CHANGE 3: deduct using finalOrderTotal — backend-computed after coupon,
-            // never from frontend payload.
+        } else if (HookUtil.hasPaymentHandler(plugin.pluginName)) {
+            if (!payload.pluginModule.includes(plugin.pluginName)) {
+                return { status: 0, message: `${plugin.pluginName} payment is not available.` };
+            }
             try {
-                const walletHook = require(payload.dirName + '/../../../../add-ons/Wallet/walletOrderHook');
-
                 // Re-validate with the real final total (coupon may have reduced it)
-                const validation = await walletHook.validateWalletPayment(payload.customerId, finalOrderTotal, payload.tenantId);
+                const validation = await HookUtil.validatePayment({
+                    pluginName: plugin.pluginName,
+                    customerId: payload.customerId,
+                    amount: finalOrderTotal,
+                    tenantId: payload.tenantId,
+                    pluginModule: payload.pluginModule,
+                });
                 if (!validation.valid) {
                     return { status: 0, message: validation.message };
                 }
 
-                const result = await walletHook.deductWalletForOrder(payload.customerId, finalOrderTotal, payload.tenantId);
+                const result = await HookUtil.processPayment({
+                    pluginName: plugin.pluginName,
+                    customerId: payload.customerId,
+                    amount: finalOrderTotal,
+                    tenantId: payload.tenantId,
+                    orderId: orderData.orderId,
+                    orderData,
+                    pluginModule: payload.pluginModule,
+                });
                 if (!result.success) {
                     return { status: 0, message: result.message };
                 }
             } catch (_e) {
-                return { status: 0, message: 'Wallet deduction failed. Please try again.' };
+                return { status: 0, message: `${plugin.pluginName} deduction failed. Please try again.` };
             }
 
             // Mark order as paid instantly (same as COD)
             orderData.paymentFlag = 1;
             orderData.paymentStatus = 1;
             orderData.paymentProcess = 1;
-            orderData.paymentType = 'Wallet';
+            orderData.paymentType = plugin.pluginName;
             await this.orderService.update(orderData.orderId, orderData);
 
             const order: any = await this.orderService.findOne({ where: { orderId: orderData.orderId } });
-            order.paymentType = 'Wallet';
+            order.paymentType = plugin.pluginName;
             order.productDetail = await this.orderProductService.find({ where: { orderId: orderData.orderId } }).then((val) => {
                 const productImage = val.map(async (value: any) => {
                     const image = await this.productImageService.findOne({ where: { productId: value.productId } });

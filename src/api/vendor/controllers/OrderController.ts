@@ -43,6 +43,7 @@ import { VendorInvoiceService } from '../../core/services/VendorInvoiceService';
 import { VendorInvoiceItemService } from '../../core/services/VendorInvoiceItemService';
 import { ProductStockAlertService } from '../../core/services/ProductStockAlertService';
 import { StockLogService } from '../../core/services/StockLogService';
+import { HookUtil } from '../../core/utils/HookUtil';
 import { CustomerService } from '../../core/services/CustomerService';
 import { OrderTotalService } from '../../core/services/OrderTotalService';
 // import { QuoteRequestDetailService } from '../../../../add-ons/RfqAndQuotes/services/QuoteRequestDetailService';
@@ -2049,27 +2050,12 @@ export class OrderController {
             return results;
         });
 
-        const vendorPlugin = await this.vendorPluginService.findOne(
-            {
-                where: {
-                    vendorId: request.user.tenantId,
-                    isActive: 1,
-                    plugins: {
-                        pluginName: 'ShoppingCart',
-                        pluginStatus: 1,
-                    },
-                },
-                relations: ['plugins'],
-            }
-        );
-        if (createOrderParam.shoppingCartId && pluginModule.includes('ShoppingCart') && vendorPlugin) {
-            const importPath = '../../../../add-ons/ShoppingCart/ShoppingCartHook';
-            const shoppingCart = await require(importPath);
-            const shoppingCartData = await shoppingCart.findOne({ where: { id: createOrderParam.shoppingCartId, isOrdered: 0 } });
-            if (shoppingCartData) {
-                shoppingCartData.isOrdered = 1;
-                await shoppingCart.update(shoppingCartData.id, shoppingCartData);
-            }
+        if (createOrderParam.shoppingCartId) {
+            await HookUtil.trigger('shopping_cart_order', {
+                shoppingCartId: createOrderParam.shoppingCartId,
+                orderId: order.orderId,
+                isOrdered: 1,
+            });
         }
         return response.status(200).send({
             status: 1,

@@ -34,6 +34,7 @@ import { pluginModule } from '../../../../src/loaders/pluginLoader';
 import { getDataSource } from '../../../../src/loaders/typeormLoader';
 import { CustomerToGroup } from '../../core/models/CustomerToGroup';
 import { CustomerToGroupService } from '../../core/services/CustomerToGroupService';
+import { HookUtil } from '../../core/utils/HookUtil';
 
 @Service()
 @JsonController('/vendor-customer')
@@ -157,6 +158,11 @@ export class CustomerController {
             customerUser.customerUserGroupId = customerUserGroup.id;
             customerUser.customerId = customerSave.id;
             await this.customerUsersService.create(customerUser);
+
+            await HookUtil.trigger('customer_created', {
+                customerId: customerSave.id,
+                tenantId: request.user?.tenantId || request.tenantId || 1,
+            });
 
             const customerToGroup: any = new CustomerToGroup();
             customerToGroup.customerId = customerSave.id;
@@ -496,14 +502,11 @@ export class CustomerController {
             await this.vendorService.create(vendor);
         }
         const customerUser = await this.customerUsersService.findOne({ where: { customerId: customer.id } });
-        if (pluginModule.includes('ShoppingCart')) {
-            const importPath = '../../../../add-ons/ShoppingCart/ShoppingCartHook';
-            const shoppingCart = await require(importPath);
-            const shoppingCartAllData: any = await shoppingCart.find({ where: { customerUserId: customerUser.id } });
-            if (shoppingCartAllData?.length) {
-                const shoppingCartIds = shoppingCartAllData.map((val: any) => val.id);
-                await shoppingCart.deleteShoppingCart(shoppingCartIds);
-            }
+        if (customerUser) {
+            await HookUtil.trigger('shopping_cart_customer_delete', {
+                customerUserId: customerUser.id,
+                customerId: customer.id,
+            });
         }
         if (pluginModule.includes('RfqAndQuotes')) {
             const { QuoteRequest } = require('../../../../add-ons/RfqAndQuotes/models/QuoteRequest');

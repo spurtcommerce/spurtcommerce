@@ -12,6 +12,8 @@ import { VendorCountryService } from '../../../../../src/api/core/services/Vendo
 import { Service } from 'typedi';
 import { SettingService } from '../../../../../src/api/core/services/SettingService';
 import { SESClient, SendEmailCommand } from '@aws-sdk/client-ses';
+import { getDataSource } from '../../../../../src/loaders/typeormLoader';
+import { CustomerCart } from '../../../../../src/api/core/models/CustomerCart';
 
 const sesClient = new SESClient({
     region: awsMailSes.sesAwsRegion,
@@ -46,7 +48,41 @@ export class WebHookClientController {
     @Post()
     @UseBefore(WebHookAuthChecker)
     public async webHookClient(@Res() response: any, @Body({ validate: true }) payload: { event: string, params: any }): Promise<any> {
-        const { templateContentDetails, recipientMailId, mailSubject, bcc, isAttachment, attachmentDetails } = payload.params;
+        const { event, params } = payload;
+
+        // 1. Handle Shopping Cart Order Event via Webhook
+        if (event === 'shopping_cart_order') {
+            console.log('[WebHookClient] Processing shopping_cart_order event:', params);
+            try {
+                if (params?.customerId) {
+                    const cartRepository = getDataSource().getRepository(CustomerCart);
+                    const existingCarts = await cartRepository.find({ where: { customerId: params.customerId } });
+                    if (existingCarts && existingCarts.length > 0) {
+                        const ids = existingCarts.map(c => c.id);
+                        await cartRepository.delete(ids);
+                        console.log(`[WebHookClient] Successfully cleared ${ids.length} cart items for customer ${params.customerId}`);
+                    }
+                }
+            } catch (err: any) {
+                console.error('[WebHookClient] Error in shopping_cart_order webhook handler:', err.message);
+            }
+            return response.status(200).send('CART ORDER OK');
+        }
+
+        // 2. Handle Cart Updated Event via Webhook
+        if (event === 'cart_updated') {
+            console.log('[WebHookClient] Processing cart_updated event:', params);
+            return response.status(200).send('CART UPDATED OK');
+        }
+
+        // 3. Handle Cart Item Deleted Event via Webhook
+        if (event === 'cart_item_deleted') {
+            console.log('[WebHookClient] Processing cart_item_deleted event:', params);
+            return response.status(200).send('CART ITEM DELETED OK');
+        }
+
+        // 4. Handle Send Email Event
+        const { templateContentDetails, recipientMailId, mailSubject, bcc, isAttachment, attachmentDetails } = params || {};
         if (!recipientMailId || !mailSubject || !templateContentDetails) {
             return response.status(400).send('Missing required parameters: recipientMailId, mailSubject, or templateContentDetails');
         }

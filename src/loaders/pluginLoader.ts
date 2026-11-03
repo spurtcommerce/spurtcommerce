@@ -6,6 +6,7 @@ import { Plugins } from '../api/core/models/Plugin';
 import { Migrations } from '../api/core/models/Migrations';
 import { VendorPlugin } from '../api/core/models/VendorPlugin';
 import { getDataSource } from './typeormLoader';
+import { getAddonPluginNames } from '../registry/addonRegistry';
 
 export let pluginModule: string[] = [];
 
@@ -15,6 +16,8 @@ export const pluginLoader: MicroframeworkLoader = async (settings: Microframewor
     pluginModule.push('gmap');
     pluginModule.push('gmail');
     pluginModule.push('facebook');
+    // Dynamically register discovered npm add-ons (Coupon, Order, etc.)
+    pluginModule.push(...getAddonPluginNames());
     // --
     const addOnPath = path.join(__dirname + '/../../add-ons');
     const pluginList: Array<Promise<void>> = (await readdir(addOnPath, { withFileTypes: true }))

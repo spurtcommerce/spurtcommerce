@@ -20,6 +20,7 @@ import { SkuService } from '../../core/services/SkuService';
 import { TenantValidationMiddleware } from '../../core/middlewares/TenantValidationMiddleware';
 import { In } from 'typeorm';
 import { Service } from 'typedi';
+import { HookUtil } from '../../core/utils/HookUtil';
 
 @Service()
 @UseBefore(TenantValidationMiddleware)
@@ -190,6 +191,17 @@ export class StoreCustomerCartController {
                 const saved = await this.customerCartService.createData(newCart);
                 results.push({ ...saved, status: 'added' });
             }
+        }
+
+        // Trigger cart_updated webhook event
+        try {
+            await HookUtil.trigger('cart_updated', {
+                customerId: request.user.customerId,
+                tenantId: request.tenantId,
+                cartDetails: results,
+            });
+        } catch (hookErr: any) {
+            console.warn('[CustomerCartController] Error triggering cart_updated webhook:', hookErr.message);
         }
 
         return response.status(200).send({
@@ -399,6 +411,16 @@ export class StoreCustomerCartController {
             for (const cart of customerCart) {
                 await this.customerCartService.delete(cart.id);
             }
+
+            try {
+                await HookUtil.trigger('cart_item_deleted', {
+                    customerId,
+                    cartIds: 'all',
+                });
+            } catch (hookErr: any) {
+                console.warn('[CustomerCartController] Error triggering cart_item_deleted webhook:', hookErr.message);
+            }
+
             return response.status(200).send({
                 status: 1,
                 message: 'Your cart is Empty..!',
@@ -419,6 +441,15 @@ export class StoreCustomerCartController {
         }
 
         await this.customerCartService.delete(cartIds);
+
+        try {
+            await HookUtil.trigger('cart_item_deleted', {
+                customerId,
+                cartIds,
+            });
+        } catch (hookErr: any) {
+            console.warn('[CustomerCartController] Error triggering cart_item_deleted webhook:', hookErr.message);
+        }
 
         return response.status(200).send({
             status: 1,

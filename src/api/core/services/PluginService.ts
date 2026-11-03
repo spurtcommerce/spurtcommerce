@@ -36,6 +36,11 @@ export class PluginService {
         return this.pluginRepository.repository.findOne(plugins);
     }
 
+    public async save(plugins: any): Promise<any> {
+        this.log.info('save method called');
+        return this.pluginRepository.repository.save(plugins);
+    }
+
     public async pluginList(limit: number, offset: number, count: number | boolean): Promise<any> {
         this.log.info('pluginList method called');
         return this.pluginRepository.pluginList(limit, offset, count);

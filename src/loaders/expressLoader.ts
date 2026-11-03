@@ -12,6 +12,7 @@ import { useExpressServer } from 'routing-controllers';
 import { currentUserChecker } from '../auth/currentUserChecker';
 import * as controllers from '../common/controller-index';
 import * as middlewares from '../common/middleware-index';
+import { getAddonControllers } from '../registry/addonRegistry';
 import lusca from 'lusca';
 import { env } from '../env';
 import path from 'path';
@@ -65,7 +66,10 @@ export const expressLoader: MicroframeworkLoader = (settings: MicroframeworkSett
              * We can add options about how routing-controllers should configure itself.
              * Here we specify what controllers should be registered in our express server.
              */
-            controllers: Object.values(controllers),
+            controllers: [
+                ...Object.values(controllers),
+                ...getAddonControllers(),
+            ],
             middlewares: Object.values(middlewares),
             // interceptors: env.app.dirs.interceptors,
             /**

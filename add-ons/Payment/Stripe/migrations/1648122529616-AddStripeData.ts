@@ -45,20 +45,24 @@ export class AddStripeData1648122529616 implements MigrationInterface {
         };
         const StripeSeed = [
             {
+                id: 24,
                 pluginName: 'Stripe',
+                slugName: 'stripe',
                 pluginAvatar: 'Img_1567002127693.png',
                 pluginAvatarPath: 'logo/',
                 pluginType: 'Payment',
                 pluginTimestamp: 1648122529616,
-                displayName: 'Razorpay',
+                displayName: 'Stripe',
                 pluginAdditionalInfo: JSON.stringify(pluginAdditionalInfo),
                 pluginFormInfo: JSON.stringify(pluginFormInfo),
                 pluginStatus: 1,
                 isEditable: 1,
+                isActive: 1,
                 createdDate: `${moment().format('YYYY-MM-DD HH:mm:ss')}`,
                 updatedDate: `${moment().format('YYYY-MM-DD HH:mm:ss')}`,
             },
         ];
+        await queryRunner.query(`DELETE FROM \`plugins\` WHERE \`plugin_name\` = 'Stripe' AND \`id\` != 24;`);
         await getDataSource().getRepository('Plugins').save(StripeSeed);
     }
 

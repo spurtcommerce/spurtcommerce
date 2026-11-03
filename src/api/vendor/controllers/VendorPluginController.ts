@@ -7,22 +7,24 @@
  */
 
 import 'reflect-metadata';
-import { Get, JsonController, Authorized, QueryParam, Res, Param, Put, Body, Req } from 'routing-controllers';
+import { Get, JsonController, Authorized, Res, Param, Put, Body, Req } from 'routing-controllers';
 import { instanceToPlain } from 'class-transformer';
 import { UpdatePluginStatus } from './requests/UpdatePluginStatus';
 import { VendorPluginService } from '../../core/services/VendorPluginService';
+import { PluginService } from '../../core/services/PluginService';
 import { env } from '../../../../src/env';
 import { S3Service } from '../../core/services/S3Service';
 import { ImageService } from '../../core/services/ImageService';
 import { VendorPlugin } from '../../core/models/VendorPlugin';
 import { Service } from 'typedi';
-import { In, Not } from 'typeorm';
+import { Plugins } from '../../core/models/Plugin';
 
 @Service()
 @JsonController('/vendor-plugins')
 export class VendorPluginController {
     constructor(
         private vendorPluginService: VendorPluginService,
+        private pluginService: PluginService,
         private s3Service: S3Service,
         private imageService: ImageService
 
@@ -64,54 +66,44 @@ export class VendorPluginController {
      *
      * @apiSampleRequest /api/vendor-plugins
      */
-    @Get()
-    @Authorized(['vendor', 'add-on'])
-    public async pluginList(@QueryParam('module') module: string, @Res() response: any, @Req() request: any): Promise<any> {
-        // const plugins = await this.pluginService.findAll({ where: { pluginStatus: 1 } });
-        const pluginList = await this.vendorPluginService.find({
-            where: {
-                vendorId: request.user.tenantId,
-                // pluginId: In(plugins.map((plugin => plugin.id))),
-                plugins: {
-                    slugName: Not(In(['shopping-cart', 'rfq-quotes'])),
-                    pluginStatus: 1,
-                },
-            },
-            relations: ['plugins'],
-        });
+@Get()
+@Authorized(['vendor', 'add-on'])
+public async pluginList(
+    @Res() response: any,
+    @Req() request: any
+): Promise<any> {
 
-        const result = pluginList.map(data => {
-            if (data.plugins.pluginName === 'ProductAttribute') {
-                data.plugins.pluginName = 'ProductAttributes';
-                data.plugins.slugName = 'product-attributes';
-            }
-            return {
-                createdDate: data.createdDate,
-                id: data.id,
-                isActive: data.isActive,
-                vendorId: data.vendorId,
-                pluginAdditionalInfo: data.pluginAdditionalInfo,
-                pluginName: data.plugins.pluginName,
-                pluginAvatar: data.plugins.pluginAvatar,
-                pluginAvatarPath: data.plugins.pluginAvatarPath,
-                pluginType: data.plugins.pluginType,
-                pluginFormInfo: data.plugins.pluginFormInfo,
-                pluginTimestamp: data.plugins.pluginTimestamp,
-                slugName: data.plugins.slugName,
-                isEditable: data.plugins.isEditable,
-                displayName: data.plugins.displayName,
-                description: data.plugins.description,
-                imageUrl: env.baseUrl + '/media/plugin?path=' + data.plugins.pluginAvatarPath + '&name=' + data.plugins.pluginAvatar + '&width=100&height=100',
-            };
-        });
+    const pluginList = await this.pluginService.findAll({
+        where: {
+            isActive: 1,
+        },
+    });
 
-        const successResponse: any = {
-            status: 1,
-            message: 'Successfully got the plugin list',
-            data: instanceToPlain(result),
-        };
-        return response.status(200).send(successResponse);
-    }
+    const result = pluginList.map(data => ({
+        id: data.id,
+        pluginName: data.pluginName,
+        pluginAvatar: data.pluginAvatar,
+        pluginAvatarPath: data.pluginAvatarPath,
+        pluginType: data.pluginType,
+        pluginFormInfo: data.pluginFormInfo,
+        pluginTimestamp: data.pluginTimestamp,
+        pluginStatus: data.pluginStatus,
+        slugName: data.slugName,
+        isEditable: data.isEditable,
+        displayName: data.displayName,
+        description: data.description,
+        isActive: data.isActive,
+        imageUrl: env.baseUrl + '/media/plugin?path=' +
+            data.pluginAvatarPath + '&name=' +
+            data.pluginAvatar + '&width=100&height=100',
+    }));
+
+    return response.status(200).send({
+        status: 1,
+        message: 'Successfully got the plugin list',
+        data: instanceToPlain(result),
+    });
+}
 
     /**
      * @api {put} /api/vendor-plugins/additional-info/:id Update Plugin Additional Info
@@ -356,32 +348,37 @@ export class VendorPluginController {
      *
      * @apiSampleRequest /api/vendor-plugins/:id
      */
-    @Put('/:id')
-    @Authorized(['vendor'])
-    public async updatePluginStatus(@Param('id') vendorPluginId: number, @Body({ validate: false }) updateParam: UpdatePluginStatus, @Res() response: any): Promise<any> {
-        const vendorPlugin: VendorPlugin = await this.vendorPluginService.findOne({
-            where: {
-                id: vendorPluginId,
-            },
-        });
+@Put('/:id')
+@Authorized(['vendor'])
+public async updatePluginStatus(
+    @Param('id') pluginId: number,
+    @Body({ validate: false }) updateParam: UpdatePluginStatus,
+    @Res() response: any
+): Promise<any> {
 
-        if (!vendorPlugin) {
-            return response.status(400).send({
-                status: 0,
-                message: 'Invalid Plugin ID',
-            });
-        }
+    const plugin: Plugins = await this.pluginService.findOne({
+        where: {
+            id: pluginId,
+        },
+    });
 
-        // vendorPlugin.pluginAdditionalInfo = updateParam.pluginAdditionalInfo ? JSON.stringify(updateParam.pluginAdditionalInfo) : vendorPlugin.pluginAdditionalInfo;
-        vendorPlugin.isActive = updateParam.isActive;
-        const pluginSave = await this.vendorPluginService.save(vendorPlugin);
-
-        return response.status(200).send({
-            status: 1,
-            message: 'Plugin updated successfully.',
-            data: pluginSave,
+    if (!plugin) {
+        return response.status(400).send({
+            status: 0,
+            message: 'Invalid Plugin ID',
         });
     }
+
+    plugin.pluginStatus = updateParam.pluginStatus;
+
+    const pluginSave = await this.pluginService.save(plugin);
+
+    return response.status(200).send({
+        status: 1,
+        message: 'Plugin updated successfully.',
+        data: pluginSave,
+    });
+}
 
     public base64MimeType(encoded: string): string {
         let result = undefined;

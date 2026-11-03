@@ -49,11 +49,20 @@ export async function webHookInit(): Promise<any> {
 }
 
 export async function trigger(event: string, params: any): Promise<void> {
-    const webHookEvents = require(path.join(process.cwd(), 'webHookConfig.json'));
-    const webHookAuthToken = webHookEvents[event].token ?? '';
-    webHook.trigger(
-        event,
-        { event, params },
-        { authorization: `Basic ${webHookAuthToken}` }
-    );
+    try {
+        const webHookEvents = require(path.join(process.cwd(), 'webHookConfig.json'));
+        if (!webHookEvents || !webHookEvents[event]) {
+            return;
+        }
+        const webHookAuthToken = webHookEvents[event]?.token ?? '';
+        if (webHook && typeof webHook.trigger === 'function') {
+            webHook.trigger(
+                event,
+                { event, params },
+                { authorization: `Basic ${webHookAuthToken}` }
+            );
+        }
+    } catch (err: any) {
+        console.error(`[WebHookConfig] Error triggering webhook event "${event}":`, err.message);
+    }
 }

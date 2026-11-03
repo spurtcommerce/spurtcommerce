@@ -45,7 +45,9 @@ export class AddRazorPayData1648125221707 implements MigrationInterface {
         };
         const RazorPaySeed = [
             {
+                id: 25,
                 pluginName: 'Razorpay',
+                slugName: 'razorpay',
                 pluginAvatar: 'Img_1567002487693.png',
                 pluginAvatarPath: 'logo/',
                 pluginType: 'Payment',
@@ -55,10 +57,12 @@ export class AddRazorPayData1648125221707 implements MigrationInterface {
                 pluginFormInfo: JSON.stringify(pluginFormInfo),
                 pluginStatus: 1,
                 isEditable: 1,
+                isActive: 1,
                 createdDate: `${moment().format('YYYY-MM-DD HH:mm:ss')}`,
                 updatedDate: `${moment().format('YYYY-MM-DD HH:mm:ss')}`,
             },
         ];
+        await queryRunner.query(`DELETE FROM \`plugins\` WHERE \`plugin_name\` = 'Razorpay' AND \`id\` != 25;`);
         await getDataSource().getRepository('Plugins').save(RazorPaySeed);
     }
 
