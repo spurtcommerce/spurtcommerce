@@ -50,7 +50,6 @@ export class ApiKeyController {
         @Req() request: any,
         @Res() response: any
     ): Promise<any> {
-        try {
             const user = request.user;
             if (!body || !body.expiryType) {
                 return response.status(400).send({
@@ -92,12 +91,6 @@ export class ApiKeyController {
                     status: apiKeySave.status,
                 },
             });
-        } catch (error) {
-            return response.status(500).send({
-                status: 0,
-                message: 'Unable to generate API Key',
-            });
-        }
     }
 
     /**
@@ -117,7 +110,6 @@ export class ApiKeyController {
         @QueryParam('offset') offset: number,
         @QueryParam('count') count: number | boolean | string
     ): Promise<any> {
-        try {
             const user = request.user;
             const whereConditions = [{
                 name: 'tenantId',
@@ -130,7 +122,7 @@ export class ApiKeyController {
                 sign: '=',
             }];
             if (count === 1 || count === true || count === 'true') {
-                const apiKeyCount = await this.apiKeyService.list( limit, offset, [], [], whereConditions, [], false );
+                const apiKeyCount = await this.apiKeyService.list( limit, offset, [], [], whereConditions, [], true );
                 return response.status(200).send({
                     status: 1,
                     message: 'API Key count fetched successfully',
@@ -155,13 +147,6 @@ export class ApiKeyController {
                 message: 'API Key list fetched successfully',
                 data: result,
             });
-
-        } catch (error) {
-            return response.status(500).send({
-                status: 0,
-                message: 'Unable to fetch API Key list',
-            });
-        }
     }
     /**
      * @api {get} /api/api-key/detail/:id API Key Detail
@@ -178,8 +163,6 @@ export class ApiKeyController {
         @Req() request: any,
         @Res() response: any
     ): Promise<any> {
-
-        try {
             const user = request.user;
             if (!id) {
                 return response.status(400).send({
@@ -227,13 +210,6 @@ export class ApiKeyController {
                     modifiedDate: apiKey.modifiedDate,
                 },
             });
-
-        } catch (error) {
-            return response.status(500).send({
-                status: 0,
-                message: 'Unable to retrieve API Key',
-            });
-        }
     }
 
     /**
@@ -251,7 +227,6 @@ export class ApiKeyController {
         @Req() request: any,
         @Res() response: any
     ): Promise<any> {
-        try {
             const user = request.user;
             if (!id ) {
                 return response.status(400).send({
@@ -289,12 +264,6 @@ export class ApiKeyController {
                 status: 0,
                 message: 'Unable to revoke API Key',
             });
-        } catch (error) {
-            return response.status(500).send({
-                status: 0,
-                message: 'Unable to revoke API Key',
-            });
-        }
     }
 
     private getExpiryDate(expiryType: ApiKeyExpiryType): Date | null {

@@ -65,7 +65,7 @@ define({ "api": [
   },
   {
     "type": "get",
-    "url": "/api/api-key/list",
+    "url": "/api/api-key",
     "title": "API Key List",
     "group": "API_Key",
     "name": "ApiKeyList",
