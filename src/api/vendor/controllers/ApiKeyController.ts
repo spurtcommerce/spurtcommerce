@@ -45,8 +45,7 @@ export class ApiKeyController {
     @Post('/generate')
     @Authorized(['vendor'])
     public async generateApiKey(
-        @Body() body: {
-            expiryType: ApiKeyExpiryType },
+        @Body() body: { expiryType: ApiKeyExpiryType , name?: string },
         @Req() request: any,
         @Res() response: any
     ): Promise<any> {
@@ -68,6 +67,7 @@ export class ApiKeyController {
             const apiKeyEncrypted = this.apiKeyService.encryptApiKey(apiKey);
             const apiKeyModel = new ApiKeyModel();
             apiKeyModel.tenantId = user.tenantId;
+            apiKeyModel.name = body.name ?? '';
             apiKeyModel.apiKeyHash = apiKeyHash;
             apiKeyModel.apiKeyEncrypted = apiKeyEncrypted;
             apiKeyModel.expiryType = body.expiryType;
@@ -86,6 +86,7 @@ export class ApiKeyController {
                 data: {
                     id: apiKeySave.id,
                     apiKey,
+                    name: apiKeySave.name,
                     expiryType: apiKeySave.expiryType,
                     expireDate: apiKeySave.expireDate,
                     status: apiKeySave.status,
@@ -132,6 +133,7 @@ export class ApiKeyController {
             const apiKeys = await this.apiKeyService.list( limit, offset, [], [], whereConditions, [], false );
             const result = apiKeys.map((item: ApiKeyModel) => ({
                 id: item.id,
+                name: item.name,
                 apiKey: 'spurt_************************',
                 expiryType: item.expiryType,
                 expireDate: item.expireDate,
@@ -201,6 +203,7 @@ export class ApiKeyController {
                 message: 'API Key detail fetched successfully',
                 data: {
                     id: apiKey.id,
+                    name: apiKey.name,
                     keyName: apiKey.keyName,
                     apiKey: originalApiKey,
                     expiryType: apiKey.expiryType,

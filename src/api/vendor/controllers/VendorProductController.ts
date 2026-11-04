@@ -984,6 +984,38 @@ export class VendorProductController {
         };
     }
 
+    /**
+     * @api {post} /api/vendor-product/featured-product List Vendor Products
+     * @apiGroup featured Vendor Product
+     * @apiName VendorProductList
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully got your product list.",
+     *         "data": [
+     *             {
+     *                 "vendorProductId": 1,
+     *                 "productId": 1,
+     *                 "name": "Sample Product",
+     *                 "sku": "SKU-001",
+     *                 "price": 100
+     *             }
+     *         ]
+     *     }
+     *
+     * @apiErrorExample {json} Error-Response:
+     *     HTTP/1.1 500 Internal Server Error
+     *     {
+     *         "status": 0,
+     *         "message": "Internal Server Error"
+     *     }
+     *
+     * @apiSampleRequest /api/vendor-product/featured-product
+     */
     @Post('/featured-product')
     @Authorized(['vendor'])
     public async addFeaturedProduct(
@@ -1062,6 +1094,42 @@ export class VendorProductController {
         });
     }
 
+    /**
+     * @api {get} /api/vendor-product/featured-product featured List Vendor Products
+     * @apiGroup featured Vendor Product
+     * @apiName VendorProductList
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiQuery {Number} [limit] Number of records to return
+     * @apiQuery {Number} [offset] Pagination offset
+     * @apiQuery {String} [status] Product active status
+     * @apiQuery {String} [keyword] Keyword search for product
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully got your product list.",
+     *         "data": [
+     *             {
+     *                 "vendorProductId": 1,
+     *                 "productId": 1,
+     *                 "name": "Sample Product",
+     *                 "sku": "SKU-001",
+     *                 "price": 100
+     *             }
+     *         ]
+     *     }
+     *
+     * @apiErrorExample {json} Error-Response:
+     *     HTTP/1.1 500 Internal Server Error
+     *     {
+     *         "status": 0,
+     *         "message": "Internal Server Error"
+     *     }
+     *
+     * @apiSampleRequest /api/vendor-product/featured-product
+     */
     @Get('/featured-product')
     @Authorized(['vendor'])
     public async listFeaturedProducts(
@@ -1124,6 +1192,11 @@ export class VendorProductController {
                     productId: item.productId,
                 },
             });
+            const productImage = await this.productImageService.findOne({
+                where: {
+                    productId: item.productId,
+                },
+            });
 
             result.push({
                 id: item.id,
@@ -1137,8 +1210,9 @@ export class VendorProductController {
                     name: product.name,
                     sku: product.sku,
                     price: product.price,
-                    image: product.image,
-                    imagePath: product.imagePath,
+                    image: productImage.image,
+                    containerName: productImage.containerName,
+                    quantity: product.quantity,
                     productSlug: product.productSlug,
                 } : null,
             });
@@ -1156,6 +1230,42 @@ export class VendorProductController {
         }
     }
 
+    /**
+     * @api {delete} /api/vendor-product/featured-product/:id  delete featured Vendor Products
+     * @apiGroup featured Vendor Product
+     * @apiName VendorProductList
+     *
+     * @apiHeader {String} Authorization Bearer Token
+     *
+     * @apiQuery {Number} [limit] Number of records to return
+     * @apiQuery {Number} [offset] Pagination offset
+     * @apiQuery {String} [status] Product active status
+     * @apiQuery {String} [keyword] Keyword search for product
+     * @apiSuccessExample {json} Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *         "status": 1,
+     *         "message": "Successfully got your product list.",
+     *         "data": [
+     *             {
+     *                 "vendorProductId": 1,
+     *                 "productId": 1,
+     *                 "name": "Sample Product",
+     *                 "sku": "SKU-001",
+     *                 "price": 100
+     *             }
+     *         ]
+     *     }
+     *
+     * @apiErrorExample {json} Error-Response:
+     *     HTTP/1.1 500 Internal Server Error
+     *     {
+     *         "status": 0,
+     *         "message": "Internal Server Error"
+     *     }
+     *
+     * @apiSampleRequest /api/vendor-product/featured-product/:id
+     */
     @Delete('/featured-product/:id')
     @Authorized(['vendor'])
     public async deleteFeaturedProduct(
@@ -1177,13 +1287,12 @@ export class VendorProductController {
                 message: 'Featured product not found',
             });
         }
-        const deleteFeaturedProduct = await this.featuredProductService.delete(
+        await this.featuredProductService.delete(
             featuredProduct.id
         );
         return response.status(200).send({
             status: 1,
             message: 'Featured product deleted successfully',
-            data: deleteFeaturedProduct,
         });
     } catch (error) {
     return response.status(500).send({

@@ -109,7 +109,7 @@ export class BannerController {
         if (bannerExist) {
             return response.status(400).send({
                 status: 0,
-                message: 'Banner Position Already Exist.!',
+                message: 'Banner Position Already Exist For This Themes.!',
             });
         }
 
@@ -138,7 +138,6 @@ export class BannerController {
             where: { userId: request.user.userId },
         });
         const vendorPrefix: string = vendorInfo?.vendorPrefixId;
-
         const newBanner = new Banner();
         newBanner.title = bannerParam.title;
         newBanner.content = bannerParam.content;
@@ -147,63 +146,103 @@ export class BannerController {
         newBanner.linkType = bannerParam.linkType;
         newBanner.position = bannerParam.position;
         newBanner.isActive = bannerParam.status;
+        newBanner.imageType = bannerParam.imageType;
+        newBanner.isMiniBanner = +bannerParam.isMiniBanner;
 
         const bannerImages: BannerImage[] = [];
-
-        for (const subImage of bannerParam.bannerImage) {
-
-            const base64 = subImage.imageBase64;
-            const path = vendorPrefix;
-            const base64Data = Buffer.from(base64.split(',')[1], 'base64');
-            const type = base64.split(';')[0].split(':')[1].toString();
-            const mime = require('mime');
-            const ext = mime.getExtension(type);
-            const availableImageType = env.availImageTypes.split(',');
-
-            if (!availableImageType.includes(ext)) {
-                const errorTypeResponse: any = {
-                    status: 0,
-                    message: 'Only ' + env.availImageTypes + ' Types are Allowed',
-                };
-                return response.status(400).send(errorTypeResponse);
-            }
-
-            const name = 'Banner_' + Date.now() + '.' + ext;
-            const stringLength = base64.replace(/^data:image\/\w+;base64,/, '').length;
-            const sizeInBytes = 4 * Math.ceil((stringLength / 3)) * 0.5624896334383812;
-            const sizeInKb = sizeInBytes / 1024;
-
-            const allowedSize = +env.imageUploadSize * 1024;
-
-            if (+sizeInKb <= allowedSize) {
-                if (env.imageserver === 's3') {
-                    await this.s3Service.imageUpload(path === '' ? name : path + name, base64Data, type, 0);
+        if (bannerParam?.isMiniBanner) {
+            for (const subImage of (bannerParam.miniBannerImage ?? [])) {
+                const base64 = subImage.imageBase64;
+                const path = vendorPrefix;
+                const base64Data = Buffer.from(base64.split(',')[1], 'base64');
+                const type = base64.split(';')[0].split(':')[1].toString();
+                const mime = require('mime');
+                const ext = mime.getExtension(type);
+                const availableImageType = env.availImageTypes.split(',');
+                const name = 'Banner_' + Date.now() + '.' + ext;
+                const stringLength = base64.replace(/^data:image\/\w+;base64,/, '').length;
+                const sizeInBytes = 4 * Math.ceil((stringLength / 3)) * 0.5624896334383812;
+                const sizeInKb = sizeInBytes / 1024;
+                const allowedSize = +env.imageUploadSize * 1024;
+                if (!availableImageType.includes(ext)) {
+                    return response.status(400).send({
+                        status: 0,
+                        message: 'Only ' + env.availImageTypes + ' Types are Allowed',
+                    });
                 }
-            } else {
-                return response.status(400).send({
-                    status: 0,
-                    message: 'Image size too large.',
-                });
+                if (+sizeInKb > allowedSize) {
+                    return response.status(400).send({
+                        status: 0,
+                        message: 'Image size too large.',
+                    });
+                }
+
+                if (env.imageserver === 's3') {
+                    await this.s3Service.imageUpload(
+                        path === '' ? name : path + name,
+                        base64Data,
+                        type,
+                        0
+                    );
+                }
+                const bannerImage = new BannerImage();
+                bannerImage.imageName = name;
+                bannerImage.imagePath = path;
+                bannerImage.isPrimary = subImage.isPrimary;
+                bannerImages.push(bannerImage);
             }
+        } else {
+            for (const subImage of (bannerParam.bannerImage ?? [])) {
 
-            const bannerImage = new BannerImage();
-            bannerImage.imageName = name;
-            bannerImage.imagePath = path;
-            bannerImage.isPrimary = subImage.isPrimary;
-            bannerImages.push(bannerImage);
+                const base64 = subImage.imageBase64;
+                const path = vendorPrefix;
+                const base64Data = Buffer.from(base64.split(',')[1], 'base64');
+                const type = base64.split(';')[0].split(':')[1].toString();
+                const mime = require('mime');
+                const ext = mime.getExtension(type);
+                const availableImageType = env.availImageTypes.split(',');
+
+                if (!availableImageType.includes(ext)) {
+                    const errorTypeResponse: any = {
+                        status: 0,
+                        message: 'Only ' + env.availImageTypes + ' Types are Allowed',
+                    };
+                    return response.status(400).send(errorTypeResponse);
+                }
+
+                const name = 'Banner_' + Date.now() + '.' + ext;
+                const stringLength = base64.replace(/^data:image\/\w+;base64,/, '').length;
+                const sizeInBytes = 4 * Math.ceil((stringLength / 3)) * 0.5624896334383812;
+                const sizeInKb = sizeInBytes / 1024;
+
+                const allowedSize = +env.imageUploadSize * 1024;
+
+                if (+sizeInKb <= allowedSize) {
+                    if (env.imageserver === 's3') {
+                        await this.s3Service.imageUpload(path === '' ? name : path + name, base64Data, type, 0);
+                    }
+                } else {
+                    return response.status(400).send({
+                        status: 0,
+                        message: 'Image size too large.',
+                    });
+                }
+                const bannerImage = new BannerImage();
+                bannerImage.imageName = name;
+                bannerImage.imagePath = path;
+                bannerImage.isPrimary = subImage.isPrimary;
+                bannerImages.push(bannerImage);
+            }
         }
-
         newBanner.bannerImages = bannerImages;
-
         const savedBanner = await this.bannerService.create(newBanner);
-
+        await this.reValidateBanner();
         return response.status(200).send({
             status: 1,
             message: 'Success! The banner was created.',
             data: savedBanner,
         });
     }
-
     /**
      * @api {get} /api/banner Banner List
      * @apiGroup Banner
@@ -239,8 +278,8 @@ export class BannerController {
      */
     @Get()
     @Authorized(['vendor', 'list-banners'])
-    public async bannerList(@QueryParam('limit') limit: number, @QueryParam('offset') offset: number, @QueryParam('keyword') keyword: string, @QueryParam('status') status: string, @QueryParam('count') count: number | boolean, @Req() request: any, @Res() response: any): Promise<any> {
-        const select = ['bannerId', 'title', 'position', 'createdDate', 'modifiedDate', 'isActive', 'linkType'];
+    public async bannerList(@QueryParam('limit') limit: number, @QueryParam('offset') offset: number, @QueryParam('themeId') themeId: number, @QueryParam('keyword') keyword: string, @QueryParam('status') status: string, @QueryParam('count') count: number | boolean, @Req() request: any, @QueryParam('minibanner') miniBanner: number, @Res() response: any): Promise<any> {
+        const select = ['bannerId', 'title', 'position', 'createdDate', 'modifiedDate', 'isActive', 'linkType', 'imageType'];
         const search = [
             {
                 name: 'title',
@@ -263,6 +302,17 @@ export class BannerController {
                 tableName: 'bannerImages',
             },
         ];
+        if (miniBanner) {
+            whereConditions.push({
+                name: 'isMiniBanner',
+                value: 1,
+            });
+        } else {
+            whereConditions.push({
+                name: 'isMiniBanner',
+                value: 0,
+            });
+        }
         const bannerList: any = await this.bannerService.list(limit, offset, select, relations, search, whereConditions, count);
         if (count) {
             const successRes: any = {
@@ -433,9 +483,8 @@ export class BannerController {
 
         banner.title = payload.title;
         banner.content = payload.content;
-        banner.link = payload.link;
-        banner.position = payload.position;
-        banner.isActive = payload.status;
+        banner.isMiniBanner = payload.isMiniBanner ? +payload.isMiniBanner : 0;
+        banner.imageType = payload.imageType ? +payload.imageType : 0;
         let link;
         link = payload.link;
 
@@ -472,37 +521,56 @@ export class BannerController {
         banner.link = link;
         banner.position = payload.position;
         banner.isActive = payload.status;
+        const vendorInfo: Vendor = await this.vendorService.findOne({
+            select: ['vendorId', 'vendorPrefixId'],
+            where: { userId: request.user.userId },
+        });
 
-        const deleteImageIds = payload.deleteImageIds;
+        const vendorPrefix: string = vendorInfo?.vendorPrefixId;
+        if (payload.isMiniBanner) {
 
-        if (deleteImageIds?.length > 0) {
-            deleteImageIds.forEach(async (id: number) => {
-                await this.bannerImageService.delete(id);
-            });
-        }
+            if (Array.isArray(payload.deletedImages) && payload.deletedImages.length > 0) {
 
-        const hasValidImage = payload.bannerImage?.some(
-            img => img.imageBase64 && img.imageBase64.trim() !== ''
-        );
+                for (const img of payload.deletedImages) {
 
-        if (!hasValidImage) {
-            console.log('Not a valid base64 keep existing images' );
-        } else {
-            const bannerImages: BannerImage[] = [];
-            const vendorInfo: Vendor = await this.vendorService.findOne({ select: ['vendorId', 'vendorPrefixId'], where: { userId: request.user.userId } });
-            const vendorPrefix: string = vendorInfo?.vendorPrefixId;
-            for (const subImage of payload.bannerImage) {
+                    const filePath = (img.imagePath || '') + img.imageName;
+
+                    if (env.imageserver === 's3') {
+                        await this.s3Service.deleteFile(filePath);
+                    }
+
+                    const getImage = await this.bannerImageService.findOne({
+                        where: {
+                            imageName: img.imageName,
+                            bannerId: +payload.bannerId,
+                        },
+                    });
+
+                    if (getImage) {
+                        await this.bannerImageService.delete(getImage.id);
+                        banner.bannerImages = banner.bannerImages.filter(
+                            image => image.id !== getImage.id
+                        );
+                    }
+
+                }
+            }
+            banner.bannerImages = banner.bannerImages ?? [];
+            for (const subImage of (payload.miniBannerImage ?? [])) {
 
                 if (!subImage.imageBase64) {
                     continue;
                 }
+
                 const base64 = subImage.imageBase64;
                 const path = vendorPrefix + '/';
 
                 const base64Data = Buffer.from(base64.split(',')[1], 'base64');
                 const type = base64.split(';')[0].split(':')[1];
+
                 const mime = require('mime');
                 const ext = mime.getExtension(type);
+
                 const availableImageType = env.availImageTypes.split(',');
 
                 if (!availableImageType.includes(ext)) {
@@ -528,22 +596,96 @@ export class BannerController {
 
                 if (env.imageserver === 's3') {
                     await this.s3Service.imageUpload(
-                        path === '' ? name : path + name, base64Data, type, 0
+                        path === '' ? name : path + name,
+                        base64Data,
+                        type,
+                        0
                     );
                 }
-
                 const bannerImage = new BannerImage();
                 bannerImage.imageName = name;
                 bannerImage.imagePath = path;
                 bannerImage.isPrimary = subImage.isPrimary;
-                bannerImages.push(bannerImage);
+
+                banner.bannerImages.push(bannerImage);
             }
 
-            banner.bannerImages = bannerImages;
+        } else {
+
+            const deleteImageIds = payload.deleteImageIds;
+
+            if (deleteImageIds?.length > 0) {
+                for (const id of deleteImageIds) {
+                    await this.bannerImageService.delete(id);
+
+                    banner.bannerImages = banner.bannerImages.filter(
+                        image => image.id !== id
+                    );
+                }
+            }
+
+            const hasValidImage = payload.bannerImage?.some(
+                img => img.imageBase64 && img.imageBase64.trim() !== ''
+            );
+
+            if (!hasValidImage) {
+                console.log('Not a valid base64 keep existing images');
+            } else {
+                const bannerImages: BannerImage[] = [];
+                for (const subImage of payload.bannerImage) {
+
+                    if (!subImage.imageBase64) {
+                        continue;
+                    }
+                    const base64 = subImage.imageBase64;
+                    const path = vendorPrefix + '/';
+
+                    const base64Data = Buffer.from(base64.split(',')[1], 'base64');
+                    const type = base64.split(';')[0].split(':')[1];
+                    const mime = require('mime');
+                    const ext = mime.getExtension(type);
+                    const availableImageType = env.availImageTypes.split(',');
+
+                    if (!availableImageType.includes(ext)) {
+                        return response.status(400).send({
+                            status: 0,
+                            message: 'Only ' + env.availImageTypes + ' Types are Allowed',
+                        });
+                    }
+
+                    const name = 'Banner_' + Date.now() + '.' + ext;
+
+                    const stringLength = base64.replace(/^data:image\/\w+;base64,/, '').length;
+                    const sizeInBytes = 4 * Math.ceil(stringLength / 3) * 0.5624896334383812;
+                    const sizeInKb = sizeInBytes / 1024;
+                    const allowedSize = +env.imageUploadSize * 1024;
+
+                    if (sizeInKb > allowedSize) {
+                        return response.status(400).send({
+                            status: 0,
+                            message: 'Image size too large.',
+                        });
+                    }
+
+                    if (env.imageserver === 's3') {
+                        await this.s3Service.imageUpload(
+                            path === '' ? name : path + name, base64Data, type, 0
+                        );
+                    }
+
+                    const bannerImage = new BannerImage();
+                    bannerImage.imageName = name;
+                    bannerImage.imagePath = path;
+                    bannerImage.isPrimary = subImage.isPrimary;
+                    bannerImages.push(bannerImage);
+                }
+
+                banner.bannerImages = bannerImages;
+            }
         }
 
         const savedBanner = await this.bannerService.create(banner);
-
+        await this.reValidateBanner();
         return response.status(200).send({
             status: 1,
             message: 'Successfully updated banner.',
@@ -589,8 +731,8 @@ export class BannerController {
     @Get('/banner-detail')
     @Authorized(['vendor', 'list-banners'])
     public async BannerDetail(@QueryParam('bannerId') bannerId: number, @Res() response: any, @Req() request: any): Promise<any> {
-        const banner = await this.bannerService.findOne({
-            select: ['bannerId', 'title', 'position', 'content', 'link', 'createdDate', 'modifiedDate', 'isActive', 'linkType'],
+        const banner: any = await this.bannerService.findOne({
+            select: ['bannerId', 'title', 'position', 'content', 'link', 'createdDate', 'modifiedDate', 'isActive', 'linkType', 'imageType'],
             where: {
                 bannerId,
                 tenantId: request.user.tenantId,
@@ -613,4 +755,21 @@ export class BannerController {
         return response.status(200).send(successResponse);
     }
 
+    public async reValidateBanner(): Promise<any> {
+        try {
+            const storeUrl = env.storeRedirectUrl;
+            const response = await fetch(`${storeUrl}api/banner-revalidate`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    secret: 'banner-revalidate',
+                }),
+            });
+            if (!response.ok) {
+                throw new Error(`Revalidation failed: ${response.status}`);
+            }
+        } catch (error: any) {
+            console.log('Error revalidating banner:', error.message);
+        }
+    }
 }

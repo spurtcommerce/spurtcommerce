@@ -26362,6 +26362,204 @@
     "groupTitle": "Vendor_Widget"
   },
   {
+    "type": "post",
+    "url": "/api/vendor-product/featured-product",
+    "title": "List Vendor Products",
+    "group": "featured_Vendor_Product",
+    "name": "VendorProductList",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Bearer Token</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n    \"status\": 1,\n    \"message\": \"Successfully got your product list.\",\n    \"data\": [\n        {\n            \"vendorProductId\": 1,\n            \"productId\": 1,\n            \"name\": \"Sample Product\",\n            \"sku\": \"SKU-001\",\n            \"price\": 100\n        }\n    ]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 500 Internal Server Error\n{\n    \"status\": 0,\n    \"message\": \"Internal Server Error\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/vendor-product/featured-product"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "src/api/vendor/controllers/VendorProductController.ts",
+    "groupTitle": "featured_Vendor_Product"
+  },
+  {
+    "type": "get",
+    "url": "/api/vendor-product/featured-product",
+    "title": "featured List Vendor Products",
+    "group": "featured_Vendor_Product",
+    "name": "VendorProductList",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Bearer Token</p>"
+          }
+        ]
+      }
+    },
+    "query": [
+      {
+        "group": "Query",
+        "type": "Number",
+        "optional": true,
+        "field": "limit",
+        "description": "<p>Number of records to return</p>"
+      },
+      {
+        "group": "Query",
+        "type": "Number",
+        "optional": true,
+        "field": "offset",
+        "description": "<p>Pagination offset</p>"
+      },
+      {
+        "group": "Query",
+        "type": "String",
+        "optional": true,
+        "field": "status",
+        "description": "<p>Product active status</p>"
+      },
+      {
+        "group": "Query",
+        "type": "String",
+        "optional": true,
+        "field": "keyword",
+        "description": "<p>Keyword search for product</p>"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n    \"status\": 1,\n    \"message\": \"Successfully got your product list.\",\n    \"data\": [\n        {\n            \"vendorProductId\": 1,\n            \"productId\": 1,\n            \"name\": \"Sample Product\",\n            \"sku\": \"SKU-001\",\n            \"price\": 100\n        }\n    ]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 500 Internal Server Error\n{\n    \"status\": 0,\n    \"message\": \"Internal Server Error\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/vendor-product/featured-product"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "src/api/vendor/controllers/VendorProductController.ts",
+    "groupTitle": "featured_Vendor_Product"
+  },
+  {
+    "type": "delete",
+    "url": "/api/vendor-product/featured-product/:id",
+    "title": "delete featured Vendor Products",
+    "group": "featured_Vendor_Product",
+    "name": "VendorProductList",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Bearer Token</p>"
+          }
+        ]
+      }
+    },
+    "query": [
+      {
+        "group": "Query",
+        "type": "Number",
+        "optional": true,
+        "field": "limit",
+        "description": "<p>Number of records to return</p>"
+      },
+      {
+        "group": "Query",
+        "type": "Number",
+        "optional": true,
+        "field": "offset",
+        "description": "<p>Pagination offset</p>"
+      },
+      {
+        "group": "Query",
+        "type": "String",
+        "optional": true,
+        "field": "status",
+        "description": "<p>Product active status</p>"
+      },
+      {
+        "group": "Query",
+        "type": "String",
+        "optional": true,
+        "field": "keyword",
+        "description": "<p>Keyword search for product</p>"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n    \"status\": 1,\n    \"message\": \"Successfully got your product list.\",\n    \"data\": [\n        {\n            \"vendorProductId\": 1,\n            \"productId\": 1,\n            \"name\": \"Sample Product\",\n            \"sku\": \"SKU-001\",\n            \"price\": 100\n        }\n    ]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 500 Internal Server Error\n{\n    \"status\": 0,\n    \"message\": \"Internal Server Error\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/vendor-product/featured-product/:id"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "src/api/vendor/controllers/VendorProductController.ts",
+    "groupTitle": "featured_Vendor_Product"
+  },
+  {
     "type": "get",
     "url": "/api/media/bucket-object-count",
     "title": "Bucket-object-count",

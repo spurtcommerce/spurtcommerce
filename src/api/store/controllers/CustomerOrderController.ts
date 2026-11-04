@@ -741,6 +741,9 @@ export class CustomerOrderController {
         newOrder.shippingAddress2 = checkoutParam.shippingAddress_2;
         newOrder.shippingCompany = checkoutParam.shippingCompany;
         newOrder.shippingCity = checkoutParam.shippingCity;
+        newOrder.mustShipBefore = moment().format('YYYY-MM-DD HH:mm:ss');
+        newOrder.poNumber = checkoutParam.poNumber ?? '';
+        newOrder.notes = '';
         newOrder.shippingZone = checkoutParam.shippingZone;
         newOrder.shippingCountryId = checkoutParam.shippingCountryId;
         const vendorCountry = await this.vendorCountryService.findOne({
@@ -856,7 +859,7 @@ export class CustomerOrderController {
             ///// finding price from backend ends /////
             const productDetails = new OrderProduct();
             productDetails.productId = orderProduct[i].productId;
-            productDetails.orderProductPrefixId = orderExist.invoicePrefix.concat('-' + orderDate + orderExist.orderId) + j;
+            productDetails.orderProductPrefixId = `${orderExist.invoicePrefix ?? ''}-${orderDate}${orderExist.orderId}${j}` as any;
             productDetails.name = productTire.name;
             productDetails.orderId = orderExist.orderId;
             productDetails.quantity = orderProduct[i].quantity;
@@ -885,7 +888,7 @@ export class CustomerOrderController {
             if (val) {
                 const vendor = await this.vendorService.findOne({ where: { vendorId: val.vendorId } });
                 const vendororders = new VendorOrders();
-                vendororders.subOrderId = orderExist.invoicePrefix.concat('-' + orderDate + orderExist.orderId) + val.vendorId + j;
+                vendororders.subOrderId = `${orderExist.invoicePrefix ?? ''}-${orderDate}${orderExist.orderId}${val.vendorId}${j}`;
                 vendororders.vendorId = val.vendorId;
                 vendororders.orderId = orderExist.orderId;
                 vendororders.orderProductId = productInformation.orderProductId;
@@ -909,7 +912,7 @@ export class CustomerOrderController {
                 const value = await this.vendorOrderService.create(vendororders);
                 const vendorOrderLog = new VendorOrderLog();
                 vendorOrderLog.vendorOrderId = value.vendorOrderId;
-                vendorOrderLog.subOrderId = orderExist.invoicePrefix.concat('-' + orderDate + orderExist.orderId) + val.vendorId + j;
+                vendorOrderLog.subOrderId = `${orderExist.invoicePrefix ?? ''}-${orderDate}${orderExist.orderId}${val.vendorId}${j}`;
                 vendorOrderLog.vendorId = val.vendorId;
                 vendorOrderLog.orderId = orderExist.orderId;
                 vendorOrderLog.subOrderStatusId = 1;
@@ -957,7 +960,7 @@ export class CustomerOrderController {
         newOrder.amount = totalAmount;
         newOrder.total = totalAmount;
         newOrder.invoiceNo = 'INV00'.concat(orderExist.orderId);
-        newOrder.orderPrefixId = vendorSettings?.invoicePrefix.concat('-' + orderDate + orderExist.orderId);
+        newOrder.orderPrefixId = `${vendorSettings?.invoicePrefix ?? ''}-${orderDate}${orderExist.orderId}`;
         await this.orderService.update(orderExist.orderId, newOrder);
         newOrderTotal.orderId = orderExist.orderId;
         newOrderTotal.value = totalAmount;

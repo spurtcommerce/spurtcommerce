@@ -57,6 +57,12 @@ export class Banner extends BaseModel {
     @Column({ name: 'tenant_id' })
     public tenantId: number;
 
+    @Column({ name: 'is_mini_banner', type: 'int', default: 0 })
+    public isMiniBanner: number;
+
+    @Column({ name: 'image_type', type: 'int', nullable: true })
+    public imageType: number;
+
     @OneToMany((type) => BannerImage, bannerImg => bannerImg.banners, { cascade: true })
     public bannerImages: BannerImage[];
 

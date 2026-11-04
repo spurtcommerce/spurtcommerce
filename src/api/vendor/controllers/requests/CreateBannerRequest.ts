@@ -27,6 +27,11 @@ export class CreateBanner {
 
     public linkType: number;
 
-    @IsNotEmpty()
     public bannerImage: any[];
+
+    public miniBannerImage: any[];
+
+    public isMiniBanner: number;
+
+    public imageType: number;
 }

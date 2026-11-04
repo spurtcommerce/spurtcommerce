@@ -8,10 +8,6 @@
 
 import 'reflect-metadata';
 import { IsNotEmpty, MaxLength } from 'class-validator';
-interface BannerImage {
-    imageBase64: string;
-    isPrimary: number;
-}
 export class UpdateBanner {
 
     @IsNotEmpty()
@@ -41,6 +37,14 @@ export class UpdateBanner {
 
     public linkType: number;
 
-    public bannerImage: BannerImage[];
+    public bannerImage: any[];
+
+    public isMiniBanner: number;
+
+    public miniBannerImage: any[];
+
+    public deletedImages: any[];
+
+    public imageType: number;
 
 }

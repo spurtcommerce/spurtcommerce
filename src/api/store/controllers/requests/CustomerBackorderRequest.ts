@@ -92,4 +92,6 @@ export class CustomerBackorderRequest {
     public productDetails: [];
 
     public isMobile: boolean;
+
+    public poNumber: number;
 }
