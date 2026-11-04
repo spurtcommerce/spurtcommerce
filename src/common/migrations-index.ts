@@ -614,6 +614,8 @@ export * from '../database/migrations/1793018313175-AddColumnsInSettings';
 export * from '../database/migrations/1793167251414-UpdateClientIdForPaymentGateways';
 export * from '../database/migrations/1793600124084-CreateApiKeyModelTable';
 export * from '../database/migrations/1793625530300-CreateFeaturedProductTable';
+export * from '../database/migrations/1793709986496-AddColumnBannerTable';
+export * from '../database/migrations/1793771261160-AddColumnNameToApikeyTAble';
 export * from '../../add-ons/Payment/Paypal/migrations/1561108919611-CreatePaypalOrderTable';
 export * from '../../add-ons/Payment/Paypal/migrations/1561109413675-CreatePaypalOrderTransactionTable';
 export * from '../../add-ons/Payment/Paypal/migrations/1648018102673-AddPaypalData';

@@ -30,6 +30,9 @@ export class ApiKeyModel extends BaseModel {
     @Column({ name: 'api_key_hash', length: 64, unique: true })
     public apiKeyHash: string;
 
+    @Column({ name: 'name', default : '' })
+    public name: string;
+
     @Column({
     name: 'api_key_encrypted',
     type: 'text',
