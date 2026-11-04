@@ -12,9 +12,10 @@ import { ProductService } from '../../../../src/api/core/services/ProductService
 import { MSeoMetaService } from '../../core/services/MSeoMetaService';
 import { CategoryService } from '../../../../src/api/core/services/CategoryService';
 import { PageService } from '../../../../src/api/core/services/PageService';
-import { BlogService } from '../../../api/core/services/BlogService';
+import { PluginService } from '../../core/services/PluginService';
 import { TenantValidationMiddleware } from '../../../../src/api/core/middlewares/TenantValidationMiddleware';
-import { Service } from 'typedi';
+import { Service, Container } from 'typedi';
+import { getDataSource } from '../../../../src/loaders/typeormLoader';
 
 @Service()
 @UseBefore(TenantValidationMiddleware)
@@ -25,7 +26,7 @@ export class StoreSeoController {
         private mSeoMetaService: MSeoMetaService,
         private categoryService: CategoryService,
         private pageService: PageService,
-        private blogService: BlogService
+        private pluginService: PluginService
     ) { }
 
     // Product Seo Detail API
@@ -211,13 +212,40 @@ export class StoreSeoController {
      */
     @Get('/blog/:blogSlug')
     public async blogeodetail(@Param('blogSlug') slugName: string, @Req() request: any, @Res() response: any): Promise<any> {
-        const blog: any = await this.blogService.findOne({
+        const plugin = await this.pluginService.findOne({
             where: {
-                blogSlug: slugName,
-                isActive: 1,
-                tenantId: request.tenantId,
+                slugName: 'blog',
+                pluginStatus: 1,
             },
         });
+        if (!plugin) {
+            return response.status(400).send({
+                status: 0,
+                message: 'Blog plugin is disabled or not installed.',
+            });
+        }
+
+        let blog: any;
+        if (Container.has('BlogService')) {
+            const blogService: any = Container.get('BlogService');
+            blog = await blogService.findOne({
+                where: {
+                    blogSlug: slugName,
+                    isActive: 1,
+                    tenantId: request.tenantId,
+                },
+            });
+        } else {
+            blog = await getDataSource().createQueryBuilder()
+                .select('blog.id', 'id')
+                .from('blog', 'blog')
+                .where('blog.blog_slug = :slugName AND blog.is_active = 1 AND blog.tenant_id = :tenantId', {
+                    slugName,
+                    tenantId: request.tenantId,
+                })
+                .getRawOne();
+        }
+
         if (!blog) {
             return response.status(200).send({
                 status: 0,

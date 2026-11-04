@@ -11,17 +11,16 @@ import { JsonController, Res, Post, Authorized, Get, QueryParam, Param, Body, Re
 import { MSeoMetaService } from '../../core/services/MSeoMetaService';
 import { MSeoMeta } from '../../core/models/MSeoMetaModel';
 import { AddSeoRequest } from '../../../../src/api/vendor/controllers/requests/CreateSeoRequest';
-import { BlogService } from '../../core/services/BlogService';
-import { BlogCategoryService } from '../../core/services/BlogCategoryService';
-import { Service } from 'typedi';
+import { PluginService } from '../../core/services/PluginService';
+import { Service, Container } from 'typedi';
+import { getDataSource } from '../../../../src/loaders/typeormLoader';
 
 @Service()
 @JsonController('/vendor-blog-seo')
 export class VendorSeoBlogController {
     constructor(
-        private blogService: BlogService,
         private mSeoMetaService: MSeoMetaService,
-        private blogCategoryService: BlogCategoryService
+        private pluginService: PluginService
     ) { }
 
     /**
@@ -97,7 +96,17 @@ export class VendorSeoBlogController {
                 value: categoryId,
             });
         }
-        const blogLists: any = await this.blogService.list(limit, offset, select, search, whereConditions, [], count);
+        const plugin = await this.pluginService.findOne({ where: { slugName: 'blog', pluginStatus: 1 } });
+        if (!plugin) {
+            return response.status(400).send({ status: 0, message: 'Blog plugin is disabled or not installed.' });
+        }
+        if (!Container.has('BlogService')) {
+            return response.status(400).send({ status: 0, message: 'Blog service is unavailable.' });
+        }
+        const blogService: any = Container.get('BlogService');
+        const blogCategoryService: any = Container.has('BlogCategoryService') ? Container.get('BlogCategoryService') : null;
+
+        const blogLists: any = await blogService.list(limit, offset, select, search, whereConditions, [], count);
         if (count) {
             const successResponse: any = {
                 status: 1,
@@ -108,12 +117,14 @@ export class VendorSeoBlogController {
         } else {
             const blogList = blogLists.map(async (val: any) => {
                 const datas: any = val;
-                const getCategoryName = await this.blogCategoryService.findOne({
-                    where: { blogCategoryId: val.categoryId },
-                    select: ['name'],
-                });
-                if (getCategoryName) {
-                    datas.categoryName = getCategoryName.name;
+                if (blogCategoryService) {
+                    const getCategoryName = await blogCategoryService.findOne({
+                        where: { blogCategoryId: val.categoryId },
+                        select: ['name'],
+                    });
+                    if (getCategoryName) {
+                        datas.categoryName = getCategoryName.name;
+                    }
                 }
                 return datas;
             });
@@ -167,8 +178,23 @@ export class VendorSeoBlogController {
     @Post('/:blogId')
     @Authorized(['vendor', 'seo-blog'])
     public async updateSeo(@Param('blogId') blogId: number, @Body({ validate: true }) seo: AddSeoRequest, @Res() response: any): Promise<any> {
+        const plugin = await this.pluginService.findOne({ where: { slugName: 'blog', pluginStatus: 1 } });
+        if (!plugin) {
+            return response.status(400).send({ status: 0, message: 'Blog plugin is disabled or not installed.' });
+        }
 
-        const Blog = await this.blogService.findOne({ where: { id: blogId } });
+        let Blog: any;
+        if (Container.has('BlogService')) {
+            const blogService: any = Container.get('BlogService');
+            Blog = await blogService.findOne({ where: { id: blogId } });
+        } else {
+            Blog = await getDataSource().createQueryBuilder()
+                .select('blog.title', 'title')
+                .from('blog', 'blog')
+                .where('blog.id = :blogId', { blogId })
+                .getRawOne();
+        }
+
         if (!Blog) {
             const errorResponse: any = {
                 status: 0,
@@ -259,7 +285,23 @@ export class VendorSeoBlogController {
     @Get('/:blogId')
     @Authorized(['vendor', 'seo-blog'])
     public async seoDetail(@Param('blogId') blogId: number, @Res() response: any): Promise<any> {
-        const blog = await this.blogService.findOne({ where: { id: blogId } });
+        const plugin = await this.pluginService.findOne({ where: { slugName: 'blog', pluginStatus: 1 } });
+        if (!plugin) {
+            return response.status(400).send({ status: 0, message: 'Blog plugin is disabled or not installed.' });
+        }
+
+        let blog: any;
+        if (Container.has('BlogService')) {
+            const blogService: any = Container.get('BlogService');
+            blog = await blogService.findOne({ where: { id: blogId } });
+        } else {
+            blog = await getDataSource().createQueryBuilder()
+                .select('*')
+                .from('blog', 'blog')
+                .where('blog.id = :blogId', { blogId })
+                .getRawOne();
+        }
+
         if (!blog) {
             const errorResponse: any = {
                 status: 0,
