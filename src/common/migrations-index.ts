@@ -407,7 +407,6 @@ export * from '../database/migrations/1738838656742-RemoveTenantIdInRegistration
 export * from '../database/migrations/1738839644907-AddStatusIdInOrderStatus';
 export * from '../database/migrations/1738909044872-CreateVendorUserTable';
 export * from '../database/migrations/1738910305300-CreateVendorUserGroupTable';
-export * from '../database/migrations/1739193645415-AddTenantIdVendorBlogs';
 export * from '../database/migrations/1739273442493-AddTenantIdInRegistrationOtpTable';
 export * from '../database/migrations/1739278436401-AddTenantIdInVariant';
 export * from '../database/migrations/1739353617609-AddRoutesForVendorAddons';

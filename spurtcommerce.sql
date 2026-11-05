@@ -174,74 +174,6 @@ CREATE TABLE `banner_images` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `blog`
---
-
-CREATE TABLE `blog` (
-  `id` int NOT NULL,
-  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `category_id` int NOT NULL,
-  `description` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
-  `image` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
-  `image_path` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `is_active` int DEFAULT NULL,
-  `meta_tag_title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `meta_tag_description` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
-  `meta_tag_keyword` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `blog_slug` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `created_by` int DEFAULT NULL,
-  `modified_by` int DEFAULT NULL,
-  `created_date` datetime DEFAULT CURRENT_TIMESTAMP,
-  `modified_date` datetime DEFAULT CURRENT_TIMESTAMP,
-  `tenant_id` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `blog_category`
---
-
-CREATE TABLE `blog_category` (
-  `blog_category_id` int NOT NULL,
-  `name` varchar(255) DEFAULT NULL,
-  `image` varchar(255) DEFAULT NULL,
-  `image_path` varchar(255) DEFAULT NULL,
-  `parent_int` int DEFAULT NULL,
-  `sort_order` int DEFAULT NULL,
-  `meta_tag_title` varchar(255) DEFAULT NULL,
-  `meta_tag_description` text,
-  `meta_tag_keyword` varchar(255) DEFAULT NULL,
-  `is_active` int DEFAULT NULL,
-  `created_by` int DEFAULT NULL,
-  `modified_by` int DEFAULT NULL,
-  `created_date` datetime DEFAULT CURRENT_TIMESTAMP,
-  `modified_date` datetime DEFAULT CURRENT_TIMESTAMP,
-  `category_slug` varchar(255) DEFAULT NULL,
-  `category_description` text,
-  `tenant_id` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `blog_related`
---
-
-CREATE TABLE `blog_related` (
-  `related_id` int NOT NULL,
-  `blog_id` int NOT NULL,
-  `related_blog_id` int NOT NULL,
-  `is_active` int DEFAULT NULL,
-  `created_by` int DEFAULT NULL,
-  `created_date` datetime DEFAULT CURRENT_TIMESTAMP,
-  `modified_by` int DEFAULT NULL,
-  `modified_date` datetime DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `category`
 --
 
@@ -1630,7 +1562,6 @@ INSERT INTO `migrations` (`id`, `timestamp`, `name`) VALUES
 (95, 1561967809283, 'AlterColumnTable1561967809283'),
 (96, 1562234808237, 'AddRelationProductionOptionToProductTable1562234808237'),
 (97, 1562831060364, 'AlterCurrencyTable1562831060364'),
-(98, 1563174105812, 'CreateBlogTable1563174105812'),
 (99, 1563347331461, 'CreateJobsTable1563347331461'),
 (100, 1565087039728, 'DropFKforOrderCustomer1565087039728'),
 (101, 1565606134069, 'AddColumnInOrderTable1565606134069'),
@@ -1700,7 +1631,6 @@ INSERT INTO `migrations` (`id`, `timestamp`, `name`) VALUES
 (169, 1582806345058, 'AddLastLoginInDeliveryPerson1582806345058'),
 (170, 1582888041707, 'AlterColumnInProductPriceLog1582888041707'),
 (171, 1582898256691, 'AddColumnInOrderProduct1582898256691'),
-(172, 1583411982211, 'CreateBlogRelatedTable1583411982211'),
 (173, 1583905968298, 'AlterColumnInProductPriceLogTable1583905968298'),
 (174, 1584004496240, 'AddColumnInOrderTable1584004496240'),
 (175, 1584011252176, 'AddColumnInOrderProductTable1584011252176'),
@@ -1709,7 +1639,6 @@ INSERT INTO `migrations` (`id`, `timestamp`, `name`) VALUES
 (178, 1584098038843, 'AddColumnInRoleAndUser1584098038843'),
 (184, 1585822065789, 'CreateVendorPaymentArchive1585822065789'),
 (185, 1586159957544, 'AddPaymentProcessInOrder1586159957544'),
-(186, 1586945695954, 'AddContraintInBlogRelated1586945695954'),
 (189, 1587392215376, 'DropFKforVendorOrder1587392215376'),
 (190, 1586347085190, 'AddColumnInProductTable1586347085190'),
 (191, 1587555771172, 'AddColumnInVendorProduct1587555771172'),
@@ -1819,18 +1748,10 @@ INSERT INTO `migrations` (`id`, `timestamp`, `name`) VALUES
 (307, 1667051145596, 'CreatePluginTable1667051145596'),
 (308, 1667214458860, 'AddWidgetPlugin1667214458860'),
 (309, 1667634072267, 'DropColumnInProductTable1667634072267'),
-(310, 1647263878759, 'AddBlogsPermissionGroupData1647263878759'),
-(311, 1647264994076, 'AddBlogsMenu1647264994076'),
-(312, 1651294960594, 'CreateBlogCategory1651294960594'),
-(313, 1651295328465, 'CreateBlogCategoryPath1651295328465'),
-(314, 1651310850012, 'AddConstraintInBlogCategoryPath1651310850012'),
-(315, 1651473763023, 'AddingColumnInBlogCategory1651473763023'),
-(316, 1651491997947, 'AddConstraintInBlogTable1651491997947'),
 (317, 1664960579010, 'CreateSeoTable1664960579010'),
 (318, 1665120872278, 'AddSeoMenu1665120872278'),
 (319, 1665122641263, 'AddColumnInPluginTable1665122641263'),
 (320, 1665123762673, 'AddSeoDataPlugin1665123762673'),
-(321, 1665133624567, 'AddBlogDataPlugin1665133624567'),
 (322, 1665135644842, 'AddWidgetPlugin1665135644842'),
 (323, 1666091900094, 'AddColumnInPluginTable1666091900094'),
 (324, 1678774917380, 'CreateSiteMap1678774917380'),
@@ -1839,7 +1760,6 @@ INSERT INTO `migrations` (`id`, `timestamp`, `name`) VALUES
 (328, 1679295983234, 'AddColumnShowHomePageWidget1679295983234'),
 (329, 1546513939917, 'AddColumnPluginTimestampInPlugin1546513939917'),
 (392, 1676697134335, 'GmapUpdateSettingColumn1676697134335'),
-(399, 1679895949882, 'AddPluginTimestampInBlogs1679895949882'),
 (412, 1679898902620, 'AddPluginTimestampInSeo1679898902620'),
 (413, 1679900284517, 'AddPluginTimestampInWidget1679900284517'),
 (415, 1680158996121, 'SiteFilterTable1680158996121'),
@@ -1919,8 +1839,6 @@ INSERT INTO `migrations` (`id`, `timestamp`, `name`) VALUES
 (557, 1711542154784, 'CreateTblProductTranslation1711542154784'),
 (558, 1711609364591, 'CategoryTranslation1711609364591'),
 (562, 1712054539417, 'CreateWidgetTranslationTable1712054539417'),
-(563, 1712142488560, 'BlogTranslation1712142488560'),
-(564, 1712143562228, 'BlogCategoryTranslation1712143562228'),
 (565, 1712382292716, 'CreateVariantTranslationTable1712382292716'),
 (566, 1712320905661, 'PageTranslation1712320905661'),
 (567, 1712321518092, 'PageGroupTranslation1712321518092'),
@@ -2063,7 +1981,6 @@ INSERT INTO `migrations` (`id`, `timestamp`, `name`) VALUES
 (721, 1729490178800, 'AddSlugNamePermissionModuleTable1729490178800'),
 (722, 1729572900240, 'AlterPluginNamePricingGroup1729572900240'),
 (723, 1729664742399, 'AddGmapSlugnamePluginsTable1729664742399'),
-(728, 1729834906906, 'ChangeDisplayNameBlogAddon1729834906906'),
 (729, 1729847672248, 'ChangeOauthPluginName1729847672248'),
 (730, 1729849370507, 'AddSiteMapPluginUrl1729849370507'),
 (731, 1732273657099, 'UpdateRowCustomerWordToBuyerInPermmisionModules1732273657099'),
@@ -2103,7 +2020,6 @@ INSERT INTO `migrations` (`id`, `timestamp`, `name`) VALUES
 (771, 1738839644907, 'AddStatusIdInOrderStatus1738839644907'),
 (772, 1738909044872, 'CreateVendorUserTable1738909044872'),
 (773, 1738910305300, 'CreateVendorUserGroupTable1738910305300'),
-(774, 1739193645415, 'AddTenantIdVendorBlogs1739193645415'),
 (775, 1739273442493, 'AddTenantIdInRegistrationOtpTable1739273442493'),
 (777, 1739346597187, 'AddTenantIdInVendorSiteMap1739346597187'),
 (778, 1739353617609, 'AddRoutesForVendorAddons1739353617609'),
@@ -2159,7 +2075,6 @@ INSERT INTO `migrations` (`id`, `timestamp`, `name`) VALUES
 (828, 1743423407281, 'AddAttributePluginRoutes1743423407281'),
 (829, 1743492053241, 'VariantPluginRoutes1743492053241'),
 (830, 1743501594450, 'AddAttributeRoutes1743501594450'),
-(831, 1743501715339, 'AddBlogRoutes1743501715339'),
 (832, 1743506845652, 'AddFormInfoForTenant1743506845652'),
 (833, 1743656893972, 'AddSupportTicketPlugin1743656893972'),
 (834, 1743659595214, 'AddIntergrationForShopifyInPlugins1743659595214'),
@@ -2242,7 +2157,6 @@ INSERT INTO `migrations` (`id`, `timestamp`, `name`) VALUES
 (920, 1752492521165, 'TruncateTableVendorPermissionTableModuleAndGroup1752492521165'),
 (921, 1752496597716, 'AddValuesVendorPermissionModuleGroup1752496597716'),
 (922, 1752496613651, 'AddValuesVendorPermissionModule1752496613651'),
-(923, 1752573243442, 'AddVendorPermission1752573243442'),
 (925, 1752576432537, 'AddVendorPermission1752576432537'),
 (926, 1752579400301, 'AddVendorPermission1752579400301'),
 (927, 1752580068504, 'AddVendorPermission1752580068504'),
@@ -2300,7 +2214,6 @@ INSERT INTO `migrations` (`id`, `timestamp`, `name`) VALUES
 (983, 1759832519058, 'UpdatePluginStatusSupplierManagement1759832519058'),
 (984, 1759832711956, 'UpdatePluginStatusSupportTicket1759832711956'),
 (985, 1759833086818, 'UpdatePluginStatusCashOnDelivery1759833086818'),
-(986, 1759842096269, 'UpdatePluginBlogs1759842096269'),
 (988, 1759843280496, 'UpdatePluginProductPriceGroup1759843280496'),
 (989, 1759843547109, 'UpdatePluginProductRelated1759843547109'),
 (990, 1759843746988, 'UpdatePluginProductVariant1759843746988'),
@@ -2322,7 +2235,6 @@ INSERT INTO `migrations` (`id`, `timestamp`, `name`) VALUES
 (1007, 1761121855833, 'AddCoulmHideSpurtLogo1761121855833'),
 (1008, 1761286504027, 'ChangeForeignKeyCategoryTranslation1761286504027'),
 (1010, 1761309964307, 'AddVendorLanguageLocalization1761309964307'),
-(1013, 1761558835870, 'UpdateBlogTransalation1761558835870'),
 (1014, 1761560478223, 'UpdateWidgetTransalation1761560478223'),
 (1015, 1761561885036, 'UpdateProductTransalation1761561885036'),
 (1016, 1761563116372, 'UpdateVarientTransalation1761563116372'),
@@ -2361,8 +2273,7 @@ INSERT INTO `migrations` (`id`, `timestamp`, `name`) VALUES
 (1053, 1766401120111, 'SignInEmailTemplate1766401120111'),
 (1054, 1766569994788, 'UpdatePluginProductAttributeDescrption1766569994788'),
 (1055, 1766573426861, 'RevertPluginAttributeDescription1766573426861'),
-(1056, 1766990168820, 'UpdateSocialLinkSettingTable1766990168820'),
-(1057, 1767159335466, 'UpdateBlogTanslateForginKeyReference1767159335466');
+(1056, 1766990168820, 'UpdateSocialLinkSettingTable1766990168820');
 
 -- --------------------------------------------------------
 
@@ -4810,29 +4721,6 @@ ALTER TABLE `banner_images`
   ADD KEY `fk_banner_images_banner_banner_id` (`banner_id`);
 
 --
--- Indexes for table `blog`
---
-ALTER TABLE `blog`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_blog_category` (`category_id`),
-  ADD KEY `id` (`id`);
-
---
--- Indexes for table `blog_category`
---
-ALTER TABLE `blog_category`
-  ADD PRIMARY KEY (`blog_category_id`),
-  ADD KEY `fk_blog_category_blog_category_parent_id_idx` (`parent_int`);
-
---
--- Indexes for table `blog_related`
---
-ALTER TABLE `blog_related`
-  ADD PRIMARY KEY (`related_id`),
-  ADD KEY `fk_tbl_blogRelated_tbl_blog_foreignKey` (`blog_id`),
-  ADD KEY `fk_tbl_related_blog_id_tbl_blog` (`related_blog_id`);
-
---
 -- Indexes for table `category`
 --
 ALTER TABLE `category`
@@ -5617,24 +5505,6 @@ ALTER TABLE `banner_images`
   MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `blog`
---
-ALTER TABLE `blog`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `blog_category`
---
-ALTER TABLE `blog_category`
-  MODIFY `blog_category_id` int NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `blog_related`
---
-ALTER TABLE `blog_related`
-  MODIFY `related_id` int NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
@@ -6257,25 +6127,6 @@ ALTER TABLE `banner`
 --
 ALTER TABLE `banner_images`
   ADD CONSTRAINT `fk_banner_images_banner_banner_id` FOREIGN KEY (`banner_id`) REFERENCES `banner` (`banner_id`) ON DELETE CASCADE;
-
---
--- Constraints for table `blog`
---
-ALTER TABLE `blog`
-  ADD CONSTRAINT `fk_blog_blog_category_category_id` FOREIGN KEY (`category_id`) REFERENCES `blog_category` (`blog_category_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `blog_category`
---
-ALTER TABLE `blog_category`
-  ADD CONSTRAINT `fk_blog_category_blog_category_parent_int` FOREIGN KEY (`parent_int`) REFERENCES `blog_category` (`blog_category_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `blog_related`
---
-ALTER TABLE `blog_related`
-  ADD CONSTRAINT `fk_tbl_blogRelated_tbl_blog_foreignKey` FOREIGN KEY (`blog_id`) REFERENCES `blog` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `fk_tbl_related_blog_id_tbl_blog` FOREIGN KEY (`related_blog_id`) REFERENCES `blog` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `category_commission`

@@ -11,16 +11,14 @@ import { JsonController, Res, Post, Authorized, Get, QueryParam, Param, Body, Re
 import { MSeoMetaService } from '../../core/services/MSeoMetaService';
 import { MSeoMeta } from '../../core/models/MSeoMetaModel';
 import { AddSeoRequest } from '../../../../src/api/vendor/controllers/requests/CreateSeoRequest';
-import { PluginService } from '../../core/services/PluginService';
-import { Service, Container } from 'typedi';
+import { Service } from 'typedi';
 import { getDataSource } from '../../../../src/loaders/typeormLoader';
 
 @Service()
 @JsonController('/vendor-blog-seo')
 export class VendorSeoBlogController {
     constructor(
-        private mSeoMetaService: MSeoMetaService,
-        private pluginService: PluginService
+        private mSeoMetaService: MSeoMetaService
     ) { }
 
     /**
@@ -61,80 +59,61 @@ export class VendorSeoBlogController {
     @Get()
     @Authorized(['vendor', 'seo-blog'])
     public async blogList(@QueryParam('limit') limit: number, @QueryParam('offset') offset: number, @QueryParam('keyword') keyword: string, @QueryParam('categoryId') categoryId: string, @QueryParam('status') status: number, @QueryParam('count') count: number | boolean, @Res() response: any, @Req() request: any): Promise<any> {
-        const select = ['id', 'title', 'categoryId', 'description', 'image', 'imagePath', 'isActive', 'blogSlug', 'createdDate'];
-        const search = [
-            {
-                name: 'categoryId',
-                op: 'like',
-                value: categoryId,
-            },
-        ];
-        if (keyword) {
-            search.push(
-                {
-                    name: 'title',
-                    op: 'like',
-                    value: keyword,
-                }
-            );
-        }
-        const whereConditions = [
-            {
-                name: 'tenantId',
-                value: request.user.tenantId,
-            },
-        ];
-        if (status === 1 || status === 0) {
-            whereConditions.push({
-                name: 'isActive',
-                value: status,
-            });
-        }
-        if (categoryId) {
-            whereConditions.push({
-                name: 'categoryId',
-                value: categoryId,
-            });
-        }
-        const plugin = await this.pluginService.findOne({ where: { slugName: 'blog', pluginStatus: 1 } });
-        if (!plugin) {
-            return response.status(400).send({ status: 0, message: 'Blog plugin is disabled or not installed.' });
-        }
-        if (!Container.has('BlogService')) {
-            return response.status(400).send({ status: 0, message: 'Blog service is unavailable.' });
-        }
-        const blogService: any = Container.get('BlogService');
-        const blogCategoryService: any = Container.has('BlogCategoryService') ? Container.get('BlogCategoryService') : null;
+        try {
+            const qb = getDataSource().createQueryBuilder()
+                .select([
+                    'blog.id AS id',
+                    'blog.title AS title',
+                    'blog.category_id AS categoryId',
+                    'blog.description AS description',
+                    'blog.image AS image',
+                    'blog.image_path AS imagePath',
+                    'blog.is_active AS isActive',
+                    'blog.blog_slug AS blogSlug',
+                    'blog.created_date AS createdDate',
+                    'category.name AS categoryName',
+                ])
+                .from('blog', 'blog')
+                .leftJoin('blog_category', 'category', 'category.blog_category_id = blog.category_id')
+                .where('blog.tenant_id = :tenantId', { tenantId: request.user.tenantId });
 
-        const blogLists: any = await blogService.list(limit, offset, select, search, whereConditions, [], count);
-        if (count) {
-            const successResponse: any = {
-                status: 1,
-                message: 'Successfully got blog count.',
-                data: blogLists,
-            };
-            return response.status(200).send(successResponse);
-        } else {
-            const blogList = blogLists.map(async (val: any) => {
-                const datas: any = val;
-                if (blogCategoryService) {
-                    const getCategoryName = await blogCategoryService.findOne({
-                        where: { blogCategoryId: val.categoryId },
-                        select: ['name'],
-                    });
-                    if (getCategoryName) {
-                        datas.categoryName = getCategoryName.name;
-                    }
-                }
-                return datas;
-            });
-            const results = await Promise.all(blogList);
-            const successResponse: any = {
+            if (categoryId) {
+                qb.andWhere('blog.category_id = :categoryId', { categoryId });
+            }
+            if (status === 1 || status === 0) {
+                qb.andWhere('blog.is_active = :status', { status });
+            }
+            if (keyword) {
+                qb.andWhere('blog.title LIKE :keyword', { keyword: `%${keyword}%` });
+            }
+
+            if (count) {
+                const totalCount = await qb.getCount();
+                return response.status(200).send({
+                    status: 1,
+                    message: 'Successfully got blog count.',
+                    data: totalCount,
+                });
+            }
+
+            if (limit) {
+                qb.limit(limit);
+            }
+            if (offset) {
+                qb.offset(offset);
+            }
+
+            const results = await qb.getRawMany();
+            return response.status(200).send({
                 status: 1,
                 message: 'Successfully got blog list.',
                 data: results,
-            };
-            return response.status(200).send(successResponse);
+            });
+        } catch (err) {
+            return response.status(400).send({
+                status: 0,
+                message: 'Blog addon is not installed or enabled.',
+            });
         }
     }
 
@@ -178,74 +157,65 @@ export class VendorSeoBlogController {
     @Post('/:blogId')
     @Authorized(['vendor', 'seo-blog'])
     public async updateSeo(@Param('blogId') blogId: number, @Body({ validate: true }) seo: AddSeoRequest, @Res() response: any): Promise<any> {
-        const plugin = await this.pluginService.findOne({ where: { slugName: 'blog', pluginStatus: 1 } });
-        if (!plugin) {
-            return response.status(400).send({ status: 0, message: 'Blog plugin is disabled or not installed.' });
-        }
-
-        let Blog: any;
-        if (Container.has('BlogService')) {
-            const blogService: any = Container.get('BlogService');
-            Blog = await blogService.findOne({ where: { id: blogId } });
-        } else {
-            Blog = await getDataSource().createQueryBuilder()
-                .select('blog.title', 'title')
+        try {
+            const Blog: any = await getDataSource().createQueryBuilder()
+                .select(['blog.id AS id', 'blog.title AS title'])
                 .from('blog', 'blog')
                 .where('blog.id = :blogId', { blogId })
                 .getRawOne();
-        }
 
-        if (!Blog) {
-            const errorResponse: any = {
+            if (!Blog) {
+                return response.status(400).send({
+                    status: 0,
+                    message: 'Invalid Blog. ',
+                });
+            }
+
+            const updateSeo = await this.mSeoMetaService.findOne({
+                where: {
+                    refId: blogId,
+                    seoType: 'blogs',
+                },
+            });
+            if (updateSeo) {
+                updateSeo.metaTagTitle = seo.metaTagTitle ? seo.metaTagTitle : Blog.title;
+                updateSeo.metaTagDescription = seo.metaTagDescription ? await this.mSeoMetaService.escapeChar(seo.metaTagDescription) : '';
+                updateSeo.metaTagKeyword = seo.metaTagKeyword;
+                updateSeo.refId = blogId;
+                updateSeo.seoType = 'blogs';
+
+                await this.mSeoMetaService.update(updateSeo.seoId, updateSeo);
+                return response.status(200).send({
+                    status: 1,
+                    message: 'SEO Updated successfully',
+                });
+            }
+
+            const NewSeo = new MSeoMeta();
+            NewSeo.metaTagTitle = seo.metaTagTitle ? seo.metaTagTitle : Blog.title;
+            NewSeo.metaTagDescription = seo.metaTagDescription ? await this.mSeoMetaService.escapeChar(seo.metaTagDescription) : '';
+            NewSeo.metaTagKeyword = seo.metaTagKeyword;
+            NewSeo.refId = blogId;
+            NewSeo.seoType = 'blogs';
+
+            const createSeo = await this.mSeoMetaService.create(NewSeo);
+            if (createSeo) {
+                return response.status(200).send({
+                    status: 1,
+                    message: 'Seo created Successfully.',
+                    data: createSeo,
+                });
+            } else {
+                return response.status(400).send({
+                    status: 0,
+                    message: 'Unable to create SEO.',
+                });
+            }
+        } catch (err) {
+            return response.status(400).send({
                 status: 0,
-                message: 'Invalid Blog. ',
-            };
-            return response.status(400).send(errorResponse);
-        }
-
-        const updateSeo = await this.mSeoMetaService.findOne({
-            where: {
-                refId: blogId,
-                seoType: 'blogs',
-            },
-        });
-        if (updateSeo) {
-            updateSeo.metaTagTitle = seo.metaTagTitle ? seo.metaTagTitle : Blog.title;
-            updateSeo.metaTagDescription = seo.metaTagDescription ? await this.mSeoMetaService.escapeChar(seo.metaTagDescription) : '';
-            updateSeo.metaTagKeyword = seo.metaTagKeyword;
-            updateSeo.refId = blogId;
-            updateSeo.seoType = 'blogs';
-
-            await this.mSeoMetaService.update(updateSeo.seoId, updateSeo);
-            const successResponse: any = {
-                status: 1,
-                message: 'SEO Updated successfully',
-            };
-            return response.status(200).send(successResponse);
-        }
-
-        const NewSeo = new MSeoMeta();
-
-        NewSeo.metaTagTitle = seo.metaTagTitle ? seo.metaTagTitle : Blog.title;
-        NewSeo.metaTagDescription = seo.metaTagDescription ? await this.mSeoMetaService.escapeChar(seo.metaTagDescription) : '';
-        NewSeo.metaTagKeyword = seo.metaTagKeyword;
-        NewSeo.refId = blogId;
-        NewSeo.seoType = 'blogs';
-
-        const createSeo = await this.mSeoMetaService.create(NewSeo);
-        if (createSeo) {
-            const successResponse: any = {
-                status: 1,
-                message: 'Seo created Successfully.',
-                data: createSeo,
-            };
-            return response.status(200).send(successResponse);
-        } else {
-            const errorResponse: any = {
-                status: 0,
-                message: 'Unable to create SEO.',
-            };
-            return response.status(400).send(errorResponse);
+                message: 'Blog addon is not installed or enabled.',
+            });
         }
     }
 
@@ -285,37 +255,35 @@ export class VendorSeoBlogController {
     @Get('/:blogId')
     @Authorized(['vendor', 'seo-blog'])
     public async seoDetail(@Param('blogId') blogId: number, @Res() response: any): Promise<any> {
-        const plugin = await this.pluginService.findOne({ where: { slugName: 'blog', pluginStatus: 1 } });
-        if (!plugin) {
-            return response.status(400).send({ status: 0, message: 'Blog plugin is disabled or not installed.' });
-        }
-
-        let blog: any;
-        if (Container.has('BlogService')) {
-            const blogService: any = Container.get('BlogService');
-            blog = await blogService.findOne({ where: { id: blogId } });
-        } else {
-            blog = await getDataSource().createQueryBuilder()
-                .select('*')
+        try {
+            const blog: any = await getDataSource().createQueryBuilder()
+                .select([
+                    'blog.id AS id',
+                    'blog.title AS title',
+                    'blog.blog_slug AS blogSlug',
+                ])
                 .from('blog', 'blog')
                 .where('blog.id = :blogId', { blogId })
                 .getRawOne();
-        }
 
-        if (!blog) {
-            const errorResponse: any = {
+            if (!blog) {
+                return response.status(400).send({
+                    status: 0,
+                    message: 'Invalid Blog.',
+                });
+            }
+
+            blog.seo = await this.mSeoMetaService.findOne({ where: { refId: blogId, seoType: 'blogs' } });
+            return response.status(200).send({
+                status: 1,
+                message: 'Successfully got SEO detail.',
+                data: blog,
+            });
+        } catch (err) {
+            return response.status(400).send({
                 status: 0,
-                message: 'Invalid Blog.',
-            };
-            return response.status(400).send(errorResponse);
+                message: 'Blog addon is not installed or enabled.',
+            });
         }
-
-        blog.seo = await this.mSeoMetaService.findOne({ where: { refId: blogId, seoType: 'blogs' } });
-        const successResponse: any = {
-            status: 1,
-            message: 'Successfully got SEO detail.',
-            data: blog,
-        };
-        return response.status(200).send(successResponse);
     }
 }

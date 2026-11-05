@@ -495,6 +495,12 @@ export function getAddonPluginNames(): string[] {
     for (const addon of addons) {
         if (addon.manifest.pluginName && !names.includes(addon.manifest.pluginName)) {
             names.push(addon.manifest.pluginName);
+            // Handle plural/singular naming variations between DB seeds and manifests (e.g. Blogs vs Blog)
+            if (addon.manifest.pluginName === 'Blog' && !names.includes('Blogs')) {
+                names.push('Blogs');
+            } else if (addon.manifest.pluginName === 'Blogs' && !names.includes('Blog')) {
+                names.push('Blog');
+            }
         }
     }
     return names;
