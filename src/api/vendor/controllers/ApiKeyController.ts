@@ -231,12 +231,6 @@ export class ApiKeyController {
         @Res() response: any
     ): Promise<any> {
             const user = request.user;
-            if (!id ) {
-                return response.status(400).send({
-                    status: 0,
-                    message: 'Invalid API Key ID',
-                });
-            }
             const apiKey = await this.apiKeyService.findOne({
                 where: {
                     id,
@@ -249,23 +243,10 @@ export class ApiKeyController {
                     message: 'API Key not found',
                 });
             }
-            if (apiKey.status === 0) {
-                return response.status(400).send({
-                    status: 0,
-                    message: 'API Key already revoked',
-                });
-            }
-            apiKey.status = 0;
-            const apiKeyUpdate = await this.apiKeyService.update(id, apiKey);
-            if (apiKeyUpdate) {
+            await this.apiKeyService.delete(id);
                 return response.status(200).send({
                     status: 1,
-                    message: 'API Key revoked successfully',
-                });
-            }
-            return response.status(400).send({
-                status: 0,
-                message: 'Unable to revoke API Key',
+                    message: 'API Key deleted successfully',
             });
     }
 
