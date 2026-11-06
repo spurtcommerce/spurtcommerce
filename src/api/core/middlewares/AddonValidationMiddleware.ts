@@ -5,7 +5,14 @@ import { getDataSource } from '../../../loaders/typeormLoader';
 export async function CheckAddonMiddleware(request: any, response: any, next: any): Promise<any> {
     const pluginRepository = getDataSource().getRepository(Plugins);
     const routeSplit = request.route.path.split(':')[0];
-    const validAddOnRoute = await pluginRepository.findOne({ where: { routes: Like('%~' + routeSplit + '~%'), pluginStatus: 1 } });
+    const cleanRoute = routeSplit.replace(/\/$/, '');
+    const validAddOnRoute = await pluginRepository.findOne({
+        where: [
+            { routes: Like('%~' + routeSplit + '~%'), pluginStatus: 1 },
+            { routes: Like('%~' + cleanRoute + '~%'), pluginStatus: 1 },
+            { routes: Like('%~' + cleanRoute + '/~%'), pluginStatus: 1 },
+        ],
+    });
     if (validAddOnRoute) {
         next();
     } else {

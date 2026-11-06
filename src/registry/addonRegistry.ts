@@ -6,7 +6,11 @@
 import fs from 'fs';
 import path from 'path';
 import { DataSource } from 'typeorm';
+import { UseBefore, getMetadataArgsStorage } from 'routing-controllers';
 import { HookUtil } from '../api/core/utils/HookUtil';
+import { CheckAddonMiddleware } from '../api/core/middlewares/AddonValidationMiddleware';
+import { CheckVendorAddonMiddleware } from '../api/core/middlewares/VendorAddonValidationMiddilware';
+import { CheckVendorCustomerAddonMiddleware } from '../api/core/middlewares/VendorCustomerAddonValidationMiddilware';
 
 export interface SpurtcommerceAddonManifest {
     name: string;
@@ -14,7 +18,7 @@ export interface SpurtcommerceAddonManifest {
     controllers: any[];
     entities: any[];
     migrations: any[];
-    initialize?: (options: { dataSource: DataSource }) => void | Promise<void>;
+    initialize?: (options: { dataSource: DataSource; [key: string]: any }) => void | Promise<void>;
 }
 
 export interface DiscoveredAddon {
@@ -434,6 +438,57 @@ export function resetAddonRegistry(): void {
 }
 
 /**
+ * Smart universal middleware for add-on controllers.
+ * Automatically delegates to CheckVendorAddonMiddleware, CheckVendorCustomerAddonMiddleware,
+ * or CheckAddonMiddleware based on request context (headers, route paths).
+ */
+export async function SmartAddonValidationMiddleware(request: any, response: any, next: any): Promise<any> {
+    const routePath = request.baseUrl || request.originalUrl || request.route?.path || '';
+    const tenantId = request.get('tenant-id');
+    const appId = request.get('app-id');
+
+    // 1. Vendor routes or requests with tenant-id header:
+    if (tenantId || routePath.includes('/vendor-') || routePath.includes('/broadcast-notification')) {
+        return CheckVendorAddonMiddleware(request, response, next);
+    }
+
+    // 2. Customer / Store routes with app-id header:
+    if (appId) {
+        return CheckVendorCustomerAddonMiddleware(request, response, next);
+    }
+
+    // 3. Admin routes, general store routes, or default fallback:
+    return CheckAddonMiddleware(request, response, next);
+}
+
+/**
+ * Ensures that discovered add-on controllers have the appropriate validation middleware attached.
+ */
+function applyAddonMiddlewareIfMissing(ctrl: any): void {
+    try {
+        const storage = getMetadataArgsStorage();
+        const existingUses = storage.uses.filter(u => u.target === ctrl);
+        if (existingUses.length === 0) {
+            const ctrlMeta = storage.controllers.find(c => c.target === ctrl);
+            const route = String(ctrlMeta?.route || '').toLowerCase();
+            const ctrlName = String(ctrl.name || '').toLowerCase();
+
+            if (route.includes('vendor') || ctrlName.includes('vendor')) {
+                UseBefore(CheckVendorAddonMiddleware)(ctrl);
+            } else if (route.includes('customer') || route.includes('store') || route.includes('buyer') || ctrlName.includes('customer') || ctrlName.includes('buyer') || ctrlName.includes('store')) {
+                UseBefore(CheckVendorCustomerAddonMiddleware)(ctrl);
+            } else if (route.includes('admin') || ctrlName.includes('admin')) {
+                UseBefore(CheckAddonMiddleware)(ctrl);
+            } else {
+                UseBefore(SmartAddonValidationMiddleware)(ctrl);
+            }
+        }
+    } catch {
+        // Non-fatal if metadata inspection fails
+    }
+}
+
+/**
  * Collects all controllers across discovered add-ons.
  */
 export function getAddonControllers(): any[] {
@@ -441,7 +496,12 @@ export function getAddonControllers(): any[] {
     const controllers: any[] = [];
     for (const addon of addons) {
         if (Array.isArray(addon.manifest.controllers)) {
-            controllers.push(...addon.manifest.controllers);
+            for (const ctrl of addon.manifest.controllers) {
+                if (typeof ctrl === 'function') {
+                    applyAddonMiddlewareIfMissing(ctrl);
+                }
+                controllers.push(ctrl);
+            }
         }
     }
     return controllers;
@@ -513,7 +573,18 @@ export async function initializeAddons(dataSource: DataSource): Promise<void> {
     const addons = getDiscoveredAddons();
     for (const addon of addons) {
         if (typeof addon.manifest.initialize === 'function') {
-            await addon.manifest.initialize({ dataSource });
+            await addon.manifest.initialize({
+                dataSource,
+                vendorMiddleware: SmartAddonValidationMiddleware,
+                vendorAddonMiddleware: CheckVendorAddonMiddleware,
+                addonMiddleware: CheckAddonMiddleware,
+                customerVendorMiddleware: CheckVendorCustomerAddonMiddleware,
+                vendorCustomerMiddleware: CheckVendorCustomerAddonMiddleware,
+                checkAddonMiddleware: CheckAddonMiddleware,
+                checkVendorAddonMiddleware: CheckVendorAddonMiddleware,
+                checkVendorCustomerAddonMiddleware: CheckVendorCustomerAddonMiddleware,
+                smartAddonMiddleware: SmartAddonValidationMiddleware,
+            });
         }
     }
 }
