@@ -658,20 +658,8 @@ export class CustomerOrderController {
                 }
             }
         }
-
-        const vendorPluginData = await this.vendorPluginService.findOne(
-            {
-                where: {
-                    vendorId: request.tenantId,
-                    plugins: {
-                        id: checkoutParam.paymentMethod,
-                    },
-                },
-                relations: ['plugins'],
-            }
-        );
-
-        if (vendorPluginData === undefined) {
+        const vendorPluginData = await this.pluginService.findOne({ where: { id: checkoutParam.paymentMethod }});
+        if (vendorPluginData === null) {
             const errorResponse: any = {
                 status: 0,
                 message: 'Payment method is invalid',
@@ -968,8 +956,8 @@ export class CustomerOrderController {
 
         await this.orderTotalService.createOrderTotalData(newOrderTotal);
         if (vendorPluginData.pluginName === 'CashOnDelivery') {
-            const emailContent = await this.emailTemplateService.findOne({ where: { emailTemplateId: 49 } });
-            const adminEmailContent = await this.emailTemplateService.findOne({ where: { emailTemplateId: 50 } });
+            const emailContent = await this.emailTemplateService.findOne({ where: { emailTemplateId: 5 } });
+            const adminEmailContent = await this.emailTemplateService.findOne({ where: { emailTemplateId: 6 } });
             const today = ('0' + nwDate.getDate()).slice(-2) + '.' + ('0' + (nwDate.getMonth() + 1)).slice(-2) + '.' + nwDate.getFullYear();
             const customerFirstName = orderExist.shippingFirstname;
             const customerLastName = orderExist.shippingLastname;
@@ -1040,7 +1028,7 @@ export class CustomerOrderController {
             storeMailContents.orderData = orderExist;
             storeMailContents.templateName = 'invoice-order';
             MAILService.sendMail(storeMailContents, checkoutParam.emailId, emailContent.subject.replace('{productName}', productDetailData[0].productInformationData.name), false, false, '');
-            const order = await this.orderService.findOrder(orderExist.orderId);
+            const order = await this.orderService.findOrder({where : { orderId : orderExist.orderId }});
             order.paymentType = vendorPluginData ? vendorPluginData.pluginName : '';
             order.productDetail = await this.orderProductService.find({ where: { orderId: orderExist.orderId } }).then((val) => {
                 const productImage = val.map(async (value: any) => {

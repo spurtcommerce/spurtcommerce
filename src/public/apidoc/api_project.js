@@ -8,7 +8,11 @@ define({
   "apidoc": "0.3.0",
   "generator": {
     "name": "apidoc",
+<<<<<<< Updated upstream
     "time": "2026-11-05T13:15:17.294Z",
+=======
+    "time": "2026-11-05T10:41:52.300Z",
+>>>>>>> Stashed changes
     "url": "https://apidocjs.com",
     "version": "0.29.0"
   }

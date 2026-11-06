@@ -1420,8 +1420,8 @@ export class StoreProductController {
             'product.name as name',
             'product.sku as sku',
             'product.price as price',
-            'product.image as image',
-            'product.imagePath as imagePath',
+            'productImage.image as image',
+            'productImage.containerName as containerName',
             'product.productSlug as productSlug',
             'product.quantity as quantity',
             'product.description as description',
@@ -1433,6 +1433,12 @@ export class StoreProductController {
                 aliasName: 'product',
                 op: 'left-cond',
                 cond: 'product.product_id = featuredProduct.product_id',
+            },
+            {
+                tableName: 'product_image',
+                aliasName: 'productImage',
+                op: 'left-cond',
+                cond: 'product.product_id = productImage.product_id',
             },
         ];
         const whereConditions = [
