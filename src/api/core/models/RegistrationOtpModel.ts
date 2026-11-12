@@ -41,7 +41,9 @@ export class RegistrationOtp extends BaseModel {
 
     @BeforeInsert()
     public async createDetails(): Promise<void> {
-        this.createdDate = moment().format('YYYY-MM-DD HH:mm:ss');
+        if (!this.createdDate) {
+            this.createdDate = moment().format('YYYY-MM-DD HH:mm:ss');
+        }
     }
 
     @BeforeUpdate()

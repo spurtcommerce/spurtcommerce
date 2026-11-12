@@ -2284,6 +2284,9 @@ export class CustomerOrderController {
             let priceWithTax: any;
             let priceGroupDetailId = 0;
             const productTire: any = await this.productService.findOne({ where: { productId: val.productId } });
+            if (!productTire) {
+                return { status: 0, message: `Product not found for productId: ${val.productId}` };
+            }
             taxType = productTire.taxType;
             if (taxType === 2 && taxType) {
                 const tax: any = await this.taxService.findOne({ where: { taxId: productTire.taxValue } });
@@ -2694,8 +2697,8 @@ export class CustomerOrderController {
                     productStockAlert.mailFlag = 1;
                     await this.productStockAlertService.create(productStockAlert);
                     const findVendorProduct: any = await this.vendorProductService.findOne({ where: { productId: productInformation.productId }, relations: ['vendor'] });
-                    const findProductNotifyTemp: any = await this.emailTemplateService.findOne(46);
-                    if (findVendorProduct) {
+                    const findProductNotifyTemp: any = await this.emailTemplateService.findOne({ where: { emailTemplateId: 46 } });
+                    if (findVendorProduct && findProductNotifyTemp) {
                         const customer: any = await this.customerService.findOne({ where: { id: findVendorProduct.vendor.customerId } });
                         const vendorMessage = findProductNotifyTemp.content.replace(/{name}/g, customer.firstName + ' ' + customer.lastName).replace(/{productName}/g, productData.name);
                         const vendorMailContents: any = {};
