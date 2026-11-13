@@ -1,15 +1,15 @@
 import 'reflect-metadata';
 import { JsonController, Res, Get, QueryParam, Param, BodyParam, Put, Body, Authorized } from 'routing-controllers';
 import { Service } from 'typedi';
-import { SearchSuggestions } from '../../../../src/api/core/models/SearchSuggestions';
+import { SearchSuggestions } from '../../core/models/SearchSuggestions';
 import { CategoryService } from '../../core/services/CategoryService';
-import { SearchSuggestionsService } from '../../../../src/api/core/services/SearchSuggestionsService';
+import { SearchSuggestionsService } from '../../core/services/SearchSuggestionsService';
 import { UpdateSuggestionRequest } from './requests/UpdateSuggestionRequest';
 import { Like } from 'typeorm';
 
 @Service()
 @JsonController('/search-suggestion')
-export class SearchSuggestionsController {
+export class SearchSuggestionController {
     constructor(
         private searchSuggestionsService: SearchSuggestionsService,
         private categoryService: CategoryService
@@ -30,7 +30,7 @@ export class SearchSuggestionsController {
         const categorySearch: any = {};
 
         if (keyword && keyword.trim()) {
-            categorySearch.name = Like(`%${keyword}%`);
+            categorySearch.name = Like(`%${keyword.trim()}%`);
         }
 
         const categories = await this.categoryService.find({
@@ -40,26 +40,29 @@ export class SearchSuggestionsController {
 
         const categoryIds = categories.map(category => category.categoryId);
 
-        const whereConditions: any[] = [];
-
+        let suggestKeywords: any[] = [];
         if (categoryIds.length > 0) {
-            whereConditions.push({
-                op: 'IN',
-                name: 'SearchSuggestions.categoryId',
-                value: categoryIds.join(','),
-            });
+            const whereConditions = [
+                {
+                    op: 'IN',
+                    name: 'SearchSuggestions.categoryId',
+                    value: categoryIds,
+                },
+            ];
+            suggestKeywords = await this.searchSuggestionsService.listByQueryBuilder(0, 0, [], whereConditions, [], [], [], [], false) as any[];
         }
 
-        const suggestKeywords = await this.searchSuggestionsService.listByQueryBuilder(0, 0, [], whereConditions, [], [], [], [], false) as any[];
-
-        const result = categories.map(category => ({
-            categoryId: category.categoryId,
-            categoryName: category.name,
-            status: suggestKeywords.find(item => item.categoryId === category.categoryId)?.status ?? false,
-            suggestions: suggestKeywords
-                .filter(item => item.categoryId === category.categoryId)
-                .flatMap(item => item.suggestions.split(',').map((s: string) => s.trim())),
-        }));
+        const result = categories.map(category => {
+            const matched = suggestKeywords.find(item => item.categoryId === category.categoryId);
+            return {
+                categoryId: category.categoryId,
+                categoryName: category.name,
+                status: matched ? matched.status : 0,
+                suggestions: matched && matched.suggestions
+                    ? matched.suggestions.split(',').map((s: string) => s.trim()).filter(Boolean)
+                    : [],
+            };
+        });
 
         const paginatedResult = result.slice(
             Number(offset) || 0,
@@ -101,7 +104,7 @@ export class SearchSuggestionsController {
             });
         }
 
-        const suggestions = await this.searchSuggestionsService.find({
+        const suggestion = await this.searchSuggestionsService.findOne({
             where: {
                 categoryId,
             },
@@ -116,10 +119,10 @@ export class SearchSuggestionsController {
             data: {
                 categoryId: category.categoryId,
                 categoryName: category.name,
-                status: suggestions.find(item => item.categoryId === category.categoryId)?.status ?? false,
-                suggestions: suggestions
-                    .filter(item => item.categoryId === category.categoryId)
-                    .flatMap(item => item.suggestions.split(',').map((s: string) => s.trim())),
+                status: suggestion ? suggestion.status : 0,
+                suggestions: suggestion && suggestion.suggestions
+                    ? suggestion.suggestions.split(',').map((s: string) => s.trim()).filter(Boolean)
+                    : [],
             },
         });
     }
@@ -150,14 +153,16 @@ export class SearchSuggestionsController {
         if (!suggestion) {
             suggestion = new SearchSuggestions();
             suggestion.categoryId = categoryId;
+            suggestion.count = 0;
+            suggestion.isActive = 1;
         }
 
         if (payload.suggestions !== undefined) {
-            suggestion.suggestions = payload.suggestions.join(',');
+            suggestion.suggestions = payload.suggestions.map((s: string) => s.trim()).filter(Boolean).join(',');
         }
 
         if (payload.status !== undefined) {
-            suggestion.status = payload.status;
+            suggestion.status = typeof payload.status === 'boolean' ? (payload.status ? 1 : 0) : Number(payload.status);
         }
 
         await this.searchSuggestionsService.create(suggestion);
@@ -172,7 +177,7 @@ export class SearchSuggestionsController {
     @Authorized(['vendor'])
     public async statusUpdate(
         @Param('categoryId') categoryId: number,
-        @BodyParam('status') status: boolean,
+        @BodyParam('status') status: any,
         @Res() response: any
     ): Promise<any> {
 
@@ -196,9 +201,10 @@ export class SearchSuggestionsController {
                 message: 'Suggestions not found for this category',
             });
         }
-        suggestion.status = status;
 
-         await this.searchSuggestionsService.create(suggestion);
+        suggestion.status = typeof status === 'boolean' ? (status ? 1 : 0) : Number(status);
+
+        await this.searchSuggestionsService.create(suggestion);
 
         return response.status(200).send({
             status: 1,

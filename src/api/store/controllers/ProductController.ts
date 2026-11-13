@@ -39,6 +39,7 @@ import { TenantValidationMiddleware } from '../../../../src/api/core/middlewares
 import { VendorCountryService } from '../../core/services/VendorCountryService';
 import { Service } from 'typedi';
 import { FeaturedProductService } from '../../../../src/api/core/services/FeaturedProductService';
+import { SearchSuggestionsService } from '../../../api/core/services/SearchSuggestionsService';
 
 @Service()
 @UseBefore(TranslationMiddleware)
@@ -67,7 +68,8 @@ export class StoreProductController {
         private orderService: OrderService,
         private vendorCountryService: VendorCountryService,
         private vendorSettingsService: VendorSettingsService,
-        private featuredProductService: FeaturedProductService
+        private featuredProductService: FeaturedProductService,
+        private searchSuggestionsService: SearchSuggestionsService
     ) {
         // --
     }
@@ -1342,13 +1344,63 @@ export class StoreProductController {
             });
         }
         const searchConditions = [];
-        if (keyword !== '' && keyword !== undefined) {
-            searchConditions.push({
-                name: ['Product.name', 'sku.sku_name'],
-                value: keyword,
-            });
+        const matchedKeywords = [];
+        let groupBy: any = [];
+
+        if (keyword && keyword.trim() !== '') {
+            // 1. Fetch active suggestions directly from SearchSuggestionsService
+            const searchSuggestionList = await this.searchSuggestionsService.find({ where: { status: 1 } });
+            const matchedCategoryIds: number[] = [];
+
+            for (const row of searchSuggestionList) {
+                const suggestions = row.suggestions
+                    ? row.suggestions
+                        .split(',')
+                        .map((item: string) => item.trim().toLowerCase())
+                    : [];
+
+                const matchedSuggestions = suggestions.filter(
+                    s => s.startsWith(keyword.trim().toLowerCase())
+                );
+
+                if (matchedSuggestions.length > 0) {
+                    matchedKeywords.push(...matchedSuggestions);
+                    matchedCategoryIds.push(row.categoryId);
+                }
+            }
+
+            const uniqueCategoryIds = [...new Set(matchedCategoryIds)];
+
+            // 2. If matching categories found, filter by category
+            if (uniqueCategoryIds.length > 0) {
+                relations.push(
+                    {
+                        tableName: 'Product.productToCategory',
+                        op: 'inner',
+                        aliasName: 'productToCategory',
+                    },
+                    {
+                        tableName: 'productToCategory.category',
+                        op: 'inner',
+                        aliasName: 'category',
+                    }
+                );
+                whereConditions.push({
+                    name: 'category.categoryId',
+                    op: 'IN',
+                    value: uniqueCategoryIds.join(','),
+                });
+                groupBy = [{ name: 'Product.productId' }];
+            } else {
+                // 3. Fallback: Search directly on Product.name
+                searchConditions.push({
+                    name: ['Product.name'],
+                    value: keyword,
+                });
+            }
         }
-        const productSearchList = await this.productService.listByQueryBuilder(searchLimit, searchOffset, select, whereConditions, searchConditions, relations, [], [], false, true);
+
+        const productSearchList = await this.productService.listByQueryBuilder(searchLimit, searchOffset, select, whereConditions, searchConditions, relations, groupBy, [], false, true);
         const productList = productSearchList.map(async (value: any) => {
             const temp = value;
             if (value.productSpecial !== null) {
@@ -1394,9 +1446,16 @@ export class StoreProductController {
             const successReponse: any = {
                 status: 1,
                 message: 'Successfully got a product search list',
+                matchedKeywords: [...new Set(matchedKeywords)],
                 data: results,
             };
             return response.status(200).send(successReponse);
+        } else {
+            const errorResponse: any = {
+                status: 0,
+                message: 'unable to get product list',
+            };
+            return response.status(400).send(errorResponse);
         }
     }
 

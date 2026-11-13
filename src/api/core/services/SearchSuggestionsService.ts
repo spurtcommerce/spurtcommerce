@@ -1,9 +1,9 @@
 import { Service } from 'typedi';
-import { Logger, LoggerInterface } from '../../../../src/decorators/Logger';
-import { SearchSuggestionsRepository } from '../../core/repositories/SearchSuggestionsRepository';
-import { SearchSuggestions } from '../../core/models/SearchSuggestions';
-import { getDataSource } from '../../../../src/loaders/typeormLoader';
-import { Brackets } from 'typeorm';
+import { Logger, LoggerInterface } from '../../../decorators/Logger';
+import { SearchSuggestionsRepository } from '../repositories/SearchSuggestionsRepository';
+import { SearchSuggestions } from '../models/SearchSuggestions';
+import { getDataSource } from '../../../loaders/typeormLoader';
+import { Brackets, DeleteResult } from 'typeorm';
 
 @Service()
 export class SearchSuggestionsService {
@@ -14,24 +14,28 @@ export class SearchSuggestionsService {
     ) {
     }
 
-    public find(condition: any): Promise<any> {
-          this.log.info('findOne method called');
-        return this.searchSuggestionsRepository.repository.find(condition);
+    public async find(condition?: any): Promise<SearchSuggestions[]> {
+        this.log.info('find method called');
+        return this.searchSuggestionsRepository.repository.find(condition || {});
     }
 
-    public findOne(condition: any): Promise<any> {
+    public async findOne(condition: any): Promise<SearchSuggestions | null> {
+        this.log.info('findOne method called');
         return this.searchSuggestionsRepository.repository.findOne(condition);
     }
 
     public async create(mapping: SearchSuggestions): Promise<SearchSuggestions> {
+        this.log.info('create method called');
         return this.searchSuggestionsRepository.repository.save(mapping);
     }
 
     public async bulkCreate(mappings: SearchSuggestions[]): Promise<SearchSuggestions[]> {
+        this.log.info('bulkCreate method called');
         return this.searchSuggestionsRepository.repository.save(mappings);
     }
 
-    public async delete(id: number): Promise<any> {
+    public async delete(id: any): Promise<DeleteResult> {
+        this.log.info('delete method called');
         return this.searchSuggestionsRepository.repository.delete(id);
     }
 
@@ -45,107 +49,98 @@ export class SearchSuggestionsService {
         groupBy: any = [],
         sort: any = [],
         count: number | boolean = false,
-        rawQuery: boolean = false)
-        : Promise<SearchSuggestions[]> {
+        rawQuery: boolean = false
+    ): Promise<SearchSuggestions[] | any> {
 
-        const query: any = await getDataSource().getRepository(SearchSuggestions).createQueryBuilder();
+        const query: any = await getDataSource().getRepository(SearchSuggestions).createQueryBuilder('SearchSuggestions');
+
         // Select
         if (select && select.length > 0) {
             query.select(select);
         }
+
         // Join
         if (relations && relations.length > 0) {
             relations.forEach((joinTb: any) => {
                 if (joinTb.op === 'left-cond') {
                     query.leftJoin(joinTb.tableName, joinTb.aliasName, joinTb.cond);
+                } else if (joinTb.op === 'left') {
+                    query.leftJoin(joinTb.tableName, joinTb.aliasName);
                 } else {
                     query.innerJoin(joinTb.tableName, joinTb.aliasName);
                 }
             });
         }
+
         // Where
         if (whereConditions && whereConditions.length > 0) {
-            whereConditions.forEach((item: any) => {
+            whereConditions.forEach((item: any, index: number) => {
                 if (item.op === 'where' && item.sign === undefined) {
-                    query.where(item.name + ' = ' + item.value);
+                    query.where(`${item.name} = :wVal_${index}`, { [`wVal_${index}`]: item.value });
                 } else if (item.op === 'and' && item.sign === undefined) {
-                    query.andWhere(item.name + ' = ' + item.value);
+                    query.andWhere(`${item.name} = :wVal_${index}`, { [`wVal_${index}`]: item.value });
                 } else if (item.op === 'and' && item.sign !== undefined) {
-                    query.andWhere(' \'' + item.name + '\'' + ' ' + item.sign + ' \'' + item.value + '\'');
+                    query.andWhere(`${item.name} ${item.sign} :wVal_${index}`, { [`wVal_${index}`]: item.value });
                 } else if (item.op === 'raw' && item.sign !== undefined) {
-                    query.andWhere(item.name + ' ' + item.sign + ' \'' + item.value + '\'');
+                    query.andWhere(`${item.name} ${item.sign} :wVal_${index}`, { [`wVal_${index}`]: item.value });
+                } else if (item.op === 'raw' && item.sign === undefined) {
+                    query.andWhere(item.name);
                 } else if (item.op === 'or' && item.sign === undefined) {
-                    query.orWhere(item.name + ' = ' + item.value);
+                    query.orWhere(`${item.name} = :wVal_${index}`, { [`wVal_${index}`]: item.value });
                 } else if (item.op === 'IN' && item.sign === undefined) {
-                    query.andWhere(item.name + ' IN (' + item.value + ')');
+                    const inVals = Array.isArray(item.value)
+                        ? item.value
+                        : typeof item.value === 'string'
+                            ? item.value.split(',').map((v: string) => v.trim()).filter(Boolean)
+                            : [item.value];
+                    query.andWhere(`${item.name} IN (:...inVals_${index})`, { [`inVals_${index}`]: inVals });
                 }
             });
         }
-        // Keyword Search
+
+        // Search Conditions
         if (searchConditions && searchConditions.length > 0) {
             searchConditions.forEach((table: any) => {
-                if ((table.name && table.name instanceof Array && table.name.length > 0) && (table.value && table.value instanceof Array && table.value.length > 0)) {
+                if (table.name && table.name instanceof Array && table.name.length > 0 && table.value) {
                     const namesArray = table.name;
-                    namesArray.forEach((name: string, index: number) => {
-                        query.andWhere(new Brackets(qb => {
-                            const valuesArray = table.value;
-                            valuesArray.forEach((value: string | number, subIndex: number) => {
-                                if (subIndex === 0) {
-                                    qb.andWhere('LOWER(' + name + ')' + ' LIKE ' + '\'%' + value + '%\'');
-                                    return;
-                                }
-                                qb.orWhere('LOWER(' + name + ')' + ' LIKE ' + '\'%' + value + '%\'');
-                            });
-                        }));
-                    });
-                } else if (table.name && table.name instanceof Array && table.name.length > 0) {
+                    const searchVal = Array.isArray(table.value) ? table.value[0] : table.value;
                     query.andWhere(new Brackets(qb => {
-                        const namesArray = table.name;
                         namesArray.forEach((name: string, index: number) => {
                             if (index === 0) {
-                                qb.andWhere('LOWER(' + name + ')' + ' LIKE ' + '\'%' + table.value + '%\'');
-                                return;
+                                qb.andWhere(`LOWER(${name}) LIKE :sVal`, { sVal: `%${String(searchVal).toLowerCase()}%` });
+                            } else {
+                                qb.orWhere(`LOWER(${name}) LIKE :sVal`, { sVal: `%${String(searchVal).toLowerCase()}%` });
                             }
-                            qb.orWhere('LOWER(' + name + ')' + ' LIKE ' + '\'%' + table.value + '%\'');
-                        });
-                    }));
-                } else if (table.value && table.value instanceof Array && table.value.length > 0) {
-                    query.andWhere(new Brackets(qb => {
-                        const valuesArray = table.value;
-                        valuesArray.forEach((value: string | number, index: number) => {
-                            if (index === 0) {
-                                qb.andWhere('LOWER(' + table.name + ')' + ' LIKE ' + '\'%' + value + '%\'');
-                                return;
-                            }
-                            qb.orWhere('LOWER(' + table.name + ')' + ' LIKE ' + '\'%' + value + '%\'');
                         });
                     }));
                 }
             });
         }
+
         // GroupBy
         if (groupBy && groupBy.length > 0) {
-            let i = 0;
-            groupBy.forEach((item: any) => {
+            groupBy.forEach((item: any, i: number) => {
                 if (i === 0) {
-                    query.groupBy(item.name);
+                    query.groupBy(item.name || item);
                 } else {
-                    query.addGroupBy(item.name);
+                    query.addGroupBy(item.name || item);
                 }
-                i++;
             });
         }
-        // orderBy
+
+        // OrderBy
         if (sort && sort.length > 0) {
             sort.forEach((item: any) => {
-                query.orderBy('' + item.name + '', '' + item.order + '');
+                query.orderBy(item.name, item.order);
             });
         }
+
         // Limit & Offset
         if (limit && limit > 0) {
             query.limit(limit);
-            query.offset(offset);
+            query.offset(offset || 0);
         }
+
         if (!count) {
             if (rawQuery) {
                 return query.getRawMany();

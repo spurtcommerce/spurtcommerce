@@ -5,8 +5,8 @@ import {
     JoinColumn,
     PrimaryGeneratedColumn,
 } from 'typeorm';
-import { BaseModel } from '../../../../src/api/core/models/BaseModel';
-import { Category } from '../../../../src/api/core/models/CategoryModel';
+import { BaseModel } from './BaseModel';
+import { Category } from './CategoryModel';
 
 @Entity('search_suggestions')
 export class SearchSuggestions extends BaseModel {
@@ -30,9 +30,16 @@ export class SearchSuggestions extends BaseModel {
     @Column({
         name: 'status',
         type: 'int',
-        default: 0,
+        default: 1,
     })
     public status: number;
+
+    @Column({
+        name: 'is_active',
+        type: 'int',
+        default: 1,
+    })
+    public isActive: number;
 
     @ManyToOne(() => Category, {
         onDelete: 'CASCADE',

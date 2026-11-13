@@ -1,4 +1,4 @@
-import { IsArray, ArrayNotEmpty, IsString, IsBoolean } from 'class-validator';
+import { IsArray, ArrayNotEmpty, IsString, IsOptional } from 'class-validator';
 
 export class UpdateSuggestionRequest {
 
@@ -7,7 +7,7 @@ export class UpdateSuggestionRequest {
     @IsString({ each: true })
     public suggestions: string[];
 
-    @IsBoolean()
-    public status: boolean;
+    @IsOptional()
+    public status: number | boolean;
 
 }

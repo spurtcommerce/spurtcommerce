@@ -225,7 +225,12 @@ export class ProductService {
                 } else if (item.op === 'or' && item.sign === undefined) {
                     query.orWhere(`${item.name} = :filterValue_${index}`, { [`filterValue_${index}`]: item.value });
                 } else if (item.op === 'IN' && item.sign === undefined) {
-                    query.andWhere(`${item.name} IN (:...filterValues_${index})`, { [`filterValues_${index}`]: Array.isArray(item.value) ? item.value : [item.value] });
+                    const inVals = Array.isArray(item.value)
+                        ? item.value
+                        : typeof item.value === 'string'
+                            ? item.value.split(',').map((v: string) => v.trim()).filter(Boolean)
+                            : [item.value];
+                    query.andWhere(`${item.name} IN (:...filterValues_${index})`, { [`filterValues_${index}`]: inVals });
                 } else if (item.op === 'like' && item.sign === undefined) {
                     query.andWhere(`${item.name} LIKE :filterValue_${index}`, { [`filterValue_${index}`]: item.value });
                 } else if (item.op === 'IS NULL' && item.sign === undefined) {
