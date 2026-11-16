@@ -7,7 +7,7 @@
 */
 
 import 'reflect-metadata';
-import { Controller, Res, Body, Req, Post } from 'routing-controllers';
+import { Authorized, Controller, Res, Body, Req, Post } from 'routing-controllers';
 import { getDataSource } from '../../../../../src/loaders/typeormLoader';
 import { Plugins } from '../../../../../src/api/core/models/Plugin';
 import { Service } from 'typedi';
@@ -42,6 +42,7 @@ export class AdminPayPalController {
      * @apiErrorExample {json} Update Setting API error
      * HTTP/1.1 500 Internal Server Error
      */
+    @Authorized('admin')
     @Post()
     public async updateSetting(@Body({ validate: true }) postParams: any, @Req() request: any, @Res() response: any): Promise<any> {
         const pluginRepository = getDataSource().getRepository(Plugins);

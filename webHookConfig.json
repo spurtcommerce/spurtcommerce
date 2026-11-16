@@ -1,18 +1,14 @@
 {
     "send_email": {
-        "api": "http://localhost:{{PORT}}/api/webhook-client",
-        "token": "c3B1cnRjb21tZXJjZTpzcHVydDEyM0A="
+        "api": "http://localhost:{{PORT}}/api/webhook-client"
     },
     "shopping_cart_order": {
-        "api": "http://localhost:{{PORT}}/api/webhook-client",
-        "token": "c3B1cnRjb21tZXJjZTpzcHVydDEyM0A="
+        "api": "http://localhost:{{PORT}}/api/webhook-client"
     },
     "cart_updated": {
-        "api": "http://localhost:{{PORT}}/api/webhook-client",
-        "token": "c3B1cnRjb21tZXJjZTpzcHVydDEyM0A="
+        "api": "http://localhost:{{PORT}}/api/webhook-client"
     },
     "cart_item_deleted": {
-        "api": "http://localhost:{{PORT}}/api/webhook-client",
-        "token": "c3B1cnRjb21tZXJjZTpzcHVydDEyM0A="
+        "api": "http://localhost:{{PORT}}/api/webhook-client"
     }
 }

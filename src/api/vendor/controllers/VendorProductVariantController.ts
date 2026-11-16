@@ -1162,6 +1162,7 @@ export class VendorProductVariantsController {
      * @apiErrorExample {json} DeleteProductVarient error
      * HTTP/1.1 500 Internal Server Error
      */
+    @Authorized(['vendor'])
     @Delete('/:id')
     public async deleteProductVarient(@Param('id') id: number, @Res() response: any, @Req() request: any): Promise<any> {
 

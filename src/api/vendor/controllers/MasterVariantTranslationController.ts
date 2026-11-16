@@ -1,5 +1,5 @@
 import { VariantService } from '../../core/services/VariantService';
-import { Body, Get, JsonController, Param, Post, QueryParam, Res } from 'routing-controllers';
+import { Authorized, Body, Get, JsonController, Param, Post, QueryParam, Res } from 'routing-controllers';
 import { CreateVariantTranslationRequest } from './requests/CreateVariantTranslationRequest';
 import { VariantValueService } from '../../core/services/VariantValueService';
 import { VariantTranslationService } from '../../core/services/VariantTranslationService';
@@ -79,6 +79,7 @@ export class VendorVariantValueController {
      * @apiErrorExample {json} Variant Translation error
      * HTTP/1.1 500 Internal Server Error
      */
+    @Authorized([`vendor`])
     @Post('/variant/:id')
     public async createvariantValue(@Param('id') id: number, @Body({ validate: true }) payload: CreateVariantTranslationRequest, @Res() response: any): Promise<any> {
 

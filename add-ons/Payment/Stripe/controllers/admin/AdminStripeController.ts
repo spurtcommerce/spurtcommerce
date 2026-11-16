@@ -7,6 +7,7 @@
 */
 
 import 'reflect-metadata';
+import { Authorized } from 'routing-controllers';
 import { Controller, Res, Body, Req, Post } from 'routing-controllers';
 import { getDataSource } from '../../../../../src/loaders/typeormLoader';
 import { Plugins } from '../../../../../src/api/core/models/Plugin';
@@ -42,6 +43,7 @@ export class AdminStripeController {
      * @apiErrorExample {json} Update Setting API error
      * HTTP/1.1 500 Internal Server Error
      */
+    @Authorized('admin')
     @Post('/update-setting')
     public async updateSetting(@Body({ validate: true }) postParams: any, @Req() request: any, @Res() response: any): Promise<any> {
         const pluginRepository = getDataSource().getRepository(Plugins);

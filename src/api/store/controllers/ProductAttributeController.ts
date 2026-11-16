@@ -250,7 +250,6 @@ export class StoreProductAttributesController {
      */
 
     @Get()
-    // @Authorized()
     public async Specificationlist(@QueryParam('limit') limit: number, @QueryParam('offset') offset: number, @QueryParam('count') count: number | boolean, @QueryParam('keyword') keyword: string, @QueryParam('categoryIds') categoryIds: string, @Res() response: any, @Req() request: any): Promise<any> {
 
         const condition: FindManyOptions<Specification> = {};
