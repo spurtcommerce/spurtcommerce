@@ -174,8 +174,6 @@
     "serve-favicon": "^2.5.1",
     "sharp": "^0.34.3",
     "sitemap": "^8.0.0",
-    "spurtcommerce-blog": "file:../plugins-core/Blogs",
-    "spurtcommerce-product-price-group": "file:../plugins-core/ProductPriceGroup/spurtcommerce-product-price-group-1.0.0.tgz",
     "stripe": "^8.222.0",
     "swagger-ui-express": "^4.3.0",
     "to-words": "^4.7.0",
