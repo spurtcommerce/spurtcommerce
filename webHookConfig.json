@@ -10,5 +10,11 @@
     },
     "cart_item_deleted": {
         "api": "http://localhost:{{PORT}}/api/webhook-client"
+    },
+    "product_created": {
+        "api": "http://localhost:{{PORT}}/api/webhook-client"
+    },
+    "product_updated": {
+        "api": "http://localhost:{{PORT}}/api/webhook-client"
     }
 }

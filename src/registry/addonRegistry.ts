@@ -334,7 +334,90 @@ export function discoverAddons(): DiscoveredAddon[] {
         discovered.push(discoveredItem);
     }
 
+    // Discover local workspace add-ons from add-ons/ folder
+    discoverLocalAddons(discovered);
+
     return discovered;
+}
+
+/**
+ * Discovers local add-ons residing in the workspace's add-ons directory.
+ * Scans directories in process.cwd()/add-ons.
+ * If a directory has an entry file (index.ts, index.js, or package.json) exporting
+ * 'spurtcommerceAddon', it is dynamically registered.
+ */
+function discoverLocalAddons(discovered: DiscoveredAddon[]): void {
+    const localAddonsDir = path.join(process.cwd(), 'add-ons');
+    if (!fs.existsSync(localAddonsDir)) {
+        return;
+    }
+
+    const alreadyDiscovered = new Set(discovered.map(d => d.manifest.pluginName?.toLowerCase()));
+
+    const candidateDirs: string[] = [];
+    try {
+        const entries = fs.readdirSync(localAddonsDir, { withFileTypes: true });
+        for (const entry of entries) {
+            if (entry.isDirectory()) {
+                const fullPath = path.join(localAddonsDir, entry.name);
+                candidateDirs.push(fullPath);
+                // Also check 1 sub-level for nested groups like Payment/Paypal, etc.
+                try {
+                    const subEntries = fs.readdirSync(fullPath, { withFileTypes: true });
+                    for (const sub of subEntries) {
+                        if (sub.isDirectory()) {
+                            candidateDirs.push(path.join(fullPath, sub.name));
+                        }
+                    }
+                } catch {
+                    // Ignore sub-directory read errors
+                }
+            }
+        }
+    } catch (err: any) {
+        console.warn('[AddonRegistry] Unable to scan local add-ons directory:', err.message);
+        return;
+    }
+
+    for (const dir of candidateDirs) {
+        const hasIndex = fs.existsSync(path.join(dir, 'index.ts')) ||
+                         fs.existsSync(path.join(dir, 'index.js')) ||
+                         fs.existsSync(path.join(dir, 'package.json'));
+        if (!hasIndex) {
+            continue;
+        }
+
+        let loadedModule: any;
+        try {
+            loadedModule = require(dir);
+        } catch {
+            // Non-fatal for local optional add-ons
+            continue;
+        }
+
+        const manifest = loadedModule?.spurtcommerceAddon ?? loadedModule?.default?.spurtcommerceAddon;
+        if (!manifest || typeof manifest !== 'object') {
+            continue;
+        }
+
+        try {
+            validateManifest(dir, manifest);
+            if (alreadyDiscovered.has(manifest.pluginName.toLowerCase())) {
+                continue;
+            }
+            alreadyDiscovered.add(manifest.pluginName.toLowerCase());
+
+            const discoveredItem: DiscoveredAddon = {
+                packageName: manifest.name || path.basename(dir),
+                manifest,
+            };
+            registerAddonHooks(discoveredItem, loadedModule);
+            discovered.push(discoveredItem);
+            console.log(`[AddonRegistry] Discovered local add-on: ${manifest.pluginName} (${discoveredItem.packageName})`);
+        } catch (err: any) {
+            console.warn(`[AddonRegistry] Skipping invalid local add-on in "${dir}":`, err.message);
+        }
+    }
 }
 
 /**

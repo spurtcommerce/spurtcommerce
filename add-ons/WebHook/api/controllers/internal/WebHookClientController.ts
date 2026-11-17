@@ -81,7 +81,13 @@ export class WebHookClientController {
             return response.status(200).send('CART ITEM DELETED OK');
         }
 
-        // 4. Handle Send Email Event
+        // 4. Handle Product Created / Updated Event via Webhook
+        if (event === 'product_created' || event === 'product_updated') {
+            console.log(`[WebHookClient] Processing ${event} event for product:`, params?.productId);
+            return response.status(200).send('PRODUCT EVENT PROCESSED OK');
+        }
+
+        // 5. Handle Send Email Event
         const { templateContentDetails, recipientMailId, mailSubject, bcc, isAttachment, attachmentDetails } = params || {};
         if (!recipientMailId || !mailSubject || !templateContentDetails) {
             return response.status(400).send('Missing required parameters: recipientMailId, mailSubject, or templateContentDetails');

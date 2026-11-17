@@ -11,6 +11,10 @@ export class AddColumnProductQuestion1734440509387 implements MigrationInterface
     });
 
     public async up(queryRunner: QueryRunner): Promise<void> {
+        const hasTable = await queryRunner.hasTable('product_question');
+        if (!hasTable) {
+            return;
+        }
         const columnExist = await queryRunner.hasColumn('product_question', 'sku_id');
         if (!columnExist) {
             await queryRunner.query(`DELETE FROM product_question ;`);
@@ -29,7 +33,10 @@ export class AddColumnProductQuestion1734440509387 implements MigrationInterface
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.dropColumn('product_question', 'sku_id');
+        const hasTable = await queryRunner.hasTable('product_question');
+        if (hasTable && await queryRunner.hasColumn('product_question', 'sku_id')) {
+            await queryRunner.dropColumn('product_question', 'sku_id');
+        }
     }
 
 }

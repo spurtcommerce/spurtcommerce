@@ -48,6 +48,7 @@ import { ExportLog } from '../../core/models/ExportLog';
 import { ExportLogService } from '../../core/services/ExportLogService';
 import { FeaturedProductService } from '../../../../src/api/core/services/FeaturedProductService';
 import { FeaturedProduct } from '../../../../src/api/core/models/FeaturedProduct';
+import { HookUtil } from '../../core/utils/HookUtil';
 import { FeaturedProductRequest } from './requests/FeaturedProductRequest';
 
 @Service()
@@ -308,6 +309,13 @@ export class VendorProductController {
         vendorProducts.approvedDate = undefined;
         vendorProducts.rejectReason = [];
         await this.vendorProductService.create(vendorProducts);
+
+        await HookUtil.trigger('product_created', {
+            productId: saveProduct.productId,
+            productSlug: saveProduct.productSlug,
+            productName: saveProduct.name,
+            sku: saveProduct.sku,
+        });
 
         if (saveProduct) {
             const successResponse: any = {

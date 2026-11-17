@@ -400,7 +400,7 @@ export class MediaController {
      *    }
      */
     @Post('/upload-file')
-    @Authorized('admin-vendor')
+    @Authorized(['vendor','customer'])
     public async uploadFile(@Body({ validate: true }) fileNameRequest: FileNameRequest, @Res() response: any): Promise<any> {
 
         const base64 = fileNameRequest.image;

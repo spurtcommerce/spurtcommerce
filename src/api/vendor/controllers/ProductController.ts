@@ -43,6 +43,7 @@ import { Sku } from '../../core/models/SkuModel';
 import { env } from '../../../env';
 import { S3Service } from '../../core/services/S3Service';
 import { VendorProductService } from '../../core/services/VendorProductService';
+import { HookUtil } from '../../core/utils/HookUtil';
 import { ProductVideoService } from '../../core/services/ProductVideoService';
 import { ProductVideo } from '../../core/models/ProductVideo';
 import { Category } from '../../core/models/CategoryModel';
@@ -448,6 +449,13 @@ export class ProductController {
         saveProduct.isSpecification = product.isSpecification;
         await this.productService.create(saveProduct);
 
+        await HookUtil.trigger('product_created', {
+            productId: saveProduct.productId,
+            productSlug: saveProduct.productSlug,
+            productName: saveProduct.name,
+            sku: saveProduct.sku,
+        });
+
         return response.status(200).send({
             status: 1,
             message: 'Successfully saved Product.',
@@ -797,6 +805,12 @@ export class ProductController {
             await this.productVideoService.create(newProductVideo);
         }
         await this.productService.create(saveProduct);
+        await HookUtil.trigger('product_updated', {
+            productId: saveProduct.productId,
+            productSlug: saveProduct.productSlug,
+            productName: saveProduct.name,
+            sku: saveProduct.sku,
+        });
         if (saveProduct) {
             const successResponse: any = {
                 status: 1,
