@@ -2254,27 +2254,21 @@ export class CustomerOrderController {
         const codCustomerMail: any = {};
         const stockNotifyMails: any = {};
 
-        // Coupon Validation
-        if (payload.pluginModule.includes('Coupon')) {
-            const importPath = payload.dirName + '/../../../../add-ons/Coupon/coupon';
-            const Coupon = await require(importPath);
-            const pluginResponse: any = await Coupon.process(coupon);
-            if (pluginResponse === 'error') {
-                return { status: 0, message: 'Invalid Coupon' };
+        // Coupon Validation via Dynamic Hook
+        if (coupon && coupon.couponCode) {
+            const [pluginResponse] = await HookUtil.trigger('order_validate_coupon', { coupon });
+            if (pluginResponse === 'error' || pluginResponse?.status === 0) {
+                return { status: 0, message: pluginResponse?.message || 'Invalid Coupon' };
             }
         }
 
         const dynamicData: any = {};
         const orderProducts: any = checkoutParam.productDetails;
-        let priceGroupAddonExist = false;
-        let customerPriceBySkuAndCustomerId: any;
-
-        if (payload.pluginModule.includes('ProductPriceGroup') && await this.pluginService.findOne({ where: { slugName: 'product-price-group', pluginStatus: 1 } })) {
-            priceGroupAddonExist = true;
-            const importPath = payload.dirName + '/../../../../add-ons/ProductPriceGroup/priceGroupHook';
-            const { getCustomerPriceBySkuAndCustomerId } = require(importPath);
-            customerPriceBySkuAndCustomerId = getCustomerPriceBySkuAndCustomerId;
-        }
+        const priceGroupAddonExist = true;
+        const customerPriceBySkuAndCustomerId = async (skuId: number, customerId: number) => {
+            const [prices] = await HookUtil.trigger('get_customer_price_by_sku', { skuId, customerId });
+            return Array.isArray(prices) ? prices : [];
+        };
 
         for (const val of orderProducts) {
             let price: any;
@@ -2559,14 +2553,12 @@ export class CustomerOrderController {
         newOrder.isShoppingList = payload.isShoppingCart ?? false;
         const orderData: any = await this.orderService.create(newOrder);
         await this.orderLogService.create({ orderLogId: undefined, ...orderData });
-        if (payload.pluginModule.includes('GiftCard')) {
-            const importPath = payload.dirName + '/../../../../add-ons/GiftCard/GiftCardHook';
-            const giftCard = await require(importPath);
-            await giftCard.attachGiftCardsToOrder(
-                orderData.orderId,
-                orderData.customerId,
-                checkoutParam.productDetails);
-        }
+        // Dynamic GiftCard attach via Hook
+        await HookUtil.trigger('order_attach_giftcards', {
+            orderId: orderData.orderId,
+            customerId: orderData.customerId,
+            productDetails: checkoutParam.productDetails,
+        });
         orderProduct = checkoutParam.productDetails;
         let j = 1;
         for (i = 0; i < orderProduct.length; i++) {
@@ -2599,7 +2591,7 @@ export class CustomerOrderController {
             const customerCartCondition = {} as any;
             customerCartCondition.productId = orderProduct[i].productId;
             customerCartCondition.customerId = orderData.customerId;
-            if (!payload.customerId && payload.pluginModule.includes('AbandonedCart')) {
+            if (!payload.customerId && orderData.ip) {
                 customerCartCondition.ip = orderData.ip;
             }
             const cart: any = await this.customerCartService.findOne({ where: customerCartCondition });
@@ -2735,10 +2727,12 @@ export class CustomerOrderController {
         }
 
         let couponData: { total: any; couponCode: string; discountAmount: any } = { total: 0, couponCode: '', discountAmount: 0 };
-        if (payload.pluginModule.includes('Coupon')) {
-            const importPath = payload.dirName + '/../../../../add-ons/Coupon/coupon';
-            const Coupon = await require(importPath);
-            couponData = await Coupon.process(coupon, orderData, dynamicData, totalAmount);
+        // Dynamic Coupon Apply via Hook
+        if (coupon && coupon.couponCode) {
+            const [appliedCoupon] = await HookUtil.trigger('order_apply_coupon', { coupon, orderData, dynamicData, totalAmount });
+            if (appliedCoupon && appliedCoupon.couponCode && appliedCoupon.couponCode !== 'null') {
+                couponData = appliedCoupon;
+            }
         }
 
         newOrder.invoiceNo = 'INV00'.concat(orderData.orderId);
@@ -2905,13 +2899,11 @@ export class CustomerOrderController {
                 });
                 return Promise.all(productImage);
             });
-            if (payload.pluginModule.includes('GiftCard')) {
-                const importPath = payload.dirName + '/../../../../add-ons/GiftCard/GiftCardHook';
-                const giftCard = await require(importPath);
-                await giftCard.activateGiftCard(
-                    orderData.orderId,
-                    orderData.customerId);
-            }
+            // Dynamic GiftCard activate via Hook
+            await HookUtil.trigger('order_activate_giftcards', {
+                orderId: orderData.orderId,
+                customerId: orderData.customerId,
+            });
             return {
                 status: 1,
                 message: 'You have successfully placed order. order details sent to your mail',

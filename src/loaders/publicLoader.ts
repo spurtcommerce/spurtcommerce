@@ -24,8 +24,9 @@ export const publicLoader: MicroframeworkLoader = (settings: MicroframeworkSetti
             .use(favicon(path.join(__dirname, '..', 'public', 'favicon.ico')));
     }
     try {
-        const webhookAddon = require('../../add-ons/WebHook/WebHookConfig');
-        if (webhookAddon) {
+        const { HookUtil } = require('../api/core/utils/HookUtil');
+        const webhookAddon = HookUtil.safeRequire(path.join(process.cwd(), 'add-ons/WebHook/WebHookConfig'));
+        if (webhookAddon && typeof webhookAddon.webHookInit === 'function') {
             (async () => {
                 await webhookAddon.webHookInit();
             })();

@@ -33,7 +33,6 @@ import { ExportLog } from '../../core/models/ExportLog';
 import { ExportLogService } from '../../core/services/ExportLogService';
 import { VendorSettingsService } from '../../core/services/VendorSettingsService';
 import { CreateOrderRequest } from './requests/CreateOrderRequest';
-import { pluginModule } from '../../../../src/loaders/pluginLoader';
 import { VendorPluginService } from '../../core/services/VendorPluginService';
 import { SkuService } from '../../core/services/SkuService';
 import { ProductTirePriceService } from '../../core/services/ProductTirePriceService';
@@ -46,9 +45,8 @@ import { StockLogService } from '../../core/services/StockLogService';
 import { HookUtil } from '../../core/utils/HookUtil';
 import { CustomerService } from '../../core/services/CustomerService';
 import { OrderTotalService } from '../../core/services/OrderTotalService';
-// import { QuoteRequestDetailService } from '../../../../add-ons/RfqAndQuotes/services/QuoteRequestDetailService';
 import { OrderFullfillmentStatusService } from '../../core/services/OrderFullfillmentStatusService';
-import Container, { Service } from 'typedi';
+import { Service } from 'typedi';
 import { ZoneService } from '../../core/services/zoneService';
 import { CurrencyService } from '../../core/services/CurrencyService';
 import { AddressService } from '../../core/services/AddressService';
@@ -78,7 +76,7 @@ export class OrderController {
         private productService: ProductService,
         private exportLogService: ExportLogService,
         private vendorSettingsService: VendorSettingsService,
-        private vendorPluginService: VendorPluginService,
+        public vendorPluginService: VendorPluginService,
         private skuService: SkuService,
         private productTirePriceService: ProductTirePriceService,
         private productSpecialService: ProductSpecialService,
@@ -1440,16 +1438,14 @@ export class OrderController {
             couponData: createOrderParam.couponData,
             couponDiscount: createOrderParam.couponDiscountAmount,
         };
-        // Coupon Validation
-        if (pluginModule.includes('Coupon')) {
-            const importPath = __dirname + '/../../../../add-ons/Coupon/coupon';
-            const Coupon = await require(importPath);
-            const pluginResponse: any = await Coupon.process(coupon);
+        // Coupon Validation via Dynamic Hook
+        if (coupon && coupon.couponCode) {
+            const [pluginResponse] = await HookUtil.trigger('order_validate_coupon', { coupon });
 
-            if (pluginResponse === 'error') {
+            if (pluginResponse === 'error' || pluginResponse?.status === 0) {
                 return {
                     status: 0,
-                    message: 'Invalid Coupon',
+                    message: pluginResponse?.message || 'Invalid Coupon',
                 };
             }
         }
@@ -1457,54 +1453,30 @@ export class OrderController {
         const dynamicData: any = {};
         const orderProducts: any = createOrderParam.productDetails;
 
-        // if (createOrderParam.orderSource === 'rfq') {
-        //     const rfqDetails = await this.quoteRequestDetailService.find({ where: { id: createOrderParam.quoteRequestId } });
-        //     orderProducts.map(product => {
-        //         const rfqData = rfqDetails.find(item => item.skuId === product.skuId);
-        //         if (rfqData) {
-        //             product.price = rfqData.targetPrice;
-        //         }
-        //         return product;
-        //     });
-        // }
-
-        if (pluginModule.includes('RfqAndQuotes') && createOrderParam.orderSource === 'rfq') {
-
-            const { QuoteRequestDetailService } = require('../../../../add-ons/RfqAndQuotes/services/QuoteRequestDetailService');
-            const quoteRequestDetailService: any = Container.get(QuoteRequestDetailService);
-
+        if (createOrderParam.orderSource === 'rfq') {
             if (!createOrderParam.quoteRequestId) {
                 return response.status(400).send({
                     status: 0,
                     message: 'Invalid quote Request Id.',
                 });
             }
-            const quoteDetails = await quoteRequestDetailService.find({ where: { quoteRequestId: createOrderParam.quoteRequestId } });
-            if (!quoteDetails.length) {
+            const [rfqResult] = await HookUtil.trigger('rfq_order_pricing', {
+                quoteRequestId: createOrderParam.quoteRequestId,
+                orderProducts,
+            });
+            if (rfqResult?.error) {
                 return response.status(400).send({
                     status: 0,
-                    message: 'Invalid quote request.',
+                    message: rfqResult.message || 'Invalid quote request.',
                 });
             }
-            orderProducts.map(product => {
-                const quoteData = quoteDetails.find(item => item.skuId === product.skuId);
-                if (quoteData) {
-                    product.price = +quoteData.targetPrice;
-                    product.quantity = quoteData.quantity;
-                }
-                return product;
-            });
         }
 
-        let priceGroupAddonExist = false;
-        let customerPriceBySkuAndCustomerId;
-
-        if (pluginModule.includes('ProductPriceGroup') && await this.vendorPluginService.findOne({ where: { vendorId: request.user.tenantId, isActive: 1, plugins: { slugName: 'product-price-group', pluginStatus: 1 } }, relations: ['plugins'] })) {
-            priceGroupAddonExist = true;
-            const importPath = __dirname + '/../../../../add-ons/ProductPriceGroup/priceGroupHook';
-            const { getCustomerPriceBySkuAndCustomerId } = require(importPath);
-            customerPriceBySkuAndCustomerId = getCustomerPriceBySkuAndCustomerId;
-        }
+        const priceGroupAddonExist = true;
+        const customerPriceBySkuAndCustomerId = async (skuId: number, customerId: number) => {
+            const [prices] = await HookUtil.trigger('get_customer_price_by_sku', { skuId, customerId });
+            return Array.isArray(prices) ? prices : [];
+        };
         for (const val of orderProducts) {
             /// for find product price with tax , option price, special, discount and tire price /////
             let price: any;
@@ -1862,10 +1834,12 @@ export class OrderController {
             couponCode: string,
             discountAmount: any
         } = { total: 0, couponCode: '', discountAmount: 0 };
-        if (pluginModule.includes('Coupon')) {
-            const importPath = __dirname + '/../../../../add-ons/Coupon/coupon';
-            const Coupon = await require(importPath);
-            couponData = await Coupon.process(coupon, orderData, dynamicData, totalAmount);
+        // Dynamic Coupon Apply via Hook
+        if (coupon && coupon.couponCode) {
+            const [appliedCoupon] = await HookUtil.trigger('order_apply_coupon', { coupon, orderData, dynamicData, totalAmount });
+            if (appliedCoupon && appliedCoupon.couponCode && appliedCoupon.couponCode !== 'null') {
+                couponData = appliedCoupon;
+            }
         }
         // ---
 

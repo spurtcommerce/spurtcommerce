@@ -299,6 +299,139 @@ export class HookUtil {
                     }
                 }
             }
+        } else if (event === 'order_validate_coupon') {
+            // Coupon validate dynamic fallback
+            const candidates = [
+                path.join(process.cwd(), 'add-ons/Coupon/CouponHook'),
+                path.join(process.cwd(), 'add-ons/Coupon/coupon'),
+            ];
+            for (const candidate of candidates) {
+                const hookModule = this.safeRequire(candidate);
+                if (hookModule && typeof hookModule.process === 'function') {
+                    const res = await hookModule.process(payload.coupon);
+                    results.push(res);
+                    return;
+                }
+            }
+        } else if (event === 'order_apply_coupon') {
+            // Coupon apply dynamic fallback
+            const candidates = [
+                path.join(process.cwd(), 'add-ons/Coupon/CouponHook'),
+                path.join(process.cwd(), 'add-ons/Coupon/coupon'),
+            ];
+            for (const candidate of candidates) {
+                const hookModule = this.safeRequire(candidate);
+                if (hookModule && typeof hookModule.process === 'function') {
+                    const res = await hookModule.process(payload.coupon, payload.orderData, payload.dynamicData, payload.totalAmount);
+                    results.push(res);
+                    return;
+                }
+            }
+        } else if (event === 'coupon_delete_product' || event === 'product_deleted') {
+            // Coupon product delete hook
+            const candidates = [
+                path.join(process.cwd(), 'add-ons/Coupon/CouponHook'),
+                path.join(process.cwd(), 'add-ons/Coupon/coupon'),
+            ];
+            for (const candidate of candidates) {
+                const hookModule = this.safeRequire(candidate);
+                if (hookModule && typeof hookModule.CouponProccess === 'function') {
+                    results.push(await hookModule.CouponProccess(payload.productId, payload.type ?? 1));
+                    return;
+                }
+            }
+        } else if (event === 'order_attach_giftcards') {
+            // GiftCard attach dynamic fallback
+            const candidate = path.join(process.cwd(), 'add-ons/GiftCard/GiftCardHook');
+            const hookModule = this.safeRequire(candidate);
+            if (hookModule && typeof hookModule.attachGiftCardsToOrder === 'function') {
+                await hookModule.attachGiftCardsToOrder(payload.orderId, payload.customerId, payload.productDetails);
+                results.push(true);
+                return;
+            }
+        } else if (event === 'order_activate_giftcards') {
+            // GiftCard activate dynamic fallback
+            const candidate = path.join(process.cwd(), 'add-ons/GiftCard/GiftCardHook');
+            const hookModule = this.safeRequire(candidate);
+            if (hookModule && typeof hookModule.activateGiftCard === 'function') {
+                await hookModule.activateGiftCard(payload.orderId, payload.customerId);
+                results.push(true);
+                return;
+            }
+        } else if (event === 'get_customer_price_by_sku') {
+            // ProductPriceGroup customer price dynamic fallback
+            const candidate = path.join(process.cwd(), 'add-ons/ProductPriceGroup/priceGroupHook');
+            const hookModule = this.safeRequire(candidate);
+            if (hookModule && typeof hookModule.getCustomerPriceBySkuAndCustomerId === 'function') {
+                const res = await hookModule.getCustomerPriceBySkuAndCustomerId(payload.skuId, payload.customerId);
+                results.push(res);
+                return;
+            }
+        } else if (event === 'rfq_order_pricing') {
+            // RfqAndQuotes order pricing dynamic fallback
+            const candidate = path.join(process.cwd(), 'add-ons/RfqAndQuotes/services/QuoteRequestDetailService');
+            const hookModule = this.safeRequire(candidate);
+            if (hookModule && hookModule.QuoteRequestDetailService) {
+                try {
+                    const { Container } = require('typedi');
+                    const quoteRequestDetailService = Container.get(hookModule.QuoteRequestDetailService);
+                    const quoteDetails = await quoteRequestDetailService.find({ where: { quoteRequestId: payload.quoteRequestId } });
+                    if (!quoteDetails || !quoteDetails.length) {
+                        results.push({ error: true, status: 0, message: 'Invalid quote request.' });
+                        return;
+                    }
+                    if (Array.isArray(payload.orderProducts)) {
+                        payload.orderProducts.map((product: any) => {
+                            const quoteData = quoteDetails.find((item: any) => item.skuId === product.skuId);
+                            if (quoteData) {
+                                product.price = +quoteData.targetPrice;
+                                product.quantity = quoteData.quantity;
+                            }
+                            return product;
+                        });
+                    }
+                    results.push({ success: true, orderProducts: payload.orderProducts });
+                    return;
+                } catch (err: any) {
+                    console.warn('[HookUtil] Error in rfq_order_pricing:', err.message);
+                }
+            }
+        } else if (event === 'customer_deleted') {
+            // RfqAndQuotes customer delete cleanup dynamic fallback
+            try {
+                const { getDataSource } = require('../../../loaders/typeormLoader');
+                const ds = getDataSource();
+                if (ds && ds.isInitialized) {
+                    if (ds.hasMetadata('QuoteRequest')) {
+                        const repo = ds.getRepository('QuoteRequest');
+                        const items = await repo.find({ where: { customerUserId: payload.customerUserId } });
+                        if (items && items.length) {
+                            await repo.delete(items.map((i: any) => i.id));
+                        }
+                    }
+                    if (ds.hasMetadata('Quote')) {
+                        const repo = ds.getRepository('Quote');
+                        const items = await repo.find({ where: { customerUserId: payload.customerUserId } });
+                        if (items && items.length) {
+                            await repo.delete(items.map((i: any) => i.id));
+                        }
+                    }
+                }
+            } catch (err: any) {
+                console.warn('[HookUtil] Error cleaning RFQ data on customer delete:', err.message);
+            }
+        } else if (event === 'product_related_update') {
+            // ProductRelated update dynamic fallback
+            try {
+                const axios = require('axios');
+                const { env } = require('../../../env');
+                await axios.post(env.baseUrl + '/vendor-related-product/update-vendor-related-product', {
+                    productId: payload.productId,
+                    relatedProductId: payload.relatedProductId,
+                }, { headers: payload.headers });
+            } catch {
+                // Silently skip if endpoint or addon is not available
+            }
         }
     }
 }

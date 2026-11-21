@@ -30,8 +30,6 @@ import { CustomerUsers } from '../../core/models/CustomerUsers';
 import { CustomerUserGroupService } from '../../core/services/CustomerUserGroupService';
 const s3 = new S3({ region: aws_setup.AWS_DEFAULT_REGION });
 import { Service } from 'typedi';
-import { pluginModule } from '../../../../src/loaders/pluginLoader';
-import { getDataSource } from '../../../../src/loaders/typeormLoader';
 import { CustomerToGroup } from '../../core/models/CustomerToGroup';
 import { CustomerToGroupService } from '../../core/services/CustomerToGroupService';
 import { HookUtil } from '../../core/utils/HookUtil';
@@ -507,24 +505,11 @@ export class CustomerController {
                 customerUserId: customerUser.id,
                 customerId: customer.id,
             });
-        }
-        if (pluginModule.includes('RfqAndQuotes')) {
-            const { QuoteRequest } = require('../../../../add-ons/RfqAndQuotes/models/QuoteRequest');
-            const { Quote } = require('../../../../add-ons/RfqAndQuotes/models/Quote');
-            const quoteRequestRepository = getDataSource().getRepository(QuoteRequest);
-            const quoteRepository = getDataSource().getRepository(Quote);
-            console.log('asdhca');
-            const rfqQuotesAllData: any = await quoteRequestRepository.find({ where: { customerUserId: customerUser.id } });
-            if (rfqQuotesAllData?.length) {
-                const rfqQuotesIds = rfqQuotesAllData.map((val: any) => val.id);
-                await quoteRequestRepository.delete(rfqQuotesIds);
-            }
-
-            const quotesAllData: any = await quoteRepository.find({ where: { customerUserId: customerUser.id } });
-            if (quotesAllData?.length) {
-                const quotesIds = quotesAllData.map((val: any) => val.id);
-                await quoteRepository.delete(quotesIds);
-            }
+            // Dynamic event trigger for customer deletion (RFQ quotes, shopping carts, etc.)
+            await HookUtil.trigger('customer_deleted', {
+                customerUserId: customerUser.id,
+                customerId: customer.id,
+            });
         }
         customerUser.deleteFlag = 1;
         await this.customerUsersService.create(customerUser);

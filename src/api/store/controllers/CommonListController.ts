@@ -587,7 +587,9 @@ export class CommonListController {
                     relations: ['plugins'],
                 }
             );
-            if (pluginModule.includes('ShoppingCart') && vendorPlugin) {
+            const dataSource = getDataSource();
+            const hasShoppingCartTable = dataSource && dataSource.isInitialized && dataSource.hasMetadata('ShoppingCart');
+            if (hasShoppingCartTable && pluginModule.includes('ShoppingCart') && vendorPlugin) {
                 selects.push('(SELECT sc.id FROM shopping_cart AS sc INNER JOIN shopping_cart_detail as scd ON sc.id = scd.shopping_cart_id WHERE sc.customer_id = ' + (parseInt(request.id, 10) || 0) + ' AND scd.sku_id = skuId ORDER BY sc.created_date DESC LIMIT 1) AS shoppingCartId');
             }
 

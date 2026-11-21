@@ -26,6 +26,7 @@ import uncino from 'uncino';
 import * as path from 'path';
 import { getDataSource } from '../../../loaders/typeormLoader';
 import { pluginModule } from '../../../loaders/pluginLoader';
+import { HookUtil } from '../../core/utils/HookUtil';
 
 const hooks = uncino();
 
@@ -82,20 +83,22 @@ async function triggerDemoDataMigration(vendorId: number, vendorPrefixId: string
         company: fullVendor.companyName || '',
         customer: fullVendor.customer,
     };
-    const importPath = path.join(__dirname, '../../../../add-ons/VendorDemoDataMigrate/VendorDemoDataMigrateHook');
+    const demoDataMigrate = HookUtil.safeRequire(path.join(process.cwd(), 'add-ons/VendorDemoDataMigrate/VendorDemoDataMigrateHook'));
+    if (demoDataMigrate && typeof demoDataMigrate.demoDataMigrate === 'function') {
+        hooks.removeHook('vendor-data-migrate-process', 'VDMP-namespace');
+        hooks.addHook('vendor-data-migrate-process', 'VDMP-namespace', async () => {
+            return await demoDataMigrate.demoDataMigrate(vendorData, countryId, languageId, currencyId);
+        });
 
-    hooks.removeHook('vendor-data-migrate-process', 'VDMP-namespace');
-    hooks.addHook('vendor-data-migrate-process', 'VDMP-namespace', async () => {
-        const demoDataMigrate = await require(importPath);
-        return await demoDataMigrate.demoDataMigrate(vendorData, countryId, languageId, currencyId);
-    });
-
-hooks.runHook('vendor-data-migrate-process')
-    .catch(err => {
-        console.error('[DemoMigrate] FULL ERROR:', err);
-        console.error('[DemoMigrate] STACK:', err?.stack);
-    })
-    .finally(() => demoMigrationInFlight.delete(vendorId));
+        hooks.runHook('vendor-data-migrate-process')
+            .catch(err => {
+                console.error('[DemoMigrate] FULL ERROR:', err);
+                console.error('[DemoMigrate] STACK:', err?.stack);
+            })
+            .finally(() => demoMigrationInFlight.delete(vendorId));
+    } else {
+        demoMigrationInFlight.delete(vendorId);
+    }
 }
 @Service()
 @JsonController('/demo-vendor')

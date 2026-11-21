@@ -7,13 +7,6 @@ let webHook;
 
 export async function webHookInit(): Promise<any> {
 
-    const webhookToken = process.env.WEBHOOK_TOKEN;
-    if (!webhookToken || webhookToken.trim() === '') {
-        const errorMessage = 'WEBHOOK_TOKEN environment variable is missing or empty. Webhook initialization failed.';
-        console.error(`[WebHookConfig] ${errorMessage}`);
-        throw new Error(errorMessage);
-    }
-
     const webhooks = require('node-webhooks');
 
     const pluginRepository = getDataSource().getRepository(Plugins);
@@ -56,24 +49,11 @@ export async function webHookInit(): Promise<any> {
 }
 
 export async function trigger(event: string, params: any): Promise<void> {
-    try {
-        const webHookEvents = require(path.join(process.cwd(), 'webHookConfig.json'));
-        if (!webHookEvents || !webHookEvents[event]) {
-            return;
-        }
-        const webHookAuthToken = process.env.WEBHOOK_TOKEN;
-        if (!webHookAuthToken || webHookAuthToken.trim() === '') {
-            console.error(`[WebHookConfig] Cannot trigger webhook event "${event}": WEBHOOK_TOKEN environment variable is missing or empty.`);
-            return;
-        }
-        if (webHook && typeof webHook.trigger === 'function') {
-            webHook.trigger(
-                event,
-                { event, params },
-                { authorization: `Bearer ${webHookAuthToken.trim()}` }
-            );
-        }
-    } catch (err: any) {
-        console.error(`[WebHookConfig] Error triggering webhook event "${event}":`, err.message);
-    }
+    const webHookEvents = require(path.join(process.cwd(), 'webHookConfig.json'));
+    const webHookAuthToken = webHookEvents[event].token ?? '';
+    webHook.trigger(
+        event,
+        { event, params },
+        { authorization: `Basic ${webHookAuthToken}` }
+    );
 }

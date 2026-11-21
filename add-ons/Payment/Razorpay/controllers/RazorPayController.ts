@@ -18,6 +18,7 @@ import { RazorpayOrderTransaction } from '../models/RazorpayOrderTransaction';
 import { OrderProcessService } from '../../../../src/api/core/services/OrderProcessService';
 import { VendorPlugin } from '../../../../src/api/core/models/VendorPlugin';
 import { Service } from 'typedi';
+import { HookUtil } from '../../../../src/api/core/utils/HookUtil';
 
 @Service()
 @Controller('/razorpay-payment')
@@ -282,13 +283,10 @@ export class RazorPayController {
             });
 
             if (giftCardDetail) {
-                const importPath = process.cwd() + '/../../../../add-ons/GiftCard/';
-                const giftCard = await require(importPath);
-
-                await giftCard.activateGiftCard(
-                    orderData.orderId,
-                    orderData.customerId
-                );
+                await HookUtil.trigger('order_activate_giftcards', {
+                    orderId: orderData.orderId,
+                    customerId: orderData.customerId,
+                });
             }
             await this.orderProcessService.processOrder(razorpayDetail.orderId, paymentDetails);
         } else {

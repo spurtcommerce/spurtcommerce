@@ -1977,22 +1977,6 @@ export class ProductController {
     @Authorized(['vendor', 'delete-product'])
     public async deleteProduct(@Param('id') productid: number, @Res() response: any, @Req() request: any): Promise<Product> {
         // Remove's Hook if in Memory
-        hooks.removeHook('coupon-delete', 'CD1-namespace');
-        // --
-        // Coupon Hook
-        function couponPlugin(productId: any, type: any): any {
-            if (pluginModule.includes('Coupon')) {
-                hooks.addHook('coupon-delete', 'CD1-namespace', async () => {
-                    const importPath = '../../../../add-ons/Coupon/coupon';
-                    const Coupon = await require(importPath);
-                    return await Coupon.CouponProccess(productId, type);
-                });
-                return true;
-            }
-            return false;
-        }
-        // ---
-
         const product = await this.productService.findOne({ where: { productid } });
         if (!product) {
             const errorResponse: any = {
@@ -2011,10 +1995,9 @@ export class ProductController {
         }
         await this.skuService.delete({ id: product.skuId });
         const deleteProduct = await this.productService.delete(productid);
-        const pluginExist = await couponPlugin(productid, 1);
-        if (pluginExist) {
-            await hooks.runHook('coupon-delete');
-        }
+        // Dynamic event trigger for product deletion (Coupons, etc.)
+        await HookUtil.trigger('coupon_delete_product', { productId: productid, type: 1 });
+        await HookUtil.trigger('product_deleted', { productId: productid, type: 1 });
         if (deleteProduct) {
             const successResponse: any = {
                 status: 1,
@@ -2060,23 +2043,6 @@ export class ProductController {
     @Post('/delete-product')
     @Authorized('vendor')
     public async deleteMultipleProduct(@Body({ validate: true }) productDelete: DeleteProductRequest, @Res() response: any, @Req() request: any): Promise<Product> {
-        // Remove's Hook if in Memory
-        hooks.removeHook('coupon-delete', 'CD1-namespace');
-        // --
-        // Coupon PLugin
-        function couponPlugin(productId: any, type: any): any {
-            if (pluginModule.includes('Coupon')) {
-                hooks.addHook('coupon-delete', 'CD1-namespace', async () => {
-                    const importPath = '../../../../add-ons/Coupon/coupon';
-                    const Coupon = await require(importPath);
-                    return await Coupon.CouponProccess(productId, type);
-                });
-                return true;
-            }
-            return false;
-        }
-        // ---
-
         const productIdNo = productDelete.productId.toString();
         const productid = productIdNo.split(',');
         for (const id of productid) {
@@ -2103,11 +2069,10 @@ export class ProductController {
             const deleteProductId = parseInt(id, 10);
             const product = await this.productService.findOne({ where: { productId: id } });
             await this.skuService.delete({ id: product.skuId });
-            const pluginExist = await couponPlugin(deleteProductId, 1);
-            if (pluginExist) {
-                await hooks.runHook('coupon-delete');
-            }
             await this.productService.delete(deleteProductId);
+            // Dynamic event trigger for product deletion (Coupons, etc.)
+            await HookUtil.trigger('coupon_delete_product', { productId: deleteProductId, type: 1 });
+            await HookUtil.trigger('product_deleted', { productId: deleteProductId, type: 1 });
         }
         const successResponse: any = {
             status: 1,
@@ -2571,9 +2536,6 @@ export class ProductController {
 
                 let familyExist: any;
                 if (pluginModule.includes('ProductAttribute') && findProductAttributeStatus) {
-                    // const importPath = '../../../../add-ons/ProductAttribute/Family';
-                    // const Family = await require(importPath);
-                    // const familyRepository = queryRunner.manager.getRepository(Family);
                     const { Family } = await import('../../core/models/Family');
 
                     if (!Family) {
@@ -2777,9 +2739,10 @@ export class ProductController {
                         if (pluginModule.includes('ProductVariants')) {
                             // Add variant hook
                             hooks.addHook('product-variant', 'MPV-namespace', async () => {
-                                const importPath = '../../../../add-ons/ProductVariants/BulkProductVariant';
-                                const variant = await require(importPath);
-                                return await variant.variantProcess(datas, savedProduct.productId, queryRunner.manager);
+                                const variant = HookUtil.safeRequire(path.join(process.cwd(), 'add-ons/ProductVariants/BulkProductVariant'));
+                                if (variant && typeof variant.variantProcess === 'function') {
+                                    return await variant.variantProcess(datas, savedProduct.productId, queryRunner.manager);
+                                }
                             });
 
                             // Run variant hook
@@ -2871,7 +2834,6 @@ export class ProductController {
                     }
                 }
 
-                const axios = require('axios');
                 const headers = {
                     'Authorization': authorization,
                     'Content-Type': 'application/json',
@@ -2880,26 +2842,13 @@ export class ProductController {
                 // Create Related Product
                 const relatedProductsId = data?.RelatedProductId?.split(',');
 
-                const findProductRelated = await this.vendorPluginService.findOne(
-                    {
-                        where: {
-                            vendorId: tenantId,
-                            isActive: 1,
-                            plugins: {
-                                pluginName: 'ProductRelated',
-                                pluginStatus: 1,
-                            },
-                        },
-                        relations: ['plugins'],
-                    }
-                );
-
-                if (relatedProductsId?.length > 0 && pluginModule.includes('ProductRelated') && findProductRelated && relatedProductsId[0] !== '') {
-                    const relatedProductObject = {
+                if (relatedProductsId?.length > 0 && relatedProductsId[0] !== '') {
+                    await HookUtil.trigger('product_related_update', {
                         productId: savedProduct.productId,
                         relatedProductId: relatedProductsId,
-                    };
-                    await axios.post(env.baseUrl + '/vendor-related-product/update-vendor-related-product', relatedProductObject, { headers });
+                        tenantId,
+                        headers,
+                    });
                 }
 
                 // Create product Seo

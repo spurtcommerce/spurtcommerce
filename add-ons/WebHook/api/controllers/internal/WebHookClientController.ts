@@ -105,20 +105,26 @@ export class WebHookClientController {
             !!setting.mailFrom;
         const useVendorMail = templateContentDetails?.setting?.vendorId && templateContentDetails?.setting?.featureAccess?.custom_email_name && hasValidSmtp;
         let sendMail;
-        if (useVendorMail) {
-            sendMail = await this.sendMailVendor(templateContentDetails, recipientMailId, mailSubject, bcc, isAttachment, attachmentDetails);
-        } else if (templateContentDetails?.setting?.vendorId && env.app.type === 'cloud') {
-            sendMail = await this.sendAwsMailAdminAsVendor(templateContentDetails, recipientMailId, mailSubject);
-        } else {
-            sendMail = await this.sendMail(templateContentDetails, recipientMailId, mailSubject, bcc, isAttachment, attachmentDetails);
-        }
-        if (sendMail) {
-            if (attachmentDetails.length > 0) {
-                attachmentDetails.map(file => {
-                    return fs.unlinkSync(file.path);
-                });
+        try {
+            if (useVendorMail) {
+                sendMail = await this.sendMailVendor(templateContentDetails, recipientMailId, mailSubject, bcc, isAttachment, attachmentDetails);
+            } else if (templateContentDetails?.setting?.vendorId && env.app.type === 'cloud') {
+                sendMail = await this.sendAwsMailAdminAsVendor(templateContentDetails, recipientMailId, mailSubject);
+            } else {
+                sendMail = await this.sendMail(templateContentDetails, recipientMailId, mailSubject, bcc, isAttachment, attachmentDetails);
             }
-            return response.status(200).send('EVENT OK');
+            if (sendMail) {
+                if (attachmentDetails && attachmentDetails.length > 0) {
+                    attachmentDetails.map(file => {
+                        return fs.unlinkSync(file.path);
+                    });
+                }
+                return response.status(200).send('EVENT OK');
+            }
+            return response.status(500).send('Send mail returned empty response');
+        } catch (mailErr: any) {
+            console.error('[WebHookClient] Error sending email:', mailErr);
+            return response.status(500).send(`Failed to send email: ${mailErr.message}`);
         }
     }
 
@@ -134,18 +140,24 @@ export class WebHookClientController {
                 },
             }));
             function getBaseUrl(url: string): string {
-                const urlObj = new URL(url);
-                return `${urlObj.protocol}//${urlObj.host}${urlObj.pathname.split('/').slice(0, -1).join('/')}`;
+                try {
+                    const urlObj = new URL(url);
+                    return `${urlObj.protocol}//${urlObj.host}${urlObj.pathname.split('/').slice(0, -1).join('/')}`;
+                } catch {
+                    return url || '';
+                }
             }
 
             bcc = bcc ? true : Array.isArray(recipientMailId);
             const adminSettings = Container.get<SettingService>(SettingService);
-            // const logo = await this.settingService.findOne({ where: { isActive: 1 } });
-            templateContentDetails.settings = await adminSettings.findOne({ where: { isActive: 1 } });
+            const activeSetting = await adminSettings.findOne({ where: { isActive: 1 } });
+            templateContentDetails.settings = activeSetting || {};
             templateContentDetails.baseUrl = env.baseUrl;
             templateContentDetails.productInfo = templateContentDetails.productInfo ?? [];
             const countryService = Container.get<CountryService>(CountryService);
-            const country = await countryService.findOne({ where: { countryId: templateContentDetails.settings.countryId } });
+            const country = templateContentDetails.settings.countryId
+                ? await countryService.findOne({ where: { countryId: templateContentDetails.settings.countryId } })
+                : null;
             templateContentDetails.settings.countryName = country?.name ?? '';
             templateContentDetails.logoBaseUrl = getBaseUrl(env.baseUrl);
             templateContentDetails.regardsRequired = templateContentDetails.regardsRequired === 0 ? 0 : 1;

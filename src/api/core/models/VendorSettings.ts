@@ -1,7 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Column, JoinColumn, BeforeInsert, BeforeUpdate, OneToOne } from 'typeorm';
 import { Vendor } from './Vendor'; // Assuming you have a Vendor entity
 import moment from 'moment';
-// import { VendorTheme } from '../../../../add-ons/Theme/models/VendorThemes';
 @Entity('vendor_settings')
 export class VendorSettings {
 

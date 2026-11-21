@@ -22,6 +22,7 @@ import { env } from '../../../../src/env';
 import { VendorPlugin } from '../../../../src/api/core/models/VendorPlugin';
 import { getDataSource } from '../../../../src/loaders/typeormLoader';
 import { Service } from 'typedi';
+import { HookUtil } from '../../../../src/api/core/utils/HookUtil';
 
 @Service()
 @Controller('/paypal-payment')
@@ -304,13 +305,10 @@ export class PayPalController {
                 },
             });
             if (giftCardDetail) {
-                const importPath = process.cwd() + '/../../../../add-ons/GiftCard';
-                const giftCard = await require(importPath);
-
-                await giftCard.activateGiftCard(
-                    orderData.orderId,
-                    orderData.customerId
-                );
+                await HookUtil.trigger('order_activate_giftcards', {
+                    orderId: orderData.orderId,
+                    customerId: orderData.customerId,
+                });
             }
             await this.orderProcessService.processOrder(paypalDetail.orderId, paymentDetails);
         } else {

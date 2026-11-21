@@ -38,11 +38,7 @@ import { ProductVideoService } from '../../core/services/ProductVideoService';
 import { ProductVideo } from '../../core/models/ProductVideo';
 import { CategoryPathService } from '../../core/services/CategoryPathService';
 import { VendorProductAdditionalFileService } from '../../core/services/VendorProductAdditionalFileService';
-import { pluginModule } from '../../../loaders/pluginLoader';
-import uncino from 'uncino';
 import { VendorProductAdditionalFile } from '../../core/models/VendorProductAdditionalFileModel';
-const hooks = uncino();
-import { VendorPluginService } from '../../core/services/VendorPluginService';
 import { Service } from 'typedi';
 import { ExportLog } from '../../core/models/ExportLog';
 import { ExportLogService } from '../../core/services/ExportLogService';
@@ -70,7 +66,6 @@ export class VendorProductController {
         private productTirePriceService: ProductTirePriceService,
         private productVideoService: ProductVideoService,
         private categoryPathService: CategoryPathService,
-        private vendorPluginService: VendorPluginService,
         private exportLogService: ExportLogService,
         private featuredProductService: FeaturedProductService
     ) {
@@ -1338,23 +1333,6 @@ export class VendorProductController {
     @Delete('/:id')
     @Authorized(['vendor', 'delete-product'])
     public async deleteProduct(@Param('id') productid: number, @Res() response: any, @Req() request: any): Promise<Product> {
-        // Remove's Hook if in Memory
-        hooks.removeHook('coupon-delete', 'CD1-namespace');
-        // --
-        // Coupon Plugin
-        function couponPlugin(productId: any, type: any): any {
-            if (pluginModule.includes('Coupon')) {
-                hooks.addHook('coupon-delete', 'CD1-namespace', async () => {
-                    const importPath = '../../../../add-ons/Coupon/coupon';
-                    const Coupon = await require(importPath);
-                    return await Coupon.CouponProccess(productId, type);
-                });
-                return true;
-            }
-            return false;
-        }
-        // ---
-
         const product = await this.productService.findOne({ where: { productId: productid } });
         if (!product) {
             const errorResponse: any = {
@@ -1373,10 +1351,9 @@ export class VendorProductController {
         }
         await this.skuService.delete({ id: product.skuId });
         const deleteProduct = await this.productService.delete(productid);
-        const pluginExist = await couponPlugin(productid, 1);
-        if (pluginExist) {
-            await hooks.runHook('coupon-delete');
-        }
+        // Dynamic event trigger for product deletion (Coupons, etc.)
+        await HookUtil.trigger('coupon_delete_product', { productId: productid, type: 1 });
+        await HookUtil.trigger('product_deleted', { productId: productid, type: 1 });
         if (deleteProduct) {
             const successResponse: any = {
                 status: 1,
@@ -3103,26 +3080,6 @@ export class VendorProductController {
             const results = Promise.all(discount);
             return results;
         });
-
-        if (pluginModule.includes('ProductPriceGroup') && await this.vendorPluginService.findOne({ where: { vendorId: request.user.tenantId, plugins: { slugName: 'product-price-group', pluginStatus: 1 } }, relations: ['plugins'] })) {
-            if (productDetail.isSimplified === 0) {
-                // const varientSku = await this.productVarientOptionService.findAll({ where: { productId: productDetail.productId } });
-                // const skuIds = varientSku.map((sku) => sku.skuId);
-                // const pricing = await this.vendorPriceGroupDetailService.find({
-                //     select: ['id', 'createdDate', 'maxQuantity', 'price', 'unitId', 'isDefault'],
-                //     where: { skuId: In(skuIds) },
-                //     relations: ['vendorPriceGroup', 'skuDetail'],
-                // });
-                // productDetails.productPricing = pricing;
-            } else {
-                // const pricing = await this.vendorPriceGroupDetailService.find({
-                //     select: ['id', 'createdDate', 'maxQuantity', 'price', 'unitId', 'isDefault'],
-                //     where: { skuId: productDetail.skuId },
-                //     relations: ['vendorPriceGroup'],
-                // });
-                // productDetails.productPricing = pricing;
-            }
-        }
 
         const successResponse: any = {
             status: 1,
