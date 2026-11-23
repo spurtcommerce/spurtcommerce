@@ -25,7 +25,19 @@ export const publicLoader: MicroframeworkLoader = (settings: MicroframeworkSetti
     }
     try {
         const { HookUtil } = require('../api/core/utils/HookUtil');
-        const webhookAddon = HookUtil.safeRequire(path.join(process.cwd(), 'add-ons/WebHook/WebHookConfig'));
+        const candidateAddonPaths = [
+            path.resolve(__dirname, '../../add-ons/WebHook/WebHookConfig'),
+            path.join(process.cwd(), 'dist/add-ons/WebHook/WebHookConfig'),
+            path.join(process.cwd(), 'add-ons/WebHook/WebHookConfig'),
+        ];
+        let webhookAddon: any = null;
+        for (const candidate of candidateAddonPaths) {
+            webhookAddon = HookUtil.safeRequire(candidate);
+            if (webhookAddon && typeof webhookAddon.webHookInit === 'function') {
+                break;
+            }
+            webhookAddon = null;
+        }
         if (webhookAddon && typeof webhookAddon.webHookInit === 'function') {
             (async () => {
                 await webhookAddon.webHookInit();

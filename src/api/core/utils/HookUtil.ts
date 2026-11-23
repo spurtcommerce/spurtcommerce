@@ -215,8 +215,22 @@ export class HookUtil {
      * Trigger via WebHookConfig if available and configured in webHookConfig.json
      */
     private static async triggerWebhookIfConfigured(event: string, payload: any): Promise<void> {
-        const configPath = path.join(process.cwd(), 'webHookConfig.json');
-        if (!fs.existsSync(configPath)) {
+        const configCandidatePaths = [
+            path.join(process.cwd(), 'webHookConfig.json'),
+            path.join(process.cwd(), 'dist/webHookConfig.json'),
+            path.resolve(__dirname, '../../../../webHookConfig.json'),
+            path.resolve(__dirname, '../../../webHookConfig.json'),
+        ];
+
+        let configPath: string | null = null;
+        for (const p of configCandidatePaths) {
+            if (fs.existsSync(p)) {
+                configPath = p;
+                break;
+            }
+        }
+
+        if (!configPath) {
             return;
         }
 
@@ -231,9 +245,23 @@ export class HookUtil {
             return;
         }
 
-        // Check if WebHookConfig addon exists
-        const webhookAddonPath = path.join(process.cwd(), 'add-ons/WebHook/WebHookConfig');
-        const webhook = this.safeRequire(webhookAddonPath);
+        // Check if WebHookConfig addon exists (support both TS source and compiled dist)
+        const candidateAddonPaths = [
+            path.resolve(__dirname, '../../../../add-ons/WebHook/WebHookConfig'),
+            path.join(process.cwd(), 'dist/add-ons/WebHook/WebHookConfig'),
+            path.join(process.cwd(), 'add-ons/WebHook/WebHookConfig'),
+            path.resolve(__dirname, '../../../add-ons/WebHook/WebHookConfig'),
+        ];
+
+        let webhook: any = null;
+        for (const candidate of candidateAddonPaths) {
+            webhook = this.safeRequire(candidate);
+            if (webhook && typeof webhook.trigger === 'function') {
+                break;
+            }
+            webhook = null;
+        }
+
         if (webhook && typeof webhook.trigger === 'function') {
             await webhook.trigger(event, payload);
         }

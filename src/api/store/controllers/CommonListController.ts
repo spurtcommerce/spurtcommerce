@@ -111,7 +111,7 @@ export class CommonListController {
     @UseBefore(TenantValidationMiddleware)
     @Get('/banner')
     public async bannerList(@QueryParam('limit') limit: number, @QueryParam('offset') offset: number, @QueryParam('keyword') keyword: string, @QueryParam('count') count: number | boolean, @Res() response: any, @Req() request: any): Promise<any> {
-        const select = ['bannerId', 'title', 'content', 'link', 'position', 'isActive', 'linkType'];
+        const select = ['bannerId', 'title', 'content', 'link', 'position', 'isActive', 'linkType', 'isMiniBanner'];
         const search = [
             {
                 name: 'title',

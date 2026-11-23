@@ -17,6 +17,7 @@ import { CheckTokenMiddleware } from '../../../../src/api/core/middlewares/check
 import { TranslationMiddleware } from '../../../../src/api/core/middlewares/TranslationMiddleware';
 import { IndustryValidationMiddleware } from '../../../../src/api/core/middlewares/IndustryValidationMiddleware';
 import { TenantValidationMiddleware } from '../../../../src/api/core/middlewares/TenantValidationMiddleware';
+import { BannerService } from '../../core/services/BannerService';
 import moment = require('moment');
 import { Service } from 'typedi';
 
@@ -31,7 +32,8 @@ export class StoreWidgetController {
         private productService: ProductService,
         private widgetService: WidgetService,
         private widgetItemService: WidgetItemService,
-        private productToCategoryService: ProductToCategoryService
+        private productToCategoryService: ProductToCategoryService,
+        private bannerService: BannerService
     ) {
     }
 
@@ -172,6 +174,33 @@ export class StoreWidgetController {
                 temp.items = [];
                 return temp;
             }
+            // Micro Banner
+           if (result.widgetLinkType === 3) {
+              const bannerItems = [];
+
+              for (const bannerId of arr) {
+        const banner = await this.bannerService.findOne({
+            where: {
+                bannerId,
+                tenantId: request.tenantId,
+                isActive: 1,
+                isMiniBanner: 1,
+            },
+            relations: ['bannerImages'],
+        });
+
+        if (banner) {
+            banner.bannerImages = (banner.bannerImages || []).filter(
+                (image: any) => image.isActive === 1 && image.isDelete === 0
+            );
+
+            bannerItems.push(banner);
+        }
+    }
+
+    temp.items = bannerItems;
+    return temp;
+}
             const selects = [
                 ('DISTINCT Product.productId as productId'),
                 'Product.taxType as taxType',

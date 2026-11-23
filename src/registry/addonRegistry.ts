@@ -365,8 +365,8 @@ function discoverLocalAddons(discovered: DiscoveredAddon[]): void {
                 try {
                     const subEntries = fs.readdirSync(fullPath, { withFileTypes: true });
                     for (const sub of subEntries) {
-                        if (sub.isDirectory()) {
-                            candidateDirs.push(path.join(fullPath, sub.name));
+                        if (sub.isDirectory() && sub.name !== 'dist' && sub.name !== 'node_modules' && !sub.name.startsWith('.')) {
+                        candidateDirs.push(path.join(fullPath, sub.name));
                         }
                     }
                 } catch {
@@ -395,10 +395,17 @@ function discoverLocalAddons(discovered: DiscoveredAddon[]): void {
             continue;
         }
 
-        const manifest = loadedModule?.spurtcommerceAddon ?? loadedModule?.default?.spurtcommerceAddon;
-        if (!manifest || typeof manifest !== 'object') {
-            continue;
-        }
+        let manifest = loadedModule?.spurtcommerceAddon ?? loadedModule?.default?.spurtcommerceAddon;
+            if (!manifest || typeof manifest !== 'object') {
+                 manifest = inferManifestFromExports(path.basename(dir), null, loadedModule);
+            }
+            if (!manifest || typeof manifest !== 'object') {
+                continue;
+            }
+            // 2. 'name' missing-ah irunthaal 'slugName' allathu folder name-ai fallback-ah eduthukkum
+            if (!manifest.name) {
+               manifest.name = manifest.slugName || path.basename(dir);
+            }
 
         try {
             validateManifest(dir, manifest);

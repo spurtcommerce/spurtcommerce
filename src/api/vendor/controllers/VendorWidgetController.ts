@@ -16,7 +16,7 @@ import { WidgetItemService } from '../../core/services/WidgetItemService';
 import { WidgetItem } from '../../core/models/WidgetItem';
 import { CategoryPathService } from '../../core/services/CategoryPathService';
 // import { CheckVendorAddonMiddleware } from '../../core/middlewares/VendorAddonValidationMiddilware';
-
+import { BannerService } from '../../core/services/BannerService';
 enum HomePageWidget {
     MAX_LIMIT = 10,
 }
@@ -29,7 +29,8 @@ export class VendorWidgetController {
         private widgetService: WidgetService,
         private widgetItemService: WidgetItemService,
         private productService: ProductService,
-        private categoryPathService: CategoryPathService
+        private categoryPathService: CategoryPathService,
+        private bannerService: BannerService
     ) {
     }
 
@@ -486,7 +487,29 @@ export class VendorWidgetController {
                 });
                 arr.push(product);
             }
-        } else {
+        }  else if (widget.widgetLinkType === 3) {
+
+    // Micro Banner
+    for (const val of value) {
+        const banner = await this.bannerService.findOne({
+            where: {
+                bannerId: val.refId,
+                tenantId: request.user.tenantId,
+                isActive: 1,
+                isMiniBanner: 1,
+            },
+            relations: ['bannerImages'],
+        });
+
+        if (banner) {
+            banner.bannerImages = (banner.bannerImages || []).filter(
+                (image: any) => image.isActive === 1 && image.isDelete === 0
+            );
+        }
+
+        arr.push(banner);
+    }
+} else {
             for (const val of value) {
                 const select = [
                     'CategoryPath.categoryId as categoryId',
