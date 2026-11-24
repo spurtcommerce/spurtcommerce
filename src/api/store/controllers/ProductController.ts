@@ -1465,6 +1465,8 @@ export class StoreProductController {
         @QueryParam('offset') offset: number,
         @QueryParam('keyword') keyword: string,
         @QueryParam('count') count: number | boolean | string,
+        @QueryParam('sortBy') sortBy: string,
+        @QueryParam('sortOrder') sortOrder: string,
         @Req() request: any,
         @Res() response: any
     ): Promise<any> {
@@ -1497,7 +1499,7 @@ export class StoreProductController {
                 tableName: 'product_image',
                 aliasName: 'productImage',
                 op: 'left-cond',
-                cond: 'product.product_id = productImage.product_id',
+                cond: 'product.product_id = productImage.product_id AND productImage.default_image = 1',
             },
         ];
         const whereConditions = [
@@ -1534,10 +1536,18 @@ export class StoreProductController {
                 value: keyword.trim().toLowerCase(),
             });
         }
+        const allowedSortFields = {
+            name: 'product.name',
+            price: 'product.price',
+        };
+
+        const sortField = allowedSortFields[sortBy] || 'featuredProduct.sortOrder';
+
+        const sortDirection = sortOrder?.toUpperCase() === 'DESC' ? 'DESC' : 'ASC';
         const sort = [
             {
-                name: 'featuredProduct.sortOrder',
-                order: 'ASC',
+                 name: sortField,
+                order: sortDirection,
             },
         ];
         // Featured product count
