@@ -226,9 +226,29 @@ export class AuthService {
             },
             relations: ['customer'],
         });
-        if (vendor) {
-            return vendor;
+        if (!vendor) {
+            return undefined;
         }
-        return undefined;
+        const vendorUser = await this.vendorUsersRepository.repository.findOne({
+            where: {
+                tenantId,
+                isActive: 1,
+                deleteFlag: 0,
+            },
+            relations: ['vendor', 'vendor.customer'],
+            order: {
+                isSuperVendor: 'DESC',
+                id: 'ASC',
+            },
+        });
+        if (vendorUser) {
+            return vendorUser;
+        }
+        return {
+            ...vendor,
+            id: vendor.vendorId,
+            tenantId: vendor.vendorId,
+            vendor,
+        };
     }
 }
