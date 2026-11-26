@@ -18,9 +18,9 @@ import { env } from '../env';
 import path from 'path';
 import { MicroframeworkLoader, MicroframeworkSettings } from 'microframework-w3tec';
 import { authorizationChecker } from '../../src/auth/authorizationChecker';
-import { graphqlHTTP } from 'express-graphql';
-import { schema } from '../graphql/schema';
-import { resolvers } from '../graphql/resolvers';
+// import { graphqlHTTP } from 'express-graphql';
+// import { schema } from '../graphql/schema';
+// import { resolvers } from '../graphql/resolvers';
 export const expressLoader: MicroframeworkLoader = (settings: MicroframeworkSettings | undefined) => {
     if (settings) {
         const connection = settings.getData('connection');
@@ -60,14 +60,14 @@ export const expressLoader: MicroframeworkLoader = (settings: MicroframeworkSett
             },
             credentials: true,
         };
-        app.use(
-           `${env.app.routePrefix}/graphql`,
-            graphqlHTTP({
-               schema,
-               rootValue: resolvers,
-               graphiql: true,
-            })
-        );
+        // app.use(
+        //    `${env.app.routePrefix}/graphql`,
+        //     graphqlHTTP({
+        //        schema,
+        //        rootValue: resolvers,
+        //        graphiql: true,
+        //     })
+        // );
         const expressApp: Application = useExpressServer(app, {
             cors: corsOptions,
             classTransformer: true,
