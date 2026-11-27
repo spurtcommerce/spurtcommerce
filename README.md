@@ -440,7 +440,7 @@ http://localhost:<YOUR_API_PORT>/apidoc/
 For additional information and documentation:
 
 * [SpurtCommerce Website](https://www.spurtcommerce.com)
-* [SpurtCommerce Documentation](https://www.spurtcommerce.dev)
+* [SpurtCommerce Documentation](https://www.spurtcommerce.com)
 * [SpurtCommerce GitHub](https://github.com/spurtcommerce)
 * [SpurtCommerce Discord](https://discord.com/invite/hyW4MXXn8n)
 
@@ -475,7 +475,7 @@ If you encounter an issue while installing or running the SpurtCommerce 6.0 B2C 
 
 **SpurtCommerce 6.0**
 
-**Application:** B2C & B2B APIs
+**Application:** Spurtcommerce APIs
 
 **Backend:** Node.js + TypeScript + TypeORM + MySQL
 

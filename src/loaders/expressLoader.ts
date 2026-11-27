@@ -18,9 +18,9 @@ import { env } from '../env';
 import path from 'path';
 import { MicroframeworkLoader, MicroframeworkSettings } from 'microframework-w3tec';
 import { authorizationChecker } from '../../src/auth/authorizationChecker';
-// import { graphqlHTTP } from 'express-graphql';
-// import { schema } from '../graphql/schema';
-// import { resolvers } from '../graphql/resolvers';
+import { graphqlHTTP } from 'express-graphql';
+import { schema } from '../graphql/schema';
+import { buildVendorGraphQLContext } from '../graphql/context/vendorAuthContext';
 export const expressLoader: MicroframeworkLoader = (settings: MicroframeworkSettings | undefined) => {
     if (settings) {
         const connection = settings.getData('connection');
@@ -60,14 +60,23 @@ export const expressLoader: MicroframeworkLoader = (settings: MicroframeworkSett
             },
             credentials: true,
         };
-        // app.use(
-        //    `${env.app.routePrefix}/graphql`,
-        //     graphqlHTTP({
-        //        schema,
-        //        rootValue: resolvers,
-        //        graphiql: true,
-        //     })
-        // );
+        app.use(
+            `${env.app.routePrefix}/graphql`,
+            graphqlHTTP(async (req: any) => {
+                const context = await buildVendorGraphQLContext(req);
+                return {
+                    schema,
+                    context,
+                    graphiql: env.isDevelopment,
+                    customFormatErrorFn: (err: any) => ({
+                        message: err.message,
+                        locations: err.locations,
+                        path: err.path,
+                        extensions: err.originalError?.extensions || err.extensions,
+                    }),
+                };
+            })
+        );
         const expressApp: Application = useExpressServer(app, {
             cors: corsOptions,
             classTransformer: true,
