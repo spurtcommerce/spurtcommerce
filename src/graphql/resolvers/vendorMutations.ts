@@ -304,6 +304,10 @@ export const vendorMutations = {
             newProduct.description = input.description || '';
             newProduct.upc = input.upc || '';
             newProduct.hsn = input.hsn || '';
+            if (input.image) {
+                newProduct.image = input.image;
+                newProduct.imagePath = input.containerName || '';
+            }
             newProduct.productSlug = slug;
             newProduct.stockStatusId = 1;
             newProduct.taxType = 0;
@@ -396,6 +400,8 @@ export const vendorMutations = {
             if (input.hsn !== undefined) { product.hsn = input.hsn; }
             if (input.isActive !== undefined) { product.isActive = input.isActive; }
             if (input.isFeatured !== undefined) { product.isFeatured = input.isFeatured; }
+            if (input.image !== undefined) { product.image = input.image; }
+            if (input.containerName !== undefined) { product.imagePath = input.containerName; }
             product.modifiedBy = context.vendorId;
 
             const updated = await productRepo.save(product);

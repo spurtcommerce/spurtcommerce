@@ -43,6 +43,8 @@ export const typeormLoader: MicroframeworkLoader = async (settings: Microframewo
         const dataSource = new DataSource(dbConfig);
         await dataSource.initialize();
         dataSourceInstances.set(CONNECTION_NAME, dataSource);
+        (global as any).__SPURTCOMMERCE_DATA_SOURCE__ = dataSource;
+        (global as any).defaultDataSource = dataSource;
 
         // Dynamically initialize any installed SpurtCommerce add-ons (Coupon, Order, etc.)
         await initializeAddons(dataSource);
